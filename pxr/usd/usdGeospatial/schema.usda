@@ -1,0 +1,132 @@
+#usda 1.0
+(
+    """
+    schema.usda -- SOURCE schema for the usdGeospatial library (CODELESS variant).
+
+    File layout, library name and the core prim/property names are aligned with
+    Simon Haegler's (Esri) prototype on mistafunk/USD branch `geospatial-prototype`
+    (pxr/usd/usdGeospatial/), so this reads as the SAME proposal artifact discussed
+    in the AOUSD AECO Interest Group -- not a separate sidecar.
+
+    DIFFERENCE FROM SIMON'S BRANCH: this variant is CODELESS
+    (skipCodeGeneration = true) -- usdGenSchema emits only generatedSchema.usda +
+    plugInfo.json, no C++ library. The schema is therefore pure data; ALL runtime
+    behavior (CRS-aware traversal + PROJ reprojection) lives OUTSIDE the schema in
+    a reference example, mirroring how the landed Gaussian/particleField schema is
+    pure data and hdParticleField holds the runtime.
+
+    DESIGN POSITIONS encoded here (vs. the v1 prototype's Bind()):
+      * Binding is a RELATIONSHIP (crs:binding), resolved by runtime traversal --
+        NOT references-as-binding, and NOT a baked resetXformStack. The authored
+        scene stays coordinate-neutral.
+      * Resolution rules mirror UsdShadeMaterialBindingAPI (strength/purpose/
+        collection); see the example docs.
+
+    AXIS-ORDER CONTRACT: crs:position is ALWAYS (x = longitude/easting,
+    y = latitude/northing, z = height) -- east-north-up / always_xy -- regardless
+    of the bound CRS authority's declared axis order.
+
+    Regenerate registry files (codeless) with: ./regen-schema.sh
+    """
+    subLayers = [
+        @usd/schema.usda@
+    ]
+)
+
+over "GLOBAL" (
+    customData = {
+        string libraryName      = "usdGeospatial"
+        string libraryPath      = "pxr/usd/usdGeospatial"
+        bool skipCodeGeneration = true
+        bool useLiteralIdentifier = 1
+    }
+)
+{
+}
+
+class CoordinateReferenceSystem "CoordinateReferenceSystem" (
+    inherits = </Typed>
+    doc = """Geospatial Coordinate Reference System described by a WKT string.
+    Pure data: declares a CRS, does not itself transform anything. (Aligned with
+    the usdGeospatial prototype; extended with optional identification fields.)"""
+)
+{
+    uniform token crs:wkt (
+        customData = {
+            string apiName = "wellKnownText"
+        }
+        displayName = "WKT"
+        doc = """OGC WKT2 definition of this CRS. Authoritative source of the CRS
+        identity (if crs:epsg is also present and disagrees, crs:wkt wins)."""
+    )
+    uniform int crs:epsg = 0 (
+        customData = {
+            string apiName = "epsgCode"
+        }
+        doc = "Optional EPSG code. Informational; crs:wkt is authoritative on disagreement."
+    )
+    uniform string crs:displayName = "" (
+        customData = {
+            string apiName = "displayName"
+        }
+        doc = "Human-readable name for tools/UI."
+    )
+    uniform double crs:epoch = 0 (
+        customData = {
+            string apiName = "coordinateEpoch"
+        }
+        doc = """Optional coordinate epoch (decimal year, e.g. 2020.0) for
+        time-dependent / dynamic CRSs. 0 means unspecified. When set, the runtime
+        passes it as the time coordinate of a 4D PROJ transform."""
+    )
+    asset[] crs:gridFiles = [] (
+        customData = {
+            string apiName = "gridFiles"
+        }
+        doc = """Optional PROJ transformation-grid asset paths (datum/geoid shift
+        grids) the runtime should make available to PROJ. Lets high-accuracy
+        transforms reference external grids instead of inlining everything in WKT."""
+    )
+}
+
+class "BindingAPI" (
+    inherits = </APISchemaBase>
+    doc = """Applied to an Xformable to bind it to a CoordinateReferenceSystem and
+    give it a position in that CRS. Models UsdShadeMaterialBindingAPI: the binding
+    is a relationship (crs:binding), inherited by descendants lacking their own
+    (nearest-ancestor wins), with strength/purpose/collection variants. The prim's
+    UsdGeomXformable stack stays identity in the CRS-neutral authored scene; a
+    runtime resolver reprojects crs:position into the target CRS and composes
+    ancestor Cartesian transforms on top -- no baked resetXformStack."""
+    customData = {
+        token apiSchemaType = "singleApply"
+        token[] apiSchemaCanOnlyApplyTo = [ "Xformable" ]
+    }
+)
+{
+    double3 crs:position = (0, 0, 0) (
+        customData = {
+            string apiName = "position"
+        }
+        doc = """Absolute position in the bound CRS, ALWAYS ordered
+        (x = longitude/easting, y = latitude/northing, z = height) regardless of
+        the bound CRS authority's declared axis order (east-north-up / always_xy)."""
+    )
+    rel crs:binding (
+        customData = {
+            string apiName = "binding"
+        }
+        doc = """All-purpose binding to the CoordinateReferenceSystem prim that
+        crs:position is expressed in. Modelled on UsdShadeMaterialBindingAPI:
+
+        * PURPOSE is encoded in the relationship NAME. crs:binding is the
+          all-purpose binding; crs:binding:<purpose> is purpose-restricted.
+        * STRENGTH relative to descendants is token-valued metadata 'bindCRSAs'
+          on the relationship: weakerThanDescendants (default) or
+          strongerThanDescendants.
+        * COLLECTION bindings: crs:binding:collection:<name> (and
+          crs:binding:collection:<purpose>:<name>); at a prim a collection binding
+          is stronger than a direct binding (rule [4]).
+        * Inherited by descendants lacking their own binding (nearest wins)."""
+    )
+}

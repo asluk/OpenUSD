@@ -311,6 +311,14 @@ if (PXR_ENABLE_MATERIALX_SUPPORT)
     add_definitions(-DPXR_MATERIALX_SUPPORT_ENABLED)
 endif()
 
+if (PXR_ENABLE_GEOSPATIAL_SUPPORT)
+    # PROJ ships its own config-mode package (proj-config.cmake) providing the
+    # PROJ::proj imported target; it is found on CMAKE_PREFIX_PATH (the shared
+    # install prefix that build_usd.py populates).
+    find_package(PROJ REQUIRED)
+    add_definitions(-DPXR_GEOSPATIAL_SUPPORT_ENABLED)
+endif()
+
 if(PXR_ENABLE_OSL_SUPPORT)
     find_package(OSL REQUIRED)
     set(REQUIRES_Imath TRUE)

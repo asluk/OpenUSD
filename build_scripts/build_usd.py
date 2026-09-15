@@ -789,7 +789,75 @@ def InstallZlib(context, force, buildArgs):
         RunCMake(context, force, extraArgs + buildArgs)
 
 ZLIB = Dependency("zlib", InstallZlib, "include/zlib.h")
-        
+
+############################################################
+# SQLite3 (required by PROJ to build/read its CRS database proj.db)
+
+# SQLite ships as an "amalgamation" (a single sqlite3.c plus headers and the
+# shell.c command-line driver) with no build system, so we drop in a minimal
+# CMakeLists that produces both a static library AND the sqlite3 command-line
+# tool -- PROJ needs the CLI to generate proj.db at build time.
+SQLITE3_URL = "https://www.sqlite.org/2024/sqlite-amalgamation-3460100.zip"
+
+SQLITE3_CMAKELISTS = """\
+cmake_minimum_required(VERSION 3.15)
+project(SQLite3 C)
+add_library(sqlite3 STATIC sqlite3.c)
+set_property(TARGET sqlite3 PROPERTY POSITION_INDEPENDENT_CODE ON)
+add_executable(sqlite3_cli shell.c sqlite3.c)
+set_target_properties(sqlite3_cli PROPERTIES OUTPUT_NAME sqlite3)
+if(NOT WIN32)
+  find_package(Threads REQUIRED)
+  target_link_libraries(sqlite3 PUBLIC Threads::Threads ${CMAKE_DL_LIBS})
+  target_link_libraries(sqlite3_cli PRIVATE Threads::Threads ${CMAKE_DL_LIBS})
+endif()
+install(TARGETS sqlite3 ARCHIVE DESTINATION lib LIBRARY DESTINATION lib)
+install(TARGETS sqlite3_cli RUNTIME DESTINATION bin)
+install(FILES sqlite3.h sqlite3ext.h DESTINATION include)
+"""
+
+def InstallSQLite3(context, force, buildArgs):
+    with CurrentWorkingDirectory(DownloadURL(SQLITE3_URL, context, force)):
+        with open("CMakeLists.txt", "w") as f:
+            f.write(SQLITE3_CMAKELISTS)
+        RunCMake(context, force, buildArgs)
+
+SQLITE3 = Dependency("SQLite3", InstallSQLite3, "include/sqlite3.h")
+
+############################################################
+# PROJ (coordinate transforms / CRS engine; used by the
+# usdGeospatialSceneIndex example when PXR_ENABLE_GEOSPATIAL_SUPPORT is on).
+# Depends on SQLite3 (built above) for proj.db.
+
+PROJ_URL = "https://github.com/OSGeo/PROJ/archive/refs/tags/9.4.1.zip"
+
+def InstallPROJ(context, force, buildArgs):
+    with CurrentWorkingDirectory(DownloadURL(PROJ_URL, context, force)):
+        sqlite3Exe = os.path.join(context.instDir, "bin",
+                                  "sqlite3.exe" if Windows() else "sqlite3")
+        sqlite3Lib = os.path.join(context.instDir, "lib",
+                                  "sqlite3.lib" if Windows() else "libsqlite3.a")
+        extraArgs = [
+            '-DENABLE_TIFF=OFF',
+            '-DENABLE_CURL=OFF',
+            '-DBUILD_TESTING=OFF',
+            '-DBUILD_APPS=OFF',
+            '-DBUILD_SHARED_LIBS=ON',
+            '-DEXE_SQLITE3="{exe}"'.format(exe=sqlite3Exe),
+            '-DSQLITE3_INCLUDE_DIR="{inc}"'.format(
+                inc=os.path.join(context.instDir, "include")),
+            '-DSQLITE3_LIBRARY="{lib}"'.format(lib=sqlite3Lib),
+            # For compatibility with CMake 4+
+            '-DCMAKE_POLICY_VERSION_MINIMUM=3.5',
+        ]
+
+        # Add on any user-specified extra arguments.
+        extraArgs += buildArgs
+
+        RunCMake(context, force, extraArgs)
+
+PROJ = Dependency("PROJ", InstallPROJ, "include/proj.h")
+
 ############################################################
 # boost
 
@@ -1876,7 +1944,12 @@ def InstallUSD(context, force, buildArgs):
             extraArgs.append('-DPXR_BUILD_USD_VALIDATION=ON')
         else:
             extraArgs.append('-DPXR_BUILD_USD_VALIDATION=OFF')
-            
+
+        if context.enableGeospatial:
+            extraArgs.append('-DPXR_ENABLE_GEOSPATIAL_SUPPORT=ON')
+        else:
+            extraArgs.append('-DPXR_ENABLE_GEOSPATIAL_SUPPORT=OFF')
+
         if context.buildImaging:
             extraArgs.append('-DPXR_BUILD_IMAGING=ON')
             if context.enablePtex:
@@ -2303,9 +2376,17 @@ subgroup = group.add_mutually_exclusive_group()
 subgroup.add_argument("--openvdb", dest="enable_openvdb", action="store_true", 
                       default=False, 
                       help="Enable OpenVDB support in imaging")
-subgroup.add_argument("--no-openvdb", dest="enable_openvdb", 
+subgroup.add_argument("--no-openvdb", dest="enable_openvdb",
                       action="store_false",
                       help="Disable OpenVDB support in imaging (default)")
+subgroup = group.add_mutually_exclusive_group()
+subgroup.add_argument("--usdGeospatial", dest="enable_geospatial",
+                      action="store_true", default=False,
+                      help="Enable geospatial (PROJ) support and build the "
+                           "usdGeospatialSceneIndex example")
+subgroup.add_argument("--no-usdGeospatial", dest="enable_geospatial",
+                      action="store_false",
+                      help="Disable geospatial support (default)")
 subgroup = group.add_mutually_exclusive_group()
 subgroup.add_argument("--usdview", dest="build_usdview",
                       action="store_true", default=True,
@@ -2547,6 +2628,11 @@ class InstallContext:
                               and args.enable_vulkan
                               and not embedded)
 
+        # - Geospatial (PROJ). Independent of imaging at the flag level, though
+        #   the usdGeospatialSceneIndex plugin itself links usdImaging, so its
+        #   CMake registration is additionally gated on PXR_BUILD_USD_IMAGING.
+        self.enableGeospatial = (args.enable_geospatial and not embedded)
+
         # - USD Imaging
         self.buildUsdImaging = (args.build_imaging == USD_IMAGING and 
                                 not self.targetWasm)
@@ -2635,6 +2721,10 @@ if context.buildDraco:
 
 if context.buildMaterialX:
     requiredDependencies += [MATERIALX]
+
+# PROJ needs SQLite3 built first (for proj.db), so list SQLITE3 before PROJ.
+if context.enableGeospatial:
+    requiredDependencies += [SQLITE3, PROJ]
 
 if context.buildImaging:
     if context.enablePtex:

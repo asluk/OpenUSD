@@ -1,0 +1,16 @@
+# Python deps for the usdGeospatial codeless reference runtime, tests, and figures.
+# NOTE: pxr / OpenUSD itself is NOT pip-installed here -- it comes from your USD
+# build or a usd-core wheel. These are the extra third-party packages the example
+# scripts import.
+
+# --- base: the self-asserting tests + the Python-reference figures ---
+pyproj>=3.7        # CRS parsing + geodesy (the projection-engine seam)
+numpy>=1.24
+matplotlib>=3.7    # render_figures.py / fig_*.py figure regeneration
+Pillow>=10.0       # tile textures in the runtime-parity figure
+
+# --- optional: ONLY for the Earth-2 GFS example (src/reencode_georef.py) ---
+# reencode_georef.py also needs a GFS NetCDF input (data/gfs_t2m.nc), which is
+# NOT committed -- bring your own GFS t2m grid or synthesize one.
+xarray>=2024.0     # reads the GFS NetCDF grid
+netCDF4>=1.6       # xarray's NetCDF engine

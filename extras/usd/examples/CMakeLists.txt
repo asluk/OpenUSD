@@ -10,4 +10,10 @@ else()
 	add_subdirectory(usdResolverExample)
 	add_subdirectory(usdSchemaExamples)
 	add_subdirectory(usdMakeFileVariantModelAsset)
+
+	# The geospatial scene-index example is opt-in (needs PROJ) and links
+	# usdImaging/hd, so it additionally requires USD imaging to be built.
+	if (PXR_ENABLE_GEOSPATIAL_SUPPORT AND PXR_BUILD_USD_IMAGING)
+		add_subdirectory(usdGeospatialSceneIndex)
+	endif()
 endif()
