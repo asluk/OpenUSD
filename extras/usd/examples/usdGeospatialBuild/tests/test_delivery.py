@@ -60,6 +60,8 @@ def test_delivery_readme_is_the_source_for_summaries(delivery_case):
     assert slides == slide_content(readme)
     assert len(slides["slides"]) == 8
     assert slides["slides"][4]["chart"]["values"] == [0, 971.421]
+    body = (root / "docs" / "PR_BODY.md").read_text(encoding="utf-8")
+    assert "](runs/" not in body and "](inputs/" not in body and "](docs/" not in body
     (root / "docs" / "PR_BODY.md").write_text("An independently edited summary\n")
     with pytest.raises(ValueError, match="PR body drifted"):
         verify(root, require_slides=False)

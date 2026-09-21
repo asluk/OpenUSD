@@ -88,7 +88,7 @@ def slide_content(readme):
     document = sections(readme)
     names = ["Checkpoint", "Runnable components", "Coordinate checks", "Sampled position path",
              "Partner baseline", "Open decisions", "Delivery for each run"]
-    slides = [{"title": "usdGeospatial build loop", "lines": ["Functional requirements, runtime behavior and measured evidence", "First delivered checkpoint"]}]
+    slides = [{"title": "usdGeospatial build loop", "lines": ["Functional requirements, runtime behavior and measured evidence", "Implementation checkpoint"]}]
     for title in names:
         lines = [re.sub(r"\[([^]]+)\]\([^)]+\)", r"\1", line[2:]).replace("**", "").replace("`", "")
                  for line in document[title].splitlines() if line.startswith("- ")]
@@ -111,6 +111,9 @@ def pr_body(readme, branch):
         "### Validation", document["Coordinate checks"],
         "The README states the test scope, optional attachment checks, remaining decisions and reproduction commands. This checkpoint does not establish complete scene resolution or independent OpenUSD/OV agreement.",
     ]) + "\n"
+    # GitHub PR bodies resolve relative links differently from repository files.
+    body = re.sub(r"(\[[^]]+\]\()((?!https?://)[^)]+)(\))",
+                  lambda m: m[1] + base + "/" + m[2] + m[3], body)
     scan_text(body, "PR body")
     return body
 
@@ -203,7 +206,7 @@ what an implementation would otherwise invent, and proposed feedback.
 ## Delivery for each run
 
 - A successful test invocation produces an immutable checkpoint with the input revision, source hashes, environment, results and remaining decisions.
-- Run evidence updates this README. The PR body and slide content are then derived from the README.
+- Run evidence updates the README. The PR body and slide content are then derived from the README.
 - A publication check rejects issue/PR citations, private paths and private communication links before a push or PR update.
 - One standing draft PR receives each reviewed checkpoint. Earlier run records remain in the branch history.
 

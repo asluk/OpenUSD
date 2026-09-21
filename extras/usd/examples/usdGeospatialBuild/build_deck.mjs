@@ -41,8 +41,8 @@ for (const [index, data] of document.slides.entries()) {
         yAxis:{min:0,max:1100,majorUnit:250,title:{text:'Displacement (m)',textStyle:chartStyle},textStyle:chartStyle},
         dataLabels:{showValue:true,position:'outEnd',textStyle:{...chartStyle,bold:true}},
       });
-      text(slide, data.lines[2], 858, 198, 340, 145, 27, ink, true);
-      text(slide, data.lines[3], 858, 387, 340, 175, 25);
+      text(slide, data.lines[2], 858, 186, 350, 210, 25, ink, true);
+      text(slide, data.lines[3], 858, 430, 350, 175, 25);
     } else {
       const gap = data.lines.length >= 6 ? 66 : data.lines.length === 5 ? 92 : 110;
       const size = data.lines.length >= 6 ? 27 : 30;
