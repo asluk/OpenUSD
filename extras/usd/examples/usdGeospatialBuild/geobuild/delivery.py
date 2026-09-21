@@ -283,7 +283,7 @@ def prepare(run_dir, root, checkpoint_id=None, branch="aluk/geospatial-build-loo
                 "implementation_revision": report["implementation"]["revision"],
                 "requirements_sha256": source["allowed_sha256"], "readme_sha256": sha(root / "README.md"),
                 "report_sha256": sha(destination / "report.json"), "branch": branch,
-                "test_status": report["status"], "publication_state": "prepared; slides and publish verification pending"}
+                "test_status": report["status"], "record_kind": "prepared checkpoint; deck receipt and publish receipt record later phases"}
     write_json(docs / "delivery.json", manifest)
     scan_tree(root)
     return destination
