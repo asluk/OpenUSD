@@ -1,0 +1,86 @@
+# usdGeospatial build loop
+
+A reproducible experiment that derives runtime behavior from geospatial functional
+requirements, implements bounded parts, tests them, and delivers the evidence for review.
+
+## Checkpoint
+
+- **35 tests passed, 0 failed, 0 skipped** in this delivered run.
+- **29 functional requirements**, **9 numbered open questions** and **7 grouped build stops** are tracked.
+- The requirements and runtime derivation remain drafts. Complete scene resolution and independent OpenUSD/OV agreement remain unimplemented.
+
+Run record: [20260921-first](runs/20260921-first/report.json). Source input:
+[bundled functional requirements](inputs/requirements.md), revision `eab823f46dad7c959019e5ce1851c8295c2a3701`.
+Implementation revision: `2b4b9babf655f6004cb1b9646e3fb725a348579b`.
+The [runtime derivation](docs/RUNTIME.md), [fixture matrix](docs/FIXTURES.md) and
+[build stops](docs/STOPS.md) explain the scope of every result.
+
+## Runnable components
+
+- A read-only binding inspector reads composed USD relationships, nested overrides and forwarded targets.
+- A PROJ adapter converts explicit WGS 84 geographic-3D and geocentric coordinates, with operation provenance and whole-batch failures.
+- Input-change checks invalidate stale derivations before old tests can count as current evidence.
+- Anchor decoding, placement matrices, scene-target selection, general datum/grid/epoch operations and OV integration remain pending.
+
+## Coordinate checks
+
+- Maximum measured Cartesian residual: **0.000000000 m** at a coordinate magnitude of **6378147.000 m**.
+- Expected coordinates come from WGS 84 ellipsoid equations calculated separately from PROJ.
+- The analytic check uses a **0.000001 m** numerical tolerance. This is a component-test tolerance.
+- PROJ reports this operation's accuracy as **unknown**. A measured residual does not replace the engine's accuracy estimate.
+
+## Sampled position path
+
+- Converting the native midpoint first places the example point on the ellipsoid.
+- Converted-first midpoint displacement: **971.421 m** below that point.
+- This exercises requirement 20, Positions between recorded moments, using its equatorial example.
+- Whether USD may record geographic positions, and which carrier holds them, remains open.
+
+## Partner baseline
+
+- Tower-origin residual: **0.000000 m** against the partner's stated coordinates.
+- Tower height: **299.999995 m** against the stated approximately 300 m.
+- Calibrated grid-origin residual: **0.001339 mm**.
+- These checks reproduce the existing stock-USD example. They do not validate a new scene resolver.
+- The attachment remains local because redistribution has not been established. Public reruns skip its two checks.
+
+## Open decisions
+
+- S01: position carrier, geographic recording and the position/offset boundary.
+- S02: preserving an asset's native CRS while placing it in a project.
+- S03: scene units/up axis, the placement basis and its distance/extent bound.
+- S04: consumer target selection and geographic scene output.
+- S05: dependency declaration, explicit export and re-resolution.
+- S06: practitioner controls, operation resources, a second engine and OV evidence.
+- S07: complete rules for hierarchical binding relationships.
+
+Each [stop](docs/STOPS.md) records the affected requirements, what is missing,
+what an implementation would otherwise invent, and proposed feedback.
+
+## Delivery for each run
+
+- A successful test invocation produces an immutable checkpoint with the input revision, source hashes, environment, results and remaining decisions.
+- Run evidence updates the README. The PR body and slide content are then derived from the README.
+- A publication check rejects issue/PR citations, private paths and private communication links before a push or PR update.
+- One standing draft PR receives each reviewed checkpoint. Earlier run records remain in the branch history.
+
+[Slides (PDF)](docs/checkpoint.pdf) · [Editable slides](docs/checkpoint.pptx) ·
+[Generated PR text](docs/PR_BODY.md) · [Run procedure](BUILD_LOOP.md).
+
+## Reproduce
+
+From this directory, use Python 3.12 with the pinned dependencies:
+
+```sh
+python -m pip install -r requirements.txt
+python run.py --output /absolute/path/outside-checkout/run-001
+```
+
+The bundled input makes a public rerun independent of a proposal checkout.
+Without the optional AECO attachment, two tests skip. Exit 2 means the cycle
+completed with design/evidence gaps. Exit 1 means an execution or test failure.
+
+To use a newer committed proposal, pass `--proposal-repo /path/to/checkout`.
+To include the existing partner fixture locally, pass `--aeco-zip /path/to/attachment.zip`.
+To prepare delivery after the tests, append `--deliver --checkpoint-id <new-id>`.
+Slide export and publication are explicit phases described in [BUILD_LOOP.md](BUILD_LOOP.md).

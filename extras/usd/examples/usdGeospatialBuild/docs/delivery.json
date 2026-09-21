@@ -1,0 +1,11 @@
+{
+  "checkpoint": "20260921-first",
+  "proposal_commit": "eab823f46dad7c959019e5ce1851c8295c2a3701",
+  "implementation_revision": "2b4b9babf655f6004cb1b9646e3fb725a348579b",
+  "requirements_sha256": "2b5049bc84b8286f2f4dc59305290c7633df304c1261e695104dd3cc1208fad6",
+  "readme_sha256": "499baead9bd928b544619434127ee666ad7bdf656010194262f20934fc29bc24",
+  "report_sha256": "ad521af82261f747ef8da3796e841cf990cad428ba8225e1ffaca1c779ec044e",
+  "branch": "aluk/geospatial-build-loop",
+  "test_status": "NEEDS_DECISIONS_AND_EVIDENCE",
+  "record_kind": "prepared checkpoint; deck receipt and publish receipt record later phases"
+}

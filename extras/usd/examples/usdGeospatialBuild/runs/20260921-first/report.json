@@ -1,0 +1,241 @@
+{
+  "started_utc": "2026-09-21T22:37:27.273887+00:00",
+  "proposal_commit": "eab823f46dad7c959019e5ce1851c8295c2a3701",
+  "allowed_sha256": "2b5049bc84b8286f2f4dc59305290c7633df304c1261e695104dd3cc1208fad6",
+  "derivation_current": true,
+  "approval": "draft; partner approval not inferred",
+  "tests": [
+    {
+      "name": "test_binding_composed_reference_flatten_and_sublayer",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_nested_override_and_no_mutation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_stronger_opinion_and_forwarding",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets0]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets1]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets2]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets3]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_additive_metadata_leaves_stock_transform_unchanged",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_analytic_global_points_and_provenance",
+      "status": "passed",
+      "properties": {
+        "max_residual_m": "0.0",
+        "max_coordinate_magnitude_m": "6378147.0",
+        "operation": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric) (with axis order normalized for visualization)",
+        "engine_accuracy_m": "unknown"
+      }
+    },
+    {
+      "name": "test_engine_analytic_geographic_reporting",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad0]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad1]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad2]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad3]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad4]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_codes_unsupported_and_empty",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_unavailable_best_operation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_partial_result",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_native_sample_midpoint_before_conversion",
+      "status": "passed",
+      "properties": {
+        "wrong_order_chord_depth_m": "971.4211582997814"
+      }
+    },
+    {
+      "name": "test_aeco_partner_stated_origin_and_conformance",
+      "status": "passed",
+      "properties": {
+        "origin_residual_m": "0.0",
+        "height_m": "299.9999946774461"
+      }
+    },
+    {
+      "name": "test_aeco_wkt_library_and_calibration_origin",
+      "status": "passed",
+      "properties": {
+        "calibration_origin_residual_m": "1.3394456140890982e-06"
+      }
+    },
+    {
+      "name": "test_public_guard_rejects_backlinks_and_private_paths",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_public_guard_allows_pinned_source_files_and_requirements",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_readme_is_the_source_for_summaries",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_checkpoints_are_immutable",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_rejects_changed_source",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_rejects_failed_or_stale_runs[TEST_FAILURE]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_rejects_failed_or_stale_runs[DERIVATION_STALE]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_public_report_omits_local_access_information",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_portable_input_rejects_changed_text",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_source_extraction_excludes_legacy_runtime",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_fixture_import_ignores_archive_paths_and_scripts",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_changed_requirement_invalidates_derivation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_duplicate_frozen_identifier_is_rejected",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_changed_source_cycle_stops_before_tests_and_rejects_dirty_input",
+      "status": "passed",
+      "properties": {}
+    }
+  ],
+  "status": "NEEDS_DECISIONS_AND_EVIDENCE",
+  "source_files": {
+    ".gitattributes": "f79c694d2d99515f9e36bd25f62fbefa50864a96f25f6a16add7e367108cd7eb",
+    ".gitignore": "8825c08eea352605d4b3eb0d712902b45d453a5f7020bad5ad5e597030e01170",
+    "build_deck.mjs": "f2f0225b0791761928566b001abbf0e7a500459f57a2acf3273dcbafafce82fd",
+    "BUILD_LOOP.md": "c4e616357f80677d93a9ad48c9de83c9e81664dac4328b04a8fedb73b9120733",
+    "deliver.py": "07c7628faebc2b07ad6637c0b71d0c85aba6d309b1325b2fe54d7ce909dd8cba",
+    "derivation.json": "dbb737dadc0785b71af87b6d222f8dbea785a50aab5aeeaa013cbc031ec95219",
+    "geobuild/__init__.py": "026efb63701f2bb7b78929d18619dc0d1730389de9ac6fef4716024f63e16128",
+    "geobuild/bindings.py": "3cf60260ec55a8c16d47521560fa9220817f409a6c18d4d3fe890c6ec14f7f09",
+    "geobuild/delivery.py": "6802adad7c874f9a3c20c0286f56318a4697ae634e55c4897be55a6258ed5150",
+    "geobuild/engine.py": "4bd143ba7929ec17f5f977f57768d61767879a67cac3a8215375e30a853fa3c6",
+    "geobuild/fixtures.py": "475311ab8592e3644b37d1e55dac426f6eda535891b9b97026ab5fc7bb84b958",
+    "geobuild/source.py": "c339ae3e54df16cad5098426e16b9ac1a8f73ac31e631ab62e2ccc8287d1f997",
+    "package.json": "f453f6292ae787338301a3107f470036a052d5041df7869f756e6d60f09bc575",
+    "pytest.ini": "061b37822487deda44ab30227354f3d039f9b8a001aefa6281857bcc9ce73b09",
+    "requirements-delivery.txt": "6fd38d9fff750e7f8622f0a51eb1d50dd939eaa540244e3f665386c5d347dd0f",
+    "requirements.txt": "63844006f25f06d82c5e8bcd6b9e2bde9899cc865f7d5ebfafc8977abfb7b867",
+    "Run-BuildLoop.ps1": "274d45db2a4162f815ac41781899eada73599d317f990587d210a84b39fd65eb",
+    "run.py": "a32db5cb1d65a841ac23788abeef2d145434c64e8c7901133d018e687f0c7e50",
+    "tests/test_components.py": "d3953274d2ad5d51bf1b72128d0d1cbc2c5b090866e6dc3cd6c42edcceadd508",
+    "tests/test_delivery.py": "42d6f8e7171b63adc7fa7ffbeb438400e996d52ecc6d72bb650cfcbafeb8b4f1",
+    "tests/test_loop.py": "9d33357ababa02c781812635bd3b6bf907f468eaa1aedef4b6329db3cba927c5"
+  },
+  "test_exit_code": 0,
+  "implementation": {
+    "revision": "2b4b9babf655f6004cb1b9646e3fb725a348579b",
+    "source_dirty": false
+  },
+  "stop_count": 7,
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "usd-core": "26.8",
+      "pyproj": "3.8.0",
+      "pytest": "9.1.1"
+    }
+  },
+  "dataset": {
+    "sha256": "baf9f94821a3f37efd3a2eca35672e3d481ac9948bf95b8f0ffc025eaad8de28",
+    "origin": "Sébastien Vielliard, AECO example received 2026-09-16",
+    "redistribution": "not established; kept local",
+    "role": "partner-authored stock-USD baseline; not an approved scene-resolution fixture"
+  }
+}
