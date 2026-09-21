@@ -1,0 +1,2 @@
+# Publication scans extract slide text from the PDF.
+pypdf==6.10.0

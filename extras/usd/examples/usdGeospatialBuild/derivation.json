@@ -1,0 +1,398 @@
+{
+  "source_commit": "eab823f46dad7c959019e5ce1851c8295c2a3701",
+  "allowed_sha256": "2b5049bc84b8286f2f4dc59305290c7633df304c1261e695104dd3cc1208fad6",
+  "approval": "Draft derivation for review; no partner approval inferred.",
+  "schema_basis": [
+    "Supplied schema direction: Esri's CRS definition prim and binding API; hierarchical binding relationship; reset behavior belongs to runtime and is not newly authored. The public runtime contract still needs to record the remaining rules.",
+    "Implementation experiment uses GeospatialCRS, crs:wkt and crs:binding. The relationship spelling, empty-binding policy, forwarding and cardinality must appear in an accepted design before this is a schema implementation. Tests do not decide them.",
+    "Only Terms, functional requirements, the numbered open-question table and future explicit decision paragraphs are normative build inputs. Older proposal runtime prose and retired runtime/data-model branches are excluded."
+  ],
+  "contracts": [
+    {
+      "id": "C01",
+      "requirements": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "behavior": "Keep complete CRS definitions distinct from object placement. Definitions may describe site calibration. Distinguish datum reference epoch, coordinate epoch and animation sample time; do not supply an absent epoch.",
+      "implementation": "Engine accepts complete WKT only; increment 1 supports the WGS 84 geographic-3D/geocentric conversion. General CRS/epoch and site-grid operations remain unimplemented.",
+      "evidence": [
+        "E03",
+        "E04",
+        "E06"
+      ],
+      "stops": [
+        "S02",
+        "S06"
+      ]
+    },
+    {
+      "id": "C02",
+      "requirements": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "behavior": "Read CRS definitions and binding scope from the composed stage. A nested declaration overrides the enclosing scope. Equivalent composed data must give equivalent CRS interpretation. Preserve imported coordinates and their native CRS.",
+      "implementation": "Read-only single-target relationship inspector. Stock USD resolves relationship opinions and remaps reference paths. It does not identify position carriers or implement asset/project placement.",
+      "evidence": [
+        "E01"
+      ],
+      "stops": [
+        "S01",
+        "S02",
+        "S07"
+      ]
+    },
+    {
+      "id": "C03",
+      "requirements": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "behavior": "Separate absolute positions from ordinary offsets; nested positions cut off ancestor placement. Descendant offsets use the position CRS's axes and scale. No angle is a scene length; scene units/up axis remain authored; asset conformance and survey placement are separate.",
+      "implementation": "No anchor decoding, offset basis, placement matrix or scene-unit correction is implemented. These require the decisions listed below. The AECO example is checked only as an existing stock-USD fixture.",
+      "evidence": [
+        "E02",
+        "E06"
+      ],
+      "stops": [
+        "S01",
+        "S02",
+        "S03",
+        "S07"
+      ]
+    },
+    {
+      "id": "C04",
+      "requirements": [
+        16,
+        17,
+        18
+      ],
+      "behavior": "A resolution produces one output CRS shared by all consumers without needing a renderer. Reporting an already resolved position in another supported CRS is distinct from selecting the scene resolution target. Relative queries operate on resolved placements.",
+      "implementation": "Engine protocol and PROJ adapter for explicit named-coordinate reporting; no renderer. No scene-target precedence, resolved-stage store or relative-placement query yet.",
+      "evidence": [
+        "E03"
+      ],
+      "stops": [
+        "S01",
+        "S04"
+      ]
+    },
+    {
+      "id": "C05",
+      "requirements": [
+        19,
+        20
+      ],
+      "behavior": "Read composed authored data without editing it. Evaluate a sampled native position before converting it; do not interpolate converted samples as a replacement. Export is a separate operation recording output CRS and sampling, without double transformation on re-resolution.",
+      "implementation": "Binding inspection is read-only. Analytic regression demonstrates the path difference in requirement 20, Positions between recorded moments, but does not implement an authored geographic carrier, USD sampling or baking.",
+      "evidence": [
+        "E01",
+        "E05"
+      ],
+      "stops": [
+        "S01",
+        "S05"
+      ]
+    },
+    {
+      "id": "C06",
+      "requirements": [
+        21,
+        28
+      ],
+      "behavior": "Reject an uncomputable or incomplete operation rather than return a substitute placement. Separate authored-data diagnostics from engine failures; retain source. Successful output reports the actual operation and engine-attributed accuracy independently from measured residuals.",
+      "implementation": "Explicit unsupported/unreadable/domain/batch failures in a bounded PROJ adapter, no ballpark operations, best-available check and operation provenance. This is not general missing-grid or datum-operation support.",
+      "evidence": [
+        "E03",
+        "E04"
+      ],
+      "stops": [
+        "S06"
+      ]
+    },
+    {
+      "id": "C07",
+      "requirements": [
+        22,
+        23,
+        24
+      ],
+      "behavior": "Support project sizes without assuming a single flat plane; preserve authored asset-relative detail. A placement approximation needs both a distance bound and the extent where it holds.",
+      "implementation": "No approximation algorithm or acceptance tolerance has been selected. Analytic global coordinate probes are component checks, not site/regional/global scene coverage.",
+      "evidence": [
+        "E03"
+      ],
+      "stops": [
+        "S03",
+        "S04",
+        "S06"
+      ]
+    },
+    {
+      "id": "C08",
+      "requirements": [
+        25,
+        26,
+        27
+      ],
+      "behavior": "Geospatial information leaves the scene seen by an unaware consumer unchanged. A discoverable dependency declaration covers every placed object. Validate what can be known from authored intent; do not claim to infer wrong but plausible survey coordinates.",
+      "implementation": "Stock-USD transform invariance and dangling-binding diagnostics are tested. Dependency encoding, complete validator and usdchecker registration remain pending.",
+      "evidence": [
+        "E01",
+        "E02"
+      ],
+      "stops": [
+        "S01",
+        "S05",
+        "S07"
+      ]
+    },
+    {
+      "id": "C09",
+      "requirements": [
+        29
+      ],
+      "behavior": "Independent implementations using different engines report agreement as an output-unit distance at a stated coordinate magnitude, with operation identity so operation selection is not confused with numerical drift.",
+      "implementation": "Repeatable snapshot/brief/trace/test/report pipeline. PROJ numerical residuals are measured against analytic checks. No second-engine or OpenUSD/OV implementation agreement is claimed.",
+      "evidence": [
+        "E03"
+      ],
+      "stops": [
+        "S06"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "E01",
+      "test_prefix": "test_binding_",
+      "kind": "synthetic USD component tests",
+      "oracle": "Stock USD composition plus directly authored relationship targets; not partner control points",
+      "expectation": "Flattened/reference/sublayer representations of equivalent composed data give the same binding. Nested declaration wins; dangling binding fails; reading changes no layer.",
+      "limit": "Does not decide or implement an anchor carrier; composition coverage is sampled, not every arc/variant/instance.",
+      "requirements": [
+        5,
+        6,
+        7,
+        19,
+        27
+      ]
+    },
+    {
+      "id": "E02",
+      "test_prefix": "test_additive_",
+      "kind": "synthetic USD component test",
+      "oracle": "Stock USD XformCache before and after additive metadata",
+      "expectation": "Same ordinary transform before and after CRS declaration/binding metadata.",
+      "limit": "No geospatial placement is resolved.",
+      "requirements": [
+        25
+      ]
+    },
+    {
+      "id": "E03",
+      "test_prefix": "test_engine_analytic",
+      "kind": "analytic engine checks",
+      "oracle": "WGS 84 ellipsoid equations/constants; expected coordinates calculated without PROJ",
+      "expectation": "3D metre residual <= 1e-6 at Earth-scale magnitude; reporting back to geographic agrees with the analytic input.",
+      "limit": "Harness numerical tolerance only, not a proposal-wide conformance threshold or independent partner dataset.",
+      "requirements": [
+        18,
+        28
+      ]
+    },
+    {
+      "id": "E04",
+      "test_prefix": "test_engine_reject",
+      "kind": "negative engine component tests",
+      "oracle": "Explicitly invalid input or injected unavailable/partial engine result",
+      "expectation": "Whole batch fails; no substitute, partial result, authority-only definition, assumed height or unsupported operation succeeds.",
+      "limit": "Missing-resource fault injection tests the adapter guard, not a real datum-grid operation.",
+      "requirements": [
+        1,
+        21
+      ]
+    },
+    {
+      "id": "E05",
+      "test_prefix": "test_native_sample",
+      "kind": "requirement-case analytic check",
+      "oracle": "Requirement 20, Positions between recorded moments: equatorial +/-1 degree example; WGS 84 equatorial radius",
+      "expectation": "Convert interpolated native midpoint gives height zero; interpolate converted endpoints produces a chord about 971 m below it.",
+      "limit": "Does not establish geographic authored positions are permitted or select a carrier/interpolator.",
+      "requirements": [
+        20
+      ]
+    },
+    {
+      "id": "E06",
+      "test_prefix": "test_aeco_",
+      "kind": "partner-authored attachment baseline",
+      "oracle": "Sébastien's README: origin (648237.125, 6862251.890, 33.790), approximately 300 m tower; local-grid origin (1000,1000) corresponds to (648200,6862200)",
+      "expectation": "Stock USD reproduces the stated placement; separate conformance rotation maps asset Y-up to scene Z-up. Inspect complete WKT without running attachment scripts.",
+      "limit": "Existing reference-based binding/reset conventions are not adopted. This is not new-runtime conformance; raw survey points, inclined-plane calibration and redistribution permission are absent.",
+      "requirements": [
+        2,
+        4,
+        14,
+        15,
+        19
+      ]
+    }
+  ],
+  "stops": [
+    {
+      "id": "S01",
+      "requirements": [
+        5,
+        6,
+        8,
+        9,
+        11,
+        12,
+        19,
+        20,
+        27
+      ],
+      "questions": [
+        1,
+        2,
+        5
+      ],
+      "where": "Decoding a composed prim into an absolute position and its offset descendants",
+      "needed": "An authored carrier and boundary rule, including sampled values, nested anchors and supported CRS coordinate units.",
+      "would_invent": "Treating every binding or every translate as a position, or banning geographic recording before open question 1, geographic authored positions, is decided.",
+      "proposal": "Decision needed on open question 2, the position carrier, together with open question 5, the position/offset boundary: name the composed property/opinion that identifies a position and how its value and samples are read. Evaluate open question 1, geographic authored positions, against requirement 8, Brought-in data keeps its coordinates and its CRS, and requirement 20, Positions between recorded moments. Keep the boundary runtime-derived and avoid introducing an authored reset as a side effect.",
+      "owner": "Tamrat and reviewers; geographic workflows from Devin"
+    },
+    {
+      "id": "S02",
+      "requirements": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        11
+      ],
+      "questions": [
+        3,
+        7
+      ],
+      "where": "Importing an asset with a native CRS into a differently georeferenced project",
+      "needed": "The distinction between source CRS identity and placement CRS, plus whether and where project placement acts after conversion without violating the absolute-position rule.",
+      "would_invent": "Replacing the source binding or applying an ancestor transform after an absolute position contrary to requirement 11, Position or offset, and the scene says which.",
+      "proposal": "For open question 3, the asset's native CRS, specify both declarations and walk one asset-native → project-CRS → placed-instance example. State which authored values remain unchanged and how the result satisfies requirement 11, Position or offset, and the scene says which. For open question 7, localization, identify any information the CRS definition cannot already carry before adding a construct.",
+      "owner": "Devin starts the native-CRS discussion; Tamrat and Sébastien review"
+    },
+    {
+      "id": "S03",
+      "requirements": [
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        22,
+        23,
+        24
+      ],
+      "questions": [
+        4,
+        6
+      ],
+      "where": "Turning a CRS position and child offsets into a placed basis",
+      "needed": "Unit/up-axis correction ownership, axes and scale away from the anchor, numerical error bound and supported extent.",
+      "would_invent": "A basis algorithm, automatic asset-metadata correction, or a universal extent/tolerance chosen by NVIDIA.",
+      "proposal": "For open question 4, up-axis and unit correction, record the author/reader decision with a metre-stage / survey-foot-CRS example. Open question 6, axis mapping, already has an easting/northing/up rule in requirement 13, One axis mapping; record the decision and remaining component cases explicitly. For requirement 24, Extent under one position is bounded and stated, require each supported placement mode to state its measured distance bound and extent; request practitioner acceptance cases before choosing values.",
+      "owner": "Sébastien calibration/control points; Tamrat scene conventions; reviewers approve bounds"
+    },
+    {
+      "id": "S04",
+      "requirements": [
+        16,
+        17,
+        18,
+        21,
+        22,
+        23
+      ],
+      "questions": [
+        8,
+        9
+      ],
+      "where": "Choosing a scene resolution target and publishing a shared result",
+      "needed": "Consumer-vs-scene target behavior and the supported output coordinate domain.",
+      "would_invent": "defaultPrim precedence, mandatory ECEF, a second conversion step, or permission/prohibition for geographic scene resolution.",
+      "proposal": "Decide open question 8, consumer target versus conversion, and open question 9, geographic Target CRS, with one multi-CRS scene and named consumer output. Keep geographic coordinate reporting under requirement 18, Coordinates back out, distinct from scene resolution.",
+      "owner": "Tamrat and reviewers; Devin regional/global cases"
+    },
+    {
+      "id": "S05",
+      "requirements": [
+        19,
+        25,
+        26,
+        27
+      ],
+      "questions": [],
+      "where": "Preflight validation and explicit export/re-resolution",
+      "needed": "A non-traversal dependency signal, what content it covers, and export CRS/sampling representation with a re-resolution rule.",
+      "would_invent": "New stage metadata/profile schema or removing bindings on export without a specified dependency rule.",
+      "proposal": "Add a design paragraph against requirement 19, Resolution leaves the scene as authored; requirement 26, Declares its dependency; and requirement 27, Checkable before use, naming the dependency declaration and showing both unresolved and exported scenes. Include the mixed-content case and show that the exported result is not transformed twice. Profiles remain a later integration option, not a prerequisite invented by this build.",
+      "owner": "NVIDIA proposes concrete text after the carrier/target decisions"
+    },
+    {
+      "id": "S06",
+      "requirements": [
+        3,
+        4,
+        8,
+        14,
+        16,
+        21,
+        22,
+        23,
+        24,
+        28,
+        29
+      ],
+      "questions": [],
+      "where": "Claiming practitioner coverage or independent implementation agreement",
+      "needed": "Licensed control data and expected output, operation/epoch/grid availability, accepted distance/extent criteria, and a second engine plus independent OV implementation.",
+      "would_invent": "Survey truth from this implementation, a second PROJ wrapper as an independent engine, or successful unit tests as full conformance.",
+      "proposal": "Keep these as evidence gaps rather than new requirements. Attach dataset provenance, expected output, CRS/epoch, operation, units, coordinate magnitude and acceptance tolerance to each fixture. Compare numerical residuals only after distinguishing operation selection differences.",
+      "owner": "Sébastien additional calibration; Tamrat Redlands/source WKT; Devin facility → city → region → world; NVIDIA second-engine/OV integration"
+    },
+    {
+      "id": "S07",
+      "requirements": [
+        5,
+        6,
+        7,
+        21,
+        27
+      ],
+      "questions": [],
+      "where": "Generalizing the relationship inspector into a binding schema implementation",
+      "needed": "Accepted schema spelling and rules for empty, blocked, multiple, forwarded and dangling relationships, collections/instances and override precedence.",
+      "would_invent": "Material-binding behavior wholesale or a quiet ancestor fallback when a nearer binding is broken.",
+      "proposal": "Record the agreed hierarchical relationship design in the proposal. Describe supported cardinality, unbinding/blocked opinions and invalid targets on composed prims. Core supplies composition and relationship forwarding; the geospatial design must supply its own scope and validity rules.",
+      "owner": "NVIDIA drafts; Tamrat/schema reviewers decide"
+    }
+  ],
+  "next_increment": "Resolve the position-carrier and scope decisions first; then derive anchor decoding and a read-only resolved representation, validate placement against partner controls, and add OpenUSD and independent OV consumers. In parallel expand explicitly supported PROJ operations with real grid/domain/epoch tests. Do not read retired runtime branches."
+}

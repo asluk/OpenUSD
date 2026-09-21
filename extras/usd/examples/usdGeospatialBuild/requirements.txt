@@ -1,0 +1,4 @@
+# Versions used by the first run; the report also records PROJ and Python versions.
+usd-core==26.8
+pyproj==3.8.0
+pytest==9.1.1
