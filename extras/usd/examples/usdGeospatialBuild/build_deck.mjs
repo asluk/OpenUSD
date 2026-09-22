@@ -24,12 +24,19 @@ for (const [index, data] of document.slides.entries()) {
   created.push(slide);
   slide.background.fill = index === 0 ? '#102B38' : '#FFFFFF';
   if (index === 0) {
-    text(slide, data.title, 76, 160, 1120, 115, 68, '#FFFFFF', true);
-    text(slide, data.lines[0], 80, 314, 1000, 120, 34, '#DBE8EC');
-    text(slide, data.lines[1], 80, 516, 1000, 55, 26, '#A3D744');
+    text(slide, data.title, 76, 120, 1120, 150, 54, '#FFFFFF', true);
+    text(slide, data.lines[0], 80, 330, 1090, 135, 32, '#DBE8EC');
+    text(slide, data.lines[1], 80, 514, 1090, 115, 30, '#A3D744');
   } else {
-    text(slide, data.title, 72, 48, 1136, 75, 44, ink, true);
-    if (data.chart) {
+    text(slide, data.title, 60, 42, 1160, 95, 39, ink, true);
+    if (data.image) {
+      const picture = path.resolve(root, data.image);
+      if (!picture.startsWith(root + path.sep)) throw new Error('Image must be inside the package');
+      slide.images.add({blob:new Uint8Array(await fs.readFile(picture)),contentType:'image/png',alt:data.caption,
+        fit:'contain',position:{left:48,top:164,width:744,height:456}});
+      data.lines.forEach((line,n) => text(slide,line,832,174+n*146,382,136,24,ink,n===0));
+      text(slide,data.caption,60,624,1050,54,18,'#50677A');
+    } else if (data.chart) {
       const chartStyle = {typeface:font,fontSize:23,fill:ink};
       slide.charts.add('bar', {
         position:{left:70,top:162,width:745,height:410},
@@ -44,13 +51,13 @@ for (const [index, data] of document.slides.entries()) {
       text(slide, data.lines[2], 858, 186, 350, 210, 25, ink, true);
       text(slide, data.lines[3], 858, 430, 350, 175, 25);
     } else {
-      const gap = data.lines.length >= 6 ? 66 : data.lines.length === 5 ? 92 : 110;
+      const gap = data.lines.length >= 6 ? 66 : data.lines.length === 5 ? 92 : 142;
       const size = data.lines.length >= 6 ? 27 : 30;
-      data.lines.forEach((line, n) => text(slide, line, 80, 159 + n * gap, 1110, gap - 10, size));
+      data.lines.forEach((line, n) => text(slide, line, 80, 175 + n * gap, 1110, gap - 15, size));
     }
     text(slide, `${index + 1} / ${document.slides.length}`, 1106, 664, 100, 28, 18, '#6B7C84');
   }
-  slide.speakerNotes.textFrame.setText(`Source: README.md, section '${data.title}'. README SHA-256: ${document.readme_sha256}.\n${data.lines.join('\n')}`);
+  slide.speakerNotes.textFrame.setText(`Source: README.md, section '${data.title}'. README SHA-256: ${document.readme_sha256}.\n${data.lines.join('\n')}\n${data.caption ?? ''}\nFigure provenance, if used: docs/figures/manifest.json and DATASETS.md; figures.py reproduces these data plots.`);
 }
 await (await PresentationFile.exportPptx(deck)).save(path.join(output, 'candidate.pptx'));
 for (let n=0; n<created.length; n++) {

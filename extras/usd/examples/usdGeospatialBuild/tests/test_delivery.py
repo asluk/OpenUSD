@@ -45,7 +45,7 @@ def delivery_case(tmp_path):
     }
     write_json(run / "source.json", source)
     write_json(run / "report.json", report)
-    for name in ("RUNTIME.md", "FIXTURES.md", "STOPS.md", "AGENT-BRIEF.md"):
+    for name in ("RUNTIME.md", "FIXTURES.md", "WORKFLOWS.md", "STOPS.md", "AGENT-BRIEF.md"):
         (run / name).write_text("# Public fixture\n")
     return root, run, report
 
@@ -109,3 +109,37 @@ def test_portable_input_rejects_changed_text(delivery_case):
     write_json(source_path, loaded)
     with pytest.raises(ValueError, match="hash"):
         load_snapshot(source_path)
+
+
+@pytest.mark.parametrize("tamper", [None, "catalog", "evidence"])
+def test_delivery_preserves_workflow_evidence(delivery_case, tamper):
+    from geobuild.datasets import inspect_inventory, load_catalog, render_workflows, workflow_evidence
+    root, run, report = delivery_case
+    source = json.loads((run / "source.json").read_text(encoding="utf-8"))
+    catalog = load_catalog()
+    write_json(root / "dataset-catalog.json", catalog)
+    write_json(run / "dataset-catalog.json", catalog)
+    report["source_files"]["dataset-catalog.json"] = sha(root / "dataset-catalog.json")
+    report["dataset_inventory"] = inspect_inventory()
+    report["dataset_inventory"]["catalog_sha256"] = sha(run / "dataset-catalog.json")
+    report["workflows"] = workflow_evidence(catalog, report)
+    (run / "WORKFLOWS.md").write_text(render_workflows(source, report), encoding="utf-8")
+    if tamper == "catalog":
+        (run / "dataset-catalog.json").write_text("{}")
+    elif tamper == "evidence":
+        report["workflows"][0]["full_workflow_validated"] = True
+    write_json(run / "report.json", report)
+    if tamper:
+        with pytest.raises(ValueError, match="Workflow"):
+            prepare(run, root, "workflows")
+    else:
+        checkpoint = prepare(run, root, "workflows")
+        assert (checkpoint / "WORKFLOWS.md").read_text(encoding="utf-8") == render_workflows(source, report)
+        assert sha(checkpoint / "dataset-catalog.json") == report["dataset_inventory"]["catalog_sha256"]
+        published = json.loads((checkpoint / "report.json").read_text(encoding="utf-8"))
+        assert "local_path" not in json.dumps(published)
+        assert not any(w["full_workflow_validated"] for w in published["workflows"])
+        verify(root, require_slides=False)
+        (root / "docs" / "WORKFLOWS.md").write_text("Altered workflow claim")
+        with pytest.raises(ValueError, match="Workflow explanation"):
+            verify(root, require_slides=False)

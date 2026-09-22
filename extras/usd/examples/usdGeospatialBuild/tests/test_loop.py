@@ -61,6 +61,22 @@ def test_duplicate_frozen_identifier_is_rejected():
         parse(wrapper)
 
 
+def test_changed_runtime_prose_invalidates_derivation(tmp_path):
+    from geobuild.contract import load_contract
+    root = Path(__file__).resolve().parents[1]
+    derivation = json.loads((root / "derivation.json").read_text(encoding="utf-8"))
+    original = load_contract(root, derivation)
+    source = {"allowed_sha256": derivation["allowed_sha256"]}
+    assert is_current(source, derivation, original)
+    copy = tmp_path / derivation["runtime_document"]["path"]
+    copy.parent.mkdir(parents=True)
+    copy.write_text(original["text"].replace("Resolution reads the composed stage", "Resolution reads a source layer"), encoding="utf-8")
+    assert not is_current(source, derivation, load_contract(tmp_path, derivation))
+    copy.write_text(original["text"].replace("## Composed declarations and scope", "## Missing scope"), encoding="utf-8")
+    with pytest.raises(ValueError, match="Missing traced"):
+        load_contract(tmp_path, derivation)
+
+
 def test_changed_source_cycle_stops_before_tests_and_rejects_dirty_input(tmp_path):
     import os
     import subprocess

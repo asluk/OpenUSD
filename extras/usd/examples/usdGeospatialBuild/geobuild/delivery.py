@@ -9,7 +9,8 @@ from pathlib import Path
 from urllib.parse import unquote
 
 SOURCE_NAMES = {".gitattributes", ".gitignore", "run.py", "deliver.py", "build_deck.mjs", "derivation.json", "requirements.txt",
-                "requirements-delivery.txt", "pytest.ini", "Run-BuildLoop.ps1", "BUILD_LOOP.md", "package.json"}
+                "requirements-delivery.txt", "requirements-datasets.txt", "datasets.py", "dataset-catalog.json", "DATASETS.md",
+                "pytest.ini", "Run-BuildLoop.ps1", "BUILD_LOOP.md", "package.json", "figures.py"}
 PACKAGE = "extras/usd/examples/usdGeospatialBuild"
 FORK = "asluk/OpenUSD"
 
@@ -22,7 +23,8 @@ def source_files(root):
     root = Path(root)
     return sorted(p for p in root.rglob("*") if p.is_file() and (
         (p.parent == root and p.name in SOURCE_NAMES) or
-        (p.parent in (root / "geobuild", root / "tests") and p.suffix == ".py")))
+        (p.parent in (root / "geobuild", root / "tests") and p.suffix == ".py") or
+        (p.parent == root / "proposal" and p.suffix == ".md")))
 
 
 def scan_text(text, label="text"):
@@ -76,6 +78,12 @@ def public_report(report):
     result["environment"] = {k: report["environment"][k] for k in ("python", "platform", "packages")}
     dataset = report.get("dataset")
     result["dataset"] = ({k: dataset[k] for k in ("sha256", "origin", "redistribution", "role")} if dataset else None)
+    if "dataset_inventory" in report:
+        from geobuild.datasets import public_inventory
+        result["dataset_inventory"] = public_inventory(report["dataset_inventory"])
+        result["workflows"] = report["workflows"]
+    if "runtime_contract" in report:
+        result["runtime_contract"] = report["runtime_contract"]
     return result
 
 
@@ -85,6 +93,9 @@ def sections(readme):
 
 
 def slide_content(readme):
+    if "<!-- narrative:v2 -->" in readme:
+        from geobuild.narrative import slides
+        return slides(readme)
     document = sections(readme)
     names = ["Checkpoint", "Runnable components", "Coordinate checks", "Sampled position path",
              "Partner baseline", "Open decisions", "Delivery for each run"]
@@ -100,6 +111,9 @@ def slide_content(readme):
 
 
 def pr_body(readme, branch):
+    if "<!-- narrative:v2 -->" in readme:
+        from geobuild.narrative import review_guide
+        return review_guide(readme, branch)
     document = sections(readme)
     base = f"https://github.com/{FORK}/blob/{branch}/{PACKAGE}"
     body = "\n\n".join([
@@ -162,7 +176,7 @@ requirements, implements bounded parts, tests them, and delivers the evidence fo
 Run record: [{checkpoint_id}](runs/{checkpoint_id}/report.json). Source input:
 [bundled functional requirements](inputs/requirements.md), revision `{source['commit']}`.
 Implementation revision: `{report['implementation']['revision']}`.
-The [runtime derivation](docs/RUNTIME.md), [fixture matrix](docs/FIXTURES.md) and
+The [runtime derivation](docs/RUNTIME.md), [fixture matrix](docs/FIXTURES.md), [workflow evidence](docs/WORKFLOWS.md) and
 [build stops](docs/STOPS.md) explain the scope of every result.
 
 ## Runnable components
@@ -235,6 +249,7 @@ Slide export and publication are explicit phases described in [BUILD_LOOP.md](BU
 
 def prepare(run_dir, root, checkpoint_id=None, branch="aluk/geospatial-build-loop"):
     run_dir, root = Path(run_dir).resolve(), Path(root).resolve()
+    scan_tree(root)
     report = json.loads((run_dir / "report.json").read_text(encoding="utf-8"))
     source = json.loads((run_dir / "source.json").read_text(encoding="utf-8"))
     if report["status"] != "NEEDS_DECISIONS_AND_EVIDENCE" or not report["derivation_current"] or report.get("test_exit_code") != 0:
@@ -245,6 +260,21 @@ def prepare(run_dir, root, checkpoint_id=None, branch="aluk/geospatial-build-loo
     actual = {p.relative_to(root).as_posix(): sha(p) for p in source_files(root)}
     if expected != actual:
         raise ValueError("Build source changed since the run. Rerun before delivery.")
+    if "runtime_contract" in report:
+        for name, relative in (("RUNTIME-BEHAVIOR.md", "proposal/runtime-behavior.md"),
+                               ("RUNTIME-OPEN-DECISIONS.md", "proposal/runtime-open-decisions.md")):
+            if sha(run_dir / name) != actual[relative]:
+                raise ValueError("Runtime prose changed since the run.")
+    if "dataset_inventory" in report:
+        from geobuild.datasets import workflow_evidence, render_workflows
+        catalog_file = run_dir / "dataset-catalog.json"
+        if sha(catalog_file) != report["dataset_inventory"]["catalog_sha256"]:
+            raise ValueError("Workflow catalog changed since the run.")
+        catalog = json.loads(catalog_file.read_text(encoding="utf-8"))
+        if report["workflows"] != workflow_evidence(catalog, report):
+            raise ValueError("Workflow evidence does not match executed checks.")
+        if (run_dir / "WORKFLOWS.md").read_text(encoding="utf-8") != render_workflows(source, report):
+            raise ValueError("Workflow explanation changed since the run.")
     checkpoint_id = checkpoint_id or re.sub(r"[^0-9]", "", report["started_utc"])[:14]
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,79}", checkpoint_id):
         raise ValueError("Invalid checkpoint identifier.")
@@ -252,7 +282,13 @@ def prepare(run_dir, root, checkpoint_id=None, branch="aluk/geospatial-build-loo
     if destination.exists():
         raise ValueError("Checkpoint already exists; run records are immutable.")
     clean_source, clean_report = public_source(source), public_report(report)
-    readme = make_readme(clean_source, clean_report, checkpoint_id)
+    authored = (root / "README.md").read_text(encoding="utf-8") if (root / "README.md").exists() else ""
+    if "<!-- narrative:v2 -->" in authored:
+        from geobuild.narrative import refresh, verify_figures
+        verify_figures(root, report)
+        readme = refresh(authored, clean_source, clean_report, checkpoint_id)
+    else:
+        readme = make_readme(clean_source, clean_report, checkpoint_id)
     body = pr_body(readme, branch)
     deck = slide_content(readme)
     for label, value in (("source", clean_source), ("report", clean_report), ("README", readme), ("slides", deck)):
@@ -265,19 +301,35 @@ def prepare(run_dir, root, checkpoint_id=None, branch="aluk/geospatial-build-loo
     write_json(destination / "report.json", clean_report)
     history_readme = readme.replace(f"(runs/{checkpoint_id}/report.json)", "(report.json)")
     history_readme = history_readme.replace("(inputs/requirements.md)", "(requirements.md)")
-    for name in ("RUNTIME.md", "FIXTURES.md", "STOPS.md", "checkpoint.pdf", "checkpoint.pptx", "PR_BODY.md"):
+    for name in ("RUNTIME.md", "FIXTURES.md", "WORKFLOWS.md", "STOPS.md", "checkpoint.pdf", "checkpoint.pptx", "PR_BODY.md"):
         history_readme = history_readme.replace(f"(docs/{name})", f"({name})")
     history_readme = history_readme.replace("(BUILD_LOOP.md)", "(../../BUILD_LOOP.md)")
+    history_readme = history_readme.replace("(docs/figures/", "(figures/")
+    history_readme = history_readme.replace("(proposal/runtime-behavior.md)", "(RUNTIME-BEHAVIOR.md)")
+    history_readme = history_readme.replace("(proposal/runtime-open-decisions.md)", "(RUNTIME-OPEN-DECISIONS.md)")
+    history_readme = history_readme.replace("(DATASETS.md)", "(../../DATASETS.md)")
     (destination / "README.md").write_text(history_readme, encoding="utf-8", newline="\n")
     (root / "README.md").write_text(readme, encoding="utf-8", newline="\n")
     (docs / "PR_BODY.md").write_text(body, encoding="utf-8", newline="\n")
     (destination / "PR_BODY.md").write_text(body, encoding="utf-8", newline="\n")
     write_json(docs / "slides.json", deck)
-    for name in ("RUNTIME.md", "FIXTURES.md", "STOPS.md", "AGENT-BRIEF.md"):
+    if (run_dir / "dataset-catalog.json").exists():
+        catalog_text = (run_dir / "dataset-catalog.json").read_text(encoding="utf-8")
+        scan_text(catalog_text, "dataset catalog")
+        (destination / "dataset-catalog.json").write_text(catalog_text, encoding="utf-8", newline="\n")
+    for name in ("RUNTIME.md", "FIXTURES.md", "WORKFLOWS.md", "STOPS.md", "AGENT-BRIEF.md"):
         text = (run_dir / name).read_text(encoding="utf-8")
         scan_text(text, name)
         (docs / name).write_text(text, encoding="utf-8", newline="\n")
         (destination / name).write_text(text, encoding="utf-8", newline="\n")
+    if "runtime_contract" in report:
+        if sha(run_dir / "RUNTIME-BEHAVIOR.md") != report["runtime_contract"]["sha256"]:
+            raise ValueError("Runtime prose changed since the run.")
+        for name in ("RUNTIME-BEHAVIOR.md", "RUNTIME-OPEN-DECISIONS.md"):
+            shutil.copyfile(run_dir / name, docs / name)
+            shutil.copyfile(run_dir / name, destination / name)
+    if "<!-- narrative:v2 -->" in readme:
+        shutil.copytree(docs / "figures", destination / "figures")
     (destination / "requirements.md").write_text(source["allowed_text"], encoding="utf-8", newline="\n")
     manifest = {"checkpoint": checkpoint_id, "proposal_commit": source["commit"],
                 "implementation_revision": report["implementation"]["revision"],
@@ -306,6 +358,29 @@ def verify(root, require_slides=True):
     actual = {p.relative_to(root).as_posix(): sha(p) for p in source_files(root)}
     if actual != report["source_files"]:
         raise ValueError("Source changed after preparation; rerun before publication.")
+    if "runtime_contract" in report:
+        for path in (root / report["runtime_contract"]["path"], root / "docs" / "RUNTIME-BEHAVIOR.md", report_path.parent / "RUNTIME-BEHAVIOR.md"):
+            if sha(path) != report["runtime_contract"]["sha256"]:
+                raise ValueError("Runtime prose differs from tested derivation.")
+        for path in (root / "docs" / "RUNTIME-OPEN-DECISIONS.md", report_path.parent / "RUNTIME-OPEN-DECISIONS.md"):
+            if sha(path) != report["source_files"]["proposal/runtime-open-decisions.md"]:
+                raise ValueError("Open runtime decisions differ from the run.")
+    if "<!-- narrative:v2 -->" in readme:
+        from geobuild.narrative import verify_figures
+        verify_figures(root, report)
+        for path in (root / "docs" / "figures").iterdir():
+            if path.is_file() and sha(path) != sha(report_path.parent / "figures" / path.name):
+                raise ValueError("Archived figures differ from the delivered run.")
+    if "dataset_inventory" in report:
+        from geobuild.datasets import render_workflows
+        catalog_file = report_path.parent / "dataset-catalog.json"
+        if sha(catalog_file) != report["dataset_inventory"]["catalog_sha256"]:
+            raise ValueError("Workflow catalog changed after preparation.")
+        source = json.loads((root / "inputs" / "requirements.json").read_text(encoding="utf-8"))
+        expected_workflows = render_workflows(source, report)
+        for path in (root / "docs" / "WORKFLOWS.md", report_path.parent / "WORKFLOWS.md"):
+            if path.read_text(encoding="utf-8") != expected_workflows:
+                raise ValueError("Workflow explanation changed after preparation.")
     if require_slides:
         receipt = json.loads((root / "docs" / "deck-receipt.json").read_text(encoding="utf-8"))
         if receipt["readme_sha256"] != manifest["readme_sha256"]:

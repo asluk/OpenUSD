@@ -5,7 +5,8 @@
   "schema_basis": [
     "Supplied schema direction: Esri's CRS definition prim and binding API; hierarchical binding relationship; reset behavior belongs to runtime and is not newly authored. The public runtime contract still needs to record the remaining rules.",
     "Implementation experiment uses GeospatialCRS, crs:wkt and crs:binding. The relationship spelling, empty-binding policy, forwarding and cardinality must appear in an accepted design before this is a schema implementation. Tests do not decide them.",
-    "Only Terms, functional requirements, the numbered open-question table and future explicit decision paragraphs are normative build inputs. Older proposal runtime prose and retired runtime/data-model branches are excluded."
+    "Only Terms, functional requirements, the numbered open-question table and future explicit decision paragraphs are normative build inputs. Older proposal runtime prose and retired runtime/data-model branches are excluded.",
+    "The dataset/workflow catalog is authorized fixture scope, not a specification source. Earlier raw assets and use cases may be examined; retired runtime/schema/converter code and old expected results remain excluded from derivation."
   ],
   "contracts": [
     {
@@ -16,7 +17,6 @@
         3,
         4
       ],
-      "behavior": "Keep complete CRS definitions distinct from object placement. Definitions may describe site calibration. Distinguish datum reference epoch, coordinate epoch and animation sample time; do not supply an absent epoch.",
       "implementation": "Engine accepts complete WKT only; increment 1 supports the WGS 84 geographic-3D/geocentric conversion. General CRS/epoch and site-grid operations remain unimplemented.",
       "evidence": [
         "E03",
@@ -26,7 +26,8 @@
       "stops": [
         "S02",
         "S06"
-      ]
+      ],
+      "runtime_section": "CRS definitions and coordinate metadata"
     },
     {
       "id": "C02",
@@ -36,16 +37,19 @@
         7,
         8
       ],
-      "behavior": "Read CRS definitions and binding scope from the composed stage. A nested declaration overrides the enclosing scope. Equivalent composed data must give equivalent CRS interpretation. Preserve imported coordinates and their native CRS.",
       "implementation": "Read-only single-target relationship inspector. Stock USD resolves relationship opinions and remaps reference paths. It does not identify position carriers or implement asset/project placement.",
       "evidence": [
-        "E01"
+        "E01",
+        "E08",
+        "E09",
+        "E10"
       ],
       "stops": [
         "S01",
         "S02",
         "S07"
-      ]
+      ],
+      "runtime_section": "Composed declarations and scope"
     },
     {
       "id": "C03",
@@ -58,18 +62,21 @@
         14,
         15
       ],
-      "behavior": "Separate absolute positions from ordinary offsets; nested positions cut off ancestor placement. Descendant offsets use the position CRS's axes and scale. No angle is a scene length; scene units/up axis remain authored; asset conformance and survey placement are separate.",
       "implementation": "No anchor decoding, offset basis, placement matrix or scene-unit correction is implemented. These require the decisions listed below. The AECO example is checked only as an existing stock-USD fixture.",
       "evidence": [
         "E02",
-        "E06"
+        "E06",
+        "E07",
+        "E08",
+        "E10"
       ],
       "stops": [
         "S01",
         "S02",
         "S03",
         "S07"
-      ]
+      ],
+      "runtime_section": "Positions, offsets and asset conventions"
     },
     {
       "id": "C04",
@@ -78,15 +85,17 @@
         17,
         18
       ],
-      "behavior": "A resolution produces one output CRS shared by all consumers without needing a renderer. Reporting an already resolved position in another supported CRS is distinct from selecting the scene resolution target. Relative queries operate on resolved placements.",
       "implementation": "Engine protocol and PROJ adapter for explicit named-coordinate reporting; no renderer. No scene-target precedence, resolved-stage store or relative-placement query yet.",
       "evidence": [
-        "E03"
+        "E03",
+        "E07",
+        "E09"
       ],
       "stops": [
         "S01",
         "S04"
-      ]
+      ],
+      "runtime_section": "Shared resolved results and coordinate queries"
     },
     {
       "id": "C05",
@@ -94,16 +103,19 @@
         19,
         20
       ],
-      "behavior": "Read composed authored data without editing it. Evaluate a sampled native position before converting it; do not interpolate converted samples as a replacement. Export is a separate operation recording output CRS and sampling, without double transformation on re-resolution.",
       "implementation": "Binding inspection is read-only. Analytic regression demonstrates the path difference in requirement 20, Positions between recorded moments, but does not implement an authored geographic carrier, USD sampling or baking.",
       "evidence": [
         "E01",
-        "E05"
+        "E05",
+        "E08",
+        "E09",
+        "E10"
       ],
       "stops": [
         "S01",
         "S05"
-      ]
+      ],
+      "runtime_section": "Time evaluation and authored-scene preservation"
     },
     {
       "id": "C06",
@@ -111,15 +123,17 @@
         21,
         28
       ],
-      "behavior": "Reject an uncomputable or incomplete operation rather than return a substitute placement. Separate authored-data diagnostics from engine failures; retain source. Successful output reports the actual operation and engine-attributed accuracy independently from measured residuals.",
       "implementation": "Explicit unsupported/unreadable/domain/batch failures in a bounded PROJ adapter, no ballpark operations, best-available check and operation provenance. This is not general missing-grid or datum-operation support.",
       "evidence": [
         "E03",
-        "E04"
+        "E04",
+        "E07",
+        "E08"
       ],
       "stops": [
         "S06"
-      ]
+      ],
+      "runtime_section": "Failures and operation provenance"
     },
     {
       "id": "C07",
@@ -128,7 +142,6 @@
         23,
         24
       ],
-      "behavior": "Support project sizes without assuming a single flat plane; preserve authored asset-relative detail. A placement approximation needs both a distance bound and the extent where it holds.",
       "implementation": "No approximation algorithm or acceptance tolerance has been selected. Analytic global coordinate probes are component checks, not site/regional/global scene coverage.",
       "evidence": [
         "E03"
@@ -137,7 +150,8 @@
         "S03",
         "S04",
         "S06"
-      ]
+      ],
+      "runtime_section": "Project scale, local detail and placement extent"
     },
     {
       "id": "C08",
@@ -146,31 +160,32 @@
         26,
         27
       ],
-      "behavior": "Geospatial information leaves the scene seen by an unaware consumer unchanged. A discoverable dependency declaration covers every placed object. Validate what can be known from authored intent; do not claim to infer wrong but plausible survey coordinates.",
       "implementation": "Stock-USD transform invariance and dangling-binding diagnostics are tested. Dependency encoding, complete validator and usdchecker registration remain pending.",
       "evidence": [
         "E01",
-        "E02"
+        "E02",
+        "E09"
       ],
       "stops": [
         "S01",
         "S05",
         "S07"
-      ]
+      ],
+      "runtime_section": "Dependency discovery and authored-data validation"
     },
     {
       "id": "C09",
       "requirements": [
         29
       ],
-      "behavior": "Independent implementations using different engines report agreement as an output-unit distance at a stated coordinate magnitude, with operation identity so operation selection is not confused with numerical drift.",
       "implementation": "Repeatable snapshot/brief/trace/test/report pipeline. PROJ numerical residuals are measured against analytic checks. No second-engine or OpenUSD/OV implementation agreement is claimed.",
       "evidence": [
         "E03"
       ],
       "stops": [
         "S06"
-      ]
+      ],
+      "runtime_section": "Agreement between implementations"
     }
   ],
   "evidence": [
@@ -247,6 +262,60 @@
         4,
         14,
         15,
+        19
+      ]
+    },
+    {
+      "id": "E07",
+      "test_prefix": "test_workflow_locations_",
+      "kind": "geographically diverse analytic component probes",
+      "oracle": "Fresh WGS 84 ellipsoid calculations for five retained locations and seeded generated locations. No previous projected outputs or thresholds.",
+      "expectation": "Explicit geographic coordinate reporting agrees within the existing component numerical tolerance; axis and height variations exercise one engine path.",
+      "limit": "Projected CRS families and provider-certified survey controls remain pending. These are diagnostic coordinates, not a chosen USD position carrier.",
+      "requirements": [
+        13,
+        18,
+        28
+      ]
+    },
+    {
+      "id": "E08",
+      "test_prefix": "test_workflow_railway_",
+      "kind": "original external railway intake and anchor probes",
+      "oracle": "Pinned provider assets and independently calculated geographic anchor coordinates.",
+      "expectation": "Original geometry/imagery can be read unchanged; source lat-first attributes are explicitly decoded; anchor reporting agrees analytically.",
+      "limit": "No adopted legacy schema or converter; no full rail/tile placement, orientation or independent survey accuracy claim.",
+      "requirements": [
+        8,
+        13,
+        19,
+        28
+      ]
+    },
+    {
+      "id": "E09",
+      "test_prefix": "test_workflow_field_",
+      "kind": "local scalar-field intake and stock USD visualization overlay",
+      "oracle": "Original scalar values, source hash, stock USD composition and constructed WGS 84 coordinate probes.",
+      "expectation": "Read all field samples without modifying the source; preserve the base data when adding/removing glyph geometry.",
+      "limit": "File provenance/units/CRS are incomplete. Geographic coordinates at height zero are explicitly diagnostic assumptions; no scientific or full-runtime validation.",
+      "requirements": [
+        7,
+        17,
+        19,
+        25
+      ]
+    },
+    {
+      "id": "E10",
+      "test_prefix": "test_workflow_geojson_",
+      "kind": "original railway source-to-USD preservation checks",
+      "oracle": "User-supplied original GeoJSON feature identities and coordinate arrays, compared directly with the provider USD; no previous converter or resolved result.",
+      "expectation": "Every original feature ID is present once, geometry kinds agree, LineString vertex counts are retained and first coordinates equal source anchors after explicit axis reordering.",
+      "limit": "Does not validate polygon topology or interior vertex placement. Source EPSG:4326 does not establish the third ordinate vertical datum or epoch.",
+      "requirements": [
+        8,
+        13,
         19
       ]
     }
@@ -394,5 +463,11 @@
       "owner": "NVIDIA drafts; Tamrat/schema reviewers decide"
     }
   ],
-  "next_increment": "Resolve the position-carrier and scope decisions first; then derive anchor decoding and a read-only resolved representation, validate placement against partner controls, and add OpenUSD and independent OV consumers. In parallel expand explicitly supported PROJ operations with real grid/domain/epoch tests. Do not read retired runtime branches."
+  "next_increment": "Resolve the position-carrier and scope decisions first; then derive anchor decoding and a read-only resolved representation, validate placement against partner controls, and add OpenUSD and independent OV consumers. In parallel expand explicitly supported PROJ operations with real grid/domain/epoch tests. Do not import retired runtime or converter implementations. Use WORKFLOWS.md to select a concrete next demonstration and its independent controls. Dataset intake and geographic probes can advance while dependent placement decisions remain open.",
+  "runtime_document": {
+    "path": "proposal/runtime-behavior.md",
+    "sha256": "ba400cf0c11e3d1feb016e20af4172f26b7060a6ea19c66303c1f77292b67058",
+    "status": "proposed normative text; draft and incomplete",
+    "open_decisions": "proposal/runtime-open-decisions.md"
+  }
 }
