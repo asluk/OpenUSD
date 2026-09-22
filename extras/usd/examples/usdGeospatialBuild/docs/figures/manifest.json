@@ -1,0 +1,11 @@
+{
+  "evidence_key": "171b32cf0dbf8106dae80eabc4f91683610f0b8ab14934ae591b693c7f48f857",
+  "dataset_catalog_sha256": "5f917601fa872ac1434ecbf92ef610709f0b471f1cc3162bee28c8898f9598c0",
+  "files": {
+    "railway.png": "a64d4eac2c24021e34b281bb35c606f66de25f771dd140b0e5cd968f5faf8af9",
+    "interpolation.png": "eb01599d382d2711ce9ac3e7b4511a7212690e7676404bf97f0bf336744d9318",
+    "field.png": "9d32fd18447115199f7fb3de91e132cf073bbe3f385fabb67c90f3a8157631f3",
+    "site.png": "9cae860548c02d246c1f0b9a426e22ef677680a165caee924c4d8b1df494c138",
+    "extent.png": "25b4e95f2ed4dd9e448cf4f8e28aaeb78c2e16103488ac88143f96ade5af506c"
+  }
+}

@@ -1,0 +1,835 @@
+{
+  "started_utc": "2026-09-22T00:30:23.432278+00:00",
+  "proposal_commit": "eab823f46dad7c959019e5ce1851c8295c2a3701",
+  "allowed_sha256": "2b5049bc84b8286f2f4dc59305290c7633df304c1261e695104dd3cc1208fad6",
+  "derivation_current": true,
+  "approval": "draft; partner approval not inferred",
+  "tests": [
+    {
+      "name": "test_binding_composed_reference_flatten_and_sublayer",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_nested_override_and_no_mutation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_stronger_opinion_and_forwarding",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets0]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets1]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets2]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets3]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_additive_metadata_leaves_stock_transform_unchanged",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_analytic_global_points_and_provenance",
+      "status": "passed",
+      "properties": {
+        "max_residual_m": "0.0",
+        "max_coordinate_magnitude_m": "6378147.0",
+        "operation": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric) (with axis order normalized for visualization)",
+        "engine_accuracy_m": "unknown"
+      }
+    },
+    {
+      "name": "test_engine_analytic_geographic_reporting",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad0]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad1]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad2]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad3]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad4]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_codes_unsupported_and_empty",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_unavailable_best_operation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_partial_result",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_native_sample_midpoint_before_conversion",
+      "status": "passed",
+      "properties": {
+        "wrong_order_chord_depth_m": "971.4211582997814"
+      }
+    },
+    {
+      "name": "test_aeco_partner_stated_origin_and_conformance",
+      "status": "passed",
+      "properties": {
+        "origin_residual_m": "0.0",
+        "height_m": "299.9999946774461"
+      }
+    },
+    {
+      "name": "test_aeco_wkt_library_and_calibration_origin",
+      "status": "passed",
+      "properties": {
+        "calibration_origin_residual_m": "1.3394456140890982e-06"
+      }
+    },
+    {
+      "name": "test_public_guard_rejects_backlinks_and_private_paths",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_public_guard_allows_pinned_source_files_and_requirements",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_readme_is_the_source_for_summaries",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_checkpoints_are_immutable",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_rejects_changed_source",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_rejects_failed_or_stale_runs[TEST_FAILURE]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_rejects_failed_or_stale_runs[DERIVATION_STALE]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_public_report_omits_local_access_information",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_portable_input_rejects_changed_text",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_preserves_workflow_evidence[None]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_preserves_workflow_evidence[catalog]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_preserves_workflow_evidence[evidence]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_source_extraction_excludes_legacy_runtime",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_fixture_import_ignores_archive_paths_and_scripts",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_changed_requirement_invalidates_derivation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_duplicate_frozen_identifier_is_rejected",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_changed_runtime_prose_invalidates_derivation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_changed_source_cycle_stops_before_tests_and_rejects_dirty_input",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_narrative_preserves_authored_argument_and_derives_summaries",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_narrative_refuses_missing_workflow_evidence",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_figures_are_bound_to_run_and_bytes",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_workflow_locations_retained_and_generated",
+      "status": "passed",
+      "properties": {
+        "retained_locations": "5",
+        "generated_locations": "32",
+        "max_analytic_residual_m": "0.0"
+      }
+    },
+    {
+      "name": "test_workflow_railway_source_inventory_and_anchor_reporting",
+      "status": "passed",
+      "properties": {
+        "curve_prims": "186",
+        "curve_vertices": "3526",
+        "geographic_source_anchors": "1476",
+        "anchor_probe_residual_m": "0.0"
+      }
+    },
+    {
+      "name": "test_workflow_geojson_source_to_usd_identity_and_anchors",
+      "status": "passed",
+      "properties": {
+        "matched_feature_ids": "1473",
+        "geometry_counts": "{\"LineString\": 186, \"MultiPolygon\": 56, \"Polygon\": 1231}",
+        "matched_linestring_vertices_by_count": "3526",
+        "first_coordinate_anchor_component_delta": "0",
+        "scope": "Identity, geometry kind, curve vertex counts and anchors; interior vertex placement not validated"
+      }
+    },
+    {
+      "name": "test_workflow_field_coordinate_probe",
+      "status": "passed",
+      "properties": {
+        "field_shape": "(37, 72)",
+        "samples": "2664",
+        "analytic_probe_residual_m": "0.0",
+        "scope": "Constructed WGS 84 height-zero probe; source units and geodetic provenance unknown"
+      }
+    },
+    {
+      "name": "test_workflow_field_removable_geometry_overlay",
+      "status": "passed",
+      "properties": {
+        "overlay_samples": "3",
+        "scope": "Stock USD data preservation and removable overlay; geospatial placement is pending"
+      }
+    },
+    {
+      "name": "test_dataset_integrity_rejects_changed_input_and_paths",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_geojson_rejects_duplicate_ids_and_invalid_coordinates",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_workflow_checks_never_imply_complete_validation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_public_dataset_inventory_omits_local_access",
+      "status": "passed",
+      "properties": {}
+    }
+  ],
+  "status": "NEEDS_DECISIONS_AND_EVIDENCE",
+  "source_files": {
+    ".gitattributes": "f79c694d2d99515f9e36bd25f62fbefa50864a96f25f6a16add7e367108cd7eb",
+    ".gitignore": "8825c08eea352605d4b3eb0d712902b45d453a5f7020bad5ad5e597030e01170",
+    "build_deck.mjs": "2ffc7dc0bbae0181d0e1d328a6e65a1d8cc2b506f0dd513d2816455aad60c3f4",
+    "BUILD_LOOP.md": "7a209816a2159f2efecead0a198c48e4d09504debb76a97cdbf129058dd1b4b0",
+    "dataset-catalog.json": "2534a0d8308290e5038960965f4fbf7b4ad64843d4a24cc79f6032cdff428a96",
+    "DATASETS.md": "40a3c55fc7d91b78188b6c5662ea145ab552227d86def2addab1f7bd39bd586f",
+    "datasets.py": "7f3b55c7ce1707b81f9edac4213af757cf61f9c24d7ef276f850e1ccd69103cd",
+    "deliver.py": "07c7628faebc2b07ad6637c0b71d0c85aba6d309b1325b2fe54d7ce909dd8cba",
+    "derivation.json": "8b0622be257ff9189896ae333e481619533600bf0718af40199e386a76f48915",
+    "figures.py": "820d4fa006b0a310528a6108136309e9f9f25ac3678009394e10afad13281fa8",
+    "geobuild/__init__.py": "026efb63701f2bb7b78929d18619dc0d1730389de9ac6fef4716024f63e16128",
+    "geobuild/bindings.py": "3cf60260ec55a8c16d47521560fa9220817f409a6c18d4d3fe890c6ec14f7f09",
+    "geobuild/contract.py": "6e1f8ff1e67a60200ebc05e2620593d696072540c8f45ffcc1af8d9978b3918e",
+    "geobuild/datasets.py": "413ec844be463f3024b519740f7a66b072a62189466e8d5359a3b2d2ef285315",
+    "geobuild/delivery.py": "d8c54a3cebb221846ba0809d4ed3fcb8a358cbc1cc896363e0688e97d35a2f43",
+    "geobuild/engine.py": "4bd143ba7929ec17f5f977f57768d61767879a67cac3a8215375e30a853fa3c6",
+    "geobuild/fixtures.py": "475311ab8592e3644b37d1e55dac426f6eda535891b9b97026ab5fc7bb84b958",
+    "geobuild/narrative.py": "73ccaed1b17e1f09ee68120e237f87ea7df82bc3b63830e888b04c839693b932",
+    "geobuild/source.py": "c339ae3e54df16cad5098426e16b9ac1a8f73ac31e631ab62e2ccc8287d1f997",
+    "package.json": "f453f6292ae787338301a3107f470036a052d5041df7869f756e6d60f09bc575",
+    "proposal/runtime-behavior.md": "ba400cf0c11e3d1feb016e20af4172f26b7060a6ea19c66303c1f77292b67058",
+    "proposal/runtime-open-decisions.md": "8903913cb224ee6a9b898a8496d71eb6bc9cf3720336965d606ab4d411a69ccc",
+    "pytest.ini": "061b37822487deda44ab30227354f3d039f9b8a001aefa6281857bcc9ce73b09",
+    "requirements-datasets.txt": "24ceef96a01b00d6881ab3cb6b5fda8b9d0ded7421f74c647215bf76db3886cb",
+    "requirements-delivery.txt": "28a520be66fa43e2a49f8718c59006a3057a6393d927f786236a73d5f33f1825",
+    "requirements.txt": "63844006f25f06d82c5e8bcd6b9e2bde9899cc865f7d5ebfafc8977abfb7b867",
+    "Run-BuildLoop.ps1": "39dce226db18a6b1e9f9c40c35e560d2eefcfb82f5333b8173ba40d376035f64",
+    "run.py": "62421b024a34bd4d4fae3c8bd0749e63b2823434f5a3b85ab7175cd227f21886",
+    "tests/test_components.py": "d3953274d2ad5d51bf1b72128d0d1cbc2c5b090866e6dc3cd6c42edcceadd508",
+    "tests/test_delivery.py": "26d45d413e0e09ead0fbae13ea05e8aba798898089dc5de17f9bdea0e3dd09b9",
+    "tests/test_loop.py": "351067bdce84845507b13901beabf7139aeec210b2162ecae7c591646fd9e3c8",
+    "tests/test_narrative.py": "2ad316f03775c45b2dee60d395e0792893df97532b7076e99b74ee2724b75cca",
+    "tests/test_workflows.py": "0f3ed7836502f927cde50e2b6995b343c7a0d1353601a55a1077f5a7c41a8c76"
+  },
+  "test_exit_code": 0,
+  "implementation": {
+    "revision": "3030417f3c350f5ba9d43afbce450a155227e4b6",
+    "source_dirty": false
+  },
+  "stop_count": 7,
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "usd-core": "26.8",
+      "pyproj": "3.8.0",
+      "pytest": "9.1.1",
+      "h5py": "3.16.0",
+      "numpy": "2.5.3"
+    }
+  },
+  "dataset": {
+    "sha256": "baf9f94821a3f37efd3a2eca35672e3d481ac9948bf95b8f0ffc025eaad8de28",
+    "origin": "Sébastien Vielliard, AECO example received 2026-09-16",
+    "redistribution": "not established; kept local",
+    "role": "partner-authored stock-USD baseline; not an approved scene-resolution fixture"
+  },
+  "dataset_inventory": {
+    "catalog_sha256": "2534a0d8308290e5038960965f4fbf7b4ad64843d4a24cc79f6032cdff428a96",
+    "datasets": [
+      {
+        "id": "geographic-locations",
+        "label": "Five geographic locations and fresh generated cases",
+        "status": "available",
+        "kind": "analytic stimuli",
+        "provenance": "Locations retained from the earlier dataset inventory. Heights are diagnostic inputs, not certified survey observations. Expected ECEF is recomputed from WGS 84 ellipsoid equations. Projected variants are future coverage, not accepted control coordinates.",
+        "files": []
+      },
+      {
+        "id": "railway",
+        "label": "Deutsche Bahn railway and three map tiles",
+        "status": "available",
+        "kind": "external authored asset",
+        "provenance": "Original NVIDIA OpenUSD-plugin-samples data, fetched directly at a pinned revision. Read the original Omniverse attributes only as source encoding. No previous converter, resolver or schema is imported.",
+        "files": [
+          {
+            "path": "railway/deutschebahn-rails.usda",
+            "sha256": "7a4e1eb57bcf47a4c2819b2a7979376149e71207ba1da9a01498cf1a4c94ff35",
+            "present": true
+          },
+          {
+            "path": "railway/quadnode-0.png",
+            "sha256": "bdd6fe491467c2b48630a070627b4d9c039de9821b2f5432240657c42449a8c1",
+            "present": true
+          },
+          {
+            "path": "railway/quadnode-1.png",
+            "sha256": "3a548407a6e7bffde0b4f5d88c3dc4c121d3190fd6d9bcde6a4be75f826e7544",
+            "present": true
+          },
+          {
+            "path": "railway/quadnode-4.png",
+            "sha256": "1c0903de6e254d88f85b288ad6600176aa046b80e35c91ba862ab020df1e4866",
+            "present": true
+          },
+          {
+            "path": "railway/LICENSE",
+            "sha256": "bdbde1d68426160fa7d42081d616372a745f49e333ac3d184b33050f00315a0d",
+            "present": true
+          }
+        ]
+      },
+      {
+        "id": "railway-geojson",
+        "label": "Original railway GeoJSON supplied by Aaron",
+        "status": "available",
+        "kind": "original source features; local only",
+        "provenance": "User-supplied original railway FeatureCollection. Declares EPSG:4326 and stores longitude/latitude/third-ordinate triples. Vertical datum and epoch are not specified; the third ordinate must not be silently treated as ellipsoidal height for acceptance. Properties are data, never execution instructions.",
+        "files": [
+          {
+            "path": "railway-source/1kmE4334N3375.geojson",
+            "sha256": "885026bb98e36bfd259fece09c4218496f6b20ba463525d746e9299e0edb12b7",
+            "present": true
+          }
+        ]
+      },
+      {
+        "id": "scalar-field",
+        "label": "Earlier scalar-field sample named gfs_t2m.nc",
+        "status": "available",
+        "kind": "local sample with unverified scientific provenance",
+        "provenance": "Local 37 by 72 HDF5 sample. The file lacks source, forecast time, CRS and units metadata. Its filename does not establish NOAA GFS provenance. Retained for scalar-data handling and explicit diagnostic coordinate probes only.",
+        "files": [
+          {
+            "path": "scalar-field/gfs_t2m.nc",
+            "sha256": "025136ab8f2852968e87e58e159cd9167649d84e6ed94501899f7da9c0525c9e",
+            "present": true
+          }
+        ]
+      },
+      {
+        "id": "ncat-candidates",
+        "label": "New York cross-CRS control candidates",
+        "status": "needs_provider_record",
+        "kind": "unverified control candidates",
+        "provenance": "Earlier notes attribute these to NOAA NCAT but the provider response, input/output realizations and epoch are absent. Never grade a new resolver against these until that provenance is recovered.",
+        "files": []
+      },
+      {
+        "id": "aeco",
+        "label": "Partner site, local calibration and Eiffel tower",
+        "status": "available",
+        "kind": "partner stock-USD baseline",
+        "provenance": "Existing separately supplied attachment and intake checks. No reference-binding or authored-reset convention is adopted.",
+        "files": []
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "id": "W01",
+      "title": "Imported railway aligned with map tiles",
+      "datasets": [
+        "railway",
+        "railway-geojson"
+      ],
+      "requirements": [
+        7,
+        8,
+        9,
+        10,
+        13,
+        15,
+        19,
+        24
+      ],
+      "tests": [
+        "test_workflow_railway_",
+        "test_workflow_geojson_"
+      ],
+      "question": "Can imported infrastructure retain its native data and align with a separately placed map?",
+      "demonstration": "Show the same rails and tile corners before and after scene resolution, with residuals and a deliberately wrong axis/frame control.",
+      "oracle": "Provider controls and independently derived placement once the source frame and current position/offset rules are established. Anchor-only checks use ellipsoid equations.",
+      "remaining": "Current checks compare original GeoJSON IDs, geometry types, curve vertex counts and first-coordinate anchors with the provider USD, and inspect its geometry/imagery unchanged. Complete vertex placement, orientation, map alignment and vertical reference remain pending.",
+      "stops": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "status": "COMPONENT_EVIDENCE_ONLY",
+      "full_workflow_validated": false,
+      "dataset_status": {
+        "railway": "available",
+        "railway-geojson": "available"
+      },
+      "checks": [
+        {
+          "name": "test_workflow_railway_source_inventory_and_anchor_reporting",
+          "status": "passed"
+        },
+        {
+          "name": "test_workflow_geojson_source_to_usd_identity_and_anchors",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W02",
+      "title": "Non-geometric scalar field with a removable visualization",
+      "datasets": [
+        "scalar-field"
+      ],
+      "requirements": [
+        7,
+        9,
+        13,
+        17,
+        19,
+        25
+      ],
+      "tests": [
+        "test_workflow_field_"
+      ],
+      "question": "Can consumers visualize scalar observations while preserving their source data and georeferencing?",
+      "demonstration": "Keep scalar data in a base layer; add and remove a geometry-only overlay; compare resolved positions used by visualization and analysis.",
+      "oracle": "Byte-preserved source, stock USD composition and an analytic coordinate probe. Scientific and CRS provenance must come from the provider.",
+      "remaining": "Stock-USD overlay and diagnostic coordinates can run now. Accepted geospatial authoring and renderer/analysis agreement require a scene resolver and complete source metadata.",
+      "stops": [
+        "S01",
+        "S04",
+        "S06"
+      ],
+      "status": "COMPONENT_EVIDENCE_ONLY",
+      "full_workflow_validated": false,
+      "dataset_status": {
+        "scalar-field": "available"
+      },
+      "checks": [
+        {
+          "name": "test_workflow_field_coordinate_probe",
+          "status": "passed"
+        },
+        {
+          "name": "test_workflow_field_removable_geometry_overlay",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W03",
+      "title": "One place authored in several coordinate systems",
+      "datasets": [
+        "geographic-locations",
+        "ncat-candidates"
+      ],
+      "requirements": [
+        1,
+        3,
+        12,
+        13,
+        16,
+        18,
+        21,
+        28
+      ],
+      "tests": [
+        "test_workflow_locations_"
+      ],
+      "question": "Do independent source coordinates of one place resolve consistently across CRS families and hemispheres?",
+      "demonstration": "Co-register geographic, UTM and national/state-grid representations, displaying the reference uncertainty and a wrong-zone/axis control.",
+      "oracle": "Geographic probes use fresh ellipsoid calculations. Projected acceptance needs provider controls and valid datum/epoch operations; PROJ-generated inputs are not independent ground truth.",
+      "remaining": "Geographic reporting runs for five locations plus generated cases. Projected/national-grid conversion and independent NCAT controls remain pending.",
+      "stops": [
+        "S04",
+        "S06"
+      ],
+      "status": "COMPONENT_EVIDENCE_ONLY",
+      "full_workflow_validated": false,
+      "dataset_status": {
+        "geographic-locations": "available",
+        "ncat-candidates": "needs_provider_record"
+      },
+      "checks": [
+        {
+          "name": "test_workflow_locations_retained_and_generated",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W04",
+      "title": "Place and relocate a site with ordinary asset edits",
+      "datasets": [
+        "aeco"
+      ],
+      "requirements": [
+        4,
+        8,
+        9,
+        10,
+        11,
+        14,
+        15,
+        19,
+        24
+      ],
+      "tests": [
+        "test_aeco_"
+      ],
+      "question": "Can a building be placed in a calibrated project grid while retaining its own frame and ordinary modelling edits?",
+      "demonstration": "Show site calibration, orientation/unit conformance and local child edits; relocate the site and compare provider control points.",
+      "oracle": "Partner-supplied calibration and survey controls, with constructed edit cases separately identified.",
+      "remaining": "Existing stock-USD baseline runs. New placement, relocation, inclined planes and native/project CRS separation await decisions and controls.",
+      "stops": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "status": "COMPONENT_EVIDENCE_ONLY",
+      "full_workflow_validated": false,
+      "dataset_status": {
+        "aeco": "available"
+      },
+      "checks": [
+        {
+          "name": "test_aeco_partner_stated_origin_and_conformance",
+          "status": "passed"
+        },
+        {
+          "name": "test_aeco_wkt_library_and_calibration_origin",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W05",
+      "title": "Equivalent composed scenes and later edits",
+      "datasets": [
+        "railway",
+        "scalar-field"
+      ],
+      "requirements": [
+        5,
+        6,
+        7,
+        8,
+        19,
+        20
+      ],
+      "tests": [
+        "test_binding_",
+        "test_native_sample_"
+      ],
+      "question": "Does equivalent composed data resolve identically through layering, references and subsequent edits?",
+      "demonstration": "Compare equivalent composed scenes, then change a binding or time sample and show the affected results while source layers remain unchanged.",
+      "oracle": "Stock USD composed opinions and independently calculated sample positions.",
+      "remaining": "Binding/reference/flatten checks and the interpolation counterexample run. Broader arcs, instancing and runtime invalidation remain pending.",
+      "stops": [
+        "S01",
+        "S05",
+        "S07"
+      ],
+      "status": "COMPONENT_EVIDENCE_ONLY",
+      "full_workflow_validated": false,
+      "dataset_status": {
+        "railway": "available",
+        "scalar-field": "available"
+      },
+      "checks": [
+        {
+          "name": "test_binding_composed_reference_flatten_and_sublayer",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_nested_override_and_no_mutation",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_stronger_opinion_and_forwarding",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_invalid_nearer_binding_never_falls_back[targets0]",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_invalid_nearer_binding_never_falls_back[targets1]",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_invalid_nearer_binding_never_falls_back[targets2]",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_invalid_nearer_binding_never_falls_back[targets3]",
+          "status": "passed"
+        },
+        {
+          "name": "test_native_sample_midpoint_before_conversion",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W06",
+      "title": "Detail across locations and bounded placement extents",
+      "datasets": [
+        "geographic-locations",
+        "railway"
+      ],
+      "requirements": [
+        10,
+        14,
+        22,
+        23,
+        24
+      ],
+      "tests": [],
+      "question": "Can a small feature retain usable precision when the same asset moves around the globe or grows in extent?",
+      "demonstration": "Vary location, local detail and footprint independently; measure position, orientation, scale and precision errors.",
+      "oracle": "Independent control geometry and explicit workflow error budgets, never inherited prototype tolerances.",
+      "remaining": "Needs accepted placement basis, footprint limits and project suitability controls before a runtime acceptance test can be defined.",
+      "stops": [
+        "S03",
+        "S04",
+        "S06"
+      ],
+      "status": "AWAITING_IMPLEMENTATION",
+      "full_workflow_validated": false,
+      "dataset_status": {
+        "geographic-locations": "available",
+        "railway": "available"
+      },
+      "checks": []
+    },
+    {
+      "id": "W07",
+      "title": "Same resolved scene for independent consumers",
+      "datasets": [
+        "railway",
+        "scalar-field"
+      ],
+      "requirements": [
+        16,
+        17,
+        18,
+        28,
+        29
+      ],
+      "tests": [],
+      "question": "Do visualization, analytics and an independent runtime agree on one resolved scene?",
+      "demonstration": "Compare shared resolved positions through OpenUSD and OV, then a genuinely independent transformation engine, including operation provenance.",
+      "oracle": "Provider controls and analytic cases establish correctness; implementation agreement establishes consistency only.",
+      "remaining": "No complete scene resolver, OV adapter or independent second engine yet. A second wrapper around PROJ is not independent-engine evidence.",
+      "stops": [
+        "S04",
+        "S06"
+      ],
+      "status": "AWAITING_IMPLEMENTATION",
+      "full_workflow_validated": false,
+      "dataset_status": {
+        "railway": "available",
+        "scalar-field": "available"
+      },
+      "checks": []
+    },
+    {
+      "id": "W08",
+      "title": "Incorrect or unsupported inputs fail observably",
+      "datasets": [
+        "railway",
+        "aeco"
+      ],
+      "requirements": [
+        1,
+        3,
+        11,
+        12,
+        21,
+        25,
+        26,
+        27,
+        28
+      ],
+      "tests": [
+        "test_engine_reject_"
+      ],
+      "question": "Can a consumer explain why placement is unsafe instead of silently inventing a result?",
+      "demonstration": "Show malformed input, absent resources, ambiguous position/offset declarations and unaware consumers, alongside the smallest valid correction.",
+      "oracle": "Current requirements and deliberately malformed fixtures; diagnostics identify the unsupported operation or missing decision.",
+      "remaining": "Engine negative cases run. Authored-scene validation and dependency discovery await the agreed carrier and dependency mechanism.",
+      "stops": [
+        "S01",
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "status": "COMPONENT_EVIDENCE_ONLY",
+      "full_workflow_validated": false,
+      "dataset_status": {
+        "railway": "available",
+        "aeco": "available"
+      },
+      "checks": [
+        {
+          "name": "test_engine_reject_invalid_batch[bad0]",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_invalid_batch[bad1]",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_invalid_batch[bad2]",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_invalid_batch[bad3]",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_invalid_batch[bad4]",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_codes_unsupported_and_empty",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_unavailable_best_operation",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_partial_result",
+          "status": "passed"
+        }
+      ]
+    }
+  ],
+  "runtime_contract": {
+    "path": "proposal/runtime-behavior.md",
+    "sha256": "ba400cf0c11e3d1feb016e20af4172f26b7060a6ea19c66303c1f77292b67058",
+    "approval": "proposed normative text; draft and incomplete"
+  }
+}

@@ -1,0 +1,3 @@
+# Optional local scalar-field intake. Public coordinate and railway checks do not need this.
+h5py==3.16.0
+numpy==2.5.3

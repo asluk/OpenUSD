@@ -1,0 +1,79 @@
+{
+  "readme_sha256": "7f49781b36513aff2f602a87ca5600ad589859816434af8a2664edccc2a57f12",
+  "slides": [
+    {
+      "title": "Geospatial scenes with shared placement",
+      "lines": [
+        "Place railway data, a calibrated site and a removable scalar overlay while retaining their source data.",
+        "Headless queries, native Hydra/Storm and Omniverse Fabric consume the same evaluated placement.",
+        "Execute every workflow and test alternative rules; use the failures and discrepancies to improve the design."
+      ]
+    },
+    {
+      "title": "Railway source and scene identity",
+      "lines": [
+        "1,473 source features resolve with all 15,822 vertices, object identities and polygon rings checked.",
+        "Across 186 curves, offset-basis choice changes maximum mismatch from 16.71 cm to 41.7 micrometres.",
+        "Three map tiles share the output frame. Height interpretation is explicit; survey metadata remains unknown."
+      ],
+      "image": "docs/figures/railway.png",
+      "caption": "Resolved railway boundaries over the retained map tiles in the selected projected frame."
+    },
+    {
+      "title": "Native interpolation preserves the authored path",
+      "lines": [
+        "Both experimental position carriers interpolate recorded native coordinates before conversion.",
+        "Interpolating converted endpoints puts the equatorial midpoint 971.421 m inside the ellipsoid.",
+        "Edits invalidate evaluated results; explicit export records its CRS and sampled times."
+      ],
+      "image": "docs/figures/interpolation.png",
+      "caption": "Native interpolation and the erroneous Cartesian chord; axes use different units and vertical scale is exaggerated."
+    },
+    {
+      "title": "Scalar data and a removable visualization",
+      "lines": [
+        "All 2,664 scalar samples resolve; all 2,664 visualization markers are removed through the consumer update path.",
+        "Omniverse Fabric and native Hydra receive the same placements while source values remain unchanged.",
+        "Physical units, forecast origin, timestamp and source CRS metadata remain unverified."
+      ],
+      "image": "docs/figures/field.png",
+      "caption": "All scalar sample locations resolved into ECEF under the explicit WGS84/zero-height hypothesis; colors are raw values."
+    },
+    {
+      "title": "Site placement remains separate from asset conformance",
+      "lines": [
+        "The supplied local-grid calibration places the complete tower in Lambert-93 with IGN69 height.",
+        "Project relocation and a constructed incline change placement while the source asset stays unchanged.",
+        "The image is a real Storm render of the new native scene index; no retired geospatial plugin is loaded."
+      ],
+      "image": "docs/figures/site.png",
+      "caption": "Storm renders the resolved site asset directly from the native Hydra adapter."
+    },
+    {
+      "title": "Two runtime targets",
+      "lines": [
+        "Non-Hydra: read-only scene resolution, coordinate and relative-placement queries, bounds, edits and export.",
+        "Hydra: a compiled scene index with geometry, topology and change notices, rendered directly by Storm.",
+        "Omniverse Fabric is an additional real consumer; independent Karney arithmetic checks geodetic consistency."
+      ]
+    },
+    {
+      "title": "Design choices exercised by the complete run",
+      "lines": [
+        "Affine and pointwise placement are both implemented; extent sweeps reveal where one matrix loses fidelity.",
+        "Applying an ancestor transform after an absolute position produces a tested 1,000 m violation.",
+        "Missing grids or coordinate epochs fail observably; animation time never supplies a coordinate epoch."
+      ],
+      "image": "docs/figures/extent.png",
+      "caption": "Measured affine-versus-pointwise displacement as geometry footprint grows; bounds cover tested vertices."
+    },
+    {
+      "title": "Review requests",
+      "lines": [
+        "Approve the drafted functional requirements and select among the executed runtime alternatives.",
+        "Clarify the extent/bound domain, unit and offset basis, project placement and dependency/target rules.",
+        "Supply certified vertical/epoch metadata and control points where accuracy claims are required."
+      ]
+    }
+  ]
+}
