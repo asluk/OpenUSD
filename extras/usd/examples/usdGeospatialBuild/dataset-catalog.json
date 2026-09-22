@@ -189,12 +189,13 @@
       ],
       "tests": [
         "test_workflow_railway_",
-        "test_workflow_geojson_"
+        "test_workflow_geojson_",
+        "test_complete_W01_"
       ],
       "question": "Can imported infrastructure retain its native data and align with a separately placed map?",
       "demonstration": "Show the same rails and tile corners before and after scene resolution, with residuals and a deliberately wrong axis/frame control.",
       "oracle": "Provider controls and independently derived placement once the source frame and current position/offset rules are established. Anchor-only checks use ellipsoid equations.",
-      "remaining": "Current checks compare original GeoJSON IDs, geometry types, curve vertex counts and first-coordinate anchors with the provider USD, and inspect its geometry/imagery unchanged. Complete vertex placement, orientation, map alignment and vertical reference remain pending.",
+      "remaining": "Vertical datum/epoch and certified map controls remain unknown. The conditional run compares every source vertex and all map-tile placements; it reports the provider interior discrepancy.",
       "stops": [
         "S01",
         "S02",
@@ -216,12 +217,13 @@
         25
       ],
       "tests": [
-        "test_workflow_field_"
+        "test_workflow_field_",
+        "test_complete_W02_"
       ],
       "question": "Can consumers visualize scalar observations while preserving their source data and georeferencing?",
       "demonstration": "Keep scalar data in a base layer; add and remove a geometry-only overlay; compare resolved positions used by visualization and analysis.",
       "oracle": "Byte-preserved source, stock USD composition and an analytic coordinate probe. Scientific and CRS provenance must come from the provider.",
-      "remaining": "Stock-USD overlay and diagnostic coordinates can run now. Accepted geospatial authoring and renderer/analysis agreement require a scene resolver and complete source metadata.",
+      "remaining": "Physical units, forecast origin/time and source CRS metadata remain unverified. All samples and removal of all overlay prims execute under an explicit coordinate hypothesis.",
       "stops": [
         "S01",
         "S04",
@@ -246,12 +248,13 @@
         28
       ],
       "tests": [
-        "test_workflow_locations_"
+        "test_workflow_locations_",
+        "test_complete_W03_"
       ],
       "question": "Do independent source coordinates of one place resolve consistently across CRS families and hemispheres?",
       "demonstration": "Co-register geographic, UTM and national/state-grid representations, displaying the reference uncertainty and a wrong-zone/axis control.",
       "oracle": "Geographic probes use fresh ellipsoid calculations. Projected acceptance needs provider controls and valid datum/epoch operations; PROJ-generated inputs are not independent ground truth.",
-      "remaining": "Geographic reporting runs for five locations plus generated cases. Projected/national-grid conversion and independent NCAT controls remain pending.",
+      "remaining": "Agree the practitioner tolerance and operation policy. Independent arithmetic and scenes cover both hemispheres and mixed coordinate representations.",
       "stops": [
         "S04",
         "S06"
@@ -275,12 +278,13 @@
         24
       ],
       "tests": [
-        "test_aeco_"
+        "test_aeco_",
+        "test_complete_W04_"
       ],
       "question": "Can a building be placed in a calibrated project grid while retaining its own frame and ordinary modelling edits?",
       "demonstration": "Show site calibration, orientation/unit conformance and local child edits; relocate the site and compare provider control points.",
       "oracle": "Partner-supplied calibration and survey controls, with constructed edit cases separately identified.",
-      "remaining": "Existing stock-USD baseline runs. New placement, relocation, inclined planes and native/project CRS separation await decisions and controls.",
+      "remaining": "Approve native/project placement semantics and supply survey controls. Calibration, complete asset geometry, relocation and a synthetic incline execute.",
       "stops": [
         "S01",
         "S02",
@@ -304,12 +308,13 @@
       ],
       "tests": [
         "test_binding_",
-        "test_native_sample_"
+        "test_native_sample_",
+        "test_complete_W05_"
       ],
       "question": "Does equivalent composed data resolve identically through layering, references and subsequent edits?",
       "demonstration": "Compare equivalent composed scenes, then change a binding or time sample and show the affected results while source layers remain unchanged.",
       "oracle": "Stock USD composed opinions and independently calculated sample positions.",
-      "remaining": "Binding/reference/flatten checks and the interpolation counterexample run. Broader arcs, instancing and runtime invalidation remain pending.",
+      "remaining": "Approve carrier, binding and dependency-record policies. Seven composition arcs, edits, time, native instances, point instances and export execute.",
       "stops": [
         "S01",
         "S05",
@@ -330,11 +335,13 @@
         23,
         24
       ],
-      "tests": [],
+      "tests": [
+        "test_complete_W06_"
+      ],
       "question": "Can a small feature retain usable precision when the same asset moves around the globe or grows in extent?",
       "demonstration": "Vary location, local detail and footprint independently; measure position, orientation, scale and precision errors.",
       "oracle": "Independent control geometry and explicit workflow error budgets, never inherited prototype tolerances.",
-      "remaining": "Needs accepted placement basis, footprint limits and project suitability controls before a runtime acceptance test can be defined.",
+      "remaining": "Agree the offset basis and whether extent means authored vertices or a continuous surface. The run measures size/precision and compares affine with pointwise placement; no continuous bound is asserted.",
       "stops": [
         "S03",
         "S04",
@@ -355,11 +362,13 @@
         28,
         29
       ],
-      "tests": [],
+      "tests": [
+        "test_complete_W07_"
+      ],
       "question": "Do visualization, analytics and an independent runtime agree on one resolved scene?",
       "demonstration": "Compare shared resolved positions through OpenUSD and OV, then a genuinely independent transformation engine, including operation provenance.",
       "oracle": "Provider controls and analytic cases establish correctness; implementation agreement establishes consistency only.",
-      "remaining": "No complete scene resolver, OV adapter or independent second engine yet. A second wrapper around PROJ is not independent-engine evidence.",
+      "remaining": "Approve the shared consumer contract and independent-engine acceptance tolerance. Native Hydra/Storm, real Kit Fabric and independent Karney arithmetic execute.",
       "stops": [
         "S04",
         "S06"
@@ -384,12 +393,13 @@
         28
       ],
       "tests": [
-        "test_engine_reject_"
+        "test_engine_reject_",
+        "test_complete_W08_"
       ],
       "question": "Can a consumer explain why placement is unsafe instead of silently inventing a result?",
       "demonstration": "Show malformed input, absent resources, ambiguous position/offset declarations and unaware consumers, alongside the smallest valid correction.",
       "oracle": "Current requirements and deliberately malformed fixtures; diagnostics identify the unsupported operation or missing decision.",
-      "remaining": "Engine negative cases run. Authored-scene validation and dependency discovery await the agreed carrier and dependency mechanism.",
+      "remaining": "Approve empty-binding, target-conflict and operation-selection policy. Negative cases reject bad scope, absent epoch, missing resources and forbidden fallbacks.",
       "stops": [
         "S01",
         "S05",

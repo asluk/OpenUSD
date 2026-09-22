@@ -19,5 +19,5 @@ if ($CheckpointId) { $arguments += @('--checkpoint-id', $CheckpointId) }
 & $Python @arguments
 $runExitCode = $LASTEXITCODE
 Write-Host "Report: $(Join-Path $runDirectory 'REPORT.md')"
-Write-Host 'Exit 2 means the cycle finished with design/evidence gaps. It does not certify conformance.'
+Write-Host 'Exit 0 means every conditional workflow completed. Design approval and survey accuracy remain separate.'
 exit $runExitCode

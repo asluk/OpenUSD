@@ -139,6 +139,7 @@ def read_geojson(path):
                or not -180 <= p[0] <= 180 or not -90 <= p[1] <= 90 for p in points):
             raise ValueError("Invalid railway longitude/latitude/third ordinate")
         features.append({"id": identity, "geometry": kind, "parts": parts, "points": points,
+                         "polygon_ring_counts": [len(p) for p in coordinates] if kind == 'MultiPolygon' else [len(parts)] if kind == 'Polygon' else [],
                          "properties": feature["properties"]})
     return {"crs": doc.get("crs"), "features": features,
             "geometry_counts": dict(Counter(f["geometry"] for f in features))}
@@ -180,7 +181,11 @@ def workflow_evidence(catalog, report):
             status = "NOT_EXERCISED"
         else:
             status = "AWAITING_IMPLEMENTATION"
-        result.append({**workflow, "status": status, "full_workflow_validated": False,
+        full=[t for t in tests if t['name'].startswith('test_complete_'+workflow['id']+'_')]
+        validated=bool(full) and all(t['status']=='passed' for t in full) and report['derivation_current']
+        if validated:
+            status='CONDITIONAL_WORKFLOW_PASSED'
+        result.append({**workflow, "status": status, "full_workflow_validated": validated,
                        "dataset_status": {i: datasets[i]["status"] for i in workflow["datasets"]},
                        "checks": [{"name": t["name"], "status": t["status"]} for t in tests]})
     return result
@@ -190,7 +195,7 @@ def render_workflows(source, report):
     titles = {r["number"]: r["title"] for r in source["requirements"]}
     lines = ["# Datasets and workflow evidence", "",
              "Source data and workflows are reused; current requirements determine behavior and acceptance.",
-             "Passing intake/component checks does not validate a complete workflow.", "", "## Data available in this run", ""]
+             "A conditional workflow passes only when its full demonstration runs; policy choices and data interpretation remain explicit.", "", "## Data available in this run", ""]
     for item in report["dataset_inventory"]["datasets"]:
         lines += [f"- **{item['label']}**: {item['status']}. {item['provenance']}"]
     for workflow in report["workflows"]:
@@ -199,5 +204,5 @@ def render_workflows(source, report):
                   "Demonstration: " + workflow["demonstration"], "", "Reference: " + workflow["oracle"], "",
                   "This run: **" + workflow["status"] + "**. " +
                   (", ".join(t["name"] + ": " + t["status"] for t in workflow["checks"]) or "No runnable check yet."), "",
-                  "Remaining: " + workflow["remaining"], "", "Dependent decisions: " + ", ".join(workflow["stops"])]
+                  "Open design/interpretation questions: " + workflow["remaining"], "", "Dependent decisions: " + ", ".join(workflow["stops"])]
     return "\n".join(lines) + "\n"

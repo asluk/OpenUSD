@@ -1,188 +1,158 @@
-# usdGeospatial — runtime behavior and workflow evidence
+# usdGeospatial — complete experimental build
 
 <!-- narrative:v2 -->
 
 ## Geospatial scenes with shared placement
 
 <!-- slide -->
-- A railway, a site asset and a scalar field should retain their source coordinates while participating in one scene.
-- Rendering, world-position queries, bounds and physics need the same resolved placement.
+- Place railway data, a calibrated site and a removable scalar overlay while retaining their source data.
+- Headless queries, native Hydra/Storm and Omniverse Fabric consume the same evaluated placement.
+- Execute every workflow and test alternative rules; use the failures and discrepancies to improve the design.
 
-The functional requirements describe that outcome. This experiment derives the
-runtime rules needed to implement it, builds bounded components, and tests them
-against source data and independent references. This checkpoint establishes data
-identity and several component behaviors. It does not yet place a complete scene.
+This build starts with the functional requirements, derives proposed runtime
+behavior, implements explicitly labeled choices where the design is open, and
+executes the complete declared demonstration scope. Delivery is part of the run:
+this README supplies the review summary and slide deck. Design approval and survey
+accuracy remain separate from completing the implementation and demonstrations.
 
-The [runtime behavior draft](proposal/runtime-behavior.md) is the proposed normative
-description for specification review. The [open decisions](proposal/runtime-open-decisions.md)
-and [traceability report](docs/RUNTIME.md) separate unfinished rules from implementation evidence.
+Read the [runtime behavior draft](proposal/runtime-behavior.md),
+[executable candidate rules](proposal/runtime-experiments.md),
+[open decisions](proposal/runtime-open-decisions.md) and [workflow evidence](docs/WORKFLOWS.md).
 
 ## Railway source and scene identity
 
 <!-- slide -->
 <!-- evidence:railway -->
-- 1,473 source features match USD object identities and first-coordinate anchors.
-- 186 railway curves retain 3,526 vertices by count; interior placement is still unchecked.
+- All source features and vertices resolve; polygon rings and identities remain traceable.
+- Full curve comparison reports the provider USD's interior discrepancy, beyond matching anchors.
 <!-- /evidence:railway -->
-- These checks establish what survived conversion; they do not establish resolved rails-on-map placement.
+- Three map tiles share the output frame. Height interpretation is explicit; survey metadata remains unknown.
 
-![Original source curves and matching USD anchors; this is a data plot, not a runtime render.](docs/figures/railway.png)
+![Resolved railway boundaries over the retained map tiles in the selected projected frame.](docs/figures/railway.png)
 
-The original GeoJSON makes the comparison independent of the converted USD scene.
-Every source object identifier matches its USD counterpart. First coordinates agree
-after explicitly reconciling GeoJSON longitude/latitude with the legacy USD
-latitude/longitude storage. Curve vertex counts agree per feature. These checks
-do not validate interior vertices, polygon topology or a transformation to a project CRS.
+The original GeoJSON supplies an independent check on the converted USD. Fresh
+fixture preparation preserves every original coordinate, object ID and polygon
+group, including holes. It explicitly selects a projected modelling frame under
+a WGS84 ellipsoidal-height hypothesis. The provider USD is resolved separately,
+and every retained curve vertex is compared against the original.
 
-The intended demonstration is an imported railway and its map tiles placed with
-a site asset, then relocated through ordinary scene edits. The source's third
-ordinate still needs a vertical reference and epoch before survey-accuracy claims.
-The data plot preserves source coordinates without interpreting that ordinate as height.
-See [dataset provenance and access](DATASETS.md).
+Matching first-coordinate anchors did not expose the offset-basis choice. The
+complete run does: geographic-coordinate linearization differs by up to 16.7 cm,
+while a Cartesian east/north/up basis agrees within about 42 micrometres, consistent
+with stored float-point precision. This supports a rule choice rather than a claim
+that the provider data is wrong. The tile images use resolved corner placement;
+the image display is an affine visualization of each tile, not certified pixel
+georeferencing. Source vertical datum, epoch and certified map controls remain
+open interpretation questions. See [dataset provenance](DATASETS.md).
 
 ## Native interpolation preserves the authored path
 
 <!-- slide -->
-- R20, Positions between recorded moments: interpolate recorded coordinates in their CRS, then convert.
+- Both experimental position carriers interpolate recorded native coordinates before conversion.
 <!-- evidence:interpolation -->
-- Interpolating converted endpoints puts the equatorial midpoint 971.421 m inside the ellipsoid.
+- The scene midpoint avoids the displacement caused by interpolating converted endpoints.
 <!-- /evidence:interpolation -->
-- This is an analytic component example; the scene position carrier and its sampling rules remain open.
+- Edits invalidate evaluated results; explicit export records its CRS and sampled times.
 
-![Equatorial samples at minus and plus one degree; vertical scale is exaggerated and axes use different units.](docs/figures/interpolation.png)
+![Native interpolation and the erroneous Cartesian chord; axes use different units and vertical scale is exaggerated.](docs/figures/interpolation.png)
 
-At the native midpoint, longitude is zero and the converted point lies on the
-ellipsoid. Interpolating converted Cartesian endpoints instead follows a chord.
-The difference exposes an evaluation-order mistake even when both endpoint
-conversions are numerically correct. It constrains the runtime's evaluation
-order without selecting an authored USD property or an output CRS.
+The counterexample now runs through authored scene positions. It also tests cache
+invalidation, explicit sampled export and re-reading without applying the original
+placement twice. Seven composition forms, native instances and masked point
+instances exercise the same shared result. Baked interpolation between exported
+samples is explicitly distinguished from native-CRS evaluation.
 
 ## Scalar data and a removable visualization
 
 <!-- slide -->
 <!-- evidence:field -->
-- 2,664 scalar samples on a 37 by 72 grid exercise coordinate reporting; a three-sample overlay is removable.
+- Every raw scalar sample participates in the resolved scene; the complete geometry overlay is removable.
 <!-- /evidence:field -->
-- The stock-USD overlay leaves source values intact. Geospatial placement of that overlay is still pending.
-- Forecast origin, timestamp, CRS metadata and value units are unverified; the filename is not provenance.
+- Omniverse Fabric and native Hydra receive the same placements while source values remain unchanged.
+- Physical units, forecast origin, timestamp and source CRS metadata remain unverified.
 
-![Raw values from the retained scalar-field fixture, without an inferred physical unit.](docs/figures/field.png)
+![All scalar sample locations resolved into ECEF under the explicit WGS84/zero-height hypothesis; colors are raw values.](docs/figures/field.png)
 
-A non-geometric dataset should be usable without a permanent visualization baked
-into it. The current test creates neutral sample records and adds then removes a
-geometry-only overlay for three selected samples. Its numerical coordinate probe
-explicitly assumes WGS 84 and zero height; that assumption does not establish the
-source dataset's geodetic meaning. The retained fixture is a useful workflow input,
-but it is not an independently verified weather product.
+Non-geometric records retain all raw values. A separate visualization layer adds
+one marker per sample, then removes every marker through the consumer update path.
+The fixture explicitly prepares ECEF positions so poles require no guessed east
+direction. The filename is not evidence of a verified weather product.
 
-## Proposed runtime contract
+## Site placement remains separate from asset conformance
 
 <!-- slide -->
-- Composed declarations establish CRS scope; source coordinates and asset conventions remain authored data.
-- Resolution evaluates native positions and offsets into one selected output CRS without modifying the stage.
-- Queries and consumers share the result; failures and operation provenance remain explicit.
+- The supplied local-grid calibration places the complete tower in Lambert-93 with IGN69 height.
+- Project relocation and a constructed incline change placement while the source asset stays unchanged.
+- The image is a real Storm render of the new native scene index; no retired geospatial plugin is loaded.
 
-The canonical prose is [proposal/runtime-behavior.md](proposal/runtime-behavior.md).
-It traces all 29 functional requirements, including composition behavior, native
-time evaluation, local precision, dependency discovery and engine agreement.
-Coverage is not completeness: [seven grouped decisions](proposal/runtime-open-decisions.md)
-still prevent a complete executable contract. Experimental schema names and binding
-policies are recorded separately in `derivation.json`, alongside links to evidence.
+![Storm renders the resolved site asset directly from the native Hydra adapter.](docs/figures/site.png)
 
-The build pins both the requirements and reviewed prose hashes. A changed input or
-unreviewed prose change invalidates the derivation. Generated runtime trace reports
-are not the source of normative text.
+The calibrated grid changes the meaning of an offset: site-grid east/north axes
+rotate and scale relative to Lambert-93. Asset conformance is recorded separately
+from those placement choices. The run checks the complete geometry, approximately
+300 m asset height, calibration, ordinary edits, relocation and a five-degree
+constructed incline. The raw partner attachment stays outside this repository.
 
 ## Two runtime targets
 
 <!-- slide -->
-- Non-Hydra: a renderer-independent scene resolver for placements, coordinate queries and bounds. Not built.
-- Hydra: a scene-index adapter consuming the same resolved placement and propagating changes. Not built.
-- Consumer consistency is distinct from R29, Implementable from the text alone, which requires different transformation engines.
+- Non-Hydra: read-only scene resolution, coordinate and relative-placement queries, bounds, edits and export.
+- Hydra: a compiled scene index with geometry, topology and change notices, rendered directly by Storm.
+- Omniverse Fabric is an additional real consumer; independent Karney arithmetic checks geodetic consistency.
 
-| Layer | This checkpoint | Required next behavior |
+| Layer | Executed behavior | Evidence boundary |
 |---|---|---|
-| Composed-binding inspector | Reads experimental CRS relationships, overrides and forwarded targets | Approved scope and binding rules |
-| Coordinate-engine adapter | Explicit WGS 84 geographic/geocentric conversion, failure handling and provenance | Approved operation policy; datum, resource and epoch cases |
-| Non-Hydra runtime | Absent | Decode positions, resolve placement, queries and bounds; retain authored data |
-| Hydra adapter | Absent | Expose resolved placement to rendering; time and edit invalidation |
-| Independent-engine comparison | Absent | Compare independently chosen implementations with stated operations and controls |
+| Non-Hydra runtime | Composed positions, ordinary offsets, project placement, time, instances, bounds and queries | Explicit candidate contract |
+| Native Hydra | Same evaluated matrices and geometry, change notices and direct Storm rendering | Shared resolver; not a second coordinate engine |
+| Omniverse Kit/Fabric | Runtime geometry, double world placement and extents; readback after complete frame changes | Authored USD unchanged; this is a Fabric consumer test |
+| Independent numerical engine | Karney ECEF and exact transverse Mercator compared with PROJ at both hemispheres | Static, same-datum support; unsupported operations fail |
 
-Two consumer paths may share the non-Hydra resolver; that is not two independent
-geodetic implementations. The prior prototype's reference runtime and Hydra scene
-index are not included in this requirements-derived build. Its raw datasets and
-workflow questions are retained without inheriting its algorithms or expected answers.
+Consumer agreement establishes that the evaluated scene survives its integrations.
+Independent arithmetic provides a different check. Neither replaces practitioner
+controls or approval of the candidate rules. Exact versions and residuals are in
+the [run evidence](docs/FIXTURES.md).
 
-## Next complete demonstration
+## Design choices exercised by the complete run
 
 <!-- slide -->
-- Import the railway and a site asset, resolve them into one project CRS, and verify placement against independent controls.
-- Relocate an asset, scrub time and compose another layer; compare non-Hydra queries with Hydra results after each change.
-- State placement error and valid extent, preserve source data, and fail visibly when a required operation cannot run.
+- Affine and pointwise placement are both implemented; extent sweeps reveal where one matrix loses fidelity.
+- Applying an ancestor transform after an absolute position produces a tested 1,000 m violation.
+- Missing grids or coordinate epochs fail observably; animation time never supplies a coordinate epoch.
 
-This demonstration needs decisions on position storage and boundaries (S01),
-native versus project CRS semantics (S02), basis/units/extent (S03), target selection
-(S04), update dependencies (S05), operation resources and controls (S06), and scope
-(S07). Independent work can proceed where a decision is irrelevant, but an end-to-end
-success claim must wait for the applicable decisions and provider controls.
+![Measured affine-versus-pointwise displacement as geometry footprint grows; bounds cover tested vertices.](docs/figures/extent.png)
 
-The [workflow matrix](docs/WORKFLOWS.md) tracks eight demonstrations, their current
-checks and remaining gaps. None is marked fully validated. The existing AECO
-example, when available locally, checks the partner's stated stock-USD placement
-and calibrated grid; it does not validate this new runtime.
+The 20 km example shows about 40 m maximum vertex displacement from one affine
+placement, while centimetre detail remains measurable at global magnitude.
+An explicit distance budget rejects unsuitable affine placement. The pointwise
+alternative executes; it does not silently certify unsampled continuous surfaces.
+Whether R24 covers vertices, edges or every point on a surface is an actual design
+question, supported here by measured alternatives.
+
+Other executed choices include attribute/translate carriers, stage-convention or
+author-conformed units, output-target precedence, geographic output, dependency
+records and empty bindings. See the [candidate contract](proposal/runtime-experiments.md)
+for their mechanisms and [open decisions](proposal/runtime-open-decisions.md) for
+what review must settle. There is no deferred implementation milestone in this run.
 
 ## Review requests
 
 <!-- slide -->
-- Review the proposed runtime prose against the functional requirements and close the carrier, placement and scope decisions.
-- Supply source CRS/epoch/vertical metadata, expected control points and a distance-and-extent acceptance criterion.
-- Use the next railway/site demonstration to review both consumer paths and separate engine agreement from correctness.
+- Approve the drafted functional requirements and select among the executed runtime alternatives.
+- Clarify the extent/bound domain, unit and offset basis, project placement and dependency/target rules.
+- Supply certified vertical/epoch metadata and control points where accuracy claims are required.
 
-Read the [behavior draft](proposal/runtime-behavior.md) first, then its
-[open decisions](proposal/runtime-open-decisions.md). The [traceability report](docs/RUNTIME.md)
-connects each section to requirement numbers and current titles; the
-[fixture matrix](docs/FIXTURES.md) states the oracle and limit of each check.
-Approval of draft functional requirements or runtime rules must be explicit;
-passing checks do not record approval.
+The canonical proposed normative text is [proposal/runtime-behavior.md](proposal/runtime-behavior.md).
+It traces all 29 requirements; the [traceability report](docs/RUNTIME.md) maps them
+to implementation and evidence. Changes to requirements or reviewed prose force
+re-derivation. A complete run requires every workflow, a fresh native build, all
+consumer checks, no skipped tests and regenerated delivery artifacts. The
+[build procedure](BUILD_LOOP.md) makes that gate repeatable for subsequent changes.
 
 ## Run evidence
 
 <!-- evidence:run -->
-**51 passed, 0 failed, 0 skipped.** These are component and build-integrity checks, not full-workflow conformance.
-
-Run record: [20260921-runtime-delivery](runs/20260921-runtime-delivery/report.json). Requirements revision: `eab823f46dad7c959019e5ce1851c8295c2a3701`.
-Runtime prose SHA-256: `ba400cf0c11e3d1feb016e20af4172f26b7060a6ea19c66303c1f77292b67058`.
-Implementation base: `3030417f3c350f5ba9d43afbce450a155227e4b6`; local changes: **false**. Exact tested files are hashed in the run record.
-
-The original analytic coordinate probe measured a maximum Cartesian residual of **0.000000000 m**. Its 0.000001 m numerical tolerance is not a scene-placement accuracy budget; PROJ's operation accuracy estimate remains unknown.
+The delivery phase fills this block only from the current complete run.
 <!-- /evidence:run -->
 
-The [workflow report](docs/WORKFLOWS.md) distinguishes supplied datasets, component
-evidence and pending full workflows. Private fixtures are not redistributed; a
-rerun without them records explicit skips. Numerical residuals, source-preservation
-checks and partner baselines answer different questions and do not add up to a
-conformance claim.
-
-## Reproduce and deliver
-
-Install the pinned dependencies in `requirements.txt` and `requirements-datasets.txt`.
-Use [DATASETS.md](DATASETS.md) to fetch or import optional data into an external cache.
-
-```sh
-python run.py --output /absolute/path/outside-checkout/run-001 --dataset-root /path/to/cache
-```
-
-The bundled requirements support reruns without a proposal checkout. Supply
-`--aeco-zip /path/to/attachment.zip` for the partner baseline. Exit 2 records remaining
-design/evidence gaps; exit 1 is an execution or test failure. Optional data checks
-skip when absent. This narrative's three data figures require the corresponding
-datasets; a delivery with less evidence must revise its scope rather than reuse stale figures.
-
-The README's explanation is authored. Delivery refreshes only marked evidence
-blocks, derives the review guide and slide content, and checks that neither drifted.
-The figures are reproducible source-data and analytic plots, not runtime screenshots.
-The [build procedure](BUILD_LOOP.md) covers figure generation, slide review and
-the separate publication step. Earlier checkpoint records remain immutable.
-
-[Slides (PDF)](docs/checkpoint.pdf) · [Editable slides](docs/checkpoint.pptx) ·
-[Derived review text](docs/PR_BODY.md)
+[Editable slides](docs/checkpoint.pptx) · [Slide PDF](docs/checkpoint.pdf) ·
+[Review summary](docs/PR_BODY.md) · [Bundled requirements](inputs/requirements.md)

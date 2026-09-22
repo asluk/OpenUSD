@@ -24,6 +24,7 @@ def source_files(root):
     return sorted(p for p in root.rglob("*") if p.is_file() and (
         (p.parent == root and p.name in SOURCE_NAMES) or
         (p.parent in (root / "geobuild", root / "tests") and p.suffix == ".py") or
+        (p.parent == root / "native" and p.suffix in (".cpp", ".h", ".txt")) or
         (p.parent == root / "proposal" and p.suffix == ".md")))
 
 
@@ -50,7 +51,7 @@ def scan_tree(root):
             continue
         if path.suffix.lower() in {".zip", ".usdz", ".usd", ".usda", ".usdc"}:
             raise ValueError(f"Unapproved dataset artifact in public delivery: {path.name}")
-        if path.suffix.lower() in {".md", ".py", ".json", ".mjs", ".ps1", ".txt", ".ini", ".xml", ".html"}:
+        if path.suffix.lower() in {".md", ".py", ".cpp", ".h", ".json", ".mjs", ".ps1", ".txt", ".ini", ".xml", ".html"}:
             scan_text(path.read_text(encoding="utf-8"), str(path.relative_to(root)))
         elif path.suffix.lower() == ".pptx":
             with zipfile.ZipFile(path) as archive:
@@ -75,6 +76,9 @@ def public_report(report):
     result = {k: report[k] for k in ("started_utc", "proposal_commit", "allowed_sha256", "derivation_current",
                                    "approval", "tests", "status", "source_files", "test_exit_code", "implementation", "stop_count")}
     result["source_files"] = {k.replace("\\", "/"): v for k, v in result["source_files"].items()}
+    for key in ('complete_scope','native_build','demonstration_files'):
+        if key in report:
+            result[key]=report[key]
     result["environment"] = {k: report["environment"][k] for k in ("python", "platform", "packages")}
     dataset = report.get("dataset")
     result["dataset"] = ({k: dataset[k] for k in ("sha256", "origin", "redistribution", "role")} if dataset else None)
@@ -252,17 +256,18 @@ def prepare(run_dir, root, checkpoint_id=None, branch="aluk/geospatial-build-loo
     scan_tree(root)
     report = json.loads((run_dir / "report.json").read_text(encoding="utf-8"))
     source = json.loads((run_dir / "source.json").read_text(encoding="utf-8"))
-    if report["status"] != "NEEDS_DECISIONS_AND_EVIDENCE" or not report["derivation_current"] or report.get("test_exit_code") != 0:
+    if report["status"] != "COMPLETE_WITH_OPEN_DESIGN_QUESTIONS" or not report["derivation_current"] or report.get("test_exit_code") != 0:
         raise ValueError("Delivery requires a current derivation and a successful test invocation.")
-    if not report["tests"] or any(t["status"] == "failed" for t in report["tests"]):
-        raise ValueError("Delivery requires passing tests with explicit skips.")
+    if not report.get('complete_scope') or not report["tests"] or any(t["status"] != "passed" for t in report["tests"]):
+        raise ValueError("Delivery requires the complete scope and no skipped workflows or checks.")
     expected = {k.replace("\\", "/"): v for k, v in report["source_files"].items()}
     actual = {p.relative_to(root).as_posix(): sha(p) for p in source_files(root)}
     if expected != actual:
         raise ValueError("Build source changed since the run. Rerun before delivery.")
     if "runtime_contract" in report:
         for name, relative in (("RUNTIME-BEHAVIOR.md", "proposal/runtime-behavior.md"),
-                               ("RUNTIME-OPEN-DECISIONS.md", "proposal/runtime-open-decisions.md")):
+                               ("RUNTIME-OPEN-DECISIONS.md", "proposal/runtime-open-decisions.md"),
+                               ("RUNTIME-EXPERIMENTS.md", "proposal/runtime-experiments.md")):
             if sha(run_dir / name) != actual[relative]:
                 raise ValueError("Runtime prose changed since the run.")
     if "dataset_inventory" in report:
@@ -307,6 +312,7 @@ def prepare(run_dir, root, checkpoint_id=None, branch="aluk/geospatial-build-loo
     history_readme = history_readme.replace("(docs/figures/", "(figures/")
     history_readme = history_readme.replace("(proposal/runtime-behavior.md)", "(RUNTIME-BEHAVIOR.md)")
     history_readme = history_readme.replace("(proposal/runtime-open-decisions.md)", "(RUNTIME-OPEN-DECISIONS.md)")
+    history_readme = history_readme.replace("(proposal/runtime-experiments.md)", "(RUNTIME-EXPERIMENTS.md)")
     history_readme = history_readme.replace("(DATASETS.md)", "(../../DATASETS.md)")
     (destination / "README.md").write_text(history_readme, encoding="utf-8", newline="\n")
     (root / "README.md").write_text(readme, encoding="utf-8", newline="\n")
@@ -325,7 +331,7 @@ def prepare(run_dir, root, checkpoint_id=None, branch="aluk/geospatial-build-loo
     if "runtime_contract" in report:
         if sha(run_dir / "RUNTIME-BEHAVIOR.md") != report["runtime_contract"]["sha256"]:
             raise ValueError("Runtime prose changed since the run.")
-        for name in ("RUNTIME-BEHAVIOR.md", "RUNTIME-OPEN-DECISIONS.md"):
+        for name in ("RUNTIME-BEHAVIOR.md", "RUNTIME-OPEN-DECISIONS.md", "RUNTIME-EXPERIMENTS.md"):
             shutil.copyfile(run_dir / name, docs / name)
             shutil.copyfile(run_dir / name, destination / name)
     if "<!-- narrative:v2 -->" in readme:
@@ -365,6 +371,10 @@ def verify(root, require_slides=True):
         for path in (root / "docs" / "RUNTIME-OPEN-DECISIONS.md", report_path.parent / "RUNTIME-OPEN-DECISIONS.md"):
             if sha(path) != report["source_files"]["proposal/runtime-open-decisions.md"]:
                 raise ValueError("Open runtime decisions differ from the run.")
+    if "runtime_contract" in report:
+        for path in (root / "docs/RUNTIME-EXPERIMENTS.md", report_path.parent / "RUNTIME-EXPERIMENTS.md"):
+            if sha(path) != report["source_files"]["proposal/runtime-experiments.md"]:
+                raise ValueError("Candidate contract differs from the run.")
     if "<!-- narrative:v2 -->" in readme:
         from geobuild.narrative import verify_figures
         verify_figures(root, report)

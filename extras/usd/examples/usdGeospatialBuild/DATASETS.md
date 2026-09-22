@@ -1,4 +1,4 @@
-# Datasets and workflows for the next implementation
+# Datasets and executed workflows
 
 Use the earlier work to supply real inputs and useful questions. The current
 functional requirements determine runtime behavior. An old schema, converter,
@@ -6,8 +6,8 @@ resolved output or error threshold is not an acceptance oracle for this build.
 
 `dataset-catalog.json` records each input, its provenance and the workflows it
 exercises. Every run emits `WORKFLOWS.md` with current requirement titles, runnable
-evidence, the next demonstration and the decisions it depends on. Missing data,
-unverified controls and missing implementations remain visible independently.
+evidence, completed demonstrations and actual design questions. Missing data and
+unverified controls remain visible. A complete delivery permits no skipped workflow.
 
 ## Railway: preserve the original features, then demonstrate placement
 
@@ -17,10 +17,16 @@ LineString vertex counts and the first coordinate used for each source anchor.
 The source GeoJSON uses longitude/latitude order; the Omniverse USD attributes
 encode latitude first. That conversion is explicit at the data boundary.
 
-These checks expose lost features and axis-order mistakes before a new resolver
-exists. They do not yet validate every interior vertex, polygon topology,
-orientation or alignment with the map tiles. The next demonstration needs those
-placements, a visible wrong-frame/axis control, and independent reference values.
+The complete resolver now checks every source vertex and polygon ring grouping,
+places all three map tiles and compares all provider curve interiors against the
+original. The resulting discrepancy is recorded separately from source quantization
+and consumer agreement. It is not hidden by matching first-coordinate anchors.
+The two geographic-offset interpretations are both executed: the coordinate
+linearization and Cartesian tangent choices expose substantially different
+interior agreement without treating either as an approved runtime rule.
+
+Map attribution: © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright);
+the retained tiles are supplied by the pinned NVIDIA sample-data revision below.
 
 The GeoJSON declares EPSG:4326 and contains a third ordinate, but supplies no
 vertical datum or epoch. Preserve that ordinate. Do not silently relabel it as an
@@ -39,13 +45,11 @@ forecast time, CRS or units metadata, so the filename alone does not establish
 that it is a NOAA GFS observation. Keep it as a data-handling sample and seek a
 provider-documented field for scientific/geodetic acceptance.
 
-The current checks preserve all scalar values and source bytes. A stock USD
-composition experiment adds removable glyph geometry to a small set of neutral
-sample records, without re-authoring their coordinates or values. A separate
-coordinate probe declares WGS 84, degree axes and a constructed zero-height
-surface explicitly. Those assumptions do not become the source's CRS or a USD
-position-carrier decision. Geospatial scene placement and renderer/analysis
-agreement remain future demonstrations.
+The complete run preserves all values and source bytes, resolves all 2,664 samples,
+and adds/removes all visualization markers. An explicit WGS84/zero-height
+interpretation prepares Cartesian positions, including at the poles. Native Hydra
+and actual Kit Fabric consume the same scene. Those assumptions do not establish
+the source's geodetic or scientific meaning.
 
 ## Geographic and projected cases
 
@@ -59,9 +63,10 @@ NOAA NCAT controls lack archived provider responses and complete datum/epoch
 provenance. Neither is promoted to independent ground truth. Obtain complete
 provider records before using projected coordinates as acceptance references.
 
-The site/calibration attachment continues through `--aeco-zip`. Its checks
-reproduce the partner's stock-USD baseline; they do not adopt its binding/reset
-conventions into the new runtime.
+The site/calibration attachment continues through `--aeco-zip`. The complete run
+uses its raw asset and full calibration WKT with fresh candidate bindings, resolves
+all geometry, and tests relocation and a constructed incline. It also retains the
+stock-USD baseline; it does not inherit that example's binding/reset conventions.
 
 ## Reproduce the intake
 
@@ -73,15 +78,17 @@ python datasets.py fetch --root /external/geospatial-datasets
 python datasets.py import --root /external/geospatial-datasets --dataset railway-geojson --source /local/1kmE4334N3375.geojson
 python datasets.py import --root /external/geospatial-datasets --dataset scalar-field --source /local/gfs_t2m.nc
 python -m pip install -r requirements-datasets.txt
-python run.py --output /external/run-new --dataset-root /external/geospatial-datasets
+python run.py --output /external/run-new --dataset-root /external/geospatial-datasets --aeco-zip /external/attachment.zip
 ```
 
 Each import/download must match the catalog's size and SHA-256. A new file needs
 a reviewed provenance/catalog update; a familiar filename is insufficient.
 No raw dataset is included in the public delivery. Runs record availability,
 hashes, checks and workflow gaps; delivery preserves the catalog and sanitized
-workflow evidence. Without a cache, geographic and synthetic checks still run
-and optional asset checks skip explicitly.
+workflow evidence. Configure the native SDK and Kit as described in BUILD_LOOP.md.
+Partial diagnostics can use `--components-only`; they cannot be published as a
+complete checkpoint. Private raw inputs stay local even when their metrics and
+derived visual evidence appear in delivery.
 
 ## Delivery should explain what each demonstration establishes
 

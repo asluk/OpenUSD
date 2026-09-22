@@ -24,17 +24,16 @@ for (const [index, data] of document.slides.entries()) {
   created.push(slide);
   slide.background.fill = index === 0 ? '#102B38' : '#FFFFFF';
   if (index === 0) {
-    text(slide, data.title, 76, 120, 1120, 150, 54, '#FFFFFF', true);
-    text(slide, data.lines[0], 80, 330, 1090, 135, 32, '#DBE8EC');
-    text(slide, data.lines[1], 80, 514, 1090, 115, 30, '#A3D744');
+    text(slide, data.title, 76, 95, 1120, 150, 54, '#FFFFFF', true);
+    data.lines.forEach((line,n)=>text(slide,line,80,290+n*126,1090,112,29,n===1?'#A3D744':'#DBE8EC'));
   } else {
     text(slide, data.title, 60, 42, 1160, 95, 39, ink, true);
     if (data.image) {
       const picture = path.resolve(root, data.image);
       if (!picture.startsWith(root + path.sep)) throw new Error('Image must be inside the package');
       slide.images.add({blob:new Uint8Array(await fs.readFile(picture)),contentType:'image/png',alt:data.caption,
-        fit:'contain',position:{left:48,top:164,width:744,height:456}});
-      data.lines.forEach((line,n) => text(slide,line,832,174+n*146,382,136,24,ink,n===0));
+        fit:'contain',position:{left:48,top:172,width:716,height:440}});
+      data.lines.forEach((line,n) => text(slide,line,798,174+n*146,430,142,23,ink,n===0));
       text(slide,data.caption,60,624,1050,54,18,'#50677A');
     } else if (data.chart) {
       const chartStyle = {typeface:font,fontSize:23,fill:ink};

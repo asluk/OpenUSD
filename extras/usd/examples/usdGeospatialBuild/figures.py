@@ -1,4 +1,7 @@
 """Generate measured scientific figures for the README and derived slides."""
+import ast
+import shutil
+from matplotlib.transforms import Affine2D
 import argparse
 import json
 import math
@@ -31,25 +34,34 @@ def build(run, dataset_root, output):
     plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 13,
                          "axes.spines.top": False, "axes.spines.right": False,
                          "axes.labelcolor": "#152A36", "text.color": "#152A36"})
-    geojson = read_geojson(dataset_root / "railway-source" / "1kmE4334N3375.geojson")
-    stage = Usd.Stage.Open(str(dataset_root / "railway" / "deutschebahn-rails.usda"))
-    anchors = {p.GetAttribute("ObjectId").Get(): tuple(p.GetAttribute("omni:geospatial:wgs84:local:position").Get())
-               for p in stage.Traverse() if p.GetAttribute("ObjectId")}
-    fig, ax = plt.subplots(figsize=(8.8, 5.4), layout="constrained")
-    first = True
-    for f in geojson["features"]:
-        if f["geometry"] != "LineString":
-            continue
-        points = np.array(f["points"])
-        ax.plot(points[:, 0], points[:, 1], color="#256C89", lw=1.1,
-                label="Original GeoJSON curves" if first else None)
-        lat, lon, third = anchors[f["id"]]
-        ax.plot(lon, lat, ".", color="#CA6C30", ms=4, label="USD first-coordinate anchors" if first else None)
-        first = False
-    ax.set(xlabel="Longitude (degrees)", ylabel="Latitude (degrees)")
-    ax.ticklabel_format(useOffset=False)
-    ax.legend(loc="best", fontsize=10)
-    fig.savefig(output / "railway.png", dpi=180)
+    demos=run/'demonstrations'
+    for name,expected in report['demonstration_files'].items():
+        if sha(demos/name)!=expected:
+            raise ValueError('Demonstration changed since execution: '+name)
+    railway=json.loads((demos/'railway.json').read_text(encoding='utf-8'))
+    all_points=np.vstack([c['points'] for c in railway['curves']])
+    origin=np.floor(all_points[:,:2].min(axis=0)/1000)*1000
+    fig,ax=plt.subplots(figsize=(8.8,5.4),layout='constrained')
+    for tile in railway['tiles']:
+        points=np.array(tile['points'])[:,:2]-origin
+        number=tile['path'].split('MapGeo')[1].split('/')[0]
+        bitmap=plt.imread(dataset_root/'railway'/('quadnode-'+number+'.png'))
+        x,y=points[3]-points[0],points[1]-points[0]
+        transform=Affine2D.from_values(x[0],x[1],y[0],y[1],*points[0])
+        ax.imshow(bitmap,extent=(0,1,0,1),origin='upper',transform=transform+ax.transData,zorder=0,alpha=.9)
+    for curve in railway['curves']:
+        points=np.array(curve['points'])[:,:2]-origin
+        ax.plot(points[:,0],points[:,1],color='#DC5020',lw=1.1)
+    extent=np.vstack([np.array(t['points'])[:,:2]-origin for t in railway['tiles']])
+    lo,hi=extent.min(axis=0),extent.max(axis=0)
+    ax.set(xlim=(lo[0]-80,hi[0]+80),ylim=(lo[1]-80,hi[1]+80),aspect='equal',
+           xlabel=f'UTM easting minus {origin[0]:,.0f} (m)',ylabel=f'UTM northing minus {origin[1]:,.0f} (m)')
+    residual=max(railway['provider_curve_residuals_m'])*100
+    tangent=max(railway['cartesian_tangent_residuals_m'])*1e6
+    ax.set_title(f'Offset-basis comparison: {residual:.2f} cm versus {tangent:.1f} µm maximum mismatch',fontsize=12)
+    ax.text(.99,.015,'© OpenStreetMap contributors · openstreetmap.org/copyright',transform=ax.transAxes,
+            ha='right',fontsize=8,bbox={'facecolor':'white','alpha':.9,'edgecolor':'none'})
+    fig.savefig(output/'railway.png',dpi=180)
     plt.close(fig)
 
     radius = 6378137.0
@@ -71,20 +83,35 @@ def build(run, dataset_root, output):
     fig.savefig(output / "interpolation.png", dpi=180)
     plt.close(fig)
 
-    field = read_field(dataset_root / "scalar-field" / "gfs_t2m.nc")
-    values = np.array(field["values"]).reshape(field["shape"])
-    points = np.array(field["points"]).reshape((*field["shape"], 3))
-    order = np.argsort(points[0, :, 0])
-    points, values = points[:, order, :], values[:, order]
-    fig, ax = plt.subplots(figsize=(8.8, 5.4), layout="constrained")
-    plot = ax.pcolormesh(points[:, :, 0], points[:, :, 1], values, shading="nearest", cmap="viridis")
-    fig.colorbar(plot, ax=ax, label="Raw value (units unverified)", shrink=.85)
-    ax.set(xlabel="Source longitude values", ylabel="Source latitude values")
-    fig.savefig(output / "field.png", dpi=180)
+    field=json.loads((demos/'field.json').read_text(encoding='utf-8'))
+    points=np.array(field['ecef'])/1000
+    fig=plt.figure(figsize=(8.8,5.4),layout='constrained')
+    ax=fig.add_subplot(111,projection='3d')
+    scatter=ax.scatter(*points.T,c=field['values'],s=13,cmap='viridis',depthshade=True)
+    ax.set(xlabel='X (km)',ylabel='Y (km)',zlabel='Z (km)',title='Resolved ECEF sample positions')
+    ax.set_xticks([-6000,0,6000])
+    ax.set_yticks([-6000,0,6000])
+    ax.set_zticks([-6000,0,6000])
+    ax.set_box_aspect((1,1,1))
+    ax.view_init(elev=22,azim=-45)
+    fig.colorbar(scatter,ax=ax,label='Raw value; units unverified',shrink=.7,pad=.13)
+    fig.savefig(output/'field.png',dpi=180)
+    plt.close(fig)
+    shutil.copyfile(demos/'storm-site.png',output/'site.png')
+    case=next(t for t in report['tests'] if t['name']=='test_complete_W06_extent_sweep_and_precision')
+    pairs=np.array(ast.literal_eval(case['properties']['footprint_vs_vertex_displacement_m']))
+    fig,ax=plt.subplots(figsize=(8.8,5.4),layout='constrained')
+    ax.loglog(pairs[:,0],np.maximum(pairs[:,1],1e-10),'o-',color='#256C89',lw=3,ms=9)
+    ax.axhline(.01,color='#CA6C30',ls='--',label='Illustrative 1 cm budget')
+    ax.set(xlabel='Cube side length (m)',ylabel='Maximum vertex displacement (m)')
+    ax.grid(True,which='major',alpha=.2)
+    ax.annotate(f'{pairs[-1,1]:.2f} m at 20 km',(pairs[-1,0],pairs[-1,1]),xytext=(-190,-10),textcoords='offset points')
+    ax.legend(loc='upper left')
+    fig.savefig(output/'extent.png',dpi=180)
     plt.close(fig)
     write_json(output / "manifest.json", {"evidence_key": evidence_key(report),
                "dataset_catalog_sha256": report["dataset_inventory"]["catalog_sha256"],
-               "files": {name: sha(output / name) for name in ("railway.png", "interpolation.png", "field.png")}})
+               "files": {name: sha(output / name) for name in ("railway.png", "interpolation.png", "field.png", "site.png", "extent.png")}})
 
 
 if __name__ == "__main__":

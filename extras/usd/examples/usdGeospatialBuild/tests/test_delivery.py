@@ -32,7 +32,7 @@ def delivery_case(tmp_path):
     report = {
         "started_utc": "2026-09-21T22:00:00Z", "proposal_commit": source["commit"],
         "allowed_sha256": source["allowed_sha256"], "derivation_current": True,
-        "approval": "draft", "status": "NEEDS_DECISIONS_AND_EVIDENCE", "test_exit_code": 0,
+        "approval": "draft", "status": "COMPLETE_WITH_OPEN_DESIGN_QUESTIONS", "test_exit_code": 0, "complete_scope": True,
         "implementation": {"revision": "a" * 40, "source_dirty": False}, "stop_count": 7,
         "environment": {"python": "3.12", "platform": "test", "packages": {}, "executable": "private executable"},
         "source_files": {"run.py": sha(root / "run.py")}, "dataset": None,
@@ -79,6 +79,19 @@ def test_delivery_rejects_changed_source(delivery_case):
     (root / "run.py").write_text("# Source changed after tests\n")
     with pytest.raises(ValueError, match="Build source changed"):
         prepare(run, root, "run-001")
+
+
+def test_delivery_rejects_partial_scope_or_skipped_work(delivery_case):
+    root,run,report=delivery_case
+    report['complete_scope']=False
+    write_json(run/'report.json',report)
+    with pytest.raises(ValueError,match='complete scope'):
+        prepare(run,root,'incomplete')
+    report['complete_scope']=True
+    report['tests'][0]['status']='skipped'
+    write_json(run/'report.json',report)
+    with pytest.raises(ValueError,match='skipped'):
+        prepare(run,root,'incomplete')
 
 
 @pytest.mark.parametrize("status", ["TEST_FAILURE", "DERIVATION_STALE"])

@@ -15,7 +15,7 @@ def verify_figures(root, report):
     manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
     if manifest["evidence_key"] != evidence_key(report):
         raise ValueError("Figures belong to a different run; regenerate them.")
-    if set(manifest["files"]) != {"railway.png", "interpolation.png", "field.png"}:
+    if set(manifest["files"]) != {"railway.png", "interpolation.png", "field.png", "site.png", "extent.png"}:
         raise ValueError("Incomplete figure set")
     for name, expected in manifest["files"].items():
         if sha(folder / name) != expected:
@@ -29,7 +29,12 @@ def refresh(readme, source, report, checkpoint_id):
         if answer is None:
             raise ValueError(f"Narrative needs executed evidence: {test}/{key}; revise scope if unavailable")
         return answer
-    features = value("test_workflow_geojson_source_to_usd_identity_and_anchors", "matched_feature_ids")
+    features = value("test_complete_W01_railway_all_vertices_tiles_and_topology", "features_resolved")
+    all_vertices = value("test_complete_W01_railway_all_vertices_tiles_and_topology", "vertices_checked")
+    discrepancy = value("test_complete_W01_railway_all_vertices_tiles_and_topology", "provider_interior_max_discrepancy_m")
+    tangent = value("test_complete_W01_railway_all_vertices_tiles_and_topology", "cartesian_tangent_interior_max_discrepancy_m")
+    kit = value("test_complete_W07_native_storm_and_omniverse_fabric", "kit_fabric_max_residual_m")
+    independent = value("test_complete_W03_same_place_across_frames_and_units", "independent_scene_origin_residual_m")
     lines = value("test_workflow_railway_source_inventory_and_anchor_reporting", "curve_prims")
     vertices = value("test_workflow_geojson_source_to_usd_identity_and_anchors", "matched_linestring_vertices_by_count")
     samples = value("test_workflow_field_coordinate_probe", "samples")
@@ -37,10 +42,10 @@ def refresh(readme, source, report, checkpoint_id):
     residual = value("test_engine_analytic_global_points_and_provenance", "max_residual_m")
     counts = {s: sum(t["status"] == s for t in report["tests"]) for s in ("passed", "failed", "skipped")}
     blocks = {
-        "railway": f"- {features:,.0f} source features match USD object identities and first-coordinate anchors.\n- {lines:,.0f} railway curves retain {vertices:,.0f} vertices by count; interior placement is still unchecked.",
+        "railway": f"- {features:,.0f} source features resolve with all {all_vertices:,.0f} vertices, object identities and polygon rings checked.\n- Across {lines:,.0f} curves, offset-basis choice changes maximum mismatch from {discrepancy*100:.2f} cm to {tangent*1e6:.1f} micrometres.",
         "interpolation": f"- Interpolating converted endpoints puts the equatorial midpoint {chord:,.3f} m inside the ellipsoid.",
-        "field": f"- {samples:,.0f} scalar samples on a 37 by 72 grid exercise coordinate reporting; a three-sample overlay is removable.",
-        "run": f"**{counts['passed']} passed, {counts['failed']} failed, {counts['skipped']} skipped.** These are component and build-integrity checks, not full-workflow conformance.\n\nRun record: [{checkpoint_id}](runs/{checkpoint_id}/report.json). Requirements revision: `{source['commit']}`.\nRuntime prose SHA-256: `{report['runtime_contract']['sha256']}`.\nImplementation base: `{report['implementation']['revision']}`; local changes: **{str(report['implementation']['source_dirty']).lower()}**. Exact tested files are hashed in the run record.\n\nThe original analytic coordinate probe measured a maximum Cartesian residual of **{residual:.9f} m**. Its 0.000001 m numerical tolerance is not a scene-placement accuracy budget; PROJ's operation accuracy estimate remains unknown.",
+        "field": f"- All {samples:,.0f} scalar samples resolve; all {samples:,.0f} visualization markers are removed through the consumer update path.",
+        "run": f"**{counts['passed']} passed, {counts['failed']} failed, {counts['skipped']} skipped.** All eight conditional workflow families execute; design approval and survey accuracy are not inferred.\n\nRun record: [{checkpoint_id}](runs/{checkpoint_id}/report.json). Requirements revision: `{source['commit']}`.\nRuntime prose SHA-256: `{report['runtime_contract']['sha256']}`.\nImplementation base: `{report['implementation']['revision']}`; local changes: **{str(report['implementation']['source_dirty']).lower()}**. Exact tested files are hashed in the run record.\n\nIndependent scene origins differ by at most **{independent:.9f} m**; Kit/Fabric geometry differs by at most **{kit:.9f} m**. These numerical residuals are distinct from geodetic accuracy. The finite-vertex extent bound does not certify a continuous surface.",
     }
     for name, text in blocks.items():
         pattern = rf"(<!-- evidence:{name} -->).*?(<!-- /evidence:{name} -->)"
@@ -73,7 +78,7 @@ def slides(readme):
 def review_guide(readme, branch):
     from geobuild.delivery import FORK, PACKAGE, scan_text, sections
     doc = sections(readme)
-    selected = ["Geospatial scenes with shared placement", "Railway source and scene identity", "Two runtime targets", "Next complete demonstration", "Review requests"]
+    selected = ["Geospatial scenes with shared placement", "Railway source and scene identity", "Two runtime targets", "Design choices exercised by the complete run", "Review requests"]
     body = "# Runtime behavior and workflow evidence\n\n" + "\n\n".join(
         "### " + title + "\n\n" + "\n".join(line for line in doc[title].splitlines() if line.startswith("- "))
         for title in selected)

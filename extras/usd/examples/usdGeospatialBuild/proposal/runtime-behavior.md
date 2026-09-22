@@ -5,6 +5,8 @@ behavior expected of implementations; it is not an approval claim or a report of
 implemented functionality. The companion open-decisions document identifies the
 rules still needed before this is a complete implementable contract. No current
 experimental property name, projection engine or rendering integration is prescribed.
+The companion `runtime-experiments.md` makes the unresolved choices executable as
+labeled alternatives. Completing those experiments does not approve a choice.
 
 ## CRS definitions and coordinate metadata
 
@@ -64,6 +66,9 @@ World positions, bounds, instances, physics and rendering consume the same resol
 placement. Obtaining that placement does not require a renderer. A resolved position
 can also be reported in a CRS named by the scene or consumer, and the
 placement of one prim relative to another can be queried in the output CRS.
+Changes to composed inputs, evaluation time or the selected output invalidate
+results that depend on them. Consumers do not reuse placement from different inputs
+as though it were current.
 
 ## Time evaluation and authored-scene preservation
 
@@ -79,6 +84,8 @@ another CRS preserves the path established by the recorded values.
 Writing out resolved results is a separate, explicit operation. Its output records
 the CRS used and, for varying content, how time was sampled. Dependency information
 on that output reflects what is still required to interpret its placement.
+Reading that output does not apply its original source placement a second time.
+Its recorded evaluations are distinct from interpolation between baked samples.
 
 ## Failures and operation provenance
 

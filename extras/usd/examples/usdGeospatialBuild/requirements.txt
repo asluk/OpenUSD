@@ -2,3 +2,5 @@
 usd-core==26.8
 pyproj==3.8.0
 pytest==9.1.1
+PyGeodesy==26.9.9
+numpy==2.5.3

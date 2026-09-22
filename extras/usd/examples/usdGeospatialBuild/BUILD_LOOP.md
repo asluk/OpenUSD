@@ -1,156 +1,131 @@
-# Build, verify and deliver a geospatial checkpoint
+# Build and deliver a complete geospatial experiment
 
-The implementation, tests and delivery code in this directory form one experiment.
-The README is the public explanation of the latest checkpoint. This procedure is
-the operator's guide. Generated runs and partner attachments stay outside the checkout.
+Every ordinary run follows functional requirements → proposed runtime behavior →
+explicit candidate choices → implementation → complete demonstrations/tests →
+README → PR summary/slides → delivery verification. A passing component suite
+alone does not complete this process.
 
-## Input and runtime derivation
+## Inputs and re-derivation
 
-The default input is `inputs/requirements.json`, a self-contained snapshot of the
-Terms and functional requirements, including the numbered open questions. The
-snapshot preserves the source revision and allowed-text hash. The reader verifies
-the hash and re-extracts the requirements instead of trusting cached JSON fields.
+The portable default input is `inputs/requirements.json`. `--proposal-repo` reads
+committed Terms, requirements, open questions and explicit accepted decision
+paragraphs from a clean proposal checkout. Old runtime/schema/converter code is
+excluded; raw datasets and workflows remain authorized fixture scope.
 
-To use a newer input, pass `--proposal-repo` with a clean checkout. The runner
-reads committed text only. If the allowed text changes, the existing derivation
-becomes stale and its tests do not count as current evidence. Re-derive the contract
-and update `derivation.json`; do not change only the hash.
+`proposal/runtime-behavior.md` is the canonical proposed normative description.
+`proposal/runtime-experiments.md` supplies executable, unaccepted alternatives;
+`proposal/runtime-open-decisions.md` records the actual design questions.
+`derivation.json` traces all requirements and pins reviewed prose and input hashes.
+Changed requirements or prose require semantic re-derivation, not a hash-only update.
 
-The canonical proposed normative text is `proposal/runtime-behavior.md`. It is
-authored prose for eventual specification review, separate from implementation
-status and evidence. `proposal/runtime-open-decisions.md` records unfinished rules.
-`derivation.json` maps requirements to prose sections, implementations and checks;
-it pins the reviewed prose hash as well as the input hash. A prose change requires
-traceability review before either hash is updated. Runs preserve exact prose copies.
+When a genuine ambiguity remains, implement labeled alternatives where feasible,
+test consequences and counterexamples, and finish independent work. Do not classify
+unfinished implementation, demonstrations, tests or documentation as a design stop.
+Dataset assumptions remain explicit, and missing certified controls never become
+invented accuracy claims.
 
-The supplied schema direction and experimental implementation policies are explicit
-in `derivation.json`. Historical prototype implementations are excluded from the
-derivation inputs. Requirements and questions retain their identifiers and titles.
+## Complete run
 
-## Run and test
-
-Use Python 3.12 and the pinned packages in `requirements.txt`. Tests use stock USD
-and PROJ without the old geospatial plugin or a renderer. Record implementation
-changes in a commit before a delivery run so the evidence identifies the exact code.
+Use Python 3.12 with the pinned requirements, dataset and delivery packages:
 
 ```sh
-python -m pip install -r requirements.txt
-python run.py --output /absolute/path/outside-checkout/run-001
+python -m pip install -r requirements.txt -r requirements-datasets.txt -r requirements-delivery.txt
 ```
 
-Use a fresh output directory for every run. `--aeco-zip` optionally supplies the
-existing AECO example. Its two tests skip when it is absent; no attachment scripts
-execute. The importer reads four explicitly named files and records provenance.
-The public checkpoint contains the supplemental results and hash, not the attachment.
+Configure these environment variables for the machine:
 
-Exit 1 means an execution/test failure. Exit 2 means the cycle completed with
-design/evidence gaps or a stale derivation. The current implementation has no
-full-conformance success path. Its numeric probes and binding tests do not establish
-complete scene placement, an independent second engine or OV implementation agreement.
+| Variable | Purpose |
+|---|---|
+| `GEO_USD_SDK` | Stock OpenUSD SDK containing `pxrConfig.cmake`, headers and imaging libraries |
+| `GEO_CMAKE` | CMake executable, or use CMake on PATH |
+| `GEO_NINJA` | Optional Ninja executable |
+| `GEO_VCVARS` | Optional Windows compiler-environment batch file |
+| `GEO_HYDRA_LIBRARY_PATH` | Additional runtime DLL/library directories needed by the chosen SDK |
+| `GEO_KIT_EXECUTABLE` | Installed Kit with omni.usd, USDRT and the bundled NumPy extension |
 
-## Datasets and workflow demonstrations
+The native target uses stock imaging libraries only. It is freshly compiled inside
+each complete run. The report hashes the binary and source; native module and Kit
+extension audits reject retired geospatial implementations. Storm uses an invisible
+Windows OpenGL context in this build. Other platforms require a working native
+context integration before claiming the same complete rendering scope.
 
-The [dataset guide](DATASETS.md) and `dataset-catalog.json` bring the earlier raw
-railway, original GeoJSON, scalar field, geographic cases and user workflows into
-the loop. Runtime semantics and acceptance criteria still derive from the current
-requirements. The old implementation and its numerical results are not inputs.
-
-Use `datasets.py` for explicit fetch/import into an external cache, then pass
-`--dataset-root` to `run.py` (or `-DatasetRoot` to the PowerShell launcher).
-Checks verify pinned source bytes and keep missing or unverified data visible.
-Every run emits `WORKFLOWS.md`, linking the workflow question, intended
-demonstration, reference evidence, current checks and remaining decisions.
-Delivery preserves that report and the exact catalog alongside the checkpoint.
-
-## Prepare delivery
-
-Delivery resumes from a completed run whose source is still unchanged. Generate
-the narrative's source-data and analytic figures before preparation:
+Populate an external cache with `datasets.py` and supply the locally authorized
+original GeoJSON, scalar field and partner attachment. Raw data and partner scripts
+are never committed or executed. Then run:
 
 ```sh
-python -m pip install -r requirements-delivery.txt
-python figures.py --run /absolute/path/outside-checkout/run-002 --dataset-root /path/to/cache
+python run.py --output /external/new-run --dataset-root /external/cache --aeco-zip /external/attachment.zip
 ```
 
-Or prepare from a completed run whose source is still unchanged:
+Use a new output directory each time. The runner executes all eight workflow
+families, both position carriers, native and point instances, composition and edit
+propagation, export/re-resolution, extent/precision, negative cases, independent
+coordinate arithmetic, native Hydra/Storm and actual Kit/Fabric readback. It records
+all versions, metrics, dataset hashes and private demonstration artifacts.
+
+Exit 0 means `COMPLETE_WITH_OPEN_DESIGN_QUESTIONS`: all conditional workflows pass,
+no checks skip, and the native target was built in that run. This does not approve
+the design or certify survey accuracy. Exit 1 reports failures or incomplete scope.
+Exit 2 is reserved for stale derivation or explicitly partial diagnostics.
+`--components-only` is available for targeted investigation; it cannot be delivered
+as a complete run. Missing private inputs must remain visible instead of being
+quietly replaced or omitted from a delivery claim.
+
+## README, review summary and slides
+
+After inspecting the evidence, author the README around actual workflows,
+mechanisms, results and design decisions. Keep qualifications beside the claims.
+The previous implementation's narrative is not a template to copy. Include all
+completed work; no in-scope build activity belongs in a “next demonstration” section.
+
+Commit implementation, contracts, tests and delivery code before the final run.
+Then execute a fresh complete run and prepare its immutable checkpoint:
 
 ```sh
-python deliver.py prepare --run /absolute/path/outside-checkout/run-002 --checkpoint-id 20260921-workflows
+python run.py --output /external/final-run --dataset-root /external/cache --aeco-zip /external/attachment.zip --deliver --checkpoint-id complete-run-id
 ```
 
-Preparation requires a current derivation and a successful test invocation. It
-checks every source hash, preserves an immutable `runs/<id>` record, updates the
-marked evidence blocks in the authored README and derives `docs/PR_BODY.md` and
-`docs/slides.json` from that README. Narrative prose is preserved, not regenerated
-from test counts. Figure hashes bind the plots to the executed evidence. Missing
-required data means revising the narrative's scope, not retaining an older plot.
-The public report omits machine paths and private access information. A changed
-README, edited PR summary, stale slides or modified evidence fails verification.
+`figures.py` uses the freshly executed demonstration files and verifies their
+hashes. The site image is a direct Storm render. The railway tile visualization
+labels its affine display approximation. Figure hashes bind all images to the run.
+Preparation refreshes only marked measured blocks in the authored README, preserves
+an immutable `runs/<id>` record, and derives `docs/PR_BODY.md` and `docs/slides.json`.
+It also preserves the exact normative prose, candidate contract and open questions.
 
-Do not cite issues or pull requests in delivered text, source comments, commit
-messages or slides during this phase. Refer to the bundled requirements or a
-commit-pinned source file. The publication guard checks text, PPTX XML/relationships
-and extracted PDF text, including encoded URLs. It also rejects private machine
-paths, communication links and unapproved dataset files.
-
-## Slides from the README
-
-`build_deck.mjs` consumes only `docs/slides.json`. Slide titles and claims come from
-README sections, and every slide's notes record the README hash. Scientific plots
-show original data and the native-interpolation counterexample, with scope visible
-on the slide. They are generated by `figures.py`; editable slide text carries the
-README's selected claims. These plots are not runtime screenshots.
-
-The authoring environment needs Node.js and `@oai/artifact-tool` 2.8.59. Use the
-provided runtime where available, or the declared package dependency. An explicit
-`ARTIFACT_TOOL_MODULE` path can select the runtime's module without changing it.
+`build_deck.mjs` builds editable slides from that README-derived content using the
+artifact-tool presentation library. Each slide records the README hash in its
+notes. Follow the presentation skill's operation-start, finalization and visual
+inspection procedure, export to a new PPTX filename and render the PDF. Inspect
+every slide for layout, legibility and agreement with the README. Then seal:
 
 ```sh
-node build_deck.mjs . /absolute/path/outside-checkout/deck-build
-```
-
-This writes a candidate PPTX and rendered slide previews. Validate the deck package
-and layout, render and inspect every slide, then export the validated PPTX to PDF.
-The current checkpoint uses PowerPoint's PDF export. Preserve the candidate and
-validation records outside the checkout. No slide content is edited independently.
-
-After verification, attach the final artifacts to the prepared checkpoint:
-
-```sh
-python -m pip install -r requirements-delivery.txt
-python deliver.py seal-slides --pptx /path/to/validated.pptx --pdf /path/to/validated.pdf
+python deliver.py seal-slides --pptx /external/new-deck.pptx --pdf /external/new-deck.pdf
 python deliver.py verify
 ```
 
-The seal checks slide counts, README provenance and artifact hashes. Visual review
-remains an explicit part of delivery; a hash check cannot establish layout quality.
+Source, report, figures, README, PR body or slide drift fails verification. A changed
+source requires another complete run. Later changes to slide layout alone require
+regeneration, visual inspection and resealing; do not rerun unrelated numerical
+tests solely for slide formatting.
 
-## Publish to the standing draft
+## Publish the standing fork draft
+
+The separately invoked publish command requires the verified package and a clean
+implementation revision in its run record. It commits derived delivery artifacts,
+pushes the owner's delivery branch and updates the existing draft against the
+owner's `dev` branch. It never pushes the upstream repository.
 
 ```sh
 python deliver.py publish
 ```
 
-The publisher verifies the package, checks that `origin` is `asluk/OpenUSD`, checks
-the delivery branch and refuses unrelated working-tree changes. It commits the
-checkpoint, pushes that branch and creates or updates one draft review against the
-fork's `dev` branch. The README-derived body is supplied through a file. The returned
-receipt identifies the published revision and review URL.
+Verify remote head and PR body against local results after publication. The README,
+review summary and deck must describe the final implementation, not conversational
+history. Do not cite other issues or pull requests at this phase. Public guards scan
+text, native source, PPTX relationships and PDF text for backlinks, private paths,
+communication URLs and raw dataset artifacts. Keep original attachments and
+machine configuration outside Git.
 
-Publishing is explicit. An ordinary build or preparation does not push, update a
-review, send messages or modify the source proposal. The publisher does not target
-the upstream repository and never marks a draft ready or merges it.
-
-## Next increments
-
-The two implementation targets are a renderer-independent, non-Hydra resolver
-and a Hydra scene-index adapter consuming its resolved placement. Both are absent
-in this checkpoint. Their shared placement, queries, time evaluation and change
-propagation must agree. That consumer consistency check is separate from the
-different-transformation-engine evidence required by R29, Implementable from the text alone.
-
-The runtime contract and build stops identify the next useful decisions. Position
-storage and boundary rules unlock anchor decoding; native/project CRS semantics
-unlock imported-asset placement. Unit/up-axis and output decisions, practitioner
-controls and distance/extent criteria then support full placement, explicit export,
-validation and independent OpenUSD/OV implementations.
+Subsequent changes to functional requirements repeat this entire loop. The only
+remaining review items in a delivered run are actual design choices, input
+interpretation and externally supplied controls—not deferred coding or delivery work.

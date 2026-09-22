@@ -6,7 +6,8 @@
     "Supplied schema direction: Esri's CRS definition prim and binding API; hierarchical binding relationship; reset behavior belongs to runtime and is not newly authored. The public runtime contract still needs to record the remaining rules.",
     "Implementation experiment uses GeospatialCRS, crs:wkt and crs:binding. The relationship spelling, empty-binding policy, forwarding and cardinality must appear in an accepted design before this is a schema implementation. Tests do not decide them.",
     "Only Terms, functional requirements, the numbered open-question table and future explicit decision paragraphs are normative build inputs. Older proposal runtime prose and retired runtime/data-model branches are excluded.",
-    "The dataset/workflow catalog is authorized fixture scope, not a specification source. Earlier raw assets and use cases may be examined; retired runtime/schema/converter code and old expected results remain excluded from derivation."
+    "The dataset/workflow catalog is authorized fixture scope, not a specification source. Earlier raw assets and use cases may be examined; retired runtime/schema/converter code and old expected results remain excluded from derivation.",
+    "All unaccepted choices are explicit executable hypotheses in proposal/runtime-experiments.md. Build completion requires all eight conditional workflows and every consumer; approval is separate."
   ],
   "contracts": [
     {
@@ -17,11 +18,12 @@
         3,
         4
       ],
-      "implementation": "Engine accepts complete WKT only; increment 1 supports the WGS 84 geographic-3D/geocentric conversion. General CRS/epoch and site-grid operations remain unimplemented.",
+      "implementation": "Complete-WKT PROJ operations, explicit coordinate epochs and site calibration; independent PyGeodesy/Karney static same-datum operations. Missing grids and unsupported operations fail.",
       "evidence": [
         "E03",
         "E04",
-        "E06"
+        "E06",
+        "E11"
       ],
       "stops": [
         "S02",
@@ -37,12 +39,13 @@
         7,
         8
       ],
-      "implementation": "Read-only single-target relationship inspector. Stock USD resolves relationship opinions and remaps reference paths. It does not identify position carriers or implement asset/project placement.",
+      "implementation": "SceneResolver reads composed positions/bindings. Equivalent sublayers, references, payloads, inherits, specializes, variants and native instances are exercised with remapped in-scope definitions.",
       "evidence": [
         "E01",
         "E08",
         "E09",
-        "E10"
+        "E10",
+        "E11"
       ],
       "stops": [
         "S01",
@@ -62,13 +65,14 @@
         14,
         15
       ],
-      "implementation": "No anchor decoding, offset basis, placement matrix or scene-unit correction is implemented. These require the decisions listed below. The AECO example is checked only as an existing stock-USD fixture.",
+      "implementation": "Explicit attribute/translate carriers, absolute boundary, ordinary offsets, stage-convention/author-conformed candidates, local-grid/project transform and affine/pointwise geometry placement.",
       "evidence": [
         "E02",
         "E06",
         "E07",
         "E08",
-        "E10"
+        "E10",
+        "E11"
       ],
       "stops": [
         "S01",
@@ -85,11 +89,12 @@
         17,
         18
       ],
-      "implementation": "Engine protocol and PROJ adapter for explicit named-coordinate reporting; no renderer. No scene-target precedence, resolved-stage store or relative-placement query yet.",
+      "implementation": "ResolvedScene provides world positions, relative placement, coordinate reporting and bounds; native Hydra/Storm and Kit Fabric consume its evaluated geometry and placements.",
       "evidence": [
         "E03",
         "E07",
-        "E09"
+        "E09",
+        "E11"
       ],
       "stops": [
         "S01",
@@ -103,13 +108,14 @@
         19,
         20
       ],
-      "implementation": "Binding inspection is read-only. Analytic regression demonstrates the path difference in requirement 20, Positions between recorded moments, but does not implement an authored geographic carrier, USD sampling or baking.",
+      "implementation": "Native USD interpolation precedes conversion. Object-change notices invalidate resolution. Explicit export records CRS and sample times; exported results are consumed without double placement.",
       "evidence": [
         "E01",
         "E05",
         "E08",
         "E09",
-        "E10"
+        "E10",
+        "E11"
       ],
       "stops": [
         "S01",
@@ -123,12 +129,13 @@
         21,
         28
       ],
-      "implementation": "Explicit unsupported/unreadable/domain/batch failures in a bounded PROJ adapter, no ballpark operations, best-available check and operation provenance. This is not general missing-grid or datum-operation support.",
+      "implementation": "Authored validation distinguishes scope/dependency errors from operation failures. Whole batches fail on bad coordinates, absent coordinate epoch or missing grids; provenance records selected operations.",
       "evidence": [
         "E03",
         "E04",
         "E07",
-        "E08"
+        "E08",
+        "E11"
       ],
       "stops": [
         "S06"
@@ -142,9 +149,10 @@
         23,
         24
       ],
-      "implementation": "No approximation algorithm or acceptance tolerance has been selected. Analytic global coordinate probes are component checks, not site/regional/global scene coverage.",
+      "implementation": "Double placement with small local points preserves detail at global magnitude. Affine/pointwise alternatives measure all-vertex displacement and reject an exceeded budget. Continuous-surface semantics remain an actual design question.",
       "evidence": [
-        "E03"
+        "E03",
+        "E11"
       ],
       "stops": [
         "S03",
@@ -160,11 +168,12 @@
         26,
         27
       ],
-      "implementation": "Stock-USD transform invariance and dangling-binding diagnostics are tested. Dependency encoding, complete validator and usdchecker registration remain pending.",
+      "implementation": "Constant-time layer/default-prim dependency candidates, coverage validation, explicit baked-state metadata and observable failure; unaware USD remains unchanged.",
       "evidence": [
         "E01",
         "E02",
-        "E09"
+        "E09",
+        "E11"
       ],
       "stops": [
         "S01",
@@ -178,9 +187,10 @@
       "requirements": [
         29
       ],
-      "implementation": "Repeatable snapshot/brief/trace/test/report pipeline. PROJ numerical residuals are measured against analytic checks. No second-engine or OpenUSD/OV implementation agreement is claimed.",
+      "implementation": "PROJ and independent Karney geographic/ECEF/exact-TM coordinate math agree under stated static same-datum scope. Native Hydra and real Kit Fabric separately establish consumer consistency.",
       "evidence": [
-        "E03"
+        "E03",
+        "E11"
       ],
       "stops": [
         "S06"
@@ -318,6 +328,45 @@
         13,
         19
       ]
+    },
+    {
+      "id": "E11",
+      "kind": "Complete conditional scene workflows and policy experiments",
+      "requirements": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "test_prefix": "test_complete_",
+      "oracle": "Raw original source vertices, provider calibration, stock composition semantics, independent Karney arithmetic and explicit constructed counterexamples.",
+      "expectation": "All eight workflow families execute through complete scenes and every required consumer with no skipped in-scope work.",
+      "limit": "Unaccepted candidate rules; unknown survey metadata remains unknown. Vertex displacement is not a certified continuous-surface bound."
     }
   ],
   "stops": [
@@ -463,10 +512,10 @@
       "owner": "NVIDIA drafts; Tamrat/schema reviewers decide"
     }
   ],
-  "next_increment": "Resolve the position-carrier and scope decisions first; then derive anchor decoding and a read-only resolved representation, validate placement against partner controls, and add OpenUSD and independent OV consumers. In parallel expand explicitly supported PROJ operations with real grid/domain/epoch tests. Do not import retired runtime or converter implementations. Use WORKFLOWS.md to select a concrete next demonstration and its independent controls. Dataset intake and geographic probes can advance while dependent placement decisions remain open.",
+  "next_increment": "Choose among the executed carrier, offset/unit, project placement, output, dependency, operation and binding alternatives in proposal/runtime-experiments.md. Resolve the continuous-surface meaning of the extent requirement and obtain provider-certified vertical/epoch/control metadata; no implementation step is deferred by this checkpoint.",
   "runtime_document": {
     "path": "proposal/runtime-behavior.md",
-    "sha256": "ba400cf0c11e3d1feb016e20af4172f26b7060a6ea19c66303c1f77292b67058",
+    "sha256": "8410c82f9f7485a757fc7a2ff3509a49c53d8cce0a3e3346f38d00401267fcfc",
     "status": "proposed normative text; draft and incomplete",
     "open_decisions": "proposal/runtime-open-decisions.md"
   }

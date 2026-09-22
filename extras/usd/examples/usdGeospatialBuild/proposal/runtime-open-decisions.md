@@ -1,4 +1,4 @@
-# Decisions needed to complete the runtime description
+# Decisions supported by the completed experimental run
 
 The companion `runtime-behavior.md` is proposed normative prose. This document
 records gaps and implementation questions; these are not additional accepted rules.
@@ -15,11 +15,21 @@ coverage does not make it a complete contract or establish conformance.
 | S06 | Operation selection, practitioner controls, resources and engine evidence | Real datum/grid/epoch cases and independent-engine comparison |
 | S07 | Full binding rules, including empty targets, strength and supported relationship forms | Unambiguous CRS scope across composed scenes |
 
-The current binding inspector's names and lookup policies are experiments, not
-decisions on this table. The current WGS 84 reporting adapter is not a scene
-resolver. The intended non-Hydra runtime and Hydra adapter are both still to be
-built from the prose contract. Hydra/non-Hydra agreement and agreement across
-independent coordinate engines are separate evidence requirements.
+The choices in `runtime-experiments.md` are now executable. The run includes a
+non-Hydra resolver, native Hydra/Storm, real Kit/Fabric, independent Karney
+coordinate arithmetic and all eight conditional workflow families. The table
+records decisions awaiting approval, not implementation work deferred by this run.
+
+The two position carriers sample and export consistently. The ancestor-after-position
+alternative produces a constructed 1,000 m violation. The site-grid calibration
+changes the meaning of ordinary offsets compared with Lambert-93. A 20 km footprint
+exhibits about 40 m affine-versus-pointwise vertex displacement. These are evidence
+for selecting rules, not implicit acceptance of a candidate.
+
+R24's domain remains consequential: a maximum over authored vertices is a finite-set
+bound, not a proof over every point of a curved patch. Both placement alternatives
+execute; review must choose whether vertices, edges or a continuous surface are the
+intended set, and what budget applies.
 
 The original railway GeoJSON also needs its vertical reference and epoch clarified
 for survey-accuracy acceptance. Its source identity and coordinate preservation can
