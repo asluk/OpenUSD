@@ -1,11 +1,11 @@
 {
-  "checkpoint": "20260921-runtime-delivery",
+  "checkpoint": "20260921-complete-build",
   "proposal_commit": "eab823f46dad7c959019e5ce1851c8295c2a3701",
-  "implementation_revision": "3030417f3c350f5ba9d43afbce450a155227e4b6",
+  "implementation_revision": "36af0041e4d5e951588577a178b0404911634965",
   "requirements_sha256": "2b5049bc84b8286f2f4dc59305290c7633df304c1261e695104dd3cc1208fad6",
-  "readme_sha256": "73a91feacc9ac275792c39b23a8dc58cb3dec9e29a99b81a725f30c4fbdb513e",
-  "report_sha256": "3e877a92f50f4d246e8a46d7f9b6abb8f0fc35b66627de333b286752bf8b179d",
+  "readme_sha256": "7f49781b36513aff2f602a87ca5600ad589859816434af8a2664edccc2a57f12",
+  "report_sha256": "ee9699ee18d515954ee3defa0b50d4d19708f15f81b0c3a7f66c5993e4432568",
   "branch": "aluk/geospatial-build-loop",
-  "test_status": "NEEDS_DECISIONS_AND_EVIDENCE",
+  "test_status": "COMPLETE_WITH_OPEN_DESIGN_QUESTIONS",
   "record_kind": "prepared checkpoint; deck receipt and publish receipt record later phases"
 }

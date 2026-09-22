@@ -15,9 +15,9 @@ executes the complete declared demonstration scope. Delivery is part of the run:
 this README supplies the review summary and slide deck. Design approval and survey
 accuracy remain separate from completing the implementation and demonstrations.
 
-Read the [runtime behavior draft](proposal/runtime-behavior.md),
-[executable candidate rules](proposal/runtime-experiments.md),
-[open decisions](proposal/runtime-open-decisions.md) and [workflow evidence](docs/WORKFLOWS.md).
+Read the [runtime behavior draft](RUNTIME-BEHAVIOR.md),
+[executable candidate rules](RUNTIME-EXPERIMENTS.md),
+[open decisions](RUNTIME-OPEN-DECISIONS.md) and [workflow evidence](WORKFLOWS.md).
 
 ## Railway source and scene identity
 
@@ -28,7 +28,7 @@ Read the [runtime behavior draft](proposal/runtime-behavior.md),
 <!-- /evidence:railway -->
 - Three map tiles share the output frame. Height interpretation is explicit; survey metadata remains unknown.
 
-![Resolved railway boundaries over the retained map tiles in the selected projected frame.](docs/figures/railway.png)
+![Resolved railway boundaries over the retained map tiles in the selected projected frame.](figures/railway.png)
 
 The original GeoJSON supplies an independent check on the converted USD. Fresh
 fixture preparation preserves every original coordinate, object ID and polygon
@@ -43,7 +43,7 @@ with stored float-point precision. This supports a rule choice rather than a cla
 that the provider data is wrong. The tile images use resolved corner placement;
 the image display is an affine visualization of each tile, not certified pixel
 georeferencing. Source vertical datum, epoch and certified map controls remain
-open interpretation questions. See [dataset provenance](DATASETS.md).
+open interpretation questions. See [dataset provenance](../../DATASETS.md).
 
 ## Native interpolation preserves the authored path
 
@@ -54,7 +54,7 @@ open interpretation questions. See [dataset provenance](DATASETS.md).
 <!-- /evidence:interpolation -->
 - Edits invalidate evaluated results; explicit export records its CRS and sampled times.
 
-![Native interpolation and the erroneous Cartesian chord; axes use different units and vertical scale is exaggerated.](docs/figures/interpolation.png)
+![Native interpolation and the erroneous Cartesian chord; axes use different units and vertical scale is exaggerated.](figures/interpolation.png)
 
 The counterexample now runs through authored scene positions. It also tests cache
 invalidation, explicit sampled export and re-reading without applying the original
@@ -71,7 +71,7 @@ samples is explicitly distinguished from native-CRS evaluation.
 - Omniverse Fabric and native Hydra receive the same placements while source values remain unchanged.
 - Physical units, forecast origin, timestamp and source CRS metadata remain unverified.
 
-![All scalar sample locations resolved into ECEF under the explicit WGS84/zero-height hypothesis; colors are raw values.](docs/figures/field.png)
+![All scalar sample locations resolved into ECEF under the explicit WGS84/zero-height hypothesis; colors are raw values.](figures/field.png)
 
 Non-geometric records retain all raw values. A separate visualization layer adds
 one marker per sample, then removes every marker through the consumer update path.
@@ -85,7 +85,7 @@ direction. The filename is not evidence of a verified weather product.
 - Project relocation and a constructed incline change placement while the source asset stays unchanged.
 - The image is a real Storm render of the new native scene index; no retired geospatial plugin is loaded.
 
-![Storm renders the resolved site asset directly from the native Hydra adapter.](docs/figures/site.png)
+![Storm renders the resolved site asset directly from the native Hydra adapter.](figures/site.png)
 
 The calibrated grid changes the meaning of an offset: site-grid east/north axes
 rotate and scale relative to Lambert-93. Asset conformance is recorded separately
@@ -110,7 +110,7 @@ constructed incline. The raw partner attachment stays outside this repository.
 Consumer agreement establishes that the evaluated scene survives its integrations.
 Independent arithmetic provides a different check. Neither replaces practitioner
 controls or approval of the candidate rules. Exact versions and residuals are in
-the [run evidence](docs/FIXTURES.md).
+the [run evidence](FIXTURES.md).
 
 ## Design choices exercised by the complete run
 
@@ -119,7 +119,7 @@ the [run evidence](docs/FIXTURES.md).
 - Applying an ancestor transform after an absolute position produces a tested 1,000 m violation.
 - Missing grids or coordinate epochs fail observably; animation time never supplies a coordinate epoch.
 
-![Measured affine-versus-pointwise displacement as geometry footprint grows; bounds cover tested vertices.](docs/figures/extent.png)
+![Measured affine-versus-pointwise displacement as geometry footprint grows; bounds cover tested vertices.](figures/extent.png)
 
 The 20 km example shows about 40 m maximum vertex displacement from one affine
 placement, while centimetre detail remains measurable at global magnitude.
@@ -130,8 +130,8 @@ question, supported here by measured alternatives.
 
 Other executed choices include attribute/translate carriers, stage-convention or
 author-conformed units, output-target precedence, geographic output, dependency
-records and empty bindings. See the [candidate contract](proposal/runtime-experiments.md)
-for their mechanisms and [open decisions](proposal/runtime-open-decisions.md) for
+records and empty bindings. See the [candidate contract](RUNTIME-EXPERIMENTS.md)
+for their mechanisms and [open decisions](RUNTIME-OPEN-DECISIONS.md) for
 what review must settle. There is no deferred implementation milestone in this run.
 
 ## Review requests
@@ -141,24 +141,24 @@ what review must settle. There is no deferred implementation milestone in this r
 - Clarify the extent/bound domain, unit and offset basis, project placement and dependency/target rules.
 - Supply certified vertical/epoch metadata and control points where accuracy claims are required.
 
-The canonical proposed normative text is [proposal/runtime-behavior.md](proposal/runtime-behavior.md).
-It traces all 29 requirements; the [traceability report](docs/RUNTIME.md) maps them
+The canonical proposed normative text is [proposal/runtime-behavior.md](RUNTIME-BEHAVIOR.md).
+It traces all 29 requirements; the [traceability report](RUNTIME.md) maps them
 to implementation and evidence. Changes to requirements or reviewed prose force
 re-derivation. A complete run requires every workflow, a fresh native build, all
 consumer checks, no skipped tests and regenerated delivery artifacts. The
-[build procedure](BUILD_LOOP.md) makes that gate repeatable for subsequent changes.
+[build procedure](../../BUILD_LOOP.md) makes that gate repeatable for subsequent changes.
 
 ## Run evidence
 
 <!-- evidence:run -->
 **75 passed, 0 failed, 0 skipped.** All eight conditional workflow families execute; design approval and survey accuracy are not inferred.
 
-Run record: [20260921-complete-build](runs/20260921-complete-build/report.json). Requirements revision: `eab823f46dad7c959019e5ce1851c8295c2a3701`.
+Run record: [20260921-complete-build](report.json). Requirements revision: `eab823f46dad7c959019e5ce1851c8295c2a3701`.
 Runtime prose SHA-256: `8410c82f9f7485a757fc7a2ff3509a49c53d8cce0a3e3346f38d00401267fcfc`.
 Implementation base: `36af0041e4d5e951588577a178b0404911634965`; local changes: **false**. Exact tested files are hashed in the run record.
 
 Independent scene origins differ by at most **0.000000003 m**; Kit/Fabric geometry differs by at most **0.000058335 m**. These numerical residuals are distinct from geodetic accuracy. The finite-vertex extent bound does not certify a continuous surface.
 <!-- /evidence:run -->
 
-[Editable slides](docs/checkpoint.pptx) · [Slide PDF](docs/checkpoint.pdf) ·
-[Review summary](docs/PR_BODY.md) · [Bundled requirements](inputs/requirements.md)
+[Editable slides](checkpoint.pptx) · [Slide PDF](checkpoint.pdf) ·
+[Review summary](PR_BODY.md) · [Bundled requirements](requirements.md)

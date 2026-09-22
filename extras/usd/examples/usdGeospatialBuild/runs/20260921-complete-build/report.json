@@ -1,0 +1,1128 @@
+{
+  "started_utc": "2026-09-22T03:26:55.964509+00:00",
+  "proposal_commit": "eab823f46dad7c959019e5ce1851c8295c2a3701",
+  "allowed_sha256": "2b5049bc84b8286f2f4dc59305290c7633df304c1261e695104dd3cc1208fad6",
+  "derivation_current": true,
+  "approval": "draft; partner approval not inferred",
+  "tests": [
+    {
+      "name": "test_complete_W01_railway_all_vertices_tiles_and_topology",
+      "status": "passed",
+      "properties": {
+        "features_resolved": "1473",
+        "vertices_checked": "15822",
+        "fresh_conversion_vertex_residual_m": "4.2441147440598314e-05",
+        "provider_interior_max_discrepancy_m": "0.16713692100823313",
+        "cartesian_tangent_interior_max_discrepancy_m": "4.1676126902740885e-05",
+        "map_tiles_resolved": "3",
+        "hydra_nonhydra_max_residual_m": "7.510256215767914e-05"
+      }
+    },
+    {
+      "name": "test_complete_W02_field_all_samples_overlay_and_query",
+      "status": "passed",
+      "properties": {
+        "samples_resolved": "2664",
+        "overlay_prims_removed": "2664",
+        "hydra_nonhydra_max_residual_m": "0.0"
+      }
+    },
+    {
+      "name": "test_complete_W03_same_place_across_frames_and_units",
+      "status": "passed",
+      "properties": {
+        "independent_scene_origin_residual_m": "2.9816870751943665e-09"
+      }
+    },
+    {
+      "name": "test_complete_W04_site_grid_relocation_conformance_and_incline",
+      "status": "passed",
+      "properties": {
+        "asset_height_m": "299.9999946774461",
+        "geometry_vertices": "163416",
+        "site_calibration_residual_m": "1.3394456140890982e-06",
+        "hydra_nonhydra_max_residual_m": "5.684341886080802e-14"
+      }
+    },
+    {
+      "name": "test_complete_W05_composition_arcs_edit_and_instances[sublayer]",
+      "status": "passed",
+      "properties": {
+        "composed_arc": "sublayer"
+      }
+    },
+    {
+      "name": "test_complete_W05_composition_arcs_edit_and_instances[reference]",
+      "status": "passed",
+      "properties": {
+        "composed_arc": "reference"
+      }
+    },
+    {
+      "name": "test_complete_W05_composition_arcs_edit_and_instances[payload]",
+      "status": "passed",
+      "properties": {
+        "composed_arc": "payload"
+      }
+    },
+    {
+      "name": "test_complete_W05_composition_arcs_edit_and_instances[inherit]",
+      "status": "passed",
+      "properties": {
+        "composed_arc": "inherit"
+      }
+    },
+    {
+      "name": "test_complete_W05_composition_arcs_edit_and_instances[specialize]",
+      "status": "passed",
+      "properties": {
+        "composed_arc": "specialize"
+      }
+    },
+    {
+      "name": "test_complete_W05_composition_arcs_edit_and_instances[variant]",
+      "status": "passed",
+      "properties": {
+        "composed_arc": "variant"
+      }
+    },
+    {
+      "name": "test_complete_W05_composition_arcs_edit_and_instances[instance]",
+      "status": "passed",
+      "properties": {
+        "composed_arc": "instance"
+      }
+    },
+    {
+      "name": "test_complete_W05_point_instances_masks_and_export",
+      "status": "passed",
+      "properties": {
+        "visible_point_instances": "2"
+      }
+    },
+    {
+      "name": "test_complete_W07_native_storm_and_omniverse_fabric",
+      "status": "passed",
+      "properties": {
+        "kit_version": "110.2.0+master.0.ed49fa58.local",
+        "kit_fabric_max_residual_m": "5.833490442329193e-05",
+        "storm_render_pixels": "921600",
+        "native_usd_version": "2611",
+        "retired_geospatial_modules_loaded": "False"
+      }
+    },
+    {
+      "name": "test_binding_composed_reference_flatten_and_sublayer",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_nested_override_and_no_mutation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_stronger_opinion_and_forwarding",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets0]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets1]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets2]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_binding_invalid_nearer_binding_never_falls_back[targets3]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_additive_metadata_leaves_stock_transform_unchanged",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_analytic_global_points_and_provenance",
+      "status": "passed",
+      "properties": {
+        "max_residual_m": "0.0",
+        "max_coordinate_magnitude_m": "6378147.0",
+        "operation": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric) (with axis order normalized for visualization)",
+        "engine_accuracy_m": "unknown"
+      }
+    },
+    {
+      "name": "test_engine_analytic_geographic_reporting",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad0]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad1]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad2]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad3]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_invalid_batch[bad4]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_codes_unsupported_and_empty",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_unavailable_best_operation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_engine_reject_partial_result",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_native_sample_midpoint_before_conversion",
+      "status": "passed",
+      "properties": {
+        "wrong_order_chord_depth_m": "971.4211582997814"
+      }
+    },
+    {
+      "name": "test_aeco_partner_stated_origin_and_conformance",
+      "status": "passed",
+      "properties": {
+        "origin_residual_m": "0.0",
+        "height_m": "299.9999946774461"
+      }
+    },
+    {
+      "name": "test_aeco_wkt_library_and_calibration_origin",
+      "status": "passed",
+      "properties": {
+        "calibration_origin_residual_m": "1.3394456140890982e-06"
+      }
+    },
+    {
+      "name": "test_public_guard_rejects_backlinks_and_private_paths",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_public_guard_allows_pinned_source_files_and_requirements",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_readme_is_the_source_for_summaries",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_checkpoints_are_immutable",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_rejects_changed_source",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_rejects_partial_scope_or_skipped_work",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_rejects_failed_or_stale_runs[TEST_FAILURE]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_rejects_failed_or_stale_runs[DERIVATION_STALE]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_public_report_omits_local_access_information",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_portable_input_rejects_changed_text",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_preserves_workflow_evidence[None]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_preserves_workflow_evidence[catalog]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_delivery_preserves_workflow_evidence[evidence]",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_source_extraction_excludes_legacy_runtime",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_fixture_import_ignores_archive_paths_and_scripts",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_changed_requirement_invalidates_derivation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_duplicate_frozen_identifier_is_rejected",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_changed_runtime_prose_invalidates_derivation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_changed_source_cycle_stops_before_tests_and_rejects_dirty_input",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_narrative_preserves_authored_argument_and_derives_summaries",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_narrative_refuses_missing_workflow_evidence",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_figures_are_bound_to_run_and_bytes",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_complete_W06_extent_sweep_and_precision",
+      "status": "passed",
+      "properties": {
+        "footprint_vs_vertex_displacement_m": "[(0.01, 1.6789656483866224e-09), (10, 9.996467895627207e-06), (1000, 0.09994295187429905), (20000, 39.99483780878423)]"
+      }
+    },
+    {
+      "name": "test_complete_W08_empty_binding_project_boundary_and_scope",
+      "status": "passed",
+      "properties": {
+        "ancestor_after_absolute_violation_m": "1000.0"
+      }
+    },
+    {
+      "name": "test_complete_W08_dynamic_epoch_and_missing_resources",
+      "status": "passed",
+      "properties": {
+        "dynamic_operation": "Conversion from ITRF2014 (geog3D) to ITRF2014 (geocentric) + Inverse of ITRF2008 to ITRF2014 (1) + Conversion from ITRF2008 (geocentric) to ITRF2008 (geog3D) (with axis order normalized for visualization)"
+      }
+    },
+    {
+      "name": "test_complete_W08_forwarding_and_time_export",
+      "status": "passed",
+      "properties": {
+        "exported_native_evaluation_samples": "3"
+      }
+    },
+    {
+      "name": "test_scene_independent_engine_and_epoch",
+      "status": "passed",
+      "properties": {
+        "independent_max_residual_m": "1.9199706733309015e-09"
+      }
+    },
+    {
+      "name": "test_scene_absolute_offsets_invalidation_export[attribute]",
+      "status": "passed",
+      "properties": {
+        "source_unchanged_during_resolution": "True"
+      }
+    },
+    {
+      "name": "test_scene_absolute_offsets_invalidation_export[translate]",
+      "status": "passed",
+      "properties": {
+        "source_unchanged_during_resolution": "True"
+      }
+    },
+    {
+      "name": "test_scene_native_interpolation_dependency_and_policy_alternatives",
+      "status": "passed",
+      "properties": {
+        "interpolate_after_transform_error_m": "971.4211583005462"
+      }
+    },
+    {
+      "name": "test_scene_precision_extent_and_native_hydra",
+      "status": "passed",
+      "properties": {
+        "hydra_nonhydra_max_residual_m": "1.0477378964424133e-09",
+        "twenty_km_affine_vertex_error_m": "39.99483780878423"
+      }
+    },
+    {
+      "name": "test_scene_failures_are_atomic_and_unaware_stage_survives",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_workflow_locations_retained_and_generated",
+      "status": "passed",
+      "properties": {
+        "retained_locations": "5",
+        "generated_locations": "32",
+        "max_analytic_residual_m": "0.0"
+      }
+    },
+    {
+      "name": "test_workflow_railway_source_inventory_and_anchor_reporting",
+      "status": "passed",
+      "properties": {
+        "curve_prims": "186",
+        "curve_vertices": "3526",
+        "geographic_source_anchors": "1476",
+        "anchor_probe_residual_m": "0.0"
+      }
+    },
+    {
+      "name": "test_workflow_geojson_source_to_usd_identity_and_anchors",
+      "status": "passed",
+      "properties": {
+        "matched_feature_ids": "1473",
+        "geometry_counts": "{\"LineString\": 186, \"MultiPolygon\": 56, \"Polygon\": 1231}",
+        "matched_linestring_vertices_by_count": "3526",
+        "first_coordinate_anchor_component_delta": "0",
+        "scope": "Identity, geometry kind, curve vertex counts and anchors; interior vertex placement not validated"
+      }
+    },
+    {
+      "name": "test_workflow_field_coordinate_probe",
+      "status": "passed",
+      "properties": {
+        "field_shape": "(37, 72)",
+        "samples": "2664",
+        "analytic_probe_residual_m": "0.0",
+        "scope": "Constructed WGS 84 height-zero probe; source units and geodetic provenance unknown"
+      }
+    },
+    {
+      "name": "test_workflow_field_removable_geometry_overlay",
+      "status": "passed",
+      "properties": {
+        "overlay_samples": "3",
+        "scope": "Stock USD data preservation and removable overlay; geospatial placement is pending"
+      }
+    },
+    {
+      "name": "test_dataset_integrity_rejects_changed_input_and_paths",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_geojson_rejects_duplicate_ids_and_invalid_coordinates",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_workflow_checks_never_imply_complete_validation",
+      "status": "passed",
+      "properties": {}
+    },
+    {
+      "name": "test_public_dataset_inventory_omits_local_access",
+      "status": "passed",
+      "properties": {}
+    }
+  ],
+  "status": "COMPLETE_WITH_OPEN_DESIGN_QUESTIONS",
+  "source_files": {
+    ".gitattributes": "f79c694d2d99515f9e36bd25f62fbefa50864a96f25f6a16add7e367108cd7eb",
+    ".gitignore": "8825c08eea352605d4b3eb0d712902b45d453a5f7020bad5ad5e597030e01170",
+    "build_deck.mjs": "092d25958b3cd4fd7639b11d2efc347de1e2cfbaf76ffeede71c60b492afe264",
+    "BUILD_LOOP.md": "eb8ff5593a373e061cc7fa04a4c7bc6a4fdfd534d6c280397514817a36784243",
+    "dataset-catalog.json": "5f917601fa872ac1434ecbf92ef610709f0b471f1cc3162bee28c8898f9598c0",
+    "DATASETS.md": "c39b9eb95f4d0fb44736a961277acd75a6edeafe9f9fe4ea1c7fe6907ab1cada",
+    "datasets.py": "7f3b55c7ce1707b81f9edac4213af757cf61f9c24d7ef276f850e1ccd69103cd",
+    "deliver.py": "07c7628faebc2b07ad6637c0b71d0c85aba6d309b1325b2fe54d7ce909dd8cba",
+    "derivation.json": "5a248d7c50305f85a7875955604138ab7eb0f94f945b6dcff017a57227f08244",
+    "figures.py": "489fc28e9d712326a41600f5e1558f577a72665e1e652e9566e9d134e06dbdbd",
+    "geobuild/__init__.py": "026efb63701f2bb7b78929d18619dc0d1730389de9ac6fef4716024f63e16128",
+    "geobuild/bindings.py": "3cf60260ec55a8c16d47521560fa9220817f409a6c18d4d3fe890c6ec14f7f09",
+    "geobuild/contract.py": "6e1f8ff1e67a60200ebc05e2620593d696072540c8f45ffcc1af8d9978b3918e",
+    "geobuild/datasets.py": "4d7ce647a965134c99eaee8517d588a5891e6b5295d51e9f48de79cac06f1a86",
+    "geobuild/delivery.py": "90b800f39271864db75343feef18212cd0df4d3f4448c552c27af7d8efa5e2b7",
+    "geobuild/demonstrations.py": "4ff5e40433048d74bd2412757683ce7c5fcd18da024e4442f53edbe4e677d6bb",
+    "geobuild/engine.py": "4bd143ba7929ec17f5f977f57768d61767879a67cac3a8215375e30a853fa3c6",
+    "geobuild/fixtures.py": "475311ab8592e3644b37d1e55dac426f6eda535891b9b97026ab5fc7bb84b958",
+    "geobuild/hydra.py": "c429a48c5df60aa7d28adb9e4eba3d25c852a6756d16f7b7e7df6d829f88b1f9",
+    "geobuild/kit.py": "ed903f331d5f6c17b89c43d3c4cb4dfa52c664c0f421a4bdb624cc06deca588f",
+    "geobuild/kit_consumer.py": "9b4d11c4c370f01f9ea6e6bed7a425ba241aedde7a4be1909295784495023dec",
+    "geobuild/narrative.py": "7e30cffa4677c720cb72f5064fdd8e236d6f575427bd6787632cd039888c6495",
+    "geobuild/native_build.py": "3e2cc6add4f9742a89be14c1b0b40e211a6b12357e304504903fd1e2b818c813",
+    "geobuild/operations.py": "ac142f93be4d0ffed8f4bf76582a9bddbb78d96edddc9e10d22042017d1a249b",
+    "geobuild/runtime.py": "ff97d774d1af4d98ff8fe35ba85a467b2db5412e27dcd1318c4396e1e1034d19",
+    "geobuild/source.py": "c339ae3e54df16cad5098426e16b9ac1a8f73ac31e631ab62e2ccc8287d1f997",
+    "native/CMakeLists.txt": "f1e33415a2c679e63e8c2b6245ff9ce135b5b1f431d2c2d73bc846c515a98283",
+    "native/hydraBridge.cpp": "3f623e9dc2f4ff86a6db9102583a4796c3381dffb3105e71ce4413e73079177d",
+    "native/stormRender.h": "826d4680025d5ab20572975978b861782c4b1e25eb3f723cc5c92cbcd1000f22",
+    "package.json": "f453f6292ae787338301a3107f470036a052d5041df7869f756e6d60f09bc575",
+    "proposal/runtime-behavior.md": "8410c82f9f7485a757fc7a2ff3509a49c53d8cce0a3e3346f38d00401267fcfc",
+    "proposal/runtime-experiments.md": "a7a374c9d23239c06a63737cc6258bd4fc387f56e9b804b3c5d99a6941bd7b80",
+    "proposal/runtime-open-decisions.md": "015e4f63bb5b52928fa284931a008e5db37d4b8a62ffaa4a82e131e01c50f286",
+    "pytest.ini": "061b37822487deda44ab30227354f3d039f9b8a001aefa6281857bcc9ce73b09",
+    "requirements-datasets.txt": "24ceef96a01b00d6881ab3cb6b5fda8b9d0ded7421f74c647215bf76db3886cb",
+    "requirements-delivery.txt": "28a520be66fa43e2a49f8718c59006a3057a6393d927f786236a73d5f33f1825",
+    "requirements.txt": "4377e0d8562f59c4e16289ebcf3b0cc3e608f5dbfebcc737c869bf1ed8ed8c10",
+    "Run-BuildLoop.ps1": "bf5e0298edf1a6dba2f650d54eaba9b8469daa4d0e8366cedfbbb20d94bfe26d",
+    "run.py": "18e8b078e420791fc37bd0b470d34396fe338133f1bfc4961e28cbca725a82d2",
+    "tests/test_complete_workflows.py": "bb87a8652d334270b9028955cc9e5029e0b25fa75061f71bfa28f5f9b742867c",
+    "tests/test_components.py": "d3953274d2ad5d51bf1b72128d0d1cbc2c5b090866e6dc3cd6c42edcceadd508",
+    "tests/test_delivery.py": "91ca650d861fe47ff126b4cf5f841d5f66d3ca8d0b557df052e51de2357b94db",
+    "tests/test_loop.py": "351067bdce84845507b13901beabf7139aeec210b2162ecae7c591646fd9e3c8",
+    "tests/test_narrative.py": "e353c3b33dc337e3937dd1f5ce71818f764008ef4885ea0b59a28d78f62eb142",
+    "tests/test_policy_experiments.py": "00d4fe02214dbfc88a1f2e41582e7a0b2fa7350f7b552cb2604b609fa4eee601",
+    "tests/test_scene_runtime.py": "fe050581c83e4cee6a923ded765fc9f942c741cc6d404683c582be249b229494",
+    "tests/test_workflows.py": "0f3ed7836502f927cde50e2b6995b343c7a0d1353601a55a1077f5a7c41a8c76"
+  },
+  "test_exit_code": 0,
+  "implementation": {
+    "revision": "36af0041e4d5e951588577a178b0404911634965",
+    "source_dirty": false
+  },
+  "stop_count": 7,
+  "complete_scope": true,
+  "native_build": {
+    "executable_sha256": "8a897eea9bae2eace241a664288696ecfb825260d2a7e27a4232909c30ab3559",
+    "source_sha256": {
+      "CMakeLists.txt": "f1e33415a2c679e63e8c2b6245ff9ce135b5b1f431d2c2d73bc846c515a98283",
+      "hydraBridge.cpp": "3f623e9dc2f4ff86a6db9102583a4796c3381dffb3105e71ce4413e73079177d",
+      "stormRender.h": "826d4680025d5ab20572975978b861782c4b1e25eb3f723cc5c92cbcd1000f22"
+    },
+    "built_in_this_run": true,
+    "link_scope": "stock OpenUSD imaging libraries; no retired geospatial implementation"
+  },
+  "demonstration_files": {
+    "consumers.json": "55108ef9f376fe8126dfebcf9f836e21c7f827089f324a3e677e06f1ab5bcbea",
+    "field.json": "355b51e7f219243507258219f075291d1ba491b4d427bfbd32989600af41e2c5",
+    "railway.json": "bab505ac147b4b28662775818752f302482dca47ebf56e5b640aa367379b4791",
+    "site.json": "9ef42490d7a74c1521936000200cd358ccbcac90c58883f63ebdd1ef14264294",
+    "storm-site.png": "9cae860548c02d246c1f0b9a426e22ef677680a165caee924c4d8b1df494c138"
+  },
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "usd-core": "26.8",
+      "pyproj": "3.8.0",
+      "pytest": "9.1.1",
+      "PyGeodesy": "26.9.9",
+      "numpy": "2.5.3",
+      "h5py": "3.16.0"
+    }
+  },
+  "dataset": {
+    "sha256": "baf9f94821a3f37efd3a2eca35672e3d481ac9948bf95b8f0ffc025eaad8de28",
+    "origin": "Sébastien Vielliard, AECO example received 2026-09-16",
+    "redistribution": "not established; kept local",
+    "role": "partner-authored stock-USD baseline; not an approved scene-resolution fixture"
+  },
+  "dataset_inventory": {
+    "catalog_sha256": "5f917601fa872ac1434ecbf92ef610709f0b471f1cc3162bee28c8898f9598c0",
+    "datasets": [
+      {
+        "id": "geographic-locations",
+        "label": "Five geographic locations and fresh generated cases",
+        "status": "available",
+        "kind": "analytic stimuli",
+        "provenance": "Locations retained from the earlier dataset inventory. Heights are diagnostic inputs, not certified survey observations. Expected ECEF is recomputed from WGS 84 ellipsoid equations. Projected variants are future coverage, not accepted control coordinates.",
+        "files": []
+      },
+      {
+        "id": "railway",
+        "label": "Deutsche Bahn railway and three map tiles",
+        "status": "available",
+        "kind": "external authored asset",
+        "provenance": "Original NVIDIA OpenUSD-plugin-samples data, fetched directly at a pinned revision. Read the original Omniverse attributes only as source encoding. No previous converter, resolver or schema is imported.",
+        "files": [
+          {
+            "path": "railway/deutschebahn-rails.usda",
+            "sha256": "7a4e1eb57bcf47a4c2819b2a7979376149e71207ba1da9a01498cf1a4c94ff35",
+            "present": true
+          },
+          {
+            "path": "railway/quadnode-0.png",
+            "sha256": "bdd6fe491467c2b48630a070627b4d9c039de9821b2f5432240657c42449a8c1",
+            "present": true
+          },
+          {
+            "path": "railway/quadnode-1.png",
+            "sha256": "3a548407a6e7bffde0b4f5d88c3dc4c121d3190fd6d9bcde6a4be75f826e7544",
+            "present": true
+          },
+          {
+            "path": "railway/quadnode-4.png",
+            "sha256": "1c0903de6e254d88f85b288ad6600176aa046b80e35c91ba862ab020df1e4866",
+            "present": true
+          },
+          {
+            "path": "railway/LICENSE",
+            "sha256": "bdbde1d68426160fa7d42081d616372a745f49e333ac3d184b33050f00315a0d",
+            "present": true
+          }
+        ]
+      },
+      {
+        "id": "railway-geojson",
+        "label": "Original railway GeoJSON supplied by Aaron",
+        "status": "available",
+        "kind": "original source features; local only",
+        "provenance": "User-supplied original railway FeatureCollection. Declares EPSG:4326 and stores longitude/latitude/third-ordinate triples. Vertical datum and epoch are not specified; the third ordinate must not be silently treated as ellipsoidal height for acceptance. Properties are data, never execution instructions.",
+        "files": [
+          {
+            "path": "railway-source/1kmE4334N3375.geojson",
+            "sha256": "885026bb98e36bfd259fece09c4218496f6b20ba463525d746e9299e0edb12b7",
+            "present": true
+          }
+        ]
+      },
+      {
+        "id": "scalar-field",
+        "label": "Earlier scalar-field sample named gfs_t2m.nc",
+        "status": "available",
+        "kind": "local sample with unverified scientific provenance",
+        "provenance": "Local 37 by 72 HDF5 sample. The file lacks source, forecast time, CRS and units metadata. Its filename does not establish NOAA GFS provenance. Retained for scalar-data handling and explicit diagnostic coordinate probes only.",
+        "files": [
+          {
+            "path": "scalar-field/gfs_t2m.nc",
+            "sha256": "025136ab8f2852968e87e58e159cd9167649d84e6ed94501899f7da9c0525c9e",
+            "present": true
+          }
+        ]
+      },
+      {
+        "id": "ncat-candidates",
+        "label": "New York cross-CRS control candidates",
+        "status": "needs_provider_record",
+        "kind": "unverified control candidates",
+        "provenance": "Earlier notes attribute these to NOAA NCAT but the provider response, input/output realizations and epoch are absent. Never grade a new resolver against these until that provenance is recovered.",
+        "files": []
+      },
+      {
+        "id": "aeco",
+        "label": "Partner site, local calibration and Eiffel tower",
+        "status": "available",
+        "kind": "partner stock-USD baseline",
+        "provenance": "Existing separately supplied attachment and intake checks. No reference-binding or authored-reset convention is adopted.",
+        "files": []
+      }
+    ]
+  },
+  "workflows": [
+    {
+      "id": "W01",
+      "title": "Imported railway aligned with map tiles",
+      "datasets": [
+        "railway",
+        "railway-geojson"
+      ],
+      "requirements": [
+        7,
+        8,
+        9,
+        10,
+        13,
+        15,
+        19,
+        24
+      ],
+      "tests": [
+        "test_workflow_railway_",
+        "test_workflow_geojson_",
+        "test_complete_W01_"
+      ],
+      "question": "Can imported infrastructure retain its native data and align with a separately placed map?",
+      "demonstration": "Show the same rails and tile corners before and after scene resolution, with residuals and a deliberately wrong axis/frame control.",
+      "oracle": "Provider controls and independently derived placement once the source frame and current position/offset rules are established. Anchor-only checks use ellipsoid equations.",
+      "remaining": "Vertical datum/epoch and certified map controls remain unknown. The conditional run compares every source vertex and all map-tile placements; it reports the provider interior discrepancy.",
+      "stops": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "status": "CONDITIONAL_WORKFLOW_PASSED",
+      "full_workflow_validated": true,
+      "dataset_status": {
+        "railway": "available",
+        "railway-geojson": "available"
+      },
+      "checks": [
+        {
+          "name": "test_complete_W01_railway_all_vertices_tiles_and_topology",
+          "status": "passed"
+        },
+        {
+          "name": "test_workflow_railway_source_inventory_and_anchor_reporting",
+          "status": "passed"
+        },
+        {
+          "name": "test_workflow_geojson_source_to_usd_identity_and_anchors",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W02",
+      "title": "Non-geometric scalar field with a removable visualization",
+      "datasets": [
+        "scalar-field"
+      ],
+      "requirements": [
+        7,
+        9,
+        13,
+        17,
+        19,
+        25
+      ],
+      "tests": [
+        "test_workflow_field_",
+        "test_complete_W02_"
+      ],
+      "question": "Can consumers visualize scalar observations while preserving their source data and georeferencing?",
+      "demonstration": "Keep scalar data in a base layer; add and remove a geometry-only overlay; compare resolved positions used by visualization and analysis.",
+      "oracle": "Byte-preserved source, stock USD composition and an analytic coordinate probe. Scientific and CRS provenance must come from the provider.",
+      "remaining": "Physical units, forecast origin/time and source CRS metadata remain unverified. All samples and removal of all overlay prims execute under an explicit coordinate hypothesis.",
+      "stops": [
+        "S01",
+        "S04",
+        "S06"
+      ],
+      "status": "CONDITIONAL_WORKFLOW_PASSED",
+      "full_workflow_validated": true,
+      "dataset_status": {
+        "scalar-field": "available"
+      },
+      "checks": [
+        {
+          "name": "test_complete_W02_field_all_samples_overlay_and_query",
+          "status": "passed"
+        },
+        {
+          "name": "test_workflow_field_coordinate_probe",
+          "status": "passed"
+        },
+        {
+          "name": "test_workflow_field_removable_geometry_overlay",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W03",
+      "title": "One place authored in several coordinate systems",
+      "datasets": [
+        "geographic-locations",
+        "ncat-candidates"
+      ],
+      "requirements": [
+        1,
+        3,
+        12,
+        13,
+        16,
+        18,
+        21,
+        28
+      ],
+      "tests": [
+        "test_workflow_locations_",
+        "test_complete_W03_"
+      ],
+      "question": "Do independent source coordinates of one place resolve consistently across CRS families and hemispheres?",
+      "demonstration": "Co-register geographic, UTM and national/state-grid representations, displaying the reference uncertainty and a wrong-zone/axis control.",
+      "oracle": "Geographic probes use fresh ellipsoid calculations. Projected acceptance needs provider controls and valid datum/epoch operations; PROJ-generated inputs are not independent ground truth.",
+      "remaining": "Agree the practitioner tolerance and operation policy. Independent arithmetic and scenes cover both hemispheres and mixed coordinate representations.",
+      "stops": [
+        "S04",
+        "S06"
+      ],
+      "status": "CONDITIONAL_WORKFLOW_PASSED",
+      "full_workflow_validated": true,
+      "dataset_status": {
+        "geographic-locations": "available",
+        "ncat-candidates": "needs_provider_record"
+      },
+      "checks": [
+        {
+          "name": "test_complete_W03_same_place_across_frames_and_units",
+          "status": "passed"
+        },
+        {
+          "name": "test_workflow_locations_retained_and_generated",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W04",
+      "title": "Place and relocate a site with ordinary asset edits",
+      "datasets": [
+        "aeco"
+      ],
+      "requirements": [
+        4,
+        8,
+        9,
+        10,
+        11,
+        14,
+        15,
+        19,
+        24
+      ],
+      "tests": [
+        "test_aeco_",
+        "test_complete_W04_"
+      ],
+      "question": "Can a building be placed in a calibrated project grid while retaining its own frame and ordinary modelling edits?",
+      "demonstration": "Show site calibration, orientation/unit conformance and local child edits; relocate the site and compare provider control points.",
+      "oracle": "Partner-supplied calibration and survey controls, with constructed edit cases separately identified.",
+      "remaining": "Approve native/project placement semantics and supply survey controls. Calibration, complete asset geometry, relocation and a synthetic incline execute.",
+      "stops": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "status": "CONDITIONAL_WORKFLOW_PASSED",
+      "full_workflow_validated": true,
+      "dataset_status": {
+        "aeco": "available"
+      },
+      "checks": [
+        {
+          "name": "test_complete_W04_site_grid_relocation_conformance_and_incline",
+          "status": "passed"
+        },
+        {
+          "name": "test_aeco_partner_stated_origin_and_conformance",
+          "status": "passed"
+        },
+        {
+          "name": "test_aeco_wkt_library_and_calibration_origin",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W05",
+      "title": "Equivalent composed scenes and later edits",
+      "datasets": [
+        "railway",
+        "scalar-field"
+      ],
+      "requirements": [
+        5,
+        6,
+        7,
+        8,
+        19,
+        20
+      ],
+      "tests": [
+        "test_binding_",
+        "test_native_sample_",
+        "test_complete_W05_"
+      ],
+      "question": "Does equivalent composed data resolve identically through layering, references and subsequent edits?",
+      "demonstration": "Compare equivalent composed scenes, then change a binding or time sample and show the affected results while source layers remain unchanged.",
+      "oracle": "Stock USD composed opinions and independently calculated sample positions.",
+      "remaining": "Approve carrier, binding and dependency-record policies. Seven composition arcs, edits, time, native instances, point instances and export execute.",
+      "stops": [
+        "S01",
+        "S05",
+        "S07"
+      ],
+      "status": "CONDITIONAL_WORKFLOW_PASSED",
+      "full_workflow_validated": true,
+      "dataset_status": {
+        "railway": "available",
+        "scalar-field": "available"
+      },
+      "checks": [
+        {
+          "name": "test_complete_W05_composition_arcs_edit_and_instances[sublayer]",
+          "status": "passed"
+        },
+        {
+          "name": "test_complete_W05_composition_arcs_edit_and_instances[reference]",
+          "status": "passed"
+        },
+        {
+          "name": "test_complete_W05_composition_arcs_edit_and_instances[payload]",
+          "status": "passed"
+        },
+        {
+          "name": "test_complete_W05_composition_arcs_edit_and_instances[inherit]",
+          "status": "passed"
+        },
+        {
+          "name": "test_complete_W05_composition_arcs_edit_and_instances[specialize]",
+          "status": "passed"
+        },
+        {
+          "name": "test_complete_W05_composition_arcs_edit_and_instances[variant]",
+          "status": "passed"
+        },
+        {
+          "name": "test_complete_W05_composition_arcs_edit_and_instances[instance]",
+          "status": "passed"
+        },
+        {
+          "name": "test_complete_W05_point_instances_masks_and_export",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_composed_reference_flatten_and_sublayer",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_nested_override_and_no_mutation",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_stronger_opinion_and_forwarding",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_invalid_nearer_binding_never_falls_back[targets0]",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_invalid_nearer_binding_never_falls_back[targets1]",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_invalid_nearer_binding_never_falls_back[targets2]",
+          "status": "passed"
+        },
+        {
+          "name": "test_binding_invalid_nearer_binding_never_falls_back[targets3]",
+          "status": "passed"
+        },
+        {
+          "name": "test_native_sample_midpoint_before_conversion",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W06",
+      "title": "Detail across locations and bounded placement extents",
+      "datasets": [
+        "geographic-locations",
+        "railway"
+      ],
+      "requirements": [
+        10,
+        14,
+        22,
+        23,
+        24
+      ],
+      "tests": [
+        "test_complete_W06_"
+      ],
+      "question": "Can a small feature retain usable precision when the same asset moves around the globe or grows in extent?",
+      "demonstration": "Vary location, local detail and footprint independently; measure position, orientation, scale and precision errors.",
+      "oracle": "Independent control geometry and explicit workflow error budgets, never inherited prototype tolerances.",
+      "remaining": "Agree the offset basis and whether extent means authored vertices or a continuous surface. The run measures size/precision and compares affine with pointwise placement; no continuous bound is asserted.",
+      "stops": [
+        "S03",
+        "S04",
+        "S06"
+      ],
+      "status": "CONDITIONAL_WORKFLOW_PASSED",
+      "full_workflow_validated": true,
+      "dataset_status": {
+        "geographic-locations": "available",
+        "railway": "available"
+      },
+      "checks": [
+        {
+          "name": "test_complete_W06_extent_sweep_and_precision",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W07",
+      "title": "Same resolved scene for independent consumers",
+      "datasets": [
+        "railway",
+        "scalar-field"
+      ],
+      "requirements": [
+        16,
+        17,
+        18,
+        28,
+        29
+      ],
+      "tests": [
+        "test_complete_W07_"
+      ],
+      "question": "Do visualization, analytics and an independent runtime agree on one resolved scene?",
+      "demonstration": "Compare shared resolved positions through OpenUSD and OV, then a genuinely independent transformation engine, including operation provenance.",
+      "oracle": "Provider controls and analytic cases establish correctness; implementation agreement establishes consistency only.",
+      "remaining": "Approve the shared consumer contract and independent-engine acceptance tolerance. Native Hydra/Storm, real Kit Fabric and independent Karney arithmetic execute.",
+      "stops": [
+        "S04",
+        "S06"
+      ],
+      "status": "CONDITIONAL_WORKFLOW_PASSED",
+      "full_workflow_validated": true,
+      "dataset_status": {
+        "railway": "available",
+        "scalar-field": "available"
+      },
+      "checks": [
+        {
+          "name": "test_complete_W07_native_storm_and_omniverse_fabric",
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "id": "W08",
+      "title": "Incorrect or unsupported inputs fail observably",
+      "datasets": [
+        "railway",
+        "aeco"
+      ],
+      "requirements": [
+        1,
+        3,
+        11,
+        12,
+        21,
+        25,
+        26,
+        27,
+        28
+      ],
+      "tests": [
+        "test_engine_reject_",
+        "test_complete_W08_"
+      ],
+      "question": "Can a consumer explain why placement is unsafe instead of silently inventing a result?",
+      "demonstration": "Show malformed input, absent resources, ambiguous position/offset declarations and unaware consumers, alongside the smallest valid correction.",
+      "oracle": "Current requirements and deliberately malformed fixtures; diagnostics identify the unsupported operation or missing decision.",
+      "remaining": "Approve empty-binding, target-conflict and operation-selection policy. Negative cases reject bad scope, absent epoch, missing resources and forbidden fallbacks.",
+      "stops": [
+        "S01",
+        "S05",
+        "S06",
+        "S07"
+      ],
+      "status": "CONDITIONAL_WORKFLOW_PASSED",
+      "full_workflow_validated": true,
+      "dataset_status": {
+        "railway": "available",
+        "aeco": "available"
+      },
+      "checks": [
+        {
+          "name": "test_engine_reject_invalid_batch[bad0]",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_invalid_batch[bad1]",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_invalid_batch[bad2]",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_invalid_batch[bad3]",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_invalid_batch[bad4]",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_codes_unsupported_and_empty",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_unavailable_best_operation",
+          "status": "passed"
+        },
+        {
+          "name": "test_engine_reject_partial_result",
+          "status": "passed"
+        },
+        {
+          "name": "test_complete_W08_empty_binding_project_boundary_and_scope",
+          "status": "passed"
+        },
+        {
+          "name": "test_complete_W08_dynamic_epoch_and_missing_resources",
+          "status": "passed"
+        },
+        {
+          "name": "test_complete_W08_forwarding_and_time_export",
+          "status": "passed"
+        }
+      ]
+    }
+  ],
+  "runtime_contract": {
+    "path": "proposal/runtime-behavior.md",
+    "sha256": "8410c82f9f7485a757fc7a2ff3509a49c53d8cce0a3e3346f38d00401267fcfc",
+    "approval": "proposed normative text; draft and incomplete"
+  }
+}

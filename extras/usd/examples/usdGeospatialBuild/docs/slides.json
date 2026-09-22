@@ -1,73 +1,78 @@
 {
-  "readme_sha256": "73a91feacc9ac275792c39b23a8dc58cb3dec9e29a99b81a725f30c4fbdb513e",
+  "readme_sha256": "7f49781b36513aff2f602a87ca5600ad589859816434af8a2664edccc2a57f12",
   "slides": [
     {
       "title": "Geospatial scenes with shared placement",
       "lines": [
-        "A railway, a site asset and a scalar field should retain their source coordinates while participating in one scene.",
-        "Rendering, world-position queries, bounds and physics need the same resolved placement."
+        "Place railway data, a calibrated site and a removable scalar overlay while retaining their source data.",
+        "Headless queries, native Hydra/Storm and Omniverse Fabric consume the same evaluated placement.",
+        "Execute every workflow and test alternative rules; use the failures and discrepancies to improve the design."
       ]
     },
     {
       "title": "Railway source and scene identity",
       "lines": [
-        "1,473 source features match USD object identities and first-coordinate anchors.",
-        "186 railway curves retain 3,526 vertices by count; interior placement is still unchecked.",
-        "These checks establish what survived conversion; they do not establish resolved rails-on-map placement."
+        "1,473 source features resolve with all 15,822 vertices, object identities and polygon rings checked.",
+        "Across 186 curves, offset-basis choice changes maximum mismatch from 16.71 cm to 41.7 micrometres.",
+        "Three map tiles share the output frame. Height interpretation is explicit; survey metadata remains unknown."
       ],
       "image": "docs/figures/railway.png",
-      "caption": "Original source curves and matching USD anchors; this is a data plot, not a runtime render."
+      "caption": "Resolved railway boundaries over the retained map tiles in the selected projected frame."
     },
     {
       "title": "Native interpolation preserves the authored path",
       "lines": [
-        "R20, Positions between recorded moments: interpolate recorded coordinates in their CRS, then convert.",
+        "Both experimental position carriers interpolate recorded native coordinates before conversion.",
         "Interpolating converted endpoints puts the equatorial midpoint 971.421 m inside the ellipsoid.",
-        "This is an analytic component example; the scene position carrier and its sampling rules remain open."
+        "Edits invalidate evaluated results; explicit export records its CRS and sampled times."
       ],
       "image": "docs/figures/interpolation.png",
-      "caption": "Equatorial samples at minus and plus one degree; vertical scale is exaggerated and axes use different units."
+      "caption": "Native interpolation and the erroneous Cartesian chord; axes use different units and vertical scale is exaggerated."
     },
     {
       "title": "Scalar data and a removable visualization",
       "lines": [
-        "2,664 scalar samples on a 37 by 72 grid exercise coordinate reporting; a three-sample overlay is removable.",
-        "The stock-USD overlay leaves source values intact. Geospatial placement of that overlay is still pending.",
-        "Forecast origin, timestamp, CRS metadata and value units are unverified; the filename is not provenance."
+        "All 2,664 scalar samples resolve; all 2,664 visualization markers are removed through the consumer update path.",
+        "Omniverse Fabric and native Hydra receive the same placements while source values remain unchanged.",
+        "Physical units, forecast origin, timestamp and source CRS metadata remain unverified."
       ],
       "image": "docs/figures/field.png",
-      "caption": "Raw values from the retained scalar-field fixture, without an inferred physical unit."
+      "caption": "All scalar sample locations resolved into ECEF under the explicit WGS84/zero-height hypothesis; colors are raw values."
     },
     {
-      "title": "Proposed runtime contract",
+      "title": "Site placement remains separate from asset conformance",
       "lines": [
-        "Composed declarations establish CRS scope; source coordinates and asset conventions remain authored data.",
-        "Resolution evaluates native positions and offsets into one selected output CRS without modifying the stage.",
-        "Queries and consumers share the result; failures and operation provenance remain explicit."
-      ]
+        "The supplied local-grid calibration places the complete tower in Lambert-93 with IGN69 height.",
+        "Project relocation and a constructed incline change placement while the source asset stays unchanged.",
+        "The image is a real Storm render of the new native scene index; no retired geospatial plugin is loaded."
+      ],
+      "image": "docs/figures/site.png",
+      "caption": "Storm renders the resolved site asset directly from the native Hydra adapter."
     },
     {
       "title": "Two runtime targets",
       "lines": [
-        "Non-Hydra: a renderer-independent scene resolver for placements, coordinate queries and bounds. Not built.",
-        "Hydra: a scene-index adapter consuming the same resolved placement and propagating changes. Not built.",
-        "Consumer consistency is distinct from R29, Implementable from the text alone, which requires different transformation engines."
+        "Non-Hydra: read-only scene resolution, coordinate and relative-placement queries, bounds, edits and export.",
+        "Hydra: a compiled scene index with geometry, topology and change notices, rendered directly by Storm.",
+        "Omniverse Fabric is an additional real consumer; independent Karney arithmetic checks geodetic consistency."
       ]
     },
     {
-      "title": "Next complete demonstration",
+      "title": "Design choices exercised by the complete run",
       "lines": [
-        "Import the railway and a site asset, resolve them into one project CRS, and verify placement against independent controls.",
-        "Relocate an asset, scrub time and compose another layer; compare non-Hydra queries with Hydra results after each change.",
-        "State placement error and valid extent, preserve source data, and fail visibly when a required operation cannot run."
-      ]
+        "Affine and pointwise placement are both implemented; extent sweeps reveal where one matrix loses fidelity.",
+        "Applying an ancestor transform after an absolute position produces a tested 1,000 m violation.",
+        "Missing grids or coordinate epochs fail observably; animation time never supplies a coordinate epoch."
+      ],
+      "image": "docs/figures/extent.png",
+      "caption": "Measured affine-versus-pointwise displacement as geometry footprint grows; bounds cover tested vertices."
     },
     {
       "title": "Review requests",
       "lines": [
-        "Review the proposed runtime prose against the functional requirements and close the carrier, placement and scope decisions.",
-        "Supply source CRS/epoch/vertical metadata, expected control points and a distance-and-extent acceptance criterion.",
-        "Use the next railway/site demonstration to review both consumer paths and separate engine agreement from correctness."
+        "Approve the drafted functional requirements and select among the executed runtime alternatives.",
+        "Clarify the extent/bound domain, unit and offset basis, project placement and dependency/target rules.",
+        "Supply certified vertical/epoch metadata and control points where accuracy claims are required."
       ]
     }
   ]
