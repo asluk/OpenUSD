@@ -13,9 +13,9 @@ runtime rules needed to implement it, builds bounded components, and tests them
 against source data and independent references. This checkpoint establishes data
 identity and several component behaviors. It does not yet place a complete scene.
 
-The [runtime behavior draft](proposal/runtime-behavior.md) is the proposed normative
-description for specification review. The [open decisions](proposal/runtime-open-decisions.md)
-and [traceability report](docs/RUNTIME.md) separate unfinished rules from implementation evidence.
+The [runtime behavior draft](RUNTIME-BEHAVIOR.md) is the proposed normative
+description for specification review. The [open decisions](RUNTIME-OPEN-DECISIONS.md)
+and [traceability report](RUNTIME.md) separate unfinished rules from implementation evidence.
 
 ## Railway source and scene identity
 
@@ -26,7 +26,7 @@ and [traceability report](docs/RUNTIME.md) separate unfinished rules from implem
 <!-- /evidence:railway -->
 - These checks establish what survived conversion; they do not establish resolved rails-on-map placement.
 
-![Original source curves and matching USD anchors; this is a data plot, not a runtime render.](docs/figures/railway.png)
+![Original source curves and matching USD anchors; this is a data plot, not a runtime render.](figures/railway.png)
 
 The original GeoJSON makes the comparison independent of the converted USD scene.
 Every source object identifier matches its USD counterpart. First coordinates agree
@@ -38,7 +38,7 @@ The intended demonstration is an imported railway and its map tiles placed with
 a site asset, then relocated through ordinary scene edits. The source's third
 ordinate still needs a vertical reference and epoch before survey-accuracy claims.
 The data plot preserves source coordinates without interpreting that ordinate as height.
-See [dataset provenance and access](DATASETS.md).
+See [dataset provenance and access](../../DATASETS.md).
 
 ## Native interpolation preserves the authored path
 
@@ -49,7 +49,7 @@ See [dataset provenance and access](DATASETS.md).
 <!-- /evidence:interpolation -->
 - This is an analytic component example; the scene position carrier and its sampling rules remain open.
 
-![Equatorial samples at minus and plus one degree; vertical scale is exaggerated and axes use different units.](docs/figures/interpolation.png)
+![Equatorial samples at minus and plus one degree; vertical scale is exaggerated and axes use different units.](figures/interpolation.png)
 
 At the native midpoint, longitude is zero and the converted point lies on the
 ellipsoid. Interpolating converted Cartesian endpoints instead follows a chord.
@@ -66,7 +66,7 @@ order without selecting an authored USD property or an output CRS.
 - The stock-USD overlay leaves source values intact. Geospatial placement of that overlay is still pending.
 - Forecast origin, timestamp, CRS metadata and value units are unverified; the filename is not provenance.
 
-![Raw values from the retained scalar-field fixture, without an inferred physical unit.](docs/figures/field.png)
+![Raw values from the retained scalar-field fixture, without an inferred physical unit.](figures/field.png)
 
 A non-geometric dataset should be usable without a permanent visualization baked
 into it. The current test creates neutral sample records and adds then removes a
@@ -82,10 +82,10 @@ but it is not an independently verified weather product.
 - Resolution evaluates native positions and offsets into one selected output CRS without modifying the stage.
 - Queries and consumers share the result; failures and operation provenance remain explicit.
 
-The canonical prose is [proposal/runtime-behavior.md](proposal/runtime-behavior.md).
+The canonical prose is [proposal/runtime-behavior.md](RUNTIME-BEHAVIOR.md).
 It traces all 29 functional requirements, including composition behavior, native
 time evaluation, local precision, dependency discovery and engine agreement.
-Coverage is not completeness: [seven grouped decisions](proposal/runtime-open-decisions.md)
+Coverage is not completeness: [seven grouped decisions](RUNTIME-OPEN-DECISIONS.md)
 still prevent a complete executable contract. Experimental schema names and binding
 policies are recorded separately in `derivation.json`, alongside links to evidence.
 
@@ -126,7 +126,7 @@ native versus project CRS semantics (S02), basis/units/extent (S03), target sele
 (S07). Independent work can proceed where a decision is irrelevant, but an end-to-end
 success claim must wait for the applicable decisions and provider controls.
 
-The [workflow matrix](docs/WORKFLOWS.md) tracks eight demonstrations, their current
+The [workflow matrix](WORKFLOWS.md) tracks eight demonstrations, their current
 checks and remaining gaps. None is marked fully validated. The existing AECO
 example, when available locally, checks the partner's stated stock-USD placement
 and calibrated grid; it does not validate this new runtime.
@@ -138,10 +138,10 @@ and calibrated grid; it does not validate this new runtime.
 - Supply source CRS/epoch/vertical metadata, expected control points and a distance-and-extent acceptance criterion.
 - Use the next railway/site demonstration to review both consumer paths and separate engine agreement from correctness.
 
-Read the [behavior draft](proposal/runtime-behavior.md) first, then its
-[open decisions](proposal/runtime-open-decisions.md). The [traceability report](docs/RUNTIME.md)
+Read the [behavior draft](RUNTIME-BEHAVIOR.md) first, then its
+[open decisions](RUNTIME-OPEN-DECISIONS.md). The [traceability report](RUNTIME.md)
 connects each section to requirement numbers and current titles; the
-[fixture matrix](docs/FIXTURES.md) states the oracle and limit of each check.
+[fixture matrix](FIXTURES.md) states the oracle and limit of each check.
 Approval of draft functional requirements or runtime rules must be explicit;
 passing checks do not record approval.
 
@@ -150,14 +150,14 @@ passing checks do not record approval.
 <!-- evidence:run -->
 **51 passed, 0 failed, 0 skipped.** These are component and build-integrity checks, not full-workflow conformance.
 
-Run record: [20260921-runtime-delivery](runs/20260921-runtime-delivery/report.json). Requirements revision: `eab823f46dad7c959019e5ce1851c8295c2a3701`.
+Run record: [20260921-runtime-delivery](report.json). Requirements revision: `eab823f46dad7c959019e5ce1851c8295c2a3701`.
 Runtime prose SHA-256: `ba400cf0c11e3d1feb016e20af4172f26b7060a6ea19c66303c1f77292b67058`.
 Implementation base: `3030417f3c350f5ba9d43afbce450a155227e4b6`; local changes: **false**. Exact tested files are hashed in the run record.
 
 The original analytic coordinate probe measured a maximum Cartesian residual of **0.000000000 m**. Its 0.000001 m numerical tolerance is not a scene-placement accuracy budget; PROJ's operation accuracy estimate remains unknown.
 <!-- /evidence:run -->
 
-The [workflow report](docs/WORKFLOWS.md) distinguishes supplied datasets, component
+The [workflow report](WORKFLOWS.md) distinguishes supplied datasets, component
 evidence and pending full workflows. Private fixtures are not redistributed; a
 rerun without them records explicit skips. Numerical residuals, source-preservation
 checks and partner baselines answer different questions and do not add up to a
@@ -166,7 +166,7 @@ conformance claim.
 ## Reproduce and deliver
 
 Install the pinned dependencies in `requirements.txt` and `requirements-datasets.txt`.
-Use [DATASETS.md](DATASETS.md) to fetch or import optional data into an external cache.
+Use [DATASETS.md](../../DATASETS.md) to fetch or import optional data into an external cache.
 
 ```sh
 python run.py --output /absolute/path/outside-checkout/run-001 --dataset-root /path/to/cache
@@ -181,8 +181,8 @@ datasets; a delivery with less evidence must revise its scope rather than reuse 
 The README's explanation is authored. Delivery refreshes only marked evidence
 blocks, derives the review guide and slide content, and checks that neither drifted.
 The figures are reproducible source-data and analytic plots, not runtime screenshots.
-The [build procedure](BUILD_LOOP.md) covers figure generation, slide review and
+The [build procedure](../../BUILD_LOOP.md) covers figure generation, slide review and
 the separate publication step. Earlier checkpoint records remain immutable.
 
-[Slides (PDF)](docs/checkpoint.pdf) · [Editable slides](docs/checkpoint.pptx) ·
-[Derived review text](docs/PR_BODY.md)
+[Slides (PDF)](checkpoint.pdf) · [Editable slides](checkpoint.pptx) ·
+[Derived review text](PR_BODY.md)

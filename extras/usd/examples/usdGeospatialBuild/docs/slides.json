@@ -1,88 +1,73 @@
 {
-  "readme_sha256": "499baead9bd928b544619434127ee666ad7bdf656010194262f20934fc29bc24",
+  "readme_sha256": "73a91feacc9ac275792c39b23a8dc58cb3dec9e29a99b81a725f30c4fbdb513e",
   "slides": [
     {
-      "title": "usdGeospatial build loop",
+      "title": "Geospatial scenes with shared placement",
       "lines": [
-        "Functional requirements, runtime behavior and measured evidence",
-        "Implementation checkpoint"
+        "A railway, a site asset and a scalar field should retain their source coordinates while participating in one scene.",
+        "Rendering, world-position queries, bounds and physics need the same resolved placement."
       ]
     },
     {
-      "title": "Checkpoint",
+      "title": "Railway source and scene identity",
       "lines": [
-        "35 tests passed, 0 failed, 0 skipped in this delivered run.",
-        "29 functional requirements, 9 numbered open questions and 7 grouped build stops are tracked.",
-        "The requirements and runtime derivation remain drafts. Complete scene resolution and independent OpenUSD/OV agreement remain unimplemented."
-      ]
-    },
-    {
-      "title": "Runnable components",
-      "lines": [
-        "A read-only binding inspector reads composed USD relationships, nested overrides and forwarded targets.",
-        "A PROJ adapter converts explicit WGS 84 geographic-3D and geocentric coordinates, with operation provenance and whole-batch failures.",
-        "Input-change checks invalidate stale derivations before old tests can count as current evidence.",
-        "Anchor decoding, placement matrices, scene-target selection, general datum/grid/epoch operations and OV integration remain pending."
-      ]
-    },
-    {
-      "title": "Coordinate checks",
-      "lines": [
-        "Maximum measured Cartesian residual: 0.000000000 m at a coordinate magnitude of 6378147.000 m.",
-        "Expected coordinates come from WGS 84 ellipsoid equations calculated separately from PROJ.",
-        "The analytic check uses a 0.000001 m numerical tolerance. This is a component-test tolerance.",
-        "PROJ reports this operation's accuracy as unknown. A measured residual does not replace the engine's accuracy estimate."
-      ]
-    },
-    {
-      "title": "Sampled position path",
-      "lines": [
-        "Converting the native midpoint first places the example point on the ellipsoid.",
-        "Converted-first midpoint displacement: 971.421 m below that point.",
-        "This exercises requirement 20, Positions between recorded moments, using its equatorial example.",
-        "Whether USD may record geographic positions, and which carrier holds them, remains open."
+        "1,473 source features match USD object identities and first-coordinate anchors.",
+        "186 railway curves retain 3,526 vertices by count; interior placement is still unchecked.",
+        "These checks establish what survived conversion; they do not establish resolved rails-on-map placement."
       ],
-      "chart": {
-        "categories": [
-          "Native midpoint first",
-          "Converted samples first"
-        ],
-        "values": [
-          0,
-          971.421
-        ],
-        "unit": "metres"
-      }
+      "image": "docs/figures/railway.png",
+      "caption": "Original source curves and matching USD anchors; this is a data plot, not a runtime render."
     },
     {
-      "title": "Partner baseline",
+      "title": "Native interpolation preserves the authored path",
       "lines": [
-        "Tower-origin residual: 0.000000 m against the partner's stated coordinates.",
-        "Tower height: 299.999995 m against the stated approximately 300 m.",
-        "Calibrated grid-origin residual: 0.001339 mm.",
-        "These checks reproduce the existing stock-USD example. They do not validate a new scene resolver.",
-        "The attachment remains local because redistribution has not been established. Public reruns skip its two checks."
+        "R20, Positions between recorded moments: interpolate recorded coordinates in their CRS, then convert.",
+        "Interpolating converted endpoints puts the equatorial midpoint 971.421 m inside the ellipsoid.",
+        "This is an analytic component example; the scene position carrier and its sampling rules remain open."
+      ],
+      "image": "docs/figures/interpolation.png",
+      "caption": "Equatorial samples at minus and plus one degree; vertical scale is exaggerated and axes use different units."
+    },
+    {
+      "title": "Scalar data and a removable visualization",
+      "lines": [
+        "2,664 scalar samples on a 37 by 72 grid exercise coordinate reporting; a three-sample overlay is removable.",
+        "The stock-USD overlay leaves source values intact. Geospatial placement of that overlay is still pending.",
+        "Forecast origin, timestamp, CRS metadata and value units are unverified; the filename is not provenance."
+      ],
+      "image": "docs/figures/field.png",
+      "caption": "Raw values from the retained scalar-field fixture, without an inferred physical unit."
+    },
+    {
+      "title": "Proposed runtime contract",
+      "lines": [
+        "Composed declarations establish CRS scope; source coordinates and asset conventions remain authored data.",
+        "Resolution evaluates native positions and offsets into one selected output CRS without modifying the stage.",
+        "Queries and consumers share the result; failures and operation provenance remain explicit."
       ]
     },
     {
-      "title": "Open decisions",
+      "title": "Two runtime targets",
       "lines": [
-        "S01: position carrier, geographic recording and the position/offset boundary.",
-        "S02: preserving an asset's native CRS while placing it in a project.",
-        "S03: scene units/up axis, the placement basis and its distance/extent bound.",
-        "S04: consumer target selection and geographic scene output.",
-        "S05: dependency declaration, explicit export and re-resolution.",
-        "S06: practitioner controls, operation resources, a second engine and OV evidence.",
-        "S07: complete rules for hierarchical binding relationships."
+        "Non-Hydra: a renderer-independent scene resolver for placements, coordinate queries and bounds. Not built.",
+        "Hydra: a scene-index adapter consuming the same resolved placement and propagating changes. Not built.",
+        "Consumer consistency is distinct from R29, Implementable from the text alone, which requires different transformation engines."
       ]
     },
     {
-      "title": "Delivery for each run",
+      "title": "Next complete demonstration",
       "lines": [
-        "A successful test invocation produces an immutable checkpoint with the input revision, source hashes, environment, results and remaining decisions.",
-        "Run evidence updates the README. The PR body and slide content are then derived from the README.",
-        "A publication check rejects issue/PR citations, private paths and private communication links before a push or PR update.",
-        "One standing draft PR receives each reviewed checkpoint. Earlier run records remain in the branch history."
+        "Import the railway and a site asset, resolve them into one project CRS, and verify placement against independent controls.",
+        "Relocate an asset, scrub time and compose another layer; compare non-Hydra queries with Hydra results after each change.",
+        "State placement error and valid extent, preserve source data, and fail visibly when a required operation cannot run."
+      ]
+    },
+    {
+      "title": "Review requests",
+      "lines": [
+        "Review the proposed runtime prose against the functional requirements and close the carrier, placement and scope decisions.",
+        "Supply source CRS/epoch/vertical metadata, expected control points and a distance-and-extent acceptance criterion.",
+        "Use the next railway/site demonstration to review both consumer paths and separate engine agreement from correctness."
       ]
     }
   ]

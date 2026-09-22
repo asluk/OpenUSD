@@ -1,0 +1,9 @@
+{
+  "evidence_key": "7cebc3889dcb77cfe4b302bc6f4bb9a97a65dd0c44f257ab63442e410104f96d",
+  "dataset_catalog_sha256": "2534a0d8308290e5038960965f4fbf7b4ad64843d4a24cc79f6032cdff428a96",
+  "files": {
+    "railway.png": "1e188856514693f5dab1196af71cf3dfa71409cffb9b9c96984b305a465fd230",
+    "interpolation.png": "eb01599d382d2711ce9ac3e7b4511a7212690e7676404bf97f0bf336744d9318",
+    "field.png": "c6d7f53e693009192812de913f34bbcda29cfa20d459d7600e24f13b227c4bbe"
+  }
+}
