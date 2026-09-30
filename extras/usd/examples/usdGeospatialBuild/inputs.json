@@ -1,0 +1,54 @@
+{
+  "status": "clean derivation starting point; no rebuilt runtime or complete run",
+  "proposal": {
+    "repository": "https://github.com/asluk/OpenUSD-proposals",
+    "base_commit": "a2d4d39797ec3c4a05206342abc357e7e27db430",
+    "commit": "3cd6cabf1c2094e5f5a283d71eea1b1530bb3d0a",
+    "path": "proposals/geospatial_coordinate_reference_systems/README.md",
+    "sha256": "77bd1106f6a15133388a7d776b9474e05c6200a3f6f2febe5400cc417d7b65c2",
+    "delta": "Only site vertical-reference and unsupported coordinate-epoch-change clarifications in requirements 4 and 21, including R21 rationale.",
+    "sha256_basis": "Git blob bytes"
+  },
+  "openusd": {
+    "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
+    "base_commit": "0ace5b88702edbfe00dd031369f38ff526cb07b8"
+  },
+  "composition_reference": {
+    "repository": "https://github.com/aousd/specifications-public",
+    "path": "core/1.0.1/core_spec.md",
+    "local_reference_revision": "18d8ee695647d81d022dbe70f4c4fef5f059d90d",
+    "local_copy_sha256": "b2feeb2c900befe224a372b2d60d0ddcc6e35048ab54c32c17d5c085b44c642d"
+  },
+  "inherited_geospatial_implementation": false,
+  "inherited_model_or_runtime_candidate": false,
+  "inherited_fixture_code_or_expected_outputs": false,
+  "new_derivation_required": [
+    "conceptual_model",
+    "authored_model",
+    "normative_runtime_behavior",
+    "implementations",
+    "content_validator",
+    "fixtures_and_tests",
+    "audit_evidence",
+    "README",
+    "review_body",
+    "slides"
+  ],
+  "required_reviews": [
+    "requirements_sufficiency_and_consistency",
+    "representation_necessity_and_USD_semantics",
+    "implementation_to_proposal_and_reverse_coverage",
+    "attempts_to_expose_fixture_shortcuts_and_self_justifying_proposal_changes"
+  ],
+  "publication": "withheld",
+  "geospatial_references": [
+    {
+      "standard": "OGC 18-005r8",
+      "role": "coordinate reference and coordinate-metadata concepts"
+    },
+    {
+      "standard": "OGC 18-010r11",
+      "role": "WKT encoding including COORDINATEMETADATA"
+    }
+  ]
+}
