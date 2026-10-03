@@ -30,6 +30,9 @@ projection-library selection and renderer integration are implementation choices
 6. Produce the same placed geometry, coordinate queries and bounds for rendering
    and headless consumers of the same candidate. State the result coordinate
    frame/units. Scene-display adaptation is derived state, not source authoring.
+   The tested affine leaf bounds and relative model-frame queries use the same
+   resolved frames as geometry, as specified in data-model.md. They do not
+   establish a nonlinear approximation guarantee or universal primitive coverage.
    A geographic coordinate query may return longitude/latitude/height without
    promising a Cartesian scene/bound interpretation for geographic outputs.
 7. Keep measurement values, source coordinates, recorded observation times and
@@ -46,8 +49,12 @@ projection-library selection and renderer integration are implementation choices
    success. Failure of a batch reports the affected input; no partial-success
    array is mislabeled as the complete successful batch.
 10. Validate authored data without CRS conversion where possible: fields/types,
-    bindings, WKT syntax/normal form, coordinate association, nested positions,
-    declarations, source time/value coverage and finite values. Runtime errors
+    bindings, WKT syntax/normal form, coordinate association in inherited as well
+    as directly bound scopes, placement/binding consistency, declarations and
+    finite values. Intentional nested independent bindings are permitted; a
+    validator cannot infer that their author intended an ordinary offset instead.
+    Existing dataset contracts govern measurement index/time/value coverage;
+    the geospatial carrier and its adapter contract remain Q11. Runtime errors
     and independent controls are separate evidence. Registered USD validators
     must be discoverable by name/keyword in the stock validation registry.
 11. Keep absolute positions in double precision and asset-relative geometry in

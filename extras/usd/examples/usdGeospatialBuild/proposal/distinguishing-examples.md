@@ -34,3 +34,16 @@ These examples select observable semantics; they are not generated expectations.
     translation (0,2,0) adds two metres up. Source/output geographic axes do
     not make that ordinary Y displacement a northing or latitude displacement.
     The writer still owns any referenced asset's conformance to the stage.
+12. Square-bracket and parenthesis WKT delimiters outside quotes normalize to
+    identical text. Parentheses or brackets inside a quoted name remain intact.
+13. A broken enclosing binding fails a project adjustment even when the model's
+    own source binding is valid. Absence of an enclosing binding permits source
+    context; a malformed binding does not.
+14. Measurement roles and values with names such as samples:locations and
+    observations:temperature resolve and export without a data: prefix. A role
+    in an inherited CRS scope receives the same authored checks as a direct one.
+15. An explicit output wins over the defaultPrim's CRS. Without an explicit
+    output, the composed defaultPrim binding supplies the default or fails visibly.
+16. Leaf bounds in a length output include the primitive's ordinary local extent
+    and use its resolved placement. An independently bound child does not add
+    its parent's position when queried relative to another resolved frame.

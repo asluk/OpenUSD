@@ -1,6 +1,6 @@
 # Experimental authored model
 
-This is a complete candidate for this experiment, not an approved extension of
+This is an explicit candidate for this experiment, not an approved extension of
 the standard. Its functional input is pinned separately. The October 2 direction
 requires distinct CRS placement attributes and ordinary USD transforms after CRS
 placement/resolution. The field definitions below are the tested answer to the
@@ -29,7 +29,7 @@ may provide default/working CRS context without being a model placement.
 |---|---|---|
 | `crs:position` | varying `double3` | Model origin in source CRS, required at a directly bound model. No implicit geographic or height value. |
 | `crs:orientation` | varying `quatd` | Right-handed model-frame rotation relative to source local axes. Identity if absent; a non-unit/zero quaternion is invalid. |
-| `crs:scale` | varying `double3` | Dimensionless model placement scale along its rotated local axes. `(1,1,1)` if absent; nonfinite or zero values are invalid. |
+| `crs:scale` | varying `double3` | Dimensionless scale along model-local axes before the stage-axis basis mapping and CRS orientation. `(1,1,1)` if absent; nonfinite or zero values are invalid. |
 
 The position tuple is easting/northing/up for projected CRSs, longitude/latitude/
 height for geographic CRSs, and geocentric X/Y/Z for geocentric CRSs. This fixed
@@ -62,7 +62,9 @@ Incorrect asset units/up-axis cannot be inferred from geometry by the reader.
 
 The chosen candidate uses the nearest enclosing direct CRS binding as the
 working coordinate context for the bound model's ordinary post transform.
-With no enclosing binding, the source model CRS supplies that context. A
+With no enclosing binding, the source model CRS supplies that context. A broken
+enclosing binding is an error, not absence and not permission to substitute the
+source CRS. A
 geographic working context uses the position's derived local ENU length frame
 for ordinary Cartesian adjustments. No coordinate epoch is assumed.
 
@@ -85,7 +87,8 @@ accepted as satisfying requirement 8.
 A frame is the first derivative of full source placement and post adjustment
 at the model origin. Its origin is double precision. Its three columns express
 one stage-length-unit local displacement in output coordinates. In the model
-frame, orientation precedes scale in column notation (`R * diag(scale)`).
+frame, scale precedes orientation in column notation (`R * diag(scale)`, with
+the stage-axis basis mapping between them where required).
 The derivative uses a centered one-metre physical probe. That probe is a
 numerical implementation parameter, reported and checked with smaller/larger
 probes; it is not an authored fact or a promised approximation bound.
@@ -110,6 +113,22 @@ frame; it never infers or repairs a source asset's units/up-axis. No source asse
 guessed by this consumer adaptation. Geographic query outputs stay angular;
 they cannot be supplied to a length-valued rendering frame.
 
+For the experiment's affine length-valued scene, a leaf geometry bound uses
+the ordinary UsdGeom local bound, including primitive widths, transformed by
+the same descendant matrix and resolved frame as that geometry. The enclosing
+axis-aligned result conservatively encloses that transformed local bound. It
+does not certify a bound on the nonlinear per-point transformation, settle R24,
+or define angular scene bounds. Relative model-frame queries in a length-valued
+output use those same resolved frames and ordinary relative-matrix algebra.
+Neither query authors source data. These clarify the experiment's R17/R18
+contracts; the shared proposal's general result guarantees remain open.
+
+The existing proposal sketches the binding on the composed defaultPrim as the
+scene's default output CRS. This experiment uses that binding only when the
+consumer supplies no output. A missing defaultPrim/binding or a broken binding
+is a visible failure; it does not select a CRS by traversing unrelated content.
+An explicit consumer selection takes precedence. This adds no authored field.
+
 Working-context post transforms operate on Cartesian lengths in stage units.
 For projected/geocentric working contexts, convert all native coordinates to
 stage units and stage axes before applying the ordinary USD matrix and convert
@@ -120,7 +139,8 @@ This is a candidate convention requiring group review, not hidden authoring stat
 
 ## Measurements — experimental Q11 association
 
-A bound measurement prim authors `rel crs:coordinateProperties`, whose targets
+A measurement prim in a directly bound or inherited CRS scope authors
+`rel crs:coordinateProperties`, whose targets
 are `double3[]` attributes on that prim. The relationship identifies absolute
 source coordinate arrays explicitly, including composed property paths. A vector
 property not targeted by it is not inferred to be a coordinate. Ordinary USD
@@ -152,7 +172,9 @@ the stale/missing declaration and the complete unloaded-payload declaration.
 
 ## WKT normal form — experimental Q10
 
-The lexical profile validates the original WKT before normalization. It removes
+The lexical profile validates the original WKT before normalization. It maps
+unquoted parenthesis delimiters to OGC's preferred square-bracket delimiters
+and removes
 permitted whitespace outside quoted strings, uppercases unquoted keywords and
 axis direction identifiers, and gives decimal numeric lexemes a unique value-
 preserving spelling using decimal arithmetic. Quoted text and ordering are

@@ -1,5 +1,5 @@
 {
-  "status": "candidate frozen before implementation; execution tracked in run receipt",
+  "status": "Proposal-quality follow-up candidate frozen before corrective code; shared-proposal gaps remain explicit",
   "proposal": {
     "commit": "24fcce0c928515fb5206f813016b0e86a5ef08e6",
     "path": "proposals/geospatial_coordinate_reference_systems/README.md",
@@ -50,11 +50,20 @@
     }
   ],
   "candidate": {
+    "data-model.md": "33dbf5ce4543982f9e5acebe48c34283f30b8fd4a32685cdf62ec7cee4f5af89",
+    "distinguishing-examples.md": "7ea4df622bce499d89e19525ddbfe003e113e4f3ba6beee535cc8ccff463ff8e",
+    "requirements.md": "242be4caa2e8de1e9625fc51897d3bdcfd8ee7ac07894b8c9531046008e2e771",
+    "runtime-behavior.md": "c079ee7328fe8bfc4222d854c8dd47518528063dbf7d465a5472299910861fd4",
+    "runtime-open-decisions.md": "5838a1e14cd41bfa4baf2e2df1e38c8fac3f39d5140e332262426c65986af0e6",
+    "traceability.md": "4dc918a75083251f34f7ce4938863317d804ec5995f6625541f7e663d1bdaaee"
+  },
+  "previous_candidate": {
     "data-model.md": "12ca5dae026021959bcc676f8dcc9d718de639c4268cd3862cbf1a4d2514ece9",
     "distinguishing-examples.md": "3752737e664bfdfa79a594fb99f1d03b2230be092615f41b43567a3a48ae189a",
     "requirements.md": "242be4caa2e8de1e9625fc51897d3bdcfd8ee7ac07894b8c9531046008e2e771",
     "runtime-behavior.md": "f84a6e08026df47e756b429dae0fa6e32dc460a0c5f935cbf773661f64662d74",
     "runtime-open-decisions.md": "5838a1e14cd41bfa4baf2e2df1e38c8fac3f39d5140e332262426c65986af0e6",
     "traceability.md": "4dc918a75083251f34f7ce4938863317d804ec5995f6625541f7e663d1bdaaee"
-  }
+  },
+  "previous_executed_source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47"
 }
