@@ -1,0 +1,9 @@
+This complete experimental run derives fresh headless USD, native Hydra and live OV implementations from a frozen requirements-led model. It resolves the same authored datasets in all three, preserves source layers, produces analytic data and explicit exports, and exposes the remaining design decisions.
+
+**Executed evidence:** 67 tests passed; 27 cross-runtime jobs compared 760,786 coordinate samples; stock usdchecker discovered the validator and accepted/rejected the positive/negative scenes; five exports were opened and resolved by a fresh reader. Maximum native agreement discrepancy was 0.000104 mm; OV discrepancy was 0.000000 mm. Agreement is not a geodetic accuracy claim.
+
+The experiment freezes its data model and runtime rules before deriving code. It includes actual native Hydra rendering and transform readback, a separate live OV consumer, stock USD validation, partner CRS controls, city/global analytic products, source-edit/failure recovery and fresh-reader exports. Candidate choices remain labeled; R24's certified continuous extent/error bound remains a design gap.
+
+See the [README](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-build-loop/extras/usd/examples/usdGeospatialBuild/README.md), [editable slides](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-build-loop/extras/usd/examples/usdGeospatialBuild/delivery/geospatial-build.pptx), [PDF](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-build-loop/extras/usd/examples/usdGeospatialBuild/delivery/geospatial-build.pdf) and [run receipt](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-build-loop/extras/usd/examples/usdGeospatialBuild/delivery/run-report.json). Coordinate epochs remain fully deferred; CRS frame epochs and ordinary supported datum/height transformations are retained.
+
+README source SHA-256: `01408124fc1c52c7d79073019b50673048eb648879ae9696b81c76a91f0bc30e`. The draft is an implementation experiment for review, not approved standard text.

@@ -1,0 +1,17 @@
+{
+  "readme_sha256": "01408124fc1c52c7d79073019b50673048eb648879ae9696b81c76a91f0bc30e",
+  "run_report_sha256": "7072101230201b06bad1381131eb771ba4e92b04370aba69b1311d480f647d5b",
+  "executed_source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47",
+  "pptx_sha256": "c6a0550b7bf242916dba33e0e4109b1aa0ba418e3ee65d9c33d073c5ea47ac73",
+  "pdf_sha256": "2b529775393669c53b710065c4a93a2aafbc3225c73c61bbf009698939f2609a",
+  "story_sha256": "e232fdc1ac4fcd813f5c85f102f2d0f58028c5b07969e2d001012265070ac494",
+  "pr_body_sha256": "6e2d9b5bf2b4fb5fab35d55fa62c0820f3682e9c290d32023c096702defab6dc",
+  "slides": 10,
+  "editable_native_table_slides": [
+    5,
+    9
+  ],
+  "structure_and_layout": "pass",
+  "visual_review": "Author declares all final slides and PDF pages inspected",
+  "claim_boundary": "Candidate choices require review; runtime agreement shares PROJ; finite samples do not certify a continuous bound"
+}
