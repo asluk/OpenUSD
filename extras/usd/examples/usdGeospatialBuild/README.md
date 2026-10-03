@@ -1,164 +1,186 @@
-# usdGeospatial — complete experimental build
+# Geospatial meaning that survives USD composition
 
-<!-- narrative:v2 -->
+This complete experimental run derives fresh headless USD, native Hydra and live OV implementations from a frozen requirements-led model. It resolves the same authored datasets in all three, preserves source layers, produces analytic data and explicit exports, and exposes the remaining design decisions.
 
-## Geospatial scenes with shared placement
+**Executed evidence:** 67 tests passed; 27 cross-runtime jobs compared 760,786 coordinate samples; stock usdchecker discovered the validator and accepted/rejected the positive/negative scenes; five exports were opened and resolved by a fresh reader. Maximum native agreement discrepancy was 0.000104 mm; OV discrepancy was 0.000000 mm. Agreement is not a geodetic accuracy claim.
 
-<!-- slide -->
-- Place railway data, a calibrated site and a removable scalar overlay while retaining their source data.
-- Headless queries, native Hydra/Storm and Omniverse Fabric consume the same evaluated placement.
-- Execute every workflow and test alternative rules; use the failures and discrepancies to improve the design.
+[Editable slides](delivery/geospatial-build.pptx) · [PDF](delivery/geospatial-build.pdf) · [Run receipt](delivery/run-report.json) · [Reverse audit](AUDIT.md) · [Build contract](BUILD_LOOP.md)
 
-This build starts with the functional requirements, derives proposed runtime
-behavior, implements explicitly labeled choices where the design is open, and
-executes the complete declared demonstration scope. Delivery is part of the run:
-this README supplies the review summary and slide deck. Design approval and survey
-accuracy remain separate from completing the implementation and demonstrations.
+The run source is `76f0b7f56299b29f25e37de75f4e5a2834706b47`. Six [candidate documents](proposal/data-model.md) were frozen and hashed **before implementation**. Their exact fields, conventions and contracts remain experimental where the group has not agreed them. An executed candidate is not approval of a standard.
 
-Read the [runtime behavior draft](proposal/runtime-behavior.md),
-[executable candidate rules](proposal/runtime-experiments.md),
-[open decisions](proposal/runtime-open-decisions.md) and [workflow evidence](docs/WORKFLOWS.md).
+## The problem: numbers alone do not place an asset
 
-## Railway source and scene identity
+A USD transform says how local geometry moves within a scene. It does not say which Earth reference defines a coordinate, which vertical datum defines its height, or how a site's calibrated grid relates to another project's coordinates.
 
-<!-- slide -->
-<!-- evidence:railway -->
-- 1,473 source features resolve with all 15,822 vertices, object identities and polygon rings checked.
-- Across 186 curves, offset-basis choice changes maximum mismatch from 16.71 cm to 41.7 micrometres.
-<!-- /evidence:railway -->
-- Three map tiles share the output frame. Height interpretation is explicit; survey metadata remains unknown.
+Consider an ordinary point `(3,4,5)`, a child translate `(1,0,0)` and a model translate `(7,8,9)`. An unaware USD reader returns `(11,12,14)`. Add an explicit CRS position `(1000,2000,30)`, a 90° orientation and scale `(2,1,1)`: the candidate geospatial reader returns `(1003,2016,44)`. Swapping the order or resolving only the origin gives a different answer. The test is hand-worked and noncommuting; it does not copy an implementation's answer into the requirement.
 
-![Resolved railway boundaries over the retained map tiles in the selected projected frame.](docs/figures/railway.png)
+The authored point, ordinary transforms and CRS facts stay intact. Consumers can inspect the source CRS and separately request resolved coordinates. Another output CRS must change the expression of the same physical placement, not quietly reinterpret ordinary adjustment numbers in a new set of axes.
 
-The original GeoJSON supplies an independent check on the converted USD. Fresh
-fixture preparation preserves every original coordinate, object ID and polygon
-group, including holes. It explicitly selects a projected modelling frame under
-a WGS84 ellipsoidal-height hypothesis. The provider USD is resolved separately,
-and every retained curve vertex is compared against the original.
+## Three authored facts, followed by ordinary transforms
 
-Matching first-coordinate anchors did not expose the offset-basis choice. The
-complete run does: geographic-coordinate linearization differs by up to 16.7 cm,
-while a Cartesian east/north/up basis agrees within about 42 micrometres, consistent
-with stored float-point precision. This supports a rule choice rather than a claim
-that the provider data is wrong. The tile images use resolved corner placement;
-the image display is an affine visualization of each tile, not certified pixel
-georeferencing. Source vertical datum, epoch and certified map controls remain
-open interpretation questions. See [dataset provenance](DATASETS.md).
+A complete WKT definition identifies the coordinate reference system. A binding identifies which definition applies. Separate position, orientation and scale place a model; ordinary USD transforms apply after geospatial placement and resolution.
 
-## Native interpolation preserves the authored path
-
-<!-- slide -->
-- Both experimental position carriers interpolate recorded native coordinates before conversion.
-<!-- evidence:interpolation -->
-- Interpolating converted endpoints puts the equatorial midpoint 971.421 m inside the ellipsoid.
-<!-- /evidence:interpolation -->
-- Edits invalidate evaluated results; explicit export records its CRS and sampled times.
-
-![Native interpolation and the erroneous Cartesian chord; axes use different units and vertical scale is exaggerated.](docs/figures/interpolation.png)
-
-The counterexample now runs through authored scene positions. It also tests cache
-invalidation, explicit sampled export and re-reading without applying the original
-placement twice. Seven composition forms, native instances and masked point
-instances exercise the same shared result. Baked interpolation between exported
-samples is explicitly distinguished from native-CRS evaluation.
-
-## Scalar data and a removable visualization
-
-<!-- slide -->
-<!-- evidence:field -->
-- All 2,664 scalar samples resolve; all 2,664 visualization markers are removed through the consumer update path.
-<!-- /evidence:field -->
-- Omniverse Fabric and native Hydra receive the same placements while source values remain unchanged.
-- Physical units, forecast origin, timestamp and source CRS metadata remain unverified.
-
-![All scalar sample locations resolved into ECEF under the explicit WGS84/zero-height hypothesis; colors are raw values.](docs/figures/field.png)
-
-Non-geometric records retain all raw values. A separate visualization layer adds
-one marker per sample, then removes every marker through the consumer update path.
-The fixture explicitly prepares ECEF positions so poles require no guessed east
-direction. The filename is not evidence of a verified weather product.
-
-## Site placement remains separate from asset conformance
-
-<!-- slide -->
-- The supplied local-grid calibration places the complete tower in Lambert-93 with IGN69 height.
-- Project relocation and a constructed incline change placement while the source asset stays unchanged.
-- The image is a real Storm render of the new native scene index; no retired geospatial plugin is loaded.
-
-![Storm renders the resolved site asset directly from the native Hydra adapter.](docs/figures/site.png)
-
-The calibrated grid changes the meaning of an offset: site-grid east/north axes
-rotate and scale relative to Lambert-93. Asset conformance is recorded separately
-from those placement choices. The run checks the complete geometry, approximately
-300 m asset height, calibration, ordinary edits, relocation and a five-degree
-constructed incline. The raw partner attachment stays outside this repository.
-
-## Two runtime targets
-
-<!-- slide -->
-- Non-Hydra: read-only scene resolution, coordinate and relative-placement queries, bounds, edits and export.
-- Hydra: a compiled scene index with geometry, topology and change notices, rendered directly by Storm.
-- Omniverse Fabric is an additional real consumer; independent Karney arithmetic checks geodetic consistency.
-
-| Layer | Executed behavior | Evidence boundary |
+| Authored fact | Experimental representation | Meaning |
 |---|---|---|
-| Non-Hydra runtime | Composed positions, ordinary offsets, project placement, time, instances, bounds and queries | Explicit candidate contract |
-| Native Hydra | Same evaluated matrices and geometry, change notices and direct Storm rendering | Shared resolver; not a second coordinate engine |
-| Omniverse Kit/Fabric | Runtime geometry, double world placement and extents; readback after complete frame changes | Authored USD unchanged; this is a Fabric consumer test |
-| Independent numerical engine | Karney ECEF and exact transverse Mercator compared with PROJ at both hemispheres | Static, same-datum support; unsupported operations fail |
+| Complete CRS definition | `CoordinateReferenceSystem`, uniform token `crs:wkt` | Whole CRS WKT2 is authoritative; no duplicate datum, unit, projection or calibration fields. |
+| Source association | `rel crs:binding` | Nearest direct binding wins for source coordinates; independently bound assets retain their source definition. |
+| Model placement | `double3 crs:position`, `quatd crs:orientation`, `double3 crs:scale` | Absolute origin plus full oriented/scaled local frame; geometry remains ordinary local USD lengths. |
+| Measurement coordinates | `rel crs:coordinateProperties` targets `double3[]` properties | Identify coordinate arrays explicitly; values, indices and recorded times remain dataset data. |
+| Complete-asset dependency | root `customLayerData.geospatialResolutionRequired` | Writer-maintained declaration readable without discovering it through traversal. |
 
-Consumer agreement establishes that the evaluated scene survives its integrations.
-Independent arithmetic provides a different check. Neither replaces practitioner
-controls or approval of the candidate rules. Exact versions and residuals are in
-the [run evidence](docs/FIXTURES.md).
+The relationship fields live in a codeless applied schema. This experiment does not propose callable API signatures as standard text. A directly bound model excludes its ancestors' ordinary xformOps; it does not author or alter `resetXformStack`. Its own ordinary matrix and descendant matrices remain ordinary USD data.
 
-## Design choices exercised by the complete run
+Projected tuples use easting/northing/up; geographic tuples use longitude/latitude/height; geocentric tuples use XYZ. CRS component units remain authoritative. Writers conform geometry to stage units and up-axis separately from CRS placement. The candidate specifies the working context used to transport post transforms between requested outputs; a labeled alternative that keeps post numbers unchanged in output axes fails the physical-placement control.
 
-<!-- slide -->
-- Affine and pointwise placement are both implemented; extent sweeps reveal where one matrix loses fidelity.
-- Applying an ancestor transform after an absolute position produces a tested 1,000 m violation.
-- Missing grids or coordinate epochs fail observably; animation time never supplies a coordinate epoch.
+[Data model](proposal/data-model.md), [runtime behavior](proposal/runtime-behavior.md), [distinguishing examples](proposal/distinguishing-examples.md) and [requirement trace](proposal/traceability.md) are the normative description **of this experiment**, not implementation notes retrofitted into the proposal.
 
-![Measured affine-versus-pointwise displacement as geometry footprint grows; bounds cover tested vertices.](docs/figures/extent.png)
+## Eiffel: see the placement and its coordinate context
 
-The 20 km example shows about 40 m maximum vertex displacement from one affine
-placement, while centimetre detail remains measurable at global magnitude.
-An explicit distance budget rejects unsuitable affine placement. The pointwise
-alternative executes; it does not silently certify unsampled continuous surfaces.
-Whether R24 covers vertices, edges or every point on a surface is an actual design
-question, supported here by measured alternatives.
+The Eiffel model is placed at Lambert-93 E 648,237.125 m, N 6,862,251.890 m and IGN69 height 33.79 m, with a 45° CRS orientation. The same authored model resolves into Lambert-93, two UTM zones and ECEF.
 
-Other executed choices include attribute/translate carriers, stage-convention or
-author-conformed units, output-target precedence, geographic output, dependency
-records and empty bindings. See the [candidate contract](proposal/runtime-experiments.md)
-for their mechanisms and [open decisions](proposal/runtime-open-decisions.md) for
-what review must settle. There is no deferred implementation milestone in this run.
+![Native Hydra/Storm Eiffel render](delivery/tower-native.png)
 
-## Review requests
+![Resolved coordinate footprint and controls](delivery/tower-plan.png)
 
-<!-- slide -->
-- Approve the drafted functional requirements and select among the executed runtime alternatives.
-- Clarify the extent/bound domain, unit and offset basis, project placement and dependency/target rules.
-- Supply certified vertical/epoch metadata and control points where accuracy claims are required.
+The first image is an actual native Hydra/Storm draw from the early candidate scene-index override, before instance propagation and flattening. The second is a headless query plot in named coordinate axes. Ground and cardinal controls are illustrative, not a surveyed Paris dataset. Both images are needed: appearance alone is insufficient evidence of correct placement.
 
-The canonical proposed normative text is [proposal/runtime-behavior.md](proposal/runtime-behavior.md).
-It traces all 29 requirements; the [traceability report](docs/RUNTIME.md) maps them
-to implementation and evidence. Changes to requirements or reviewed prose force
-re-derivation. A complete run requires every workflow, a fresh native build, all
-consumer checks, no skipped tests and regenerated delivery artifacts. The
-[build procedure](BUILD_LOOP.md) makes that gate repeatable for subsequent changes.
+The original model's erroneous `metersPerUnit=0.01` metadata remains untouched. Its known metre geometry and Y-up convention are handled by the writer's assembly corrective. Reader code does not infer correct units from the shape of a familiar building. Model credit: SDC PERFORMANCE™️ (https://sketchfab.com/Lambo_SC04); CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/); [original source](https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674).
 
-## Run evidence
+## Colorado and France: complete CRS definitions do real work
 
-<!-- evidence:run -->
-**75 passed, 0 failed, 0 skipped.** All eight conditional workflow families execute; design approval and survey accuracy are not inferred.
+The partner data exercise geographic, projected, compound height and derived site-calibration definitions. Colorado keeps US survey feet and its full horizontal/vertical site calibration in WKT; France keeps Lambert-93/CC49 and IGN69 height meaning.
 
-Run record: [20260921-complete-build](runs/20260921-complete-build/report.json). Requirements revision: `eab823f46dad7c959019e5ce1851c8295c2a3701`.
-Runtime prose SHA-256: `8410c82f9f7485a757fc7a2ff3509a49c53d8cce0a3e3346f38d00401267fcfc`.
-Implementation base: `36af0041e4d5e951588577a178b0404911634965`; local changes: **false**. Exact tested files are hashed in the run record.
+![Colorado original breaklines in native Hydra](delivery/terrain-native.png)
 
-Independent scene origins differ by at most **0.000000003 m**; Kit/Fabric geometry differs by at most **0.000058335 m**. These numerical residuals are distinct from geodetic accuracy. The finite-vertex extent bound does not certify a continuous surface.
-<!-- /evidence:run -->
+![Calibrated Colorado query plot](delivery/colorado-terrain.png)
 
-[Editable slides](docs/checkpoint.pptx) · [Slide PDF](docs/checkpoint.pdf) ·
-[Review summary](docs/PR_BODY.md) · [Bundled requirements](inputs/requirements.md)
+The LandXML contains 14,359 vertices in 710 coordinate parts. It is displayed as original breaklines, without inventing a terrain TIN. Source N/E/H order is explicitly mapped to E/N/H, with metre local geometry and a double coordinate anchor. Five Colorado and 59 France controls are checked in their supplied reference systems.
+
+| Supplied control comparison | Points | Maximum CSV discrepancy (mm) |
+|---|---:|---:|
+| Colorado_01 → Colorado_02 | 5 | 0.0212 |
+| Colorado_02 → Colorado_03 | 5 | 0.0342 |
+| France_01 → France_02 | 59 | 0.0608 |
+| France_01 → France_03 | 59 | 0.0822 |
+| France_01 → France_04 | 59 | 0.0496 |
+
+The supplied CSVs were computed with PROJ 9.8.1. These comparisons test intake, association and rounding, not independent-engine or survey accuracy. Required height grids are [identified and hash-verified](delivery/resources.json); missing resources reject the whole result. Ordinary datum/height operations are exercised without adding USD properties for engine-selected grids.
+
+## The same authored data reaches three consumers
+
+Headless USD queries, the native C++ Hydra resolver and the separate live OV resolver agree across all 27 jobs. Each derives placements from the authored scene; neither runtime consumes a headless result snapshot.
+
+| Dataset | Jobs | Samples per job | Native vs headless max (mm) | OV vs headless max (mm) |
+|---|---:|---:|---:|---:|
+| Eiffel model + context | 4 | 163,440 | 0.000000 | 0.000000 |
+| Colorado breaklines | 3 | 14,359 | 0.000104 | 0.000000 |
+| Original railway | 3 | 15,822 | 0.000002 | 0.000000 |
+| Synthetic city imagery | 2 | 4,096 | 0.000000 | 0.000000 |
+| Global scalar grid | 3 | 2,664 | 0.000000 | 0.000000 |
+| Composition + time | 3 | 6 | 0.000002 | 0.000000 |
+| Native + point instances | 2 | 15 | 0.000000 | 0.000000 |
+| Partner controls | 7 | 5 / 59 | 0.000000 | 0.000000 |
+
+Partner controls account for seven of the 27 jobs. Sample counts include repeated output selections; they are not counts of distinct real-world observations. Full arrays, source-property associations, target definitions and engine-reported operations accompany the receipt in compressed coordinate artifacts.
+
+For example, the **same first Colorado breakline vertex**, resolved into NAD83 / UTM zone 13N with ellipsoidal height, is:
+
+| Implementation | Easting (m) | Northing (m) | Height (m) |
+|---|---:|---:|---:|
+| Headless USD | 490154.882832 | 4416473.740389 | 1655.208918 |
+| Native Hydra resolver | 490154.882832 | 4416473.740389 | 1655.208918 |
+| Live OV resolver | 490154.882832 | 4416473.740389 | 1655.208918 |
+
+Native rendering additionally checks the final scene-index geometry matrices and actual instancer transforms. Live OV reads geometry ingested into its runtime, writes derived placement/coordinate results there and reads them back. It exercises source edits, changed time/output requests, invalid-result removal and recovery. No OV screenshot or OV visual-render parity is claimed.
+
+Runtime independence and geodetic-engine independence are different. All three use PROJ: native 9.4.1, Python/OV 9.8.1. USD versions are headless 26.8, native 26.11, OV 25.11. Stock core source, native binary hashes and loaded-plugin exclusions are recorded; no retired geospatial runtime is used.
+
+## City analysis returns data, not just a picture
+
+A 64 × 64 synthetic red/NIR image yields 1,850 samples above NDVI 0.3. The result returns locations in the requested CRS while preserving source indices, values and observation times.
+
+![City measurement analysis and requested coordinate results](delivery/city-analysis.png)
+
+[Selected GeoJSON features](delivery/city-selected-features.geojson) and [the paired analysis product](delivery/city-analysis-product.json) are usable without a renderer. The heatmap is a scientific headless-query visualization. Its bands, observation time and 80 m ellipsoidal sample height are explicit synthetic inputs; it makes no real land-use claim.
+
+The [original railway query](delivery/railway-query.png) carries all 15,822 vertices and 2,386 coordinate parts from the supplied GeoJSON into UTM, geographic and ECEF results. Its third coordinate is conditionally interpreted as WGS84 ellipsoidal height because the original EPSG:4326 label alone does not specify a height reference. Original topology and source coordinates remain available.
+
+## Global measurements keep coordinates, values and time together
+
+The original 37 × 72 scalar grid resolves all 2,664 locations globally in ECEF and geographic coordinates. Values remain associated with their coordinates and grid indices across two recorded times.
+
+![Global coordinate coverage](delivery/global-ecef.png)
+
+![Original values and explicitly synthetic change](delivery/climate-analysis.png)
+
+The initial scalar field comes from the supplied NetCDF; its units and heights are not authored in that file. Positions use explicitly assumed zero ellipsoidal height. The second time is an explicitly synthetic perturbation, not an observed trend or forecast. [The analytic product](delivery/climate-analysis-product.json) preserves both value arrays with the same coordinate indices. These are scientific query plots, not Hydra renders and not one global tangent plane.
+
+This exercises useful larger-scale data workflows alongside construction-site placement. Initial scope does not impose a site-sized domain on measurements or make later coordinate-epoch support impossible.
+
+## Composition, edits and explicit export survive real consumption
+
+Three USD native instances and three point instances share geometry while receiving distinct resolved placements. References, stronger opinions, variants, source interpolation, stage units and Y/Z up-axis are exercised with independent controls.
+
+![Three native and three point instances consumed by Hydra](delivery/instances-native.png)
+
+The native scene index recomputes on source notices; the rendered model's +10 m position edit is checked and restored. Live OV updates after authored edits and request changes; a broken definition reports failure, hides stale model results, clears stale measurement results, then recovers after restoration. The source's complete used-layer set matches its original contents after each test. Snapshot parity and filter-call counts alone are not accepted as consumption evidence.
+
+Source position interpolation occurs **before** nonlinear CRS conversion. A hand-reasoned test distinguishes this from interpolating already-projected endpoints. Ordinary USD consumers continue to see exactly the original ordinary transform interpretation.
+
+Five derived assets are written with the requested output WKT and explicit sample times 0, 5 and 10. They bake post transforms once, retain small local float geometry with double anchors, preserve measurement values/times and are resolved by a fresh reader. There is no private “already resolved” flag.
+
+| Exported dataset | Output | Geometry roundtrip max | Measurement roundtrip max |
+|---|---|---:|---:|
+| composition | utm31 | 0.00 µm | 0.00 µm |
+| tower | utm31 | 30.88 µm | 0.00 µm |
+| terrain | Colorado_02 | 15.64 µm | 0.00 µm |
+| city | utm31 | 0.00 µm | 0.00 µm |
+| climate | ecef | 0.00 µm | 0.00 µm |
+
+These are sampled exports, with their interpolation policy recorded; arbitrary continuous-time equivalence is not implied. The stock validator checks authored facts, rather than certifying geodetic accuracy or discovering hidden unloaded dependencies.
+
+## Precision is measured; a continuous extent bound remains open
+
+Double coordinate anchors and small local floats preserve detail away from the origin. But one affine model frame approximates a nonlinear transformation, and the error grows with the model's spatial extent.
+
+For a UTM frame projected into ECEF, 289 sampled points per square give:
+
+| Sampled domain half-extent | Samples | Maximum affine discrepancy |
+|---|---:|---:|
+| ±1 m | 289 | 1.59728973e-07 m |
+| ±10 m | 289 | 1.56920427e-05 m |
+| ±100 m | 289 | 0.00156852519 m |
+| ±1,000 m | 289 | 0.156846084 m |
+| ±10,000 m | 289 | 15.6846085 m |
+| ±100,000 m | 289 | 1568.44951 m |
+
+At an absolute float coordinate around 481,948 m, one float step is 31.25 mm. Keeping a double anchor and small float geometry avoids that source of quantization. The frame uses a 1 m physical derivative probe; 0.25 m and 4 m probes are compared in tests. Probe stability and finite sample maxima are **not a certified continuous surface bound**.
+
+R24 therefore remains a substantive design gap: the proposal needs a contract for extent, approximation/error reporting and when subdivision or another representation is required. All selected demonstrations ran; this question is not a deferred implementation task. Engine-attributed operation accuracy estimates also do not include ordinary post transforms, affine approximation or survey truth.
+
+## Remaining decisions and the path forward
+
+The executed candidate provides reviewable answers for exact placement fields, adjustment context, geographic/geocentric tuples, WKT string normalization, measurement association, dependency declarations and sampled export records. The group still needs to choose those contracts and settle the continuous extent/error requirement.
+
+[The decision table](proposal/runtime-open-decisions.md) separates already retained answers from experimental choices and genuine gaps. WKT **string** normalization is lexical: it preserves quoted metadata, component order, identifiers, remarks and extensions, and does not claim semantic CRS equivalence. Tokens must already match that normal form. Different metadata can still produce different tokens for equivalent numerical operations.
+
+Coordinate epochs are deferred in representation, interpretation and computation. `COORDINATEMETADATA` wrappers and requests that need time-dependent transformations fail explicitly. CRS `FRAMEEPOCH` information remains in WKT; it is not a coordinate epoch. No synthetic epoch attribute or default is introduced, and the separation of CRS definitions, source associations and recorded dataset times preserves the ability to add an authoritative epoch model later.
+
+The reverse audit checks both directions: implementation facts/behavior must follow the frozen text, and that text must follow requirements and established data ownership rather than justify runtime conveniences. Corrections during this run fixed consumer integration and test-asset structure without adding new authored fields to rescue the implementation.
+
+## Reproduce and inspect
+
+The [build contract](BUILD_LOOP.md) describes the required stages. `run.py --help` lists dependency locations; execute it from a compiler-enabled environment with the recorded stock USD imaging SDK, Python dependencies, OV runtime, PROJ database and TIFF-enabled PROJ native library. Height grids are fetched separately from the recorded resource URLs, then verified by hash; network fallback is disabled during the run.
+
+```text
+cmake -S native -B <native-build> -G Ninja -DCMAKE_BUILD_TYPE=Release
+      -DUSD_SDK=<usd-sdk> -Dpxr_DIR=<usd-sdk> -DCMAKE_PREFIX_PATH=<usd-sdk>
+python -X utf8 run.py --grids <grid-directory> --usd-sdk <usd-sdk>
+      --native-build <native-build> --native-proj <tiff-enabled-proj-install>
+      --native-python <linked-python-dll-directory> --ov-sdk <ov-runtime>
+      --python-dependencies <python-site-packages> --output <fresh-run-directory>
+python collateral/build_readme.py --run-directory <fresh-run-directory>
+python collateral/derive.py
+```
+
+The included original data, generated schema and authored stages allow a rerun without private attachment ZIPs. `intake.py` records the original attachment-to-stage authoring recipe. [Dataset sources, credits and assumptions](data/README.md), [original hashes](data/manifest.json), [frozen requirements](proposal/requirements.md) and [the immutable run receipt](delivery/run-report.json) accompany the implementation. README is the canonical narrative; `collateral/derive.py` derives the PR body and slide content from it, with the README hash recorded in collateral.

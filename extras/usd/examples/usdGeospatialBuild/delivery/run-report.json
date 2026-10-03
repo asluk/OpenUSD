@@ -1,0 +1,3331 @@
+{
+  "status": "executed candidate; approval and continuous-bound questions remain explicit",
+  "completed_utc": "2026-10-03T05:54:09.686954+00:00",
+  "source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47",
+  "inputs": {
+    "status": "candidate frozen before implementation; execution tracked in run receipt",
+    "proposal": {
+      "commit": "24fcce0c928515fb5206f813016b0e86a5ef08e6",
+      "path": "proposals/geospatial_coordinate_reference_systems/README.md",
+      "sha256": "07d5cbf54ad0f55586ed4bb1683d502483edd2edec94d5694d9db3e1bc2dc9bc",
+      "sha256_basis": "Git blob bytes",
+      "source_selection": "functional requirements and recorded decisions; legacy callable interfaces excluded"
+    },
+    "openusd": {
+      "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
+      "base_commit": "0ace5b88702edbfe00dd031369f38ff526cb07b8"
+    },
+    "composition_reference": {
+      "repository": "https://github.com/aousd/specifications-public",
+      "path": "core/1.0.1/core_spec.md",
+      "local_reference_revision": "18d8ee695647d81d022dbe70f4c4fef5f059d90d",
+      "local_copy_sha256": "b2feeb2c900befe224a372b2d60d0ddcc6e35048ab54c32c17d5c085b44c642d"
+    },
+    "inherited_geospatial_implementation": false,
+    "inherited_model_or_runtime_candidate": false,
+    "inherited_fixture_code_or_expected_outputs": false,
+    "new_derivation_required": [
+      "conceptual_model",
+      "authored_model",
+      "normative_runtime_behavior",
+      "implementations",
+      "content_validator",
+      "fixtures_and_tests",
+      "audit_evidence",
+      "README",
+      "review_body",
+      "slides"
+    ],
+    "required_reviews": [
+      "requirements_sufficiency_and_consistency",
+      "representation_necessity_and_USD_semantics",
+      "implementation_to_proposal_and_reverse_coverage",
+      "attempts_to_expose_fixture_shortcuts_and_self_justifying_proposal_changes"
+    ],
+    "publication": "existing fork draft delivery authorized",
+    "geospatial_references": [
+      {
+        "standard": "OGC 18-005r8",
+        "role": "coordinate reference and coordinate-metadata concepts"
+      },
+      {
+        "standard": "OGC 18-010r11",
+        "role": "WKT encoding including COORDINATEMETADATA"
+      }
+    ],
+    "candidate": {
+      "data-model.md": "12ca5dae026021959bcc676f8dcc9d718de639c4268cd3862cbf1a4d2514ece9",
+      "distinguishing-examples.md": "3752737e664bfdfa79a594fb99f1d03b2230be092615f41b43567a3a48ae189a",
+      "requirements.md": "242be4caa2e8de1e9625fc51897d3bdcfd8ee7ac07894b8c9531046008e2e771",
+      "runtime-behavior.md": "f84a6e08026df47e756b429dae0fa6e32dc460a0c5f935cbf773661f64662d74",
+      "runtime-open-decisions.md": "5838a1e14cd41bfa4baf2e2df1e38c8fac3f39d5140e332262426c65986af0e6",
+      "traceability.md": "4dc918a75083251f34f7ce4938863317d804ec5995f6625541f7e663d1bdaaee"
+    }
+  },
+  "source_files": {
+    "AUDIT.md": "184a4ec198073fcd392b0d642455ba4095ccda08ed323339904a7e9d6e796d10",
+    "BUILD_LOOP.md": "ee36424fd4084f6d24fbc0ad55fd89b19acf2d0efb0c6fb0e7aac37874ea79c0",
+    "inputs.json": "c512bbafed439a91c62dfa75b7442f7b2913f8301400823a4c1ec998552d05d8",
+    "intake.py": "14c396787d8248af13402ca4476d902f9522ea613a4ad9b07b6fa54a15241bc9",
+    "PLAN.md": "17fc8f9286f8519a53cf37119a674cc1684cb9f41cd3037778a51c585659159b",
+    "run.py": "4ebdc36a59271bd3a03c3965caaf72bc9eb6320b345e2e74dc9a26e5b8e5dd7e",
+    "targets.json": "d4213d3e3269d0ce28eba66e8d31f39455ad02a64a71277acb3ab3d823da6609",
+    "data/gfs_t2m.nc": "025136ab8f2852968e87e58e159cd9167649d84e6ed94501899f7da9c0525c9e",
+    "data/LICENSE-partner.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "data/manifest.json": "0d1713dfce0052f30c47073c85542e19d4d2677093ab58e9dfb38df83a053681",
+    "data/partner-controls.json": "40bc67b20ac899eee6696599ed4e5adab9a7f8d9ac7a08ef22ae2b1a821e1e2e",
+    "data/rail-topology.npz": "045757d007b09ae28e025e1ca48d4efc8691643aafe962af0fd58b72e36634c9",
+    "data/railway.geojson": "885026bb98e36bfd259fece09c4218496f6b20ba463525d746e9299e0edb12b7",
+    "data/README.md": "3cda32be488ac5ac93143cc0377003c51cf48de54d13699bf5c4dc201d01cdbb",
+    "data/resources.json": "d154ae3178b292eb21318215fa85604584fba2cb9dd87781f457e0b6d41e30eb",
+    "data/tower.usdz": "6596585290f066c1567f8e3e70a25c87a190a0df6e67028d0249c1764b5a1fcb",
+    "geobuild/evidence.py": "a119af6340e3a54cc9d24418fca598c41071386f22fe907f819706c50d080cb0",
+    "geobuild/export.py": "435aa0f4d29cbf73cc6ba75e3fa1e36e84d6a7f0c00d355a70bbf95511a178e2",
+    "geobuild/model.py": "469ac6e8b5c029fc7ffa31247344bce2da92ed82d7976b03450aad6d76e24ca8",
+    "geobuild/resolve.py": "77c4c6170593bdd1a73f89e3eeb12dc9ba0be388a8f47669c1bc483c33b34f2f",
+    "geobuild/__init__.py": "ba8d346729b57cfbacfcaf07cb32bd0ef127759f9f06761f98b88d654d31f3a5",
+    "geospatialValidation/plugInfo.json": "8c73f2e4b7cab0b323cc322e43c7d6f54370d3bfa8c025d6813b4b6525ee26ad",
+    "geospatialValidation/__init__.py": "ce9f8dec280c9150ad6ea4548183063623e9e9bb6116940bf401e3764dfc8a07",
+    "native/CMakeLists.txt": "954255361730c88805ace47f0c570d89c149c30f28ccfae2327986fa1cc9c2af",
+    "native/main.cpp": "4e053dafdbb13850f16991221e5e120172a85fc21bd0712ca41f114d3c59e22f",
+    "native/placement.cpp": "3f1525d2fbd80698b907c59c21f1aa9109807cc2540e41e8f4f9e3a7643d45da",
+    "native/placement.h": "48b661478ecfeb3655fee14b52e7b6cdddc5ff7c9725a0f8b3113ed9fd61bae6",
+    "native/plugInfo.json": "9c790802a2d78b33e93f8ac963e4785ff2f4bda55287fd4df3e2d00ef488d113",
+    "native/validation.cpp": "223b652d87039e6a8020ed9c51f00338189a3418b11c1a10722e6f2765a3b157",
+    "ov/geobuild.kit": "5fc4d60271d18a04ad3b6675539033f1c06b37e86ce6b2cba25ed20b02e69d88",
+    "ov/independent.py": "8523d67145671a481f5fe24a390ca9c9bbe390099da084e8bab799dbb3d402f9",
+    "ov/launch.py": "2fe020bf650091651d52b3b705122de0b869adfc7fc32173f9cb6cb34ce0f1d9",
+    "ov/run_live.py": "f5012dbec966cf644c69192e3a476edfa7500a343b035aafe3fb808dd066b0a1",
+    "proposal/data-model.md": "12ca5dae026021959bcc676f8dcc9d718de639c4268cd3862cbf1a4d2514ece9",
+    "proposal/distinguishing-examples.md": "3752737e664bfdfa79a594fb99f1d03b2230be092615f41b43567a3a48ae189a",
+    "proposal/requirements.md": "242be4caa2e8de1e9625fc51897d3bdcfd8ee7ac07894b8c9531046008e2e771",
+    "proposal/runtime-behavior.md": "f84a6e08026df47e756b429dae0fa6e32dc460a0c5f935cbf773661f64662d74",
+    "proposal/runtime-open-decisions.md": "5838a1e14cd41bfa4baf2e2df1e38c8fac3f39d5140e332262426c65986af0e6",
+    "proposal/traceability.md": "4dc918a75083251f34f7ce4938863317d804ec5995f6625541f7e663d1bdaaee",
+    "scenes/city.usda": "d9f1c0d369823f0aa99d8464fc7ed29d24dbf4156e72e5c6a79cb48ba8ac8e0d",
+    "scenes/climate.usda": "4ef8879fc65957172b51112f7d1d410ed22b9af22285f444f1e5611715dc83e2",
+    "scenes/Colorado_01.usda": "2bb38614518886b6e14051f2705c91b235318f259f4ae776f27f756040124ab2",
+    "scenes/Colorado_02.usda": "93e658a4b55f49307daaca584710e0ae732ac39e97219c7415de601d63072bda",
+    "scenes/Colorado_03.usda": "3df9602f8d2edf8498e4847dd19043f836c69a70dc6bb3e27fb6290d528562fa",
+    "scenes/composition.usda": "790ab3e250d20ba76cd9c1ea72e288366acae9e2675c64cffde3ab6102e18c3e",
+    "scenes/France_01.usda": "fa6e12b0a7c400072fd440714b869c9a1d9f73fccec553c90ca2ad5bdaab9c26",
+    "scenes/France_02.usda": "e8ede3bd958b707cd6f6fb3ae8960a996a182c76eaa9b5f171389b8d60acc0b9",
+    "scenes/France_03.usda": "5c43400cc33b2e0f6ad7cf1707f11d4ffe593719a8690e61aba8b721ad524f50",
+    "scenes/France_04.usda": "b4544836a18acf3a01895ae45cf06a4dfb1751aaaed9714b0480d111ab2808f7",
+    "scenes/instance-asset.usda": "9d4cd1fe9b7c6d5f99956fb3edbf1f6db3ba955142d42f490d0ac395824b4c60",
+    "scenes/instances.usda": "72482e500fef267e219aae24cb72624e8466cb90cb88352e8d9de78481d2f531",
+    "scenes/railway.usda": "dd8093f5c0656ffc6aeabcfe658ad2462ce72ca416ea3761e08dc06592123fd2",
+    "scenes/terrain.usda": "d59a603856289fd09c1d39cb0c3bb04a48034fbb0f17811f844431c974855fb0",
+    "scenes/tower.usda": "8618899aca9c73fda50e72964ddb175b6f585530d010b89b06ad451cb173d21d",
+    "schema/generate.py": "37d31fc7e3b8bf22cd8e407fa93ea96b566274badcdb417f4e2a4ff17a64c8a7",
+    "schema/schema.usda": "32755553799e6e4d77d9de469b9842c343c1127cd7a27e5fcad63f9214e839f1",
+    "tests/test_semantics.py": "94a1fa1556c04556ff2dd7a80267922f31f69969899969dcabb4dc03b23f6565",
+    "data/Colorado/01_NAD83-2011_Geographic3D_Coordinates.csv": "d3d1fb2cf302a86348039a39fa9cbd18ad8d0e01a0d9a9b46febcf21bc10031b",
+    "data/Colorado/01_NAD83-2011_Geographic3D_WKT2.txt": "564a87cce9458225367f7235af8c17615eaf0f25a6a9d69143b64a8341f72317",
+    "data/Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_Coordinates.csv": "8acb27644409b84300ba0b9380bfe70dcd78c26b1e07e35c792727d80929ad6c",
+    "data/Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_WKT2.txt": "7223312af480611f6089dea506d59f96288f8c9a214347d84c105da07dd23dfe",
+    "data/Colorado/03_Westminster_Site_Calibration_Coordinates.csv": "52bebebc5490bc62661fa1c8f8add4d584b5cd70c24cb04ebd6a02d407dd036d",
+    "data/Colorado/03_Westminster_Site_Calibration_WKT2.txt": "0a788ca9a0b444bbaf9fcc06648eea7de3c4acf53e4eeef42bcb8acd8af44521",
+    "data/Colorado/Trimble Westminster Park and Ride LandXML.xml": "0f0be8491c91a4cb38b852d119d9c80ec5190591730cd74a293de361868dac02",
+    "data/France/01_RGF93v2b_CC49_IGN69_Coordinates.csv": "c062096dc9bb4f3f0b0e2e0daf26fb24516b461974fe442aa422ecf2339db672",
+    "data/France/01_RGF93v2b_CC49_IGN69_WKT2.txt": "f23a657b6c53f668eee60d8306bd8d44422fc8c06ff1665c242cdb867aefe6e9",
+    "data/France/02_RGF93v2b_Lambert93_IGN69_Coordinates.csv": "194961025e20fb44a8a1940e01143a124372bba00f3c4f788ba124b872e5e913",
+    "data/France/02_RGF93v2b_Lambert93_IGN69_WKT2.txt": "7fc9a869b1b5eaf26b549e508c5af215513e550843f23bf1f35fef1a4d517819",
+    "data/France/03_RGF93v2b_Geocentric_Coordinates.csv": "359b94a07258e7eedafd3b422078fa0f545ee58769d3e105d410d9614a861fb2",
+    "data/France/03_RGF93v2b_Geocentric_WKT2.txt": "571a3cac4eb3fb580941649dca7d26965772d60a317b217466ddbc80f5144e42",
+    "data/France/04_RGF93v2b_Geographic3D_Coordinates.csv": "cf29098896634f254f73519dcaf6674fa0b197ce92333017287c18b4172b5c03",
+    "data/France/04_RGF93v2b_Geographic3D_WKT2.txt": "08a3d0c2c9ce6525eaca3155c313be805c8e9067b6a41560eb428e819c4bfe05",
+    "data/France/05_ITRF2014_Geocentric_epoch2019.0_Coordinates.csv": "2b153f797f4950608136cbe2d3ba8c5db4d6ce43aa1aeb59eeeec46a50ec78fa",
+    "data/France/05_ITRF2014_Geocentric_epoch2019.0_WKT2.txt": "e6bc6a0a72e666c6d364e4d5dac3f0b4ebb26e83b48f4af105fd352303301c8b",
+    "data/France/06_ITRF2020_Geocentric_epoch2026.5_Coordinates.csv": "2a62393052029a9b5697a361f66a41888fcc30bf55681cf34a90da246e3d31e8",
+    "data/France/06_ITRF2020_Geocentric_epoch2026.5_WKT2.txt": "d4fa5415670d7a4be6d6c491f9b81de304a5a73bf1605a6fd38cdb70444d4a99",
+    "schema/generated/generatedSchema.usda": "4097f264af1f7aad63963cee16c4c6d933105ba0fd3cd4ffda26ac9628caa13d",
+    "schema/generated/plugInfo.json": "a459d179d8f702905cfc9bb61b507f6503056de6c7335ec9104016b29abe67de"
+  },
+  "toolchain": {
+    "headless_usd": [
+      0,
+      26,
+      8
+    ],
+    "python": "3.12.14",
+    "pyproj_proj": "9.8.1",
+    "ov_usd": [
+      0,
+      25,
+      11
+    ],
+    "native_usd": [
+      0,
+      26,
+      11
+    ],
+    "native_usd_core_source": "c58778b6b5c667123430b6bbed810778bf336e9c",
+    "native_executable_sha256": "7695247e953f160662b495e2e3536b423d6d1dd623a025beebe2563f80baacf2",
+    "native_projection_dll_sha256": "51e7addd9f263d721afc2701a94db252043f3de89048078ad852cf536aee91c5",
+    "native_projection_TIFF_support": true,
+    "frame_probe_metres": 1.0,
+    "probe_checks_metres": [
+      0.25,
+      4.0
+    ]
+  },
+  "tests": {
+    "passed": 67,
+    "failed": 0
+  },
+  "stock_usdchecker": {
+    "valid_scene_accepted": true,
+    "invalid_placement_rejected": true,
+    "native_validator_discovered_by_keyword": true
+  },
+  "native_failures": [
+    {
+      "case": "invalid_batch",
+      "whole_result_rejected": true,
+      "successful_output_absent": true
+    },
+    {
+      "case": "missing_grid",
+      "whole_result_rejected": true,
+      "successful_output_absent": true
+    },
+    {
+      "case": "epoch_wrapper",
+      "whole_result_rejected": true,
+      "successful_output_absent": true
+    },
+    {
+      "case": "epoch_operation",
+      "whole_result_rejected": true,
+      "successful_output_absent": true
+    },
+    {
+      "case": "orientation_value",
+      "whole_result_rejected": true,
+      "successful_output_absent": true
+    }
+  ],
+  "comparisons": [
+    {
+      "name": "Colorado_01-Colorado_02-t0",
+      "source": "Colorado_01",
+      "output": "Colorado_02",
+      "time": 0,
+      "native": {
+        "samples": 5,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 3109015.993588727,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Controls.data:coordinates": {
+          "description": "Inverse of Transformation from NAD83(2011) to NAD83(2011) + NAD83(2011) to NAVD88 height (3) + Inverse of Conversion from NAVD88 height (ftUS) to NAVD88 height + SPCS83 Colorado Central zone (US survey foot) (with axis order normalized for visualization)",
+          "accuracy": 0.015
+        }
+      },
+      "native_operations": {
+        "/Controls.data:coordinates": {
+          "accuracy": 0.015,
+          "description": "axis order change (2D) + Inverse of Transformation from NAD83(2011) to NAD83(2011) + NAD83(2011) to NAVD88 height (3) + Inverse of Conversion from NAVD88 height (ftUS) to NAVD88 height + SPCS83 Colorado Central zone (US survey foot)"
+        }
+      },
+      "ov": {
+        "samples": 5,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 3109015.993588727,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "Colorado_02-Colorado_03-t0",
+      "source": "Colorado_02",
+      "output": "Colorado_03",
+      "time": 0,
+      "native": {
+        "samples": 5,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 3109885.7385213156,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Controls.data:coordinates": {
+          "description": "Inverse of SPCS83 Colorado Central zone (US survey foot) + Conversion from NAVD88 height (ftUS) to NAVD88 height (ftUS) + Westminster site calibration (vertical) + SPCS83 Colorado Central zone (US survey foot) + Westminster site calibration (horizontal)",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Controls.data:coordinates": {
+          "accuracy": 0.0,
+          "description": "Inverse of SPCS83 Colorado Central zone (US survey foot) + Conversion from NAVD88 height (ftUS) to NAVD88 height (ftUS) + Westminster site calibration (vertical) + SPCS83 Colorado Central zone (US survey foot) + Westminster site calibration (horizontal)"
+        }
+      },
+      "ov": {
+        "samples": 5,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 3109885.7385213156,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "Colorado_03-Colorado_02-t0",
+      "source": "Colorado_03",
+      "output": "Colorado_02",
+      "time": 0,
+      "native": {
+        "samples": 5,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 3109015.9935786873,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Controls.data:coordinates": {
+          "description": "Inverse of Westminster site calibration (horizontal) + Inverse of SPCS83 Colorado Central zone (US survey foot) + Inverse of Westminster site calibration (vertical) + Conversion from NAVD88 height (ftUS) to NAVD88 height (ftUS) + SPCS83 Colorado Central zone (US survey foot)",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Controls.data:coordinates": {
+          "accuracy": 0.0,
+          "description": "Inverse of Westminster site calibration (horizontal) + Inverse of SPCS83 Colorado Central zone (US survey foot) + Inverse of Westminster site calibration (vertical) + Conversion from NAVD88 height (ftUS) to NAVD88 height (ftUS) + SPCS83 Colorado Central zone (US survey foot)"
+        }
+      },
+      "ov": {
+        "samples": 5,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 3109015.9935786873,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "France_01-France_02-t0",
+      "source": "France_01",
+      "output": "France_02",
+      "time": 0,
+      "native": {
+        "samples": 59,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 6857890.385230773,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Controls.data:coordinates": {
+          "description": "Inverse of France Conic Conformal zone 8 + Lambert-93",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Controls.data:coordinates": {
+          "accuracy": 0.0,
+          "description": "Inverse of France Conic Conformal zone 8 + Conversion from NGF-IGN69 height to NGF-IGN69 height + Lambert-93"
+        }
+      },
+      "ov": {
+        "samples": 59,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 6857890.385230773,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "France_01-France_03-t0",
+      "source": "France_01",
+      "output": "France_03",
+      "time": 0,
+      "native": {
+        "samples": 59,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 4777456.74744401,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Controls.data:coordinates": {
+          "description": "Inverse of France Conic Conformal zone 8 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + Conversion from RGF93 v2b (geog3D) to RGF93 v2b (geocentric)",
+          "accuracy": 0.01
+        }
+      },
+      "native_operations": {
+        "/Controls.data:coordinates": {
+          "accuracy": 0.01,
+          "description": "Inverse of France Conic Conformal zone 8 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + Conversion from RGF93 v2b (geog3D) to RGF93 v2b (geocentric)"
+        }
+      },
+      "ov": {
+        "samples": 59,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 4777456.74744401,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "France_01-France_04-t0",
+      "source": "France_01",
+      "output": "France_04",
+      "time": 0,
+      "native": {
+        "samples": 59,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 81.62020469189088,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Controls.data:coordinates": {
+          "description": "Inverse of France Conic Conformal zone 8 + Inverse of RGF93 v2b to NGF-IGN69 height (5) (with axis order normalized for visualization)",
+          "accuracy": 0.01
+        }
+      },
+      "native_operations": {
+        "/Controls.data:coordinates": {
+          "accuracy": 0.01,
+          "description": "Inverse of France Conic Conformal zone 8 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + axis order change (2D)"
+        }
+      },
+      "ov": {
+        "samples": 59,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 81.62020469189088,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "France_02-France_03-t0",
+      "source": "France_02",
+      "output": "France_03",
+      "time": 0,
+      "native": {
+        "samples": 59,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 4777456.747423795,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Controls.data:coordinates": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + Conversion from RGF93 v2b (geog3D) to RGF93 v2b (geocentric)",
+          "accuracy": 0.01
+        }
+      },
+      "native_operations": {
+        "/Controls.data:coordinates": {
+          "accuracy": 0.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + Conversion from RGF93 v2b (geog3D) to RGF93 v2b (geocentric)"
+        }
+      },
+      "ov": {
+        "samples": 59,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 4777456.747423795,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "tower-France_02-t0",
+      "source": "tower",
+      "output": "France_02",
+      "time": 0,
+      "native": {
+        "samples": 163440,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 6862651.89,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 34,
+      "hydra_geometry_readback": {
+        "/Control0/Marker": {
+          "max_render_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Control1/Marker": {
+          "max_render_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Control2/Marker": {
+          "max_render_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Control3/Marker": {
+          "max_render_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Ground/Plane": {
+          "max_render_unit_error": 0.0,
+          "vertices": 4
+        },
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0": {
+          "max_render_unit_error": 4.691298842360069e-10,
+          "vertices": 65532
+        },
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1": {
+          "max_render_unit_error": 4.691298842360069e-10,
+          "vertices": 65533
+        },
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2": {
+          "max_render_unit_error": 4.684709354809207e-10,
+          "vertices": 32351
+        }
+      },
+      "hydra_instance_readback": {
+        "native_instances": 0,
+        "point_instances": 0
+      },
+      "hydra_live_edit": {
+        "after_origin": [
+          648247.125,
+          6862251.89,
+          33.79
+        ],
+        "before_origin": [
+          648237.125,
+          6862251.89,
+          33.79
+        ],
+        "filter_requeried": true,
+        "path": "/Tower"
+      },
+      "source_unchanged": true,
+      "operations": {
+        "/Tower": {
+          "description": "Inverse of Lambert-93 + Lambert-93",
+          "accuracy": 0.0
+        },
+        "/Ground": {
+          "description": "Inverse of Lambert-93 + Lambert-93",
+          "accuracy": 0.0
+        },
+        "/Control0": {
+          "description": "Inverse of Lambert-93 + Lambert-93",
+          "accuracy": 0.0
+        },
+        "/Control1": {
+          "description": "Inverse of Lambert-93 + Lambert-93",
+          "accuracy": 0.0
+        },
+        "/Control2": {
+          "description": "Inverse of Lambert-93 + Lambert-93",
+          "accuracy": 0.0
+        },
+        "/Control3": {
+          "description": "Inverse of Lambert-93 + Lambert-93",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Control0": {
+          "accuracy": 0.0,
+          "description": "Inverse of Lambert-93 + Lambert-93"
+        },
+        "/Control1": {
+          "accuracy": 0.0,
+          "description": "Inverse of Lambert-93 + Lambert-93"
+        },
+        "/Control2": {
+          "accuracy": 0.0,
+          "description": "Inverse of Lambert-93 + Lambert-93"
+        },
+        "/Control3": {
+          "accuracy": 0.0,
+          "description": "Inverse of Lambert-93 + Lambert-93"
+        },
+        "/Ground": {
+          "accuracy": 0.0,
+          "description": "Inverse of Lambert-93 + Lambert-93"
+        },
+        "/Tower": {
+          "accuracy": 0.0,
+          "description": "Inverse of Lambert-93 + Lambert-93"
+        }
+      },
+      "ov": {
+        "samples": 163440,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 6862651.89,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 4,
+      "ov_edits": [
+        {
+          "path": "/Tower",
+          "before_origin": [
+            648237.125,
+            6862251.89,
+            33.79
+          ],
+          "after_origin": [
+            648247.125,
+            6862251.89,
+            33.79
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              0.7071067811921239,
+              0.7071067811921239,
+              0.0,
+              0.0
+            ],
+            [
+              -0.7071067811921239,
+              0.7071067811921239,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              648247.125,
+              6862251.89,
+              33.79,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0": {
+          "source_vertices": 65532,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            648204.6730652478,
+            6862233.104991569,
+            86.97659768106955
+          ]
+        },
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1": {
+          "source_vertices": 65533,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            648245.0880188196,
+            6862296.2092876695,
+            74.37572578283704
+          ]
+        },
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2": {
+          "source_vertices": 32351,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            648209.3316075614,
+            6862275.396692393,
+            82.93836480172428
+          ]
+        },
+        "/Ground/Plane": {
+          "source_vertices": 4,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            647837.125,
+            6861851.89,
+            33.68999999850988
+          ]
+        },
+        "/Control0/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            648383.125,
+            6862247.89,
+            33.79
+          ]
+        },
+        "/Control1/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            648233.125,
+            6862397.89,
+            33.79
+          ]
+        },
+        "/Control2/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            648083.125,
+            6862247.89,
+            33.79
+          ]
+        },
+        "/Control3/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            648233.125,
+            6862097.89,
+            33.79
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    },
+    {
+      "name": "tower-utm31-t0",
+      "source": "tower",
+      "output": "utm31",
+      "time": 0,
+      "native": {
+        "samples": 163440,
+        "max_agreement_metres": 5.820766091346741e-11,
+        "max_native_component_difference": [
+          5.820766091346741e-11,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5412335.154613791,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Tower": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N",
+          "accuracy": 1.01
+        },
+        "/Ground": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N",
+          "accuracy": 1.01
+        },
+        "/Control0": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N",
+          "accuracy": 1.01
+        },
+        "/Control1": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N",
+          "accuracy": 1.01
+        },
+        "/Control2": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N",
+          "accuracy": 1.01
+        },
+        "/Control3": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N",
+          "accuracy": 1.01
+        }
+      },
+      "native_operations": {
+        "/Control0": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N"
+        },
+        "/Control1": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N"
+        },
+        "/Control2": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N"
+        },
+        "/Control3": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N"
+        },
+        "/Ground": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N"
+        },
+        "/Tower": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 31N"
+        }
+      },
+      "ov": {
+        "samples": 163440,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5412335.154613791,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 4,
+      "ov_edits": [
+        {
+          "path": "/Tower",
+          "before_origin": [
+            448251.818173792,
+            5411935.123619376,
+            77.60316071775682
+          ],
+          "after_origin": [
+            448261.81556420645,
+            5411935.120235325,
+            77.60309201056586
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              0.7071615162712988,
+              0.7066829856485128,
+              -9.180758596016858e-06,
+              0.0
+            ],
+            [
+              -0.7066829855903052,
+              0.7071615159511566,
+              5.358795789334181e-07,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              448261.81556420645,
+              5411935.120235325,
+              77.60309201056586,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0": {
+          "source_vertices": 65532,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            448219.36834988196,
+            5411916.354495911,
+            130.7900962249246
+          ]
+        },
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1": {
+          "source_vertices": 65533,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            448259.79411396,
+            5411979.428646813,
+            118.18856080689514
+          ]
+        },
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2": {
+          "source_vertices": 32351,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            448224.0399896419,
+            5411958.633583968,
+            126.7515727533667
+          ]
+        },
+        "/Ground/Plane": {
+          "source_vertices": 4,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            447851.7871794931,
+            5411535.363375707,
+            77.50835473545905
+          ]
+        },
+        "/Control0/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            448397.77871085884,
+            5411931.075321681,
+            77.60218199891591
+          ]
+        },
+        "/Control1/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            448247.86864755274,
+            5412081.086805327,
+            77.60229539667193
+          ]
+        },
+        "/Control2/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            448097.85698697006,
+            5411931.176859215,
+            77.60424339959764
+          ]
+        },
+        "/Control3/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            448247.7671100149,
+            5411781.1650814945,
+            77.60412986172105
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    },
+    {
+      "name": "tower-utm32-t0",
+      "source": "tower",
+      "output": "utm32",
+      "time": 0,
+      "native": {
+        "samples": 163440,
+        "max_agreement_metres": 1.8189894035458565e-12,
+        "max_native_component_difference": [
+          1.8189894035458565e-12,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5433841.2394849295,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Tower": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N",
+          "accuracy": 1.01
+        },
+        "/Ground": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N",
+          "accuracy": 1.01
+        },
+        "/Control0": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N",
+          "accuracy": 1.01
+        },
+        "/Control1": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N",
+          "accuracy": 1.01
+        },
+        "/Control2": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N",
+          "accuracy": 1.01
+        },
+        "/Control3": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N",
+          "accuracy": 1.01
+        }
+      },
+      "native_operations": {
+        "/Control0": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N"
+        },
+        "/Control1": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N"
+        },
+        "/Control2": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N"
+        },
+        "/Control3": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N"
+        },
+        "/Ground": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N"
+        },
+        "/Tower": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + UTM zone 32N"
+        }
+      },
+      "ov": {
+        "samples": 163440,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5433841.2394849295,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 4,
+      "ov_edits": [
+        {
+          "path": "/Tower",
+          "before_origin": [
+            8304.031152590935,
+            5433409.628793941,
+            77.60316071775682
+          ],
+          "after_origin": [
+            8314.026359895011,
+            5433408.833734983,
+            77.60309201056586
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              0.7629869738302659,
+              0.6505487184040248,
+              -9.180758596016858e-06,
+              0.0
+            ],
+            [
+              -0.6505487176182214,
+              0.7629869738593698,
+              5.358795789334181e-07,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              8314.026359895011,
+              5433408.833734983,
+              77.60309201056586,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0": {
+          "source_vertices": 65532,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            8270.101249480676,
+            5433393.432909036,
+            130.7900962249246
+          ]
+        },
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1": {
+          "source_vertices": 65533,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            8315.514001972635,
+            5433453.293735981,
+            118.18856080689514
+          ]
+        },
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2": {
+          "source_vertices": 32351,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            8278.120000707268,
+            5433435.33396138,
+            126.7515727533667
+          ]
+        },
+        "/Ground/Plane": {
+          "source_vertices": 4,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            7872.420462207694,
+            5433041.622854554,
+            77.50835473545905
+          ]
+        },
+        "/Control0/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            8449.64304637548,
+            5433394.022940843,
+            77.60218199891591
+          ]
+        },
+        "/Control1/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            8311.641064056254,
+            5433555.87676952,
+            77.60229539667193
+          ]
+        },
+        "/Control2/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            8149.786785992095,
+            5433417.874718585,
+            77.60424339959764
+          ]
+        },
+        "/Control3/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            8287.789286324987,
+            5433256.020509194,
+            77.60412986172105
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    },
+    {
+      "name": "tower-ecef-t0",
+      "source": "tower",
+      "output": "ecef",
+      "time": 0,
+      "native": {
+        "samples": 163440,
+        "max_agreement_metres": 2.9103830456733704e-11,
+        "max_native_component_difference": [
+          0.0,
+          2.9103830456733704e-11,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 4780523.923594649,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Tower": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 1.01
+        },
+        "/Ground": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 1.01
+        },
+        "/Control0": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 1.01
+        },
+        "/Control1": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 1.01
+        },
+        "/Control2": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 1.01
+        },
+        "/Control3": {
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 1.01
+        }
+      },
+      "native_operations": {
+        "/Control0": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        },
+        "/Control1": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        },
+        "/Control2": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        },
+        "/Control3": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        },
+        "/Ground": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        },
+        "/Tower": {
+          "accuracy": 1.01,
+          "description": "Inverse of Lambert-93 + Inverse of RGF93 v2b to NGF-IGN69 height (5) + RGF93 v2b to WGS 84 (1) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        }
+      },
+      "ov": {
+        "samples": 163440,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 4780523.923594649,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 4,
+      "ov_edits": [
+        {
+          "path": "/Tower",
+          "before_origin": [
+            4201001.729422268,
+            168325.74336343852,
+            4780258.460766189
+          ],
+          "after_origin": [
+            4201001.261743191,
+            168335.7334338406,
+            4780258.5194980325
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              -0.5649456959217787,
+              0.6787699385749875,
+              0.4694087407551706,
+              0.0
+            ],
+            [
+              -0.4988051224499941,
+              -0.7340393351187231,
+              0.4611036074347794,
+              0.0
+            ],
+            [
+              0.6573969731107354,
+              0.02634214911086019,
+              0.7530838674865663,
+              0.0
+            ],
+            [
+              4201001.261743191,
+              168335.7334338406,
+              4780258.5194980325,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0": {
+          "source_vertices": 65532,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            4201052.341635538,
+            168295.45876011899,
+            4780285.964117859
+          ]
+        },
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1": {
+          "source_vertices": 65533,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            4200994.7016270375,
+            168333.0354718997,
+            4780318.232826094
+          ]
+        },
+        "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2": {
+          "source_vertices": 32351,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            4201017.657844627,
+            168298.35349273088,
+            4780310.777090612
+          ]
+        },
+        "/Ground/Plane": {
+          "source_vertices": 4,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            4201321.244798182,
+            167941.77042432988,
+            4779992.847320954
+          ]
+        },
+        "/Control0/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            4200997.908979684,
+            168471.75467637795,
+            4780256.68523812
+          ]
+        },
+        "/Control1/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            4200892.096373336,
+            168316.04142863516,
+            4780354.499818522
+          ]
+        },
+        "/Control2/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            4201011.939061486,
+            168172.0525445298,
+            4780254.92297614
+          ]
+        },
+        "/Control3/Marker": {
+          "source_vertices": 5,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            4201117.751882109,
+            168327.76580616765,
+            4780157.108194369
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    },
+    {
+      "name": "terrain-Colorado_03-t0",
+      "source": "terrain",
+      "output": "Colorado_03",
+      "time": 0,
+      "native": {
+        "samples": 14359,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 3109136.151601705,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 5,
+      "hydra_geometry_readback": {
+        "/Terrain/Breaklines": {
+          "max_render_unit_error": 1.810291943926237e-10,
+          "vertices": 14359
+        }
+      },
+      "hydra_instance_readback": {
+        "native_instances": 0,
+        "point_instances": 0
+      },
+      "hydra_live_edit": {
+        "after_origin": [
+          3108751.9667806923,
+          1205815.0736760953,
+          5460.5065880319935
+        ],
+        "before_origin": [
+          3108741.9667806923,
+          1205815.0736760953,
+          5460.5065880319935
+        ],
+        "filter_requeried": true,
+        "path": "/Terrain"
+      },
+      "source_unchanged": true,
+      "operations": {
+        "/Terrain": {
+          "description": "Inverse of Westminster site calibration (horizontal) + Westminster site calibration (horizontal)",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Terrain": {
+          "accuracy": 0.0,
+          "description": "Inverse of Westminster site calibration (horizontal) + Westminster site calibration (horizontal)"
+        }
+      },
+      "ov": {
+        "samples": 14359,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 3109136.151601705,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 4,
+      "ov_edits": [
+        {
+          "path": "/Terrain",
+          "before_origin": [
+            3108741.9667806923,
+            1205815.0736760953,
+            5460.5065880319935
+          ],
+          "after_origin": [
+            3108751.9667806923,
+            1205815.0736760953,
+            5460.5065880319935
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              0.9999999999791832,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.9999999999791832,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.9999999999999742,
+              0.0
+            ],
+            [
+              947549.4945737442,
+              367533.16952281294,
+              1664.3657367636254,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Terrain/Breaklines": {
+          "source_vertices": 14359,
+          "max_coordinate_readback_error": 5.206259408654055e-10,
+          "first_resolved_coordinate": [
+            3108848.557506827,
+            1206364.1168992105,
+            5486.999998661424
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    },
+    {
+      "name": "terrain-Colorado_02-t0",
+      "source": "terrain",
+      "output": "Colorado_02",
+      "time": 0,
+      "native": {
+        "samples": 14359,
+        "max_agreement_metres": 7.096692211954371e-11,
+        "max_native_component_difference": [
+          0.0,
+          2.3283064365386963e-10,
+          9.094947017729282e-13
+        ],
+        "max_native_coordinate_magnitude": 3108266.6299091983,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Terrain": {
+          "description": "Inverse of Westminster site calibration (horizontal) + Inverse of SPCS83 Colorado Central zone (US survey foot) + Inverse of Westminster site calibration (vertical) + Conversion from NAVD88 height (ftUS) to NAVD88 height (ftUS) + SPCS83 Colorado Central zone (US survey foot)",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Terrain": {
+          "accuracy": 0.0,
+          "description": "Inverse of Westminster site calibration (horizontal) + Inverse of SPCS83 Colorado Central zone (US survey foot) + Inverse of Westminster site calibration (vertical) + Conversion from NAVD88 height (ftUS) to NAVD88 height (ftUS) + SPCS83 Colorado Central zone (US survey foot)"
+        }
+      },
+      "ov": {
+        "samples": 14359,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 3108266.6299091983,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 4,
+      "ov_edits": [
+        {
+          "path": "/Terrain",
+          "before_origin": [
+            3107872.5577274123,
+            1751762.8129891756,
+            5458.719152015793
+          ],
+          "after_origin": [
+            3107882.55541712,
+            1751762.8109774857,
+            5458.719727298394
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              0.9997689710674037,
+              -0.00020116993413227057,
+              5.7528242775100555e-05,
+              0.0
+            ],
+            [
+              0.00020117021799995904,
+              0.9997689709609533,
+              8.8451870623358e-05,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.9999999999999742,
+              0.0
+            ],
+            [
+              947284.4974601332,
+              533938.372662683,
+              1663.8211005227517,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Terrain/Breaklines": {
+          "source_vertices": 14359,
+          "max_coordinate_readback_error": 6.585451360194032e-10,
+          "first_resolved_coordinate": [
+            3107979.234279066,
+            1752311.7079241388,
+            5485.267258526516
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    },
+    {
+      "name": "terrain-utm13-t0",
+      "source": "terrain",
+      "output": "utm13",
+      "time": 0,
+      "native": {
+        "samples": 14359,
+        "max_agreement_metres": 1.043081283569336e-07,
+        "max_native_component_difference": [
+          0.0,
+          1.043081283569336e-07,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 4416520.437078653,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Terrain": {
+          "description": "Inverse of Westminster site calibration (horizontal) + Inverse of SPCS83 Colorado Central zone (US survey foot) + Inverse of Westminster site calibration (vertical) + Inverse of NAD83(2011) to NAVD88 height (3) + Null geographic offset from NAD83(2011) (geog3D) to NAD83(2011) (geog2D) + Inverse of WGS_1984_(ITRF08)_To_NAD_1983_2011 + WGS_1984_(ITRF00)_To_NAD_1983 + Null geographic offset from NAD83 to North_American_1983_3D + Null geographic offset from North_American_1983_3D to NAD83 + UTM zone 13N",
+          "accuracy": 0.145
+        }
+      },
+      "native_operations": {
+        "/Terrain": {
+          "accuracy": 0.145,
+          "description": "Inverse of Westminster site calibration (horizontal) + Inverse of SPCS83 Colorado Central zone (US survey foot) + Inverse of Westminster site calibration (vertical) + Inverse of NAD83(2011) to NAVD88 height (3) + Null geographic offset from NAD83(2011) (geog3D) to NAD83(2011) (geog2D) + Inverse of WGS_1984_(ITRF08)_To_NAD_1983_2011 + WGS_1984_(ITRF00)_To_NAD_1983 + Null geographic offset from NAD83 to North_American_1983_3D + Null geographic offset from North_American_1983_3D to NAD83 + UTM zone 13N"
+        }
+      },
+      "ov": {
+        "samples": 14359,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 4416520.437078653,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 4,
+      "ov_edits": [
+        {
+          "path": "/Terrain",
+          "before_origin": [
+            490121.4582489933,
+            4416306.691140595,
+            1647.1218394635102
+          ],
+          "after_origin": [
+            490124.5041872614,
+            4416306.673697437,
+            1647.1217987363614
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              0.9993215802242048,
+              -0.005722806788980961,
+              -1.3361925425670051e-05,
+              0.0
+            ],
+            [
+              0.005722806905396283,
+              0.9993215794675052,
+              7.35328466134888e-05,
+              0.0
+            ],
+            [
+              -5.529727786779404e-10,
+              -1.3969838619232178e-09,
+              1.0,
+              0.0
+            ],
+            [
+              490124.5041872614,
+              4416306.673697437,
+              1647.1217987363614,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Terrain/Breaklines": {
+          "source_vertices": 14359,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            490154.88283163944,
+            4416473.740389024,
+            1655.2089182289499
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    },
+    {
+      "name": "railway-utm32-t0",
+      "source": "railway",
+      "output": "utm32",
+      "time": 0,
+      "native": {
+        "samples": 15822,
+        "max_agreement_metres": 1.862645149230957e-09,
+        "max_native_component_difference": [
+          1.1641532182693481e-10,
+          1.862645149230957e-09,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5927640.369272906,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/RailCoordinates.data:coordinates": {
+          "description": "UTM zone 32N (with axis order normalized for visualization)",
+          "accuracy": -1.0
+        }
+      },
+      "native_operations": {
+        "/RailCoordinates.data:coordinates": {
+          "accuracy": 0.0,
+          "description": "axis order change (2D) + UTM zone 32N"
+        }
+      },
+      "ov": {
+        "samples": 15822,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5927640.369272906,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "railway-ecef-t0",
+      "source": "railway",
+      "output": "ecef",
+      "time": 0,
+      "native": {
+        "samples": 15822,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5103328.630053128,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/RailCoordinates.data:coordinates": {
+          "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric) (with axis order normalized for visualization)",
+          "accuracy": -1.0
+        }
+      },
+      "native_operations": {
+        "/RailCoordinates.data:coordinates": {
+          "accuracy": 0.0,
+          "description": "axis order change (2D) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        }
+      },
+      "ov": {
+        "samples": 15822,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5103328.630053128,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "railway-geographic-t0",
+      "source": "railway",
+      "output": "geographic",
+      "time": 0,
+      "native": {
+        "samples": 15822,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 63.565771179273725,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/RailCoordinates.data:coordinates": {
+          "description": "Null geographic offset from WGS 84 to WGS 84 (with axis order normalized for visualization)",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/RailCoordinates.data:coordinates": {
+          "accuracy": 0.0,
+          "description": "axis order change (2D) + Null geographic offset from WGS 84 to WGS 84 + axis order change (2D)"
+        }
+      },
+      "ov": {
+        "samples": 15822,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 63.565771179273725,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "city-utm31-t0",
+      "source": "city",
+      "output": "utm31",
+      "time": 0,
+      "native": {
+        "samples": 4096,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5407668.341232325,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Image.data:coordinates": {
+          "description": "UTM zone 31N (with axis order normalized for visualization)",
+          "accuracy": -1.0
+        }
+      },
+      "native_operations": {
+        "/Image.data:coordinates": {
+          "accuracy": 0.0,
+          "description": "axis order change (2D) + UTM zone 31N"
+        }
+      },
+      "ov": {
+        "samples": 4096,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5407668.341232325,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "city-geographic-t0",
+      "source": "city",
+      "output": "geographic",
+      "time": 0,
+      "native": {
+        "samples": 4096,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 80.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Image.data:coordinates": {
+          "description": "Null geographic offset from WGS 84 to WGS 84 (with axis order normalized for visualization)",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Image.data:coordinates": {
+          "accuracy": 0.0,
+          "description": "axis order change (2D) + Null geographic offset from WGS 84 to WGS 84 + axis order change (2D)"
+        }
+      },
+      "ov": {
+        "samples": 4096,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 80.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "climate-ecef-t0",
+      "source": "climate",
+      "output": "ecef",
+      "time": 0,
+      "native": {
+        "samples": 2664,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 6378137.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Climate.data:coordinates": {
+          "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric) (with axis order normalized for visualization)",
+          "accuracy": -1.0
+        }
+      },
+      "native_operations": {
+        "/Climate.data:coordinates": {
+          "accuracy": 0.0,
+          "description": "axis order change (2D) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        }
+      },
+      "ov": {
+        "samples": 2664,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 6378137.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 5,
+      "ov_edits": [],
+      "ov_request_changes": [
+        {
+          "changed": "USD time",
+          "verified_against_new_request": true
+        },
+        {
+          "changed": "requested output CRS",
+          "verified_against_new_request": true
+        }
+      ],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "climate-ecef-t10",
+      "source": "climate",
+      "output": "ecef",
+      "time": 10,
+      "native": {
+        "samples": 2664,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 6378137.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Climate.data:coordinates": {
+          "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric) (with axis order normalized for visualization)",
+          "accuracy": -1.0
+        }
+      },
+      "native_operations": {
+        "/Climate.data:coordinates": {
+          "accuracy": 0.0,
+          "description": "axis order change (2D) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        }
+      },
+      "ov": {
+        "samples": 2664,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 6378137.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "climate-geographic-t0",
+      "source": "climate",
+      "output": "geographic",
+      "time": 0,
+      "native": {
+        "samples": 2664,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 178.73239135742188,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Climate.data:coordinates": {
+          "description": "Null geographic offset from WGS 84 to WGS 84 (with axis order normalized for visualization)",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Climate.data:coordinates": {
+          "accuracy": 0.0,
+          "description": "axis order change (2D) + Null geographic offset from WGS 84 to WGS 84 + axis order change (2D)"
+        }
+      },
+      "ov": {
+        "samples": 2664,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 178.73239135742188,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 2,
+      "ov_edits": [],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {},
+      "ov_measurement_properties_readback": 1
+    },
+    {
+      "name": "composition-utm31-t0",
+      "source": "composition",
+      "output": "utm31",
+      "time": 0,
+      "native": {
+        "samples": 6,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 2016.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Project/Model": {
+          "description": "Inverse of UTM zone 31N + UTM zone 31N; post context: Inverse of UTM zone 31N + UTM zone 31N",
+          "accuracy": 0.0
+        },
+        "/Project/Model/Independent": {
+          "description": "Inverse of UTM zone 31N + UTM zone 31N",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Project/Model": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + UTM zone 31N"
+        },
+        "/Project/Model/Independent": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + UTM zone 31N"
+        }
+      },
+      "ov": {
+        "samples": 6,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 2016.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 7,
+      "ov_edits": [
+        {
+          "path": "/Project/Model",
+          "before_origin": [
+            1007.0,
+            2008.0,
+            39.0
+          ],
+          "after_origin": [
+            1017.0,
+            2008.0,
+            39.0
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              0.0,
+              2.0,
+              0.0,
+              0.0
+            ],
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              1017.0,
+              2008.0,
+              39.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [
+        {
+          "changed": "USD time",
+          "verified_against_new_request": true
+        },
+        {
+          "changed": "requested output CRS",
+          "verified_against_new_request": true
+        }
+      ],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Project/Model/Child/Mesh": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            1003.0,
+            2016.0,
+            44.0
+          ]
+        },
+        "/Project/Model/Independent/Mesh": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            20.0,
+            40.0,
+            5.0
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    },
+    {
+      "name": "composition-utm31-t5",
+      "source": "composition",
+      "output": "utm31",
+      "time": 5,
+      "native": {
+        "samples": 6,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 2016.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Project/Model": {
+          "description": "Inverse of UTM zone 31N + UTM zone 31N; post context: Inverse of UTM zone 31N + UTM zone 31N",
+          "accuracy": 0.0
+        },
+        "/Project/Model/Independent": {
+          "description": "Inverse of UTM zone 31N + UTM zone 31N",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Project/Model": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + UTM zone 31N"
+        },
+        "/Project/Model/Independent": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + UTM zone 31N"
+        }
+      },
+      "ov": {
+        "samples": 6,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 2016.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 7,
+      "ov_edits": [
+        {
+          "path": "/Project/Model",
+          "before_origin": [
+            1012.0,
+            2008.0,
+            39.0
+          ],
+          "after_origin": [
+            1022.0,
+            2008.0,
+            39.0
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              0.0,
+              2.0,
+              0.0,
+              0.0
+            ],
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              1022.0,
+              2008.0,
+              39.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [
+        {
+          "changed": "USD time",
+          "verified_against_new_request": true
+        },
+        {
+          "changed": "requested output CRS",
+          "verified_against_new_request": true
+        }
+      ],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Project/Model/Child/Mesh": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            1008.0,
+            2016.0,
+            44.0
+          ]
+        },
+        "/Project/Model/Independent/Mesh": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            20.0,
+            40.0,
+            5.0
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    },
+    {
+      "name": "composition-ecef-t5",
+      "source": "composition",
+      "output": "ecef",
+      "time": 5,
+      "native": {
+        "samples": 6,
+        "max_agreement_metres": 1.8635558090976132e-09,
+        "max_native_component_difference": [
+          1.862645149230957e-09,
+          5.820766091346741e-11,
+          2.2737367544323206e-12
+        ],
+        "max_native_coordinate_magnitude": 6376053.7537762765,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Project/Model": {
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric); post context: Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 0.0
+        },
+        "/Project/Model/Independent": {
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Project/Model": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        },
+        "/Project/Model/Independent": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        }
+      },
+      "ov": {
+        "samples": 6,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 6376053.7537762765,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 7,
+      "ov_edits": [
+        {
+          "path": "/Project/Model",
+          "before_origin": [
+            6376048.860983723,
+            -164699.64097546396,
+            2002.6376997965772
+          ],
+          "after_origin": [
+            6376049.118510026,
+            -164689.6710052011,
+            2002.63794679018
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              -0.0006315740756690502,
+              -3.3101532608270645e-05,
+              1.9946592427151018,
+              0.0
+            ],
+            [
+              -0.025751851499080658,
+              -0.996997107838979,
+              -2.4699114646864473e-05,
+              0.0
+            ],
+            [
+              0.9996665362268686,
+              -0.02582081002765335,
+              0.0003160989339221487,
+              0.0
+            ],
+            [
+              6376049.118510026,
+              -164689.6710052011,
+              2002.63794679018,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [
+        {
+          "changed": "USD time",
+          "verified_against_new_request": true
+        },
+        {
+          "changed": "requested output CRS",
+          "verified_against_new_request": true
+        }
+      ],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Project/Model/Child/Mesh": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            6376053.7537762765,
+            -164703.7582075146,
+            2010.617817479454
+          ]
+        },
+        "/Project/Model/Independent/Mesh": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            6375989.5654490935,
+            -165687.75406212974,
+            39.89247928265361
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    },
+    {
+      "name": "instances-utm31-t0",
+      "source": "instances",
+      "output": "utm31",
+      "time": 0,
+      "native": {
+        "samples": 15,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 6860043.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 20,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {
+        "native_instances": 3,
+        "point_instances": 3
+      },
+      "hydra_live_edit": {
+        "after_origin": [
+          650010.0,
+          6860000.0,
+          40.0
+        ],
+        "before_origin": [
+          650000.0,
+          6860000.0,
+          40.0
+        ],
+        "filter_requeried": true,
+        "path": "/Native0"
+      },
+      "source_unchanged": true,
+      "operations": {
+        "/Native0": {
+          "description": "Inverse of UTM zone 31N + UTM zone 31N",
+          "accuracy": 0.0
+        },
+        "/Native1": {
+          "description": "Inverse of UTM zone 31N + UTM zone 31N",
+          "accuracy": 0.0
+        },
+        "/Native2": {
+          "description": "Inverse of UTM zone 31N + UTM zone 31N",
+          "accuracy": 0.0
+        },
+        "/PointModels": {
+          "description": "Inverse of UTM zone 31N + UTM zone 31N",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Native0": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + UTM zone 31N"
+        },
+        "/Native1": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + UTM zone 31N"
+        },
+        "/Native2": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + UTM zone 31N"
+        },
+        "/PointModels": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + UTM zone 31N"
+        }
+      },
+      "ov": {
+        "samples": 15,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 6860043.0,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 4,
+      "ov_edits": [
+        {
+          "path": "/Native0",
+          "before_origin": [
+            650000.0,
+            6860000.0,
+            40.0
+          ],
+          "after_origin": [
+            650010.0,
+            6860000.0,
+            40.0
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              650010.0,
+              6860000.0,
+              40.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Native0/Asset/Geometry": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            650000.0,
+            6860000.0,
+            40.0
+          ]
+        },
+        "/Native1/Asset/Geometry": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            650010.0,
+            6860000.0,
+            40.0
+          ]
+        },
+        "/Native2/Asset/Geometry": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            650020.0,
+            6860000.0,
+            40.0
+          ]
+        },
+        "/PointModels/Instances/Prototypes/One": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            650000.0,
+            6860040.0,
+            40.0
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    },
+    {
+      "name": "instances-ecef-t0",
+      "source": "instances",
+      "output": "ecef",
+      "time": 0,
+      "native": {
+        "samples": 15,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5600344.658097241,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "native_proj_version": "9.4.1",
+      "hydra_filter_reads": 0,
+      "hydra_geometry_readback": {},
+      "hydra_instance_readback": {},
+      "hydra_live_edit": null,
+      "source_unchanged": true,
+      "operations": {
+        "/Native0": {
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 0.0
+        },
+        "/Native1": {
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 0.0
+        },
+        "/Native2": {
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 0.0
+        },
+        "/PointModels": {
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+          "accuracy": 0.0
+        }
+      },
+      "native_operations": {
+        "/Native0": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        },
+        "/Native1": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        },
+        "/Native2": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        },
+        "/PointModels": {
+          "accuracy": 0.0,
+          "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+        }
+      },
+      "ov": {
+        "samples": 15,
+        "max_agreement_metres": 0.0,
+        "max_native_component_difference": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_native_coordinate_magnitude": 5600344.658097241,
+        "metric": "Euclidean target-length distance; geographic coordinates compared after common ECEF conversion. Numerical agreement, not geodetic accuracy."
+      },
+      "ov_live_updates": 4,
+      "ov_edits": [
+        {
+          "path": "/Native0",
+          "before_origin": [
+            3001922.6539595346,
+            307563.402021639,
+            5600324.383971202
+          ],
+          "after_origin": [
+            3001922.0202036337,
+            307573.38108234137,
+            5600324.177028366
+          ],
+          "notice_received": true,
+          "runtime_matrix_readback": [
+            [
+              -0.06337595591321588,
+              0.9979060142359231,
+              -0.020694973412901163,
+              0.0
+            ],
+            [
+              -0.880808464018628,
+              -0.04616117966361344,
+              0.47149424301460385,
+              0.0
+            ],
+            [
+              0.46942901355214417,
+              0.048097141727339476,
+              0.8816592688672245,
+              0.0
+            ],
+            [
+              3001922.0202036337,
+              307573.38108234137,
+              5600324.177028366,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "ov_request_changes": [],
+      "ov_failure_recovery": [
+        {
+          "error_reported": "Invalid projection: GEODCRS[broken]: (Internal Proj Error: proj_create: Missing DATUM or ENSEMBLE node)",
+          "whole_result_rejected": true,
+          "stale_models_hidden": true,
+          "stale_measurements_cleared": true
+        }
+      ],
+      "ov_geometry_readback": {
+        "/Native0/Asset/Geometry": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            3001922.6539595346,
+            307563.402021639,
+            5600324.383971202
+          ]
+        },
+        "/Native1/Asset/Geometry": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            3001922.0202036337,
+            307573.38108234137,
+            5600324.177028366
+          ]
+        },
+        "/Native2/Asset/Geometry": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            3001921.386440415,
+            307583.3601419248,
+            5600323.970071748
+          ]
+        },
+        "/PointModels/Instances/Prototypes/One": {
+          "source_vertices": 3,
+          "max_coordinate_readback_error": 0.0,
+          "first_resolved_coordinate": [
+            3001887.421560658,
+            307561.55557129,
+            5600343.2436310435
+          ]
+        }
+      },
+      "ov_measurement_properties_readback": 0
+    }
+  ],
+  "partner_controls": [
+    {
+      "source": "Colorado_01",
+      "output": "Colorado_02",
+      "controls": 5,
+      "max_csv_discrepancy_metres": 2.1209033877160324e-05,
+      "reference": "Provider CSVs were computed with PROJ 9.8.1. This is intake/rounding evidence, not independent-engine or survey certification."
+    },
+    {
+      "source": "Colorado_02",
+      "output": "Colorado_03",
+      "controls": 5,
+      "max_csv_discrepancy_metres": 3.423982800319422e-05,
+      "reference": "Provider CSVs were computed with PROJ 9.8.1. This is intake/rounding evidence, not independent-engine or survey certification."
+    },
+    {
+      "source": "France_01",
+      "output": "France_02",
+      "controls": 59,
+      "max_csv_discrepancy_metres": 6.0769115238857e-05,
+      "reference": "Provider CSVs were computed with PROJ 9.8.1. This is intake/rounding evidence, not independent-engine or survey certification."
+    },
+    {
+      "source": "France_01",
+      "output": "France_03",
+      "controls": 59,
+      "max_csv_discrepancy_metres": 8.219529076738433e-05,
+      "reference": "Provider CSVs were computed with PROJ 9.8.1. This is intake/rounding evidence, not independent-engine or survey certification."
+    },
+    {
+      "source": "France_01",
+      "output": "France_04",
+      "controls": 59,
+      "max_csv_discrepancy_metres": 4.9593751699273706e-05,
+      "reference": "Provider CSVs were computed with PROJ 9.8.1. This is intake/rounding evidence, not independent-engine or survey certification."
+    }
+  ],
+  "extent_samples": [
+    {
+      "half_extent_metres": 1.0,
+      "samples": 289,
+      "sampled_max_affine_discrepancy_metres": 1.5972897271944175e-07,
+      "claim": "Sampled finite domain only; no certified continuous surface bound"
+    },
+    {
+      "half_extent_metres": 10.0,
+      "samples": 289,
+      "sampled_max_affine_discrepancy_metres": 1.5692042676827575e-05,
+      "claim": "Sampled finite domain only; no certified continuous surface bound"
+    },
+    {
+      "half_extent_metres": 100.0,
+      "samples": 289,
+      "sampled_max_affine_discrepancy_metres": 0.0015685251920278048,
+      "claim": "Sampled finite domain only; no certified continuous surface bound"
+    },
+    {
+      "half_extent_metres": 1000.0,
+      "samples": 289,
+      "sampled_max_affine_discrepancy_metres": 0.15684608417100068,
+      "claim": "Sampled finite domain only; no certified continuous surface bound"
+    },
+    {
+      "half_extent_metres": 10000.0,
+      "samples": 289,
+      "sampled_max_affine_discrepancy_metres": 15.68460852618046,
+      "claim": "Sampled finite domain only; no certified continuous surface bound"
+    },
+    {
+      "half_extent_metres": 100000.0,
+      "samples": 289,
+      "sampled_max_affine_discrepancy_metres": 1568.4495143470817,
+      "claim": "Sampled finite domain only; no certified continuous surface bound"
+    }
+  ],
+  "exports": [
+    {
+      "source": "composition",
+      "output": "utm31",
+      "samples": [
+        0,
+        5,
+        10
+      ],
+      "geometry_max_roundtrip_metres": 0.0,
+      "measurement_max_roundtrip_metres": 0.0,
+      "noncoordinate_properties_preserved": 0,
+      "fresh_reader": true,
+      "no_private_resolved_flag": true,
+      "measurement_properties": 0
+    },
+    {
+      "source": "tower",
+      "output": "utm31",
+      "samples": [
+        0,
+        5,
+        10
+      ],
+      "geometry_max_roundtrip_metres": 3.088323137243133e-05,
+      "measurement_max_roundtrip_metres": 0.0,
+      "noncoordinate_properties_preserved": 0,
+      "fresh_reader": true,
+      "no_private_resolved_flag": true,
+      "measurement_properties": 0
+    },
+    {
+      "source": "terrain",
+      "output": "Colorado_02",
+      "samples": [
+        0,
+        5,
+        10
+      ],
+      "geometry_max_roundtrip_metres": 1.564310357273927e-05,
+      "measurement_max_roundtrip_metres": 0.0,
+      "noncoordinate_properties_preserved": 0,
+      "fresh_reader": true,
+      "no_private_resolved_flag": true,
+      "measurement_properties": 0
+    },
+    {
+      "source": "city",
+      "output": "utm31",
+      "samples": [
+        0,
+        5,
+        10
+      ],
+      "geometry_max_roundtrip_metres": 0.0,
+      "measurement_max_roundtrip_metres": 0.0,
+      "noncoordinate_properties_preserved": 4,
+      "fresh_reader": true,
+      "no_private_resolved_flag": true,
+      "measurement_properties": 1
+    },
+    {
+      "source": "climate",
+      "output": "ecef",
+      "samples": [
+        0,
+        5,
+        10
+      ],
+      "geometry_max_roundtrip_metres": 0.0,
+      "measurement_max_roundtrip_metres": 0.0,
+      "noncoordinate_properties_preserved": 2,
+      "fresh_reader": true,
+      "no_private_resolved_flag": true,
+      "measurement_properties": 1
+    }
+  ],
+  "analysis": {
+    "city": {
+      "samples": 4096,
+      "selected_features": 1850,
+      "source_values_preserved": true,
+      "synthetic": true
+    },
+    "climate": {
+      "samples": 2664,
+      "coordinate_extent": "global ECEF",
+      "positions_fixed_between_times": true,
+      "second_time_synthetic": true,
+      "source_values_preserved": true
+    },
+    "railway": {
+      "original_vertices": 15822,
+      "coordinate_parts": 2386,
+      "all_source_coordinates_preserved": true,
+      "height_reference_conditional": true
+    }
+  },
+  "delivery_files": {
+    "city-analysis-product.json": "da06d3a8b414f7be33f528a1114a25c42c470158f802a24c0b34ef4cd03aa7f6",
+    "city-analysis.png": "c318be5e8dc87b0f8781c03c3d274b88872d886c708a9fe63b6ee4e604cec915",
+    "city-export.usda": "b4aa16ef0e8cfb981784675969b06616dec6fa6d8d17ebc99ea08ca8afd9d894",
+    "city-geographic-t0-coordinates.npz": "cb78779d915aea7d86528cd3938271455f993f589a9602b16097ddb1e4e4880e",
+    "city-selected-features.geojson": "083f180f9aedf30832dd8232143e3d7ad47eb2ab44bd07e7c45b661c02ee98d4",
+    "city-utm31-t0-coordinates.npz": "993b2beed949a61fb05790bab6b3b5d826ee8368074105e8808297f19e0c42ac",
+    "climate-analysis-product.json": "41b50cde26b3de84e681115546677e31a905dffa98d943472668b4b95fd4e681",
+    "climate-analysis.png": "0d2b91bace9b4f4cea314de07425cec1015b09daa4339f72d211da2950b186ab",
+    "climate-ecef-t0-coordinates.npz": "c0d72e74fcc5aeb8f3e00cebd71d3b6be118eeecadef4fc99dacdf6f66e782d9",
+    "climate-ecef-t10-coordinates.npz": "c0d72e74fcc5aeb8f3e00cebd71d3b6be118eeecadef4fc99dacdf6f66e782d9",
+    "climate-export.usda": "2a15e217e91db3e9af3aa29b89045847c92375f27922b73a79e44dc1b250bde2",
+    "climate-geographic-t0-coordinates.npz": "d11e7027578273cbfa799803322986ea74eb12dd05c93d360635c422e16fbb84",
+    "colorado-terrain.png": "f954e1a6807e05acc42a80cee292d395d0514a6d63b28c86e4a38928f1a3954f",
+    "Colorado_01-Colorado_02-t0-coordinates.npz": "bf10d0fd168eeaaf83af9b51b8e57ec23fd2afcb149ea58ddc2d3d78aa23c548",
+    "Colorado_02-Colorado_03-t0-coordinates.npz": "46325298273530381996a9b9f54c69858ea234970fc481c68efa9eb552de8d10",
+    "Colorado_03-Colorado_02-t0-coordinates.npz": "a66b0600547c12cbabf9f689336502a709c389cf8f924c869ab55c3f87e962e9",
+    "composition-ecef-t5-coordinates.npz": "3c6f7cc5dad9cc97529e4438d5ad3e1f6cb4c03414f298c19fc3849827ae6399",
+    "composition-export.usda": "5022ba0442e7adaac45242a14d1e8021de79f40acaf0388ceaed9f77bddf2566",
+    "composition-utm31-t0-coordinates.npz": "d09a1b33a0e62356ba77da1f5e88b3f2a817d46235ae53cbe6c40534a17e7c97",
+    "composition-utm31-t5-coordinates.npz": "6b5b089c043b8c73d9e89f1851afcd187d5467cb8ea85a2a62083e9594cbef4f",
+    "France_01-France_02-t0-coordinates.npz": "0fcd1af186bfa48f3c1a3bfe2ff1ea1c263a50a002c68f12a0aca436f91884b1",
+    "France_01-France_03-t0-coordinates.npz": "44bb44a30992e2333f10c062db26d24266b638826a6ff22551938619adecc47d",
+    "France_01-France_04-t0-coordinates.npz": "b6a9197c779c91026d6b8db3b2eb575fec03604decbc30b297275bfb179b3f9c",
+    "France_02-France_03-t0-coordinates.npz": "312c5d3a94d26af0dd40558ba6c38ad01dc7172c23d9cf307b50853d190d7ce5",
+    "global-ecef.png": "4e133933d0528861bc633d69686f2f1f33e55dd68e41650c235bc4f8f0845eec",
+    "instances-ecef-t0-coordinates.npz": "a01dfa2aef2c2b21baa21467b908f69ce9e3393ea13a8eb3dc5b269d4006dc77",
+    "instances-native.png": "a7fcd04bfad6e8d3bbf49ad6f423aaaf607ef0c48dd3322ee9f9f120cd5cdde6",
+    "instances-utm31-t0-coordinates.npz": "75b5f296af482704064b393317dc61b3105dcec845d6e57ec30f2ade40e97413",
+    "railway-ecef-t0-coordinates.npz": "770a5968fc9bc50d6f6ec55b6d2a35d3a37ca51ea062da08c17f25aa6898a4e1",
+    "railway-geographic-t0-coordinates.npz": "e8c1ef6590095e2359e383393ad100a456ddd3b23c6914d13cea9eda8cd69ceb",
+    "railway-query.png": "353576b75475d215b04d86d413438d98181333a83db19f44f16d68c9c2aa6b48",
+    "railway-utm32-t0-coordinates.npz": "c17aae0217c9513e2cdad2d5a5a89c06a9dc85c636905188104ef6fd9760ad0a",
+    "resources.json": "d154ae3178b292eb21318215fa85604584fba2cb9dd87781f457e0b6d41e30eb",
+    "terrain-Colorado_02-t0-coordinates.npz": "76eebc8ac7e4f5fc1f7552fdd6cac415b3397c21a06544a11e3f8a0936d631de",
+    "terrain-Colorado_03-t0-coordinates.npz": "46ff22f54115b465dfd2802915b182f8d422710792e1643d73d2be78564f57ad",
+    "terrain-export.usda": "c3484370b31dce7a0b66f54dc8e83384577798248f920c3e758780b972eb778b",
+    "terrain-native.png": "8d9841bd5498c7456f70f9f4a1be75e53e3f925e01f0b307659f61f45ec29e73",
+    "terrain-utm13-t0-coordinates.npz": "73d59697983896778c9a3b5465227a398cc4bc2bc45a9cb1eb196df8cd403964",
+    "tower-ecef-t0-coordinates.npz": "4d802df161b9683b87162797f4c0e4919e11d3a2139423869cbc1c8869bcabd9",
+    "tower-export.usda": "e395cafeeb773116c88a3f6b266fb22bf89c6fd561fd0cdc7542a77dd37160b7",
+    "tower-France_02-t0-coordinates.npz": "ce15320bffcb272071ca0fd7dc413814d9dc94c4f883a01e0cd75dd670b9a163",
+    "tower-native.png": "f9098f91d1f3549c75679424f1c7fb43b6ec3fe6617387e86ddef47c88dc7763",
+    "tower-plan.png": "7c0aa2c6afbccf82189c6db313457594277483eb23f0681889a5ad9b2f177c59",
+    "tower-utm31-t0-coordinates.npz": "ee19896178a28a2d0ce804a011a076752fe411e39df61832d58296e73984f751",
+    "tower-utm32-t0-coordinates.npz": "3fdb7c001845a30573b0da99686bd69c505d053dae8b8e8e69883d4c2e0c393b"
+  },
+  "limitations": [
+    "Independent authored-scene runtimes share PROJ; this is not independent geodetic-engine certification.",
+    "R24 continuous surface/error-bound guarantee remains unresolved; finite samples do not settle it.",
+    "Experimental field definitions, post context, lexical normal form, measurement carrier, declaration and export record require group review.",
+    "Coordinate epochs are explicitly unsupported; frame epochs are preserved.",
+    "Rail height interpretation and generated measurement times/heights are conditional and labeled.",
+    "Operation accuracy fields are engine-attributed estimates, not combined bounds for post transforms, affine approximation or survey truth."
+  ]
+}

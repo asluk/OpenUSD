@@ -1,0 +1,1 @@
+{"Plugins":[{"Type":"python","Name":"geospatialValidation","Info":{"Validators":{"AuthoredGeospatial":{"doc":"Validate frozen experimental geospatial authored model without coordinate resolution","keywords":["geospatial"]}}}}]}

@@ -1,143 +1,75 @@
-# Runtime coordinate resolution
+# Proposed normative runtime behavior for this candidate
 
-Draft proposed text derived from the functional requirements. This describes the
-behavior expected of implementations; it is not an approval claim or a report of
-implemented functionality. The companion open-decisions document identifies the
-rules still needed before this is a complete implementable contract. No current
-experimental property name, projection engine or rendering integration is prescribed.
-The companion `runtime-experiments.md` makes the unresolved choices executable as
-labeled alternatives. Completing those experiments does not approve a choice.
+The clauses below define the frozen experimental model in data-model.md. They
+are normative for this experiment and proposed for later standards review; group
+approval is recorded separately. Function signatures, caches, plugin factories,
+projection-library selection and renderer integration are implementation choices.
 
-## CRS definitions and coordinate metadata
+1. Read authored information from the composed stage at the requested USD time.
+   Evaluate ordinary USD value resolution and source-space placement sampling
+   before CRS conversion. Equivalent composed data has identical interpretation.
+2. Resolve a binding to one complete CRS-only WKT definition. Retain its declared
+   information. Interpret position/measurement tuples by the candidate's fixed
+   mapping, with CRS-derived component units and height reference. Do not infer
+   an absolute CRS position from an unmarked mesh/vector or ordinary translate.
+3. A direct model binding starts an absolute anchor. Ancestor xformOps do not
+   accumulate across that boundary. Enclosing bindings may supply working
+   context; they do not replace the source definition or source coordinates.
+   Use position/orientation/scale together, not a converted origin alone.
+4. Resolve intrinsic placement to the selected output CRS, including projection
+   rotation/scale and any supported datum/height operation. Then apply ordinary
+   USD transforms according to the declared candidate working-context rule.
+   Preserve their physical placement meaning when the output selection changes.
+   Descendant offset transforms follow ordinary USD composition relative to the
+   resolved frame. Respect authored resets/inverses without authoring new ones.
+5. Select applicable coordinate operations through the engine. No registry code
+   replaces authored WKT. Allow engine-selected non-epoch grids; do not add USD
+   grid/resource-selection properties. Expose operation identity and attributed
+   accuracy. Never silently substitute a lower-accuracy/ballpark operation after
+   a required resource or supported operation fails.
+6. Produce the same placed geometry, coordinate queries and bounds for rendering
+   and headless consumers of the same candidate. State the result coordinate
+   frame/units. Scene-display adaptation is derived state, not source authoring.
+   A geographic coordinate query may return longitude/latitude/height without
+   promising a Cartesian scene/bound interpretation for geographic outputs.
+7. Keep measurement values, source coordinates, recorded observation times and
+   their associations available independently of visualization. Transform only
+   derived coordinates. Time-varying values on a fixed grid do not imply motion.
+8. Preserve all source layer bytes and authored values during resolution. A
+   source edit, binding/definition edit, output change or time change invalidates
+   affected derived state. Results after an edit must reflect the new composed
+   scene; instance results use each instance's composed placement.
+9. Any invalid definition/binding, missing necessary placement/association,
+   unsupported operation/output, missing required resource, nonfinite point,
+   out-of-domain transformation or coordinate-epoch request is a visible failure.
+   No unchanged, partially converted or fabricated placement is returned as
+   success. Failure of a batch reports the affected input; no partial-success
+   array is mislabeled as the complete successful batch.
+10. Validate authored data without CRS conversion where possible: fields/types,
+    bindings, WKT syntax/normal form, coordinate association, nested positions,
+    declarations, source time/value coverage and finite values. Runtime errors
+    and independent controls are separate evidence. Registered USD validators
+    must be discoverable by name/keyword in the stock validation registry.
+11. Keep absolute positions in double precision and asset-relative geometry in
+    its authored small-offset representation. Report actual float quantization,
+    coordinate magnitude and finite extent. Compare full oriented/scaled
+    placement with an origin-only control and exact per-point evaluation.
+12. Export only by an explicit request to a new asset. Record output CRS and
+    time-sampling meaning, preserve measurement associations and dependency
+    declaration, and remove the need for a private history/skip-conversion flag.
+    Fresh resolution in the exported CRS reproduces the placed result once.
 
-Resolution obtains a complete CRS definition from the scene. An external registry
-identifier alone is insufficient. A CRS used in multiple places is defined once
-and referenced. Its shared definition describes a coordinate system,
-including a site's calibrated grid where applicable, independently of the placement,
-orientation or dimensions of an object that uses it. Content in a project grid
-needs no additional construct that content in a national grid does not need.
+## Evidence scope
 
-A datum's realization and reference epoch are distinct from the coordinate epoch of
-a coordinate set. An animation sample time does not supply either epoch. When a
-realization or epoch is absent, resolution does not assume one.
+The experiment must execute these clauses and feasible alternatives, identify
+missing field/behavior contracts and report failed or conditional cases. It must
+not claim conformance to unspecified general geographic scene output, certified
+continuous-surface error bounds or future coordinate epochs. Those are design
+questions; unfinished implementations or demonstrations are not such questions.
 
-## Composed declarations and scope
-
-Resolution reads the composed stage, after USD composition and value resolution.
-It interprets CRS declarations and their scope under the AOUSD USD Core
-[Specification v1.0.1](https://github.com/aousd/specifications-public/blob/main/core/1.0.1/core_spec.md)'s
-composition and value-resolution rules. Equivalent composed declarations and coordinate
-values have equivalent geospatial meaning, regardless of the layers or composition
-arcs through which they were introduced.
-
-A CRS declaration governs the content in its subtree; content within that subtree
-can declare another CRS. The CRS governing an authored position is discoverable
-from the scene. Bringing content into a project working in another CRS preserves
-the imported content's authored coordinate values and native CRS.
-
-## Positions, offsets and asset conventions
-
-The authored scene distinguishes an absolute position in a CRS from an offset
-relative to its parent. Nothing above an absolute position adds to that position.
-Content beneath it is placed through offsets along the axes and at the scale its
-CRS defines there, until another absolute position establishes a new placement.
-The axes and scale can be determined from the authored scene without resolving it.
-
-Resolution keeps coordinate units and height reference surfaces explicit. It never
-interprets an angular component as an ordinary scene distance. The proposal's axis
-mapping applies consistently across CRSs and implementations; a CRS definition's
-own axis order does not override it. Where the components are easting, northing and
-up, scene X, Y and Z carry those components in a right-handed mapping.
-
-CRS binding does not change the authored scene's units or up axis. Conversion
-between scene conventions and the CRS follows one defined rule. Placement of an
-instance is recorded separately from corrections that adapt its source asset's units,
-orientation or other conventions. Ordinary edits to offsets remain ordinary scene
-authoring operations.
-
-## Shared resolved results and coordinate queries
-
-One resolution evaluates content expressed in potentially many source CRSs into
-one output CRS. A scene can name an expected output CRS, and a consumer can request
-one. Resolution uses the selected output consistently; it does not hard-code a
-particular world CRS as the only valid output.
-
-World positions, bounds, instances, physics and rendering consume the same resolved
-placement. Obtaining that placement does not require a renderer. A resolved position
-can also be reported in a CRS named by the scene or consumer, and the
-placement of one prim relative to another can be queried in the output CRS.
-Changes to composed inputs, evaluation time or the selected output invalidate
-results that depend on them. Consumers do not reuse placement from different inputs
-as though it were current.
-
-## Time evaluation and authored-scene preservation
-
-Resolution reads the authored scene without writing into it. Coordinates, CRS
-definitions and bindings retain their authored values. Computed placement state is
-separate from authored scene state.
-
-For a position sampled over time, interpolation evaluates the recorded values in
-their recorded CRS before coordinate conversion. Interpolating already converted
-endpoints does not replace that evaluation. Reporting or resolving the result in
-another CRS preserves the path established by the recorded values.
-
-Writing out resolved results is a separate, explicit operation. Its output records
-the CRS used and, for varying content, how time was sampled. Dependency information
-on that output reflects what is still required to interpret its placement.
-Reading that output does not apply its original source placement a second time.
-Its recorded evaluations are distinct from interpolation between baked samples.
-
-## Failures and operation provenance
-
-An unavailable engine, unreadable or unsupported definition, missing operation
-resource, or coordinate outside an operation's domain does not produce substitute
-placement. If a transformation is only partly computable, it fails; its partial
-output is not reported as valid placement.
-
-Validation reports problems detectable from the authored scene. The transformation
-engine reports failures that only coordinate resolution can discover. Failure
-preserves the source data and identifies the condition that prevents resolution.
-
-A resolved result can identify the coordinate operation that produced it and the
-accuracy attributed to that operation. An unavailable accuracy estimate remains
-unknown. Measured numerical disagreement is reported separately from an engine's
-accuracy estimate.
-
-## Project scale, local detail and placement extent
-
-Resolution supports site, regional and global projects without requiring their
-geometry to be approximated by one tangent plane. Changing an asset's geospatial
-placement does not reduce the precision of its authored asset-relative geometry.
-
-When one position places an extended piece of content, the result states both the
-distance bound relative to placing its points individually and the extent over
-which that bound holds. A placement approximation does not silently claim validity
-outside its stated extent.
-
-## Dependency discovery and authored-data validation
-
-Geospatial information remains additive for a consumer that does not interpret it:
-that consumer reads the same ordinary scene content it would read without the
-geospatial information. This alone does not establish correct geospatial placement.
-
-A scene whose correct placement requires CRS resolution declares that dependency
-without requiring a traversal to discover it. The declaration covers every piece
-of content whose placement depends on resolution.
-
-Before resolution, validation can inspect the authored conditions the proposal
-makes checkable, including nested positions, missing CRS definitions, content
-outside CRS scope, and missing or stale dependency declarations. It does not
-manufacture geodetic correctness for plausible but unverified source coordinates.
-
-## Agreement between implementations
-
-Independent implementations follow this behavior description rather than treating
-one implementation's output as the specification or consulting its authors for
-missing rules. Implementations using different transformation engines place the
-same scene in the same place and report their agreement as a distance in the output CRS's
-units at a stated coordinate magnitude. Their operation provenance accompanies
-that comparison so differing operations are distinguishable from numerical drift.
-
-Agreement between consumers or implementations demonstrates consistency.
-Correctness evidence uses independently established controls or analytic reference
-values, with their applicability and uncertainty stated.
+Headless queries, native Hydra and the OV runtime compute placement independently
+from authored scenes. Sharing a projection engine is disclosed. Renderer and
+analytics consumers within one runtime are not independent implementations.
+Closed-form ellipsoid arithmetic and the partner CSVs provide different controls;
+the partner coordinates were themselves computed with PROJ and therefore cannot
+be represented as an independent geodetic-engine certification.

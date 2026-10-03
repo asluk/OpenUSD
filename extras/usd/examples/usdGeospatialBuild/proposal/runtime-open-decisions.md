@@ -1,36 +1,19 @@
-# Decisions supported by the completed experimental run
+# Decisions exercised rather than assumed approved
 
-The companion `runtime-behavior.md` is proposed normative prose. This document
-records gaps and implementation questions; these are not additional accepted rules.
-The behavior draft currently traces all 29 functional requirements, but that
-coverage does not make it a complete contract or establish conformance.
-
-| Decision | Rules still needed | What it enables |
+| Question | Executed candidate/alternative | Group decision still needed |
 |---|---|---|
-| S01 | Position carrier, position/offset boundary, permitted geographic recording and native interpolation details | Decode authored positions and evaluate time samples |
-| S02 | Preserve native coordinates while expressing project placement; define how native and project CRSs interact | Place imported railway and site assets |
-| S03 | Unit/up-axis reconciliation, offset basis and scale, approximation bound and applicable extent | Place and orient complete geometry with a stated error budget |
-| S04 | Output-CRS selection precedence and permitted geographic outputs | One resolved representation and consistent queries |
-| S05 | Dependency declaration, explicit export and subsequent resolution/invalidation | Safe consumption of original and exported scenes |
-| S06 | Operation selection, practitioner controls, resources and engine evidence | Real datum/grid/epoch cases and independent-engine comparison |
-| S07 | Full binding rules, including empty targets, strength and supported relationship forms | Unambiguous CRS scope across composed scenes |
+| Q2 placement attributes | `double3` position, `quatd` orientation, `double3` scale; fields and defaults are frozen before code | Exact standard fields/types/conventions |
+| Q3 project adjustments | Working-context transport; compare unchanged numbers in output axes with a physical-placement counterexample | Authored adjustment context and detailed composition |
+| Q6 axes | ENU projected; longitude/latitude/height geographic; geocentric XYZ | Geographic/geocentric tuple/frame conventions |
+| Q9 geographic scenes | Geographic coordinate queries; do not claim geographic mesh/bounds rendering | Angular scene frame/bounds semantics |
+| Q10 normalization | Preserving lexical canonicalization; compare changed axes/units/datum and different metadata | Adopted normalization/equality profile |
+| Q11 association | Property-target relationship for coordinate arrays; measurements/times retained | Standard association with existing dataset schemas/adapters |
+| Q12 declaration | Writer-maintained root customLayerData declaration; test unloaded/stale cases | Composed declaration representation/coverage contract |
+| Q13 results/extent | Operations disclosed; double-coordinate agreement and sampled affine error measured | Certified general extent/approximation and comparison contract |
+| Q14 export | New standard-data asset with output CRS and explicit sampled-time metadata | Sampling record representation/interpolation contract |
+| Q15 epochs | Wrappers, authored/requested coordinate epochs fail explicitly; frame epochs retained | Future authoritative association and time-dependent model contract |
 
-The choices in `runtime-experiments.md` are now executable. The run includes a
-non-Hydra resolver, native Hydra/Storm, real Kit/Fabric, independent Karney
-coordinate arithmetic and all eight conditional workflow families. The table
-records decisions awaiting approval, not implementation work deferred by this run.
-
-The two position carriers sample and export consistently. The ancestor-after-position
-alternative produces a constructed 1,000 m violation. The site-grid calibration
-changes the meaning of ordinary offsets compared with Lambert-93. A 20 km footprint
-exhibits about 40 m affine-versus-pointwise vertex displacement. These are evidence
-for selecting rules, not implicit acceptance of a candidate.
-
-R24's domain remains consequential: a maximum over authored vertices is a finite-set
-bound, not a proof over every point of a curved patch. Both placement alternatives
-execute; review must choose whether vertices, edges or a continuous surface are the
-intended set, and what budget applies.
-
-The original railway GeoJSON also needs its vertical reference and epoch clarified
-for survey-accuracy acceptance. Its source identity and coordinate preservation can
-be tested independently of those unresolved interpretation questions.
+Q1 geographic source placement, Q4 writer conformance, Q5 direct-binding boundary,
+Q7 site calibration through CRS definitions and Q8 selected output meaning are
+retained answers. Requirement 30 and Devin's city/global functional use cases are
+already confirmed. Runtime API signatures are not open standards questions.
