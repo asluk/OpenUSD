@@ -1,13 +1,17 @@
-# Reverse audit of the frozen experiment
+# Implementation audit against the experiment and the proposal
 
-This audit is against the requirements and data ownership, as well as agreement
-between code and the candidate. Test success does not approve the candidate.
+**Proposal readiness: blocked.** Read [QUALITY_REVIEW.md](QUALITY_REVIEW.md)
+first. It reviews all 31 requirements and distinguishes ten missing/contradictory
+contracts from experimental implementation choices. This earlier candidate
+audit was insufficient: defining a field before coding it does not establish
+its authority in the shared proposal. The current runner stops by default; a
+labeled experiment records that proposal-conformance completion is false.
 
 | Authored fact or behavior | Necessary information and requirement | Shortcut challenged |
 |---|---|---|
 | Complete CRS WKT token | Definition identity, units, axes, datum and site calibration, R1–4/R31 | No separate projection, ellipsoid, height datum, calibration or epoch attributes. No EPSG code substitutes for authored WKT. |
 | Binding relationship | Which complete definition describes coordinates, R5–8/R11 | References and stronger opinions resolve through ordinary USD; independent bindings retain source meaning. |
-| Position / orientation / scale | Absolute model origin and full oriented/scaled placement, R9–15 | Geographic coordinates never become ordinary translates. Noncommuting controls reject origin-only placement and wrong transform order. Field choices were frozen before code. |
+| Position / orientation / scale | Absolute model origin and full oriented/scaled placement, R9–15 | Geographic coordinates never become ordinary translates. Noncommuting controls reject origin-only placement and wrong transform order. Field choices were frozen before code but are not settled by the shared proposal. |
 | Coordinate-property relationship | Identify absolute measurement arrays without guessing which vectors are positions, R12/R18/R30 | The runtime does not inspect dataset names, CSV columns, fixture paths or sidecars to resolve an authored scene. Values and recorded times remain ordinary dataset data. |
 | Working-context post operator | Ordinary adjustments must retain physical meaning across output selection, R8/R16 | A labeled output-axis alternative is implemented and fails the distinguishing physical-placement control. The candidate context convention still needs group approval. |
 | Writer conformance | USD stage units/up-axis, R14–15 | Original Eiffel metadata is retained; the assembler explicitly supplies the known asset corrective. Reader code cannot infer correct units from mesh appearance. |
@@ -42,7 +46,8 @@ matters. Reporting the gap is a result of the run, not a deferred demonstration.
 The exact placement fields, project adjustment context, geographic/geocentric
 tuple conventions, WKT string normalization profile, measurement association,
 dependency-declaration coverage and export sampling record are experimental
-answers. Their specifications precede the implementation, but need group review
+answers. Their specifications precede the implementation, but this does not establish
+proposal derivability. They need group review
 before becoming standard text. Geographic queries are demonstrated; general
 angular scene/bounds semantics are not claimed. Coordinate-epoch support remains
 on the roadmap without introducing initial-scope surrogate fields.
@@ -50,3 +55,24 @@ on the roadmap without introducing initial-scope surrogate fields.
 Read `delivery/run-report.json` for executed evidence, source hashes, failures,
 operation reports and conditional dataset assumptions. README and collateral
 are generated from that receipt; they are not a new source of normative rules.
+
+## Corrective review
+
+Broken enclosing bindings now fail instead of being treated as absence. Inherited
+coordinate-property roles receive authored validation. OGC-permitted structural
+parentheses are normalized to preferred brackets while quoted content remains
+unchanged. Engine parsing capability still does not define full OGC validity.
+
+Default output and explicit precedence, ordinary affine leaf bounds including
+curve widths, relative model frames, arbitrary dataset names/metadata and fresh
+exports preserving ordinary USD geometry and instances are executed controls.
+They do not specify general angular/aggregate/nonlinear bounds or a universal
+dataset adapter contract. Absolute measurement arrays do not yet have a complete
+placement/post-adjustment contract. The unadjusted city/global fixtures cannot
+settle that behavior; dependent derivation is stopped and flagged under G03/G06.
+
+The exporter preserves composed ordinary USD content, writes sampled output
+placement using the pinned experimental record, and retains noncoordinate
+properties/relationships. It carries output WKT only in the definition rather
+than duplicating authority in root metadata. Round-trip samples do not promise
+equivalent trajectories between samples. This encoding remains experimental.

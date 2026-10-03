@@ -41,14 +41,15 @@ struct Definition {
  }
  ~Definition(){proj_destroy(object);}
 };
-std::string Wkt(const UsdPrim &p){
+std::string Wkt(const UsdPrim &p,bool allowAbsent=false){
  auto q=p;while(q&&!q.IsPseudoRoot()){
   auto r=q.GetRelationship(TfToken("crs:binding"));SdfPathVector paths;
-  if(r&&r.GetTargets(&paths)&&!paths.empty()){
+  if(r&&r.HasAuthoredTargets()){
+   r.GetTargets(&paths);
    if(paths.size()!=1)throw std::runtime_error("Ambiguous binding");auto cp=stage->GetPrimAtPath(paths[0]);TfToken w;
    if(!cp||!cp.GetAttribute(TfToken("crs:wkt")).Get(&w))throw std::runtime_error("Broken CRS binding");return w.GetString();
   }q=q.GetParent();
- }throw std::runtime_error("No CRS binding");
+ }if(allowAbsent)return {};throw std::runtime_error("No CRS binding/default output CRS");
 }
 struct Operation {
  PJ *op;bool geographic=false;double latitudeUnit=1;
@@ -91,7 +92,7 @@ GfVec3d Full(const UsdPrim& root,const GfVec3d& local){
  auto sourcePoint=SourceLocal(source,anchor,(scaled*rot)*unit);
  Operation op(src,target);auto p=op.Run(sourcePoint);bool reset=false;GfMatrix4d post(1);UsdGeomXformable(root).GetLocalTransformation(&post,&reset,timeCode);
  if(post!=GfMatrix4d(1)){
-  std::string working;try{working=Wkt(root.GetParent());}catch(...){working=src;}Definition work(working);
+  std::string working=Wkt(root.GetParent(),true);if(working.empty())working=src;Definition work(working);
   Operation to(target,working),from(working,target);auto w=to.Run(p);
   if(work.geographic){
    // Independent geographic post path: local ENU Cartesian chart about source anchor.
@@ -104,7 +105,7 @@ GfVec3d Full(const UsdPrim& root,const GfVec3d& local){
  }return p;
 }
 }
-void Configure(UsdStageRefPtr s,const std::string& dst,double t,const GfVec3d& origin,const std::string& dirs){coordinateOps.clear();stage=s;target=dst;timeCode=std::isnan(t)?UsdTimeCode::Default():UsdTimeCode(t);renderOrigin=origin;resources=dirs;if(ctx)proj_context_destroy(ctx);ctx=proj_context_create();std::vector<std::string> parts;std::istringstream ss(dirs);std::string x;while(std::getline(ss,x,';'))parts.push_back(x);std::vector<const char*> paths;for(auto &p:parts)paths.push_back(p.c_str());proj_context_set_search_paths(ctx,int(paths.size()),paths.data());proj_context_set_enable_network(ctx,0);}
+void Configure(UsdStageRefPtr s,const std::string& dst,double t,const GfVec3d& origin,const std::string& dirs){coordinateOps.clear();stage=s;target=dst.empty()?Wkt(s->GetDefaultPrim()):dst;timeCode=std::isnan(t)?UsdTimeCode::Default():UsdTimeCode(t);renderOrigin=origin;resources=dirs;if(ctx)proj_context_destroy(ctx);ctx=proj_context_create();std::vector<std::string> parts;std::istringstream ss(dirs);std::string x;while(std::getline(ss,x,';'))parts.push_back(x);std::vector<const char*> paths;for(auto &p:parts)paths.push_back(p.c_str());proj_context_set_search_paths(ctx,int(paths.size()),paths.data());proj_context_set_enable_network(ctx,0);}
 GfVec3d CandidateCoordinate(const UsdPrim& p,const GfVec3d& xyz){auto source=Wkt(p);auto &op=coordinateOps[source];if(!op)op=std::make_unique<Operation>(source,target);return op->Run(xyz);}
 GfVec3d CandidateFullPoint(const UsdPrim& p,const GfVec3d& xyz){return Full(p,xyz);}
 GfMatrix4d CandidateFrame(const UsdPrim& p){

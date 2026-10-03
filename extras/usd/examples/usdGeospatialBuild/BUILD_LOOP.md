@@ -3,8 +3,9 @@
 The numbered requirements and explicit decisions are inputs. An older
 implementation, test expectation or slide cannot fill a specification gap.
 `inputs.json` pins the proposal, stock source base, composition reference and
-six frozen candidate documents. The experiment is an implementable candidate;
-its fields and conventions are not represented as group-approved standard text.
+six frozen candidate documents. A frozen experiment is not proof of proposal derivability. `proposal-quality.json`
+and `QUALITY_REVIEW.md` separately audit the actual proposal against every
+requirement. Unspecified or contradictory semantics stop dependent derivation.
 
 ## Run in dependency order
 
@@ -13,7 +14,10 @@ its fields and conventions are not represented as group-approved standard text.
 2. Inventory authoritative information, owners, scope, units, time and reuse.
    Justify every authored representation against an actual requirement and
    existing OGC/USD semantics. WKT remains authoritative for facts it expresses.
-3. Specify the complete candidate in `proposal/data-model.md` and
+3. Cite the exact proposal authority for every necessary semantic choice. If it
+   is absent or conflicting, flag the affected requirement immediately and stop
+   dependent work. Complete only independently justified proposal repairs, or
+   explicitly authorized labeled experiments. Specify an experimental candidate in `proposal/data-model.md` and
    `proposal/runtime-behavior.md`. Describe absence, defaults, composition,
    result domains, failures and export. Write distinguishing examples before
    code. Label complete alternatives where group choices remain open.
@@ -93,8 +97,15 @@ source-change propagation is also exercised within the native rendering chain.
 Execution success, candidate completeness, independent evidence and group
 approval are distinct. Every selected demonstration and delivery step is
 executed. Remaining work listed in results must be a genuine design decision,
-not missing in-scope build work. R24's certified continuous-bound contract is
-still a finding even when every test passes.
+not missing in-scope build work. The initial review identifies ten semantic gap categories across the 31
+requirements, including the R24 extent/error guarantee. None closes because
+prototype tests pass. Missing tests remain unfinished verification.
+
+The runner stops before implementation execution by default while semantic
+gaps remain. `--experiment-with-open-specifications` permits only an explicitly
+authorized experimental run and records `proposal_ready: false` and
+`requirements_build_complete: false`. It never turns those choices into agreed
+standard text. README and slides must lead with this result and its gaps.
 
 Public delivery excludes private correspondence, machine paths, attachment ZIPs
 and issue/PR backlinks to upstream OpenUSD or proposal repositories. Dataset

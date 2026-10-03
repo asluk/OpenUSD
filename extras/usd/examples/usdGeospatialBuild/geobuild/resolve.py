@@ -72,8 +72,13 @@ class Result:
 
 class Resolver:
     def __init__(self,stage):self.stage=stage
-    def measures(self,prim,output,time=Usd.TimeCode.Default()):
-        _,source=binding(prim); out=crs(output)
+    def output_definition(self,output):
+        if output is not None:return crs(output)
+        p=self.stage.GetDefaultPrim()
+        if not p:raise GeoError('No composed defaultPrim supplies the default output CRS')
+        return binding(p)[1]
+    def measures(self,prim,output=None,time=Usd.TimeCode.Default()):
+        _,source=binding(prim); out=self.output_definition(output)
         rel=prim.GetRelationship('crs:coordinateProperties')
         if not rel or not rel.GetTargets():raise GeoError('No authored measurement-coordinate association')
         results={}
@@ -86,8 +91,8 @@ class Resolver:
         root,source=binding(prim)
         if not root.GetAttribute('crs:position'):raise GeoError('No authored model placement')
         return root,source
-    def full_points(self,prim,local_points,output,time=Usd.TimeCode.Default(),post_context=True):
-        root,source=self.model(prim); out=crs(output)
+    def full_points(self,prim,local_points,output=None,time=Usd.TimeCode.Default(),post_context=True):
+        root,source=self.model(prim); out=self.output_definition(output)
         anchor=root.GetAttribute('crs:position').Get(time)
         if anchor is None:raise GeoError('Missing placement at requested source time')
         q=root.GetAttribute('crs:orientation').Get(time) if root.GetAttribute('crs:orientation') else Gf.Quatd(1)
@@ -100,8 +105,8 @@ class Resolver:
         post=UsdGeom.Xformable(root).GetLocalTransformation(time)
         if not np.allclose(post,np.eye(4),atol=0,rtol=0):
             parent=root.GetParent()
-            try:_,working=binding(parent)
-            except GeoError:working=source
+            _,working=binding(parent,allow_unbound=True)
+            if working is None:working=source
             if not post_context:working=out
             w,trw=convert(out,working,pts)
             unit=UsdGeom.GetStageMetersPerUnit(self.stage)
@@ -122,7 +127,7 @@ class Resolver:
             operation=operation_details(tr).description+'; post context: '+operation_details(posttr).description
         else:operation=operation_details(tr).description
         return Result(pts,operation,operation_details(tr).accuracy,out.to_wkt())
-    def frame(self,prim,output,time=Usd.TimeCode.Default(),probe=1.):
+    def frame(self,prim,output=None,time=Usd.TimeCode.Default(),probe=1.):
         root,_=self.model(prim); unit=UsdGeom.GetStageMetersPerUnit(self.stage)
         sample=np.vstack([np.zeros(3),np.eye(3)*probe/unit,-np.eye(3)*probe/unit])
         r=self.full_points(root,sample,output,time)
@@ -137,7 +142,7 @@ class Resolver:
                 if x.GetResetXformStack():break
             p=p.GetParent()
         return m
-    def geometry(self,prim,output,time=Usd.TimeCode.Default(),exact=False):
+    def geometry(self,prim,output=None,time=Usd.TimeCode.Default(),exact=False):
         root,_=self.model(prim)
         a=prim.GetAttribute('points');v=a.Get(time)
         if v is None:raise GeoError('No geometry points at requested time')
@@ -145,8 +150,23 @@ class Resolver:
         if exact:return self.full_points(root,local,output,time)
         frame,r=self.frame(root,output,time)
         return Result(homogeneous(local,frame),r.operation,r.accuracy,r.output_wkt)
-    def scene_points(self,result,output):
-        out=crs(output)
+    def bounds(self,prim,output=None,time=Usd.TimeCode.Default()):
+        out=self.output_definition(output)
+        if out.is_geographic:raise GeoError('Angular scene bounds are not defined')
+        root,_=self.model(prim)
+        extent=UsdGeom.Boundable.ComputeExtentFromPlugins(UsdGeom.Boundable(prim),time)
+        if extent is None or len(extent)!=2:raise GeoError('No supported ordinary UsdGeom local extent')
+        frame,_=self.frame(root,out.to_wkt(),time)
+        m=self.child_matrix(prim,root,time)*Gf.Matrix4d(frame)
+        b=Gf.BBox3d(Gf.Range3d(Gf.Vec3d(extent[0]),Gf.Vec3d(extent[1])),m).ComputeAlignedRange()
+        return np.array([b.GetMin(),b.GetMax()])
+    def relative_frame(self,prim,relative_to,output=None,time=Usd.TimeCode.Default()):
+        out=self.output_definition(output)
+        if out.is_geographic:raise GeoError('Angular relative modelling frames are not defined')
+        one,_=self.frame(prim,out.to_wkt(),time);other,_=self.frame(relative_to,out.to_wkt(),time)
+        return np.array(Gf.Matrix4d(one)*Gf.Matrix4d(other).GetInverse())
+    def scene_points(self,result,output=None):
+        out=self.output_definition(output)
         if out.is_geographic:raise GeoError('Geographic angular query results cannot be a length-valued rendering frame')
         p=result.points*axis_factors(out)/UsdGeom.GetStageMetersPerUnit(self.stage)
         return p if UsdGeom.GetStageUpAxis(self.stage)=='Z' else p[:,[0,2,1]]*np.array([1,1,-1])

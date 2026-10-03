@@ -18,7 +18,7 @@ async def main():
         context=omni.usd.get_context();ok=await context.open_stage_async(cfg['stage'])
         stage=context.get_stage()
         if stage is None:raise RuntimeError('OV failed to open authored source')
-        before={l.identifier:l.ExportToString() for l in stage.GetUsedLayers()};r=OVResolver(stage,cfg['output_wkt']);time=Usd.TimeCode(cfg.get('time',0))
+        before={l.identifier:l.ExportToString() for l in stage.GetUsedLayers()};r=OVResolver(stage,cfg.get('output_wkt'));time=Usd.TimeCode(cfg.get('time',0))
         rt=usdrt.Usd.Stage.Attach(context.get_stage_id());dirty=[True];notices=[0]
         def on_notice(n,s):dirty[0]=True;notices[0]+=1
         notice=Tf.Notice.Register(Usd.Notice.ObjectsChanged,on_notice,stage)
@@ -38,7 +38,7 @@ async def main():
                 p=rt.DefinePrim(path);x=usdrt.Rt.Xformable(p)
                 # Actual runtime matrix, never a source USD matrix authoring operation.
                 a=x.CreateFabricHierarchyWorldMatrixAttr();a.Set(usdrt.Gf.Matrix4d(*m.ravel().tolist()));matrices[path]=[list(row) for row in a.Get()]
-            consumed={}
+            consumed={};bound_readback={}
             for path in rec['geometry']:
                 source=stage.GetPrimAtPath(path);rp=rt.DefinePrim(path,source.GetTypeName());raw=np.array(rp.GetAttribute('points').Get(),dtype=float)
                 if raw.shape!=np.array(source.GetAttribute('points').Get(time)).shape:raise RuntimeError('Source geometry was not ingested by OV')
@@ -53,7 +53,19 @@ async def main():
                 actual=v[:,:3]@axes.T*unit/fac
                 if not np.allclose(actual,rec['geometry'][path],rtol=0,atol=1e-6):raise RuntimeError('OV source geometry + live runtime matrix differs from derived placement')
                 consumed[path]={'source_vertices':len(raw),'max_coordinate_readback_error':float(np.linalg.norm(actual-np.array(rec['geometry'][path]),axis=1).max()),'first_resolved_coordinate':actual[0].tolist()}
-            return {'matrices':matrices,'measurement_readback':len(rec['measurements']),'geometry_readback':consumed}
+                if path in rec['bounds']:
+                    lo=raw.min(axis=0);hi=raw.max(axis=0)
+                    if source.IsA(UsdGeom.BasisCurves):
+                        widths=rp.GetAttribute('widths').Get()
+                        if widths is None:raise RuntimeError('Runtime curve widths were not ingested')
+                        radius=float(np.max(widths))/2;lo-=radius;hi+=radius
+                    b=Gf.BBox3d(Gf.Range3d(Gf.Vec3d(*lo),Gf.Vec3d(*hi)),local*Gf.Matrix4d(*matrix.ravel().tolist())).ComputeAlignedRange()
+                    native=np.array([b.GetMin(),b.GetMax()])@axes.T*unit/fac
+                    native=np.array([native.min(axis=0),native.max(axis=0)])
+                    error=float(np.max(abs(native-np.array(rec['bounds'][path]))))
+                    if error>1e-6:raise RuntimeError('Live consumed geometry/widths/matrix differs from affine query bound')
+                    bound_readback[path]={'max_native_component_error':error}
+            return {'matrices':matrices,'measurement_readback':len(rec['measurements']),'geometry_readback':consumed,'bounds_readback':bound_readback}
         from pxr import UsdGeom
         live=apply(rec)
         state={'records':rec,'live':live,'error':None,'updates':0}

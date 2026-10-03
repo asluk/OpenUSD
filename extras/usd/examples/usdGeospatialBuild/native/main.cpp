@@ -4,6 +4,7 @@
 #include "pxr/base/plug/plugin.h"
 #include "pxr/base/gf/camera.h"
 #include "pxr/base/gf/vec2d.h"
+#include "pxr/base/gf/bbox3d.h"
 #include "pxr/imaging/glf/testGLContext.h"
 #include "pxr/imaging/glf/glContext.h"
 #include "pxr/imaging/hgi/hgi.h"
@@ -17,11 +18,13 @@
 #include "pxr/usd/usdGeom/xformable.h"
 #include "pxr/usd/usdGeom/metrics.h"
 #include "pxr/usd/usdGeom/pointInstancer.h"
+#include "pxr/usd/usdGeom/boundable.h"
 #include "pxr/usd/usd/primRange.h"
 #include "pxr/usdImaging/usdImaging/sceneIndex.h"
 #include "pxr/imaging/hd/sceneIndexPrimView.h"
 #include "pxr/imaging/hd/retainedDataSource.h"
 #include "pxr/imaging/hd/xformSchema.h"
+#include "pxr/imaging/hd/extentSchema.h"
 #include "pxr/imaging/hd/primvarsSchema.h"
 #include "pxr/imaging/hd/primvarSchema.h"
 #include "pxr/imaging/hd/instancerTopologySchema.h"
@@ -43,13 +46,16 @@
 PXR_NAMESPACE_USING_DIRECTIVE
 JsValue J(const GfVec3d& p){return JsValue(JsArray{JsValue(p[0]),JsValue(p[1]),JsValue(p[2])});}
 GfVec3d V(const JsValue& v){auto a=v.GetJsArray();return {a[0].GetReal(),a[1].GetReal(),a[2].GetReal()};}
+GfMatrix4d Matrix(const JsValue& v){GfMatrix4d m;auto a=v.GetJsArray();for(int i=0;i<4;i++)for(int j=0;j<4;j++)m[i][j]=a[i].GetJsArray()[j].GetReal();return m;}
+JsValue J(const GfMatrix4d& m){JsArray a;for(int i=0;i<4;i++){JsArray row;for(int j=0;j<4;j++)row.push_back(JsValue(m[i][j]));a.push_back(JsValue(row));}return JsValue(a);}
 int main(int argc,char **argv){
 try{
  if(argc!=3)throw std::runtime_error("Usage: candidateNative job.json output.json");
  std::ifstream input(argv[1]);auto job=JsParseStream(input).GetJsObject();if(job.count("plugin_directory"))PlugRegistry::GetInstance().RegisterPlugins(job.at("plugin_directory").GetString());if(job.count("schema_directory"))PlugRegistry::GetInstance().RegisterPlugins(job.at("schema_directory").GetString());auto s=UsdStage::Open(job.at("stage").GetString());if(!s)throw std::runtime_error("Cannot open source USD stage");
  double t=job.count("time")?job.at("time").GetReal():std::numeric_limits<double>::quiet_NaN();auto tc=std::isnan(t)?UsdTimeCode::Default():UsdTimeCode(t);
- Configure(s,job.at("output_wkt").GetString(),t,GfVec3d(0),job.at("resources").GetString());
- JsObject result,measures,geometry,frames,pointInstances,operations;std::vector<GfVec3d> all;
+ const std::string requestedOutput=job.count("output_wkt")?job.at("output_wkt").GetString():std::string();
+ Configure(s,requestedOutput,t,GfVec3d(0),job.at("resources").GetString());
+ JsObject result,measures,geometry,frames,pointInstances,operations,bounds;std::vector<GfVec3d> all;
  std::string snapshot;s->GetRootLayer()->ExportToString(&snapshot);
  for(auto p:UsdPrimRange::Stage(s,UsdTraverseInstanceProxies())){
   auto coordinates=p.GetRelationship(TfToken("crs:coordinateProperties"));SdfPathVector props;
@@ -63,16 +69,19 @@ try{
    auto root=p;while(root&&!root.IsPseudoRoot()&&!root.GetAttribute(TfToken("crs:position")).HasAuthoredValueOpinion())root=root.GetParent();if(!root||root.IsPseudoRoot())continue;
    GfMatrix4d local(1);auto q=p;while(q&&q!=root){UsdGeomXformable x(q);if(x){GfMatrix4d m;bool reset;x.GetLocalTransformation(&m,&reset,tc);local=local*m;if(reset)break;}q=q.GetParent();}
    auto m=CandidateFrame(root);JsArray b;for(auto point:points){auto v=m.Transform(local.Transform(GfVec3d(point)));all.push_back(v);b.push_back(J(v));}geometry[p.GetPath().GetString()]=JsValue(b);
+   VtVec3fArray extent;if(UsdGeomBoundable(p)&&UsdGeomBoundable::ComputeExtentFromPlugins(UsdGeomBoundable(p),tc,&extent)&&extent.size()==2){auto range=GfBBox3d(GfRange3d(GfVec3d(extent[0]),GfVec3d(extent[1])),local*m).ComputeAlignedRange();bounds[p.GetPath().GetString()]=JsValue(JsArray{J(range.GetMin()),J(range.GetMax())});}
   }
  }
  result["measurements"]=JsValue(measures);result["geometry"]=JsValue(geometry);result["frames"]=JsValue(frames);result["operation"]=JsValue(CandidateOperation());
  result["point_instances"]=JsValue(pointInstances);
+ result["bounds"]=JsValue(bounds);
+ JsObject relativeFrames;for(auto one=frames.begin();one!=frames.end();++one){auto other=one;for(++other;other!=frames.end();++other)relativeFrames[one->first+" relative to "+other->first]=J(Matrix(one->second)*Matrix(other->second).GetInverse());}result["relative_frames"]=JsValue(relativeFrames);
  result["operations"]=JsValue(operations);result["proj_version"]=JsValue(CandidateProjVersion());
  if(job.count("render")&&!all.empty()){
   PlugRegistry::GetInstance().RegisterPlugins(job.at("plugin_directory").GetString());
   auto registered=PlugRegistry::GetInstance().GetPluginWithName("candidatePlacement");if(!registered)throw std::runtime_error("Candidate placement metadata was not registered");
   std::cerr<<"Candidate metadata: "<<registered->GetPath()<<"\n";
-  GfVec3d origin=job.count("render_origin")?V(job.at("render_origin")):all[0];Configure(s,job.at("output_wkt").GetString(),t,origin,job.at("resources").GetString());
+  GfVec3d origin=job.count("render_origin")?V(job.at("render_origin")):all[0];Configure(s,requestedOutput,t,origin,job.at("resources").GetString());
   auto imaging=UsdImagingSceneIndex::New(HdRetainedContainerDataSource::New(),[](const HdSceneIndexBaseRefPtr& input){return CandidateSceneIndex(input);});imaging->SetStage(s);imaging->SetTime(tc);imaging->ApplyPendingUpdates();
   JsObject hydraPrims;
   int nativeInstanceReadback=0,pointInstanceReadback=0;
@@ -89,6 +98,10 @@ try{
   JsObject geometryReadback;
   for(auto p:UsdPrimRange::Stage(s,UsdTraverseInstanceProxies())){VtVec3fArray points;if(!p.GetAttribute(TfToken("points")).Get(&points,tc))continue;auto prim=imaging->GetPrim(p.GetPath());auto matrix=HdXformSchema::GetFromParent(prim.dataSource).GetMatrix();if((prim.primType!=HdPrimTypeTokens->mesh&&prim.primType!=HdPrimTypeTokens->basisCurves)||!matrix||!geometry.count(p.GetPath().GetString()))continue;auto m=matrix->GetTypedValue(0);auto expected=geometry[p.GetPath().GetString()].GetJsArray();double error=0;for(size_t i=0;i<points.size();i++)error=std::max(error,(m.Transform(GfVec3d(points[i]))-CandidateRenderCoordinate(V(expected[i]))).GetLength());if(error>1e-6)throw std::runtime_error("Hydra consumed geometry placement differs from native query");geometryReadback[p.GetPath().GetString()]=JsValue(JsObject{{"vertices",JsValue(int(points.size()))},{"max_render_unit_error",JsValue(error)}});}
   result["hydra_geometry_readback"]=JsValue(geometryReadback);
+  JsObject boundsReadback;
+  for(auto p:UsdPrimRange::Stage(s,UsdTraverseInstanceProxies())){auto key=p.GetPath().GetString();if(!bounds.count(key))continue;auto prim=imaging->GetPrim(p.GetPath());auto matrix=HdXformSchema::GetFromParent(prim.dataSource).GetMatrix();auto extent=HdExtentSchema::GetFromParent(prim.dataSource);if(!matrix||!extent.GetMin()||!extent.GetMax())continue;
+   auto actual=GfBBox3d(GfRange3d(extent.GetMin()->GetTypedValue(0),extent.GetMax()->GetTypedValue(0)),matrix->GetTypedValue(0)).ComputeAlignedRange();auto bb=bounds[key].GetJsArray();auto first=CandidateRenderCoordinate(V(bb[0])),second=CandidateRenderCoordinate(V(bb[1]));GfRange3d expected;expected.UnionWith(first);expected.UnionWith(second);double error=std::max((actual.GetMin()-expected.GetMin()).GetLength(),(actual.GetMax()-expected.GetMax()).GetLength());if(error>1e-6)throw std::runtime_error("Hydra consumed extent differs from affine query bound");boundsReadback[key]=JsValue(JsObject{{"max_render_unit_error",JsValue(error)}});
+  }result["hydra_bounds_readback"]=JsValue(boundsReadback);
   WNDCLASSA wc{};wc.style=CS_OWNDC;wc.lpfnWndProc=DefWindowProcA;wc.hInstance=GetModuleHandle(nullptr);wc.lpszClassName="CandidateHiddenGL";RegisterClassA(&wc);
   HWND window=CreateWindowA(wc.lpszClassName,"",WS_POPUP,0,0,1280,720,nullptr,nullptr,wc.hInstance,nullptr);HDC dc=GetDC(window);
   PIXELFORMATDESCRIPTOR pfd{};pfd.nSize=sizeof(pfd);pfd.nVersion=1;pfd.dwFlags=PFD_DRAW_TO_WINDOW|PFD_SUPPORT_OPENGL|PFD_DOUBLEBUFFER;pfd.iPixelType=PFD_TYPE_RGBA;pfd.cColorBits=32;pfd.cDepthBits=24;SetPixelFormat(dc,ChoosePixelFormat(dc,&pfd),&pfd);HGLRC context=wglCreateContext(dc);wglMakeCurrent(dc,context);GarchGLApiLoad();

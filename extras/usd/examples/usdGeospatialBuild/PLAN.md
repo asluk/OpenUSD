@@ -1,4 +1,4 @@
-# October 2 geospatial derivation and complete build
+# Geospatial proposal review and experimental evidence
 
 This run is authorized by Aaron after the October 2 group reply was sent.
 It starts from the current requirements and recorded call decisions, including
@@ -46,7 +46,17 @@ descriptions remain inputs.
    ZIP attachments and issue/PR backlinks. Verify remote source, PR body and deck
    against the run, then report results and actual remaining design questions.
 
-## Completion criteria
+## Proposal readiness criteria
+
+No required authored fact, default, scope, unit, time rule, ordering, result or
+failure may be supplied by implementation convention. Each must trace to the
+actual proposal or an explicit normative reference. Candidate-to-proposal and
+code-to-candidate audits are separate. An open semantic dependency blocks a
+proposal-conformance build; approved experiments remain labeled and cannot close
+that dependency. Missing verification blocks completion even if semantics are
+specified. The machine gate is defined in geobuild/quality.py.
+
+## Experimental delivery criteria
 
 Every selected workflow, implementation, audit and delivery step is executed.
 There are no deferred in-scope demonstrations or stale collateral. Scope defers
@@ -58,7 +68,12 @@ Candidate completeness, execution success and group approval are separate claims
 
 ## Current state
 
-The six candidate documents are frozen and hashed in inputs.json. Source,
-datasets and the reverse audit accompany them. The final recorded run is in
-delivery/run-report.json; README, review body and slides derive from its executed
-evidence. Execution success and unresolved design findings are reported separately.
+The actual proposal remains insufficiently specified. QUALITY_REVIEW.md covers
+all 31 requirements, ten gap categories and the investigation into why the
+previous implementation did not stop. A local proposal cleanup removes obsolete
+callable/translate/reset prescriptions without approving the candidate binding
+or field choices. The corrective experiment adds bounds, relative frames,
+composed-default output and preservation controls; the fresh receipt records
+readiness separately from execution. Adjusted absolute-coordinate measurement
+placement is stopped because its semantics are missing. No proposal push or
+external group communication is authorized by this execution task.

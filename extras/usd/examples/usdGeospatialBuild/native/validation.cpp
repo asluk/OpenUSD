@@ -25,7 +25,7 @@ std::string Normal(const std::string& w){
  static const std::regex lex(R"LEX("(?:[^"\n]|"")*"|[A-Za-z_][A-Za-z_0-9]*|[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[Ee][+-]?\d+)?|[\[\](),]|\s+)LEX");
  std::string out;size_t end=0;
  for(std::sregex_iterator it(w.begin(),w.end(),lex),last;it!=last;++it){if(it->position()!=end)throw std::runtime_error("Unsupported WKT token");std::string s=it->str();end=it->position()+it->length();unsigned char c=s[0];if(isspace(c))continue;
-  if(c=='"')out+=s;else if(isalpha(c)||c=='_'){for(char &x:s)x=char(toupper(static_cast<unsigned char>(x)));out+=s;}else if(s.size()==1&&std::string("[](),").find(c)!=std::string::npos)out+=s;else out+=Number(s);
+  if(c=='"')out+=s;else if(isalpha(c)||c=='_'){for(char &x:s)x=char(toupper(static_cast<unsigned char>(x)));out+=s;}else if(s.size()==1&&std::string("[](),").find(c)!=std::string::npos)out+=c=='('?"[":c==')'?"]":s;else out+=Number(s);
  }if(end!=w.size())throw std::runtime_error("Invalid WKT suffix");return out;
 }
 void CheckWkt(const UsdAttribute& a){
@@ -39,16 +39,22 @@ void CheckWkt(const UsdAttribute& a){
 }
 std::vector<UsdTimeCode> Times(const UsdAttribute& a){std::vector<double> samples;a.GetTimeSamples(&samples);std::vector<UsdTimeCode> r{UsdTimeCode::Default()};for(double t:samples)r.emplace_back(t);return r;}
 bool Finite(const GfVec3d& v){return std::isfinite(v[0])&&std::isfinite(v[1])&&std::isfinite(v[2]);}
+void CheckBinding(UsdPrim p,const UsdStagePtr& s){
+ while(p&&!p.IsPseudoRoot()){
+  auto b=p.GetRelationship(TfToken("crs:binding"));if(b&&b.HasAuthoredTargets()){
+   SdfPathVector paths;b.GetTargets(&paths);if(paths.size()!=1)throw std::runtime_error("Binding requires one target");auto target=s->GetPrimAtPath(paths[0]);if(!target)throw std::runtime_error("Broken CRS target");CheckWkt(target.GetAttribute(TfToken("crs:wkt")));return;
+  }p=p.GetParent();
+ }throw std::runtime_error("Coordinate association has no CRS binding");
+}
 UsdValidationErrorVector Check(const UsdStagePtr& s,const UsdValidationTimeRange&){
  UsdValidationErrorVector errors;bool dependent=false;
  auto error=[&](const SdfPath& p,const std::string& m){errors.emplace_back(TfToken("AuthoredModel"),UsdValidationErrorType::Error,UsdValidationErrorSites{UsdValidationErrorSite(s,p)},m);};
  for(auto p:UsdPrimRange::Stage(s,UsdTraverseInstanceProxies()))try{
   auto w=p.GetAttribute(TfToken("crs:wkt"));if(w)CheckWkt(w);
-  auto b=p.GetRelationship(TfToken("crs:binding"));if(!b||!b.HasAuthoredTargets())continue;dependent=true;SdfPathVector paths;b.GetTargets(&paths);
-  if(paths.size()!=1)throw std::runtime_error("Binding requires one target");auto target=s->GetPrimAtPath(paths[0]);if(!target)throw std::runtime_error("Broken CRS target");CheckWkt(target.GetAttribute(TfToken("crs:wkt")));
   auto roles=p.GetRelationship(TfToken("crs:coordinateProperties"));bool measurement=roles&&roles.HasAuthoredTargets();
-  if(measurement){SdfPathVector a;roles.GetTargets(&a);if(a.empty())throw std::runtime_error("Empty coordinate association");for(auto path:a){auto v=s->GetAttributeAtPath(path);if(path.GetPrimPath()!=p.GetPath()||!v||v.GetTypeName()!=SdfValueTypeNames->Double3Array)throw std::runtime_error("Coordinate role must target on-prim double3[]");for(auto t:Times(v)){VtVec3dArray rows;if(v.Get(&rows,t))for(auto row:rows)if(!Finite(row))throw std::runtime_error("Nonfinite coordinate");}}}
-  else if(UsdGeomXformable(p)){
+  if(measurement){dependent=true;CheckBinding(p,s);SdfPathVector a;roles.GetTargets(&a);if(a.empty())throw std::runtime_error("Empty coordinate association");for(auto path:a){auto v=s->GetAttributeAtPath(path);if(path.GetPrimPath()!=p.GetPath()||!v||v.GetTypeName()!=SdfValueTypeNames->Double3Array)throw std::runtime_error("Coordinate role must target on-prim double3[]");for(auto t:Times(v)){VtVec3dArray rows;if(v.Get(&rows,t))for(auto row:rows)if(!Finite(row))throw std::runtime_error("Nonfinite coordinate");}}}
+  auto b=p.GetRelationship(TfToken("crs:binding"));if(!b||!b.HasAuthoredTargets())continue;dependent=true;CheckBinding(p,s);
+  if(!measurement&&UsdGeomXformable(p)){
    auto a=p.GetAttribute(TfToken("crs:position"));if(!a||!a.HasAuthoredValueOpinion()||a.GetTypeName()!=SdfValueTypeNames->Double3)throw std::runtime_error("Direct model binding requires double3 placement position");for(auto t:Times(a)){GfVec3d v;if(a.Get(&v,t)&&!Finite(v))throw std::runtime_error("Nonfinite position");}
    a=p.GetAttribute(TfToken("crs:orientation"));if(a){if(a.GetTypeName()!=SdfValueTypeNames->Quatd)throw std::runtime_error("Orientation must be quatd");for(auto t:Times(a)){GfQuatd q;if(a.Get(&q,t)&&(!std::isfinite(q.GetLength())||abs(q.GetLength()-1)>1e-9))throw std::runtime_error("Orientation must be a finite unit quaternion");}}
    a=p.GetAttribute(TfToken("crs:scale"));if(a){if(a.GetTypeName()!=SdfValueTypeNames->Double3)throw std::runtime_error("Scale must be double3");for(auto t:Times(a)){GfVec3d v;if(a.Get(&v,t)&&(!Finite(v)||v[0]==0||v[1]==0||v[2]==0))throw std::runtime_error("Invalid scale");}}

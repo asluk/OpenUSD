@@ -5,8 +5,10 @@ from pyproj import CRS,Transformer
 from pxr import Gf,Usd,UsdGeom
 
 class OVResolver:
-    def __init__(self,stage,output):self.stage=stage;self.output=CRS.from_wkt(output)
-    def scope(self,p):
+    def __init__(self,stage,output):
+        self.stage=stage
+        self.output=CRS.from_wkt(output) if output is not None else self.scope(stage.GetDefaultPrim())[1]
+    def scope(self,p,allow_unbound=False):
         while p and not p.IsPseudoRoot():
             r=p.GetRelationship('crs:binding')
             if r and r.HasAuthoredTargets():
@@ -18,7 +20,8 @@ class OVResolver:
                 if len(c.axis_info)!=3:raise ValueError('Incomplete CRS')
                 return p,c
             p=p.GetParent()
-        raise ValueError('No binding')
+        if allow_unbound:return None,None
+        raise ValueError('No binding/default output CRS')
     @staticmethod
     def factors(c):
         a=list(c.axis_info)
@@ -63,8 +66,8 @@ class OVResolver:
         else:points=np.array(p)+v/self.factors(source)
         points,tr=self.tx(source,self.output,points);post=np.array(UsdGeom.Xformable(root).GetLocalTransformation(time))
         if not np.array_equal(post,np.eye(4)):
-            try:_,work=self.scope(root.GetParent())
-            except ValueError:work=source
+            _,work=self.scope(root.GetParent(),allow_unbound=True)
+            if work is None:work=source
             w,_=self.tx(self.output,work,points)
             if work.is_geographic:
                 origin,_=self.tx(source,work,[p]);o,b=self.cart(work,origin[0]);xyz=np.array([self.cart(work,k)[0] for k in w]);v=(xyz-o)@b@axes/u;v=(np.column_stack([v,np.ones(len(v))])@post[:,:3])@axes.T*u;w=self.uncart(work,o+v@b.T)
@@ -78,7 +81,7 @@ class OVResolver:
             v=np.zeros((2,3));v[0,i]=1/u;v[1,i]=-1/u;p,_=self.full(root,v,time);m[i,:3]=(p[0]-p[1])/(2/u)
         return m,t
     def records(self,time):
-        results={'geometry':{},'measurements':{},'frames':{},'point_instances':{},'operations':{}}
+        results={'geometry':{},'measurements':{},'frames':{},'point_instances':{},'operations':{},'bounds':{},'relative_frames':{}}
         for p in self.stage.Traverse(Usd.TraverseInstanceProxies()):
             rel=p.GetRelationship('crs:coordinateProperties')
             if rel:
@@ -97,8 +100,8 @@ class OVResolver:
                 results['point_instances'][str(p.GetPath())]=[list((k*local*Gf.Matrix4d(frame)).Transform(Gf.Vec3d(0))) for k in m]
             a=p.GetAttribute('points')
             if a and a.Get(time) is not None:
-                try:root,_=self.scope(p)
-                except ValueError:continue
+                root,_=self.scope(p,allow_unbound=True)
+                if root is None:continue
                 if not root.GetAttribute('crs:position').HasAuthoredValue():continue
                 local=Gf.Matrix4d(1);q=p
                 while q!=root:
@@ -108,4 +111,11 @@ class OVResolver:
                         if x.GetResetXformStack():break
                     q=q.GetParent()
                 m,_=self.frame(root,time);v=np.array(a.Get(time));xyz=np.column_stack([v,np.ones(len(v))])@np.array(local)@m;results['geometry'][str(p.GetPath())]=xyz[:,:3].tolist()
+                if not self.output.is_geographic and UsdGeom.Boundable(p):
+                    extent=UsdGeom.Boundable.ComputeExtentFromPlugins(UsdGeom.Boundable(p),time)
+                    b=Gf.BBox3d(Gf.Range3d(Gf.Vec3d(extent[0]),Gf.Vec3d(extent[1])),local*Gf.Matrix4d(m)).ComputeAlignedRange()
+                    results['bounds'][str(p.GetPath())]=[list(b.GetMin()),list(b.GetMax())]
+        keys=sorted(results['frames'])
+        for i,key in enumerate(keys):
+            for other in keys[i+1:]:results['relative_frames'][key+' relative to '+other]=np.array(Gf.Matrix4d(*np.array(results['frames'][key]).ravel().tolist())*Gf.Matrix4d(*np.array(results['frames'][other]).ravel().tolist()).GetInverse()).tolist()
         return results

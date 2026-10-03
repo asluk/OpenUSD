@@ -102,7 +102,7 @@ def test_stock_validation_plugin():
 def test_explicit_export_and_fresh_reader(tmp_path):
     s=stage('composition');d=export(s,tmp_path/'derived.usda',T['utm31'],[0.,5.,10.]);assert validate(d)==[]
     original=Resolver(s).geometry(s.GetPrimAtPath('/Project/Model/Child/Mesh'),T['utm31'],Usd.TimeCode(5)).points
-    fresh=Usd.Stage.Open(str(tmp_path/'derived.usda'));r=Resolver(fresh);actual=r.geometry(fresh.GetPrimAtPath('/Models/M0/Geometry'),T['utm31'],Usd.TimeCode(5)).points
+    fresh=Usd.Stage.Open(str(tmp_path/'derived.usda'));r=Resolver(fresh);actual=r.geometry(fresh.GetPrimAtPath('/Project/Model/Child/Mesh'),T['utm31'],Usd.TimeCode(5)).points
     np.testing.assert_allclose(actual,original,rtol=0,atol=1e-5)
     assert not any('resolved' in a.GetName().lower() for p in fresh.Traverse() for a in p.GetAttributes())
     assert list(fresh.GetRootLayer().customLayerData['geospatialExport']['sampledTimeCodes'])==[0,5,10]
