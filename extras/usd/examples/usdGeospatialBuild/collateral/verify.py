@@ -17,11 +17,13 @@ def main():
     for name,h in report['delivery_files'].items():assert sha(ROOT/'delivery'/name)==h,name
     assert validation['packageIntegrity']['exitCode']==0 and validation['presentationLayout']['exitCode']==0
     assert validation['finalSha256']==sha(ROOT/'delivery/geospatial-build.pptx')
+    assert report['completion']['proposal_ready'] is False and report['completion']['requirements_build_complete'] is False
+    assert len(report['proposal_quality']['requirements'])==31
     total=len(story['slides'])
     with zipfile.ZipFile(ROOT/'delivery/geospatial-build.pptx') as z:
         assert sum(bool(re.fullmatch(r'ppt/slides/slide\d+\.xml',n)) for n in z.namelist())==total
         assert all(digest in z.read(f'ppt/notesSlides/notesSlide{i}.xml').decode() for i in range(1,total+1))
-        assert all('<a:tbl>' in z.read(f'ppt/slides/slide{i}.xml').decode() for i in [5,9])
+        assert all('<a:tbl>' in z.read(f'ppt/slides/slide{i}.xml').decode() for i in story['native_table_slides'])
         texts=[z.read(n).decode() for n in z.namelist() if n.endswith('.xml')]
     for root in [ROOT/'delivery',ROOT/'proposal']:
         texts.extend(q.read_text(encoding='utf8') for q in root.rglob('*') if q.is_file() and q.suffix in ['.json','.md','.usda','.geojson'])
@@ -35,9 +37,9 @@ def main():
             'pdf_sha256':sha(ROOT/'delivery/geospatial-build.pdf'),
             'story_sha256':sha(ROOT/'delivery/story.json'),
             'pr_body_sha256':sha(ROOT/'delivery/pr-body.md'),
-            'slides':total,'editable_native_table_slides':[5,9],
+            'slides':total,'editable_native_table_slides':story['native_table_slides'],'proposal_ready':report['completion']['proposal_ready'],'requirements_build_complete':report['completion']['requirements_build_complete'],
             'structure_and_layout':'pass','visual_review':'Author declares all final slides and PDF pages inspected',
-            'claim_boundary':'Candidate choices require review; runtime agreement shares PROJ; finite samples do not certify a continuous bound'}
+            'claim_boundary':'Proposal not ready; ten semantic categories remain open. Runtime agreement shares PROJ and finite samples do not establish an extent guarantee.'}
     (ROOT/'delivery/collateral-manifest.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf8',newline='\n')
     print('Executed evidence and derived collateral verified')
 

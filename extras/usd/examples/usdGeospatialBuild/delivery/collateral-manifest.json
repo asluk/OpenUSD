@@ -1,17 +1,21 @@
 {
-  "readme_sha256": "01408124fc1c52c7d79073019b50673048eb648879ae9696b81c76a91f0bc30e",
-  "run_report_sha256": "7072101230201b06bad1381131eb771ba4e92b04370aba69b1311d480f647d5b",
-  "executed_source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47",
-  "pptx_sha256": "c6a0550b7bf242916dba33e0e4109b1aa0ba418e3ee65d9c33d073c5ea47ac73",
-  "pdf_sha256": "2b529775393669c53b710065c4a93a2aafbc3225c73c61bbf009698939f2609a",
-  "story_sha256": "e232fdc1ac4fcd813f5c85f102f2d0f58028c5b07969e2d001012265070ac494",
-  "pr_body_sha256": "6e2d9b5bf2b4fb5fab35d55fa62c0820f3682e9c290d32023c096702defab6dc",
-  "slides": 10,
+  "readme_sha256": "7a748e8767de8ff793552681fa3a968da16aaf17408eeaa28e807bb877d22323",
+  "run_report_sha256": "8fe325b9c5947f2ac92d13c3aeaec05af620e3427a3a5a01469bdfaf7e054dcc",
+  "executed_source_commit": "69e4cdbed03cec5a9c89b1e8938c028001e2dcf0",
+  "pptx_sha256": "bde26e26116c02751a10b303e32e2b0d0b9c1c7e82f52d5db424e6a9b14611e5",
+  "pdf_sha256": "b8427bd4516232f185d31bd9e7e87d9f5b15617d4381bc7906330dd95d2f98bb",
+  "story_sha256": "d3392bd524a555ec2e1c95734d0a141312f4b3287ea1df47bbefc46d022dcd29",
+  "pr_body_sha256": "d6632cb6a108db1f1379e3224ce3bb10333bf78ca772b649943768406ca134c3",
+  "slides": 14,
   "editable_native_table_slides": [
-    5,
-    9
+    2,
+    3,
+    7,
+    8
   ],
+  "proposal_ready": false,
+  "requirements_build_complete": false,
   "structure_and_layout": "pass",
   "visual_review": "Author declares all final slides and PDF pages inspected",
-  "claim_boundary": "Candidate choices require review; runtime agreement shares PROJ; finite samples do not certify a continuous bound"
+  "claim_boundary": "Proposal not ready; ten semantic categories remain open. Runtime agreement shares PROJ and finite samples do not establish an extent guarantee."
 }

@@ -1,0 +1,541 @@
+{
+  "status": "proposal_not_ready",
+  "shared_proposal_commit": "24fcce0c928515fb5206f813016b0e86a5ef08e6",
+  "local_cleanup_commit": "7a67f0114e1b73b136b527754a4966f9b4efb453",
+  "local_cleanup_status": "Unpushed review draft removes conflicting legacy interface/translate/reset prescriptions; binding encoding and the other contracts remain unresolved.",
+  "rule": "Any required authored fact or observable meaning not derivable from the shared proposal is a proposal gap. Tests of an experimental answer cannot close it.",
+  "semantic_gaps": [
+    {
+      "id": "G01",
+      "name": "Conflicting proposal authority",
+      "status": "open",
+      "requirements": [
+        5,
+        6,
+        7,
+        9,
+        11,
+        19,
+        25
+      ],
+      "questions": [
+        2,
+        3,
+        11
+      ],
+      "problem": "Retained design sections prescribe translate-based positions, a binding helper that authors resetXformStack, callable interfaces and a different binding carrier. Those conflict with recorded placement and source-preservation decisions. Selecting only the requirements hid those conflicts from the experiment.",
+      "experimental_answer": "The candidate uses a relationship to a CRS definition and separate placement fields. That is an explicit experiment, not approval of a changed binding encoding.",
+      "closure_needed": "Remove conflicting legacy prescriptions and reconcile the actual binding data representation. A local cleanup can remove contradictions without silently approving the candidate carrier."
+    },
+    {
+      "id": "G02",
+      "name": "Placement representation and modelling frame",
+      "status": "open",
+      "requirements": [
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        20
+      ],
+      "questions": [
+        2,
+        6
+      ],
+      "problem": "The direction of separate position/orientation/scale is agreed. Types, defaults, ordering/bases, time behavior and the distinction between a project context and a placed model still lack a complete shared data contract. Xformable alone does not distinguish a context container from a model.",
+      "experimental_answer": "Double3 position, quatd orientation, double3 scale and a derived affine frame with explicit stage-axis adaptation. The source text initially described scale order inconsistently even though its formula and code scaled before rotating.",
+      "closure_needed": "Specify the representation and physical meaning from requirements and USD semantics. Review the affine-frame choice, requiredness and context/model applicability. Do not add positionOnly or a flag to rescue the implementation."
+    },
+    {
+      "id": "G03",
+      "name": "Project adjustment context",
+      "status": "open",
+      "requirements": [
+        8,
+        9,
+        11,
+        16,
+        19
+      ],
+      "questions": [
+        3
+      ],
+      "problem": "Post-placement order and preservation of project adjustment under output selection are agreed. The precise working-coordinate frame and its derivation remain open, especially for geographic contexts and nested independent bindings. For arrays of absolute measurement coordinates, the effect of model placement and ordinary project adjustments is also unspecified; unadjusted city/global fixtures hid this dependency.",
+      "experimental_answer": "Nearest enclosing binding supplies working context. Transport its operator to the selected output. The unchanged-output-numbers alternative fails the physical-placement control.",
+      "closure_needed": "Adopt the precise context/basis rule and state what an enclosing CRS contributes. A broken enclosing binding must fail under the existing failure requirement, not select a substitute."
+    },
+    {
+      "id": "G04",
+      "name": "Axis mapping and geographic result domains",
+      "status": "open",
+      "requirements": [
+        12,
+        13,
+        14,
+        16,
+        17,
+        18
+      ],
+      "questions": [
+        6,
+        9
+      ],
+      "problem": "Projected E/N/up is fixed. Geographic/geocentric components and the relation of CRS components to ordinary stage axes need precise wording. Geographic coordinate queries do not define angular geometry, frames or bounds.",
+      "experimental_answer": "Lon/lat/height and geocentric XYZ queries, with length-valued affine rendering. Geographic scene frames fail explicitly.",
+      "closure_needed": "Complete the component/basis conventions and state the supported result domains. Geographic queries remain useful initial scope while the separate angular-scene question remains explicit."
+    },
+    {
+      "id": "G05",
+      "name": "WKT string normalization profile",
+      "status": "open",
+      "requirements": [
+        1,
+        2,
+        3,
+        21,
+        27,
+        28,
+        29,
+        31
+      ],
+      "questions": [
+        10
+      ],
+      "problem": "The requirement calls for a prescribed normal form. The original candidate omitted delimiter normalization. PROJ rejects an OGC-permitted parenthesis spelling, so engine parser acceptance cannot define all valid WKT. Keyword aliases and broader profile coverage still need review.",
+      "experimental_answer": "Preserve quoted metadata and ordering, normalize whitespace/case/decimal spelling and structural delimiters. Reject non-normal authored tokens without rewriting them. This fixes a concrete omission without proving the entire profile.",
+      "closure_needed": "Adopt a precise OGC-grounded lexical profile and distinguish lexical identity, CRS equivalence and operation identity. Do not discard metadata by simply reserializing the projection engine object."
+    },
+    {
+      "id": "G06",
+      "name": "Measurement association and adapter coverage",
+      "status": "open",
+      "requirements": [
+        5,
+        6,
+        7,
+        12,
+        18,
+        19,
+        21,
+        27,
+        30
+      ],
+      "questions": [
+        11
+      ],
+      "problem": "Subtree scope and useful city/global data workflows are already agreed. The shared proposal does not yet prescribe the coordinate-property association or how existing external dataset/index/time contracts participate. Generic validators cannot infer that association from vector names. Absolute-coordinate measurements also need a specified relationship to placed model frames and post transforms; resolving arrays alone does not demonstrate adjusted imagery.",
+      "experimental_answer": "On-prim double3[] property targets in inherited/direct CRS scopes. Ordinary values and observation times retain their existing dataset meaning. Export must not depend on the fixture data: prefix.",
+      "closure_needed": "Specify the geospatial association and the information required of an existing dataset representation/adapter, without inventing a general measurement format. Resolve external and cross-prim coverage before claiming it."
+    },
+    {
+      "id": "G07",
+      "name": "Complete-asset dependency declaration",
+      "status": "open",
+      "requirements": [
+        7,
+        19,
+        25,
+        26,
+        27
+      ],
+      "questions": [
+        12
+      ],
+      "problem": "Coverage of all placed content, including unloaded/referenced content, is already required. The carrier and propagation/composition rules remain unapproved. Traversal of available content cannot establish absence inside an unloaded payload.",
+      "experimental_answer": "Writer-maintained root customLayerData boolean. It does not compose automatically and the assembler must propagate it.",
+      "closure_needed": "Review the authored carrier and writer/assembly/export obligations, including stale declarations. State the limits of a content validator rather than claiming it verifies unavailable content."
+    },
+    {
+      "id": "G08",
+      "name": "Extent, bounds and comparable-operation guarantees",
+      "status": "open",
+      "requirements": [
+        17,
+        18,
+        21,
+        22,
+        23,
+        24,
+        28,
+        29
+      ],
+      "questions": [
+        13
+      ],
+      "problem": "A stated placement-error guarantee over a stated extent and a cross-implementation agreement criterion remain unspecified. Sampling is insufficient to establish an everywhere guarantee. Reporting one engine accuracy value does not describe the error of the full placement/post chain.",
+      "experimental_answer": "Finite-domain affine-vs-per-point discrepancies, shared-PROJ agreement, affine leaf bounds and relative model frames. Added coverage supplies evidence, not the general result contract.",
+      "closure_needed": "Define who supplies/establishes the tolerance and extent, what geometry it covers, failure/subdivision behavior, operation comparability and separate error quantities. Evaluate any bound method independently of the prototype."
+    },
+    {
+      "id": "G09",
+      "name": "Export sampling and dataset preservation",
+      "status": "open",
+      "requirements": [
+        2,
+        18,
+        19,
+        20,
+        27,
+        30
+      ],
+      "questions": [
+        14
+      ],
+      "problem": "Output CRS and preserved values/associations are required. Exact sampling-record encoding and interpolation meaning remain open. The implementation had copied only data:-named values and duplicated output WKT in export metadata. The sampling record is still a candidate contract. Preserving standard USD content avoids dropping instances or copying only selected fixture fields; external adapter preservation remains unverified.",
+      "experimental_answer": "New assets carry an authoritative output CRS definition/binding and an experimental sampling record. On-prim value metadata/relationships and coordinate-only geographic export are exercised. Standard instance data and ordinary authored properties are retained and verified at requested sample times. External dataset adapters are not claimed; equivalence between samples is explicitly not promised.",
+      "closure_needed": "Adopt a structured sampling contract without duplicate CRS authority and specify preservation coverage. Incomplete export coverage is implementation/verification work unless it depends on an actual unanswered semantic contract."
+    },
+    {
+      "id": "G10",
+      "name": "Coordinate dimensionality and supported frame meaning",
+      "status": "open",
+      "requirements": [
+        1,
+        4,
+        12,
+        21,
+        22,
+        30
+      ],
+      "questions": [
+        2,
+        6,
+        11,
+        13
+      ],
+      "problem": "Requiring every CRS definition and measurement array to have three components is a candidate restriction, not a functional requirement. Missing height information in a 2D dataset cannot be replaced by a physical height guess. Geographic gravity-related heights also cannot silently serve as ellipsoidal Cartesian heights.",
+      "experimental_answer": "The experiment admits complete three-axis definitions and labels externally chosen fixture heights. Its local geographic model frame uses ellipsoid arithmetic and is not evidence for every compound-height model case.",
+      "closure_needed": "Distinguish definition validity, coordinate dimensionality, model-frame support and engine capability. Specify which authored information is required for each requested result and fail only the unsupported request. Do not narrow the schema to fit a vector3 implementation."
+    }
+  ],
+  "requirements": [
+    {
+      "id": 1,
+      "title": "Self-contained definitions",
+      "remaining_gap_ids": [
+        "G05",
+        "G10"
+      ],
+      "evidence_scope": "Complete WKT definition reading in exercised CRS families"
+    },
+    {
+      "id": 2,
+      "title": "Defined once, and describing no object",
+      "remaining_gap_ids": [
+        "G05",
+        "G09"
+      ],
+      "evidence_scope": "No duplicate component fields; export-WKT duplication corrected"
+    },
+    {
+      "id": 3,
+      "title": "Datum, realization and epoch",
+      "remaining_gap_ids": [
+        "G05"
+      ],
+      "evidence_scope": "Frame epoch retained and coordinate epochs rejected"
+    },
+    {
+      "id": 4,
+      "title": "A site's own grid is a CRS like any other",
+      "remaining_gap_ids": [
+        "G10"
+      ],
+      "evidence_scope": "Colorado/France derived and compound definitions"
+    },
+    {
+      "id": 5,
+      "title": "A discoverable CRS",
+      "remaining_gap_ids": [
+        "G01",
+        "G06"
+      ],
+      "evidence_scope": "Nearest binding in exercised direct/inherited cases"
+    },
+    {
+      "id": 6,
+      "title": "Declared for a subtree, not a prim",
+      "remaining_gap_ids": [
+        "G01",
+        "G06"
+      ],
+      "evidence_scope": "Subtree and independent child scope"
+    },
+    {
+      "id": 7,
+      "title": "Composition agnostic",
+      "remaining_gap_ids": [
+        "G01",
+        "G06",
+        "G07"
+      ],
+      "evidence_scope": "Reference, stronger opinion, variant and instance cases"
+    },
+    {
+      "id": 8,
+      "title": "Brought-in data keeps its coordinates and its CRS",
+      "remaining_gap_ids": [
+        "G03"
+      ],
+      "evidence_scope": "Physical-placement counterexample for output-axis adjustments"
+    },
+    {
+      "id": 9,
+      "title": "Positions, and offsets from them",
+      "remaining_gap_ids": [
+        "G01",
+        "G02",
+        "G03"
+      ],
+      "evidence_scope": "Hand-worked noncommuting position/orientation/scale control"
+    },
+    {
+      "id": 10,
+      "title": "Offsets along the axes of their position",
+      "remaining_gap_ids": [
+        "G02"
+      ],
+      "evidence_scope": "Full frame compared with origin-only placement"
+    },
+    {
+      "id": 11,
+      "title": "Position or offset, and the scene says which",
+      "remaining_gap_ids": [
+        "G01",
+        "G02",
+        "G03"
+      ],
+      "evidence_scope": "Independent bound child and ancestor-transform exclusion"
+    },
+    {
+      "id": 12,
+      "title": "No angle read as a length",
+      "remaining_gap_ids": [
+        "G02",
+        "G04",
+        "G06",
+        "G10"
+      ],
+      "evidence_scope": "Geographic coordinates separated from ordinary lengths"
+    },
+    {
+      "id": 13,
+      "title": "One axis mapping",
+      "remaining_gap_ids": [
+        "G04"
+      ],
+      "evidence_scope": "Northing-first intake and fixed projected tuple mapping"
+    },
+    {
+      "id": 14,
+      "title": "Scene conventions stay the scene's",
+      "remaining_gap_ids": [
+        "G02",
+        "G04"
+      ],
+      "evidence_scope": "Stage units and Y/Z up-axis controls"
+    },
+    {
+      "id": 15,
+      "title": "Placement separate from conformance",
+      "remaining_gap_ids": [
+        "G02"
+      ],
+      "evidence_scope": "Eiffel writer conformance separate from placement"
+    },
+    {
+      "id": 16,
+      "title": "One CRS out",
+      "remaining_gap_ids": [
+        "G03",
+        "G04"
+      ],
+      "evidence_scope": "Explicit output selections and composed defaultPrim control"
+    },
+    {
+      "id": 17,
+      "title": "The same answer for every consumer",
+      "remaining_gap_ids": [
+        "G04",
+        "G08"
+      ],
+      "evidence_scope": "Geometry plus affine leaf bounds in actual consumers; general coverage incomplete"
+    },
+    {
+      "id": 18,
+      "title": "Coordinates back out",
+      "remaining_gap_ids": [
+        "G04",
+        "G06",
+        "G08",
+        "G09"
+      ],
+      "evidence_scope": "Coordinate outputs plus relative model frames in length outputs"
+    },
+    {
+      "id": 19,
+      "title": "Resolution leaves the scene as authored",
+      "remaining_gap_ids": [
+        "G01",
+        "G03",
+        "G06",
+        "G07",
+        "G09"
+      ],
+      "evidence_scope": "Used-layer preservation and sampled explicit exports"
+    },
+    {
+      "id": 20,
+      "title": "Positions between recorded moments",
+      "remaining_gap_ids": [
+        "G02",
+        "G09"
+      ],
+      "evidence_scope": "Source interpolation before nonlinear conversion"
+    },
+    {
+      "id": 21,
+      "title": "Never placed by a guess",
+      "remaining_gap_ids": [
+        "G05",
+        "G06",
+        "G08",
+        "G10"
+      ],
+      "evidence_scope": "Whole-result failures and broken enclosing-binding regression"
+    },
+    {
+      "id": 22,
+      "title": "A CRS suited to the project's size",
+      "remaining_gap_ids": [
+        "G08",
+        "G10"
+      ],
+      "evidence_scope": "City/global coordinate datasets without one global tangent plane"
+    },
+    {
+      "id": 23,
+      "title": "Detail that does not depend on location",
+      "remaining_gap_ids": [
+        "G08"
+      ],
+      "evidence_scope": "Double anchors and small local geometry; float spacing measured"
+    },
+    {
+      "id": 24,
+      "title": "Extent under one position is bounded and stated",
+      "remaining_gap_ids": [
+        "G08"
+      ],
+      "evidence_scope": "Finite-domain discrepancies only; guarantee not established"
+    },
+    {
+      "id": 25,
+      "title": "Additive for consumers that ignore it",
+      "remaining_gap_ids": [
+        "G01",
+        "G07"
+      ],
+      "evidence_scope": "Ordinary unaware-reader transform invariance"
+    },
+    {
+      "id": 26,
+      "title": "Declares its dependency",
+      "remaining_gap_ids": [
+        "G07"
+      ],
+      "evidence_scope": "Declared unloaded payload and missing declaration controls"
+    },
+    {
+      "id": 27,
+      "title": "Checkable before use",
+      "remaining_gap_ids": [
+        "G05",
+        "G06",
+        "G07",
+        "G09"
+      ],
+      "evidence_scope": "Stock validators and inherited measurement-role negatives; general coverage incomplete"
+    },
+    {
+      "id": 28,
+      "title": "A result says what produced it",
+      "remaining_gap_ids": [
+        "G05",
+        "G08"
+      ],
+      "evidence_scope": "Operations and engine-attributed accuracy; full-chain contract incomplete"
+    },
+    {
+      "id": 29,
+      "title": "Implementable from the text alone",
+      "remaining_gap_ids": [
+        "G05",
+        "G08"
+      ],
+      "evidence_scope": "Three authored-scene consumers sharing PROJ; proposal-only derivation not established"
+    },
+    {
+      "id": 30,
+      "title": "Measurements remain usable as data",
+      "remaining_gap_ids": [
+        "G06",
+        "G09",
+        "G10"
+      ],
+      "evidence_scope": "City/global values/indices/times and arbitrary-name export controls; adapters incomplete"
+    },
+    {
+      "id": 31,
+      "title": "Same definition, same meaning",
+      "remaining_gap_ids": [
+        "G05"
+      ],
+      "evidence_scope": "Lexical controls including delimiter spelling; full profile unapproved"
+    }
+  ],
+  "verification_gaps": [
+    "An everywhere R24 error guarantee is not established.",
+    "Universal primitive/aggregate/physics bounds and angular scene bounds are not verified.",
+    "General external measurement adapters and adjusted absolute-coordinate dataset placement are not verified; the latter depends on unspecified semantics.",
+    "Cross-engine agreement criteria and complete operation-chain accuracy are not approved."
+  ],
+  "investigation": [
+    {
+      "finding": "I substituted my candidate for shared-proposal authority.",
+      "evidence": "35b80973c froze candidate answers while runtime-open-decisions.md explicitly said group decisions were still needed. PLAN.md allowed completing experimental answers.",
+      "consequence": "A pre-code freeze prevented retrofitting but did not prove independent derivability from the proposal."
+    },
+    {
+      "finding": "I audited code against its candidate more thoroughly than the candidate against the actual proposal.",
+      "evidence": "The input selection excluded legacy callable/reset/translate sketches, although they remained in the shared proposal.",
+      "consequence": "The experiment bypassed contradictions instead of first producing a coherent proposal."
+    },
+    {
+      "finding": "I did not make known gaps stop completion.",
+      "evidence": "aba7900213 AUDIT.md explicitly retained the R24 gap. c1c3506be README nevertheless opened with complete experimental run and the deck led with a render.",
+      "consequence": "Execution completion became the headline and unresolved semantic dependencies became qualifications."
+    },
+    {
+      "finding": "The trace and tests did not check every required result.",
+      "evidence": "The original R7 trace incorrectly pointed to measurement association; the runner had no bounds or relative-frame result domains and required explicit output. Export tests used only data:-named fixture properties.",
+      "consequence": "Passing self-selected tests hid missing coverage and fixture-specific shortcuts."
+    },
+    {
+      "finding": "I did not distinguish decision freedom from an unspecified contract.",
+      "evidence": "The candidate prescribed field types, dimensionality, frame approximations and export metadata without those choices being settled in the shared model.",
+      "consequence": "Permission to explore labeled alternatives became a path to one executable candidate, rather than a blocking proposal-gap report."
+    }
+  ],
+  "stopping_policy": [
+    "At each required semantic choice, cite its exact proposal clause or explicit normative reference.",
+    "If that source is missing or conflicting, stop the dependent derivation and immediately report the gap, affected requirement and proposed alternatives.",
+    "Continue only independent work or explicitly authorized labeled experiments. Keep their assumptions separate from proposal conformance.",
+    "Review any proposed specification repair against requirements and data ownership. Do not approve it because the implementation already uses it.",
+    "A semantic change requires a new pinned specification before affected code/tests and invalidates affected evidence.",
+    "A missing required test is unfinished verification, not an open design question.",
+    "The default build gate stops while specification gaps remain. An explicit experimental invocation records proposal_ready=false and requirements_build_complete=false."
+  ]
+}

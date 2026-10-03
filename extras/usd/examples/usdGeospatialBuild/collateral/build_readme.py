@@ -15,14 +15,17 @@ def main():
     report = json.loads((run/'delivery/run-report.json').read_text())
     for name, expected in report['source_files'].items():
         assert digest(ROOT/name) == expected, 'Source changed after execution: '+name
-    assert report['tests']['failed'] == 0 and len(report['comparisons']) == 27
+    assert report['tests']['failed'] == 0 and len(report['comparisons']) == 28
     shutil.copytree(run/'delivery', ROOT/'delivery', dirs_exist_ok=True)
+    quality = report['proposal_quality']
+    assert report['completion']['proposal_ready'] is False and report['completion']['requirements_build_complete'] is False
+    assert digest(ROOT/'proposal-quality.json') == report['source_files']['proposal-quality.json']
     rows = report['comparisons']
     samples = sum(x['native']['samples'] for x in rows)
     native_max = max(x['native']['max_agreement_metres'] for x in rows)
     ov_max = max(x['ov']['max_agreement_metres'] for x in rows)
     comparisons = []
-    for src, label in [('tower','Eiffel model + context'),('terrain','Colorado breaklines'),('railway','Original railway'),('city','Synthetic city imagery'),('climate','Global scalar grid'),('composition','Composition + time'),('instances','Native + point instances')]:
+    for src, label in [('tower','Eiffel model + context'),('terrain','Colorado breaklines'),('railway','Original railway'),('city','Synthetic city imagery'),('climate','Global scalar grid'),('composition','Composition + time'),('instances','Native + point instances'),('default-output','Composed-default output')]:
         selected = [x for x in rows if x['source']==src]
         comparisons.append(f"| {label} | {len(selected)} | {selected[0]['native']['samples']:,} | {max(x['native']['max_agreement_metres'] for x in selected)*1000:.6f} | {max(x['ov']['max_agreement_metres'] for x in selected)*1000:.6f} |")
     selected = [x for x in rows if x['source'].startswith(('Colorado_', 'France_'))]
@@ -39,7 +42,7 @@ def main():
     extents = '\n'.join(f"| ±{x['half_extent_metres']:,.0f} m | {x['samples']} | {x['sampled_max_affine_discrepancy_metres']:.9g} m |" for x in report['extent_samples'])
     exports = '\n'.join(f"| {x['source']} | {x['output']} | {x['geometry_max_roundtrip_metres']*1e6:.2f} µm | {x['measurement_max_roundtrip_metres']*1e6:.2f} µm |" for x in report['exports'])
     credit = next(x for x in json.loads((ROOT/'data/manifest.json').read_text()) if x['path']=='data/tower.usdz')
-    text = f'''# Geospatial meaning that survives USD composition
+    legacy = f'''# Geospatial meaning that survives USD composition
 
 This complete experimental run derives fresh headless USD, native Hydra and live OV implementations from a frozen requirements-led model. It resolves the same authored datasets in all three, preserves source layers, produces analytic data and explicit exports, and exposes the remaining design decisions.
 
@@ -203,6 +206,124 @@ python collateral/derive.py
 ```
 
 The included original data, generated schema and authored stages allow a rerun without private attachment ZIPs. `intake.py` records the original attachment-to-stage authoring recipe. [Dataset sources, credits and assumptions](data/README.md), [original hashes](data/manifest.json), [frozen requirements](proposal/requirements.md) and [the immutable run receipt](delivery/run-report.json) accompany the implementation. README is the canonical narrative; `collateral/derive.py` derives the PR body and slide content from it, with the README hash recorded in collateral.
+'''
+    sections = legacy.split('## ')
+    retained = {x.split('\n',1)[0]:x.split('\n',1)[1] for x in sections[1:]}
+    sample_count = sum(x['native']['samples'] for x in rows)
+    bounds = sum(x['native']['affine_leaf_bounds_compared'] for x in rows)
+    relative = sum(x['native']['relative_frames_compared'] for x in rows)
+    labels = [('G01','Binding carrier and contradictory legacy text'),('G02','Placement types, bases, defaults and frame meaning'),('G03','Working context and adjusted measurement placement'),('G04','Axis conventions and supported result domains'),('G05','OGC-grounded WKT string normal form'),('G06','Measurement property association and adapters'),('G07','Complete-asset declaration and assembly obligations'),('G08','Extent/error guarantee and comparable operations'),('G09','Structured export sampling and preservation coverage'),('G10','2D/3D coordinate meaning and height-frame support')]
+    gap_rows = '\n'.join(f"| {i} | {label} | {', '.join(str(x) for x in next(g for g in quality['semantic_gaps'] if g['id']==i)['requirements'])} |" for i,label in labels)
+    prefix=f'''# Geospatial proposal readiness and experimental evidence
+
+**The proposal is not yet independently implementable.** This loop audits all 31 functional requirements and identifies ten open categories in the data model and normative runtime behavior. Most intended outcomes are already required; their missing representation, conventions and guarantees cannot be supplied by prototype choices. Proposal readiness and requirements-build completion both remain **false**.
+
+[Proposal quality review](QUALITY_REVIEW.md) · [Editable slides](delivery/geospatial-build.pptx) · [PDF](delivery/geospatial-build.pdf) · [Run receipt](delivery/run-report.json) · [Implementation audit](AUDIT.md) · [Build gate](BUILD_LOOP.md)
+
+The audit and corrective experimental delivery are complete. This is not a claim that the proposal-conformance build passed. The explicitly authorized experiment executed {report['tests']['passed']} tests, {len(rows)} three-consumer jobs and {len(report['exports'])} fresh-reader exports. It cannot close a shared semantic decision. Source `{report['source_commit']}` and every executed input are hash-bound to the receipt.
+
+## Contracts still missing from the proposal
+
+The agreed outcomes remain useful: complete WKT CRS definitions, separate model placement, ordinary USD transforms after resolution, preserved source data and both rendering and coordinate queries. The following contracts must be completed against those outcomes rather than copied from a convenient implementation.
+
+| Gap | Shared contract to settle | Existing requirement numbers |
+|---|---|---|
+{gap_rows}
+
+[The review](QUALITY_REVIEW.md) maps every requirement to executed evidence and its remaining gaps, with proposed closure for each. These are review categories, not ten new functional requirements or a proof that no further gap exists. The candidate remains an explicit experiment; freezing its choices before code never made them shared proposal authority.
+
+## Why implementation did not stop
+
+I substituted the frozen experimental candidate for shared-proposal authority and audited code against that candidate more thoroughly than the candidate against the actual proposal. Selecting only the requirements hid conflicting retained translate/reset/API sketches instead of reconciling the whole text.
+
+I also failed to make known gaps block completion. The earlier audit recorded the R24 extent/error gap, but the README opened with a complete experimental run and the slides led with a render. Self-selected tests omitted bounds, relative frames and default-output behavior, and fixture-named export checks missed dropped properties. Permission to explore labeled alternatives did not authorize treating those choices as settled semantics. This was my process failure; it did not reflect missing cooperation from the group.
+
+- Cite exact proposal authority for each required authored fact, default, scope, ordering, time rule, failure and acceptance criterion.
+- When that authority is missing or conflicting, stop the dependent derivation and flag the affected requirement immediately.
+- Continue independent work or authorized labeled experiments; keep their assumptions separate from proposal conformance.
+- Review specification repairs from requirements and data ownership, freeze new semantics before code, and invalidate affected evidence.
+- Keep missing tests classified as unfinished verification. Passing tests cannot approve model choices.
+
+The default runner now stops before dependent execution while semantic gaps remain. An explicit experimental invocation records `proposal_ready=false` and `requirements_build_complete=false`; there is no successful-run override that changes those conclusions.
+
+## Repairs and checks that did not require a new shared decision
+
+A separate local proposal draft removes obsolete callable signatures, translate-based CRS placement, the helper that authored resetXformStack and rendering architecture prescriptions. It preserves the recorded separate-placement and post-transform direction and leaves the exact binding/field contract open. That proposal cleanup is committed locally, **not pushed or agreed**; its revision is recorded in the quality receipt.
+
+Existing failure/source-preservation requirements justify rejecting a broken enclosing binding instead of treating it as absent, validating inherited coordinate roles, retaining arbitrary ordinary dataset property names/metadata/relationships, and avoiding duplicated output WKT in export metadata. The experiment also tests composed-default output precedence, affine leaf bounds including curve widths, relative model frames and standard USD instance export. Where a new experimental representation was necessary, it was specified and committed before affected code; it remains unapproved.
+
+WKT **string** normalization now covers structural parentheses as well as square brackets while preserving quoted punctuation. OGC permits the former and prefers the latter; the installed projection engine rejects the parenthesis spelling directly. Parser capability therefore cannot define all OGC-valid text. The full lexical normalization profile remains G05, and lexical token identity is not semantic CRS equivalence. [OGC 18-010r11, clauses 6.3.4 and 6.4](https://docs.ogc.org/is/18-010r11/18-010r11.pdf).
+
+## A newly exposed dependency: placed measurement data
+
+Absolute sample coordinates and a model's local geometry are different kinds of data. The proposal does not yet fully define how model placement and ordinary project adjustments affect arrays of absolute measurement coordinates, including the working frame and pivot when a geographic context is involved.
+
+The city/global fixtures used unadjusted datasets. Converting those arrays demonstrates coordinate queries and preserves values/indices/times, but does not demonstrate adjusted imagery under requirements 8 and 17. I stopped that dependent derivation and recorded it in G03/G06; no centroid, hidden origin, extra flag or new placement field was introduced to rescue it.
+
+A related distinction is CRS definition validity versus the support needed for a requested result. A valid 2D definition does not supply physical height; geographic gravity-related height cannot silently become ellipsoidal Cartesian height. The three-component candidate does not establish universal 2D/compound-height model support. G10 requires result-specific information and failure semantics, not a schema restriction copied from vector3 code.
+
+## Extent and error remain a proposal gate
+
+Double anchors avoid absolute-coordinate float quantization, but an affine model frame approximates nonlinear per-point conversion. Requirement 24 calls for a stated placement error over a stated extent; the proposal has not yet supplied a complete contract for establishing that guarantee, its coverage or failure/subdivision behavior.
+
+For a UTM model frame converted to ECEF, the experiment measures 289 points per square:
+
+| Sampled domain half-extent | Samples | Maximum affine discrepancy |
+|---|---:|---:|
+{extents}
+
+These are finite sampled discrepancies, not a bound on every point or surface in the extent. The ±100 km sample is about 1.57 km from the per-point result. Probe stability and small cross-runtime differences do not close the guarantee. Engine-attributed operation accuracy also excludes affine approximation, ordinary post transforms and survey truth; complete-chain reporting remains G08.
+
+The added affine leaf-bounds controls use stock UsdGeom local extent, including curve widths, transformed by the same derived frame. They do not bound nonlinear per-point conversion or establish universal primitive, aggregate, angular or physics bounds.
+
+## The same authored data reaches three consumers
+
+The corrective experiment compares headless OpenUSD queries, an independent native Hydra resolver and an independent live OV resolver on the same authored data. It records {sample_count:,} positional samples across {len(rows)} jobs, {bounds:,} affine leaf-bound comparisons and {relative:,} relative-frame comparisons. Maximum native discrepancy is {native_max*1000:.6f} mm and maximum OV discrepancy is {ov_max*1000:.6f} mm.
+
+| Same first Colorado breakline vertex | Easting (m) | Northing (m) | Height (m) |
+|---|---:|---:|---:|
+{chr(10).join(example)}
+
+All three consumers use PROJ, and the supplied partner CSVs also use PROJ. This is independent authored-scene/runtime agreement, not independent geodetic-engine accuracy. Actual final Hydra matrices, instance transforms and extents are read back; live OV checks ingested geometry, widths, runtime matrices and coordinate results. No OV visual-render parity is claimed.
+
+| Dataset | Jobs | First-job samples | Native max (mm) | OV max (mm) |
+|---|---:|---:|---:|---:|
+{compare_table}
+
+Full arrays, source-property associations, operation reports, resource hashes and USD/PROJ versions accompany the receipt. Counts include repeated output selections, not distinct real-world observations.
+
+'''
+    sections_to_keep=['Eiffel: see the placement and its coordinate context','Colorado and France: complete CRS definitions do real work','City analysis returns data, not just a picture','Global measurements keep coordinates, values and time together']
+    text=prefix+'\n'.join('## '+name+'\n'+retained[name] for name in sections_to_keep)
+    text+=f'''## Composition, edits and sampled export
+
+Three native USD instances and three point instances share ordinary geometry while resolving distinct placements. References, stronger opinions, variants, source interpolation, stage units/up-axis and explicit/default outputs have distinguishing controls. Native source notices and live OV source/request edits invalidate results; broken definitions remove stale successful results and recovery is exercised.
+
+![Native and point instances consumed by Hydra](delivery/instances-native.png)
+
+{len(report['exports'])} derived assets are reopened and resolved at explicit times 0, 5 and 10. Export preserves composed ordinary USD content, including standard instance data and arbitrary ordinary measurement properties/metadata/relationships; output placement and absolute coordinate arrays are sampled. The output CRS is recorded only in a typed definition and its bindings. No private resolved flag prevents double application. This is an experimental export representation, not an approved standard encoding.
+
+| Exported dataset | Output | Geometry roundtrip max | Measurement roundtrip max |
+|---|---|---:|---:|
+{exports}
+
+Fresh-reader instance-position checks are included. Equivalence to the original source-CRS trajectory between sample times is explicitly not promised. Generic external dataset adapter coverage and a shared structured sampling record remain G06/G09; they are not proved by these on-prim fixtures.
+
+## What must be settled before proposal conformance
+
+The next shared revision must reconcile the binding and placement model, define adjusted measurement/frame semantics and result support, prescribe WKT string normalization, and complete dependency, export and extent/operation guarantees. Every repair must cite existing requirements and USD/OGC semantics before affected implementation is rederived. Candidate choices and test success cannot settle those decisions.
+
+Coordinate epochs remain deferred in representation, interpretation and computation. CRS frame epochs remain in WKT, and supported non-epoch datum/height operations use engine-managed resources. Large city/global coordinate datasets remain useful initial scope; the construction examples do not impose a site-sized domain. No deferred capability is made impossible by a hidden surrogate field.
+
+The full requirement/gap map and why-stop investigation are in QUALITY_REVIEW.md. The run delivers auditable evidence and current collateral while honestly failing the proposal-readiness gate.
+
+## Reproduce and inspect
+
+The default runner stops on open semantic gaps. An explicitly authorized experiment adds `--experiment-with-open-specifications` to `run.py`; its receipt still records proposal readiness and requirements-build completion as false. Use a fresh output directory with the recorded stock USD imaging SDK, Python dependencies, OV runtime, PROJ database and TIFF-enabled native library. Required resources are hash-verified and network fallbacks disabled.
+
+`collateral/build_readme.py --run-directory <run>` generates this canonical narrative from the source-bound receipt and quality audit. `collateral/derive.py` derives the PR body and slide content; the editable deck and PDF are rendered and inspected before delivery. No private email, original attachment ZIP or upstream issue/PR backlink accompanies delivery.
+
+[Build contract](BUILD_LOOP.md), [datasets/credits/assumptions](data/README.md), [original hashes](data/manifest.json), [pinned requirements](proposal/requirements.md), [experimental data model](proposal/data-model.md), [experimental runtime behavior](proposal/runtime-behavior.md) and [immutable receipt](delivery/run-report.json) accompany the evidence.
 '''
     (ROOT/'README.md').write_text(text, encoding='utf8', newline='\n')
     print('README and executed delivery copied:', report['source_commit'])
