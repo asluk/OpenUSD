@@ -1,5 +1,5 @@
 {
-  "status": "candidate frozen before implementation; execution pending",
+  "status": "candidate frozen before implementation; execution tracked in run receipt",
   "proposal": {
     "commit": "24fcce0c928515fb5206f813016b0e86a5ef08e6",
     "path": "proposals/geospatial_coordinate_reference_systems/README.md",

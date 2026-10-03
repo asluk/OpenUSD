@@ -1,0 +1,24 @@
+#usda 1.0
+(subLayers = [@usd/schema.usda@])
+over "GLOBAL" (customData = {
+    string libraryName = "geospatialCandidate"
+    string libraryPrefix = "GeoCandidate"
+    bool skipCodeGeneration = true
+}) {}
+class CoordinateReferenceSystem "CoordinateReferenceSystem" (
+    inherits = </Typed>
+    doc = "Experimental WKT-authoritative CRS definition; candidate, not an approved standard."
+) {
+    uniform token crs:wkt
+}
+class "GeospatialBindingAPI" (
+    inherits = </APISchemaBase>
+    customData = { token apiSchemaType = "singleApply" }
+    doc = "Experimental authored binding and placement. Applied USD data schema; no standard callable API proposed."
+) {
+    rel crs:binding
+    double3 crs:position
+    quatd crs:orientation = (1,0,0,0)
+    double3 crs:scale = (1,1,1)
+    rel crs:coordinateProperties
+}

@@ -58,5 +58,7 @@ Candidate completeness, execution success and group approval are separate claims
 
 ## Current state
 
-Input inventory and candidate derivation are in progress. No new runtime result
-exists yet. The public delivery will contain the complete pinned run record.
+The six candidate documents are frozen and hashed in inputs.json. Source,
+datasets and the reverse audit accompany them. The final recorded run is in
+delivery/run-report.json; README, review body and slides derive from its executed
+evidence. Execution success and unresolved design findings are reported separately.

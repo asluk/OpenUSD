@@ -1,0 +1,28 @@
+#usda 1.0
+(
+    customLayerData = {
+        bool geospatialResolutionRequired = 1
+    }
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Scope "CRS"
+{
+    def CoordinateReferenceSystem "Source"
+    {
+        uniform token crs:wkt = 'COMPOUNDCRS["NAD83(2011) / Colorado Central (ftUS) + NAVD88 height (ftUS)",PROJCRS["NAD83(2011) / Colorado Central (ftUS)",BASEGEOGCRS["NAD83(2011)",DATUM["NAD83 (National Spatial Reference System 2011)",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]],ID["EPSG",1116]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",6318]],CONVERSION["SPCS83 Colorado Central zone (US survey foot)",METHOD["Lambert Conic Conformal (2SP)",ID["EPSG",9802]],PARAMETER["Latitude of false origin",37.8333333333333,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8821]],PARAMETER["Longitude of false origin",-105.5,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8822]],PARAMETER["Latitude of 1st standard parallel",39.75,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8823]],PARAMETER["Latitude of 2nd standard parallel",38.45,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8824]],PARAMETER["Easting at false origin",3000000,LENGTHUNIT["US survey foot",0.304800609601219],ID["EPSG",8826]],PARAMETER["Northing at false origin",1000000,LENGTHUNIT["US survey foot",0.304800609601219],ID["EPSG",8827]],ID["EPSG",15314]],CS[CARTESIAN,2],AXIS["easting (X)",EAST,ORDER[1],LENGTHUNIT["US survey foot",0.304800609601219]],AXIS["northing (Y)",NORTH,ORDER[2],LENGTHUNIT["US survey foot",0.304800609601219]],ID["EPSG",6428]],VERTCRS["NAVD88 height (ftUS)",VDATUM["North American Vertical Datum 1988",ID["EPSG",5103]],CS[VERTICAL,1],AXIS["gravity-related height (H)",UP,LENGTHUNIT["US survey foot",0.304800609601219]],ID["EPSG",6360]]]'
+    }
+}
+
+def Scope "Controls" (
+    prepend apiSchemas = ["GeospatialBindingAPI"]
+)
+{
+    rel crs:binding = </CRS/Source>
+    rel crs:coordinateProperties = </Controls.data:coordinates>
+    custom double3[] data:coordinates = [(3108002.1122, 1752265.0666, 5482.9424), (3108405.7097, 1751929.512, 5463.6976), (3108162.9596, 1751256.8855, 5444.3233), (3107602.0564, 1751823.9696, 5464.6824), (3109015.9936, 1751406.6306, 5452.1847)]
+    custom string[] data:ids = ["Control1", "Control2", "Control3", "Control4", "Control5"]
+    custom double[] data:values = [0, 1, 2, 3, 4]
+}
+

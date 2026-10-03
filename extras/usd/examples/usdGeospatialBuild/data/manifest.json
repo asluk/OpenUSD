@@ -1,0 +1,141 @@
+[
+  {
+    "path": "data/Colorado/01_NAD83-2011_Geographic3D_Coordinates.csv",
+    "sha256": "d3d1fb2cf302a86348039a39fa9cbd18ad8d0e01a0d9a9b46febcf21bc10031b",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/Colorado/01_NAD83-2011_Geographic3D_WKT2.txt",
+    "sha256": "564a87cce9458225367f7235af8c17615eaf0f25a6a9d69143b64a8341f72317",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_Coordinates.csv",
+    "sha256": "8acb27644409b84300ba0b9380bfe70dcd78c26b1e07e35c792727d80929ad6c",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_WKT2.txt",
+    "sha256": "7223312af480611f6089dea506d59f96288f8c9a214347d84c105da07dd23dfe",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/Colorado/03_Westminster_Site_Calibration_Coordinates.csv",
+    "sha256": "52bebebc5490bc62661fa1c8f8add4d584b5cd70c24cb04ebd6a02d407dd036d",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/Colorado/03_Westminster_Site_Calibration_WKT2.txt",
+    "sha256": "0a788ca9a0b444bbaf9fcc06648eea7de3c4acf53e4eeef42bcb8acd8af44521",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/01_RGF93v2b_CC49_IGN69_Coordinates.csv",
+    "sha256": "c062096dc9bb4f3f0b0e2e0daf26fb24516b461974fe442aa422ecf2339db672",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/01_RGF93v2b_CC49_IGN69_WKT2.txt",
+    "sha256": "f23a657b6c53f668eee60d8306bd8d44422fc8c06ff1665c242cdb867aefe6e9",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/02_RGF93v2b_Lambert93_IGN69_Coordinates.csv",
+    "sha256": "194961025e20fb44a8a1940e01143a124372bba00f3c4f788ba124b872e5e913",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/02_RGF93v2b_Lambert93_IGN69_WKT2.txt",
+    "sha256": "7fc9a869b1b5eaf26b549e508c5af215513e550843f23bf1f35fef1a4d517819",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/03_RGF93v2b_Geocentric_Coordinates.csv",
+    "sha256": "359b94a07258e7eedafd3b422078fa0f545ee58769d3e105d410d9614a861fb2",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/03_RGF93v2b_Geocentric_WKT2.txt",
+    "sha256": "571a3cac4eb3fb580941649dca7d26965772d60a317b217466ddbc80f5144e42",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/04_RGF93v2b_Geographic3D_Coordinates.csv",
+    "sha256": "cf29098896634f254f73519dcaf6674fa0b197ce92333017287c18b4172b5c03",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/04_RGF93v2b_Geographic3D_WKT2.txt",
+    "sha256": "08a3d0c2c9ce6525eaca3155c313be805c8e9067b6a41560eb428e819c4bfe05",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/05_ITRF2014_Geocentric_epoch2019.0_Coordinates.csv",
+    "sha256": "2b153f797f4950608136cbe2d3ba8c5db4d6ce43aa1aeb59eeeec46a50ec78fa",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/05_ITRF2014_Geocentric_epoch2019.0_WKT2.txt",
+    "sha256": "e6bc6a0a72e666c6d364e4d5dac3f0b4ebb26e83b48f4af105fd352303301c8b",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/06_ITRF2020_Geocentric_epoch2026.5_Coordinates.csv",
+    "sha256": "2a62393052029a9b5697a361f66a41888fcc30bf55681cf34a90da246e3d31e8",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/France/06_ITRF2020_Geocentric_epoch2026.5_WKT2.txt",
+    "sha256": "d4fa5415670d7a4be6d6c491f9b81de304a5a73bf1605a6fd38cdb70444d4a99",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Partner coordinate samples; reference computations use PROJ 9.8.1"
+  },
+  {
+    "path": "data/tower.usdz",
+    "sha256": "6596585290f066c1567f8e3e70a25c87a190a0df6e67028d0249c1764b5a1fcb",
+    "licence": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+    "attribution": "SDC PERFORMANCE™️ (https://sketchfab.com/Lambo_SC04)",
+    "url": "https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674",
+    "origin": "Unmodified provider model; actual geometry metres, Y-up; erroneous asset metersPerUnit=0.01 retained"
+  },
+  {
+    "path": "data/railway.geojson",
+    "sha256": "885026bb98e36bfd259fece09c4218496f6b20ba463525d746e9299e0edb12b7",
+    "origin": "Original user railway GeoJSON; all feature vertices preserved",
+    "source_crs": {
+      "properties": {
+        "name": "EPSG:4326"
+      },
+      "type": "name"
+    },
+    "height_interpretation": "Conditional WGS84 ellipsoidal height; no concealed zero-height promotion"
+  },
+  {
+    "path": "data/gfs_t2m.nc",
+    "sha256": "025136ab8f2852968e87e58e159cd9167649d84e6ed94501899f7da9c0525c9e",
+    "origin": "Original scalar field supplied to prior workflow; values unchanged at time 0; time 10 synthetic"
+  },
+  {
+    "path": "data/Colorado/Trimble Westminster Park and Ride LandXML.xml",
+    "sha256": "0f0be8491c91a4cb38b852d119d9c80ec5190591730cd74a293de361868dac02",
+    "licence": "Apache-2.0, partner sample permission",
+    "origin": "Original partner LandXML; supplied site calibration, northing/easting/height source order"
+  }
+]
