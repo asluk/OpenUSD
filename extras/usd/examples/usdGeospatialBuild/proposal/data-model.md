@@ -101,13 +101,19 @@ frame. Reset markers stop the descendant matrix accumulation as in USD.
 Coordinate-query results use target CRS native units and fixed tuple convention.
 Rendering is supported for output CRSs with three length axes. Rendering values
 convert those CRS lengths to the stage length unit, with an explicit stage
-up-axis permutation (ENU to X/up/-north for Y-up). No source asset conformance is
+up-axis permutation (ENU to X/up/-north for Y-up). The corresponding inverse
+maps stage-local geometry to the source local ENU frame before the authored
+CRS orientation. Thus a local Y displacement in a Y-up stage is up, while a
+local Z displacement is south. Placement scale acts in stage-local model axes,
+then this basis mapping, then CRS orientation. This maps a defined modelling
+frame; it never infers or repairs a source asset's units/up-axis. No source asset conformance is
 guessed by this consumer adaptation. Geographic query outputs stay angular;
 they cannot be supplied to a length-valued rendering frame.
 
 Working-context post transforms operate on Cartesian lengths in stage units.
 For projected/geocentric working contexts, convert all native coordinates to
-stage units before applying the ordinary USD matrix and convert back afterward.
+stage units and stage axes before applying the ordinary USD matrix and convert
+back afterward. Apply the same stage-axis basis in a geographic ENU chart.
 For geographic contexts, use local ENU at the unadjusted model origin, with its
 ellipsoid-derived Cartesian anchor. Moving a model changes that derived origin.
 This is a candidate convention requiring group review, not hidden authoring state.

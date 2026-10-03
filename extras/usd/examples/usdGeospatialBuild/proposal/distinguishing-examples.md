@@ -30,3 +30,7 @@ These examples select observable semantics; they are not generated expectations.
    the loaded stage cannot prove absence of a dependency in that payload.
 10. Vertex or grid-sample agreement does not certify a surface-wide error bound.
     This remains an explicit result-contract finding rather than a passing test.
+11. In a Y-up metre stage, local (0,1,0) means one metre up, and a post
+    translation (0,2,0) adds two metres up. Source/output geographic axes do
+    not make that ordinary Y displacement a northing or latitude displacement.
+    The writer still owns any referenced asset's conformance to the stage.
