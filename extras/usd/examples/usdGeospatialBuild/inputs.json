@@ -1,13 +1,11 @@
 {
-  "status": "clean derivation starting point; no rebuilt runtime or complete run",
+  "status": "candidate frozen before implementation; execution pending",
   "proposal": {
-    "repository": "https://github.com/asluk/OpenUSD-proposals",
-    "base_commit": "a2d4d39797ec3c4a05206342abc357e7e27db430",
-    "commit": "3cd6cabf1c2094e5f5a283d71eea1b1530bb3d0a",
+    "commit": "24fcce0c928515fb5206f813016b0e86a5ef08e6",
     "path": "proposals/geospatial_coordinate_reference_systems/README.md",
-    "sha256": "77bd1106f6a15133388a7d776b9474e05c6200a3f6f2febe5400cc417d7b65c2",
-    "delta": "Only site vertical-reference and unsupported coordinate-epoch-change clarifications in requirements 4 and 21, including R21 rationale.",
-    "sha256_basis": "Git blob bytes"
+    "sha256": "07d5cbf54ad0f55586ed4bb1683d502483edd2edec94d5694d9db3e1bc2dc9bc",
+    "sha256_basis": "Git blob bytes",
+    "source_selection": "functional requirements and recorded decisions; legacy callable interfaces excluded"
   },
   "openusd": {
     "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
@@ -40,7 +38,7 @@
     "implementation_to_proposal_and_reverse_coverage",
     "attempts_to_expose_fixture_shortcuts_and_self_justifying_proposal_changes"
   ],
-  "publication": "withheld",
+  "publication": "existing fork draft delivery authorized",
   "geospatial_references": [
     {
       "standard": "OGC 18-005r8",
@@ -50,5 +48,13 @@
       "standard": "OGC 18-010r11",
       "role": "WKT encoding including COORDINATEMETADATA"
     }
-  ]
+  ],
+  "candidate": {
+    "data-model.md": "3f887d83430ad64e397c45c021aea256857c49663b677ed27f75278e1bca717e",
+    "distinguishing-examples.md": "382fcde6bd1e86c356b9c09126d6a4e9a16011664ea7dfcc73b5ab4531f11d8a",
+    "requirements.md": "242be4caa2e8de1e9625fc51897d3bdcfd8ee7ac07894b8c9531046008e2e771",
+    "runtime-behavior.md": "f84a6e08026df47e756b429dae0fa6e32dc460a0c5f935cbf773661f64662d74",
+    "runtime-open-decisions.md": "5838a1e14cd41bfa4baf2e2df1e38c8fac3f39d5140e332262426c65986af0e6",
+    "traceability.md": "4dc918a75083251f34f7ce4938863317d804ec5995f6625541f7e663d1bdaaee"
+  }
 }

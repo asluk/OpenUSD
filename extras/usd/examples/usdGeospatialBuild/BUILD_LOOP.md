@@ -6,6 +6,10 @@ README narrative or slide deck is inherited. `inputs.json` pins the starting
 proposal and OpenUSD revisions. The historical experiment remains recoverable
 on its separate branch and is not a derivation input.
 
+**Current phase: complete derivation, execution and delivery authorized October 2.**
+The committed input pin and pre-implementation candidate are the run authority.
+See PLAN.md for the full execution and reporting criteria.
+
 ## What the run must establish
 
 Produce a coherent proposal that preserves the required geospatial meaning,
@@ -14,19 +18,33 @@ observable runtime behavior and can be implemented from the text alone.
 The original datasets and partner examples exercise that meaning; they do not
 determine the schema. Passing tests against a self-invented contract is insufficient.
 
-The starting proposal contains older design sketches as well as the functional
-requirements. Retaining those sketches in the clean baseline does not settle
-their conflicts or approve their field choices. Read and reconcile them explicitly
-against the requirements, OGC concepts and existing USD semantics. Do not silently
-inherit them, and do not import the withdrawn replacement model to fix them.
+The Git starting point records text, not acceptance of every design choice in it.
+First separate retained requirements, obsolete prototype material to remove, and
+genuine open design questions, using the user's current direction and recorded
+decisions. Do not wait for a remote removal commit to honor that direction locally.
+Remove callable APIs, implementation/plugin prescriptions and automatic transform
+reset side effects from the proposal. Do not convert removed code into normative
+rules or count its removal as a need for new schema fields.
+
+Assess the remaining data-model candidates against the requirements, OGC concepts
+and existing USD semantics. Do not inherit them merely because they were in the
+baseline, and do not import the withdrawn replacement model to fix them.
+
+The proposal specifies data models and normative runtime behaviors, including
+resolved-query meaning, sufficient context, evaluation, results and failures.
+Programming-language APIs and library/plugin interfaces are derived implementation
+choices outside the proposal. An applied API schema is an authored USD schema
+category, not a mandate for a callable interface. A gap in query semantics is a
+specification gap; a missing function signature is not.
 
 ## Inputs and authority
 
 - Terms, numbered functional requirements, their rationale and the numbered open
   questions in the pinned proposal; explicit recorded decisions when available.
-- The starting design sections as candidate design to examine, not permission to
-  override the functional intent. Separate factual corrections, proposed design
-  choices and missing requirements. Preserve requirement/question identities.
+- The remaining design sections as candidates to examine after removing obsolete
+  prototype material, not permission to override functional intent or current
+user direction. Separate cleanup, factual corrections, proposed design choices
+  and missing requirements. Preserve functional requirement/question identities.
 - OGC's coordinate reference and coordinate-metadata model, including the
   proposal's existing COORDINATEMETADATA approach, and AOUSD Core composition.
   Use primary sources and state any ambiguity rather than inventing geodesy.
@@ -74,12 +92,101 @@ argument. Keep proposal changes separately reviewable from implementation fixes.
 The fact that code already behaves a certain way never justifies a specification
 change. A revised candidate invalidates affected derivations and evidence.
 
+## Proposal readiness before implementation
+
+Review the connected decisions in dependency order: coordinate ownership,
+definition identity/normalization and binding; placement and coordinate frames;
+resolved results over space/time and export; dependency declaration and
+conformance. Candidate answers about absolute placement or Cartesian anchors do
+not close their gaps until their representation and evaluation compose with the
+rest of the model. Supporting geographic measurements does not by itself decide
+the representation of geographic modelling anchors.
+
+Begin with an inventory of all in-scope CRS-related metadata, using the required
+CRS families, workflows and referenced standards. Solving coordinate epoch alone
+does not complete this inventory. Distinguish CRS-defining information and common
+WKT attributes from coordinate-set metadata, operation/resource information,
+dataset metadata, consumer requests and resolved-result evidence. For each, state
+ownership, authoritative encoding, scope/composition, absence/conflicts, and what
+interprets or preserves it through resolution, validation, normalization and
+export. Existing WKT representations must be evaluated before creating separate
+USD attributes; justify and reconcile any duplicated or factored representation.
+Metadata is not automatically an inert annotation or a new generic property bag.
+The inventory is not a plan to mirror WKT elements into USD properties. Retain WKT
+as the authored authority for information it already represents, and evaluate
+association/scope around complete WKT objects first, including COORDINATEMETADATA.
+Specify the accepted WKT object forms for each carrier. Conceptually different
+owners do not alone justify splitting an existing encoding into new properties;
+parsed values/caches remain derived state. Demonstrate a functional limitation or
+an explicit reviewed tradeoff before choosing a factored authored representation.
+The local expansion of requirement 2, Defined once, and describing no object,
+makes authored WKT the sole authored authority for information it determines.
+New independently editable copies are not a conforming shortcut. Check accepted
+WKT object forms and their coordinate associations, including shared contexts,
+different coordinate epochs for one underlying CRS, and native measurement data
+alongside Cartesian geometry. Expose conflicts with definition reuse explicitly;
+do not silently relax a requirement or add fields to make a sample pass.
+
+Whole authored WKT and independent USD composition of its internal elements
+cannot both be promised. Assess the chosen boundary using written controls before
+implementation: two complete contexts with identical embedded CRS and different
+epochs can drift; a stronger whole-value epoch edit can mask a later weaker CRS
+correction; and both cases may pass local WKT validation. Distinguish correcting
+metadata from propagating coordinates, complete-context identity from embedded-CRS
+comparison, and consistency guaranteed by the scene from author intent a validator
+cannot infer. Normalization, token equality and authoring tools do not restore
+component composition. State the real sharing/editing limits in the proposal;
+do not conceal them in an appendix or invent a synchronization field to pass a
+test. Carry these controls into later implementation evidence and reverse audit,
+including metadata-only differences and many distinct epochs where required.
+
+For each decision, record the functional requirement and evidence of agreement,
+necessary facts and owners, justified authored representation, normative runtime
+rule, a written distinguishing example with independently reasoned expectations,
+and any remaining alternatives. Specify types, units, variability, absence,
+defaults, inheritance/composition and invalid-data behavior where applicable.
+Keep authored information, consumer requests, resolved results and internal
+implementation state distinct. Choosing a field name or copying an old prototype
+is not a derivation.
+
+Integrate the candidate into the proposal's data model, normative runtime and
+conformance sections. Informative Appendix C supplies illustrative datasets and
+workflows; it cannot be the only source of a normative requirement. Private notes
+and generated downstream documents cannot supply missing behavior. Rewrite or
+remove contradictory legacy examples, while preserving functional requirement and
+question identifiers and explicitly recording any proposed change of intent.
+
+Before pinning a candidate for implementation, account for all known in-scope
+semantic gaps. Each is answered for that candidate or has separately complete,
+labeled alternatives. A reader must be able to determine the meaning and expected
+behavior/failure of the written examples from proposal text and referenced
+standards. Required behavior cannot be omitted by labeling it unsupported. Check
+both requirements-to-rules/examples coverage and authored-fields/observable-rules
+back to justified needs. Preserve implementation freedom where observable
+guarantees agree. Record group approval separately from candidate completeness.
+This gate does not claim that implementation cannot reveal new defects.
+
 ## Implementation, evidence and reverse review
 
 Derive the implementation and meaningful expected results independently from the
 written candidate. Exercise all required behavior and the retained datasets,
 including failures, composition, instances, units, epoch changes, animation,
 queries, complete geometry, extent/precision, edits, export and re-import.
+
+For requirement 31, Same definition, same meaning, include permitted WKT
+representation variants with otherwise identical scene/request context, and
+controls whose axes, units or datum actually differ. The evidence must distinguish
+syntax validity, normalized-text identity, coordinate interpretation and resolved
+results. Derive normalization from the specified profile, including consistent
+output across implementations, idempotence, precision and metadata preservation.
+A normalizer must not silently repair invalid input or erase meaningful changes
+to make text match. Token identity or a normalization round trip alone cannot
+establish all these properties. The current local candidate stores normalized WKT
+in the authored token; validation checks syntax and equality with its prescribed
+normalization without rewriting source values. Mandatory normalized storage is
+an additional authored-data restriction whose interoperability tradeoff must be
+reviewed explicitly; it is not a restriction required by OGC or by USD tokens.
+These are future evidence obligations, not tests executed during proposal review.
 
 Check both directions: every requirement/rule has appropriate evidence, and
 every observable implementation choice follows a justified model/runtime rule.
@@ -123,6 +230,6 @@ a known semantic gap is hidden. Historical passing counts and artifacts are not
 current evidence. Public delivery must contain no issue/PR backlinks to the
 upstream OpenUSD or proposal repositories.
 
-Current authorization is local work only. Nothing is pushed, posted, sent or
-written to Outlook. The next complete build and delivery are to be newly derived;
-this brief and its input pin are setup, not an executed run.
+The complete run is authorized for delivery to the existing fork draft.
+No external message or Outlook write is part of this run. Results and collateral
+are newly derived and their completed state is recorded by the run report.
