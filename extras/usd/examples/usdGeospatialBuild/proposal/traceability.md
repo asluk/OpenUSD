@@ -8,7 +8,7 @@
 | 4 | A site's own grid is a CRS like any other. | derived/compound calibration |
 | 5 | A discoverable CRS. | source binding preservation |
 | 6 | Declared for a subtree, not a prim. | nearest binding composition |
-| 7 | Composition agnostic | measurement source association |
+| 7 | Composition agnostic | equivalent composed stage interpretation through references, stronger opinions, variants and instances |
 | 8 | Brought-in data keeps its coordinates and its CRS. | physical placement under output selection |
 | 9 | Positions, and offsets from them. | placement versus post matrix |
 | 10 | Offsets along the axes of their position. | orientation and scale |
@@ -30,7 +30,7 @@
 | 26 | Declares its dependency. | writer dependency declaration |
 | 27 | Checkable before use. | stock authored validator |
 | 28 | A result says what produced it. | operation and accuracy result |
-| 29 | Implementable from the text alone. | independent runtimes; shared PROJ disclosed |
+| 29 | Implementable from the text alone. | shared proposal remains insufficient; independent experimental runtimes do not close its choices or agreement criteria |
 | 30 | Measurements remain usable as data. | measurement values/times/index preservation |
 | 31 | Same definition, same meaning. | lexical WKT normal form |
 

@@ -195,14 +195,27 @@ Initial fields must not obstruct a later OGC coordinate-metadata association.
 
 ## Export and results — experimental Q13/Q14
 
-Explicit export is a new derived asset, not a source edit. It records complete
-output CRS, sampled USD time codes and the sampling/interpolation record in root
-customLayerData. Resolved coordinate arrays are authored in that output CRS.
+Explicit export is a new derived asset, not a source edit. Its typed CRS
+definition and bindings record the complete output CRS; export metadata does
+not duplicate that WKT. A separate sampling/interpolation record accompanies
+the sampled USD time codes. Resolved coordinate arrays use that output CRS.
 Resolved model geometry retains double anchors and small local float geometry.
-Post adjustments are baked once; the exported bound model has identity post
-adjustments. It uses ordinary declared CRS/binding/placement facts, with no
-private already-resolved flag. A fresh reader resolves it without double
-conversion. Flattening composition alone is not this operation.
+The requirements do not demand identity ordinary transforms or rewritten
+vertices. Either a geometry-baked snapshot or an ordinary USD scene retaining
+its geometry/instances can represent the same sampled placed result. Source
+post-adjustment effects must occur exactly once in either representation.
+
+For a preserved-geometry snapshot, the output position is the resolved frame's
+origin and output orientation/scale are identity. In stage length axes let L
+be the resolved frame's linear part and a its origin. The ordinary post matrix
+has linear part L and row-vector translation a - a*L, so it acts about a.
+Its combination with the target-CRS placement reproduces the original resolved
+frame, including shear, without adding a geospatial shear field. Ordinary child
+geometry, instances, dataset properties and their metadata remain ordinary USD
+data. This is an experimental export representation, not an approved standard
+encoding. Both forms use declared CRS/binding/placement and ordinary USD facts,
+with no private already-resolved flag. A fresh reader resolves the sampled
+result once. Flattening composition alone does not perform the conversion.
 
 Results expose their CRS, values/units, operation choice, attributed operation
 accuracy and failures. Numerical coordinate agreement, source/control residuals
