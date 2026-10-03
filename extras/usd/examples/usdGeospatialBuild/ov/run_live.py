@@ -59,11 +59,15 @@ async def main():
                         widths=rp.GetAttribute('widths').Get()
                         if widths is None:raise RuntimeError('Runtime curve widths were not ingested')
                         radius=float(np.max(widths))/2;lo-=radius;hi+=radius
+                    # Ordinary UsdGeom extent is float3[], including the result
+                    # of curve-width expansion. Match that existing storage
+                    # precision when deriving it from consumed geometry.
+                    lo=lo.astype(np.float32).astype(float);hi=hi.astype(np.float32).astype(float)
                     b=Gf.BBox3d(Gf.Range3d(Gf.Vec3d(*lo),Gf.Vec3d(*hi)),local*Gf.Matrix4d(*matrix.ravel().tolist())).ComputeAlignedRange()
                     native=np.array([b.GetMin(),b.GetMax()])@axes.T*unit/fac
                     native=np.array([native.min(axis=0),native.max(axis=0)])
                     error=float(np.max(abs(native-np.array(rec['bounds'][path]))))
-                    if error>1e-6:raise RuntimeError('Live consumed geometry/widths/matrix differs from affine query bound')
+                    if error>1e-6:raise RuntimeError(f'Live consumed geometry/widths/matrix differs from affine query bound: {path}, {error}')
                     bound_readback[path]={'max_native_component_error':error}
             return {'matrices':matrices,'measurement_readback':len(rec['measurements']),'geometry_readback':consumed,'bounds_readback':bound_readback}
         from pxr import UsdGeom
