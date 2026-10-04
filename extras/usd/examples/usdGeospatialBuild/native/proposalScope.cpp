@@ -5,6 +5,7 @@
 #include "pxr/usd/sdf/types.h"
 #include "pxr/usd/sdf/listOp.h"
 #include "pxr/usd/sdf/layer.h"
+#include "pxr/usd/sdf/schema.h"
 #include <algorithm>
 #include <fstream>
 #include <iostream>
@@ -23,7 +24,7 @@ JsObject Discover(UsdPrim prim) {
         auto attribute = current.GetAttribute(TfToken("crs:wkt"));
         if (!attribute || !attribute.HasAuthoredValueOpinion())
             throw std::runtime_error("Nearest direct binding has no authored CRS definition");
-        if (attribute.GetTypeName() != SdfGetValueTypeNames().Token)
+        if (attribute.GetTypeName() != SdfValueTypeNames->Token)
             throw std::runtime_error("CRS definition must be a token");
         if (attribute.GetVariability() != SdfVariabilityUniform)
             throw std::runtime_error("CRS definition must be uniform");
