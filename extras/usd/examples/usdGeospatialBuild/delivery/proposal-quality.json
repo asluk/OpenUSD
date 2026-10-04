@@ -1,0 +1,743 @@
+{
+  "status": "Full published proposal audited; dependent placement derivation stopped",
+  "shared_proposal_commit": "39c8fb816a9113b14c8f64b020270724b8357312",
+  "source_sha256": "cae5e02e91064434e3b4da76b21655f29ce52a92d232b01a7462a1f941de88da",
+  "source_scope": "Entire shared proposal, including background, design, decisions and examples",
+  "classification": "Eight narrower missing contracts plus one existing dimensionality inconsistency. Earlier legacy contradictions are closed. These are not nine missing functional requirements.",
+  "semantic_gaps": [
+    {
+      "id": "G01",
+      "name": "Legacy contradictions",
+      "status": "closed",
+      "requirements": [
+        5,
+        6,
+        7,
+        9,
+        11,
+        19,
+        25
+      ],
+      "questions": [
+        2,
+        3,
+        11
+      ],
+      "already_defined": "The editorial revision removes obsolete callable interfaces, translate placement and binding-helper reset authoring. Reference-based binding remains the shared representation.",
+      "remaining": "No remaining legacy contradiction in these sections. The earlier relationship carrier is an implementation departure, not an unspecified binding choice.",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1360,
+          "clause": "### CRS binding and inheritance"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1467,
+          "clause": "### CRS association and model placement"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1537,
+          "clause": "### Transform stack and resetXformStack"
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "name": "Exact CRS placement property contract",
+      "status": "open",
+      "requirements": [
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        20
+      ],
+      "questions": [
+        2,
+        6
+      ],
+      "already_defined": "Separate CRS position, orientation and scale resolve before ordinary USD transforms. Direct binding sets the placement boundary; source positions interpolate before conversion.",
+      "remaining": "Property names, types, defaults or requiredness, applicability, and the bases and mutual order of orientation and scale are not defined. Internal differentiation or caching methods are implementation freedom.",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1176,
+          "clause": "#### Decision on question 2:"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1467,
+          "clause": "### CRS association and model placement"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 886,
+          "clause": "20. **Positions between recorded moments"
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "name": "Physical coordinate context of project adjustments",
+      "status": "open",
+      "requirements": [
+        5,
+        6,
+        8,
+        9,
+        11,
+        15,
+        16,
+        19
+      ],
+      "questions": [
+        3
+      ],
+      "already_defined": "Ordinary project adjustments apply after CRS placement. The adjusted physical placement survives output selection, including adjusted imagery. An enclosing binding supplies working context without replacing an independent source CRS.",
+      "remaining": "The authored coordinate frame giving an adjustment its physical meaning, and its derivation through nested scopes and output changes, are not specified. Adjusted measurements are not a new functional scope question.",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1242,
+          "clause": "#### Decision on question 3:"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 687,
+          "clause": "8. **Brought-in data keeps its coordinates"
+        }
+      ]
+    },
+    {
+      "id": "G04",
+      "name": "Remaining component conventions and scene result domain",
+      "status": "open",
+      "requirements": [
+        12,
+        13,
+        14,
+        16,
+        17,
+        18
+      ],
+      "questions": [
+        6,
+        9
+      ],
+      "already_defined": "Projected X/Y/Z means easting/northing/up. Geographic source positions and geographic coordinate queries are supported. Writers author stage-convention correctives.",
+      "remaining": "Other CRS component sets lack a complete mapping to authored placement components. Geographic scene geometry, frames and bounds remain separate from permitted geographic coordinate queries.",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 781,
+          "clause": "13. **One axis mapping"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1150,
+          "clause": "For open question 6,"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1129,
+          "clause": "Requirement 18 already permits geographic output"
+        }
+      ]
+    },
+    {
+      "id": "G05",
+      "name": "Prescribed WKT string normalization profile",
+      "status": "open",
+      "requirements": [
+        1,
+        2,
+        3,
+        21,
+        27,
+        28,
+        29,
+        31
+      ],
+      "questions": [
+        10
+      ],
+      "already_defined": "The complete WKT definition is authoritative. Requirement 31 requires normalized serialized text while preserving represented information. Token equality and geodetic equivalence are distinct.",
+      "remaining": "The required normal form is not prescribed or normatively referenced. A projection library round trip or a hand-chosen whitespace rule cannot establish proposal conformance.",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 636,
+          "clause": "31. **Same definition, same meaning"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1144,
+          "clause": "Open question 10 covers"
+        }
+      ]
+    },
+    {
+      "id": "G06",
+      "name": "Measurement-coordinate association",
+      "status": "open",
+      "requirements": [
+        2,
+        5,
+        6,
+        7,
+        12,
+        18,
+        19,
+        21,
+        27,
+        30
+      ],
+      "questions": [
+        11
+      ],
+      "already_defined": "Nearest direct binding defines composed subtree CRS scope. Measurement values retain their coordinate/time associations. Ordinary geometry vertices are offsets.",
+      "remaining": "The authored association identifying which properties or external-asset coordinates carry measurement positions is missing. Vector shape or property name cannot identify the role.",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1200,
+          "clause": "#### Decision on question 11:"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 935,
+          "clause": "30. **Measurements remain usable as data"
+        }
+      ]
+    },
+    {
+      "id": "G07",
+      "name": "Dependency declaration carrier and composition",
+      "status": "open",
+      "requirements": [
+        7,
+        19,
+        25,
+        26,
+        27
+      ],
+      "questions": [
+        12
+      ],
+      "already_defined": "A declaration must expose dependency without traversal and cover all placed content, including referenced and unloaded content and resolved export.",
+      "remaining": "The authored carrier and its composition rules are not specified. Searching for applied bindings does not satisfy a declaration promised without traversal.",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 999,
+          "clause": "26. **Declares its dependency"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1157,
+          "clause": "Open question 12 concerns"
+        }
+      ]
+    },
+    {
+      "id": "G08",
+      "name": "Extent and comparable-result agreement contract",
+      "status": "open",
+      "requirements": [
+        17,
+        18,
+        21,
+        22,
+        23,
+        24,
+        28,
+        29
+      ],
+      "questions": [
+        13
+      ],
+      "already_defined": "The engine selects operations and manages transformation resources. Results identify the operation and attributed accuracy. Consumers share resolution. Placement distance and extent must be stated.",
+      "remaining": "The claimed approximation domain and its satisfaction/reporting, comparable operations and agreement measure remain unspecified, including geographic distance. Full placement-chain accuracy propagation is not a requirement-28 obligation. Missing consumer tests are verification work.",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1285,
+          "clause": "#### Decision on question 13:"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 974,
+          "clause": "24. **Extent under one position"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1025,
+          "clause": "28. **A result says what produced it"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1043,
+          "clause": "29. **Implementable from the text alone"
+        }
+      ]
+    },
+    {
+      "id": "G09",
+      "name": "Export sampling-record representation",
+      "status": "open",
+      "requirements": [
+        18,
+        19,
+        20,
+        27,
+        30
+      ],
+      "questions": [
+        14
+      ],
+      "already_defined": "Explicit export records its output CRS and sampling, preserves values and associations, and rereads without repeating source conversion or private resolved flags.",
+      "remaining": "The authored sampling record must distinguish interpolation of exported samples from resolution of original source samples. Lost properties and fixture-specific export names are implementation defects, not new functional gaps.",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1219,
+          "clause": "#### Decision on question 14:"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 867,
+          "clause": "19. **Resolution leaves the scene as authored"
+        }
+      ]
+    },
+    {
+      "id": "G10",
+      "name": "Existing dimensionality inconsistency",
+      "status": "open",
+      "requirements": [
+        12,
+        21,
+        22,
+        30
+      ],
+      "questions": [
+        2,
+        6,
+        11
+      ],
+      "already_defined": "The background requires 3D CRS definitions. Missing height or unsupported transformations must not be guessed.",
+      "remaining": "The detailed schema and UTM appendix contain two-axis WKT examples. Reconcile whether they illustrate horizontal components or permit complete bound definitions. Do not silently broaden scope. This run uses only complete 3D examples.",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 167,
+          "clause": "### 3D CRS types"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1409,
+          "clause": "### GeospatialCRS typed schema"
+        },
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1874,
+          "clause": "### WGS 84 / UTM zone 11N"
+        }
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": 1,
+      "title": "Self-contained definitions",
+      "normative_statement": "A CRS carried in a scene can be read from the scene alone, without a lookup against an external registry.",
+      "source_line": 570,
+      "remaining_gap_ids": [
+        "G05"
+      ],
+      "current_evidence": "CRS discovery/composition only"
+    },
+    {
+      "id": 2,
+      "title": "Defined once, and describing no object",
+      "normative_statement": "A complete CRS definition used in many places is authored once and referred to, describes no object-specific placement, orientation or scale, and has its authored WKT as the sole authored authority for the information that WKT determines.",
+      "source_line": 583,
+      "remaining_gap_ids": [
+        "G05",
+        "G06"
+      ],
+      "current_evidence": "CRS discovery/composition only"
+    },
+    {
+      "id": 3,
+      "title": "Datum, realization and epoch",
+      "normative_statement": "The scene can identify the datum realization and any frame reference epoch defined by its CRS, without inferring a coordinate epoch for the coordinates.",
+      "source_line": 600,
+      "remaining_gap_ids": [
+        "G05"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 4,
+      "title": "A site's own grid is a CRS like any other",
+      "normative_statement": "A project grid — its origin, orientation and scale relative to a geodetic or projected CRS, and, where applicable, its heights relative to a vertical CRS, agreed once for a site — can be the CRS its content is expressed in, and content in it needs nothing that content in a national grid does not.",
+      "source_line": 612,
+      "remaining_gap_ids": [],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 5,
+      "title": "A discoverable CRS",
+      "normative_statement": "The CRS in which any authored position is expressed can be determined from the scene alone.",
+      "source_line": 656,
+      "remaining_gap_ids": [
+        "G03",
+        "G06"
+      ],
+      "current_evidence": "CRS discovery/composition only"
+    },
+    {
+      "id": 6,
+      "title": "Declared for a subtree, not a prim",
+      "normative_statement": "A CRS declared once applies to the content beneath it, and part of that content can declare a different one.",
+      "source_line": 666,
+      "remaining_gap_ids": [
+        "G03",
+        "G06"
+      ],
+      "current_evidence": "CRS discovery/composition only"
+    },
+    {
+      "id": 7,
+      "title": "Composition agnostic",
+      "normative_statement": "CRS declarations and their scope are interpreted on the composed stage, following the composition and value-resolution rules of the [AOUSD USD Core Specification v1.0.1](https://github.com/aousd/specifications-public/blob/main/core/1.0.1/core_spec.md).",
+      "source_line": 677,
+      "remaining_gap_ids": [
+        "G06",
+        "G07"
+      ],
+      "current_evidence": "CRS discovery/composition only"
+    },
+    {
+      "id": 8,
+      "title": "Brought-in data keeps its coordinates and its CRS",
+      "normative_statement": "Data authored in one CRS can be brought into a project working in another, and given project-specific placement, with its authored coordinate values and CRS unchanged and that placement preserved in any supported requested output CRS.",
+      "source_line": 687,
+      "remaining_gap_ids": [
+        "G03"
+      ],
+      "current_evidence": "CRS discovery/composition only"
+    },
+    {
+      "id": 9,
+      "title": "Positions, and offsets from them",
+      "normative_statement": "Content is placed by a position, orientation and scale with defined meaning in a named CRS, and the content beneath that placement is authored and moved as ordinary scene offsets in scene distances by someone who need know no geodesy.",
+      "source_line": 713,
+      "remaining_gap_ids": [
+        "G02",
+        "G03"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 10,
+      "title": "Offsets along the axes of their position",
+      "normative_statement": "Offsets beneath a CRS placement have an orientation and scale discoverable from its authored placement and CRS without resolving into another CRS, and resolution accounts for changes in local axes and scale as well as position.",
+      "source_line": 731,
+      "remaining_gap_ids": [
+        "G02"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 11,
+      "title": "Position or offset, and the scene says which",
+      "normative_statement": "Whether an authored location is a position in a CRS or an offset from its parent can be read from the scene, and a CRS position does not accumulate ancestor xformOps.",
+      "source_line": 750,
+      "remaining_gap_ids": [
+        "G02",
+        "G03"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 12,
+      "title": "No angle read as a length",
+      "normative_statement": "Every coordinate's unit, and the surface its height is measured from, are unambiguous, and no reading of the scene takes an angular coordinate as a scene distance.",
+      "source_line": 767,
+      "remaining_gap_ids": [
+        "G02",
+        "G04",
+        "G06",
+        "G10"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 13,
+      "title": "One axis mapping",
+      "normative_statement": "Which scene axis carries which CRS component is fixed by this proposal, the same for every CRS and every implementation, and never taken from the axis order a CRS declares: where a CRS has easting, northing and up, X carries easting, Y northing, Z up, right-handed.",
+      "source_line": 781,
+      "remaining_gap_ids": [
+        "G04"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 14,
+      "title": "Scene conventions stay the scene's",
+      "normative_statement": "A CRS binding changes neither the scene's units nor its up axis, and where a CRS's units or axes differ from the scene's, the relation between the two is defined by this proposal once, not by each implementation.",
+      "source_line": 794,
+      "remaining_gap_ids": [
+        "G02",
+        "G04"
+      ],
+      "current_evidence": "CRS discovery/composition only"
+    },
+    {
+      "id": 15,
+      "title": "Placement separate from conformance",
+      "normative_statement": "Where an instance sits is recorded separately from the corrections that adapt its source asset's conventions.",
+      "source_line": 807,
+      "remaining_gap_ids": [
+        "G02",
+        "G03"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 16,
+      "title": "One CRS out",
+      "normative_statement": "Content expressed in any number of CRSs resolves into one output CRS selected by the consumer, with the scene able to name a default for consumers that make no selection.",
+      "source_line": 819,
+      "remaining_gap_ids": [
+        "G03",
+        "G04"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 17,
+      "title": "The same answer for every consumer",
+      "normative_statement": "A world position, a bound, an instance, a physics body and a rendered image all come from the same resolution, and none of them needs a renderer.",
+      "source_line": 839,
+      "remaining_gap_ids": [
+        "G04",
+        "G08"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 18,
+      "title": "Coordinates back out",
+      "normative_statement": "Any resolved position can be reported as coordinates in any CRS the scene or the consumer names, and the placement of one prim relative to another can be asked for in the output CRS.",
+      "source_line": 852,
+      "remaining_gap_ids": [
+        "G04",
+        "G06",
+        "G08",
+        "G09"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 19,
+      "title": "Resolution leaves the scene as authored",
+      "normative_statement": "Resolving a scene writes nothing into it — authored coordinates, placement values, CRS definitions and bindings are unchanged — and writing a resolved result out is a separate, explicit act that records the CRS it was written in and, for content that varies over time, how it was sampled.",
+      "source_line": 867,
+      "remaining_gap_ids": [
+        "G03",
+        "G06",
+        "G07",
+        "G09"
+      ],
+      "current_evidence": "CRS discovery/composition only"
+    },
+    {
+      "id": 20,
+      "title": "Positions between recorded moments",
+      "normative_statement": "A position recorded as samples over time is interpolated on the recorded values, in the CRS they were recorded in, and converting the result to another CRS does not change the path.",
+      "source_line": 886,
+      "remaining_gap_ids": [
+        "G02",
+        "G09"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 21,
+      "title": "Never placed by a guess",
+      "normative_statement": "A requested transformation outside the supported scope or one that cannot be computed — no engine, a definition that cannot be read or is unsupported, a missing grid, a point outside the transformation's domain of validity, a requested change of coordinate epoch that the operation does not model — never places content by a substitute, a result that could only be partly computed is a failure and not a partial placement, and the failure surfaces where it can be known: in validation for what the authored scene reveals, from the engine for what only resolution can discover.",
+      "source_line": 903,
+      "remaining_gap_ids": [
+        "G05",
+        "G06",
+        "G08",
+        "G10"
+      ],
+      "current_evidence": "CRS discovery/composition only"
+    },
+    {
+      "id": 22,
+      "title": "A CRS suited to the project's size",
+      "normative_statement": "The scheme supports site, regional and global projects without requiring their geometry to be approximated by a single tangent plane.",
+      "source_line": 952,
+      "remaining_gap_ids": [
+        "G08",
+        "G10"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 23,
+      "title": "Detail that does not depend on location",
+      "normative_statement": "Changing only an asset's geospatial placement does not reduce the precision of its asset-relative geometry as authored.",
+      "source_line": 965,
+      "remaining_gap_ids": [
+        "G08"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 24,
+      "title": "Extent under one position is bounded and stated",
+      "normative_statement": "Content beneath one position is placed to within a stated distance of where placing each of its points would put it, and the extent over which that holds is stated.",
+      "source_line": 974,
+      "remaining_gap_ids": [
+        "G08"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 25,
+      "title": "Additive for consumers that ignore it",
+      "normative_statement": "A consumer that does not interpret the geospatial information reads the same scene it would have read without it.",
+      "source_line": 989,
+      "remaining_gap_ids": [
+        "G07"
+      ],
+      "current_evidence": "CRS discovery/composition only"
+    },
+    {
+      "id": 26,
+      "title": "Declares its dependency",
+      "normative_statement": "A scene whose correct placement depends on resolving CRSs says so, in a way a consumer can read without traversing the scene, and the declaration covers every piece of placed content in it.",
+      "source_line": 999,
+      "remaining_gap_ids": [
+        "G07"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 27,
+      "title": "Checkable before use",
+      "normative_statement": "What the scene itself establishes — a position nested beneath another position, a binding to no definition, content outside any CRS, a dependency declaration missing or left behind by a written-out result — can be detected in the authored scene without resolving it.",
+      "source_line": 1010,
+      "remaining_gap_ids": [
+        "G05",
+        "G06",
+        "G07",
+        "G09"
+      ],
+      "current_evidence": "CRS discovery/composition only"
+    },
+    {
+      "id": 28,
+      "title": "A result says what produced it",
+      "normative_statement": "A resolved result can name the coordinate operation that produced it and the accuracy attributed to it.",
+      "source_line": 1025,
+      "remaining_gap_ids": [
+        "G05",
+        "G08"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 29,
+      "title": "Implementable from the text alone",
+      "normative_statement": "Two implementations built from this proposal without consulting its authors give the same coordinate interpretation and, using equivalent coordinate operations, place the same scene within a stated agreement distance in the output CRS's units at a stated coordinate magnitude.",
+      "source_line": 1043,
+      "remaining_gap_ids": [
+        "G05",
+        "G08"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 30,
+      "title": "Measurements remain usable as data",
+      "normative_statement": "Georeferenced measurements remain accessible to consumers together with their associated positions and times, without requiring renderable geometry or a visualization, and coordinate resolution preserves those associations and measurement values.",
+      "source_line": 935,
+      "remaining_gap_ids": [
+        "G06",
+        "G09",
+        "G10"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    },
+    {
+      "id": 31,
+      "title": "Same definition, same meaning",
+      "normative_statement": "CRS definitions are authored in the proposal's prescribed WKT normal form, so OGC-permitted syntactic variants of the same definition normalize to identical text without losing represented information or changing coordinate interpretation or resolved coordinate results.",
+      "source_line": 636,
+      "remaining_gap_ids": [
+        "G05"
+      ],
+      "current_evidence": "Dependent resolution not executed in this run"
+    }
+  ],
+  "verification_gaps": [
+    "Placement, projection, Hydra/OV resolved geometry, relative frames, bounds, physics, measurement resolution and sampled exports were not executed because dependent contracts are incomplete.",
+    "CRS discovery controls do not validate the unspecified WKT normalization profile or the dependency declaration.",
+    "No geodetic accuracy, continuous extent guarantee or universal consumer conformance is claimed."
+  ],
+  "implementation_gaps": [
+    {
+      "id": "I01",
+      "status": "excluded from current execution",
+      "finding": "Retained earlier placement implementations expect a crs:binding relationship, while the shared proposal uses reference-based binding. A counterexample tests this incompatibility. Current discovery readers follow composed applied binding and crs:wkt instead."
+    }
+  ],
+  "investigation": [
+    {
+      "finding": "I substituted my candidate for shared-proposal authority.",
+      "evidence": "35b80973c froze candidate answers while runtime-open-decisions.md explicitly said group decisions were still needed. PLAN.md allowed completing experimental answers.",
+      "consequence": "A pre-code freeze prevented retrofitting but did not prove independent derivability from the proposal."
+    },
+    {
+      "finding": "I audited code against its candidate more thoroughly than the candidate against the actual proposal.",
+      "evidence": "The input selection excluded legacy callable/reset/translate sketches, although they remained in the shared proposal.",
+      "consequence": "The experiment bypassed contradictions instead of first producing a coherent proposal."
+    },
+    {
+      "finding": "I did not make known gaps stop completion.",
+      "evidence": "aba7900213 AUDIT.md explicitly retained the R24 gap. c1c3506be README nevertheless opened with complete experimental run and the deck led with a render.",
+      "consequence": "Execution completion became the headline and unresolved semantic dependencies became qualifications."
+    },
+    {
+      "finding": "The trace and tests did not check every required result.",
+      "evidence": "The original R7 trace incorrectly pointed to measurement association; the runner had no bounds or relative-frame result domains and required explicit output. Export tests used only data:-named fixture properties.",
+      "consequence": "Passing self-selected tests hid missing coverage and fixture-specific shortcuts."
+    },
+    {
+      "finding": "I did not distinguish decision freedom from an unspecified contract.",
+      "evidence": "The candidate prescribed field types, dimensionality, frame approximations and export metadata without those choices being settled in the shared model.",
+      "consequence": "Permission to explore labeled alternatives became a path to one executable candidate, rather than a blocking proposal-gap report."
+    }
+  ],
+  "process_correction": "Read the entire pinned proposal. Cite existing answers before identifying the smallest missing authored fact or observable meaning. A chosen internal algorithm or an absent test is not a new proposal gap. Stop the dependent derivation. Never certify a private experimental model as shared-proposal authority.",
+  "stopping_policy": [
+    "At each required semantic choice, cite its exact proposal clause or explicit normative reference.",
+    "If that source is missing or conflicting, stop the dependent derivation and immediately report the gap, affected requirement and proposed alternatives.",
+    "Continue only independent work or explicitly authorized labeled experiments. Keep their assumptions separate from proposal conformance.",
+    "Review any proposed specification repair against requirements and data ownership. Do not approve it because the implementation already uses it.",
+    "A semantic change requires a new pinned specification before affected code/tests and invalidates affected evidence.",
+    "A missing required test is unfinished verification, not an open design question.",
+    "The default build gate stops while specification gaps remain. An explicit experimental invocation records proposal_ready=false and requirements_build_complete=false."
+  ]
+}

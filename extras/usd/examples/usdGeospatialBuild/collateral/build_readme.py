@@ -8,6 +8,7 @@ def digest(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()
 
 def main():
+    raise RuntimeError('Historical experiment builder: use build_current_review.py for the current proposal-derived run')
     parser = argparse.ArgumentParser()
     parser.add_argument('--run-directory', required=True)
     args = parser.parse_args()

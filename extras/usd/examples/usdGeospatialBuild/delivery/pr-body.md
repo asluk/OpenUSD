@@ -6,7 +6,8 @@ The editorial revision closes obsolete interface and transform-authoring contrad
 
 Fresh evidence: 15 tests passed. Each reader passed 12 cases and 19 queries, giving 57 reader/query checks. Source layers and fixture bytes remained unchanged. This run executed zero projection or placement jobs and produced no resolved export.
 
-[Editable slides](delivery/geospatial-build.pptx) · [PDF](delivery/geospatial-build.pdf) · [Receipt](delivery/run-report.json) · [Proposal audit](QUALITY_REVIEW.md) · [Build loop](BUILD_LOOP.md)
+[Editable slides](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-build-loop/extras/usd/examples/usdGeospatialBuild/delivery/geospatial-build.pptx) · [PDF](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-build-loop/extras/usd/examples/usdGeospatialBuild/delivery/geospatial-build.pdf) · [Receipt](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-build-loop/extras/usd/examples/usdGeospatialBuild/delivery/run-report.json) · [Proposal audit](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-build-loop/extras/usd/examples/usdGeospatialBuild/QUALITY_REVIEW.md) · [Build loop](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-build-loop/extras/usd/examples/usdGeospatialBuild/BUILD_LOOP.md)
+
 
 ## What is already settled
 
@@ -43,18 +44,7 @@ Questions 2, 10, 11, 12 and 14 retain the specific representation work. The dime
 
 Operation accuracy, numerical agreement and approximation over an extent are different claims. A full placement-chain accuracy estimate is not a requirement-28 obligation. Internal differentiation, caching or adapter design is implementation freedom. Missing consumer tests are verification work, not new design questions.
 
-## A concrete composition result
-
-| Queried prim | Nearest direct binding | Returned definition |
-|---|---|---|
-| /World/Data | /World | Geocentric ITRF2020 |
-| /World/Independent/Data | /World/Independent | NAD83 grid with NAVD88 height |
-| /World/Unmarked | /World | Geocentric ITRF2020 |
-| /Assembly/Independent/Data | /Assembly/Independent | NAD83 grid with NAVD88 height |
-
-The independent descendant keeps its own source CRS when the scene is referenced into an assembly. An unmarked WKT property does not establish a new binding. A stronger layer can override the enclosing composed definition without changing the independent child. Equivalent composed data keeps this interpretation after ordinary flattening. This is CRS discovery, not computed geospatial placement or resolved export.
-
-## What this run executed
+## Verification
 
 | Control group | Cases | Queries per reader |
 |---|---:|---:|
@@ -69,18 +59,4 @@ Headless OpenUSD, independently written native C++ OpenUSD and a live OV stage e
 
 Partial checks reject absent binding, a broken nearest binding, wrong WKT type or variability and an empty definition. A broken nearest binding cannot fall back to an enclosing CRS. Available enclosing scope remains readable with a payload unloaded; content absent from that payload fails. These checks do not certify WKT normalization, the dependency declaration or whole-asset conformance.
 
-## Why earlier passing tests were insufficient
-
-The earlier freeze pinned private experimental answers, then tested code against those answers. A requirements-only intake excluded contradictory design text. Execution results became the headline despite known specification dependencies.
-
-The prior relationship-based placement reader fails a reference-binding fixture from the shared proposal. This run exposes that mismatch and excludes the old placement candidate. Passing tests cannot substitute a private model for the shared data contract.
-
-The default gate now stops dependent execution. It still finishes independently specified checks and delivers their receipt. No previous render, projected coordinate, export or test count is presented as evidence from this run. The remaining blockers are the named proposal contracts, not deferred mechanical work.
-
-## Reproducing this run
-
-The authoritative full proposal is `39c8fb816a9113b14c8f64b020270724b8357312`. Its verbatim Git blob is [proposal-source.txt](proposal/proposal-source.txt), SHA-256 `cae5e02e91064434e3b4da76b21655f29ce52a92d232b01a7462a1f941de88da`. All 31 requirements have source-line traces. The executed source commit is `d1746ce725999e2a472df6c6dee13a804ff732e2`. Six derived documents and executed source files are hashed in the receipt.
-
-Run `run.py --output <fresh-directory> --usd-sdk <native-USD-install> --native-python <linked-Python-DLL-directory> --native-build <configured-build> --ov-sdk <OV-install> --cmake <cmake>`. Use the native compiler environment. A successful specification-stopped run writes its receipt and returns exit code 2; test or runtime failures produce no successful receipt. `--experiment-with-open-specifications` cannot bypass this gate using the obsolete candidate.
-
-The current delivery contains the exact source fixtures, independently returned definitions and execution receipt. Historical full experiments remain in Git history, including source `53d6f96ae7820c228438cd4523ff995f4148e244`. The current build does not relabel them as proposal conformance.
+Executed source: `d1746ce725999e2a472df6c6dee13a804ff732e2`. Current receipt, fixtures and editable slides accompany the README. No placement or geodetic accuracy claim is made.
