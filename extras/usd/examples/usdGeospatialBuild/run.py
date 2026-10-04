@@ -1,4 +1,4 @@
-"""Execute the frozen candidate, all datasets, independent runtimes and reverse audit."""
+"""Execute full-proposal readiness and the controls with a defined shared contract."""
 from pathlib import Path
 import argparse,os,sys,json,hashlib,subprocess,datetime,xml.etree.ElementTree as ET,shutil,csv
 import numpy as np
@@ -59,7 +59,24 @@ def command(args,log,env=None,timeout=600):
     with Path(log).open('w',encoding='utf8') as f:r=subprocess.run(args,stdout=f,stderr=subprocess.STDOUT,env=env,timeout=timeout)
     if r.returncode:raise RuntimeError(f'Command failed ({r.returncode}); see {Path(log).name}')
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--grids',required=True);p.add_argument('--usd-sdk',required=True);p.add_argument('--native-build',required=True);p.add_argument('--native-proj',required=True,help='PROJ install with TIFF support');p.add_argument('--native-python',required=True,help='DLL directory for the Python version linked by the native USD SDK');p.add_argument('--ov-sdk',required=True);p.add_argument('--python-dependencies',required=True);p.add_argument('--output',required=True);p.add_argument('--cmake',default='cmake');p.add_argument('--experiment-with-open-specifications',action='store_true',help='Run a labeled experiment; never certify unresolved proposal semantics');a=p.parse_args();completion=require_derivable_proposal(ROOT,a.experiment_with_open_specifications);out=Path(a.output).resolve();out.mkdir(parents=True,exist_ok=True);pub=out/'delivery';pub.mkdir(exist_ok=True)
+    parser = argparse.ArgumentParser(description='Execute proposal readiness and independently specified controls')
+    for name in ['grids', 'usd-sdk', 'native-build', 'native-proj', 'native-python', 'ov-sdk', 'python-dependencies']:
+        parser.add_argument('--' + name)
+    parser.add_argument('--output', required=True)
+    parser.add_argument('--cmake', default='cmake')
+    parser.add_argument('--experiment-with-open-specifications', action='store_true')
+    args = parser.parse_args()
+    if args.experiment_with_open_specifications:
+        raise ProposalNotReady('Current derivation has no complete experimental placement contract. The obsolete relationship-based candidate cannot bypass the shared-proposal gate.')
+    from review.runner import execute
+    return execute(ROOT, args)
+
+def historical_experiment(a):
+    """Retained for source history only; no current entry point authorizes it."""
+    raise ProposalNotReady('Historical placement experiment excluded from the current derivation')
+    completion = require_derivable_proposal(ROOT)
+    out = Path(a.output).resolve()
+    pub = out/'delivery'
     inputs=json.loads((ROOT/'inputs.json').read_text())
     for name,value in inputs['candidate'].items():assert sha(ROOT/'proposal'/name)==value,'Candidate changed since freeze: '+name
     resources=json.loads((ROOT/'data/resources.json').read_text())
@@ -173,5 +190,5 @@ def main():
     shutil.copy2(ROOT/'proposal-quality.json',pub/'proposal-quality.json')
     (pub/'run-report.json').write_text(json.dumps(report,indent=2)+'\n');(out/'headless-results.json').write_text(json.dumps(headless)+'\n');print(json.dumps({'tests':len(cases),'comparison_jobs':len(summary),'delivery':str(pub)},indent=2))
 if __name__=='__main__':
-    try:main()
+    try:sys.exit(main())
     except ProposalNotReady as e:raise SystemExit(str(e))

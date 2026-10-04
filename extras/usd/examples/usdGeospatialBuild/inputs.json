@@ -1,11 +1,12 @@
 {
-  "status": "Proposal-quality follow-up candidate frozen before corrective code; shared-proposal gaps remain explicit",
+  "status": "Full shared proposal pinned; partial derivation frozen; dependent placement stopped",
   "proposal": {
-    "commit": "24fcce0c928515fb5206f813016b0e86a5ef08e6",
+    "commit": "39c8fb816a9113b14c8f64b020270724b8357312",
     "path": "proposals/geospatial_coordinate_reference_systems/README.md",
-    "sha256": "07d5cbf54ad0f55586ed4bb1683d502483edd2edec94d5694d9db3e1bc2dc9bc",
+    "sha256": "cae5e02e91064434e3b4da76b21655f29ce52a92d232b01a7462a1f941de88da",
     "sha256_basis": "Git blob bytes",
-    "source_selection": "functional requirements and recorded decisions; legacy callable interfaces excluded"
+    "snapshot": "proposal/proposal-source.txt",
+    "source_selection": "Entire published proposal; no design sections excluded"
   },
   "openusd": {
     "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
@@ -17,8 +18,8 @@
     "local_reference_revision": "18d8ee695647d81d022dbe70f4c4fef5f059d90d",
     "local_copy_sha256": "b2feeb2c900befe224a372b2d60d0ddcc6e35048ab54c32c17d5c085b44c642d"
   },
-  "inherited_geospatial_implementation": false,
-  "inherited_model_or_runtime_candidate": false,
+  "inherited_geospatial_implementation": true,
+  "inherited_model_or_runtime_candidate": true,
   "inherited_fixture_code_or_expected_outputs": false,
   "new_derivation_required": [
     "conceptual_model",
@@ -49,14 +50,6 @@
       "role": "WKT encoding including COORDINATEMETADATA"
     }
   ],
-  "candidate": {
-    "data-model.md": "681a40c21dfa965520d227701ca039b5dbe71174555a85903ab12c47440f7c45",
-    "distinguishing-examples.md": "7ea4df622bce499d89e19525ddbfe003e113e4f3ba6beee535cc8ccff463ff8e",
-    "requirements.md": "242be4caa2e8de1e9625fc51897d3bdcfd8ee7ac07894b8c9531046008e2e771",
-    "runtime-behavior.md": "c079ee7328fe8bfc4222d854c8dd47518528063dbf7d465a5472299910861fd4",
-    "runtime-open-decisions.md": "5838a1e14cd41bfa4baf2e2df1e38c8fac3f39d5140e332262426c65986af0e6",
-    "traceability.md": "27f80baea0e5bb3e65b9ac15cd410ee47a9010ade430a5b2f85a2350e82716e6"
-  },
   "previous_candidate": {
     "data-model.md": "12ca5dae026021959bcc676f8dcc9d718de639c4268cd3862cbf1a4d2514ece9",
     "distinguishing-examples.md": "3752737e664bfdfa79a594fb99f1d03b2230be092615f41b43567a3a48ae189a",
@@ -78,5 +71,15 @@
         "traceability.md": "4dc918a75083251f34f7ce4938863317d804ec5995f6625541f7e663d1bdaaee"
       }
     }
-  ]
+  ],
+  "derivation": {
+    "data-model.md": "b17d7a54a7b00d4cf58088d78023e982ec94c96a2b8af85d18052bf2e55ba5e6",
+    "distinguishing-examples.md": "52d4d182e9d0f1ea10ebda1626cf394f4312b60f81eb6414e9f249e6095aba2a",
+    "requirements.md": "71361319896a5b3b4be58d218033ea610792cb618c2dc1a2e47e1c7c5a42e6da",
+    "runtime-behavior.md": "228df78fd04b3df6479b317b2610dd8ae0dd10a71d1af062b5373a5088b5016d",
+    "runtime-open-decisions.md": "18938513d70937f2de2b5226598967d5c6556436fcb709b05bc0c574bc64218c",
+    "traceability.md": "68b074e563fc5828292b7c86e2e07a18e2025761b9a9f941772b804b95c1be42"
+  },
+  "inherited_code_execution": "Prior relationship-based placement code retained in history/source, excluded from current execution except an explicit incompatibility control.",
+  "current_execution": "Shared-proposal discovery/composition only. No placement experiment bypass is permitted."
 }

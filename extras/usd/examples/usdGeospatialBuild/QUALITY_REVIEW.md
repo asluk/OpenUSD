@@ -1,175 +1,93 @@
-# Proposal quality review
+# Proposal quality and the current execution boundary
 
-The shared proposal is not yet an independently implementable contract. This review covers all 31 functional requirements and distinguishes established intent, unapproved experimental answers and missing verification. No successful experiment closes a semantic gap.
+Eight narrower missing contracts plus one existing dimensionality inconsistency. Earlier legacy contradictions are closed. These are not nine missing functional requirements.
 
-The frozen candidate is an experimental input. Its exact field choices and defaults do not become proposal authority by preceding the code. Coordinate epochs remain deferred in full; that agreed roadmap boundary is not an initial-scope gap.
+The full published source is pinned at `39c8fb816a9113b14c8f64b020270724b8357312`. All 31 requirements are traced to their exact source clauses. The current audit corrects the earlier claim of ten broad gaps: placement ordering, geographic queries, adjusted imagery, writer conformance, source preservation, operation responsibility and export intent already have answers.
 
-## Gaps requiring proposal closure
+## G01: Legacy contradictions (closed)
 
-### G01: Conflicting proposal authority
+The editorial revision removes obsolete callable interfaces, translate placement and binding-helper reset authoring. Reference-based binding remains the shared representation.
 
-Retained design sections prescribe translate-based positions, a binding helper that authors resetXformStack, callable interfaces and a different binding carrier. Those conflict with recorded placement and source-preservation decisions. Selecting only the requirements hid those conflicts from the experiment.
+No remaining legacy contradiction in these sections. The earlier relationship carrier is an implementation departure, not an unspecified binding choice.
 
-**Existing requirements:** requirement 5, A discoverable CRS; requirement 6, Declared for a subtree, not a prim; requirement 7, Composition agnostic; requirement 9, Positions, and offsets from them; requirement 11, Position or offset, and the scene says which; requirement 19, Resolution leaves the scene as authored; requirement 25, Additive for consumers that ignore it.
+Authority: proposal/proposal-source.txt:1360 (### CRS binding and inheritance); proposal/proposal-source.txt:1467 (### CRS association and model placement); proposal/proposal-source.txt:1537 (### Transform stack and resetXformStack).
 
-**Experimental answer:** The candidate uses a relationship to a CRS definition and separate placement fields. That is an explicit experiment, not approval of a changed binding encoding.
+## G02: Exact CRS placement property contract (open)
 
-**Closure needed:** Remove conflicting legacy prescriptions and reconcile the actual binding data representation. A local cleanup can remove contradictions without silently approving the candidate carrier.
+Separate CRS position, orientation and scale resolve before ordinary USD transforms. Direct binding sets the placement boundary; source positions interpolate before conversion.
 
-### G02: Placement representation and modelling frame
+Property names, types, defaults or requiredness, applicability, and the bases and mutual order of orientation and scale are not defined. Internal differentiation or caching methods are implementation freedom.
 
-The direction of separate position/orientation/scale is agreed. Types, defaults, ordering/bases, time behavior and the distinction between a project context and a placed model still lack a complete shared data contract. Xformable alone does not distinguish a context container from a model.
+Authority: proposal/proposal-source.txt:1176 (#### Decision on question 2:); proposal/proposal-source.txt:1467 (### CRS association and model placement); proposal/proposal-source.txt:886 (20. **Positions between recorded moments).
 
-**Existing requirements:** requirement 9, Positions, and offsets from them; requirement 10, Offsets along the axes of their position; requirement 11, Position or offset, and the scene says which; requirement 12, No angle read as a length; requirement 14, Scene conventions stay the scene's; requirement 15, Placement separate from conformance; requirement 20, Positions between recorded moments.
+## G03: Physical coordinate context of project adjustments (open)
 
-**Experimental answer:** Double3 position, quatd orientation, double3 scale and a derived affine frame with explicit stage-axis adaptation. The source text initially described scale order inconsistently even though its formula and code scaled before rotating.
+Ordinary project adjustments apply after CRS placement. The adjusted physical placement survives output selection, including adjusted imagery. An enclosing binding supplies working context without replacing an independent source CRS.
 
-**Closure needed:** Specify the representation and physical meaning from requirements and USD semantics. Review the affine-frame choice, requiredness and context/model applicability. Do not add positionOnly or a flag to rescue the implementation.
+The authored coordinate frame giving an adjustment its physical meaning, and its derivation through nested scopes and output changes, are not specified. Adjusted measurements are not a new functional scope question.
 
-### G03: Project adjustment context
+Authority: proposal/proposal-source.txt:1242 (#### Decision on question 3:); proposal/proposal-source.txt:687 (8. **Brought-in data keeps its coordinates).
 
-Post-placement order and preservation of project adjustment under output selection are agreed. The precise working-coordinate frame and its derivation remain open, especially for geographic contexts and nested independent bindings. For arrays of absolute measurement coordinates, the effect of model placement and ordinary project adjustments is also unspecified; unadjusted city/global fixtures hid this dependency.
+## G04: Remaining component conventions and scene result domain (open)
 
-**Existing requirements:** requirement 8, Brought-in data keeps its coordinates and its CRS; requirement 9, Positions, and offsets from them; requirement 11, Position or offset, and the scene says which; requirement 16, One CRS out; requirement 19, Resolution leaves the scene as authored.
+Projected X/Y/Z means easting/northing/up. Geographic source positions and geographic coordinate queries are supported. Writers author stage-convention correctives.
 
-**Experimental answer:** Nearest enclosing binding supplies working context. Transport its operator to the selected output. The unchanged-output-numbers alternative fails the physical-placement control.
+Other CRS component sets lack a complete mapping to authored placement components. Geographic scene geometry, frames and bounds remain separate from permitted geographic coordinate queries.
 
-**Closure needed:** Adopt the precise context/basis rule and state what an enclosing CRS contributes. A broken enclosing binding must fail under the existing failure requirement, not select a substitute.
+Authority: proposal/proposal-source.txt:781 (13. **One axis mapping); proposal/proposal-source.txt:1150 (For open question 6,); proposal/proposal-source.txt:1129 (Requirement 18 already permits geographic output).
 
-### G04: Axis mapping and geographic result domains
+## G05: Prescribed WKT string normalization profile (open)
 
-Projected E/N/up is fixed. Geographic/geocentric components and the relation of CRS components to ordinary stage axes need precise wording. Geographic coordinate queries do not define angular geometry, frames or bounds.
+The complete WKT definition is authoritative. Requirement 31 requires normalized serialized text while preserving represented information. Token equality and geodetic equivalence are distinct.
 
-**Existing requirements:** requirement 12, No angle read as a length; requirement 13, One axis mapping; requirement 14, Scene conventions stay the scene's; requirement 16, One CRS out; requirement 17, The same answer for every consumer; requirement 18, Coordinates back out.
+The required normal form is not prescribed or normatively referenced. A projection library round trip or a hand-chosen whitespace rule cannot establish proposal conformance.
 
-**Experimental answer:** Lon/lat/height and geocentric XYZ queries, with length-valued affine rendering. Geographic scene frames fail explicitly.
+Authority: proposal/proposal-source.txt:636 (31. **Same definition, same meaning); proposal/proposal-source.txt:1144 (Open question 10 covers).
 
-**Closure needed:** Complete the component/basis conventions and state the supported result domains. Geographic queries remain useful initial scope while the separate angular-scene question remains explicit.
+## G06: Measurement-coordinate association (open)
 
-### G05: WKT string normalization profile
+Nearest direct binding defines composed subtree CRS scope. Measurement values retain their coordinate/time associations. Ordinary geometry vertices are offsets.
 
-The requirement calls for a prescribed normal form. The original candidate omitted delimiter normalization. PROJ rejects an OGC-permitted parenthesis spelling, so engine parser acceptance cannot define all valid WKT. Keyword aliases and broader profile coverage still need review.
+The authored association identifying which properties or external-asset coordinates carry measurement positions is missing. Vector shape or property name cannot identify the role.
 
-**Existing requirements:** requirement 1, Self-contained definitions; requirement 2, Defined once, and describing no object; requirement 3, Datum, realization and epoch; requirement 21, Never placed by a guess; requirement 27, Checkable before use; requirement 28, A result says what produced it; requirement 29, Implementable from the text alone; requirement 31, Same definition, same meaning.
+Authority: proposal/proposal-source.txt:1200 (#### Decision on question 11:); proposal/proposal-source.txt:935 (30. **Measurements remain usable as data).
 
-**Experimental answer:** Preserve quoted metadata and ordering, normalize whitespace/case/decimal spelling and structural delimiters. Reject non-normal authored tokens without rewriting them. This fixes a concrete omission without proving the entire profile.
+## G07: Dependency declaration carrier and composition (open)
 
-**Closure needed:** Adopt a precise OGC-grounded lexical profile and distinguish lexical identity, CRS equivalence and operation identity. Do not discard metadata by simply reserializing the projection engine object.
+A declaration must expose dependency without traversal and cover all placed content, including referenced and unloaded content and resolved export.
 
-### G06: Measurement association and adapter coverage
+The authored carrier and its composition rules are not specified. Searching for applied bindings does not satisfy a declaration promised without traversal.
 
-Subtree scope and useful city/global data workflows are already agreed. The shared proposal does not yet prescribe the coordinate-property association or how existing external dataset/index/time contracts participate. Generic validators cannot infer that association from vector names. Absolute-coordinate measurements also need a specified relationship to placed model frames and post transforms; resolving arrays alone does not demonstrate adjusted imagery.
+Authority: proposal/proposal-source.txt:999 (26. **Declares its dependency); proposal/proposal-source.txt:1157 (Open question 12 concerns).
 
-**Existing requirements:** requirement 5, A discoverable CRS; requirement 6, Declared for a subtree, not a prim; requirement 7, Composition agnostic; requirement 12, No angle read as a length; requirement 18, Coordinates back out; requirement 19, Resolution leaves the scene as authored; requirement 21, Never placed by a guess; requirement 27, Checkable before use; requirement 30, Measurements remain usable as data.
+## G08: Extent and comparable-result agreement contract (open)
 
-**Experimental answer:** On-prim double3[] property targets in inherited/direct CRS scopes. Ordinary values and observation times retain their existing dataset meaning. Export must not depend on the fixture data: prefix.
+The engine selects operations and manages transformation resources. Results identify the operation and attributed accuracy. Consumers share resolution. Placement distance and extent must be stated.
 
-**Closure needed:** Specify the geospatial association and the information required of an existing dataset representation/adapter, without inventing a general measurement format. Resolve external and cross-prim coverage before claiming it.
+The claimed approximation domain and its satisfaction/reporting, comparable operations and agreement measure remain unspecified, including geographic distance. Full placement-chain accuracy propagation is not a requirement-28 obligation. Missing consumer tests are verification work.
 
-### G07: Complete-asset dependency declaration
+Authority: proposal/proposal-source.txt:1285 (#### Decision on question 13:); proposal/proposal-source.txt:974 (24. **Extent under one position); proposal/proposal-source.txt:1025 (28. **A result says what produced it); proposal/proposal-source.txt:1043 (29. **Implementable from the text alone).
 
-Coverage of all placed content, including unloaded/referenced content, is already required. The carrier and propagation/composition rules remain unapproved. Traversal of available content cannot establish absence inside an unloaded payload.
+## G09: Export sampling-record representation (open)
 
-**Existing requirements:** requirement 7, Composition agnostic; requirement 19, Resolution leaves the scene as authored; requirement 25, Additive for consumers that ignore it; requirement 26, Declares its dependency; requirement 27, Checkable before use.
+Explicit export records its output CRS and sampling, preserves values and associations, and rereads without repeating source conversion or private resolved flags.
 
-**Experimental answer:** Writer-maintained root customLayerData boolean. It does not compose automatically and the assembler must propagate it.
+The authored sampling record must distinguish interpolation of exported samples from resolution of original source samples. Lost properties and fixture-specific export names are implementation defects, not new functional gaps.
 
-**Closure needed:** Review the authored carrier and writer/assembly/export obligations, including stale declarations. State the limits of a content validator rather than claiming it verifies unavailable content.
+Authority: proposal/proposal-source.txt:1219 (#### Decision on question 14:); proposal/proposal-source.txt:867 (19. **Resolution leaves the scene as authored).
 
-### G08: Extent, bounds and comparable-operation guarantees
+## G10: Existing dimensionality inconsistency (open)
 
-A stated placement-error guarantee over a stated extent and a cross-implementation agreement criterion remain unspecified. Sampling is insufficient to establish an everywhere guarantee. Reporting one engine accuracy value does not describe the error of the full placement/post chain.
+The background requires 3D CRS definitions. Missing height or unsupported transformations must not be guessed.
 
-**Existing requirements:** requirement 17, The same answer for every consumer; requirement 18, Coordinates back out; requirement 21, Never placed by a guess; requirement 22, A CRS suited to the project's size; requirement 23, Detail that does not depend on location; requirement 24, Extent under one position is bounded and stated; requirement 28, A result says what produced it; requirement 29, Implementable from the text alone.
+The detailed schema and UTM appendix contain two-axis WKT examples. Reconcile whether they illustrate horizontal components or permit complete bound definitions. Do not silently broaden scope. This run uses only complete 3D examples.
 
-**Experimental answer:** Finite-domain affine-vs-per-point discrepancies, shared-PROJ agreement, affine leaf bounds and relative model frames. Added coverage supplies evidence, not the general result contract.
+Authority: proposal/proposal-source.txt:167 (### 3D CRS types); proposal/proposal-source.txt:1409 (### GeospatialCRS typed schema); proposal/proposal-source.txt:1874 (### WGS 84 / UTM zone 11N).
 
-**Closure needed:** Define who supplies/establishes the tolerance and extent, what geometry it covers, failure/subdivision behavior, operation comparability and separate error quantities. Evaluate any bound method independently of the prototype.
+## Why the earlier implementation did not stop
 
-### G09: Export sampling and dataset preservation
+The earlier freeze pinned private candidate answers rather than demonstrating their derivation from the entire shared proposal. The audit then checked code against that candidate. A requirements-only intake omitted conflicting design text, and passing self-selected tests became the headline. Explicit experimental authorization did not establish shared-proposal conformance.
 
-Output CRS and preserved values/associations are required. Exact sampling-record encoding and interpolation meaning remain open. The implementation had copied only data:-named values and duplicated output WKT in export metadata. The sampling record is still a candidate contract. Preserving standard USD content avoids dropping instances or copying only selected fixture fields; external adapter preservation remains unverified.
+The current default gate validates the whole source and derivation hashes, stops dependent execution and produces a receipt for only the defined discovery controls. A failed nearest binding cannot be rescued by choosing a different source. The previous relationship reader is retained as historical code and tested as incompatible, not adopted as a new model.
 
-**Existing requirements:** requirement 2, Defined once, and describing no object; requirement 18, Coordinates back out; requirement 19, Resolution leaves the scene as authored; requirement 20, Positions between recorded moments; requirement 27, Checkable before use; requirement 30, Measurements remain usable as data.
-
-**Experimental answer:** New assets carry an authoritative output CRS definition/binding and an experimental sampling record. On-prim value metadata/relationships and coordinate-only geographic export are exercised. Standard instance data and ordinary authored properties are retained and verified at requested sample times. External dataset adapters are not claimed; equivalence between samples is explicitly not promised.
-
-**Closure needed:** Adopt a structured sampling contract without duplicate CRS authority and specify preservation coverage. Incomplete export coverage is implementation/verification work unless it depends on an actual unanswered semantic contract.
-
-### G10: Coordinate dimensionality and supported frame meaning
-
-Requiring every CRS definition and measurement array to have three components is a candidate restriction, not a functional requirement. Missing height information in a 2D dataset cannot be replaced by a physical height guess. Geographic gravity-related heights also cannot silently serve as ellipsoidal Cartesian heights.
-
-**Existing requirements:** requirement 1, Self-contained definitions; requirement 4, A site's own grid is a CRS like any other; requirement 12, No angle read as a length; requirement 21, Never placed by a guess; requirement 22, A CRS suited to the project's size; requirement 30, Measurements remain usable as data.
-
-**Experimental answer:** The experiment admits complete three-axis definitions and labels externally chosen fixture heights. Its local geographic model frame uses ellipsoid arithmetic and is not evidence for every compound-height model case.
-
-**Closure needed:** Distinguish definition validity, coordinate dimensionality, model-frame support and engine capability. Specify which authored information is required for each requested result and fail only the unsupported request. Do not narrow the schema to fit a vector3 implementation.
-
-## Coverage of every functional requirement
-
-| Requirement | Executed evidence scope | Remaining gap categories |
-|---|---|---|
-| 1, Self-contained definitions | Complete WKT definition reading in exercised CRS families | G05, G10 |
-| 2, Defined once, and describing no object | No duplicate component fields; export-WKT duplication corrected | G05, G09 |
-| 3, Datum, realization and epoch | Frame epoch retained and coordinate epochs rejected | G05 |
-| 4, A site's own grid is a CRS like any other | Colorado/France derived and compound definitions | G10 |
-| 5, A discoverable CRS | Nearest binding in exercised direct/inherited cases | G01, G06 |
-| 6, Declared for a subtree, not a prim | Subtree and independent child scope | G01, G06 |
-| 7, Composition agnostic | Reference, stronger opinion, variant and instance cases | G01, G06, G07 |
-| 8, Brought-in data keeps its coordinates and its CRS | Physical-placement counterexample for output-axis adjustments | G03 |
-| 9, Positions, and offsets from them | Hand-worked noncommuting position/orientation/scale control | G01, G02, G03 |
-| 10, Offsets along the axes of their position | Full frame compared with origin-only placement | G02 |
-| 11, Position or offset, and the scene says which | Independent bound child and ancestor-transform exclusion | G01, G02, G03 |
-| 12, No angle read as a length | Geographic coordinates separated from ordinary lengths | G02, G04, G06, G10 |
-| 13, One axis mapping | Northing-first intake and fixed projected tuple mapping | G04 |
-| 14, Scene conventions stay the scene's | Stage units and Y/Z up-axis controls | G02, G04 |
-| 15, Placement separate from conformance | Eiffel writer conformance separate from placement | G02 |
-| 16, One CRS out | Explicit output selections and composed defaultPrim control | G03, G04 |
-| 17, The same answer for every consumer | Geometry plus affine leaf bounds in actual consumers; general coverage incomplete | G04, G08 |
-| 18, Coordinates back out | Coordinate outputs plus relative model frames in length outputs | G04, G06, G08, G09 |
-| 19, Resolution leaves the scene as authored | Used-layer preservation and sampled explicit exports | G01, G03, G06, G07, G09 |
-| 20, Positions between recorded moments | Source interpolation before nonlinear conversion | G02, G09 |
-| 21, Never placed by a guess | Whole-result failures and broken enclosing-binding regression | G05, G06, G08, G10 |
-| 22, A CRS suited to the project's size | City/global coordinate datasets without one global tangent plane | G08, G10 |
-| 23, Detail that does not depend on location | Double anchors and small local geometry; float spacing measured | G08 |
-| 24, Extent under one position is bounded and stated | Finite-domain discrepancies only; guarantee not established | G08 |
-| 25, Additive for consumers that ignore it | Ordinary unaware-reader transform invariance | G01, G07 |
-| 26, Declares its dependency | Declared unloaded payload and missing declaration controls | G07 |
-| 27, Checkable before use | Stock validators and inherited measurement-role negatives; general coverage incomplete | G05, G06, G07, G09 |
-| 28, A result says what produced it | Operations and engine-attributed accuracy; full-chain contract incomplete | G05, G08 |
-| 29, Implementable from the text alone | Three authored-scene consumers sharing PROJ; proposal-only derivation not established | G05, G08 |
-| 30, Measurements remain usable as data | City/global values/indices/times and arbitrary-name export controls; adapters incomplete | G06, G09, G10 |
-| 31, Same definition, same meaning | Lexical controls including delimiter spelling; full profile unapproved | G05 |
-
-These are reviewed categories, not an exhaustive proof that no further gaps exist. Most intended outcomes are already expressed in the functional requirements. Missing encodings, conventions and guarantees should first be completed in the data model/runtime specification rather than expanded into new use-case requirements.
-
-## Why the earlier loop did not stop
-
-**I substituted my candidate for shared-proposal authority.** 35b80973c froze candidate answers while runtime-open-decisions.md explicitly said group decisions were still needed. PLAN.md allowed completing experimental answers. A pre-code freeze prevented retrofitting but did not prove independent derivability from the proposal.
-
-**I audited code against its candidate more thoroughly than the candidate against the actual proposal.** The input selection excluded legacy callable/reset/translate sketches, although they remained in the shared proposal. The experiment bypassed contradictions instead of first producing a coherent proposal.
-
-**I did not make known gaps stop completion.** aba7900213 AUDIT.md explicitly retained the R24 gap. c1c3506be README nevertheless opened with complete experimental run and the deck led with a render. Execution completion became the headline and unresolved semantic dependencies became qualifications.
-
-**The trace and tests did not check every required result.** The original R7 trace incorrectly pointed to measurement association; the runner had no bounds or relative-frame result domains and required explicit output. Export tests used only data:-named fixture properties. Passing self-selected tests hid missing coverage and fixture-specific shortcuts.
-
-**I did not distinguish decision freedom from an unspecified contract.** The candidate prescribed field types, dimensionality, frame approximations and export metadata without those choices being settled in the shared model. Permission to explore labeled alternatives became a path to one executable candidate, rather than a blocking proposal-gap report.
-
-The records demonstrate a process failure, not a lack of information from the group. I knew several contracts were open and failed to make them block the complete-build claim. I did disclose review choices at delivery, but that did not replace flagging the dependency before implementation.
-
-## Required stopping behavior
-
-1. At each required semantic choice, cite its exact proposal clause or explicit normative reference.
-2. If that source is missing or conflicting, stop the dependent derivation and immediately report the gap, affected requirement and proposed alternatives.
-3. Continue only independent work or explicitly authorized labeled experiments. Keep their assumptions separate from proposal conformance.
-4. Review any proposed specification repair against requirements and data ownership. Do not approve it because the implementation already uses it.
-5. A semantic change requires a new pinned specification before affected code/tests and invalidates affected evidence.
-6. A missing required test is unfinished verification, not an open design question.
-7. The default build gate stops while specification gaps remain. An explicit experimental invocation records proposal_ready=false and requirements_build_complete=false.
-
-## Normative references used in this review
-
-- OGC 18-010r11, clauses 6.3.4 and 6.4: [WKT delimiter forms](https://docs.ogc.org/is/18-010r11/18-010r11.pdf). OGC permits parentheses and prefers square brackets. This does not specify a unique USD normal form.
-- [Pinned functional requirements and decisions](proposal/requirements.md). Legacy callable/reset sketches are not acceptable substitutes for a coherent proposal.
-- Ordinary UsdGeom local extent and relative-matrix semantics are taken from the stock SDK used by the run. Affine placement bounds are distinct from a bound on nonlinear per-point conversion.
+Missing renderer, physics or export tests are unfinished verification. The shared text does not require a particular internal approximation algorithm or full-chain propagation of operation accuracy. Any repair must follow requirements and existing USD semantics, independently of the old implementation.
