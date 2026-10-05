@@ -1,16 +1,19 @@
 {
-  "status": "placement derivation stopped; shared CRS discovery controls executed",
-  "completed_utc": "2026-10-04T16:00:01.792857+00:00",
-  "source_commit": "d1746ce725999e2a472df6c6dee13a804ff732e2",
+  "status": "full placement derivation stopped; local-candidate discovery, source-placement, WKT and direct-origin controls executed",
+  "completed_utc": "2026-10-05T01:16:20.359275+00:00",
+  "source_commit": "6d8323764ad44953887cac9781375b7c7176e928",
   "inputs": {
-    "status": "Full shared proposal pinned; partial derivation frozen; dependent placement stopped",
+    "status": "Local candidate pinned; defined controls executed, four dependent contracts remain open",
     "proposal": {
-      "commit": "39c8fb816a9113b14c8f64b020270724b8357312",
+      "base_commit": "39c8fb816a9113b14c8f64b020270724b8357312",
       "path": "proposals/geospatial_coordinate_reference_systems/README.md",
-      "sha256": "cae5e02e91064434e3b4da76b21655f29ce52a92d232b01a7462a1f941de88da",
-      "sha256_basis": "Git blob bytes",
+      "sha256": "a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904",
+      "sha256_basis": "Exact local file bytes",
+      "git_blob": "f52e9e3500781f486b74d1aa1dc26c4ddcf18a33",
       "snapshot": "proposal/proposal-source.txt",
-      "source_selection": "Entire published proposal; no design sections excluded"
+      "status": "Unpublished local review candidate; proposed choices are not group adoption",
+      "source_selection": "Entire local candidate, including all local binding/reset and placement/WKT clarifications",
+      "local_changes": "proposal/local-draft.patch"
     },
     "openusd": {
       "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
@@ -77,24 +80,28 @@
       }
     ],
     "derivation": {
-      "data-model.md": "b17d7a54a7b00d4cf58088d78023e982ec94c96a2b8af85d18052bf2e55ba5e6",
-      "distinguishing-examples.md": "52d4d182e9d0f1ea10ebda1626cf394f4312b60f81eb6414e9f249e6095aba2a",
-      "requirements.md": "71361319896a5b3b4be58d218033ea610792cb618c2dc1a2e47e1c7c5a42e6da",
-      "runtime-behavior.md": "228df78fd04b3df6479b317b2610dd8ae0dd10a71d1af062b5373a5088b5016d",
-      "runtime-open-decisions.md": "18938513d70937f2de2b5226598967d5c6556436fcb709b05bc0c574bc64218c",
-      "traceability.md": "68b074e563fc5828292b7c86e2e07a18e2025761b9a9f941772b804b95c1be42"
+      "data-model.md": "840521687273f38d3dee3d61985d65b5727bdbff6eb5db751877a19b515e9ee4",
+      "distinguishing-examples.md": "c689c307683616c6640561ebd33148e1962a8dd2818ec5eedbf0130c0bcf4199",
+      "requirements.md": "bbd1f89e1c54d4156a78d10a203b0ad9d25e6b016b2a02a3e5dc933bfd58c0b4",
+      "runtime-behavior.md": "5b904b53531cd6db3237a9df8bf769f3224ce42216d9627f0980778c94c4dd0c",
+      "runtime-open-decisions.md": "63fe5d76f083a4453e0ab1de742e7fc08831dd452866e43eda3ccc2730c04acc",
+      "traceability.md": "59dc42e39a8069b4b5b03175a7c674e7623080fe189088a247a586f1fba0939f"
     },
     "inherited_code_execution": "Prior relationship-based placement code retained in history/source, excluded from current execution except an explicit incompatibility control.",
-    "current_execution": "Shared-proposal discovery/composition only. No placement experiment bypass is permitted."
+    "current_execution": "Composition/discovery, source placement values, bounded WKT normalizer and adjustment-free anchor-origin coordinate queries",
+    "normalizer_references": [
+      "OGC 18-010r11 clauses 6\u20137 and Annex B",
+      "W3C XML Schema Part 2 canonical integer and decimal lexical representations"
+    ]
   },
   "source_files": {
-    "AUDIT.md": "6b54b11a6dfdf2b49f6369b7bcf98b711a90fe0f2dfcb19abb151ad50ad70174",
-    "BUILD_LOOP.md": "cd04141b500eef57ad59b305b79adb1358c61c3c6b11f78b617e5b28e4ac803e",
-    "inputs.json": "9de9abdad0ba007c0fe2ccf795405b0cbca27149dacac5b61854a69c98f86087",
+    "AUDIT.md": "e40fae5cc492b15185608d75c51ea289fd94d1f792de35171e223fca7261a006",
+    "BUILD_LOOP.md": "17f7e258a89d343d03424c343594ba48a43dfd3e2ea3e544446bff1f30a2f684",
+    "inputs.json": "d01d1e6017f09fafdeef273202a6546cfe423103c89e79a8aeefa43bed40ae78",
     "intake.py": "14c396787d8248af13402ca4476d902f9522ea613a4ad9b07b6fa54a15241bc9",
-    "PLAN.md": "20a6a1edeba9f2dae7862323f37952b4dd3ac420cd131ecbf392bc4e0ee2abe4",
-    "proposal-quality.json": "9873583f75dbb8413393e486a3a725ebccbeb977b986002998b3d46f31aa6e28",
-    "QUALITY_REVIEW.md": "b3fc859b603bb5d33439205476003f7aff5388b67061dd9409daad59aa637f28",
+    "PLAN.md": "ac93e0eeb756bc76d6f4d87e27f8d10dc3ce5d7cebf224586e208571620837d7",
+    "proposal-quality.json": "f70f1449e63a8656b8e7d2c944903faf1e4ba27af27a1853f2b59733a6b959f6",
+    "QUALITY_REVIEW.md": "da6ffb9f6423665305f33da750c721902a7d0fb3743d43ebcf96ca090a9bde4c",
     "run.py": "28f590410a12ff009831e1692b402ab2c9c6c9aca46aec4152e98ac5d18836c7",
     "targets.json": "d4213d3e3269d0ce28eba66e8d31f39455ad02a64a71277acb3ab3d823da6609",
     "data/LICENSE-partner.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
@@ -109,30 +116,36 @@
     "geobuild/__init__.py": "ba8d346729b57cfbacfcaf07cb32bd0ef127759f9f06761f98b88d654d31f3a5",
     "geospatialValidation/plugInfo.json": "8c73f2e4b7cab0b323cc322e43c7d6f54370d3bfa8c025d6813b4b6525ee26ad",
     "geospatialValidation/__init__.py": "ce9f8dec280c9150ad6ea4548183063623e9e9bb6116940bf401e3764dfc8a07",
-    "native/CMakeLists.txt": "7fdf20adab843bdc0a3aa5ac2e3ac1b91b814774bab99cbadab01a62de4a53e4",
+    "native/CMakeLists.txt": "535f440accd9b3fbd2f311493ffec91f8dc4f9b9b40ed4084d8cd4387711001a",
     "native/main.cpp": "1cf7babf3126ea54b009b80161568282b3bdb6b38cbe8d61b7303ceb72aacbec",
+    "native/originQuery.h": "803f92a82256ddb6064187f510950a2778d0b5540083733ce0e79f4d208636e5",
     "native/placement.cpp": "2190a9cd76c951b71579fa0bd98fe02126c27516569d4a5aabcfc363434fbe5a",
     "native/placement.h": "48b661478ecfeb3655fee14b52e7b6cdddc5ff7c9725a0f8b3113ed9fd61bae6",
     "native/plugInfo.json": "9c790802a2d78b33e93f8ac963e4785ff2f4bda55287fd4df3e2d00ef488d113",
-    "native/proposalScope.cpp": "bf1f6f1f12b36fdb41865932fc458833e0a32c0edad45f0ec1a14b311b517bc1",
+    "native/proposalScope.cpp": "fd93e82c0aa2e353b5cce6796792c68a23081d95e2906d1cf70d2e48a58b14f1",
     "native/validation.cpp": "9dd156fdfa16770fa1f8d4b285a5e074d17a11e58547b4a6ad6c1f767bbd5794",
     "ov/geobuild.kit": "5fc4d60271d18a04ad3b6675539033f1c06b37e86ce6b2cba25ed20b02e69d88",
     "ov/independent.py": "670186dfc62f3ee3e424302e3f7f72370de12bac5cb7b9d70d14147180d9a81d",
     "ov/launch.py": "2fe020bf650091651d52b3b705122de0b869adfc7fc32173f9cb6cb34ce0f1d9",
     "ov/run_live.py": "1f713a91cc9c52836201e27d7a932ff9ecbc2e11a934c9829ed0358faa6a8553",
-    "proposal/data-model.md": "b17d7a54a7b00d4cf58088d78023e982ec94c96a2b8af85d18052bf2e55ba5e6",
-    "proposal/distinguishing-examples.md": "52d4d182e9d0f1ea10ebda1626cf394f4312b60f81eb6414e9f249e6095aba2a",
-    "proposal/proposal-source.txt": "cae5e02e91064434e3b4da76b21655f29ce52a92d232b01a7462a1f941de88da",
-    "proposal/requirements.md": "71361319896a5b3b4be58d218033ea610792cb618c2dc1a2e47e1c7c5a42e6da",
-    "proposal/runtime-behavior.md": "228df78fd04b3df6479b317b2610dd8ae0dd10a71d1af062b5373a5088b5016d",
-    "proposal/runtime-open-decisions.md": "18938513d70937f2de2b5226598967d5c6556436fcb709b05bc0c574bc64218c",
-    "proposal/traceability.md": "68b074e563fc5828292b7c86e2e07a18e2025761b9a9f941772b804b95c1be42",
-    "review/fixtures.py": "0f8d3108bee7c363e09645a48d1470bcfa7769749a126de5db2f7c51e394eac5",
-    "review/ov_scope_launch.py": "e488e0fe0ae5fdb0e24cfde7611aab0d23d2196814eae2840917606605e1f89d",
-    "review/runner.py": "ecba6d488e104e743bcbe915587d22846ea6109c56d96084062d51537ae66679",
+    "proposal/data-model.md": "840521687273f38d3dee3d61985d65b5727bdbff6eb5db751877a19b515e9ee4",
+    "proposal/distinguishing-examples.md": "c689c307683616c6640561ebd33148e1962a8dd2818ec5eedbf0130c0bcf4199",
+    "proposal/proposal-source.txt": "a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904",
+    "proposal/requirements.md": "bbd1f89e1c54d4156a78d10a203b0ad9d25e6b016b2a02a3e5dc933bfd58c0b4",
+    "proposal/runtime-behavior.md": "5b904b53531cd6db3237a9df8bf769f3224ce42216d9627f0980778c94c4dd0c",
+    "proposal/runtime-open-decisions.md": "63fe5d76f083a4453e0ab1de742e7fc08831dd452866e43eda3ccc2730c04acc",
+    "proposal/traceability.md": "59dc42e39a8069b4b5b03175a7c674e7623080fe189088a247a586f1fba0939f",
+    "review/fixtures.py": "79ebd5531d05a5e2c8cea465d29db7bd0efde3d0e4bd9fc2fdce965e0a7d5aca",
+    "review/fixture_definitions.py": "6693d851adbc56e256ffb122c9c38b3550a7df34754d1abfb83068930d92d7ae",
+    "review/origin_queries.py": "74cb286631e2ac04bb5b974c314bf9c6e679da7845e0dbc5c3cbdbf43eef6d26",
+    "review/ov_scope_launch.py": "2012f7825003d81ffd9988c3f5c36f4f2d03c277c5d04377e0663b21d74d9412",
+    "review/placement_values.py": "32b846f2390148b5e9a36fd4896116d69413966f02958d923b4c36da1b0176cf",
+    "review/runner.py": "817264f18235aa91e17b70af51f592ba6c003c6b01359eef7c27ffcb9e24c2b2",
     "review/scope.kit": "9ab33398c28b048d09e21f9049eed74f1fc1b78f91797a71dd87afa452665906",
     "review/scope.py": "5fb7b287cb7144efbd6f5ddd9abd27afe9e4157aa6c70bfa1c45bb5f4fa94f45",
-    "review/test_contracts.py": "0990b1a3e977fa49fb9672f2cb0a7cd7faeaee6e99c7f51eb8ef111b0d491bee",
+    "review/test_contracts.py": "8851ff9e907ee63cdc6262d422120a9715549c7063e588a461906ede6d4ba4f5",
+    "review/test_wkt_contracts.py": "75dec51fea396448983b07d44c2c024db10322d5ce4aa492d25ccd95ce01226f",
+    "review/wkt_profile.py": "9e120def24d3d7eadaa960913a56d42313c4b1194b1f98a61f2902b309720b6d",
     "review/__init__.py": "1da7ada131921d0bbda633563a594b15f794be1158694c55d9671cc91683f1e1",
     "scenes/city.usda": "d9f1c0d369823f0aa99d8464fc7ed29d24dbf4156e72e5c6a79cb48ba8ac8e0d",
     "scenes/climate.usda": "4ef8879fc65957172b51112f7d1d410ed22b9af22285f444f1e5611715dc83e2",
@@ -170,31 +183,27 @@
     "proposal_ready": false,
     "requirements_build_complete": false,
     "open_semantic_gap_ids": [
-      "G02",
       "G03",
       "G04",
-      "G05",
       "G06",
-      "G07",
-      "G08",
-      "G09",
-      "G10"
+      "G07"
     ],
     "verification_gaps": [
-      "Placement, projection, Hydra/OV resolved geometry, relative frames, bounds, physics, measurement resolution and sampled exports were not executed because dependent contracts are incomplete.",
-      "CRS discovery controls do not validate the unspecified WKT normalization profile or the dependency declaration.",
-      "No geodetic accuracy, continuous extent guarantee or universal consumer conformance is claimed."
+      "Full model placement, Hydra geometry, OV resolved geometry, relative frames/bounds and physics require the remaining frame contracts.",
+      "Measurement association and conservative dependency declaration/export require their missing authored contracts.",
+      "WKT normalizer is bounded: context-dependent legacy UNIT spelling is rejected rather than guessed. No universal OGC coverage or geodetic accuracy certified.",
+      "Near-unit quaternion validation, geographic result-distance controls and complete resolved-scene export are not claimed by partial source/origin controls."
     ],
     "experimental_execution_authorized": false,
     "placement_execution_stopped": true
   },
-  "stopping_reason": "Dependent implementation stopped: proposal is unspecified or conflicting (G02, G03, G04, G05, G06, G07, G08, G09, G10). An explicitly labeled experiment cannot certify proposal conformance.",
+  "stopping_reason": "Dependent implementation stopped: proposal is unspecified or conflicting (G03, G04, G06, G07). An explicitly labeled experiment cannot certify proposal conformance.",
   "proposal_quality": {
-    "status": "Full published proposal audited; dependent placement derivation stopped",
+    "status": "Full local review candidate audited; four dependent contracts remain unspecified",
     "shared_proposal_commit": "39c8fb816a9113b14c8f64b020270724b8357312",
-    "source_sha256": "cae5e02e91064434e3b4da76b21655f29ce52a92d232b01a7462a1f941de88da",
-    "source_scope": "Entire shared proposal, including background, design, decisions and examples",
-    "classification": "Eight narrower missing contracts plus one existing dimensionality inconsistency. Earlier legacy contradictions are closed. These are not nine missing functional requirements.",
+    "source_sha256": "a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904",
+    "source_scope": "Entire unpublished local review candidate",
+    "classification": "Four missing contracts. Five former gaps now have proposed candidate answers. Adoption is separate from derivability.",
     "semantic_gaps": [
       {
         "id": "G01",
@@ -214,30 +223,31 @@
           3,
           11
         ],
-        "already_defined": "The editorial revision removes obsolete callable interfaces, translate placement and binding-helper reset authoring. Reference-based binding remains the shared representation.",
-        "remaining": "No remaining legacy contradiction in these sections. The earlier relationship carrier is an implementation departure, not an unspecified binding choice.",
+        "already_defined": "The baseline specifies data and observable runtime behavior, retains reference-based binding and excludes ancestor transforms without source edits. Do not use old callable examples or prototype behavior as authority.",
+        "remaining": "No remaining legacy contradiction in this candidate.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1360,
-            "clause": "### CRS binding and inheritance"
+            "line": 1211,
+            "clause": "#### Decision on question 2: CRS placement attributes"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1467,
-            "clause": "### CRS association and model placement"
+            "line": 1299,
+            "clause": "#### Decision on question 3: working context and placement order"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1537,
-            "clause": "### Transform stack and resetXformStack"
+            "line": 1237,
+            "clause": "#### Decision on question 11: coordinate domains and property roles"
           }
-        ]
+        ],
+        "candidate_answer_status": "Closed in published baseline"
       },
       {
         "id": "G02",
         "name": "Exact CRS placement property contract",
-        "status": "open",
+        "status": "closed",
         "requirements": [
           9,
           10,
@@ -251,25 +261,21 @@
           2,
           6
         ],
-        "already_defined": "Separate CRS position, orientation and scale resolve before ordinary USD transforms. Direct binding sets the placement boundary; source positions interpolate before conversion.",
-        "remaining": "Property names, types, defaults or requiredness, applicability, and the bases and mutual order of orientation and scale are not defined. Internal differentiation or caching methods are implementation freedom.",
+        "already_defined": "Names, types, variability, fallbacks, required position, quaternion semantics, scale order, signed/singular policy and source interpolation are proposed in the README. Adoption pending does not mean no definitions exist. Exact stage-to-placement basis conversion remains a genuine behavior gap; ground/grid scale ownership also needs geospatial review.",
+        "remaining": "Finite values, mixed component units, no duplicate projection factor, and no assumption that source R/S fields constrain resolved frames to R/S only.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1176,
-            "clause": "#### Decision on question 2:"
+            "line": 1211,
+            "clause": "#### Decision on question 2: CRS placement attributes"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1467,
+            "line": 1555,
             "clause": "### CRS association and model placement"
-          },
-          {
-            "source": "proposal/proposal-source.txt",
-            "line": 886,
-            "clause": "20. **Positions between recorded moments"
           }
-        ]
+        ],
+        "candidate_answer_status": "Field contract proposed; frame conversion still incomplete"
       },
       {
         "id": "G03",
@@ -288,20 +294,21 @@
         "questions": [
           3
         ],
-        "already_defined": "Ordinary project adjustments apply after CRS placement. The adjusted physical placement survives output selection, including adjusted imagery. An enclosing binding supplies working context without replacing an independent source CRS.",
-        "remaining": "The authored coordinate frame giving an adjustment its physical meaning, and its derivation through nested scopes and output changes, are not specified. Adjusted measurements are not a new functional scope question.",
+        "already_defined": "Post-CRS order is decided. The controlling composed frame, adjustment axes/units/pivot and preservation across output changes are not. The complete xform stack must supply the intended adjustment; raw numeric reuse in another CRS is insufficient.",
+        "remaining": "A 90-degree oriented model distinguishes a model-X adjustment from a grid-easting adjustment. The text identifies this precise choice rather than reopening placement order.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1242,
-            "clause": "#### Decision on question 3:"
+            "line": 1299,
+            "clause": "#### Decision on question 3: working context and placement order"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 687,
-            "clause": "8. **Brought-in data keeps its coordinates"
+            "line": 1299,
+            "clause": "#### Decision on question 3: working context and placement order"
           }
-        ]
+        ],
+        "candidate_answer_status": "Genuine remaining contract"
       },
       {
         "id": "G04",
@@ -319,30 +326,21 @@
           6,
           9
         ],
-        "already_defined": "Projected X/Y/Z means easting/northing/up. Geographic source positions and geographic coordinate queries are supported. Writers author stage-convention correctives.",
-        "remaining": "Other CRS component sets lack a complete mapping to authored placement components. Geographic scene geometry, frames and bounds remain separate from permitted geographic coordinate queries.",
+        "already_defined": "Geographic longitude/latitude/height and geocentric XYZ have proposed conventions. Canonical tuple order does not specify a Y-up or Z-up scene basis. Geographic coordinate queries are settled functional scope; using angular coordinates as a scene frame remains distinct.",
+        "remaining": "Requirement 13 distinguishes coordinate components from scene axes. Returned query tuples use the same role order; unsupported component sets cannot be guessed.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 781,
-            "clause": "13. **One axis mapping"
-          },
-          {
-            "source": "proposal/proposal-source.txt",
-            "line": 1150,
-            "clause": "For open question 6,"
-          },
-          {
-            "source": "proposal/proposal-source.txt",
-            "line": 1129,
-            "clause": "Requirement 18 already permits geographic output"
+            "line": 1590,
+            "clause": "#### Position components"
           }
-        ]
+        ],
+        "candidate_answer_status": "Source component orders proposed; scene-frame rule/profile still open"
       },
       {
         "id": "G05",
         "name": "Prescribed WKT string normalization profile",
-        "status": "open",
+        "status": "closed",
         "requirements": [
           1,
           2,
@@ -356,20 +354,16 @@
         "questions": [
           10
         ],
-        "already_defined": "The complete WKT definition is authoritative. Requirement 31 requires normalized serialized text while preserving represented information. Token equality and geodetic equivalence are distinct.",
-        "remaining": "The required normal form is not prescribed or normatively referenced. A projection library round trip or a hand-chosen whitespace rule cannot establish proposal conformance.",
+        "already_defined": "The local candidate contains a referenced lossless lexical profile, exact-decimal convention, fixed-point validation and separate serialized identity/CRS-equivalence comparison. No independent normalizer implementation or conformance result is claimed. Whole-definition sharing tradeoffs remain explicit.",
+        "remaining": "Requirement 31 is one sentence; formatted WKT examples are labeled as illustrations requiring normalization before conforming authoring. Valid WKT cannot be simplified by silently dropping its defining conversion.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 636,
-            "clause": "31. **Same definition, same meaning"
-          },
-          {
-            "source": "proposal/proposal-source.txt",
-            "line": 1144,
-            "clause": "Open question 10 covers"
+            "line": 1669,
+            "clause": "### WKT string normalization"
           }
-        ]
+        ],
+        "candidate_answer_status": "Concrete profile proposed; review/adoption pending"
       },
       {
         "id": "G06",
@@ -390,20 +384,21 @@
         "questions": [
           11
         ],
-        "already_defined": "Nearest direct binding defines composed subtree CRS scope. Measurement values retain their coordinate/time associations. Ordinary geometry vertices are offsets.",
-        "remaining": "The authored association identifying which properties or external-asset coordinates carry measurement positions is missing. Vector shape or property name cannot identify the role.",
+        "already_defined": "Subtree scope and measurement preservation are settled. The carrier identifying absolute coordinate properties or an external dataset domain is missing; neither API application nor float3 shape supplies that role. Coordinate-only data must not acquire a fake model anchor or receive crs:position twice.",
+        "remaining": "Two bounded authored facts, multiple domains, retained format associations and the external-format/composed-binding authority conflict are stated. No new relation or generic measurement schema is invented.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1200,
-            "clause": "#### Decision on question 11:"
+            "line": 1237,
+            "clause": "#### Decision on question 11: coordinate domains and property roles"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 935,
-            "clause": "30. **Measurements remain usable as data"
+            "line": 1237,
+            "clause": "#### Decision on question 11: coordinate domains and property roles"
           }
-        ]
+        ],
+        "candidate_answer_status": "Genuine remaining authored-data contract"
       },
       {
         "id": "G07",
@@ -419,25 +414,15 @@
         "questions": [
           12
         ],
-        "already_defined": "A declaration must expose dependency without traversal and cover all placed content, including referenced and unloaded content and resolved export.",
-        "remaining": "The authored carrier and its composition rules are not specified. Searching for applied bindings does not satisfy a declaration promised without traversal.",
-        "references": [
-          {
-            "source": "proposal/proposal-source.txt",
-            "line": 999,
-            "clause": "26. **Declares its dependency"
-          },
-          {
-            "source": "proposal/proposal-source.txt",
-            "line": 1157,
-            "clause": "Open question 12 concerns"
-          }
-        ]
+        "already_defined": "Coverage is already all placed content. The carrier, root/session interpretation, conservative assembly maintenance across composition/unloaded content, and export update rule are not specified. Traversal for detection is not the promised declaration.",
+        "remaining": "Existing Core customLayerData is identified as a possible carrier, not selected as a normative key. Composition does not automatically aggregate it; no prototype layer flag is promoted.",
+        "references": [],
+        "candidate_answer_status": "Genuine remaining authored-data/assembly contract"
       },
       {
         "id": "G08",
         "name": "Extent and comparable-result agreement contract",
-        "status": "open",
+        "status": "closed",
         "requirements": [
           17,
           18,
@@ -451,35 +436,26 @@
         "questions": [
           13
         ],
-        "already_defined": "The engine selects operations and manages transformation resources. Results identify the operation and attributed accuracy. Consumers share resolution. Placement distance and extent must be stated.",
-        "remaining": "The claimed approximation domain and its satisfaction/reporting, comparable operations and agreement measure remain unspecified, including geographic distance. Full placement-chain accuracy propagation is not a requirement-28 obligation. Missing consumer tests are verification work.",
+        "already_defined": "Engine operation/resource responsibility is settled. Draft rules separate operation-attributed accuracy, approximation error and implementation agreement; require complete-chain pointwise reference and actual extent coverage; and establish comparability before measuring drift. This does not prescribe an approximation algorithm or full uncertainty propagation.",
+        "remaining": "Cartesian distance converts axis length units to metres. Geographic comparison proposes ellipsoidal horizontal distance plus a height residual; this convention is explicitly under review. Cases/requests state their acceptance distance before execution, without a new scene property.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1285,
-            "clause": "#### Decision on question 13:"
+            "line": 1354,
+            "clause": "#### Decision on question 13: operation and resource responsibility"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 974,
-            "clause": "24. **Extent under one position"
-          },
-          {
-            "source": "proposal/proposal-source.txt",
-            "line": 1025,
-            "clause": "28. **A result says what produced it"
-          },
-          {
-            "source": "proposal/proposal-source.txt",
-            "line": 1043,
-            "clause": "29. **Implementable from the text alone"
+            "line": 1824,
+            "clause": "### Extent and result comparison"
           }
-        ]
+        ],
+        "candidate_answer_status": "Observable contract and metrics proposed; dependent frame definitions still required"
       },
       {
         "id": "G09",
         "name": "Export sampling-record representation",
-        "status": "open",
+        "status": "closed",
         "requirements": [
           18,
           19,
@@ -490,25 +466,26 @@
         "questions": [
           14
         ],
-        "already_defined": "Explicit export records its output CRS and sampling, preserves values and associations, and rereads without repeating source conversion or private resolved flags.",
-        "remaining": "The authored sampling record must distinguish interpolation of exported samples from resolution of original source samples. Lost properties and fixture-specific export names are implementation defects, not new functional gaps.",
+        "already_defined": "Actual timeSamples keys and explicitly authored timeCodesPerSecond can record the exported schedule and scale. Core does not standardize an authored stage interpolation-mode field. Export sample interpolation does not recreate the original source-before-conversion trajectory.",
+        "remaining": "Every baked effect is represented once; trajectory-preservation claims need a bound over the time range. Sampling-policy provenance or forcing reader interpolation would be a separate model requirement, not an undocumented export flag.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1219,
-            "clause": "#### Decision on question 14:"
+            "line": 1273,
+            "clause": "#### Decision on question 14: explicit export"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 867,
-            "clause": "19. **Resolution leaves the scene as authored"
+            "line": 1871,
+            "clause": "### Explicit export and sampling"
           }
-        ]
+        ],
+        "candidate_answer_status": "Proposed existing-USD answer"
       },
       {
         "id": "G10",
         "name": "Existing dimensionality inconsistency",
-        "status": "open",
+        "status": "closed",
         "requirements": [
           12,
           21,
@@ -520,25 +497,26 @@
           6,
           11
         ],
-        "already_defined": "The background requires 3D CRS definitions. Missing height or unsupported transformations must not be guessed.",
-        "remaining": "The detailed schema and UTM appendix contain two-axis WKT examples. Reconcile whether they illustrate horizontal components or permit complete bound definitions. Do not silently broaden scope. This run uses only complete 3D examples.",
+        "already_defined": "The 3D obligation applies to complete model placements; the UTM examples illustrate horizontal definitions/components only. A third numeric component supplies no vertical datum. No 2D model mode or measurement storage profile is implicitly introduced.",
+        "remaining": "Background, typed-schema example and appendix now state the same dimensionality rule.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 167,
-            "clause": "### 3D CRS types"
+            "line": 1211,
+            "clause": "#### Decision on question 2: CRS placement attributes"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1409,
+            "line": 1237,
+            "clause": "#### Decision on question 11: coordinate domains and property roles"
+          },
+          {
+            "source": "proposal/proposal-source.txt",
+            "line": 1491,
             "clause": "### GeospatialCRS typed schema"
-          },
-          {
-            "source": "proposal/proposal-source.txt",
-            "line": 1874,
-            "clause": "### WGS 84 / UTM zone 11N"
           }
-        ]
+        ],
+        "candidate_answer_status": "Editorial inconsistency reconciled in draft"
       }
     ],
     "requirements": [
@@ -546,346 +524,305 @@
         "id": 1,
         "title": "Self-contained definitions",
         "normative_statement": "A CRS carried in a scene can be read from the scene alone, without a lookup against an external registry.",
-        "source_line": 570,
-        "remaining_gap_ids": [
-          "G05"
-        ],
-        "current_evidence": "CRS discovery/composition only"
+        "source_line": 588,
+        "remaining_gap_ids": [],
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 2,
         "title": "Defined once, and describing no object",
         "normative_statement": "A complete CRS definition used in many places is authored once and referred to, describes no object-specific placement, orientation or scale, and has its authored WKT as the sole authored authority for the information that WKT determines.",
-        "source_line": 583,
+        "source_line": 601,
         "remaining_gap_ids": [
-          "G05",
           "G06"
         ],
-        "current_evidence": "CRS discovery/composition only"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 3,
         "title": "Datum, realization and epoch",
         "normative_statement": "The scene can identify the datum realization and any frame reference epoch defined by its CRS, without inferring a coordinate epoch for the coordinates.",
-        "source_line": 600,
-        "remaining_gap_ids": [
-          "G05"
-        ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "source_line": 618,
+        "remaining_gap_ids": [],
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 4,
         "title": "A site's own grid is a CRS like any other",
         "normative_statement": "A project grid \u2014 its origin, orientation and scale relative to a geodetic or projected CRS, and, where applicable, its heights relative to a vertical CRS, agreed once for a site \u2014 can be the CRS its content is expressed in, and content in it needs nothing that content in a national grid does not.",
-        "source_line": 612,
+        "source_line": 630,
         "remaining_gap_ids": [],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 5,
         "title": "A discoverable CRS",
         "normative_statement": "The CRS in which any authored position is expressed can be determined from the scene alone.",
-        "source_line": 656,
+        "source_line": 676,
         "remaining_gap_ids": [
           "G03",
           "G06"
         ],
-        "current_evidence": "CRS discovery/composition only"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 6,
         "title": "Declared for a subtree, not a prim",
         "normative_statement": "A CRS declared once applies to the content beneath it, and part of that content can declare a different one.",
-        "source_line": 666,
+        "source_line": 686,
         "remaining_gap_ids": [
           "G03",
           "G06"
         ],
-        "current_evidence": "CRS discovery/composition only"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 7,
         "title": "Composition agnostic",
         "normative_statement": "CRS declarations and their scope are interpreted on the composed stage, following the composition and value-resolution rules of the [AOUSD USD Core Specification v1.0.1](https://github.com/aousd/specifications-public/blob/main/core/1.0.1/core_spec.md).",
-        "source_line": 677,
+        "source_line": 697,
         "remaining_gap_ids": [
           "G06",
           "G07"
         ],
-        "current_evidence": "CRS discovery/composition only"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 8,
         "title": "Brought-in data keeps its coordinates and its CRS",
         "normative_statement": "Data authored in one CRS can be brought into a project working in another, and given project-specific placement, with its authored coordinate values and CRS unchanged and that placement preserved in any supported requested output CRS.",
-        "source_line": 687,
+        "source_line": 707,
         "remaining_gap_ids": [
           "G03"
         ],
-        "current_evidence": "CRS discovery/composition only"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 9,
         "title": "Positions, and offsets from them",
         "normative_statement": "Content is placed by a position, orientation and scale with defined meaning in a named CRS, and the content beneath that placement is authored and moved as ordinary scene offsets in scene distances by someone who need know no geodesy.",
-        "source_line": 713,
+        "source_line": 733,
         "remaining_gap_ids": [
-          "G02",
           "G03"
         ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 10,
         "title": "Offsets along the axes of their position",
         "normative_statement": "Offsets beneath a CRS placement have an orientation and scale discoverable from its authored placement and CRS without resolving into another CRS, and resolution accounts for changes in local axes and scale as well as position.",
-        "source_line": 731,
-        "remaining_gap_ids": [
-          "G02"
-        ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "source_line": 751,
+        "remaining_gap_ids": [],
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 11,
         "title": "Position or offset, and the scene says which",
         "normative_statement": "Whether an authored location is a position in a CRS or an offset from its parent can be read from the scene, and a CRS position does not accumulate ancestor xformOps.",
-        "source_line": 750,
+        "source_line": 770,
         "remaining_gap_ids": [
-          "G02",
           "G03"
         ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 12,
         "title": "No angle read as a length",
         "normative_statement": "Every coordinate's unit, and the surface its height is measured from, are unambiguous, and no reading of the scene takes an angular coordinate as a scene distance.",
-        "source_line": 767,
+        "source_line": 787,
         "remaining_gap_ids": [
-          "G02",
           "G04",
-          "G06",
-          "G10"
+          "G06"
         ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 13,
         "title": "One axis mapping",
-        "normative_statement": "Which scene axis carries which CRS component is fixed by this proposal, the same for every CRS and every implementation, and never taken from the axis order a CRS declares: where a CRS has easting, northing and up, X carries easting, Y northing, Z up, right-handed.",
-        "source_line": 781,
+        "normative_statement": "The semantic component order of a CRS position is fixed by this proposal rather than by the CRS's declared storage order, with easting, northing and up occupying the first, second and third components respectively, and its representation in a scene frame follows the common convention specified under requirement 14.",
+        "source_line": 801,
         "remaining_gap_ids": [
           "G04"
         ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 14,
         "title": "Scene conventions stay the scene's",
         "normative_statement": "A CRS binding changes neither the scene's units nor its up axis, and where a CRS's units or axes differ from the scene's, the relation between the two is defined by this proposal once, not by each implementation.",
-        "source_line": 794,
+        "source_line": 818,
         "remaining_gap_ids": [
-          "G02",
           "G04"
         ],
-        "current_evidence": "CRS discovery/composition only"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 15,
         "title": "Placement separate from conformance",
         "normative_statement": "Where an instance sits is recorded separately from the corrections that adapt its source asset's conventions.",
-        "source_line": 807,
+        "source_line": 831,
         "remaining_gap_ids": [
-          "G02",
           "G03"
         ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 16,
         "title": "One CRS out",
         "normative_statement": "Content expressed in any number of CRSs resolves into one output CRS selected by the consumer, with the scene able to name a default for consumers that make no selection.",
-        "source_line": 819,
+        "source_line": 843,
         "remaining_gap_ids": [
           "G03",
           "G04"
         ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 17,
         "title": "The same answer for every consumer",
         "normative_statement": "A world position, a bound, an instance, a physics body and a rendered image all come from the same resolution, and none of them needs a renderer.",
-        "source_line": 839,
+        "source_line": 863,
         "remaining_gap_ids": [
-          "G04",
-          "G08"
+          "G04"
         ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 18,
         "title": "Coordinates back out",
         "normative_statement": "Any resolved position can be reported as coordinates in any CRS the scene or the consumer names, and the placement of one prim relative to another can be asked for in the output CRS.",
-        "source_line": 852,
+        "source_line": 876,
         "remaining_gap_ids": [
           "G04",
-          "G06",
-          "G08",
-          "G09"
+          "G06"
         ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 19,
         "title": "Resolution leaves the scene as authored",
         "normative_statement": "Resolving a scene writes nothing into it \u2014 authored coordinates, placement values, CRS definitions and bindings are unchanged \u2014 and writing a resolved result out is a separate, explicit act that records the CRS it was written in and, for content that varies over time, how it was sampled.",
-        "source_line": 867,
+        "source_line": 891,
         "remaining_gap_ids": [
           "G03",
           "G06",
-          "G07",
-          "G09"
+          "G07"
         ],
-        "current_evidence": "CRS discovery/composition only"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 20,
         "title": "Positions between recorded moments",
         "normative_statement": "A position recorded as samples over time is interpolated on the recorded values, in the CRS they were recorded in, and converting the result to another CRS does not change the path.",
-        "source_line": 886,
-        "remaining_gap_ids": [
-          "G02",
-          "G09"
-        ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "source_line": 910,
+        "remaining_gap_ids": [],
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 21,
         "title": "Never placed by a guess",
         "normative_statement": "A requested transformation outside the supported scope or one that cannot be computed \u2014 no engine, a definition that cannot be read or is unsupported, a missing grid, a point outside the transformation's domain of validity, a requested change of coordinate epoch that the operation does not model \u2014 never places content by a substitute, a result that could only be partly computed is a failure and not a partial placement, and the failure surfaces where it can be known: in validation for what the authored scene reveals, from the engine for what only resolution can discover.",
-        "source_line": 903,
+        "source_line": 927,
         "remaining_gap_ids": [
-          "G05",
-          "G06",
-          "G08",
-          "G10"
+          "G06"
         ],
-        "current_evidence": "CRS discovery/composition only"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 22,
         "title": "A CRS suited to the project's size",
         "normative_statement": "The scheme supports site, regional and global projects without requiring their geometry to be approximated by a single tangent plane.",
-        "source_line": 952,
-        "remaining_gap_ids": [
-          "G08",
-          "G10"
-        ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "source_line": 976,
+        "remaining_gap_ids": [],
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 23,
         "title": "Detail that does not depend on location",
         "normative_statement": "Changing only an asset's geospatial placement does not reduce the precision of its asset-relative geometry as authored.",
-        "source_line": 965,
-        "remaining_gap_ids": [
-          "G08"
-        ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "source_line": 989,
+        "remaining_gap_ids": [],
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 24,
         "title": "Extent under one position is bounded and stated",
         "normative_statement": "Content beneath one position is placed to within a stated distance of where placing each of its points would put it, and the extent over which that holds is stated.",
-        "source_line": 974,
-        "remaining_gap_ids": [
-          "G08"
-        ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "source_line": 998,
+        "remaining_gap_ids": [],
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 25,
         "title": "Additive for consumers that ignore it",
         "normative_statement": "A consumer that does not interpret the geospatial information reads the same scene it would have read without it.",
-        "source_line": 989,
+        "source_line": 1013,
         "remaining_gap_ids": [
           "G07"
         ],
-        "current_evidence": "CRS discovery/composition only"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 26,
         "title": "Declares its dependency",
         "normative_statement": "A scene whose correct placement depends on resolving CRSs says so, in a way a consumer can read without traversing the scene, and the declaration covers every piece of placed content in it.",
-        "source_line": 999,
+        "source_line": 1023,
         "remaining_gap_ids": [
           "G07"
         ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 27,
         "title": "Checkable before use",
         "normative_statement": "What the scene itself establishes \u2014 a position nested beneath another position, a binding to no definition, content outside any CRS, a dependency declaration missing or left behind by a written-out result \u2014 can be detected in the authored scene without resolving it.",
-        "source_line": 1010,
+        "source_line": 1034,
         "remaining_gap_ids": [
-          "G05",
           "G06",
-          "G07",
-          "G09"
+          "G07"
         ],
-        "current_evidence": "CRS discovery/composition only"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 28,
         "title": "A result says what produced it",
         "normative_statement": "A resolved result can name the coordinate operation that produced it and the accuracy attributed to it.",
-        "source_line": 1025,
-        "remaining_gap_ids": [
-          "G05",
-          "G08"
-        ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "source_line": 1049,
+        "remaining_gap_ids": [],
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 29,
         "title": "Implementable from the text alone",
-        "normative_statement": "Two implementations built from this proposal without consulting its authors give the same coordinate interpretation and, using equivalent coordinate operations, place the same scene within a stated agreement distance in the output CRS's units at a stated coordinate magnitude.",
-        "source_line": 1043,
-        "remaining_gap_ids": [
-          "G05",
-          "G08"
-        ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "normative_statement": "Two implementations built from this proposal without consulting its authors give the same coordinate interpretation and, using equivalent coordinate operations, place the same scene within a stated agreement distance using a specified distance measure and units at stated output coordinate magnitudes.",
+        "source_line": 1067,
+        "remaining_gap_ids": [],
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 30,
         "title": "Measurements remain usable as data",
         "normative_statement": "Georeferenced measurements remain accessible to consumers together with their associated positions and times, without requiring renderable geometry or a visualization, and coordinate resolution preserves those associations and measurement values.",
-        "source_line": 935,
+        "source_line": 959,
         "remaining_gap_ids": [
-          "G06",
-          "G09",
-          "G10"
+          "G06"
         ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       },
       {
         "id": 31,
         "title": "Same definition, same meaning",
-        "normative_statement": "CRS definitions are authored in the proposal's prescribed WKT normal form, so OGC-permitted syntactic variants of the same definition normalize to identical text without losing represented information or changing coordinate interpretation or resolved coordinate results.",
-        "source_line": 636,
-        "remaining_gap_ids": [
-          "G05"
-        ],
-        "current_evidence": "Dependent resolution not executed in this run"
+        "normative_statement": "CRS definitions use the proposal's prescribed WKT string normal form, whose specified lexical variants normalize to identical text without loss of represented information or changed coordinate interpretation, while comparisons distinguish serialized-definition identity from CRS equivalence and do not infer different CRS meaning or a necessary transformation solely from different normalized text.",
+        "source_line": 654,
+        "remaining_gap_ids": [],
+        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
       }
     ],
     "verification_gaps": [
-      "Placement, projection, Hydra/OV resolved geometry, relative frames, bounds, physics, measurement resolution and sampled exports were not executed because dependent contracts are incomplete.",
-      "CRS discovery controls do not validate the unspecified WKT normalization profile or the dependency declaration.",
-      "No geodetic accuracy, continuous extent guarantee or universal consumer conformance is claimed."
+      "Full model placement, Hydra geometry, OV resolved geometry, relative frames/bounds and physics require the remaining frame contracts.",
+      "Measurement association and conservative dependency declaration/export require their missing authored contracts.",
+      "WKT normalizer is bounded: context-dependent legacy UNIT spelling is rejected rather than guessed. No universal OGC coverage or geodetic accuracy certified.",
+      "Near-unit quaternion validation, geographic result-distance controls and complete resolved-scene export are not claimed by partial source/origin controls."
     ],
     "implementation_gaps": [
       {
@@ -933,12 +870,13 @@
     ]
   },
   "tests": {
-    "passed": 15,
+    "passed": 64,
     "failed": 0
   },
   "scope_controls": [
     {
       "name": "references",
+      "kind": "discovery",
       "queries": 4,
       "successful_definition_queries": 4,
       "expected_failures": 0,
@@ -948,6 +886,7 @@
     },
     {
       "name": "referenced-assembly",
+      "kind": "discovery",
       "queries": 2,
       "successful_definition_queries": 2,
       "expected_failures": 0,
@@ -957,6 +896,7 @@
     },
     {
       "name": "stronger-layer",
+      "kind": "discovery",
       "queries": 2,
       "successful_definition_queries": 2,
       "expected_failures": 0,
@@ -966,6 +906,7 @@
     },
     {
       "name": "variant-selection",
+      "kind": "discovery",
       "queries": 1,
       "successful_definition_queries": 1,
       "expected_failures": 0,
@@ -975,6 +916,7 @@
     },
     {
       "name": "class-inheritance",
+      "kind": "discovery",
       "queries": 1,
       "successful_definition_queries": 1,
       "expected_failures": 0,
@@ -984,6 +926,7 @@
     },
     {
       "name": "equivalent-composed-data",
+      "kind": "discovery",
       "queries": 2,
       "successful_definition_queries": 2,
       "expected_failures": 0,
@@ -993,6 +936,7 @@
     },
     {
       "name": "unloaded-payload",
+      "kind": "discovery",
       "queries": 2,
       "successful_definition_queries": 1,
       "expected_failures": 1,
@@ -1002,6 +946,7 @@
     },
     {
       "name": "no-binding",
+      "kind": "discovery",
       "queries": 1,
       "successful_definition_queries": 0,
       "expected_failures": 1,
@@ -1011,6 +956,7 @@
     },
     {
       "name": "broken-nearest-binding",
+      "kind": "discovery",
       "queries": 1,
       "successful_definition_queries": 0,
       "expected_failures": 1,
@@ -1020,6 +966,7 @@
     },
     {
       "name": "wrong-wkt-type",
+      "kind": "discovery",
       "queries": 1,
       "successful_definition_queries": 0,
       "expected_failures": 1,
@@ -1029,6 +976,7 @@
     },
     {
       "name": "wrong-wkt-variability",
+      "kind": "discovery",
       "queries": 1,
       "successful_definition_queries": 0,
       "expected_failures": 1,
@@ -1038,6 +986,257 @@
     },
     {
       "name": "empty-wkt",
+      "kind": "discovery",
+      "queries": 1,
+      "successful_definition_queries": 0,
+      "expected_failures": 1,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "placement-defaults",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 1,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "placement-linear",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 1,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "placement-held",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 1,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "geographic-no-unwrapping",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 1,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "same-crs-independent-anchor",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 1,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "position-missing",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 0,
+      "expected_failures": 1,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "orientation-blocked",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 0,
+      "expected_failures": 1,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "position-wrong-type",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 0,
+      "expected_failures": 1,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "position-wrong-variability",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 0,
+      "expected_failures": 1,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "nonfinite-scale",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 0,
+      "expected_failures": 1,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "zero-quaternion",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 0,
+      "expected_failures": 1,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "singular-source-scale",
+      "kind": "placement_values",
+      "queries": 1,
+      "successful_definition_queries": 1,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origins-France_01-to-France_02",
+      "kind": "origin_coordinates",
+      "queries": 59,
+      "successful_definition_queries": 59,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origins-France_02-to-France_01",
+      "kind": "origin_coordinates",
+      "queries": 59,
+      "successful_definition_queries": 59,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origins-Colorado_02-to-Colorado_03",
+      "kind": "origin_coordinates",
+      "queries": 5,
+      "successful_definition_queries": 5,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origins-Colorado_03-to-Colorado_02",
+      "kind": "origin_coordinates",
+      "queries": 5,
+      "successful_definition_queries": 5,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origin-source-interpolation-0",
+      "kind": "origin_coordinates",
+      "queries": 1,
+      "successful_definition_queries": 1,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origin-source-interpolation-5",
+      "kind": "origin_coordinates",
+      "queries": 1,
+      "successful_definition_queries": 1,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origin-source-interpolation-10",
+      "kind": "origin_coordinates",
+      "queries": 1,
+      "successful_definition_queries": 1,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origin-adjustment-stops",
+      "kind": "origin_coordinates",
+      "queries": 1,
+      "successful_definition_queries": 0,
+      "expected_failures": 1,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origin-invalid-latitude",
+      "kind": "origin_coordinates",
+      "queries": 1,
+      "successful_definition_queries": 0,
+      "expected_failures": 1,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origin-default-output",
+      "kind": "origin_coordinates",
+      "queries": 1,
+      "successful_definition_queries": 1,
+      "expected_failures": 0,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origin-no-default-output",
+      "kind": "origin_coordinates",
+      "queries": 1,
+      "successful_definition_queries": 0,
+      "expected_failures": 1,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origin-descendant-stops",
+      "kind": "origin_coordinates",
+      "queries": 1,
+      "successful_definition_queries": 0,
+      "expected_failures": 1,
+      "headless": "passed",
+      "native_usd": "passed",
+      "live_ov": "passed"
+    },
+    {
+      "name": "origin-nested-anchor-stops",
+      "kind": "origin_coordinates",
       "queries": 1,
       "successful_definition_queries": 0,
       "expected_failures": 1,
@@ -1046,23 +1245,215 @@
       "live_ov": "passed"
     }
   ],
-  "scope_queries_per_reader": 19,
+  "origin_metrics": [
+    {
+      "name": "origins-France_01-to-France_02",
+      "successful_origins": 59,
+      "expected_failures": 0,
+      "acceptance_metres": 0.002,
+      "max_reference_discrepancy_metres": 6.0769115238857e-05,
+      "max_reader_agreement_metres": 0.0,
+      "equivalent_pipeline_tokens_checked": true,
+      "operations": [
+        "proj=pipeline step inv proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80 step proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80"
+      ],
+      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+    },
+    {
+      "name": "origins-France_02-to-France_01",
+      "successful_origins": 59,
+      "expected_failures": 0,
+      "acceptance_metres": 0.002,
+      "max_reference_discrepancy_metres": 6.077328540401748e-05,
+      "max_reader_agreement_metres": 0.0,
+      "equivalent_pipeline_tokens_checked": true,
+      "operations": [
+        "proj=pipeline step inv proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80 step proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80"
+      ],
+      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+    },
+    {
+      "name": "origins-Colorado_02-to-Colorado_03",
+      "successful_origins": 5,
+      "expected_failures": 0,
+      "acceptance_metres": 0.002,
+      "max_reference_discrepancy_metres": 3.423982800319422e-05,
+      "max_reader_agreement_metres": 0.0,
+      "equivalent_pipeline_tokens_checked": true,
+      "operations": [
+        "proj=pipeline step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694"
+      ],
+      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+    },
+    {
+      "name": "origins-Colorado_03-to-Colorado_02",
+      "successful_origins": 5,
+      "expected_failures": 0,
+      "acceptance_metres": 0.002,
+      "max_reference_discrepancy_metres": 3.4236300747393686e-05,
+      "max_reader_agreement_metres": 0.0,
+      "equivalent_pipeline_tokens_checked": true,
+      "operations": [
+        "proj=pipeline step inv proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694 step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step inv proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft"
+      ],
+      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+    },
+    {
+      "name": "origin-source-interpolation-0",
+      "successful_origins": 1,
+      "expected_failures": 0,
+      "acceptance_metres": 2e-08,
+      "max_reference_discrepancy_metres": 0.0,
+      "max_reader_agreement_metres": 0.0,
+      "equivalent_pipeline_tokens_checked": true,
+      "operations": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "reference": "Analytic WGS84 equatorial ECEF"
+    },
+    {
+      "name": "origin-source-interpolation-5",
+      "successful_origins": 1,
+      "expected_failures": 0,
+      "acceptance_metres": 2e-08,
+      "max_reference_discrepancy_metres": 0.0,
+      "max_reader_agreement_metres": 0.0,
+      "equivalent_pipeline_tokens_checked": true,
+      "operations": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "reference": "Analytic WGS84 equatorial ECEF"
+    },
+    {
+      "name": "origin-source-interpolation-10",
+      "successful_origins": 1,
+      "expected_failures": 0,
+      "acceptance_metres": 2e-08,
+      "max_reference_discrepancy_metres": 0.0,
+      "max_reader_agreement_metres": 0.0,
+      "equivalent_pipeline_tokens_checked": true,
+      "operations": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "reference": "Analytic WGS84 equatorial ECEF"
+    },
+    {
+      "name": "origin-adjustment-stops",
+      "successful_origins": 0,
+      "expected_failures": 1,
+      "acceptance_metres": 0.002,
+      "max_reference_discrepancy_metres": 0.0,
+      "max_reader_agreement_metres": 0.0,
+      "equivalent_pipeline_tokens_checked": true,
+      "operations": [],
+      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+    },
+    {
+      "name": "origin-invalid-latitude",
+      "successful_origins": 0,
+      "expected_failures": 1,
+      "acceptance_metres": 0.002,
+      "max_reference_discrepancy_metres": 0.0,
+      "max_reader_agreement_metres": 0.0,
+      "equivalent_pipeline_tokens_checked": true,
+      "operations": [],
+      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+    },
+    {
+      "name": "origin-default-output",
+      "successful_origins": 1,
+      "expected_failures": 0,
+      "comparison_kind": "exact source components in their declared units",
+      "max_reference_discrepancy_metres": null,
+      "max_reader_agreement_metres": null,
+      "reference": "Identity query; no angular difference interpreted as length"
+    },
+    {
+      "name": "origin-no-default-output",
+      "successful_origins": 0,
+      "expected_failures": 1,
+      "comparison_kind": "exact source components in their declared units",
+      "max_reference_discrepancy_metres": null,
+      "max_reader_agreement_metres": null,
+      "reference": "Identity query; no angular difference interpreted as length"
+    },
+    {
+      "name": "origin-descendant-stops",
+      "successful_origins": 0,
+      "expected_failures": 1,
+      "acceptance_metres": 0.002,
+      "max_reference_discrepancy_metres": 0.0,
+      "max_reader_agreement_metres": 0.0,
+      "equivalent_pipeline_tokens_checked": true,
+      "operations": [],
+      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+    },
+    {
+      "name": "origin-nested-anchor-stops",
+      "successful_origins": 0,
+      "expected_failures": 1,
+      "acceptance_metres": 0.002,
+      "max_reference_discrepancy_metres": 0.0,
+      "max_reader_agreement_metres": 0.0,
+      "equivalent_pipeline_tokens_checked": true,
+      "operations": [],
+      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+    }
+  ],
+  "scope_queries_per_reader": 168,
   "discovery_readers": [
     "headless OpenUSD",
     "native OpenUSD",
     "live OV stage"
   ],
-  "native_executable_sha256": "eb12fcdd37909f9ebacb3881137f7a29406f899d4e255f64a53863b3c6356f68",
+  "native_executable_sha256": "767c5d7d594ad20a36a065db8483ea040e748c19c21ec0161f175c63d197173b",
+  "origin_coordinate_cases_per_reader": 13,
+  "origin_coordinate_queries_per_reader": 137,
+  "source_placement_cases_per_reader": 12,
+  "wkt_profile": {
+    "implementation": "Lossless lexical normalization; strict PROJ grammar reader, no PROJ writer in serialization",
+    "test_cases": 24,
+    "coverage": [
+      "padding, case and delimiter variants",
+      "preferred keyword aliases",
+      "exact decimals and exponent spelling",
+      "quoted metadata and escaped quotes",
+      "frame epochs",
+      "fixed-point validation",
+      "semantic equivalence versus text identity",
+      "invalid/unknown syntax rejection",
+      "coordinate-epoch rejection"
+    ],
+    "limitations": [
+      "Context-sensitive legacy UNIT aliases explicitly unsupported; their kind is not guessed.",
+      "This is one normalizer and a bounded strict-reader profile, not proof of support for all OGC WKT productions."
+    ]
+  },
   "placement_runtime_jobs": 0,
   "hydra_placement_jobs": 0,
   "ov_placement_jobs": 0,
   "exports": [],
+  "sampling_record_control": {
+    "sample_keys": [
+      0.0,
+      5.0,
+      10.0
+    ],
+    "authored_time_codes_per_second": 48.0,
+    "fresh_reader_verified": true,
+    "endpoint_chord_midpoint_discrepancy_metres": 971.4211582997814,
+    "record_sha256": "49cac4c449132e25041660e7e4742a9b049beb4c28e132100adcc0f11e7d4ea8",
+    "claim": "Standalone coordinate-sampling record only. Not a resolved-scene export: no placement, dependency declaration or measurement carrier is invented."
+  },
   "geodetic_accuracy_claim": false,
   "source_files_unchanged": true,
   "limitations": [
-    "This run verifies CRS discovery, composition, definition property types and source preservation; it does not certify the unspecified WKT normal form.",
+    "This run executes the local review candidate, not the published proposal alone; detailed draft choices are not group adoption.",
+    "Direct coordinate controls resolve only adjustment-free top-level anchor origins; provider positions are illustrative model placements, not an answer to measurement association. All three readers share PROJ, not independent geodetic engines.",
+    "Source placement controls read fields, fallbacks and Core interpolation; they do not compute resolved positions or frames.",
     "Native USD discovery is not Hydra placement or rendering. Live OV discovery is not resolved geometry ingestion.",
-    "Missing placement, component, adjustment, measurement, declaration, result and export definitions stop dependent derivation.",
+    "Adjustment frame, stage/basis mapping, measurement-coordinate association and dependency declaration stop dependent full derivation; geographic scene-frame scope is also unresolved.",
+    "Unit-quaternion inputs use Core semantics; a full validator numerical policy for near-unit authored values is not claimed and no acceptance epsilon is invented.",
     "The retained earlier relationship-based experiment is incompatible with the shared binding format and was not rerun or silently adopted.",
     "No previous numerical result, image, export or deck is relabeled as newly executed evidence."
   ]

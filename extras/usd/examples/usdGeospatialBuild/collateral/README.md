@@ -7,18 +7,18 @@ outputs through this directory does not validate a new model.
 
 1. Commit the frozen candidate and implementation before collecting final
    evidence. Execute `run.py` into a new directory outside the source checkout.
-2. Run `python collateral/build_readme.py --run-directory <completed-run>`.
+2. Run `python collateral/build_candidate_review.py --run-directory <completed-run>`.
    It verifies executed source hashes, copies the run's evidence and generates
    the canonical package README from that receipt.
 3. Run `python collateral/derive.py`. The review body and slide story derive
-   from README and record its SHA-256. Edit the canonical narrative generator
+   from README and records its SHA-256. Edit the canonical narrative generator
    when facts or explanations change; regenerate the derivatives together.
 4. Use the installed Presentations skill with its bundled Node/Python runtime.
    Link `collateral/node_modules` to the bundled packages, set
    `RUNTIME_NODE_MODULES`, `RUNTIME_NODE` and `RUNTIME_BIN_DIR`, and run:
 
    ```text
-   node collateral/slides.mjs <presentations-skill-directory>
+   node collateral/candidate_slides.mjs <presentations-skill-directory>
         <runtime-python> <workspace-directory> <new-output-name.pptx>
    ```
 

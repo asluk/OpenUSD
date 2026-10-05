@@ -1,86 +1,95 @@
-# Geospatial: defined CRS binding, blocked placement
+# Geospatial: local candidate evidence and remaining contracts
 
-The current shared proposal still needs exact authored definitions before a full placement build can follow it without guessing. This run stops dependent placement and executes the defined CRS discovery and composition behavior in three independent readers.
+The revised local proposal supplies concrete placement fields, WKT string normalization and result/sampling rules. **Four missing contracts still prevent a complete model-placement implementation.** All 31 functional requirements were reviewed. Candidate definitions remain proposals for author review, rather than claims of group adoption.
 
-The editorial revision closes obsolete interface and transform-authoring contradictions. The remaining audit identifies eight narrower missing contracts and one existing 3D-versus-2D example inconsistency. It does not reopen agreed functional outcomes or treat internal implementation methods as standardized data.
-
-Fresh evidence: 15 tests passed. Each reader passed 12 cases and 19 queries, giving 57 reader/query checks. Source layers and fixture bytes remained unchanged. This run executed zero projection or placement jobs and produced no resolved export.
+Fresh execution: **64 tests passed**, with **37 cases and 168 queries per reader** in headless OpenUSD, native OpenUSD and a live OV stage. The 504 reader/query checks preserve source layers and fixture bytes. Direct anchor-origin projection is demonstrated. Full geometry placement, Hydra placement and resolved-scene export remain stopped by the missing contracts.
 
 [Editable slides](delivery/geospatial-build.pptx) · [PDF](delivery/geospatial-build.pdf) · [Receipt](delivery/run-report.json) · [Proposal audit](QUALITY_REVIEW.md) · [Build loop](BUILD_LOOP.md)
 
-## What is already settled
+## Concrete candidate answers
 
-| Authored fact or outcome | Existing answer |
+| Subject | Proposed contract |
 |---|---|
-| CRS authority | Complete WKT is authoritative. The typed definition stores uniform token crs:wkt. |
-| Binding and composition | Applied binding uses a CRS reference. Nearest direct binding defines composed subtree scope. |
-| Placement order | Separate CRS position, orientation and scale resolve before ordinary USD transforms. |
-| Source and output | Preserve source facts and adjusted physical placement. The consumer selects the output CRS. |
-| Stage conventions | Writers or assemblers author unit/up-axis correctives. Readers honor ordinary USD data. |
+| Placement fields | Varying crs:position double3 has no fallback. crs:orientation quatd defaults to identity. crs:scale double3 defaults to (1,1,1). Explicit blocks remain unavailable. |
+| Coordinate components | Easting/northing/up, longitude/latitude/height, or geocentric XYZ. Use declared WKT units and height reference. Scene upAxis does not relabel the tuple. |
+| Orientation and scale | Model scale precedes orientation. Source bases are projected grid axes, geographic geodetic ENU or geocentric XYZ. The stage-axis adapter still needs specification. |
+| WKT string normalization | OGC preferred spelling and delimiters, preserved quoted content and node order, W3C exact canonical decimal/integer spelling. Token identity differs from CRS equivalence. |
+| Comparison and sampling | Separate operation accuracy, approximation error and reader agreement. Actual timeSamples and explicit timeCodesPerSecond record the sampling schedule. |
 
-Geographic source positions and geographic coordinate queries are supported. Site calibration lives in a derived CRS definition. Engines select applicable operations, manage resources and report operation accuracy or visible failure. Explicit export preserves values, associations and sampling meaning. Coordinate epochs remain roadmap work.
+Reference-based binding, ordinary transforms after CRS placement, source preservation and writer-authored unit/up-axis conformance retain their existing direction. Coordinate epochs remain roadmap work. No private epoch, coordinate-role relationship or dependency flag is introduced.
 
-## Missing authored representation
+## Four contracts still required
 
-| Audit category | Exact contract still required |
+| Contract | What remains unspecified |
 |---|---|
-| G02: placement fields | Names, types, defaults/requiredness, applicability, orientation/scale bases and mutual order. |
-| G05: WKT string normalization | A prescribed serialized normal form that preserves the represented information. |
-| G06: measurement coordinates | An authored association identifying source coordinates, including external assets. |
-| G07: dependency declaration | A carrier and composition rule readable without traversal, including unloaded content. |
-| G09: export sampling | A record distinguishing exported-sample interpolation from original-source resolution. |
-| G10: existing inconsistency | Reconcile the 3D scope statement with two-axis WKT examples without silently broadening scope. |
+| G03 / Q3: project-adjustment frame | Axes, units, pivot and controlling composed context for ordinary project adjustments, including nested bindings and output changes. Post-placement order is settled. |
+| G04 / Q6: stage and placement bases | Exact mapping between stage axes/distances, the proposed source placement bases and resolved result bases. Coordinate tuples do not supply that mapping. |
+| G06 / Q11: measurement association | Authored coordinate roles/domains for USD properties and external assets, including multiple domains and conflicting external CRS metadata. |
+| G07 / Q12: dependency declaration | Authored carrier and conservative assembly/export maintenance through references, unloaded payloads and composition, readable without traversal. |
 
-Questions 2, 10, 11, 12 and 14 retain the specific representation work. The dimensionality inconsistency is existing proposal text, not a new restriction invented by this run. The fixtures use complete 3D definitions copied unchanged from the proposal.
+Question 9 separately concerns geographic scene geometry, frames and bounds. Geographic coordinate queries already belong to initial scope. The candidate closes former field-definition, lexical-normalization, result-comparison, sampling-record and 2D-illustration gaps for this derivation. Adoption review is separate from derivability.
 
-## Missing observable definitions
+## WKT string normalization evidence
 
-| Audit category | Agreed outcome and narrower missing meaning |
-|---|---|
-| G03: project adjustments | Post-placement adjustments preserve physical placement. Their authored coordinate frame remains undefined. |
-| G04: components and scene domain | E/N/up and geographic queries are settled. Other component mappings and geographic scene frames/bounds remain open. |
-| G08: extent and agreement | State the approximation domain, how the claim is satisfied and how comparable operations are measured. |
+The 24 WKT tests use hand-specified lexical expectations. Padding, keyword case, preferred aliases, delimiters and exponent spelling converge. Quoted spaces, escaped quotes, metadata and frame epochs survive. The decimal **6378137.12345678912345** survives exactly. A PROJ writer round trip is a negative preservation control because it rounds that value.
 
-Operation accuracy, numerical agreement and approximation over an extent are different claims. A full placement-chain accuracy estimate is not a requirement-28 obligation. Internal differentiation, caching or adapter design is implementation freedom. Missing consumer tests are verification work, not new design questions.
+Different CRS names remain different tokens even when an engine establishes equivalent coordinate meaning. Fixed-point validation rejects non-normalized authored text. Coordinate-epoch wrappers and unknown syntax fail explicitly. Context-dependent legacy UNIT aliases are unsupported, and one strict parser is not proof of all OGC grammar coverage. Normalization and complete scene validation are separate claims.
 
-## A concrete composition result
+## Executed reader coverage
 
-| Queried prim | Nearest direct binding | Returned definition |
+| Control family | Cases per reader | Queries per reader | Expected failures |
+|---|---|---|---|
+| Binding and composition | 12 | 19 | 6 |
+| Source placement values | 12 | 12 | 6 |
+| Direct anchor-origin coordinates | 13 | 137 | 5 |
+
+Composition controls cover references, stronger layers, variants, class inheritance, equivalent composed data, independent binding and unavailable unloaded content. Source controls cover requiredness, blocks, types, variability, finite values, singular signed scale, defaults, held/linear interpolation and quaternion slerp. Longitude 179 to -179 interpolates to zero without invented unwrapping.
+
+Origin controls accept only directly bound top-level anchors without ordinary adjustments or geometry offsets. They cover France projections, Colorado site calibration, source-first geographic-to-ECEF conversion and defaultPrim output selection. Nested/descendant frame requests and ordinary adjustments stop while dependent model contracts are missing. Invalid latitude and absent default output fail without a substitute.
+
+| Origin conversion | Origins | Max CSV discrepancy (mm) | Max reader difference (mm) |
+|---|---|---|---|
+| France_01 to France_02 | 59 | 0.0608 | 0.0000 |
+| France_02 to France_01 | 59 | 0.0608 | 0.0000 |
+| Colorado_02 to Colorado_03 | 5 | 0.0342 | 0.0000 |
+| Colorado_03 to Colorado_02 | 5 | 0.0342 | 0.0000 |
+
+Provider CSVs are PROJ-generated intake/rounding references, not survey truth. All readers use PROJ: native 9.4.1, headless and OV 9.8.1. Matching pipeline tokens are checked before comparing these results. Cases meet a predeclared 2 mm reference distance; analytic equatorial ECEF cases meet a separate 20 nm computational allowance. Neither threshold is geodetic accuracy. The geographic identity query is checked component-for-component in its declared units, without an angle-as-length metric.
+
+## Same France origin in each runtime
+
+France point 0 serves as an illustrative model-anchor origin. Source: RGF93 v2b / CC49 with NGF-IGN69 height. Output: Lambert-93 with the same height reference. Every displayed component is in metres.
+
+| Component | Source CC49 | Headless USD | Native USD | Live OV |
+|---|---|---|---|---|
+| Easting | 1661099.0390 | 661101.1094 | 661101.1094 | 661101.1094 |
+| Northing | 8180053.1170 | 6857834.2565 | 6857834.2565 | 6857834.2565 |
+| Height | 37.2980 | 37.2980 | 37.2980 | 37.2980 |
+
+All 59 origins are checked in both directions. Source values and definitions remain unchanged. This resolves coordinates only and supplies no measurement-coordinate carrier or Hydra/OV geometry ingestion. Unchanged height in this pair does not test a vertical-datum conversion.
+
+## Source interpolation and the sampling record
+
+A WGS84 anchor moves from longitude -1 degree to +1 degree on the equator at zero height. At time 5, Core linear source interpolation yields longitude zero before ECEF conversion. Each reader returns X = 6378137 m, Y = 0 m, Z = 0 m.
+
+| Time code | Source longitude (degrees) | Resolved ECEF X (m) |
 |---|---|---|
-| /World/Data | /World | Geocentric ITRF2020 |
-| /World/Independent/Data | /World/Independent | NAD83 grid with NAVD88 height |
-| /World/Unmarked | /World | Geocentric ITRF2020 |
-| /Assembly/Independent/Data | /Assembly/Independent | NAD83 grid with NAVD88 height |
+| 0 | -1 | 6377165.578842 |
+| 5 | 0 | 6378137.000000 |
+| 10 | 1 | 6377165.578842 |
 
-The independent descendant keeps its own source CRS when the scene is referenced into an assembly. An unmarked WKT property does not establish a new binding. A stronger layer can override the enclosing composed definition without changing the independent child. Equivalent composed data keeps this interpretation after ordinary flattening. This is CRS discovery, not computed geospatial placement or resolved export.
+Interpolating only the converted endpoints instead puts the midpoint **971.421158 m** away. A standalone USD coordinate record writes sample keys 0, 5 and 10 with explicit timeCodesPerSecond = 48; a fresh reader verifies both. This is a sampling-record control, not a resolved-scene export or a guarantee between export samples.
 
-## What this run executed
+## Postimplementation audit and delivery boundary
 
-| Control group | Cases | Queries per reader |
-|---|---:|---:|
-| References and referenced assembly | 2 | 6 |
-| Stronger layer, variant and inherits | 3 | 4 |
-| Equivalent composed data | 1 | 2 |
-| Unloaded payload | 1 | 2 |
-| Missing, broken or invalid definitions | 5 | 5 |
-| Total | 12 | 19 |
+The audit tightened the partial origin adapter to reject nested/descendant frame requests rather than applying an incomplete model. It also corrected geographic identity reporting to use exact component comparison instead of a length metric. These repairs change consumer support/reporting, add no scene fact and do not amend the proposal to match code. Source fixtures author only crs:wkt and the three candidate placement fields. Resolution rewrites no source xformOps, resetXformStack, definitions, bindings or sampling keys.
 
-Headless OpenUSD, independently written native C++ OpenUSD and a live OV stage each match authored expectations. The readers do not import one another's discovery function. Native discovery does not exercise Hydra placement. Live OV discovery does not ingest resolved geometry. The 15 tests also check the readiness gate, fixture field ownership and the previous resolver's incompatibility.
+Full model frames, project-adjusted placement, geometry and bounds, Hydra/OV resolved geometry, measurement-associated data and conservative resolved-scene export depend on the four missing contracts. These partial tests do not certify near-unit quaternion validation policy or geographic-distance controls. Group adoption and geodetic accuracy remain distinct from passing execution.
 
-Partial checks reject absent binding, a broken nearest binding, wrong WKT type or variability and an empty definition. A broken nearest binding cannot fall back to an enclosing CRS. Available enclosing scope remains readable with a payload unloaded; content absent from that payload fails. These checks do not certify WKT normalization, the dependency declaration or whole-asset conformance.
+## Reproduction and provenance
 
-## Why earlier passing tests were insufficient
+Full candidate: [proposal-source.txt](proposal/proposal-source.txt), SHA-256 `a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904`, based on `39c8fb816a9113b14c8f64b020270724b8357312`. [The local patch](proposal/local-draft.patch) identifies unpublished edits. Derived notes cite that snapshot and add no normative choices. Executed source: `6d8323764ad44953887cac9781375b7c7176e928`.
 
-The earlier freeze pinned private experimental answers, then tested code against those answers. A requirements-only intake excluded contradictory design text. Execution results became the headline despite known specification dependencies.
+Configure native/CMakeLists.txt against an OpenUSD SDK with PROJ, then run run.py with --output, --usd-sdk, --native-build, --native-python, --ov-sdk, --python-dependencies and --cmake from a Visual Studio developer environment on Windows. Use a fresh output directory. Python dependencies include pytest, pyproj and OpenUSD. The live OV reader loads its own USD bindings before the declared pyproj path. PROJ databases must be available; network lookup stays disabled for these controls.
 
-The prior relationship-based placement reader fails a reference-binding fixture from the shared proposal. This run exposes that mismatch and excludes the old placement candidate. Passing tests cannot substitute a private model for the shared data contract.
-
-The default gate now stops dependent execution. It still finishes independently specified checks and delivers their receipt. No previous render, projected coordinate, export or test count is presented as evidence from this run. The remaining blockers are the named proposal contracts, not deferred mechanical work.
-
-## Reproducing this run
-
-The authoritative full proposal is `39c8fb816a9113b14c8f64b020270724b8357312`. Its verbatim Git blob is [proposal-source.txt](proposal/proposal-source.txt), SHA-256 `cae5e02e91064434e3b4da76b21655f29ce52a92d232b01a7462a1f941de88da`. All 31 requirements have source-line traces. The executed source commit is `d1746ce725999e2a472df6c6dee13a804ff732e2`. Six derived documents and executed source files are hashed in the receipt.
-
-Run `run.py --output <fresh-directory> --usd-sdk <native-USD-install> --native-python <linked-Python-DLL-directory> --native-build <configured-build> --ov-sdk <OV-install> --cmake <cmake>`. Use the native compiler environment. A successful specification-stopped run writes its receipt and returns exit code 2; test or runtime failures produce no successful receipt. `--experiment-with-open-specifications` cannot bypass this gate using the obsolete candidate.
-
-The current delivery contains the exact source fixtures, independently returned definitions and execution receipt. Historical full experiments remain in Git history, including source `53d6f96ae7820c228438cd4523ff995f4148e244`. The current build does not relabel them as proposal conformance.
+Exit code 2 records passing controls with proposal readiness stopping full placement. A test, build or consumer failure produces no successful stopped receipt. Current delivery includes exact fixtures, independent returns and the receipt. Historical experiments remain historical evidence.

@@ -1,0 +1,17 @@
+#usda 1.0
+(
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+def Xform "Model" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = @./crs-library.usda@</Definitions/ECEF>
+)
+{
+    quatd crs:orientation = None
+    double3 crs:position = (10, 20, 30)
+    double3 xformOp:translate = (1000, 2000, 3000)
+    uniform token[] xformOpOrder = ["xformOp:translate"]
+}
+

@@ -1,0 +1,15 @@
+#usda 1.0
+(
+    timeCodesPerSecond = 48
+)
+
+def Scope "CoordinateRecord"
+{
+    custom double3 recordedPosition
+    double3 recordedPosition.timeSamples = {
+        0: (6377165.5788417, -111313.83923667614, 0),
+        5: (6378137, 0, 0),
+        10: (6377165.5788417, 111313.83923667614, 0),
+    }
+}
+

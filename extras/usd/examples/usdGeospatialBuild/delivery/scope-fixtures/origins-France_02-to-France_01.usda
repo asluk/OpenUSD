@@ -1,0 +1,484 @@
+#usda 1.0
+(
+    metersPerUnit = 0.01
+    timeCodesPerSecond = 48
+    upAxis = "Y"
+)
+
+def CoordinateReferenceSystem "Definition"
+{
+    uniform token crs:wkt = 'COMPOUNDCRS["RGF93 v2b / Lambert-93 + NGF-IGN69 height",PROJCRS["RGF93 v2b / Lambert-93",BASEGEOGCRS["RGF93 v2b",DATUM["Reseau Geodesique Francais 1993 v2b",ELLIPSOID["GRS 1980",6378137.0,298.257222101,LENGTHUNIT["metre",1.0]],ID["EPSG",1313]],PRIMEM["Greenwich",0.0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",9782]],CONVERSION["Lambert-93",METHOD["Lambert Conic Conformal (2SP)",ID["EPSG",9802]],PARAMETER["Latitude of false origin",46.5,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8821]],PARAMETER["Longitude of false origin",3.0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8822]],PARAMETER["Latitude of 1st standard parallel",49.0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8823]],PARAMETER["Latitude of 2nd standard parallel",44.0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8824]],PARAMETER["Easting at false origin",700000.0,LENGTHUNIT["metre",1.0],ID["EPSG",8826]],PARAMETER["Northing at false origin",6600000.0,LENGTHUNIT["metre",1.0],ID["EPSG",8827]],ID["EPSG",18085]],CS[Cartesian,2],AXIS["easting (E)",east,ORDER[1],LENGTHUNIT["metre",1.0]],AXIS["northing (N)",north,ORDER[2],LENGTHUNIT["metre",1.0]],ID["EPSG",9794]],VERTCRS["NGF-IGN69 height",VDATUM["Nivellement General de la France - IGN69",ID["EPSG",5119]],CS[vertical,1],AXIS["gravity-related height (H)",up,LENGTHUNIT["metre",1.0]],ID["EPSG",5720]],ID["EPSG",10499]]'
+}
+
+def Xform "Anchor0" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661101.1094, 6857834.2565, 37.298)
+}
+
+def Xform "Anchor1" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661225.1237, 6857827.0213, 37.557)
+}
+
+def Xform "Anchor2" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661214.4802, 6857823.5506, 37.668)
+}
+
+def Xform "Anchor3" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661209.7139, 6857821.9914, 37.598)
+}
+
+def Xform "Anchor4" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661205.3595, 6857820.5673, 37.542)
+}
+
+def Xform "Anchor5" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661201.653, 6857819.3674, 37.48)
+}
+
+def Xform "Anchor6" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661205.8158, 6857845.4231, 37.63)
+}
+
+def Xform "Anchor7" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661170.6863, 6857802.221, 37.518)
+}
+
+def Xform "Anchor8" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661114.0207, 6857801.0158, 37.377)
+}
+
+def Xform "Anchor9" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661107.444, 6857808.6786, 37.482)
+}
+
+def Xform "Anchor10" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661096.8807, 6857808.0438, 37.077)
+}
+
+def Xform "Anchor11" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661115.8728, 6857889.4096, 35.855)
+}
+
+def Xform "Anchor12" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661123.3463, 6857871.2515, 36.444)
+}
+
+def Xform "Anchor13" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661127.3134, 6857858.7103, 36.917)
+}
+
+def Xform "Anchor14" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661150.9024, 6857865.1543, 37.503)
+}
+
+def Xform "Anchor15" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661135.7112, 6857824.5994, 37.607)
+}
+
+def Xform "Anchor16" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661078.5707, 6857830.2127, 36.577)
+}
+
+def Xform "Anchor17" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661093.8201, 6857836.8044, 36.893)
+}
+
+def Xform "Anchor18" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661139.5013, 6857808.4073, 37.633)
+}
+
+def Xform "Anchor19" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661169.0274, 6857817.0267, 37.585)
+}
+
+def Xform "Anchor20" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661171.2639, 6857799.7263, 37.513)
+}
+
+def Xform "Anchor21" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661119.3125, 6857782.1432, 37.384)
+}
+
+def Xform "Anchor22" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661174.5114, 6857875.3171, 37.459)
+}
+
+def Xform "Anchor23" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661146.3645, 6857791.35, 37.586)
+}
+
+def Xform "Anchor24" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661097.7334, 6857812.5978, 37.007)
+}
+
+def Xform "Anchor25" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661240.1843, 6857851.589, 37.592)
+}
+
+def Xform "Anchor26" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661251.8578, 6857832.3612, 37.866)
+}
+
+def Xform "Anchor27" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661218.8853, 6857818.4261, 37.749)
+}
+
+def Xform "Anchor28" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661135.3795, 6857823.2704, 37.61)
+}
+
+def Xform "Anchor29" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661167.545, 6857855.8922, 37.526)
+}
+
+def Xform "Anchor30" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661202.0436, 6857817.1956, 37.534)
+}
+
+def Xform "Anchor31" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661232.4842, 6857830.918, 37.479)
+}
+
+def Xform "Anchor32" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661198.5825, 6857810.64, 37.556)
+}
+
+def Xform "Anchor33" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661108.4818, 6857805.3331, 36.49)
+}
+
+def Xform "Anchor34" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661128.9784, 6857843.6085, 37.518)
+}
+
+def Xform "Anchor35" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661154.9131, 6857850.7401, 37.483)
+}
+
+def Xform "Anchor36" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661185.398, 6857863.5956, 37.413)
+}
+
+def Xform "Anchor37" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661202.5713, 6857866.3801, 37.491)
+}
+
+def Xform "Anchor38" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661231.0941, 6857876.3342, 37.288)
+}
+
+def Xform "Anchor39" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661170.6256, 6857890.3852, 37.407)
+}
+
+def Xform "Anchor40" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661146.156, 6857879.0073, 37.111)
+}
+
+def Xform "Anchor41" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661151.5521, 6857855.111, 37.375)
+}
+
+def Xform "Anchor42" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661154.6581, 6857846.9803, 37.635)
+}
+
+def Xform "Anchor43" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661158.5356, 6857848.1962, 37.603)
+}
+
+def Xform "Anchor44" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661158.0942, 6857857.2176, 37.541)
+}
+
+def Xform "Anchor45" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661174.6859, 6857862.5268, 37.595)
+}
+
+def Xform "Anchor46" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661205.4041, 6857866.5649, 37.56)
+}
+
+def Xform "Anchor47" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661226.7806, 6857867.9145, 37.488)
+}
+
+def Xform "Anchor48" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661229.2116, 6857889.818, 37.08)
+}
+
+def Xform "Anchor49" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661241.3696, 6857831.4484, 37.862)
+}
+
+def Xform "Anchor50" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661229.7502, 6857839.2039, 37.36)
+}
+
+def Xform "Anchor51" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661228.7834, 6857845.9332, 37.46)
+}
+
+def Xform "Anchor52" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661225.2887, 6857856.8267, 37.512)
+}
+
+def Xform "Anchor53" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661198.3168, 6857824.5072, 37.57)
+}
+
+def Xform "Anchor54" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661192.3371, 6857843.1536, 37.533)
+}
+
+def Xform "Anchor55" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661187.7105, 6857857.5266, 37.652)
+}
+
+def Xform "Anchor56" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661178.582, 6857857.5191, 37.533)
+}
+
+def Xform "Anchor57" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661162.7399, 6857835.0441, 37.643)
+}
+
+def Xform "Anchor58" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (661206.471, 6857863.1493, 37.76)
+}
+

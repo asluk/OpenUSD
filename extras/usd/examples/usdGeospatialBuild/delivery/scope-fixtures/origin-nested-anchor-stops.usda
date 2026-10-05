@@ -1,0 +1,31 @@
+#usda 1.0
+(
+    metersPerUnit = 0.01
+    timeCodesPerSecond = 48
+    upAxis = "Y"
+)
+
+def CoordinateReferenceSystem "Definition"
+{
+    uniform token crs:wkt = 'GEOGCRS["WGS 84",DATUM["World Geodetic System 1984",ELLIPSOID["WGS 84",6378137.0,298.257223563,LENGTHUNIT["metre",1.0]]],PRIMEM["Greenwich",0.0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,3],AXIS["latitude",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["longitude",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],AXIS["height",up,ORDER[3],LENGTHUNIT["metre",1.0]]]'
+}
+
+def Xform "Anchor0" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = </Definition>
+)
+{
+    double3 crs:position = (0, 0, 0)
+}
+
+def "Assembly"
+{
+    def Xform "Anchor" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = </Definition>
+    )
+    {
+        double3 crs:position = (0, 0, 0)
+    }
+}
+

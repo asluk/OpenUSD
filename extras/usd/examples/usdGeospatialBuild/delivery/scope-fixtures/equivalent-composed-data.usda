@@ -1,7 +1,7 @@
 #usda 1.0
 (
     defaultPrim = "World"
-    doc = """Generated from Composed Stage of root layer C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-current-proposal-run-20261004-v3\\scope-fixtures\\references.usda
+    doc = """Generated from Composed Stage of root layer C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-local-candidate-run-20261004-v3\\scope-fixtures\\references.usda
 """
     metersPerUnit = 0.01
     upAxis = "Y"
@@ -11,21 +11,7 @@ def Xform "World" (
     apiSchemas = ["GeospatialCRSBindingAPI"]
 )
 {
-    uniform token crs:wkt = '''GEODCRS["ITRF2020",
-    DYNAMIC[FRAMEEPOCH[2015]],
-    DATUM["International Terrestrial Reference Frame 2020",
-        ELLIPSOID["GRS 1980",6378137,298.257222101,
-            LENGTHUNIT["metre",1.0]]],
-    PRIMEMERIDIAN["Greenwich",0,
-        ANGLEUNIT["degree",0.0174532925199433]],
-    CS[Cartesian,3],
-        AXIS["(X)",geocentricX,ORDER[1],
-            LENGTHUNIT["metre",1.0]],
-        AXIS["(Y)",geocentricY,ORDER[2],
-            LENGTHUNIT["metre",1.0]],
-        AXIS["(Z)",geocentricZ,ORDER[3],
-            LENGTHUNIT["metre",1.0]],
-    ID["EPSG",9990]]'''
+    uniform token crs:wkt = 'GEODCRS["ITRF2020",DYNAMIC[FRAMEEPOCH[2015.0]],DATUM["International Terrestrial Reference Frame 2020",ELLIPSOID["GRS 1980",6378137.0,298.257222101,LENGTHUNIT["metre",1.0]]],PRIMEM["Greenwich",0.0,ANGLEUNIT["degree",0.0174532925199433]],CS[Cartesian,3],AXIS["(X)",geocentricX,ORDER[1],LENGTHUNIT["metre",1.0]],AXIS["(Y)",geocentricY,ORDER[2],LENGTHUNIT["metre",1.0]],AXIS["(Z)",geocentricZ,ORDER[3],LENGTHUNIT["metre",1.0]],ID["EPSG",9990]]'
     double3 xformOp:translate = (1, 2, 3)
     uniform token[] xformOpOrder = ["xformOp:translate"]
 
@@ -37,38 +23,7 @@ def Xform "World" (
         apiSchemas = ["GeospatialCRSBindingAPI"]
     )
     {
-        uniform token crs:wkt = '''COMPOUNDCRS["NAD83 / California zone 5 (ftUS) + NAVD88 height (ftUS)",
-    PROJCRS["NAD83 / California zone 5 (ftUS)",
-        BASEGEOGCRS["NAD83",
-            DATUM["North American Datum 1983",
-                ELLIPSOID["GRS 1980",6378137,298.257222101,
-                    LENGTHUNIT["metre",1.0]]],
-            ID["EPSG",4269]],
-        CONVERSION["SPCS83 California zone 5 (US Survey feet)",
-            METHOD["Lambert Conic Conformal (2SP)",
-                ID["EPSG",9802]],
-            PARAMETER["Latitude of false origin",33.5,
-                ANGLEUNIT["degree",0.0174532925199433]],
-            PARAMETER["Longitude of false origin",-118,
-                ANGLEUNIT["degree",0.0174532925199433]],
-            PARAMETER["Latitude of 1st standard parallel",35.4666666666667,
-                ANGLEUNIT["degree",0.0174532925199433]],
-            PARAMETER["Latitude of 2nd standard parallel",34.0333333333333,
-                ANGLEUNIT["degree",0.0174532925199433]],
-            PARAMETER["Easting at false origin",6561666.667,
-                LENGTHUNIT["US survey foot",0.304800609601219]],
-            PARAMETER["Northing at false origin",1640416.667,
-                LENGTHUNIT["US survey foot",0.304800609601219]]],
-        CS[Cartesian,2],
-            AXIS["(E)",east,LENGTHUNIT["US survey foot",0.304800609601219]],
-            AXIS["(N)",north,LENGTHUNIT["US survey foot",0.304800609601219]],
-        ID["EPSG",2229]],
-    VERTCRS["NAVD88 height (ftUS)",
-        VDATUM["North American Vertical Datum 1988"],
-        CS[vertical,1],
-            AXIS["gravity-related height (H)",up,
-                LENGTHUNIT["US survey foot",0.304800609601219]],
-        ID["EPSG",6360]]]'''
+        uniform token crs:wkt = 'COMPOUNDCRS["NAD83 / California zone 5 (ftUS) + NAVD88 height (ftUS)",PROJCRS["NAD83 / California zone 5 (ftUS)",BASEGEOGCRS["NAD83",DATUM["North American Datum 1983",ELLIPSOID["GRS 1980",6378137.0,298.257222101,LENGTHUNIT["metre",1.0]]],ID["EPSG",4269]],CONVERSION["SPCS83 California zone 5 (US Survey feet)",METHOD["Lambert Conic Conformal (2SP)",ID["EPSG",9802]],PARAMETER["Latitude of false origin",33.5,ANGLEUNIT["degree",0.0174532925199433]],PARAMETER["Longitude of false origin",-118.0,ANGLEUNIT["degree",0.0174532925199433]],PARAMETER["Latitude of 1st standard parallel",35.4666666666667,ANGLEUNIT["degree",0.0174532925199433]],PARAMETER["Latitude of 2nd standard parallel",34.0333333333333,ANGLEUNIT["degree",0.0174532925199433]],PARAMETER["Easting at false origin",6561666.667,LENGTHUNIT["US survey foot",0.304800609601219]],PARAMETER["Northing at false origin",1640416.667,LENGTHUNIT["US survey foot",0.304800609601219]]],CS[Cartesian,2],AXIS["(E)",east,LENGTHUNIT["US survey foot",0.304800609601219]],AXIS["(N)",north,LENGTHUNIT["US survey foot",0.304800609601219]],ID["EPSG",2229]],VERTCRS["NAVD88 height (ftUS)",VDATUM["North American Vertical Datum 1988"],CS[vertical,1],AXIS["gravity-related height (H)",up,LENGTHUNIT["US survey foot",0.304800609601219]],ID["EPSG",6360]]]'
 
         def Scope "Data"
         {
@@ -77,38 +32,7 @@ def Xform "World" (
 
     def Scope "Unmarked"
     {
-        custom uniform token crs:wkt = '''COMPOUNDCRS["NAD83 / California zone 5 (ftUS) + NAVD88 height (ftUS)",
-    PROJCRS["NAD83 / California zone 5 (ftUS)",
-        BASEGEOGCRS["NAD83",
-            DATUM["North American Datum 1983",
-                ELLIPSOID["GRS 1980",6378137,298.257222101,
-                    LENGTHUNIT["metre",1.0]]],
-            ID["EPSG",4269]],
-        CONVERSION["SPCS83 California zone 5 (US Survey feet)",
-            METHOD["Lambert Conic Conformal (2SP)",
-                ID["EPSG",9802]],
-            PARAMETER["Latitude of false origin",33.5,
-                ANGLEUNIT["degree",0.0174532925199433]],
-            PARAMETER["Longitude of false origin",-118,
-                ANGLEUNIT["degree",0.0174532925199433]],
-            PARAMETER["Latitude of 1st standard parallel",35.4666666666667,
-                ANGLEUNIT["degree",0.0174532925199433]],
-            PARAMETER["Latitude of 2nd standard parallel",34.0333333333333,
-                ANGLEUNIT["degree",0.0174532925199433]],
-            PARAMETER["Easting at false origin",6561666.667,
-                LENGTHUNIT["US survey foot",0.304800609601219]],
-            PARAMETER["Northing at false origin",1640416.667,
-                LENGTHUNIT["US survey foot",0.304800609601219]]],
-        CS[Cartesian,2],
-            AXIS["(E)",east,LENGTHUNIT["US survey foot",0.304800609601219]],
-            AXIS["(N)",north,LENGTHUNIT["US survey foot",0.304800609601219]],
-        ID["EPSG",2229]],
-    VERTCRS["NAVD88 height (ftUS)",
-        VDATUM["North American Vertical Datum 1988"],
-        CS[vertical,1],
-            AXIS["gravity-related height (H)",up,
-                LENGTHUNIT["US survey foot",0.304800609601219]],
-        ID["EPSG",6360]]]'''
+        custom uniform token crs:wkt = 'COMPOUNDCRS["NAD83 / California zone 5 (ftUS) + NAVD88 height (ftUS)",PROJCRS["NAD83 / California zone 5 (ftUS)",BASEGEOGCRS["NAD83",DATUM["North American Datum 1983",ELLIPSOID["GRS 1980",6378137.0,298.257222101,LENGTHUNIT["metre",1.0]]],ID["EPSG",4269]],CONVERSION["SPCS83 California zone 5 (US Survey feet)",METHOD["Lambert Conic Conformal (2SP)",ID["EPSG",9802]],PARAMETER["Latitude of false origin",33.5,ANGLEUNIT["degree",0.0174532925199433]],PARAMETER["Longitude of false origin",-118.0,ANGLEUNIT["degree",0.0174532925199433]],PARAMETER["Latitude of 1st standard parallel",35.4666666666667,ANGLEUNIT["degree",0.0174532925199433]],PARAMETER["Latitude of 2nd standard parallel",34.0333333333333,ANGLEUNIT["degree",0.0174532925199433]],PARAMETER["Easting at false origin",6561666.667,LENGTHUNIT["US survey foot",0.304800609601219]],PARAMETER["Northing at false origin",1640416.667,LENGTHUNIT["US survey foot",0.304800609601219]]],CS[Cartesian,2],AXIS["(E)",east,LENGTHUNIT["US survey foot",0.304800609601219]],AXIS["(N)",north,LENGTHUNIT["US survey foot",0.304800609601219]],ID["EPSG",2229]],VERTCRS["NAVD88 height (ftUS)",VDATUM["North American Vertical Datum 1988"],CS[vertical,1],AXIS["gravity-related height (H)",up,LENGTHUNIT["US survey foot",0.304800609601219]],ID["EPSG",6360]]]'
     }
 }
 
