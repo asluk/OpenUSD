@@ -296,7 +296,8 @@ def origin_jobs(root, directory):
         if default: stage.SetDefaultPrim(stage.GetPrimAtPath('/Anchor0'))
         stage.GetRootLayer().Save()
         job['output_wkt']=''
-        job['output_length_factors']=[1.,1.,1.] # Identity query components compare exactly; no angle-as-distance claim.
+        job['comparison_kind']='exact_source_components'
+        job['output_length_factors']=None # Geographic identity is not a length metric.
     for name,path in [('origin-descendant-stops','/Anchor0/Child'),('origin-nested-anchor-stops','/Assembly/Anchor')]:
         author(name,GEOGRAPHIC,ecef,[(0.,0.,0.)],['This origin adapter supports only direct top-level anchors; dependent frame request stopped'])
         job=jobs[-1]; stage=Usd.Stage.Open(job['stage'])

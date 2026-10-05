@@ -170,7 +170,10 @@ def check_job(result,job):
     for actual,expected in zip(result['queries'],job['expected']):
         if not expected['success']: assert_results(actual,expected); continue
         assert actual['prim']==expected['prim'] and actual['success']
-        assert distance(actual['coordinates'],expected['coordinates'],job['output_length_factors'])<=job['acceptance_metres'],(job['name'],actual,expected)
+        if job.get('comparison_kind')=='exact_source_components':
+            assert actual['coordinates']==expected['coordinates'],(job['name'],actual,expected)
+        else:
+            assert distance(actual['coordinates'],expected['coordinates'],job['output_length_factors'])<=job['acceptance_metres'],(job['name'],actual,expected)
         assert actual['operation_definition'] and actual['engine']=='PROJ'
         assert actual['operation_accuracy_metres'] is None or actual['operation_accuracy_metres']>=0
 
@@ -179,6 +182,15 @@ def origin_agreement(jobs,headless,native,ov):
     for job,h,n,o in zip(jobs,headless,native,ov):
         if job.get('kind')!='origin_coordinates': continue
         good=[index for index,row in enumerate(job['expected']) if row['success']]
+        if job.get('comparison_kind')=='exact_source_components':
+            for index in good:
+                coordinates=[reader['queries'][index]['coordinates'] for reader in [h,n,o]]
+                assert all(value==job['expected'][index]['coordinates'] for value in coordinates)
+            records.append({'name':job['name'],'successful_origins':len(good),'expected_failures':len(job['expected'])-len(good),
+                            'comparison_kind':'exact source components in their declared units',
+                            'max_reference_discrepancy_metres':None,'max_reader_agreement_metres':None,
+                            'reference':'Identity query; no angular difference interpreted as length'})
+            continue
         discrepancies=[]; agreements=[]; definitions=[]
         for index in good:
             rows=[consumer['queries'][index] for consumer in [h,n,o]]
