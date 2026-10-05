@@ -101,9 +101,24 @@ async def inspect():
                             else:
                                 row[name] = list(components)
                     if job.get('kind') == 'origin_coordinates':
+                        if str(current.GetPath())!=path or not current.GetParent().IsPseudoRoot():
+                            raise ValueError('This origin adapter supports only direct top-level anchors; dependent frame request stopped')
+                        output_wkt = job['output_wkt']
+                        if not output_wkt:
+                            default = stage.GetDefaultPrim()
+                            while default and not default.IsPseudoRoot():
+                                schemas = default.GetMetadata('apiSchemas')
+                                if schemas and 'GeospatialCRSBindingAPI' in schemas.GetAppliedItems():
+                                    field = default.GetAttribute('crs:wkt')
+                                    if field and field.GetTypeName()==Sdf.ValueTypeNames.Token and field.GetVariability()==Sdf.VariabilityUniform:
+                                        output_wkt=field.Get()
+                                    break
+                                default=default.GetParent()
+                            if not output_wkt:
+                                raise ValueError('No usable output CRS on composed defaultPrim')
                         if UsdGeom.Xformable(current).GetOrderedXformOps():
                             raise ValueError('Ordinary-adjustment frame is unspecified; origin query stopped')
-                        source, target = CRS.from_wkt(row['wkt']), CRS.from_wkt(job['output_wkt'])
+                        source, target = CRS.from_wkt(row['wkt']), CRS.from_wkt(output_wkt)
                         for definition in [source, target]:
                             if definition.is_bound:
                                 raise ValueError('Bound CRS origin-query profile not implemented; no embedded transform dropped')

@@ -288,4 +288,22 @@ def origin_jobs(root, directory):
            ['Ordinary-adjustment frame is unspecified; origin query stopped'],ordinary=True)
     author('origin-invalid-latitude',GEOGRAPHIC,ecef,[(0.,100.,0.)],
            ['Coordinate operation failed; no substitute'])
+
+    # Consumer-selected output takes precedence; otherwise use composed defaultPrim.
+    for name,default in [('origin-default-output',True),('origin-no-default-output',False)]:
+        author(name,GEOGRAPHIC,ecef,[(0.,0.,10.)],[[0.,0.,10.]] if default else ['No usable output CRS on composed defaultPrim'])
+        job=jobs[-1]; stage=Usd.Stage.Open(job['stage'])
+        if default: stage.SetDefaultPrim(stage.GetPrimAtPath('/Anchor0'))
+        stage.GetRootLayer().Save()
+        job['output_wkt']=''
+        job['output_length_factors']=[1.,1.,1.] # Identity query components compare exactly; no angle-as-distance claim.
+    for name,path in [('origin-descendant-stops','/Anchor0/Child'),('origin-nested-anchor-stops','/Assembly/Anchor')]:
+        author(name,GEOGRAPHIC,ecef,[(0.,0.,0.)],['This origin adapter supports only direct top-level anchors; dependent frame request stopped'])
+        job=jobs[-1]; stage=Usd.Stage.Open(job['stage'])
+        if name=='origin-descendant-stops': UsdGeom.Xform.Define(stage,path)
+        else:
+            prim=UsdGeom.Xform.Define(stage,path).GetPrim(); marker(prim)
+            prim.GetReferences().AddInternalReference('/Definition')
+            prim.CreateAttribute('crs:position',Sdf.ValueTypeNames.Double3,custom=False).Set((0.,0.,0.))
+        stage.GetRootLayer().Save(); job['queries']=[path]; job['expected'][0]['prim']=path
     return jobs

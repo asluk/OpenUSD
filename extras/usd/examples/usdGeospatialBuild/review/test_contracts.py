@@ -76,7 +76,8 @@ def test_candidate_source_placement_records(name, jobs):
 @pytest.mark.parametrize('name', ['origins-France_01-to-France_02', 'origins-France_02-to-France_01',
     'origins-Colorado_02-to-Colorado_03', 'origins-Colorado_03-to-Colorado_02',
     'origin-source-interpolation-0', 'origin-source-interpolation-5', 'origin-source-interpolation-10',
-    'origin-adjustment-stops', 'origin-invalid-latitude'])
+    'origin-adjustment-stops', 'origin-invalid-latitude', 'origin-default-output', 'origin-no-default-output',
+    'origin-descendant-stops','origin-nested-anchor-stops'])
 def test_direct_origin_coordinate_controls(name, jobs):
     from review.origin_queries import queries as origin_queries
     from review.runner import check_job

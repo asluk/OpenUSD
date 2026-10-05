@@ -66,6 +66,13 @@ struct QueryDefinition {
 
 inline JsObject OriginQuery(UsdPrim prim, UsdTimeCode time, const std::string& outputWkt) {
     auto record = ReadPlacement(prim, time);
+    if (record.at("binding_prim").GetString() != prim.GetPath().GetString() || !prim.GetParent().IsPseudoRoot())
+        throw std::runtime_error("This origin adapter supports only direct top-level anchors; dependent frame request stopped");
+    std::string selectedOutput = outputWkt;
+    if (selectedOutput.empty()) {
+        try { selectedOutput = Discover(prim.GetStage()->GetDefaultPrim()).at("wkt").GetString(); }
+        catch (const std::exception&) { throw std::runtime_error("No usable output CRS on composed defaultPrim"); }
+    }
     auto owner = prim.GetStage()->GetPrimAtPath(SdfPath(record.at("binding_prim").GetString()));
     bool reset = false;
     if (!UsdGeomXformable(owner).GetOrderedXformOps(&reset).empty())
@@ -74,7 +81,7 @@ inline JsObject OriginQuery(UsdPrim prim, UsdTimeCode time, const std::string& o
     auto context = contextOwner.get();
     proj_context_set_enable_network(context, 0);
     try {
-        QueryDefinition source(context, record.at("wkt").GetString()), target(context, outputWkt);
+        QueryDefinition source(context, record.at("wkt").GetString()), target(context, selectedOutput);
         const char* options[]{"ALLOW_BALLPARK=NO", "ONLY_BEST=YES", nullptr};
         auto raw = proj_create_crs_to_crs_from_pj(context, source.object, target.object, nullptr, options);
         if (!raw) throw std::runtime_error("Coordinate operation failed; no substitute");

@@ -115,7 +115,7 @@ def execute(root, args):
                     if p.is_file() and p.suffix in ['.py', '.cpp', '.h', '.md', '.json', '.txt', '.kit', '.usda']
                     and p.name != 'README.md' and not any(x in p.parts for x in ['delivery', 'collateral', '__pycache__', '.pytest_cache'])}
     report = {
-        'status': 'full placement derivation stopped; local-candidate discovery, source-placement and WKT controls executed',
+        'status': 'full placement derivation stopped; local-candidate discovery, source-placement, WKT and direct-origin controls executed',
         'completed_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
         'source_commit': subprocess.check_output(['git', '-C', str(root), 'rev-parse', 'HEAD'], text=True).strip(),
         'inputs': inputs, 'source_files': source_files, 'completion': completion,
@@ -139,10 +139,11 @@ def execute(root, args):
                             'This is one normalizer and a bounded strict-reader profile, not proof of support for all OGC WKT productions.'],
         },
         'placement_runtime_jobs': 0, 'hydra_placement_jobs': 0, 'ov_placement_jobs': 0,
-        'exports': [], 'geodetic_accuracy_claim': False, 'source_files_unchanged': True,
+        'exports': [],
+        'sampling_record_control': sampling_record(output, jobs, headless), 'geodetic_accuracy_claim': False, 'source_files_unchanged': True,
         'limitations': [
             'This run executes the local review candidate, not the published proposal alone; detailed draft choices are not group adoption.',
-            'Direct coordinate controls resolve only adjustment-free anchor origins; provider positions are illustrative model placements, not an answer to measurement association. All three readers share PROJ, not independent geodetic engines.',
+            'Direct coordinate controls resolve only adjustment-free top-level anchor origins; provider positions are illustrative model placements, not an answer to measurement association. All three readers share PROJ, not independent geodetic engines.',
             'Source placement controls read fields, fallbacks and Core interpolation; they do not compute resolved positions or frames.',
             'Native USD discovery is not Hydra placement or rendering. Live OV discovery is not resolved geometry ingestion.',
             'Adjustment frame, stage/basis mapping, measurement-coordinate association and dependency declaration stop dependent full derivation; geographic scene-frame scope is also unresolved.',
@@ -194,3 +195,25 @@ def origin_agreement(jobs,headless,native,ov):
                         'operations':sorted(set(definitions)),
                         'reference':'Analytic WGS84 equatorial ECEF' if 'interpolation' in job['name'] else 'Provider PROJ-generated CSV; intake/rounding reference, not survey truth'})
     return records
+
+
+def sampling_record(output,jobs,headless):
+    from pxr import UsdGeom,Sdf,Gf
+    results={row['name']:row for row in headless}
+    root=Path(output)/'origin-sampling-record.usda'
+    stage=Usd.Stage.CreateNew(str(root));stage.SetTimeCodesPerSecond(48.)
+    prim=stage.DefinePrim('/CoordinateRecord','Scope')
+    position=prim.CreateAttribute('recordedPosition',Sdf.ValueTypeNames.Double3)
+    for time in [0.,5.,10.]:
+        value=results['origin-source-interpolation-'+str(int(time))]['queries'][0]['coordinates']
+        position.Set(Gf.Vec3d(*value),time)
+    stage.GetRootLayer().Save()
+    fresh=Usd.Stage.Open(str(root));field=fresh.GetPrimAtPath('/CoordinateRecord').GetAttribute('recordedPosition')
+    assert field.GetTimeSamples()==[0.,5.,10.] and fresh.GetTimeCodesPerSecond()==48.
+    assert fresh.GetRootLayer().HasTimeCodesPerSecond()
+    endpoint_chord=(field.Get(0.)+field.Get(10.))/2.
+    deviation=(field.Get(5.)-endpoint_chord).GetLength()
+    assert abs(deviation-6378137.*(1.-math.cos(math.pi/180.)))<2e-8
+    return {'sample_keys':[0.,5.,10.],'authored_time_codes_per_second':48.,'fresh_reader_verified':True,
+            'endpoint_chord_midpoint_discrepancy_metres':deviation,'record_sha256':sha(root),
+            'claim':'Standalone coordinate-sampling record only. Not a resolved-scene export: no placement, dependency declaration or measurement carrier is invented.'}

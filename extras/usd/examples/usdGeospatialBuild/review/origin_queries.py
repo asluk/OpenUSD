@@ -7,7 +7,7 @@ import math
 from pxr import UsdGeom
 from pyproj import CRS, Transformer, proj_version_str
 from review.placement_values import read
-from review.scope import ScopeError
+from review.scope import ScopeError, discover
 
 
 def angular_factors(crs):
@@ -60,6 +60,12 @@ def convert(source_wkt, output_wkt, position):
 
 def query(stage, path, output_wkt, time):
     record = read(stage.GetPrimAtPath(path), time)
+    if record['binding_prim'] != path or not stage.GetPrimAtPath(path).GetParent().IsPseudoRoot():
+        raise ScopeError('This origin adapter supports only direct top-level anchors; dependent frame request stopped')
+    if not output_wkt:
+        try: output_wkt = discover(stage.GetDefaultPrim())['wkt']
+        except ScopeError as error:
+            raise ScopeError('No usable output CRS on composed defaultPrim') from error
     owner = stage.GetPrimAtPath(record['binding_prim'])
     if UsdGeom.Xformable(owner).GetOrderedXformOps():
         raise ScopeError('Ordinary-adjustment frame is unspecified; origin query stopped')
