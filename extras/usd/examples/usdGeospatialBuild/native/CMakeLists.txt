@@ -20,9 +20,9 @@ target_link_libraries(candidateValidation PRIVATE usd usdGeom usdValidation tf s
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/placement ${CMAKE_CURRENT_BINARY_DIR}/validation)
 configure_file(plugInfo.json plugInfo.json COPYONLY)
 
-# Independently implemented discovery for the shared reference-binding contract.
-# This target performs no experimental placement or projection computation.
+# Independent USD reader for candidate discovery, source values and direct origins.
+# This target does not choose a model frame or compute resolved scene geometry.
 add_executable(proposalScope proposalScope.cpp)
 target_include_directories(proposalScope PRIVATE ${PXR_INCLUDE_DIRS} ${USD_SDK}/include ${Python3_INCLUDE_DIRS})
 target_link_directories(proposalScope PRIVATE ${USD_SDK}/lib)
-target_link_libraries(proposalScope PRIVATE usd usdGeom tf sdf vt js)
+target_link_libraries(proposalScope PRIVATE usd usdGeom gf tf sdf vt js proj)

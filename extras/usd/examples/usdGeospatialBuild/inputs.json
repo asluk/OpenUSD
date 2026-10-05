@@ -1,12 +1,15 @@
 {
-  "status": "Full shared proposal pinned; partial derivation frozen; dependent placement stopped",
+  "status": "Local candidate pinned; defined controls executed, four dependent contracts remain open",
   "proposal": {
-    "commit": "39c8fb816a9113b14c8f64b020270724b8357312",
+    "base_commit": "39c8fb816a9113b14c8f64b020270724b8357312",
     "path": "proposals/geospatial_coordinate_reference_systems/README.md",
-    "sha256": "cae5e02e91064434e3b4da76b21655f29ce52a92d232b01a7462a1f941de88da",
-    "sha256_basis": "Git blob bytes",
+    "sha256": "a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904",
+    "sha256_basis": "Exact local file bytes",
+    "git_blob": "f52e9e3500781f486b74d1aa1dc26c4ddcf18a33",
     "snapshot": "proposal/proposal-source.txt",
-    "source_selection": "Entire published proposal; no design sections excluded"
+    "status": "Unpublished local review candidate; proposed choices are not group adoption",
+    "source_selection": "Entire local candidate, including all local binding/reset and placement/WKT clarifications",
+    "local_changes": "proposal/local-draft.patch"
   },
   "openusd": {
     "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
@@ -73,13 +76,17 @@
     }
   ],
   "derivation": {
-    "data-model.md": "b17d7a54a7b00d4cf58088d78023e982ec94c96a2b8af85d18052bf2e55ba5e6",
-    "distinguishing-examples.md": "52d4d182e9d0f1ea10ebda1626cf394f4312b60f81eb6414e9f249e6095aba2a",
-    "requirements.md": "71361319896a5b3b4be58d218033ea610792cb618c2dc1a2e47e1c7c5a42e6da",
-    "runtime-behavior.md": "228df78fd04b3df6479b317b2610dd8ae0dd10a71d1af062b5373a5088b5016d",
-    "runtime-open-decisions.md": "18938513d70937f2de2b5226598967d5c6556436fcb709b05bc0c574bc64218c",
-    "traceability.md": "68b074e563fc5828292b7c86e2e07a18e2025761b9a9f941772b804b95c1be42"
+    "data-model.md": "840521687273f38d3dee3d61985d65b5727bdbff6eb5db751877a19b515e9ee4",
+    "distinguishing-examples.md": "c689c307683616c6640561ebd33148e1962a8dd2818ec5eedbf0130c0bcf4199",
+    "requirements.md": "bbd1f89e1c54d4156a78d10a203b0ad9d25e6b016b2a02a3e5dc933bfd58c0b4",
+    "runtime-behavior.md": "5b904b53531cd6db3237a9df8bf769f3224ce42216d9627f0980778c94c4dd0c",
+    "runtime-open-decisions.md": "63fe5d76f083a4453e0ab1de742e7fc08831dd452866e43eda3ccc2730c04acc",
+    "traceability.md": "59dc42e39a8069b4b5b03175a7c674e7623080fe189088a247a586f1fba0939f"
   },
   "inherited_code_execution": "Prior relationship-based placement code retained in history/source, excluded from current execution except an explicit incompatibility control.",
-  "current_execution": "Shared-proposal discovery/composition only. No placement experiment bypass is permitted."
+  "current_execution": "Composition/discovery, source placement values, bounded WKT normalizer and adjustment-free anchor-origin coordinate queries",
+  "normalizer_references": [
+    "OGC 18-010r11 clauses 6–7 and Annex B",
+    "W3C XML Schema Part 2 canonical integer and decimal lexical representations"
+  ]
 }

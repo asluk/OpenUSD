@@ -2,6 +2,7 @@
 import asyncio
 import ctypes
 import json
+import math
 import os
 from pathlib import Path
 import sys
@@ -26,7 +27,11 @@ async def inspect():
     try:
         import omni.usd
         context = omni.usd.get_context()
-        from pxr import Sdf
+        from pxr import Sdf, Usd, UsdGeom
+        dependency = os.environ.get('GEOBUILD_PYTHON_DEPENDENCIES')
+        if dependency:
+            sys.path.append(dependency)
+        from pyproj import CRS, Transformer, proj_version_str
         jobs = json.loads(Path(os.environ['GEOBUILD_SCOPE_JOBS']).read_text())
         results = []
         for job in jobs:
@@ -36,6 +41,8 @@ async def inspect():
                 raise RuntimeError('OV could not ingest scope fixture: ' + message)
             await app.next_update_async()
             stage = context.get_stage()
+            if job.get('kind') in ['placement_values', 'origin_coordinates']:
+                stage.SetInterpolationType(Usd.InterpolationTypeHeld if job['interpolation'] == 'held' else Usd.InterpolationTypeLinear)
             before = {layer.identifier: layer.ExportToString() for layer in stage.GetUsedLayers()}
             queries = []
             for path in job['queries']:
@@ -64,8 +71,69 @@ async def inspect():
                         current = current.GetParent()
                     if not found:
                         raise ValueError('No CRS binding in the composed ancestry')
+                    if job.get('kind') in ['placement_values', 'origin_coordinates']:
+                        if not UsdGeom.Xformable(current):
+                            raise ValueError('Model binding must be on Xformable')
+                        for name, required, fallback in [
+                                ('position', Sdf.ValueTypeNames.Double3, None),
+                                ('orientation', Sdf.ValueTypeNames.Quatd, (1., 0., 0., 0.)),
+                                ('scale', Sdf.ValueTypeNames.Double3, (1., 1., 1.))]:
+                            field = current.GetAttribute('crs:' + name)
+                            if field and field.GetTypeName() != required:
+                                raise ValueError('Placement ' + name + ' has wrong type')
+                            if field and field.GetVariability() != Sdf.VariabilityVarying:
+                                raise ValueError('Placement ' + name + ' must be varying')
+                            if not field or not field.HasAuthoredValueOpinion():
+                                if fallback is None:
+                                    raise ValueError('Placement position is unavailable')
+                                components = fallback
+                            else:
+                                resolved = field.Get(Usd.TimeCode(job['time']))
+                                if resolved is None:
+                                    raise ValueError('Placement ' + name + ' is unavailable')
+                                components = (resolved.GetReal(), *resolved.GetImaginary()) if name == 'orientation' else tuple(resolved)
+                            if not all(math.isfinite(component) for component in components):
+                                raise ValueError('Placement ' + name + ' is nonfinite')
+                            if name == 'orientation':
+                                if not any(components):
+                                    raise ValueError('Placement orientation is a zero quaternion')
+                                row[name] = {'real': components[0], 'imaginary': list(components[1:])}
+                            else:
+                                row[name] = list(components)
+                    if job.get('kind') == 'origin_coordinates':
+                        if UsdGeom.Xformable(current).GetOrderedXformOps():
+                            raise ValueError('Ordinary-adjustment frame is unspecified; origin query stopped')
+                        source, target = CRS.from_wkt(row['wkt']), CRS.from_wkt(job['output_wkt'])
+                        for definition in [source, target]:
+                            if definition.is_bound:
+                                raise ValueError('Bound CRS origin-query profile not implemented; no embedded transform dropped')
+                            roles = {axis.direction for axis in definition.axis_info}
+                            if roles not in [{'east', 'north', 'up'}, {'geocentricX', 'geocentricY', 'geocentricZ'}]:
+                                raise ValueError('Unsupported coordinate component set')
+                        values = list(row['position'])
+                        if source.is_geographic:
+                            factors = {axis.direction:axis.unit_conversion_factor*180/math.pi for axis in source.axis_info}
+                            values[0] *= factors['east']; values[1] *= factors['north']
+                        transformer = Transformer.from_crs(source, target, always_xy=True, allow_ballpark=False, only_best=True)
+                        try:
+                            coordinate = list(transformer.transform(*values, errcheck=True))
+                        except Exception as error:
+                            raise ValueError('Coordinate operation failed; no substitute') from error
+                        if not all(math.isfinite(value) for value in coordinate):
+                            raise ValueError('Coordinate operation failed; no substitute')
+                        try: operation = transformer.get_last_used_operation()
+                        except Exception: operation = transformer
+                        if 't_epoch=' in operation.definition or 'proj=deformation' in operation.definition:
+                            raise ValueError('Epoch-dependent operations are deferred')
+                        if target.is_geographic:
+                            factors = {axis.direction:axis.unit_conversion_factor*180/math.pi for axis in target.axis_info}
+                            coordinate[0] /= factors['east']; coordinate[1] /= factors['north']
+                        row = {'prim':path, 'success':True, 'coordinates':coordinate,
+                               'operation':operation.description, 'operation_definition':operation.definition,
+                               'operation_accuracy_metres':operation.accuracy if operation.accuracy>=0 else None,
+                               'engine':'PROJ', 'engine_version':proj_version_str}
                 except ValueError as error:
-                    row.update(success=False, error=str(error))
+                    row = {'prim': path, 'success': False, 'error': str(error)}
                 queries.append(row)
             if before != {layer.identifier: layer.ExportToString() for layer in stage.GetUsedLayers()}:
                 raise RuntimeError('OV scope query changed source layers')

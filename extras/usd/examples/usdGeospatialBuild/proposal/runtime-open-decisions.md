@@ -1,79 +1,37 @@
-# Derivation from the shared geospatial proposal
+# Remaining required contracts
 
-Authority: full proposal snapshot at `39c8fb816a9113b14c8f64b020270724b8357312`, retained verbatim in [proposal-source.txt](proposal-source.txt). This derivation records defined behavior and missing contracts. It is not an alternative specification.
+Authority: the entire unpublished local candidate, SHA-256 `a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904`, based on `39c8fb816a9113b14c8f64b020270724b8357312`. [proposal-source.txt](proposal-source.txt) is the sole proposal authority. These files record derivation and do not add normative choices. Proposed details remain under author review.
 
-## Missing contracts and existing inconsistency
+## G03: Physical coordinate context of project adjustments
 
-### G02: Exact CRS placement property contract
+Requirements 5, 6, 8, 9, 11, 15, 16, 19; questions 3.
 
-Already defined: Separate CRS position, orientation and scale resolve before ordinary USD transforms. Direct binding sets the placement boundary; source positions interpolate before conversion.
+Post-CRS order is decided. The controlling composed frame, adjustment axes/units/pivot and preservation across output changes are not. The complete xform stack must supply the intended adjustment; raw numeric reuse in another CRS is insufficient.
 
-Remaining: Property names, types, defaults or requiredness, applicability, and the bases and mutual order of orientation and scale are not defined. Internal differentiation or caching methods are implementation freedom.
+A 90-degree oriented model distinguishes a model-X adjustment from a grid-easting adjustment. The text identifies this precise choice rather than reopening placement order.
 
-Questions: 2, 6.
+## G04: Remaining component conventions and scene result domain
 
-### G03: Physical coordinate context of project adjustments
+Requirements 12, 13, 14, 16, 17, 18; questions 6, 9.
 
-Already defined: Ordinary project adjustments apply after CRS placement. The adjusted physical placement survives output selection, including adjusted imagery. An enclosing binding supplies working context without replacing an independent source CRS.
+Geographic longitude/latitude/height and geocentric XYZ have proposed conventions. Canonical tuple order does not specify a Y-up or Z-up scene basis. Geographic coordinate queries are settled functional scope; using angular coordinates as a scene frame remains distinct.
 
-Remaining: The authored coordinate frame giving an adjustment its physical meaning, and its derivation through nested scopes and output changes, are not specified. Adjusted measurements are not a new functional scope question.
+Requirement 13 distinguishes coordinate components from scene axes. Returned query tuples use the same role order; unsupported component sets cannot be guessed.
 
-Questions: 3.
+## G06: Measurement-coordinate association
 
-### G04: Remaining component conventions and scene result domain
+Requirements 2, 5, 6, 7, 12, 18, 19, 21, 27, 30; questions 11.
 
-Already defined: Projected X/Y/Z means easting/northing/up. Geographic source positions and geographic coordinate queries are supported. Writers author stage-convention correctives.
+Subtree scope and measurement preservation are settled. The carrier identifying absolute coordinate properties or an external dataset domain is missing; neither API application nor float3 shape supplies that role. Coordinate-only data must not acquire a fake model anchor or receive crs:position twice.
 
-Remaining: Other CRS component sets lack a complete mapping to authored placement components. Geographic scene geometry, frames and bounds remain separate from permitted geographic coordinate queries.
+Two bounded authored facts, multiple domains, retained format associations and the external-format/composed-binding authority conflict are stated. No new relation or generic measurement schema is invented.
 
-Questions: 6, 9.
+## G07: Dependency declaration carrier and composition
 
-### G05: Prescribed WKT string normalization profile
+Requirements 7, 19, 25, 26, 27; questions 12.
 
-Already defined: The complete WKT definition is authoritative. Requirement 31 requires normalized serialized text while preserving represented information. Token equality and geodetic equivalence are distinct.
+Coverage is already all placed content. The carrier, root/session interpretation, conservative assembly maintenance across composition/unloaded content, and export update rule are not specified. Traversal for detection is not the promised declaration.
 
-Remaining: The required normal form is not prescribed or normatively referenced. A projection library round trip or a hand-chosen whitespace rule cannot establish proposal conformance.
+Existing Core customLayerData is identified as a possible carrier, not selected as a normative key. Composition does not automatically aggregate it; no prototype layer flag is promoted.
 
-Questions: 10.
-
-### G06: Measurement-coordinate association
-
-Already defined: Nearest direct binding defines composed subtree CRS scope. Measurement values retain their coordinate/time associations. Ordinary geometry vertices are offsets.
-
-Remaining: The authored association identifying which properties or external-asset coordinates carry measurement positions is missing. Vector shape or property name cannot identify the role.
-
-Questions: 11.
-
-### G07: Dependency declaration carrier and composition
-
-Already defined: A declaration must expose dependency without traversal and cover all placed content, including referenced and unloaded content and resolved export.
-
-Remaining: The authored carrier and its composition rules are not specified. Searching for applied bindings does not satisfy a declaration promised without traversal.
-
-Questions: 12.
-
-### G08: Extent and comparable-result agreement contract
-
-Already defined: The engine selects operations and manages transformation resources. Results identify the operation and attributed accuracy. Consumers share resolution. Placement distance and extent must be stated.
-
-Remaining: The claimed approximation domain and its satisfaction/reporting, comparable operations and agreement measure remain unspecified, including geographic distance. Full placement-chain accuracy propagation is not a requirement-28 obligation. Missing consumer tests are verification work.
-
-Questions: 13.
-
-### G09: Export sampling-record representation
-
-Already defined: Explicit export records its output CRS and sampling, preserves values and associations, and rereads without repeating source conversion or private resolved flags.
-
-Remaining: The authored sampling record must distinguish interpolation of exported samples from resolution of original source samples. Lost properties and fixture-specific export names are implementation defects, not new functional gaps.
-
-Questions: 14.
-
-### G10: Existing dimensionality inconsistency
-
-Already defined: The background requires 3D CRS definitions. Missing height or unsupported transformations must not be guessed.
-
-Remaining: The detailed schema and UTM appendix contain two-axis WKT examples. Reconcile whether they illustrate horizontal components or permit complete bound definitions. Do not silently broaden scope. This run uses only complete 3D examples.
-
-Questions: 2, 6, 11.
-
-G01 is closed by the editorial revision. An internal implementation recipe, a preference for the retained prototype or absent verification does not reopen an agreed functional outcome. Coordinate epochs remain deferred under roadmap question 15.
+Question 9 separately concerns geographic scene geometry, frames and bounds. Geographic coordinate queries already belong to initial scope. Coordinate epochs are roadmap, not a build failure.

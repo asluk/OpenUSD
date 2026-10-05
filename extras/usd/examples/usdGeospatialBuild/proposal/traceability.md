@@ -1,39 +1,39 @@
-# Derivation from the shared geospatial proposal
+# Requirement traceability
 
-Authority: full proposal snapshot at `39c8fb816a9113b14c8f64b020270724b8357312`, retained verbatim in [proposal-source.txt](proposal-source.txt). This derivation records defined behavior and missing contracts. It is not an alternative specification.
+Authority: the entire unpublished local candidate, SHA-256 `a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904`, based on `39c8fb816a9113b14c8f64b020270724b8357312`. [proposal-source.txt](proposal-source.txt) is the sole proposal authority. These files record derivation and do not add normative choices. Proposed details remain under author review.
 
-| Requirement | Defined contract reference | Current evidence or limitation | Remaining categories |
-|---|---|---|---|
-| 1. Self-contained definitions | proposal-source.txt:570 | CRS discovery/composition only | G05 |
-| 2. Defined once, and describing no object | proposal-source.txt:583 | CRS discovery/composition only | G05, G06 |
-| 3. Datum, realization and epoch | proposal-source.txt:600 | Dependent resolution not executed in this run | G05 |
-| 4. A site's own grid is a CRS like any other | proposal-source.txt:612 | Dependent resolution not executed in this run | No new missing contract identified here |
-| 5. A discoverable CRS | proposal-source.txt:656 | CRS discovery/composition only | G03, G06 |
-| 6. Declared for a subtree, not a prim | proposal-source.txt:666 | CRS discovery/composition only | G03, G06 |
-| 7. Composition agnostic | proposal-source.txt:677 | CRS discovery/composition only | G06, G07 |
-| 8. Brought-in data keeps its coordinates and its CRS | proposal-source.txt:687 | CRS discovery/composition only | G03 |
-| 9. Positions, and offsets from them | proposal-source.txt:713 | Dependent resolution not executed in this run | G02, G03 |
-| 10. Offsets along the axes of their position | proposal-source.txt:731 | Dependent resolution not executed in this run | G02 |
-| 11. Position or offset, and the scene says which | proposal-source.txt:750 | Dependent resolution not executed in this run | G02, G03 |
-| 12. No angle read as a length | proposal-source.txt:767 | Dependent resolution not executed in this run | G02, G04, G06, G10 |
-| 13. One axis mapping | proposal-source.txt:781 | Dependent resolution not executed in this run | G04 |
-| 14. Scene conventions stay the scene's | proposal-source.txt:794 | CRS discovery/composition only | G02, G04 |
-| 15. Placement separate from conformance | proposal-source.txt:807 | Dependent resolution not executed in this run | G02, G03 |
-| 16. One CRS out | proposal-source.txt:819 | Dependent resolution not executed in this run | G03, G04 |
-| 17. The same answer for every consumer | proposal-source.txt:839 | Dependent resolution not executed in this run | G04, G08 |
-| 18. Coordinates back out | proposal-source.txt:852 | Dependent resolution not executed in this run | G04, G06, G08, G09 |
-| 19. Resolution leaves the scene as authored | proposal-source.txt:867 | CRS discovery/composition only | G03, G06, G07, G09 |
-| 20. Positions between recorded moments | proposal-source.txt:886 | Dependent resolution not executed in this run | G02, G09 |
-| 21. Never placed by a guess | proposal-source.txt:903 | CRS discovery/composition only | G05, G06, G08, G10 |
-| 22. A CRS suited to the project's size | proposal-source.txt:952 | Dependent resolution not executed in this run | G08, G10 |
-| 23. Detail that does not depend on location | proposal-source.txt:965 | Dependent resolution not executed in this run | G08 |
-| 24. Extent under one position is bounded and stated | proposal-source.txt:974 | Dependent resolution not executed in this run | G08 |
-| 25. Additive for consumers that ignore it | proposal-source.txt:989 | CRS discovery/composition only | G07 |
-| 26. Declares its dependency | proposal-source.txt:999 | Dependent resolution not executed in this run | G07 |
-| 27. Checkable before use | proposal-source.txt:1010 | CRS discovery/composition only | G05, G06, G07, G09 |
-| 28. A result says what produced it | proposal-source.txt:1025 | Dependent resolution not executed in this run | G05, G08 |
-| 29. Implementable from the text alone | proposal-source.txt:1043 | Dependent resolution not executed in this run | G05, G08 |
-| 30. Measurements remain usable as data | proposal-source.txt:935 | Dependent resolution not executed in this run | G06, G09, G10 |
-| 31. Same definition, same meaning | proposal-source.txt:636 | Dependent resolution not executed in this run | G05 |
+| Requirement | Source line | Dependent open contracts |
+|---|---:|---|
+| R1 Self-contained definitions | 588 | None identified |
+| R2 Defined once, and describing no object | 601 | G06 |
+| R3 Datum, realization and epoch | 618 | None identified |
+| R4 A site's own grid is a CRS like any other | 630 | None identified |
+| R5 A discoverable CRS | 676 | G03, G06 |
+| R6 Declared for a subtree, not a prim | 686 | G03, G06 |
+| R7 Composition agnostic | 697 | G06, G07 |
+| R8 Brought-in data keeps its coordinates and its CRS | 707 | G03 |
+| R9 Positions, and offsets from them | 733 | G03 |
+| R10 Offsets along the axes of their position | 751 | None identified |
+| R11 Position or offset, and the scene says which | 770 | G03 |
+| R12 No angle read as a length | 787 | G04, G06 |
+| R13 One axis mapping | 801 | G04 |
+| R14 Scene conventions stay the scene's | 818 | G04 |
+| R15 Placement separate from conformance | 831 | G03 |
+| R16 One CRS out | 843 | G03, G04 |
+| R17 The same answer for every consumer | 863 | G04 |
+| R18 Coordinates back out | 876 | G04, G06 |
+| R19 Resolution leaves the scene as authored | 891 | G03, G06, G07 |
+| R20 Positions between recorded moments | 910 | None identified |
+| R21 Never placed by a guess | 927 | G06 |
+| R22 A CRS suited to the project's size | 976 | None identified |
+| R23 Detail that does not depend on location | 989 | None identified |
+| R24 Extent under one position is bounded and stated | 998 | None identified |
+| R25 Additive for consumers that ignore it | 1013 | G07 |
+| R26 Declares its dependency | 1023 | G07 |
+| R27 Checkable before use | 1034 | G06, G07 |
+| R28 A result says what produced it | 1049 | None identified |
+| R29 Implementable from the text alone | 1067 | None identified |
+| R30 Measurements remain usable as data | 959 | G06 |
+| R31 Same definition, same meaning | 654 | None identified |
 
-The discovery evidence supports only the listed portions of requirements. It does not claim that every requirement without a newly identified gap is fully verified. The exact source clauses, decided outcomes and narrow missing contracts are recorded in proposal-quality.json.
+Partial evidence does not certify a complete requirement. Every fresh control and its result is recorded in delivery/run-report.json. Ordinary transforms are post-placement, writer convention repairs remain ordinary USD authoring, and independent source scope remains composed-data based.

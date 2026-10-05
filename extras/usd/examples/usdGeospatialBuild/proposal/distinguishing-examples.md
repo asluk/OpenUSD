@@ -1,15 +1,11 @@
-# Derivation from the shared geospatial proposal
+# Distinguishing controls
 
-Authority: full proposal snapshot at `39c8fb816a9113b14c8f64b020270724b8357312`, retained verbatim in [proposal-source.txt](proposal-source.txt). This derivation records defined behavior and missing contracts. It is not an alternative specification.
+Authority: the entire unpublished local candidate, SHA-256 `a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904`, based on `39c8fb816a9113b14c8f64b020270724b8357312`. [proposal-source.txt](proposal-source.txt) is the sole proposal authority. These files record derivation and do not add normative choices. Proposed details remain under author review.
 
-## Executed controls
+Reference, sublayer, variant and class paths producing the same composed binding must give the same discovery result. A broken nearer binding must not inherit a farther definition. An unloaded payload supplies no invented prim.
 
-Two complete 3D WKT definitions are copied verbatim from Appendix A: dynamic geocentric ITRF2020 and compound NAD83 California zone 5 with NAVD88 height. They exercise definition identity and scope, without normalizing or transforming either definition.
+Omitted orientation/scale use the proposed fallbacks; blocked values fail. A same-CRS child direct binding retains its own absolute source position. Core held/linear/slerp operate on source values. Longitude 179 to -179 interpolates to zero, with no invented unwrapping.
 
-References establish an enclosing binding and a distinct independent descendant. A referenced assembly remaps prim paths but keeps their source definitions. A stronger layer overrides one composed WKT. Selected variants and class inheritance produce the same scoped facts. Ordinary composition flattening preserves the binding interpretation; it is not resolved geospatial export. An enclosing available binding remains discoverable with its payload unloaded, while absent payload content fails.
+Lexical variants have hand-specified normalized text. Quoted metadata and exact decimals survive. Differently named equivalent CRS definitions remain distinct tokens. A PROJ writer round trip is a negative preservation control.
 
-Negative controls reject no binding, a broken nearest binding, a string-valued WKT property, varying WKT and an empty definition. An unmarked WKT property does not create a new coordinate domain. The retained relationship-based resolver fails a shared-reference-binding fixture, exposing a real compatibility difference.
-
-## Dependent examples awaiting a complete contract
-
-Colorado design/control separation, France non-epoch height conversions, Eiffel Tower placement, railway geometry, independently georeferenced project adjustments and city/global measurements remain useful full-loop workflows. The current run assigns them no invented placement properties or expected projected vectors. Their prior experimental results are historical, not current proposal-conformance evidence.
+Colorado and France provider coordinate rows serve only as illustrative adjustment-free anchor origins. Their CSVs are PROJ-generated rounding references, not independent geodetic ground truth. WGS84 equatorial origin conversions have analytic expected coordinates. An anchor with an ordinary adjustment stops instead of guessing its frame.
