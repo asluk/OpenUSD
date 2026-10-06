@@ -1,0 +1,61 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    timeCodesPerSecond = 48
+    upAxis = "Z"
+)
+
+def Xform "World" (
+    prepend apiSchemas = ["ClaimsAPI"]
+    customData = {
+        dictionary profilesInfo = {
+            dictionary capabilityUsages = {
+                string "geospatial:crsResolution" = "hard"
+            }
+        }
+        string userDocBrief = "Concrete prim schema for a transform, which implements Xformable."
+    }
+)
+{
+    def Xform "Control0" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C63893a782ed73a95>
+    )
+    {
+        double3 crs:position = (-105.1150853, 39.89815166, 5428.1388)
+    }
+
+    def Xform "Control1" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C63893a782ed73a95>
+    )
+    {
+        double3 crs:position = (-105.113652, 39.89722585, 5408.8704)
+    }
+
+    def Xform "Control2" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C63893a782ed73a95>
+    )
+    {
+        double3 crs:position = (-105.1145273, 39.8953823, 5389.5233)
+    }
+
+    def Xform "Control3" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C63893a782ed73a95>
+    )
+    {
+        double3 crs:position = (-105.1165177, 39.89694548, 5409.9137)
+    }
+
+    def Xform "Control4" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C63893a782ed73a95>
+    )
+    {
+        double3 crs:position = (-105.111485, 39.89578338, 5397.3219)
+    }
+}
+

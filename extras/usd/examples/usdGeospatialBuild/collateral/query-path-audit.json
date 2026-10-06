@@ -1,0 +1,69 @@
+{
+  "audit_schema": 1,
+  "basis": "Source inspection of the executed call paths, followed by checks against their immutable query returns. Product names and agreement counts do not identify an integration backend.",
+  "source_commit": "6d8323764ad44953887cac9781375b7c7176e928",
+  "source_sha256": {
+    "review/runner.py": "817264f18235aa91e17b70af51f592ba6c003c6b01359eef7c27ffcb9e24c2b2",
+    "review/scope.py": "5fb7b287cb7144efbd6f5ddd9abd27afe9e4157aa6c70bfa1c45bb5f4fa94f45",
+    "review/placement_values.py": "32b846f2390148b5e9a36fd4896116d69413966f02958d923b4c36da1b0176cf",
+    "review/origin_queries.py": "74cb286631e2ac04bb5b974c314bf9c6e679da7845e0dbc5c3cbdbf43eef6d26",
+    "native/proposalScope.cpp": "fd93e82c0aa2e353b5cce6796792c68a23081d95e2906d1cf70d2e48a58b14f1",
+    "native/originQuery.h": "803f92a82256ddb6064187f510950a2778d0b5540083733ce0e79f4d208636e5",
+    "native/CMakeLists.txt": "535f440accd9b3fbd2f311493ffec91f8dc4f9b9b40ed4084d8cd4387711001a",
+    "review/ov_scope_launch.py": "2012f7825003d81ffd9988c3f5c36f4f2d03c277c5d04377e0663b21d74d9412",
+    "review/scope.kit": "9ab33398c28b048d09e21f9049eed74f1fc1b78f91797a71dd87afa452665906"
+  },
+  "paths": [
+    {
+      "result_key": "headless",
+      "short_label": "USD Python",
+      "label": "OpenUSD Python queries",
+      "host": "Standalone Python",
+      "usd_reader": "pxr.Usd.Stage.Open",
+      "conversion": "pyproj.Transformer, PROJ",
+      "output": "JSON query results",
+      "call_path": ["review/runner.py: Usd.Stage.Open and origin_queries", "review/scope.py: discover", "review/placement_values.py: read", "review/origin_queries.py: convert and queries", "review/runner.py: scope-results serialization"],
+      "geodetic_engine_family": "PROJ"
+    },
+    {
+      "result_key": "native_usd",
+      "short_label": "USD C++",
+      "label": "OpenUSD C++ queries",
+      "host": "Native proposalScope executable",
+      "usd_reader": "UsdStage::Open",
+      "conversion": "PROJ C API",
+      "output": "JSON query results",
+      "call_path": ["review/runner.py: proposalScope target and executable", "native/CMakeLists.txt: proposalScope links USD and PROJ", "native/proposalScope.cpp: Discover and ReadPlacement", "native/originQuery.h: OriginQuery and proj_trans", "native/proposalScope.cpp: JsWriteToString and ofstream"],
+      "geodetic_engine_family": "PROJ"
+    },
+    {
+      "result_key": "live_ov",
+      "short_label": "USD in OV",
+      "label": "OpenUSD Python queries hosted in Omniverse",
+      "host": "Headless Omniverse application",
+      "usd_reader": "omni.usd context.get_stage(), pxr.Usd.Stage",
+      "conversion": "pyproj.Transformer, PROJ",
+      "output": "JSON query results",
+      "call_path": ["review/runner.py: OV SDK Python launches ov_scope_launch.py", "review/scope.kit: omni.usd dependency, no window, Fabric scene delegate disabled", "review/ov_scope_launch.py: context.open_stage_async and context.get_stage", "review/ov_scope_launch.py: metadata and attribute reads", "review/ov_scope_launch.py: Transformer.from_crs and transform", "review/ov_scope_launch.py: JSON write_text"],
+      "geodetic_engine_family": "PROJ"
+    }
+  ],
+  "capabilities": {
+    "binding_discovery": true,
+    "source_field_queries": true,
+    "direct_top_level_origin_queries": true,
+    "full_model_placement": false,
+    "hydra_geometry": false,
+    "ov_geometry_writeback": false,
+    "ov_geospatial_backend": false,
+    "rendering": false,
+    "resolved_scene_export": false,
+    "independent_geodetic_engines": false
+  },
+  "limitations": [
+    "Orientation and scale are read and checked as source values, not applied to complete model geometry.",
+    "OV hosts ordinary OpenUSD reads and PROJ conversion. No computed result reaches an OV geometry backend or renderer in this run.",
+    "All paths share OpenUSD and PROJ. Distinct programs or hosts do not demonstrate independent geodetic engines.",
+    "The separately verified sampling record is not a resolved-scene export."
+  ]
+}

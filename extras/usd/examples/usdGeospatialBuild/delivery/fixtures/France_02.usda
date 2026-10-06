@@ -1,0 +1,493 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    timeCodesPerSecond = 48
+    upAxis = "Z"
+)
+
+def Xform "World" (
+    prepend apiSchemas = ["ClaimsAPI"]
+    customData = {
+        dictionary profilesInfo = {
+            dictionary capabilityUsages = {
+                string "geospatial:crsResolution" = "hard"
+            }
+        }
+        string userDocBrief = "Concrete prim schema for a transform, which implements Xformable."
+    }
+)
+{
+    def Xform "Control0" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661101.1094, 6857834.2565, 37.298)
+    }
+
+    def Xform "Control1" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661225.1237, 6857827.0213, 37.557)
+    }
+
+    def Xform "Control2" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661214.4802, 6857823.5506, 37.668)
+    }
+
+    def Xform "Control3" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661209.7139, 6857821.9914, 37.598)
+    }
+
+    def Xform "Control4" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661205.3595, 6857820.5673, 37.542)
+    }
+
+    def Xform "Control5" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661201.653, 6857819.3674, 37.48)
+    }
+
+    def Xform "Control6" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661205.8158, 6857845.4231, 37.63)
+    }
+
+    def Xform "Control7" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661170.6863, 6857802.221, 37.518)
+    }
+
+    def Xform "Control8" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661114.0207, 6857801.0158, 37.377)
+    }
+
+    def Xform "Control9" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661107.444, 6857808.6786, 37.482)
+    }
+
+    def Xform "Control10" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661096.8807, 6857808.0438, 37.077)
+    }
+
+    def Xform "Control11" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661115.8728, 6857889.4096, 35.855)
+    }
+
+    def Xform "Control12" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661123.3463, 6857871.2515, 36.444)
+    }
+
+    def Xform "Control13" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661127.3134, 6857858.7103, 36.917)
+    }
+
+    def Xform "Control14" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661150.9024, 6857865.1543, 37.503)
+    }
+
+    def Xform "Control15" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661135.7112, 6857824.5994, 37.607)
+    }
+
+    def Xform "Control16" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661078.5707, 6857830.2127, 36.577)
+    }
+
+    def Xform "Control17" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661093.8201, 6857836.8044, 36.893)
+    }
+
+    def Xform "Control18" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661139.5013, 6857808.4073, 37.633)
+    }
+
+    def Xform "Control19" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661169.0274, 6857817.0267, 37.585)
+    }
+
+    def Xform "Control20" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661171.2639, 6857799.7263, 37.513)
+    }
+
+    def Xform "Control21" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661119.3125, 6857782.1432, 37.384)
+    }
+
+    def Xform "Control22" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661174.5114, 6857875.3171, 37.459)
+    }
+
+    def Xform "Control23" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661146.3645, 6857791.35, 37.586)
+    }
+
+    def Xform "Control24" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661097.7334, 6857812.5978, 37.007)
+    }
+
+    def Xform "Control25" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661240.1843, 6857851.589, 37.592)
+    }
+
+    def Xform "Control26" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661251.8578, 6857832.3612, 37.866)
+    }
+
+    def Xform "Control27" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661218.8853, 6857818.4261, 37.749)
+    }
+
+    def Xform "Control28" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661135.3795, 6857823.2704, 37.61)
+    }
+
+    def Xform "Control29" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661167.545, 6857855.8922, 37.526)
+    }
+
+    def Xform "Control30" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661202.0436, 6857817.1956, 37.534)
+    }
+
+    def Xform "Control31" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661232.4842, 6857830.918, 37.479)
+    }
+
+    def Xform "Control32" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661198.5825, 6857810.64, 37.556)
+    }
+
+    def Xform "Control33" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661108.4818, 6857805.3331, 36.49)
+    }
+
+    def Xform "Control34" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661128.9784, 6857843.6085, 37.518)
+    }
+
+    def Xform "Control35" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661154.9131, 6857850.7401, 37.483)
+    }
+
+    def Xform "Control36" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661185.398, 6857863.5956, 37.413)
+    }
+
+    def Xform "Control37" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661202.5713, 6857866.3801, 37.491)
+    }
+
+    def Xform "Control38" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661231.0941, 6857876.3342, 37.288)
+    }
+
+    def Xform "Control39" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661170.6256, 6857890.3852, 37.407)
+    }
+
+    def Xform "Control40" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661146.156, 6857879.0073, 37.111)
+    }
+
+    def Xform "Control41" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661151.5521, 6857855.111, 37.375)
+    }
+
+    def Xform "Control42" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661154.6581, 6857846.9803, 37.635)
+    }
+
+    def Xform "Control43" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661158.5356, 6857848.1962, 37.603)
+    }
+
+    def Xform "Control44" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661158.0942, 6857857.2176, 37.541)
+    }
+
+    def Xform "Control45" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661174.6859, 6857862.5268, 37.595)
+    }
+
+    def Xform "Control46" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661205.4041, 6857866.5649, 37.56)
+    }
+
+    def Xform "Control47" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661226.7806, 6857867.9145, 37.488)
+    }
+
+    def Xform "Control48" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661229.2116, 6857889.818, 37.08)
+    }
+
+    def Xform "Control49" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661241.3696, 6857831.4484, 37.862)
+    }
+
+    def Xform "Control50" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661229.7502, 6857839.2039, 37.36)
+    }
+
+    def Xform "Control51" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661228.7834, 6857845.9332, 37.46)
+    }
+
+    def Xform "Control52" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661225.2887, 6857856.8267, 37.512)
+    }
+
+    def Xform "Control53" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661198.3168, 6857824.5072, 37.57)
+    }
+
+    def Xform "Control54" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661192.3371, 6857843.1536, 37.533)
+    }
+
+    def Xform "Control55" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661187.7105, 6857857.5266, 37.652)
+    }
+
+    def Xform "Control56" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661178.582, 6857857.5191, 37.533)
+    }
+
+    def Xform "Control57" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661162.7399, 6857835.0441, 37.643)
+    }
+
+    def Xform "Control58" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
+    )
+    {
+        double3 crs:position = (661206.471, 6857863.1493, 37.76)
+    }
+}
+

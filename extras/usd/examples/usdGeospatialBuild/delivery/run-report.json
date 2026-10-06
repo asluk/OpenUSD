@@ -1,19 +1,15 @@
 {
-  "status": "full placement derivation stopped; local-candidate discovery, source-placement, WKT and direct-origin controls executed",
-  "completed_utc": "2026-10-05T01:16:20.359275+00:00",
-  "source_commit": "6d8323764ad44953887cac9781375b7c7176e928",
+  "status": "Candidate build loop executed; proposed contracts remain under review",
+  "completed_utc": "2026-10-06T15:09:09.822052+00:00",
   "inputs": {
-    "status": "Local candidate pinned; defined controls executed, four dependent contracts remain open",
+    "status": "Entire emailed-lean local candidate pinned; specialized G11 remains an explicit rejected combination",
     "proposal": {
-      "base_commit": "39c8fb816a9113b14c8f64b020270724b8357312",
-      "path": "proposals/geospatial_coordinate_reference_systems/README.md",
-      "sha256": "a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904",
-      "sha256_basis": "Exact local file bytes",
-      "git_blob": "f52e9e3500781f486b74d1aa1dc26c4ddcf18a33",
-      "snapshot": "proposal/proposal-source.txt",
-      "status": "Unpublished local review candidate; proposed choices are not group adoption",
-      "source_selection": "Entire local candidate, including all local binding/reset and placement/WKT clarifications",
-      "local_changes": "proposal/local-draft.patch"
+      "revision": "a5c7dd3792503e09b75abfa84b0caef9d80feea6",
+      "sha256": "2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11",
+      "local_candidate": true,
+      "group_agreement": false,
+      "source": "proposal/proposal-source.txt",
+      "status": "October 5 emailed-lean candidate"
     },
     "openusd": {
       "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
@@ -57,153 +53,72 @@
         "role": "WKT encoding including COORDINATEMETADATA"
       }
     ],
-    "previous_candidate": {
-      "data-model.md": "12ca5dae026021959bcc676f8dcc9d718de639c4268cd3862cbf1a4d2514ece9",
-      "distinguishing-examples.md": "3752737e664bfdfa79a594fb99f1d03b2230be092615f41b43567a3a48ae189a",
-      "requirements.md": "242be4caa2e8de1e9625fc51897d3bdcfd8ee7ac07894b8c9531046008e2e771",
-      "runtime-behavior.md": "f84a6e08026df47e756b429dae0fa6e32dc460a0c5f935cbf773661f64662d74",
-      "runtime-open-decisions.md": "5838a1e14cd41bfa4baf2e2df1e38c8fac3f39d5140e332262426c65986af0e6",
-      "traceability.md": "4dc918a75083251f34f7ce4938863317d804ec5995f6625541f7e663d1bdaaee"
-    },
     "previous_executed_source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47",
-    "candidate_revision_history": [
-      {
-        "freeze_commit": "2a1c1c15b",
-        "hashes": {
-          "data-model.md": "33dbf5ce4543982f9e5acebe48c34283f30b8fd4a32685cdf62ec7cee4f5af89",
-          "distinguishing-examples.md": "7ea4df622bce499d89e19525ddbfe003e113e4f3ba6beee535cc8ccff463ff8e",
-          "requirements.md": "242be4caa2e8de1e9625fc51897d3bdcfd8ee7ac07894b8c9531046008e2e771",
-          "runtime-behavior.md": "c079ee7328fe8bfc4222d854c8dd47518528063dbf7d465a5472299910861fd4",
-          "runtime-open-decisions.md": "5838a1e14cd41bfa4baf2e2df1e38c8fac3f39d5140e332262426c65986af0e6",
-          "traceability.md": "4dc918a75083251f34f7ce4938863317d804ec5995f6625541f7e663d1bdaaee"
-        }
-      }
-    ],
     "derivation": {
-      "data-model.md": "840521687273f38d3dee3d61985d65b5727bdbff6eb5db751877a19b515e9ee4",
-      "distinguishing-examples.md": "c689c307683616c6640561ebd33148e1962a8dd2818ec5eedbf0130c0bcf4199",
-      "requirements.md": "bbd1f89e1c54d4156a78d10a203b0ad9d25e6b016b2a02a3e5dc933bfd58c0b4",
-      "runtime-behavior.md": "5b904b53531cd6db3237a9df8bf769f3224ce42216d9627f0980778c94c4dd0c",
-      "runtime-open-decisions.md": "63fe5d76f083a4453e0ab1de742e7fc08831dd452866e43eda3ccc2730c04acc",
-      "traceability.md": "59dc42e39a8069b4b5b03175a7c674e7623080fe189088a247a586f1fba0939f"
+      "requirements.md": "b600e005a6b8b1371813838f7a788b338783449f70e1d11d5f3f5e622cd8a3fc",
+      "data-model.md": "881562cd1a3453986260a8d2ad8bfc97dd42fdaac9b52ea3c389260f9d53a4fa",
+      "runtime-behavior.md": "b2c409472fdfaa05722b746fa4c5d7f0437638e13074ec23b86734d45c391cc4",
+      "runtime-open-decisions.md": "6cad79cb6b2050b36309833745fe86f97fecd6d6786fcb91edaaf95d16cd9280",
+      "distinguishing-examples.md": "8cd6e64b5720b2093a3ed3dffe40582eedac9f9b259b2e332bdd375da9f2c69b",
+      "traceability.md": "5fd1d04958b1c3f1e219a80d2d8ec1d4f2132f3a57055465c2c4d67d9617a0f0"
     },
     "inherited_code_execution": "Prior relationship-based placement code retained in history/source, excluded from current execution except an explicit incompatibility control.",
-    "current_execution": "Composition/discovery, source placement values, bounded WKT normalizer and adjustment-free anchor-origin coordinate queries",
+    "current_execution": "Python and C++ complete point-map queries, Cartesian frame derivatives and polygonal bounds; native Hydra resolved export; live OV geometry writeback; selected external measurement domains and sampled exports",
     "normalizer_references": [
-      "OGC 18-010r11 clauses 6\u20137 and Annex B",
+      "OGC 18-010r11 clauses 6-7 and Annex B",
       "W3C XML Schema Part 2 canonical integer and decimal lexical representations"
     ]
   },
   "source_files": {
-    "AUDIT.md": "e40fae5cc492b15185608d75c51ea289fd94d1f792de35171e223fca7261a006",
-    "BUILD_LOOP.md": "17f7e258a89d343d03424c343594ba48a43dfd3e2ea3e544446bff1f30a2f684",
-    "inputs.json": "d01d1e6017f09fafdeef273202a6546cfe423103c89e79a8aeefa43bed40ae78",
-    "intake.py": "14c396787d8248af13402ca4476d902f9522ea613a4ad9b07b6fa54a15241bc9",
-    "PLAN.md": "ac93e0eeb756bc76d6f4d87e27f8d10dc3ce5d7cebf224586e208571620837d7",
-    "proposal-quality.json": "f70f1449e63a8656b8e7d2c944903faf1e4ba27af27a1853f2b59733a6b959f6",
-    "QUALITY_REVIEW.md": "da6ffb9f6423665305f33da750c721902a7d0fb3743d43ebcf96ca090a9bde4c",
-    "run.py": "28f590410a12ff009831e1692b402ab2c9c6c9aca46aec4152e98ac5d18836c7",
-    "targets.json": "d4213d3e3269d0ce28eba66e8d31f39455ad02a64a71277acb3ab3d823da6609",
-    "data/LICENSE-partner.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
-    "data/manifest.json": "0d1713dfce0052f30c47073c85542e19d4d2677093ab58e9dfb38df83a053681",
-    "data/partner-controls.json": "40bc67b20ac899eee6696599ed4e5adab9a7f8d9ac7a08ef22ae2b1a821e1e2e",
-    "data/resources.json": "d154ae3178b292eb21318215fa85604584fba2cb9dd87781f457e0b6d41e30eb",
-    "geobuild/evidence.py": "a119af6340e3a54cc9d24418fca598c41071386f22fe907f819706c50d080cb0",
-    "geobuild/export.py": "4476cc441e447dd9d681d66049bc83994aefd8988deb21b47783a16edae8a11b",
-    "geobuild/model.py": "5f763a865069ac2e47e2bdb536edc15c1f38a4d6e2d08168ea2cb2d4062e6d70",
-    "geobuild/quality.py": "85d924f79d75c6cfcea5284dda1c7b5423e61d0c171ad5f60e8d8e00f299ef0c",
-    "geobuild/resolve.py": "d416bc09cd24a3a4c1bae874e479650d162a79a7f5a4ddd9a2c89a1f211a6eee",
-    "geobuild/__init__.py": "ba8d346729b57cfbacfcaf07cb32bd0ef127759f9f06761f98b88d654d31f3a5",
-    "geospatialValidation/plugInfo.json": "8c73f2e4b7cab0b323cc322e43c7d6f54370d3bfa8c025d6813b4b6525ee26ad",
-    "geospatialValidation/__init__.py": "ce9f8dec280c9150ad6ea4548183063623e9e9bb6116940bf401e3764dfc8a07",
-    "native/CMakeLists.txt": "535f440accd9b3fbd2f311493ffec91f8dc4f9b9b40ed4084d8cd4387711001a",
-    "native/main.cpp": "1cf7babf3126ea54b009b80161568282b3bdb6b38cbe8d61b7303ceb72aacbec",
-    "native/originQuery.h": "803f92a82256ddb6064187f510950a2778d0b5540083733ce0e79f4d208636e5",
-    "native/placement.cpp": "2190a9cd76c951b71579fa0bd98fe02126c27516569d4a5aabcfc363434fbe5a",
-    "native/placement.h": "48b661478ecfeb3655fee14b52e7b6cdddc5ff7c9725a0f8b3113ed9fd61bae6",
-    "native/plugInfo.json": "9c790802a2d78b33e93f8ac963e4785ff2f4bda55287fd4df3e2d00ef488d113",
-    "native/proposalScope.cpp": "fd93e82c0aa2e353b5cce6796792c68a23081d95e2906d1cf70d2e48a58b14f1",
-    "native/validation.cpp": "9dd156fdfa16770fa1f8d4b285a5e074d17a11e58547b4a6ad6c1f767bbd5794",
-    "ov/geobuild.kit": "5fc4d60271d18a04ad3b6675539033f1c06b37e86ce6b2cba25ed20b02e69d88",
-    "ov/independent.py": "670186dfc62f3ee3e424302e3f7f72370de12bac5cb7b9d70d14147180d9a81d",
-    "ov/launch.py": "2fe020bf650091651d52b3b705122de0b869adfc7fc32173f9cb6cb34ce0f1d9",
-    "ov/run_live.py": "1f713a91cc9c52836201e27d7a932ff9ecbc2e11a934c9829ed0358faa6a8553",
-    "proposal/data-model.md": "840521687273f38d3dee3d61985d65b5727bdbff6eb5db751877a19b515e9ee4",
-    "proposal/distinguishing-examples.md": "c689c307683616c6640561ebd33148e1962a8dd2818ec5eedbf0130c0bcf4199",
-    "proposal/proposal-source.txt": "a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904",
-    "proposal/requirements.md": "bbd1f89e1c54d4156a78d10a203b0ad9d25e6b016b2a02a3e5dc933bfd58c0b4",
-    "proposal/runtime-behavior.md": "5b904b53531cd6db3237a9df8bf769f3224ce42216d9627f0980778c94c4dd0c",
-    "proposal/runtime-open-decisions.md": "63fe5d76f083a4453e0ab1de742e7fc08831dd452866e43eda3ccc2730c04acc",
-    "proposal/traceability.md": "59dc42e39a8069b4b5b03175a7c674e7623080fe189088a247a586f1fba0939f",
-    "review/fixtures.py": "79ebd5531d05a5e2c8cea465d29db7bd0efde3d0e4bd9fc2fdce965e0a7d5aca",
+    "candidate/__init__.py": "08af67442b1fff96f52a5b8921637763bc10f6d6e198dabde4ccc74c1a43eff3",
+    "candidate/controls.py": "cfacf1f6b4c2fe5233e947cf71835f0bf157ccbf99ebbf9e7d9b6af34b7f53f7",
+    "candidate/datasets.py": "e3e44a581b9f563dfa054bf84533e302742f159e3433e3d2ca42f5decf8a47bf",
+    "candidate/execution.py": "aa915d71f01c275dffbc801443094ab0b30d343e22f10fb1cd35e7c9fdb029f2",
+    "candidate/export.py": "43fe2efd432f14772357280eae3336b9f1fccc35e7aebaf4043b86655b4e669f",
+    "candidate/fixtures.py": "6f80e9ff31306606096afb4c37eb429a45ddc53330abfb5a1511eb8f03af1586",
+    "candidate/ov_launch.py": "accdd9e3189860c47dabe26793f94426e0fd545a496282b4345109a8bac95356",
+    "candidate/ov_live.py": "05aa5d7c263b225f9f4a79ff7d0e555bce625bd55a882e02d66ef4191bb3359c",
+    "candidate/runner.py": "e76e6d8f25b97f8312bb68e711c3d9138438826a5b9e222c2a43d366c329cbaf",
+    "candidate/runtime.py": "1001a84c3a29995b0fc6d0fdae9f848c796908ba532a4171b3265160f210ba81",
+    "review/__init__.py": "1da7ada131921d0bbda633563a594b15f794be1158694c55d9671cc91683f1e1",
     "review/fixture_definitions.py": "6693d851adbc56e256ffb122c9c38b3550a7df34754d1abfb83068930d92d7ae",
+    "review/fixtures.py": "2619ac9c0460998029e9e792b6737c72bdde96109b50349f3ddcb8bc635a2080",
     "review/origin_queries.py": "74cb286631e2ac04bb5b974c314bf9c6e679da7845e0dbc5c3cbdbf43eef6d26",
     "review/ov_scope_launch.py": "2012f7825003d81ffd9988c3f5c36f4f2d03c277c5d04377e0663b21d74d9412",
-    "review/placement_values.py": "32b846f2390148b5e9a36fd4896116d69413966f02958d923b4c36da1b0176cf",
+    "review/placement_values.py": "d35082fe6c729a6b6f49f2f922903cac13da9dd805ceff7a09153ecf487a369c",
     "review/runner.py": "817264f18235aa91e17b70af51f592ba6c003c6b01359eef7c27ffcb9e24c2b2",
-    "review/scope.kit": "9ab33398c28b048d09e21f9049eed74f1fc1b78f91797a71dd87afa452665906",
     "review/scope.py": "5fb7b287cb7144efbd6f5ddd9abd27afe9e4157aa6c70bfa1c45bb5f4fa94f45",
-    "review/test_contracts.py": "8851ff9e907ee63cdc6262d422120a9715549c7063e588a461906ede6d4ba4f5",
+    "review/test_contracts.py": "e194efd348587e96cd09f3865947e9e4d8f8324812b74ddedf60415fe09ab40b",
     "review/test_wkt_contracts.py": "75dec51fea396448983b07d44c2c024db10322d5ce4aa492d25ccd95ce01226f",
-    "review/wkt_profile.py": "9e120def24d3d7eadaa960913a56d42313c4b1194b1f98a61f2902b309720b6d",
-    "review/__init__.py": "1da7ada131921d0bbda633563a594b15f794be1158694c55d9671cc91683f1e1",
-    "scenes/city.usda": "d9f1c0d369823f0aa99d8464fc7ed29d24dbf4156e72e5c6a79cb48ba8ac8e0d",
-    "scenes/climate.usda": "4ef8879fc65957172b51112f7d1d410ed22b9af22285f444f1e5611715dc83e2",
-    "scenes/Colorado_01.usda": "2bb38614518886b6e14051f2705c91b235318f259f4ae776f27f756040124ab2",
-    "scenes/Colorado_02.usda": "93e658a4b55f49307daaca584710e0ae732ac39e97219c7415de601d63072bda",
-    "scenes/Colorado_03.usda": "3df9602f8d2edf8498e4847dd19043f836c69a70dc6bb3e27fb6290d528562fa",
-    "scenes/composition.usda": "790ab3e250d20ba76cd9c1ea72e288366acae9e2675c64cffde3ab6102e18c3e",
-    "scenes/default-output.usda": "11aa8f90d0be4cd02dbb85849f5d54205a0d88afdab4d3ef318690ba8be22462",
-    "scenes/France_01.usda": "fa6e12b0a7c400072fd440714b869c9a1d9f73fccec553c90ca2ad5bdaab9c26",
-    "scenes/France_02.usda": "e8ede3bd958b707cd6f6fb3ae8960a996a182c76eaa9b5f171389b8d60acc0b9",
-    "scenes/France_03.usda": "5c43400cc33b2e0f6ad7cf1707f11d4ffe593719a8690e61aba8b721ad524f50",
-    "scenes/France_04.usda": "b4544836a18acf3a01895ae45cf06a4dfb1751aaaed9714b0480d111ab2808f7",
-    "scenes/instance-asset.usda": "9d4cd1fe9b7c6d5f99956fb3edbf1f6db3ba955142d42f490d0ac395824b4c60",
-    "scenes/instances.usda": "72482e500fef267e219aae24cb72624e8466cb90cb88352e8d9de78481d2f531",
-    "scenes/railway.usda": "dd8093f5c0656ffc6aeabcfe658ad2462ce72ca416ea3761e08dc06592123fd2",
-    "scenes/terrain.usda": "d59a603856289fd09c1d39cb0c3bb04a48034fbb0f17811f844431c974855fb0",
-    "scenes/tower.usda": "8618899aca9c73fda50e72964ddb175b6f585530d010b89b06ad451cb173d21d",
-    "schema/generate.py": "37d31fc7e3b8bf22cd8e407fa93ea96b566274badcdb417f4e2a4ff17a64c8a7",
-    "schema/schema.usda": "32755553799e6e4d77d9de469b9842c343c1127cd7a27e5fcad63f9214e839f1",
-    "tests/test_quality_regressions.py": "82c47af12f13b73524b8ddeaf9d3eacb1f266252d22a5a60bbb38490e9ff3c34",
-    "tests/test_semantics.py": "e4be237fd623ce1ff0359eeebcdca9ad56af5c41658b26e598a7dd68aa578b45",
-    "data/Colorado/01_NAD83-2011_Geographic3D_WKT2.txt": "564a87cce9458225367f7235af8c17615eaf0f25a6a9d69143b64a8341f72317",
-    "data/Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_WKT2.txt": "7223312af480611f6089dea506d59f96288f8c9a214347d84c105da07dd23dfe",
-    "data/Colorado/03_Westminster_Site_Calibration_WKT2.txt": "0a788ca9a0b444bbaf9fcc06648eea7de3c4acf53e4eeef42bcb8acd8af44521",
-    "data/France/01_RGF93v2b_CC49_IGN69_WKT2.txt": "f23a657b6c53f668eee60d8306bd8d44422fc8c06ff1665c242cdb867aefe6e9",
-    "data/France/02_RGF93v2b_Lambert93_IGN69_WKT2.txt": "7fc9a869b1b5eaf26b549e508c5af215513e550843f23bf1f35fef1a4d517819",
-    "data/France/03_RGF93v2b_Geocentric_WKT2.txt": "571a3cac4eb3fb580941649dca7d26965772d60a317b217466ddbc80f5144e42",
-    "data/France/04_RGF93v2b_Geographic3D_WKT2.txt": "08a3d0c2c9ce6525eaca3155c313be805c8e9067b6a41560eb428e819c4bfe05",
-    "data/France/05_ITRF2014_Geocentric_epoch2019.0_WKT2.txt": "e6bc6a0a72e666c6d364e4d5dac3f0b4ebb26e83b48f4af105fd352303301c8b",
-    "data/France/06_ITRF2020_Geocentric_epoch2026.5_WKT2.txt": "d4fa5415670d7a4be6d6c491f9b81de304a5a73bf1605a6fd38cdb70444d4a99",
-    "schema/generated/generatedSchema.usda": "4097f264af1f7aad63963cee16c4c6d933105ba0fd3cd4ffda26ac9628caa13d",
-    "schema/generated/plugInfo.json": "a459d179d8f702905cfc9bb61b507f6503056de6c7335ec9104016b29abe67de"
+    "review/wkt_profile.py": "521906a17156ee3fd0f16dfb288d3cef695d2ec02084d9173be2854b421191ef",
+    "schema/generated/generatedSchema.usda": "8f38e55993738f8977136225a3c7137b3c8aaae225521112bc0fa4d7e93bb8ae",
+    "schema/schema.usda": "e40449532de87486a2b20eb0fb4de03f024a8c520989715956009ebff1b96fa8",
+    "schema/generated/plugInfo.json": "010b75c61671ea280d083a223a81506100dee0b9a842722b7a979e4034c1809f",
+    "native/leans.cpp": "389807f01f5308b499ea04aec71fbddb4e760b3a74b115d34c60be467835ccaf",
+    "native/leansRender.cpp": "6fd0d453ac74d120dfa4585e4ba45b4b1110558431ecb0da5e7927e9480c2646",
+    "native/CMakeLists.txt": "d38d85d03a61336324f5741fc7b883878eec1ce7a0335880677500bcca86d5f5",
+    "run.py": "cad2a0965ebcbcb1bd25f01e6904a98e40a03c73457018fa3386f2ea1ea5ceea",
+    "inputs.json": "533f25d71b10a2e11cac22798be582c2f6ba56c43b3d568341ec65818573b13b",
+    "proposal-quality.json": "474bfcfe5a837dd3a5d5160adb811d194f22b71e3960d9a0cb4d04fa1eed1ee7",
+    "ov/geobuild.kit": "5fc4d60271d18a04ad3b6675539033f1c06b37e86ce6b2cba25ed20b02e69d88",
+    "geobuild/quality.py": "85d924f79d75c6cfcea5284dda1c7b5423e61d0c171ad5f60e8d8e00f299ef0c",
+    "proposal/data-model.md": "881562cd1a3453986260a8d2ad8bfc97dd42fdaac9b52ea3c389260f9d53a4fa",
+    "proposal/distinguishing-examples.md": "8cd6e64b5720b2093a3ed3dffe40582eedac9f9b259b2e332bdd375da9f2c69b",
+    "proposal/local-draft.patch": "180cb0ce17bf43c07b4ac59059917c0f23bb0291236fdf0ffc4e3905db2e289a",
+    "proposal/proposal-source.txt": "2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11",
+    "proposal/requirements.md": "b600e005a6b8b1371813838f7a788b338783449f70e1d11d5f3f5e622cd8a3fc",
+    "proposal/runtime-behavior.md": "b2c409472fdfaa05722b746fa4c5d7f0437638e13074ec23b86734d45c391cc4",
+    "proposal/runtime-open-decisions.md": "6cad79cb6b2050b36309833745fe86f97fecd6d6786fcb91edaaf95d16cd9280",
+    "proposal/traceability.md": "5fd1d04958b1c3f1e219a80d2d8ec1d4f2132f3a57055465c2c4d67d9617a0f0"
   },
-  "completion": {
-    "proposal_ready": false,
-    "requirements_build_complete": false,
-    "open_semantic_gap_ids": [
-      "G03",
-      "G04",
-      "G06",
-      "G07"
-    ],
-    "verification_gaps": [
-      "Full model placement, Hydra geometry, OV resolved geometry, relative frames/bounds and physics require the remaining frame contracts.",
-      "Measurement association and conservative dependency declaration/export require their missing authored contracts.",
-      "WKT normalizer is bounded: context-dependent legacy UNIT spelling is rejected rather than guessed. No universal OGC coverage or geodetic accuracy certified.",
-      "Near-unit quaternion validation, geographic result-distance controls and complete resolved-scene export are not claimed by partial source/origin controls."
-    ],
-    "experimental_execution_authorized": false,
-    "placement_execution_stopped": true
-  },
-  "stopping_reason": "Dependent implementation stopped: proposal is unspecified or conflicting (G03, G04, G06, G07). An explicitly labeled experiment cannot certify proposal conformance.",
+  "source_commit": "874ad2059b4a0c168600804acc9ce56e5834d35a",
+  "source_is_uncommitted": true,
   "proposal_quality": {
-    "status": "Full local review candidate audited; four dependent contracts remain unspecified",
-    "shared_proposal_commit": "39c8fb816a9113b14c8f64b020270724b8357312",
-    "source_sha256": "a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904",
-    "source_scope": "Entire unpublished local review candidate",
-    "classification": "Four missing contracts. Five former gaps now have proposed candidate answers. Adoption is separate from derivability.",
+    "status": "Explicit local candidate contracts; specialized model gap and verification limits remain visible",
+    "shared_proposal_commit": "a5c7dd3792503e09b75abfa84b0caef9d80feea6",
+    "source_sha256": "2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11",
+    "source_scope": "Entire October 5 local candidate, based on published a5c7dd3",
+    "classification": "Local executable review candidate. No new agreement asserted.",
     "semantic_gaps": [
       {
         "id": "G01",
@@ -228,17 +143,17 @@
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1211,
+            "line": 1222,
             "clause": "#### Decision on question 2: CRS placement attributes"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1299,
+            "line": 1311,
             "clause": "#### Decision on question 3: working context and placement order"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1237,
+            "line": 1248,
             "clause": "#### Decision on question 11: coordinate domains and property roles"
           }
         ],
@@ -261,26 +176,26 @@
           2,
           6
         ],
-        "already_defined": "Names, types, variability, fallbacks, required position, quaternion semantics, scale order, signed/singular policy and source interpolation are proposed in the README. Adoption pending does not mean no definitions exist. Exact stage-to-placement basis conversion remains a genuine behavior gap; ground/grid scale ownership also needs geospatial review.",
-        "remaining": "Finite values, mixed component units, no duplicate projection factor, and no assumption that source R/S fields constrain resolved frames to R/S only.",
+        "already_defined": "Candidate placement fields plus the explicit right-handed stage-to-basis table, units, scale-before-quaternion and complete point-map contract.",
+        "remaining": "Group review of the concrete conventions is pending; production geospatial coverage must be tested independently.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1211,
+            "line": 1222,
             "clause": "#### Decision on question 2: CRS placement attributes"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1555,
+            "line": 1570,
             "clause": "### CRS association and model placement"
           }
         ],
-        "candidate_answer_status": "Field contract proposed; frame conversion still incomplete"
+        "candidate_answer_status": "Defined in the full local candidate, not adopted group scope"
       },
       {
         "id": "G03",
         "name": "Physical coordinate context of project adjustments",
-        "status": "open",
+        "status": "closed",
         "requirements": [
           5,
           6,
@@ -294,26 +209,21 @@
         "questions": [
           3
         ],
-        "already_defined": "Post-CRS order is decided. The controlling composed frame, adjustment axes/units/pivot and preservation across output changes are not. The complete xform stack must supply the intended adjustment; raw numeric reuse in another CRS is insufficient.",
-        "remaining": "A 90-degree oriented model distinguishes a model-X adjustment from a grid-easting adjustment. The text identifies this precise choice rather than reopening placement order.",
+        "already_defined": "### Candidate working-frame and point-evaluation contract",
+        "remaining": "Adoption remains pending. Execution and coverage must be assessed separately.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1299,
-            "clause": "#### Decision on question 3: working context and placement order"
-          },
-          {
-            "source": "proposal/proposal-source.txt",
-            "line": 1299,
-            "clause": "#### Decision on question 3: working context and placement order"
+            "line": 1773,
+            "clause": "### Candidate working-frame and point-evaluation contract"
           }
         ],
-        "candidate_answer_status": "Genuine remaining contract"
+        "candidate_answer_status": "Explicit local proposed contract; group review pending"
       },
       {
         "id": "G04",
         "name": "Remaining component conventions and scene result domain",
-        "status": "open",
+        "status": "closed",
         "requirements": [
           12,
           13,
@@ -326,16 +236,16 @@
           6,
           9
         ],
-        "already_defined": "Geographic longitude/latitude/height and geocentric XYZ have proposed conventions. Canonical tuple order does not specify a Y-up or Z-up scene basis. Geographic coordinate queries are settled functional scope; using angular coordinates as a scene frame remains distinct.",
-        "remaining": "Requirement 13 distinguishes coordinate components from scene axes. Returned query tuples use the same role order; unsupported component sets cannot be guessed.",
+        "already_defined": "### Candidate working-frame and point-evaluation contract",
+        "remaining": "Q9 geographic scene frames/bounds remain separately open.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1590,
-            "clause": "#### Position components"
+            "line": 1773,
+            "clause": "### Candidate working-frame and point-evaluation contract"
           }
         ],
-        "candidate_answer_status": "Source component orders proposed; scene-frame rule/profile still open"
+        "candidate_answer_status": "Explicit local proposed contract; group review pending"
       },
       {
         "id": "G05",
@@ -354,12 +264,12 @@
         "questions": [
           10
         ],
-        "already_defined": "The local candidate contains a referenced lossless lexical profile, exact-decimal convention, fixed-point validation and separate serialized identity/CRS-equivalence comparison. No independent normalizer implementation or conformance result is claimed. Whole-definition sharing tradeoffs remain explicit.",
+        "already_defined": "The local candidate contains a referenced lossless lexical profile, exact-decimal convention, fixed-point validation and separate serialized identity/CRS-equivalence comparison. Python lexical normalizer is exercised by the contract tests; no second independent normalizer or universal WKT conformance is claimed. Whole-definition sharing tradeoffs remain explicit.",
         "remaining": "Requirement 31 is one sentence; formatted WKT examples are labeled as illustrations requiring normalization before conforming authoring. Valid WKT cannot be simplified by silently dropping its defining conversion.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1669,
+            "line": 1686,
             "clause": "### WKT string normalization"
           }
         ],
@@ -368,7 +278,7 @@
       {
         "id": "G06",
         "name": "Measurement-coordinate association",
-        "status": "open",
+        "status": "closed",
         "requirements": [
           2,
           5,
@@ -384,26 +294,21 @@
         "questions": [
           11
         ],
-        "already_defined": "Subtree scope and measurement preservation are settled. The carrier identifying absolute coordinate properties or an external dataset domain is missing; neither API application nor float3 shape supplies that role. Coordinate-only data must not acquire a fake model anchor or receive crs:position twice.",
-        "remaining": "Two bounded authored facts, multiple domains, retained format associations and the external-format/composed-binding authority conflict are stated. No new relation or generic measurement schema is invented.",
+        "already_defined": "### Candidate external measurement association",
+        "remaining": "Adoption remains pending. Execution and coverage must be assessed separately.",
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1237,
-            "clause": "#### Decision on question 11: coordinate domains and property roles"
-          },
-          {
-            "source": "proposal/proposal-source.txt",
-            "line": 1237,
-            "clause": "#### Decision on question 11: coordinate domains and property roles"
+            "line": 1875,
+            "clause": "### Candidate external measurement association"
           }
         ],
-        "candidate_answer_status": "Genuine remaining authored-data contract"
+        "candidate_answer_status": "Explicit local proposed contract; group review pending"
       },
       {
         "id": "G07",
         "name": "Dependency declaration carrier and composition",
-        "status": "open",
+        "status": "closed",
         "requirements": [
           7,
           19,
@@ -414,10 +319,16 @@
         "questions": [
           12
         ],
-        "already_defined": "Coverage is already all placed content. The carrier, root/session interpretation, conservative assembly maintenance across composition/unloaded content, and export update rule are not specified. Traversal for detection is not the promised declaration.",
-        "remaining": "Existing Core customLayerData is identified as a possible carrier, not selected as a normative key. Composition does not automatically aggregate it; no prototype layer flag is promoted.",
-        "references": [],
-        "candidate_answer_status": "Genuine remaining authored-data/assembly contract"
+        "already_defined": "### Candidate Profiles dependency integration",
+        "remaining": "Adoption remains pending. Execution and coverage must be assessed separately.",
+        "references": [
+          {
+            "source": "proposal/proposal-source.txt",
+            "line": 1932,
+            "clause": "### Candidate Profiles dependency integration"
+          }
+        ],
+        "candidate_answer_status": "Explicit local proposed contract; group review pending"
       },
       {
         "id": "G08",
@@ -441,16 +352,16 @@
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1354,
+            "line": 1367,
             "clause": "#### Decision on question 13: operation and resource responsibility"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1824,
+            "line": 2039,
             "clause": "### Extent and result comparison"
           }
         ],
-        "candidate_answer_status": "Observable contract and metrics proposed; dependent frame definitions still required"
+        "candidate_answer_status": "Pointwise reference, metrics and visible unsupported extent claims defined; implementation coverage remains bounded"
       },
       {
         "id": "G09",
@@ -471,12 +382,12 @@
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1273,
+            "line": 1285,
             "clause": "#### Decision on question 14: explicit export"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1871,
+            "line": 2086,
             "clause": "### Explicit export and sampling"
           }
         ],
@@ -502,327 +413,315 @@
         "references": [
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1211,
+            "line": 1222,
             "clause": "#### Decision on question 2: CRS placement attributes"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1237,
+            "line": 1248,
             "clause": "#### Decision on question 11: coordinate domains and property roles"
           },
           {
             "source": "proposal/proposal-source.txt",
-            "line": 1491,
+            "line": 1506,
             "clause": "### GeospatialCRS typed schema"
           }
         ],
         "candidate_answer_status": "Editorial inconsistency reconciled in draft"
+      },
+      {
+        "id": "G11",
+        "name": "Independently CRS-bound point-instancer prototypes",
+        "status": "open",
+        "requirements": [
+          7,
+          8,
+          9,
+          17,
+          18
+        ],
+        "questions": [
+          3
+        ],
+        "already_defined": "Native instances and point-instanced local model geometry use the composed placement map; prototype indices and retained instance association survive resolution.",
+        "remaining": "An absolute CRS-bound prototype combined with instancer placements has no defined precedence/transport contract. The candidate explicitly fails this specialized combination rather than inventing it.",
+        "candidate_answer_status": "Explicit specialized model gap; do not claim full instance combinations",
+        "references": [
+          {
+            "source": "proposal/proposal-source.txt",
+            "line": 1852,
+            "clause": "This initial candidate does not define independently CRS-bound"
+          }
+        ]
       }
     ],
     "requirements": [
       {
         "id": 1,
-        "title": "Self-contained definitions",
-        "normative_statement": "A CRS carried in a scene can be read from the scene alone, without a lookup against an external registry.",
-        "source_line": 588,
+        "title": "Data loss at interchange boundaries",
+        "normative_statement": "CRS metadata stored in `customData` or proprietary attributes is routinely stripped during USD export/import cycles across different tools.",
+        "source_line": 111,
         "remaining_gap_ids": [],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 2,
-        "title": "Defined once, and describing no object",
-        "normative_statement": "A complete CRS definition used in many places is authored once and referred to, describes no object-specific placement, orientation or scale, and has its authored WKT as the sole authored authority for the information that WKT determines.",
-        "source_line": 601,
-        "remaining_gap_ids": [
-          "G06"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "title": "No standard for CRS inheritance",
+        "normative_statement": "Without a defined inheritance model, every prim in a large scene must redundantly carry CRS metadata, or tools must implement ad-hoc resolution logic.",
+        "source_line": 116,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 3,
-        "title": "Datum, realization and epoch",
-        "normative_statement": "The scene can identify the datum realization and any frame reference epoch defined by its CRS, without inferring a coordinate epoch for the coordinates.",
-        "source_line": 618,
+        "title": "Precision hazards",
+        "normative_statement": "A UTM easting of 481,948 m exceeds the useful range of `float32`, and implementations store it in a `point3f` array anyway, because nothing tells them not to. The result is visible jitter and drift in scenes that look correct on paper.",
+        "source_line": 121,
         "remaining_gap_ids": [],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 4,
-        "title": "A site's own grid is a CRS like any other",
-        "normative_statement": "A project grid \u2014 its origin, orientation and scale relative to a geodetic or projected CRS, and, where applicable, its heights relative to a vertical CRS, agreed once for a site \u2014 can be the CRS its content is expressed in, and content in it needs nothing that content in a national grid does not.",
-        "source_line": 630,
+        "title": "Multi-CRS composition is undefined",
+        "normative_statement": "A cross-state pipeline spans UTM zones 11 and 12, and a regional twin draws on imagery, terrain and vectors that each arrive in their own CRS. Today the only way to put them on one stage is to convert them all first, which is a cost the largest projects cannot pay.",
+        "source_line": 128,
         "remaining_gap_ids": [],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 5,
-        "title": "A discoverable CRS",
-        "normative_statement": "The CRS in which any authored position is expressed can be determined from the scene alone.",
-        "source_line": 676,
-        "remaining_gap_ids": [
-          "G03",
-          "G06"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "title": "Industry adoption is blocked",
+        "normative_statement": "GIS vendors, AECO tool makers, and digital twin platforms cannot fully adopt USD without a standard way to express CRS, because it is a foundational requirement for their workflows.",
+        "source_line": 136,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 6,
-        "title": "Declared for a subtree, not a prim",
-        "normative_statement": "A CRS declared once applies to the content beneath it, and part of that content can declare a different one.",
-        "source_line": 686,
-        "remaining_gap_ids": [
-          "G03",
-          "G06"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "title": "Minimal disruption",
+        "normative_statement": "No changes to existing USD schemas or core APIs. The geospatial schemas are additive and optional.",
+        "source_line": 489,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 7,
-        "title": "Composition agnostic",
-        "normative_statement": "CRS declarations and their scope are interpreted on the composed stage, following the composition and value-resolution rules of the [AOUSD USD Core Specification v1.0.1](https://github.com/aousd/specifications-public/blob/main/core/1.0.1/core_spec.md).",
-        "source_line": 697,
+        "title": "Extensible",
+        "normative_statement": "Third-party CRS libraries (PROJ, GDAL, Esri, Trimble) can supply coordinate operations. The proposal specifies data and observable runtime behavior, including validation and resolved queries; it does not prescribe callable interfaces or a particular implementation architecture.",
+        "source_line": 493,
         "remaining_gap_ids": [
-          "G06",
-          "G07"
+          "G11"
         ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 8,
-        "title": "Brought-in data keeps its coordinates and its CRS",
-        "normative_statement": "Data authored in one CRS can be brought into a project working in another, and given project-specific placement, with its authored coordinate values and CRS unchanged and that placement preserved in any supported requested output CRS.",
-        "source_line": 707,
+        "title": "Interoperable",
+        "normative_statement": "The design should facilitate round-trip exchange with glTF (geospatial extension), IFC, CityGML, and OGC 3D Tiles.",
+        "source_line": 499,
         "remaining_gap_ids": [
-          "G03"
+          "G11"
         ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 9,
         "title": "Positions, and offsets from them",
         "normative_statement": "Content is placed by a position, orientation and scale with defined meaning in a named CRS, and the content beneath that placement is authored and moved as ordinary scene offsets in scene distances by someone who need know no geodesy.",
-        "source_line": 733,
+        "source_line": 735,
         "remaining_gap_ids": [
-          "G03"
+          "G11"
         ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 10,
         "title": "Offsets along the axes of their position",
         "normative_statement": "Offsets beneath a CRS placement have an orientation and scale discoverable from its authored placement and CRS without resolving into another CRS, and resolution accounts for changes in local axes and scale as well as position.",
-        "source_line": 751,
+        "source_line": 753,
         "remaining_gap_ids": [],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 11,
         "title": "Position or offset, and the scene says which",
         "normative_statement": "Whether an authored location is a position in a CRS or an offset from its parent can be read from the scene, and a CRS position does not accumulate ancestor xformOps.",
-        "source_line": 770,
-        "remaining_gap_ids": [
-          "G03"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "source_line": 772,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 12,
         "title": "No angle read as a length",
         "normative_statement": "Every coordinate's unit, and the surface its height is measured from, are unambiguous, and no reading of the scene takes an angular coordinate as a scene distance.",
-        "source_line": 787,
-        "remaining_gap_ids": [
-          "G04",
-          "G06"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "source_line": 789,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 13,
         "title": "One axis mapping",
         "normative_statement": "The semantic component order of a CRS position is fixed by this proposal rather than by the CRS's declared storage order, with easting, northing and up occupying the first, second and third components respectively, and its representation in a scene frame follows the common convention specified under requirement 14.",
-        "source_line": 801,
-        "remaining_gap_ids": [
-          "G04"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "source_line": 803,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 14,
         "title": "Scene conventions stay the scene's",
         "normative_statement": "A CRS binding changes neither the scene's units nor its up axis, and where a CRS's units or axes differ from the scene's, the relation between the two is defined by this proposal once, not by each implementation.",
-        "source_line": 818,
-        "remaining_gap_ids": [
-          "G04"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "source_line": 820,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 15,
         "title": "Placement separate from conformance",
         "normative_statement": "Where an instance sits is recorded separately from the corrections that adapt its source asset's conventions.",
-        "source_line": 831,
-        "remaining_gap_ids": [
-          "G03"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "source_line": 833,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 16,
         "title": "One CRS out",
         "normative_statement": "Content expressed in any number of CRSs resolves into one output CRS selected by the consumer, with the scene able to name a default for consumers that make no selection.",
-        "source_line": 843,
-        "remaining_gap_ids": [
-          "G03",
-          "G04"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "source_line": 845,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 17,
         "title": "The same answer for every consumer",
         "normative_statement": "A world position, a bound, an instance, a physics body and a rendered image all come from the same resolution, and none of them needs a renderer.",
-        "source_line": 863,
+        "source_line": 865,
         "remaining_gap_ids": [
-          "G04"
+          "G11"
         ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 18,
         "title": "Coordinates back out",
         "normative_statement": "Any resolved position can be reported as coordinates in any CRS the scene or the consumer names, and the placement of one prim relative to another can be asked for in the output CRS.",
-        "source_line": 876,
+        "source_line": 878,
         "remaining_gap_ids": [
-          "G04",
-          "G06"
+          "G11"
         ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 19,
         "title": "Resolution leaves the scene as authored",
-        "normative_statement": "Resolving a scene writes nothing into it \u2014 authored coordinates, placement values, CRS definitions and bindings are unchanged \u2014 and writing a resolved result out is a separate, explicit act that records the CRS it was written in and, for content that varies over time, how it was sampled.",
-        "source_line": 891,
-        "remaining_gap_ids": [
-          "G03",
-          "G06",
-          "G07"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "normative_statement": "Resolving a scene writes nothing into it â€” authored coordinates, placement values, CRS definitions and bindings are unchanged â€” and writing a resolved result out is a separate, explicit act that records the CRS it was written in and, for content that varies over time, how it was sampled.",
+        "source_line": 893,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 20,
         "title": "Positions between recorded moments",
         "normative_statement": "A position recorded as samples over time is interpolated on the recorded values, in the CRS they were recorded in, and converting the result to another CRS does not change the path.",
-        "source_line": 910,
+        "source_line": 912,
         "remaining_gap_ids": [],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 21,
         "title": "Never placed by a guess",
-        "normative_statement": "A requested transformation outside the supported scope or one that cannot be computed \u2014 no engine, a definition that cannot be read or is unsupported, a missing grid, a point outside the transformation's domain of validity, a requested change of coordinate epoch that the operation does not model \u2014 never places content by a substitute, a result that could only be partly computed is a failure and not a partial placement, and the failure surfaces where it can be known: in validation for what the authored scene reveals, from the engine for what only resolution can discover.",
-        "source_line": 927,
-        "remaining_gap_ids": [
-          "G06"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "normative_statement": "A requested transformation outside the supported scope or one that cannot be computed â€” no engine, a definition that cannot be read or is unsupported, a missing grid, a point outside the transformation's domain of validity, a requested change of coordinate epoch that the operation does not model â€” never places content by a substitute, a result that could only be partly computed is a failure and not a partial placement, and the failure surfaces where it can be known: in validation for what the authored scene reveals, from the engine for what only resolution can discover.",
+        "source_line": 929,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 22,
         "title": "A CRS suited to the project's size",
         "normative_statement": "The scheme supports site, regional and global projects without requiring their geometry to be approximated by a single tangent plane.",
-        "source_line": 976,
+        "source_line": 978,
         "remaining_gap_ids": [],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 23,
         "title": "Detail that does not depend on location",
         "normative_statement": "Changing only an asset's geospatial placement does not reduce the precision of its asset-relative geometry as authored.",
-        "source_line": 989,
+        "source_line": 991,
         "remaining_gap_ids": [],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 24,
         "title": "Extent under one position is bounded and stated",
         "normative_statement": "Content beneath one position is placed to within a stated distance of where placing each of its points would put it, and the extent over which that holds is stated.",
-        "source_line": 998,
+        "source_line": 1000,
         "remaining_gap_ids": [],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 25,
         "title": "Additive for consumers that ignore it",
         "normative_statement": "A consumer that does not interpret the geospatial information reads the same scene it would have read without it.",
-        "source_line": 1013,
-        "remaining_gap_ids": [
-          "G07"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "source_line": 1015,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 26,
         "title": "Declares its dependency",
         "normative_statement": "A scene whose correct placement depends on resolving CRSs says so, in a way a consumer can read without traversing the scene, and the declaration covers every piece of placed content in it.",
-        "source_line": 1023,
-        "remaining_gap_ids": [
-          "G07"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "source_line": 1025,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 27,
         "title": "Checkable before use",
-        "normative_statement": "What the scene itself establishes \u2014 a position nested beneath another position, a binding to no definition, content outside any CRS, a dependency declaration missing or left behind by a written-out result \u2014 can be detected in the authored scene without resolving it.",
-        "source_line": 1034,
-        "remaining_gap_ids": [
-          "G06",
-          "G07"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "normative_statement": "What the scene itself establishes â€” a position nested beneath another position, a binding to no definition, content outside any CRS, a dependency declaration missing or left behind by a written-out result â€” can be detected in the authored scene without resolving it.",
+        "source_line": 1036,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 28,
         "title": "A result says what produced it",
         "normative_statement": "A resolved result can name the coordinate operation that produced it and the accuracy attributed to it.",
-        "source_line": 1049,
+        "source_line": 1051,
         "remaining_gap_ids": [],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 29,
         "title": "Implementable from the text alone",
         "normative_statement": "Two implementations built from this proposal without consulting its authors give the same coordinate interpretation and, using equivalent coordinate operations, place the same scene within a stated agreement distance using a specified distance measure and units at stated output coordinate magnitudes.",
-        "source_line": 1067,
+        "source_line": 1069,
         "remaining_gap_ids": [],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 30,
         "title": "Measurements remain usable as data",
         "normative_statement": "Georeferenced measurements remain accessible to consumers together with their associated positions and times, without requiring renderable geometry or a visualization, and coordinate resolution preserves those associations and measurement values.",
-        "source_line": 959,
-        "remaining_gap_ids": [
-          "G06"
-        ],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "source_line": 961,
+        "remaining_gap_ids": [],
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       },
       {
         "id": 31,
         "title": "Same definition, same meaning",
         "normative_statement": "CRS definitions use the proposal's prescribed WKT string normal form, whose specified lexical variants normalize to identical text without loss of represented information or changed coordinate interpretation, while comparisons distinguish serialized-definition identity from CRS equivalence and do not infer different CRS meaning or a necessary transformation solely from different normalized text.",
-        "source_line": 654,
+        "source_line": 656,
         "remaining_gap_ids": [],
-        "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+        "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
       }
     ],
     "verification_gaps": [
-      "Full model placement, Hydra geometry, OV resolved geometry, relative frames/bounds and physics require the remaining frame contracts.",
-      "Measurement association and conservative dependency declaration/export require their missing authored contracts.",
-      "WKT normalizer is bounded: context-dependent legacy UNIT spelling is rejected rather than guessed. No universal OGC coverage or geodetic accuracy certified.",
-      "Near-unit quaternion validation, geographic result-distance controls and complete resolved-scene export are not claimed by partial source/origin controls."
+      "Q9 geographic scene geometry, frames and bounds remains a design question; geographic coordinate queries remain supported.",
+      "Continuous nonlinear extent and between-sample trajectory guarantees are unsupported, with visible failure rather than an inferred certificate.",
+      "C++ validation is not a second independent WKT normalizer. External format decoding is shared; Python and C++ share PROJ, while OV reuses the Python placement algorithm.",
+      "Hydra consumes an ordinary resolved export; no live geospatial scene-index filter or physics integration is claimed.",
+      "External adapters cover selected CF, single-IFD GeoTIFF and RFC 7946 domains, not all coordinate forms in those standards.",
+      "Export preserves tested geometry/sample associations but materializes instances; authored shading-normal and general material/primvar semantics are not certified."
     ],
     "implementation_gaps": [
       {
@@ -867,594 +766,1273 @@
       "A semantic change requires a new pinned specification before affected code/tests and invalidates affected evidence.",
       "A missing required test is unfinished verification, not an open design question.",
       "The default build gate stops while specification gaps remain. An explicit experimental invocation records proposal_ready=false and requirements_build_complete=false."
+    ],
+    "postimplementation_audit_required": [
+      "Map every authored field to a source property contract.",
+      "Separate internal algorithms from authored facts and new normative choices.",
+      "Audit every advertised consumer path against actual sink readback.",
+      "Record unsupported combinations and absent tests instead of declaring whole-requirement conformance.",
+      "Require source hashes and immutable receipts before delivery."
     ]
   },
   "tests": {
-    "passed": 64,
+    "regressions_passed": 64,
+    "distinguishing_controls_passed": 47,
     "failed": 0
   },
-  "scope_controls": [
+  "controls": [
     {
-      "name": "references",
-      "kind": "discovery",
-      "queries": 4,
-      "successful_definition_queries": 4,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "basis-Z-1 analytic expected",
+      "passed": true
     },
     {
-      "name": "referenced-assembly",
-      "kind": "discovery",
-      "queries": 2,
-      "successful_definition_queries": 2,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "basis-Z-1 local frame derivative matches the independent affine matrix",
+      "passed": true
     },
     {
-      "name": "stronger-layer",
-      "kind": "discovery",
-      "queries": 2,
-      "successful_definition_queries": 2,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "basis-Y-1 analytic expected",
+      "passed": true
     },
     {
-      "name": "variant-selection",
-      "kind": "discovery",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "basis-Y-1 local frame derivative matches the independent affine matrix",
+      "passed": true
     },
     {
-      "name": "class-inheritance",
-      "kind": "discovery",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "basis-Y-0.01 analytic expected",
+      "passed": true
     },
     {
-      "name": "equivalent-composed-data",
-      "kind": "discovery",
-      "queries": 2,
-      "successful_definition_queries": 2,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "basis-Y-0.01 local frame derivative matches the independent affine matrix",
+      "passed": true
     },
     {
-      "name": "unloaded-payload",
-      "kind": "discovery",
-      "queries": 2,
-      "successful_definition_queries": 1,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "pivot-order analytic expected",
+      "passed": true
     },
     {
-      "name": "no-binding",
-      "kind": "discovery",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "time-source analytic expected",
+      "passed": true
     },
     {
-      "name": "broken-nearest-binding",
-      "kind": "discovery",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "time-source-held analytic expected",
+      "passed": true
     },
     {
-      "name": "wrong-wkt-type",
-      "kind": "discovery",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "time-source-t0 analytic expected",
+      "passed": true
     },
     {
-      "name": "wrong-wkt-variability",
-      "kind": "discovery",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "time-source-t10 analytic expected",
+      "passed": true
     },
     {
-      "name": "empty-wkt",
-      "kind": "discovery",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "anchor +10 means site easting after 90 degree orientation",
+      "passed": true
     },
     {
-      "name": "placement-defaults",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "parent ordinary +100000 excluded",
+      "passed": true
     },
     {
-      "name": "placement-linear",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "physical placement survives output change 0",
+      "passed": true
     },
     {
-      "name": "placement-held",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "physical placement survives output change 1",
+      "passed": true
     },
     {
-      "name": "geographic-no-unwrapping",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "physical placement survives output change 2",
+      "passed": true
     },
     {
-      "name": "same-crs-independent-anchor",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "descendant reset removes anchor adjustment and retains CRS placement",
+      "passed": true
     },
     {
-      "name": "position-missing",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "descendant offset retains oriented model axes",
+      "passed": true
     },
     {
-      "name": "orientation-blocked",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "blocked position has no zero fallback",
+      "passed": true,
+      "visible_error": "Placement position is unavailable"
     },
     {
-      "name": "position-wrong-type",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "nonunit quaternion rejected",
+      "passed": true,
+      "visible_error": "Orientation is not unit length"
     },
     {
-      "name": "position-wrong-variability",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "singular scale permits forward point",
+      "passed": true
     },
     {
-      "name": "nonfinite-scale",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "authored layers preserved through negative controls",
+      "passed": true
     },
     {
-      "name": "zero-quaternion",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "same Cartesian CRS has an analytically affine map over the stated extent",
+      "passed": true
     },
     {
-      "name": "singular-source-scale",
-      "kind": "placement_values",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "finite samples cannot certify a continuous nonlinear extent",
+      "passed": true,
+      "visible_error": "No continuous approximation certificate for this nonlinear operation"
     },
     {
-      "name": "origins-France_01-to-France_02",
-      "kind": "origin_coordinates",
-      "queries": 59,
-      "successful_definition_queries": 59,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "invalid nearest enclosing binding is not bypassed for an identity adjustment",
+      "passed": true,
+      "visible_error": "Invalid WKT: Strict WKT grammar check failed: Missing DATUM or ENSEMBLE node"
     },
     {
-      "name": "origins-France_02-to-France_01",
-      "kind": "origin_coordinates",
-      "queries": 59,
-      "successful_definition_queries": 59,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "invalid nearest enclosing binding also rejects inverse requests",
+      "passed": true,
+      "visible_error": "Invalid WKT: Strict WKT grammar check failed: Missing DATUM or ENSEMBLE node"
     },
     {
-      "name": "origins-Colorado_02-to-Colorado_03",
-      "kind": "origin_coordinates",
-      "queries": 5,
-      "successful_definition_queries": 5,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "global domain has original 2664 values",
+      "passed": true
     },
     {
-      "name": "origins-Colorado_03-to-Colorado_02",
-      "kind": "origin_coordinates",
-      "queries": 5,
-      "successful_definition_queries": 5,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "global domain stays 2D with no observation time invented",
+      "passed": true
     },
     {
-      "name": "origin-source-interpolation-0",
-      "kind": "origin_coordinates",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "unknown original physical units remain unknown",
+      "passed": true
     },
     {
-      "name": "origin-source-interpolation-5",
-      "kind": "origin_coordinates",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "geographic coordinate support does not invent a scene frame",
+      "passed": true,
+      "visible_error": "Geographic scene frames remain Q9; a 3D Cartesian frame is required"
     },
     {
-      "name": "origin-source-interpolation-10",
-      "kind": "origin_coordinates",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "missing height fails 3D request",
+      "passed": true,
+      "visible_error": "No implicit height or dimensional promotion"
     },
     {
-      "name": "origin-adjustment-stops",
-      "kind": "origin_coordinates",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "external and composed CRS conflict fails",
+      "passed": true,
+      "visible_error": "External CRS conflicts with composed WKT"
     },
     {
-      "name": "origin-invalid-latitude",
-      "kind": "origin_coordinates",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "absolute samples never receive model anchor twice",
+      "passed": true,
+      "visible_error": "Absolute measurement source cannot have model placement"
     },
     {
-      "name": "origin-default-output",
-      "kind": "origin_coordinates",
-      "queries": 1,
-      "successful_definition_queries": 1,
-      "expected_failures": 0,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "railway preserves all 15822 horizontal vertices",
+      "passed": true
     },
     {
-      "name": "origin-no-default-output",
-      "kind": "origin_coordinates",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "GeoTIFF PixelIsPoint and PixelIsArea resolve declared sample centers",
+      "passed": true
     },
     {
-      "name": "origin-descendant-stops",
-      "kind": "origin_coordinates",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "one external container retains separate selected coordinate domains",
+      "passed": true
     },
     {
-      "name": "origin-nested-anchor-stops",
-      "kind": "origin_coordinates",
-      "queries": 1,
-      "successful_definition_queries": 0,
-      "expected_failures": 1,
-      "headless": "passed",
-      "native_usd": "passed",
-      "live_ov": "passed"
+      "name": "CF measurement values and missing masks remain paired across domains",
+      "passed": true
+    },
+    {
+      "name": "CF observation times remain native metadata independent of USD time",
+      "passed": true
+    },
+    {
+      "name": "relative position follows target orientation and scale",
+      "passed": true
+    },
+    {
+      "name": "tower polygonal bounds enclose every resolved vertex",
+      "passed": true
+    },
+    {
+      "name": "terrain polygonal bounds enclose every resolved vertex",
+      "passed": true
+    },
+    {
+      "name": "composition polygonal bounds enclose every resolved vertex",
+      "passed": true
+    },
+    {
+      "name": "instances polygonal bounds enclose every resolved vertex",
+      "passed": true
+    },
+    {
+      "name": "point instancers resolve every retained prototype copy",
+      "passed": true
+    },
+    {
+      "name": "invisible instance ID suppresses its geometry without reindexing survivors",
+      "passed": true
+    },
+    {
+      "name": "Profiles summary readable with outside unloaded payload",
+      "passed": true
+    },
+    {
+      "name": "stronger layer cannot silently weaken required summary",
+      "passed": true,
+      "visible_error": "Missing/weak whole-scene Profiles dependency claim"
     }
   ],
-  "origin_metrics": [
+  "expected_failures": [
     {
-      "name": "origins-France_01-to-France_02",
-      "successful_origins": 59,
-      "expected_failures": 0,
-      "acceptance_metres": 0.002,
-      "max_reference_discrepancy_metres": 6.0769115238857e-05,
-      "max_reader_agreement_metres": 0.0,
-      "equivalent_pipeline_tokens_checked": true,
-      "operations": [
+      "name": "instances-independent-prototype",
+      "python": "Independently CRS-bound point-instancer prototype is undefined",
+      "native": "Independently CRS-bound point-instancer prototype is undefined\n",
+      "expected": true
+    },
+    {
+      "name": "climate-no-height",
+      "python": "No implicit height or dimensional promotion",
+      "native": "No implicit height or dimensional promotion\n",
+      "expected": true
+    }
+  ],
+  "metrics": [
+    {
+      "name": "basis-Z-1",
+      "native_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "basis-Y-1",
+      "native_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "basis-Y-0.01",
+      "native_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "working-adjustment",
+      "native_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 2.0833139037915134e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "working-adjustment-ecef",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 2.945675730910151e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "geographic-working",
+      "native_vs_python": {
+        "coordinate_count": 2,
+        "max_distance_metres": 2.08250058582033e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 2,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "pivot-order",
+      "native_vs_python": {
+        "coordinate_count": 2,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 2,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "time-source",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 9.31436254515153e-10,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "time-source-held",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "time-source-t0",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "time-source-t10",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 9.317772109982395e-10,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "relative-position",
+      "native_vs_python": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "tower",
+      "native_vs_python": {
+        "coordinate_count": 163442,
+        "max_distance_metres": 1.1641532182693481e-10,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 163442,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "terrain",
+      "native_vs_python": {
+        "coordinate_count": 14361,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 14361,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "composition",
+      "native_vs_python": {
+        "coordinate_count": 8,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 8,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "instances",
+      "native_vs_python": {
+        "coordinate_count": 20,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 20,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "instances-masked",
+      "native_vs_python": {
+        "coordinate_count": 17,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 17,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "France_01",
+      "native_vs_python": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "France_02",
+      "native_vs_python": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "Colorado_01",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "Colorado_02",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "Colorado_03",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    },
+    {
+      "name": "climate",
+      "native_vs_python": {
+        "coordinate_count": 2664,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 2664,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height"
+      }
+    },
+    {
+      "name": "city",
+      "native_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 2.828405820148886e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height"
+      }
+    },
+    {
+      "name": "city-point",
+      "native_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 2.828405820148886e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height"
+      }
+    },
+    {
+      "name": "multi-geographic",
+      "native_vs_python": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height"
+      }
+    },
+    {
+      "name": "multi-projected",
+      "native_vs_python": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height"
+      }
+    },
+    {
+      "name": "railway",
+      "native_vs_python": {
+        "coordinate_count": 15822,
+        "max_distance_metres": 1.862645149230957e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "ov_vs_python": {
+        "coordinate_count": 15822,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      }
+    }
+  ],
+  "operation_comparability": [
+    {
+      "name": "basis-Z-1",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "basis-Y-1",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "basis-Y-0.01",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "working-adjustment",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ]
+    },
+    {
+      "name": "working-adjustment-ecef",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=cart ellps=WGS84",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=cart ellps=WGS84",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ]
+    },
+    {
+      "name": "geographic-working",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "pivot-order",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "time-source",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "time-source-held",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "time-source-t0",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "time-source-t10",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "relative-position",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "tower",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "terrain",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "composition",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "instances",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "instances-masked",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "France_01",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
         "proj=pipeline step inv proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80 step proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80"
       ],
-      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+      "native_pipelines": [
+        "proj=pipeline step inv proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80 step proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80"
+      ]
     },
     {
-      "name": "origins-France_02-to-France_01",
-      "successful_origins": 59,
-      "expected_failures": 0,
-      "acceptance_metres": 0.002,
-      "max_reference_discrepancy_metres": 6.077328540401748e-05,
-      "max_reader_agreement_metres": 0.0,
-      "equivalent_pipeline_tokens_checked": true,
-      "operations": [
+      "name": "France_02",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
         "proj=pipeline step inv proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80 step proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80"
       ],
-      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+      "native_pipelines": [
+        "proj=pipeline step inv proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80 step proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80"
+      ]
     },
     {
-      "name": "origins-Colorado_02-to-Colorado_03",
-      "successful_origins": 5,
-      "expected_failures": 0,
-      "acceptance_metres": 0.002,
-      "max_reference_discrepancy_metres": 3.423982800319422e-05,
-      "max_reader_agreement_metres": 0.0,
-      "equivalent_pipeline_tokens_checked": true,
-      "operations": [
+      "name": "Colorado_01",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=us-ft xy_out=rad z_out=m step inv proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=us-ft xy_out=rad z_out=m step inv proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694"
+      ]
+    },
+    {
+      "name": "Colorado_02",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
         "proj=pipeline step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694"
       ],
-      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+      "native_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694"
+      ]
     },
     {
-      "name": "origins-Colorado_03-to-Colorado_02",
-      "successful_origins": 5,
-      "expected_failures": 0,
-      "acceptance_metres": 0.002,
-      "max_reference_discrepancy_metres": 3.4236300747393686e-05,
-      "max_reader_agreement_metres": 0.0,
-      "equivalent_pipeline_tokens_checked": true,
-      "operations": [
+      "name": "Colorado_03",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
         "proj=pipeline step inv proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694 step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step inv proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft"
       ],
-      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+      "native_pipelines": [
+        "proj=pipeline step inv proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694 step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step inv proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft"
+      ]
     },
     {
-      "name": "origin-source-interpolation-0",
-      "successful_origins": 1,
-      "expected_failures": 0,
-      "acceptance_metres": 2e-08,
-      "max_reference_discrepancy_metres": 0.0,
-      "max_reader_agreement_metres": 0.0,
-      "equivalent_pipeline_tokens_checked": true,
-      "operations": [
-        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      "name": "climate",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
       ],
-      "reference": "Analytic WGS84 equatorial ECEF"
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
     },
     {
-      "name": "origin-source-interpolation-5",
-      "successful_origins": 1,
-      "expected_failures": 0,
-      "acceptance_metres": 2e-08,
-      "max_reference_discrepancy_metres": 0.0,
-      "max_reader_agreement_metres": 0.0,
-      "equivalent_pipeline_tokens_checked": true,
-      "operations": [
-        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      "name": "city",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
       ],
-      "reference": "Analytic WGS84 equatorial ECEF"
+      "native_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ]
     },
     {
-      "name": "origin-source-interpolation-10",
-      "successful_origins": 1,
-      "expected_failures": 0,
-      "acceptance_metres": 2e-08,
-      "max_reference_discrepancy_metres": 0.0,
-      "max_reader_agreement_metres": 0.0,
-      "equivalent_pipeline_tokens_checked": true,
-      "operations": [
-        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      "name": "city-point",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
       ],
-      "reference": "Analytic WGS84 equatorial ECEF"
+      "native_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ]
     },
     {
-      "name": "origin-adjustment-stops",
-      "successful_origins": 0,
-      "expected_failures": 1,
-      "acceptance_metres": 0.002,
-      "max_reference_discrepancy_metres": 0.0,
-      "max_reader_agreement_metres": 0.0,
-      "equivalent_pipeline_tokens_checked": true,
-      "operations": [],
-      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+      "name": "multi-geographic",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
     },
     {
-      "name": "origin-invalid-latitude",
-      "successful_origins": 0,
-      "expected_failures": 1,
-      "acceptance_metres": 0.002,
-      "max_reference_discrepancy_metres": 0.0,
-      "max_reader_agreement_metres": 0.0,
-      "equivalent_pipeline_tokens_checked": true,
-      "operations": [],
-      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+      "name": "multi-projected",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ]
     },
     {
-      "name": "origin-default-output",
-      "successful_origins": 1,
-      "expected_failures": 0,
-      "comparison_kind": "exact source components in their declared units",
-      "max_reference_discrepancy_metres": null,
-      "max_reader_agreement_metres": null,
-      "reference": "Identity query; no angular difference interpreted as length"
-    },
-    {
-      "name": "origin-no-default-output",
-      "successful_origins": 0,
-      "expected_failures": 1,
-      "comparison_kind": "exact source components in their declared units",
-      "max_reference_discrepancy_metres": null,
-      "max_reader_agreement_metres": null,
-      "reference": "Identity query; no angular difference interpreted as length"
-    },
-    {
-      "name": "origin-descendant-stops",
-      "successful_origins": 0,
-      "expected_failures": 1,
-      "acceptance_metres": 0.002,
-      "max_reference_discrepancy_metres": 0.0,
-      "max_reader_agreement_metres": 0.0,
-      "equivalent_pipeline_tokens_checked": true,
-      "operations": [],
-      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
-    },
-    {
-      "name": "origin-nested-anchor-stops",
-      "successful_origins": 0,
-      "expected_failures": 1,
-      "acceptance_metres": 0.002,
-      "max_reference_discrepancy_metres": 0.0,
-      "max_reader_agreement_metres": 0.0,
-      "equivalent_pipeline_tokens_checked": true,
-      "operations": [],
-      "reference": "Provider PROJ-generated CSV; intake/rounding reference, not survey truth"
+      "name": "railway",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step proj=utm zone=32 ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step proj=utm zone=32 ellps=WGS84"
+      ]
     }
   ],
-  "scope_queries_per_reader": 168,
-  "discovery_readers": [
-    "headless OpenUSD",
-    "native OpenUSD",
-    "live OV stage"
+  "exports": [
+    {
+      "path": "exports/tower.usda",
+      "fresh_reader_max_error_metres": 1.4311113271442638e-05,
+      "quantization_metres": 1.4311113271442638e-05,
+      "parts": 8,
+      "vertices": 163440,
+      "timeSamples": [
+        0
+      ],
+      "timeCodesPerSecond": 24.0,
+      "dependency": "conservative Profiles hard claim retained",
+      "source_paths": {
+        "/Resolved/Part0": "/Control0/Marker",
+        "/Resolved/Part1": "/Control1/Marker",
+        "/Resolved/Part2": "/Control2/Marker",
+        "/Resolved/Part3": "/Control3/Marker",
+        "/Resolved/Part4": "/Ground/Plane",
+        "/Resolved/Part5": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0",
+        "/Resolved/Part6": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1",
+        "/Resolved/Part7": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2"
+      },
+      "shading": "geometric normals recomputed after pointwise deformation; original authored normals not exported",
+      "native_fresh_reader_vertices": 163440
+    },
+    {
+      "path": "exports/terrain.usda",
+      "fresh_reader_max_error_metres": 1.5757286645186782e-05,
+      "quantization_metres": 1.5757277489590627e-05,
+      "parts": 1,
+      "vertices": 14359,
+      "timeSamples": [
+        0
+      ],
+      "timeCodesPerSecond": 24.0,
+      "dependency": "conservative Profiles hard claim retained",
+      "source_paths": {
+        "/Resolved/Part0": "/Terrain/Breaklines"
+      },
+      "shading": "geometric normals recomputed after pointwise deformation; original authored normals not exported",
+      "native_fresh_reader_vertices": 14359
+    },
+    {
+      "path": "exports/composition.usda",
+      "fresh_reader_max_error_metres": 0.0,
+      "quantization_metres": 0.0,
+      "parts": 2,
+      "vertices": 6,
+      "timeSamples": [
+        0
+      ],
+      "timeCodesPerSecond": 24.0,
+      "dependency": "conservative Profiles hard claim retained",
+      "source_paths": {
+        "/Resolved/Part0": "/Project/Model/Child/Mesh",
+        "/Resolved/Part1": "/Project/Model/Independent/Mesh"
+      },
+      "shading": "geometric normals recomputed after pointwise deformation; original authored normals not exported",
+      "native_fresh_reader_vertices": 6
+    },
+    {
+      "path": "exports/instances.usda",
+      "fresh_reader_max_error_metres": 0.0,
+      "quantization_metres": 0.0,
+      "parts": 6,
+      "vertices": 18,
+      "timeSamples": [
+        0
+      ],
+      "timeCodesPerSecond": 24.0,
+      "dependency": "conservative Profiles hard claim retained",
+      "source_paths": {
+        "/Resolved/Part0": "/Native0/Asset/Geometry",
+        "/Resolved/Part1": "/Native1/Asset/Geometry",
+        "/Resolved/Part2": "/Native2/Asset/Geometry",
+        "/Resolved/Part3": "/PointModels/Instances/_ResolvedInstance0/One",
+        "/Resolved/Part4": "/PointModels/Instances/_ResolvedInstance1/One",
+        "/Resolved/Part5": "/PointModels/Instances/_ResolvedInstance2/One"
+      },
+      "shading": "geometric normals recomputed after pointwise deformation; original authored normals not exported",
+      "native_fresh_reader_vertices": 18
+    },
+    {
+      "path": "exports/climate.usda",
+      "samples": 2664,
+      "values_and_masks_preserved": true,
+      "observation_times_preserved": true,
+      "coordinates_preserved": true,
+      "fresh_reader_verified": true,
+      "dependency": "Profiles hard claim retained for absolute measurement coordinates"
+    },
+    {
+      "path": "exports/multi-geographic.usda",
+      "samples": 12,
+      "values_and_masks_preserved": true,
+      "observation_times_preserved": true,
+      "coordinates_preserved": true,
+      "fresh_reader_verified": true,
+      "dependency": "Profiles hard claim retained for absolute measurement coordinates"
+    },
+    {
+      "path": "exports/multi-projected.usda",
+      "samples": 12,
+      "values_and_masks_preserved": true,
+      "observation_times_preserved": true,
+      "coordinates_preserved": true,
+      "fresh_reader_verified": true,
+      "dependency": "Profiles hard claim retained for absolute measurement coordinates"
+    },
+    {
+      "path": "exports/time-sampled.usda",
+      "fresh_reader_max_error_metres": 1.497392076998949e-08,
+      "quantization_metres": 0.0,
+      "parts": 1,
+      "vertices": 2,
+      "timeSamples": [
+        0,
+        5,
+        10
+      ],
+      "timeCodesPerSecond": 48.0,
+      "dependency": "conservative Profiles hard claim retained",
+      "source_paths": {
+        "/Resolved/Part0": "/World/Model/Sample"
+      },
+      "shading": "geometric normals recomputed after pointwise deformation; original authored normals not exported",
+      "trajectory_between_samples": "No original-trajectory guarantee claimed; Core interpolates exported output samples",
+      "native_fresh_reader_sample_times": [
+        0,
+        5,
+        10
+      ]
+    }
   ],
-  "native_executable_sha256": "767c5d7d594ad20a36a065db8483ea040e748c19c21ec0161f175c63d197173b",
-  "origin_coordinate_cases_per_reader": 13,
-  "origin_coordinate_queries_per_reader": 137,
-  "source_placement_cases_per_reader": 12,
-  "wkt_profile": {
-    "implementation": "Lossless lexical normalization; strict PROJ grammar reader, no PROJ writer in serialization",
-    "test_cases": 24,
-    "coverage": [
-      "padding, case and delimiter variants",
-      "preferred keyword aliases",
-      "exact decimals and exponent spelling",
-      "quoted metadata and escaped quotes",
-      "frame epochs",
-      "fixed-point validation",
-      "semantic equivalence versus text identity",
-      "invalid/unknown syntax rejection",
-      "coordinate-epoch rejection"
+  "hydra": [
+    {
+      "name": "tower",
+      "geometry_readback": {
+        "/Resolved/Part0": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Resolved/Part1": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Resolved/Part2": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Resolved/Part3": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Resolved/Part4": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 4
+        },
+        "/Resolved/Part5": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 65532
+        },
+        "/Resolved/Part6": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 65533
+        },
+        "/Resolved/Part7": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 32351
+        }
+      },
+      "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
+      "renderer": "HdStormRendererPlugin",
+      "vertices": 163440,
+      "image_sha256": "db31d81511673e6070ec60040227ecc0d9061c170a30f26ad93eb949f27a76be"
+    },
+    {
+      "name": "terrain",
+      "geometry_readback": {
+        "/Resolved/Part0": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 14359
+        }
+      },
+      "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
+      "renderer": "HdStormRendererPlugin",
+      "vertices": 14359,
+      "image_sha256": "a1bc82bb63b9f271596e9e490df9e446739f2c98fce8d19f7c5009f88d466bfe"
+    }
+  ],
+  "ov": {
+    "implementation": "shared candidate Python runtime and PROJ; separate live geometry sink",
+    "jobs": 28,
+    "geometry_vertices": 177846,
+    "max_writeback_error_metres": 1.5757286645186782e-05,
+    "edit_checks": 27
+  },
+  "postimplementation_audit": {
+    "undocumented_authored_fields": [],
+    "field_usage_counts": {
+      "data:field": 6,
+      "data:asset": 6,
+      "crs:position": 166,
+      "data:coordinateDomain": 6,
+      "crs:scale": 5,
+      "data:format": 6,
+      "crs:wkt": 189,
+      "crs:orientation": 7
+    },
+    "source_preserved": true,
+    "source_freeze_preserved": true,
+    "native_binary_sha256": "94c7a1a6181e51882487f9ee3b22367c39e1ca6774f9e33d05f19ec646daeab0",
+    "hydra_binary_sha256": "5d3360e40240d30eaaabe0b3790674f00e414d606b8b31458cde44e51c27c091"
+  },
+  "limitations": [
+    "New working-chart/pivot/reset and external association semantics are local proposals, not group agreement.",
+    "No continuous affine/surface extent certificate or between-sample trajectory guarantee is claimed. Exact queried vertices and polygonal readback do not certify those domains.",
+    "Python and C++ share PROJ; OV reuses the Python algorithm and external dataset decoding is shared. Pipeline equivalence is separately reported.",
+    "Hydra consumes a resolved ordinary-USD export from C++ results. This is not a live geospatial scene-index filter. OV runtime geometry writeback is verified; no OV render is claimed.",
+    "Export materializes native instances and recomputes geometric normals. Preservation of instancing and authored shading-normal semantics is not claimed.",
+    "External original climate metadata is incomplete and original railway heights remain uninterpreted; explicit horizontal illustrative associations preserve their useful workflows.",
+    "Geographic scene frames/bounds remain Q9. Coordinate epochs remain deferred.",
+    "Independently CRS-bound point-instancer prototypes remain G11. Cartesian local-frame derivatives are numerical estimates with a convergence residual, not an extent certificate. Physics integration has no evidence in this run. No complete functional-requirement conformance is claimed."
+  ],
+  "readiness": {
+    "proposal_ready": false,
+    "requirements_build_complete": false,
+    "open_semantic_gap_ids": [
+      "G11"
     ],
-    "limitations": [
-      "Context-sensitive legacy UNIT aliases explicitly unsupported; their kind is not guessed.",
-      "This is one normalizer and a bounded strict-reader profile, not proof of support for all OGC WKT productions."
+    "verification_gaps": [
+      "Q9 geographic scene geometry, frames and bounds remains a design question; geographic coordinate queries remain supported.",
+      "Continuous nonlinear extent and between-sample trajectory guarantees are unsupported, with visible failure rather than an inferred certificate.",
+      "C++ validation is not a second independent WKT normalizer. External format decoding is shared; Python and C++ share PROJ, while OV reuses the Python placement algorithm.",
+      "Hydra consumes an ordinary resolved export; no live geospatial scene-index filter or physics integration is claimed.",
+      "External adapters cover selected CF, single-IFD GeoTIFF and RFC 7946 domains, not all coordinate forms in those standards.",
+      "Export preserves tested geometry/sample associations but materializes instances; authored shading-normal and general material/primvar semantics are not certified."
     ]
   },
-  "placement_runtime_jobs": 0,
-  "hydra_placement_jobs": 0,
-  "ov_placement_jobs": 0,
-  "exports": [],
-  "sampling_record_control": {
-    "sample_keys": [
-      0.0,
-      5.0,
-      10.0
-    ],
-    "authored_time_codes_per_second": 48.0,
-    "fresh_reader_verified": true,
-    "endpoint_chord_midpoint_discrepancy_metres": 971.4211582997814,
-    "record_sha256": "49cac4c449132e25041660e7e4742a9b049beb4c28e132100adcc0f11e7d4ea8",
-    "claim": "Standalone coordinate-sampling record only. Not a resolved-scene export: no placement, dependency declaration or measurement carrier is invented."
+  "execution_authority": "Explicitly authorized local run using emailed candidate leans; no group agreement or whole-proposal conformance asserted",
+  "input_data_sha256": {
+    "targets.json": "d4213d3e3269d0ce28eba66e8d31f39455ad02a64a71277acb3ab3d823da6609",
+    "data/Colorado/01_NAD83-2011_Geographic3D_Coordinates.csv": "d3d1fb2cf302a86348039a39fa9cbd18ad8d0e01a0d9a9b46febcf21bc10031b",
+    "data/Colorado/01_NAD83-2011_Geographic3D_WKT2.txt": "564a87cce9458225367f7235af8c17615eaf0f25a6a9d69143b64a8341f72317",
+    "data/Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_Coordinates.csv": "8acb27644409b84300ba0b9380bfe70dcd78c26b1e07e35c792727d80929ad6c",
+    "data/Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_WKT2.txt": "7223312af480611f6089dea506d59f96288f8c9a214347d84c105da07dd23dfe",
+    "data/Colorado/03_Westminster_Site_Calibration_Coordinates.csv": "52bebebc5490bc62661fa1c8f8add4d584b5cd70c24cb04ebd6a02d407dd036d",
+    "data/Colorado/03_Westminster_Site_Calibration_WKT2.txt": "0a788ca9a0b444bbaf9fcc06648eea7de3c4acf53e4eeef42bcb8acd8af44521",
+    "data/Colorado/Trimble Westminster Park and Ride LandXML.xml": "0f0be8491c91a4cb38b852d119d9c80ec5190591730cd74a293de361868dac02",
+    "data/France/01_RGF93v2b_CC49_IGN69_Coordinates.csv": "c062096dc9bb4f3f0b0e2e0daf26fb24516b461974fe442aa422ecf2339db672",
+    "data/France/01_RGF93v2b_CC49_IGN69_WKT2.txt": "f23a657b6c53f668eee60d8306bd8d44422fc8c06ff1665c242cdb867aefe6e9",
+    "data/France/02_RGF93v2b_Lambert93_IGN69_Coordinates.csv": "194961025e20fb44a8a1940e01143a124372bba00f3c4f788ba124b872e5e913",
+    "data/France/02_RGF93v2b_Lambert93_IGN69_WKT2.txt": "7fc9a869b1b5eaf26b549e508c5af215513e550843f23bf1f35fef1a4d517819",
+    "data/France/03_RGF93v2b_Geocentric_Coordinates.csv": "359b94a07258e7eedafd3b422078fa0f545ee58769d3e105d410d9614a861fb2",
+    "data/France/03_RGF93v2b_Geocentric_WKT2.txt": "571a3cac4eb3fb580941649dca7d26965772d60a317b217466ddbc80f5144e42",
+    "data/France/04_RGF93v2b_Geographic3D_Coordinates.csv": "cf29098896634f254f73519dcaf6674fa0b197ce92333017287c18b4172b5c03",
+    "data/France/04_RGF93v2b_Geographic3D_WKT2.txt": "08a3d0c2c9ce6525eaca3155c313be805c8e9067b6a41560eb428e819c4bfe05",
+    "data/France/05_ITRF2014_Geocentric_epoch2019.0_Coordinates.csv": "2b153f797f4950608136cbe2d3ba8c5db4d6ce43aa1aeb59eeeec46a50ec78fa",
+    "data/France/05_ITRF2014_Geocentric_epoch2019.0_WKT2.txt": "e6bc6a0a72e666c6d364e4d5dac3f0b4ebb26e83b48f4af105fd352303301c8b",
+    "data/France/06_ITRF2020_Geocentric_epoch2026.5_Coordinates.csv": "2a62393052029a9b5697a361f66a41888fcc30bf55681cf34a90da246e3d31e8",
+    "data/France/06_ITRF2020_Geocentric_epoch2026.5_WKT2.txt": "d4fa5415670d7a4be6d6c491f9b81de304a5a73bf1605a6fd38cdb70444d4a99",
+    "data/gfs_t2m.nc": "025136ab8f2852968e87e58e159cd9167649d84e6ed94501899f7da9c0525c9e",
+    "data/LICENSE-partner.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "data/manifest.json": "0d1713dfce0052f30c47073c85542e19d4d2677093ab58e9dfb38df83a053681",
+    "data/partner-controls.json": "40bc67b20ac899eee6696599ed4e5adab9a7f8d9ac7a08ef22ae2b1a821e1e2e",
+    "data/rail-topology.npz": "045757d007b09ae28e025e1ca48d4efc8691643aafe962af0fd58b72e36634c9",
+    "data/railway.geojson": "885026bb98e36bfd259fece09c4218496f6b20ba463525d746e9299e0edb12b7",
+    "data/README.md": "3cda32be488ac5ac93143cc0377003c51cf48de54d13699bf5c4dc201d01cdbb",
+    "data/resources.json": "d154ae3178b292eb21318215fa85604584fba2cb9dd87781f457e0b6d41e30eb",
+    "data/tower.usdz": "6596585290f066c1567f8e3e70a25c87a190a0df6e67028d0249c1764b5a1fcb",
+    "scenes/city.usda": "d9f1c0d369823f0aa99d8464fc7ed29d24dbf4156e72e5c6a79cb48ba8ac8e0d",
+    "scenes/climate.usda": "4ef8879fc65957172b51112f7d1d410ed22b9af22285f444f1e5611715dc83e2",
+    "scenes/Colorado_01.usda": "2bb38614518886b6e14051f2705c91b235318f259f4ae776f27f756040124ab2",
+    "scenes/Colorado_02.usda": "93e658a4b55f49307daaca584710e0ae732ac39e97219c7415de601d63072bda",
+    "scenes/Colorado_03.usda": "3df9602f8d2edf8498e4847dd19043f836c69a70dc6bb3e27fb6290d528562fa",
+    "scenes/composition.usda": "790ab3e250d20ba76cd9c1ea72e288366acae9e2675c64cffde3ab6102e18c3e",
+    "scenes/default-output.usda": "11aa8f90d0be4cd02dbb85849f5d54205a0d88afdab4d3ef318690ba8be22462",
+    "scenes/France_01.usda": "fa6e12b0a7c400072fd440714b869c9a1d9f73fccec553c90ca2ad5bdaab9c26",
+    "scenes/France_02.usda": "e8ede3bd958b707cd6f6fb3ae8960a996a182c76eaa9b5f171389b8d60acc0b9",
+    "scenes/France_03.usda": "5c43400cc33b2e0f6ad7cf1707f11d4ffe593719a8690e61aba8b721ad524f50",
+    "scenes/France_04.usda": "b4544836a18acf3a01895ae45cf06a4dfb1751aaaed9714b0480d111ab2808f7",
+    "scenes/instance-asset.usda": "9d4cd1fe9b7c6d5f99956fb3edbf1f6db3ba955142d42f490d0ac395824b4c60",
+    "scenes/instances.usda": "72482e500fef267e219aae24cb72624e8466cb90cb88352e8d9de78481d2f531",
+    "scenes/railway.usda": "dd8093f5c0656ffc6aeabcfe658ad2462ce72ca416ea3761e08dc06592123fd2",
+    "scenes/terrain.usda": "d59a603856289fd09c1d39cb0c3bb04a48034fbb0f17811f844431c974855fb0",
+    "scenes/tower.usda": "8618899aca9c73fda50e72964ddb175b6f585530d010b89b06ad451cb173d21d"
   },
-  "geodetic_accuracy_claim": false,
-  "source_files_unchanged": true,
-  "limitations": [
-    "This run executes the local review candidate, not the published proposal alone; detailed draft choices are not group adoption.",
-    "Direct coordinate controls resolve only adjustment-free top-level anchor origins; provider positions are illustrative model placements, not an answer to measurement association. All three readers share PROJ, not independent geodetic engines.",
-    "Source placement controls read fields, fallbacks and Core interpolation; they do not compute resolved positions or frames.",
-    "Native USD discovery is not Hydra placement or rendering. Live OV discovery is not resolved geometry ingestion.",
-    "Adjustment frame, stage/basis mapping, measurement-coordinate association and dependency declaration stop dependent full derivation; geographic scene-frame scope is also unresolved.",
-    "Unit-quaternion inputs use Core semantics; a full validator numerical policy for near-unit authored values is not claimed and no acceptance epsilon is invented.",
-    "The retained earlier relationship-based experiment is incompatible with the shared binding format and was not rerun or silently adopted.",
-    "No previous numerical result, image, export or deck is relabeled as newly executed evidence."
-  ]
+  "transformation_resource_sha256": {
+    "fr_ign_RAF20.tif": "dc0cc2a38f0ea1029fe72cca3b5b7ed6dfe7e1db2a8d8482b7326ce3d6f25605",
+    "manifest.json": "d154ae3178b292eb21318215fa85604584fba2cb9dd87781f457e0b6d41e30eb",
+    "us_noaa_g2018u0.tif": "fa9a407ac7ee3f5a3694008e4bcd09ce9cc250452f0c3b11700a4960340abce2"
+  },
+  "toolchain": {
+    "native_proj_library_sha256": "51e7addd9f263d721afc2701a94db252043f3de89048078ad852cf536aee91c5",
+    "native_proj_database_sha256": "976d427f037791c88b8d051a452e1fb13157c1c14b6e56d5a868097a4813cb7e",
+    "ov_app_version": "0.1.0"
+  },
+  "delivery_provenance": {
+    "immutable_private_receipt_sha256": "d3c90dd02e9642080edef6d0dfed00c95e6e3d01e18b746df9fdd185e63c31ca",
+    "adaptation": "Local path prefixes made portable. Missing-value NaN serializes as JSON null with the original mask retained. Executed source hashes and finite numerical results retained."
+  }
 }

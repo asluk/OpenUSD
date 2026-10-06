@@ -1,0 +1,27 @@
+{
+  "t2m": {
+    "shape": [
+      37,
+      72
+    ],
+    "attributes": {
+      "_FillValue": "nan"
+    }
+  },
+  "lat": {
+    "shape": [
+      37
+    ],
+    "attributes": {
+      "_FillValue": "nan"
+    }
+  },
+  "lon": {
+    "shape": [
+      72
+    ],
+    "attributes": {
+      "_FillValue": "nan"
+    }
+  }
+}

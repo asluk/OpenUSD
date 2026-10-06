@@ -1,0 +1,39 @@
+{
+    "geometry_readback": {
+        "/Resolved/Part0": {
+            "max_stage_unit_error": 0.0,
+            "vertices": 5
+        },
+        "/Resolved/Part1": {
+            "max_stage_unit_error": 0.0,
+            "vertices": 5
+        },
+        "/Resolved/Part2": {
+            "max_stage_unit_error": 0.0,
+            "vertices": 5
+        },
+        "/Resolved/Part3": {
+            "max_stage_unit_error": 0.0,
+            "vertices": 5
+        },
+        "/Resolved/Part4": {
+            "max_stage_unit_error": 0.0,
+            "vertices": 4
+        },
+        "/Resolved/Part5": {
+            "max_stage_unit_error": 0.0,
+            "vertices": 65532
+        },
+        "/Resolved/Part6": {
+            "max_stage_unit_error": 0.0,
+            "vertices": 65533
+        },
+        "/Resolved/Part7": {
+            "max_stage_unit_error": 0.0,
+            "vertices": 32351
+        }
+    },
+    "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
+    "renderer": "HdStormRendererPlugin",
+    "vertices": 163440
+}

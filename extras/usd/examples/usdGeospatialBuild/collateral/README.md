@@ -1,52 +1,21 @@
-# Delivery is part of every complete run
+# Current delivery derivation
 
-The runtime receipt is an input to delivery, not the end of the loop. Repeat
-these steps after every requirements/model change and fresh execution. Candidate
-changes first require a new pre-implementation freeze and audit; passing old
-outputs through this directory does not validate a new model.
+`derive_leans_delivery.py --run <fresh-run-directory>` verifies frozen source, derives the README and review body, packages portable evidence, and prepares slide data. `leans_slides.mjs` builds the editable deck from that README and the recorded results. `verify_leans_delivery.py` checks source/evidence claims, hashes, editable elements and final artifact provenance after every slide and PDF page has been inspected.
 
-1. Commit the frozen candidate and implementation before collecting final
-   evidence. Execute `run.py` into a new directory outside the source checkout.
-2. Run `python collateral/build_candidate_review.py --run-directory <completed-run>`.
-   It verifies executed source hashes, copies the run's evidence and generates
-   the canonical package README from that receipt.
-3. Run `python collateral/derive.py`. The review body and slide story derive
-   from README and records its SHA-256. Edit the canonical narrative generator
-   when facts or explanations change; regenerate the derivatives together.
-4. Use the installed Presentations skill with its bundled Node/Python runtime.
-   Link `collateral/node_modules` to the bundled packages, set
-   `RUNTIME_NODE_MODULES`, `RUNTIME_NODE` and `RUNTIME_BIN_DIR`, and run:
+Python/C++ placement, OV runtime geometry writeback and native Hydra resolved-export rendering are distinct paths. Shared PROJ, shared external decoding and OV's reused Python algorithm remain explicit. No output claim follows from an application name. No upstream issue/PR links enter delivery.
 
-   ```text
-   node collateral/candidate_slides.mjs <presentations-skill-directory>
-        <runtime-python> <workspace-directory> <new-output-name.pptx>
-   ```
+Earlier query-only generators and audit helpers remain historical code and are not used by the current generator. The current receipt replaces stale evidence; historical delivery lives in Git history.
 
-   The builder creates editable text/tables, validates a private draft, writes
-   a separate final PPTX and renders every final slide. Follow the skill's
-   operation marker requirement before the first authoring operation. Inspect
-   every slide and correct unintended overlap, clipping or misleading claims.
-5. Export a PDF using PowerPoint on Windows:
+## Native build prerequisite
 
-   ```text
-   powershell -File collateral/export_pdf.ps1
-        -InputDeck <validated-pptx> -OutputPdf <new-pdf>
-   ```
+The runner rebuilds an already configured native build directory; it does not configure an empty one. From this example directory, use a Windows C++ developer shell, a matching OpenUSD SDK/Python ABI, CMake and Ninja. Set the following paths to installed dependencies, then configure:
 
-   Inspect all exported pages too. Copy the validated files to
-   `delivery/geospatial-build.pptx` and `delivery/geospatial-build.pdf`.
-6. Run `python collateral/verify.py --presentation-validation <validation-json>
-   --visual-review-complete` after performing the visual review. It verifies
-   receipt/source/data hashes, README lineage, editable tables, presentation
-   structure and public-output boundaries, then writes collateral-manifest.json.
-   Automated checks do not substitute for the declared visual review.
-7. Commit source/evidence/collateral in meaningful batches. When publication is
-   authorized, deliver the fresh tree to the existing fork draft with a normal
-   fast-forward update, preserve the draft state, and use
-   `gh pr edit --body-file delivery/pr-body.md`. Verify the remote commit/tree,
-   README/receipt/deck hashes and PR body before reporting completion.
+```powershell
+$taskUsdSdk = 'C:/path/to/OpenUSD/inst'
+$taskProj = 'C:/path/to/TIFF-enabled-PROJ'
+$taskNativePython = 'C:/path/to/OpenUSD-matching-Python'
+$taskNativeBuild = 'C:/path/to/native-build'
+cmake -S native -B $taskNativeBuild -G Ninja -DCMAKE_BUILD_TYPE=Release "-Dpxr_DIR=$taskUsdSdk" "-DUSD_SDK=$taskUsdSdk" "-DPython3_ROOT_DIR=$taskNativePython" "-DCMAKE_PREFIX_PATH=$taskUsdSdk;$taskProj"
+```
 
-No completed run leaves a selected demonstration or delivery artifact as a
-build next step. Design findings and experimental choices remain explicit;
-successful execution is not approval of standard text. Public artifacts have
-no private machine paths, correspondence or upstream issue/PR backlinks.
+Pass that directory as `run.py --native-build`, with the same SDK, PROJ and Python paths. `run.py --help` lists the other required host, grid/resource, Python-dependency and fresh-output arguments. The native runtime must load the TIFF-enabled PROJ DLL before any SDK copy without TIFF support. The execution receipt records the actual library/database/grid hashes and versions; substituting dependencies requires a new run. The delivered evidence is a record of the installed Windows environment, not a claim of a dependency-free or cross-platform build.

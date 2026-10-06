@@ -7,3 +7,6 @@ proposal/local-draft.patch whitespace=-blank-at-eol,cr-at-eol
 proposal/data-model.md whitespace=-blank-at-eof,cr-at-eol
 proposal/requirements.md whitespace=-blank-at-eof,cr-at-eol
 proposal/runtime-behavior.md whitespace=-blank-at-eof,cr-at-eol
+# Sdf's exported USDA ends with a blank line; preserve the recorded output.
+delivery/fixtures/*.usda whitespace=-blank-at-eof,cr-at-eol
+delivery/exports/*.usda whitespace=-blank-at-eof,cr-at-eol
