@@ -26,7 +26,7 @@ def Scope "CRS" (
     customData = {
         dictionary profilesInfo = {
             dictionary capabilityUsages = {
-                string "geospatial:crsResolution" = "hard"
+                string "usd.geospatial.crsResolution" = "hard"
             }
         }
         string userDocBrief = """Scope is the simplest grouping primitive, and does not carry the
@@ -107,7 +107,7 @@ def Xform "PointModels" (
                 prepend references = @./crs-library.usda@</Definitions/Cccb3eacb524d2c37>
             )
             {
-                double3 crs:position = (0, 0, 0)
+                double3 crs:position = (448251, 5411932, 35)
                 int[] faceVertexCounts = [3]
                 int[] faceVertexIndices = [0, 1, 2]
                 point3f[] points = [(0, 0, 0), (2, 0, 0), (0, 3, 0)]

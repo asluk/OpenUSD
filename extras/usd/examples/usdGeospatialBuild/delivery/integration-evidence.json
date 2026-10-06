@@ -1,76 +1,46 @@
 {
   "executed_source_files": {
     "candidate/__init__.py": "08af67442b1fff96f52a5b8921637763bc10f6d6e198dabde4ccc74c1a43eff3",
-    "candidate/controls.py": "cfacf1f6b4c2fe5233e947cf71835f0bf157ccbf99ebbf9e7d9b6af34b7f53f7",
-    "candidate/datasets.py": "e3e44a581b9f563dfa054bf84533e302742f159e3433e3d2ca42f5decf8a47bf",
-    "candidate/execution.py": "aa915d71f01c275dffbc801443094ab0b30d343e22f10fb1cd35e7c9fdb029f2",
-    "candidate/export.py": "43fe2efd432f14772357280eae3336b9f1fccc35e7aebaf4043b86655b4e669f",
-    "candidate/fixtures.py": "6f80e9ff31306606096afb4c37eb429a45ddc53330abfb5a1511eb8f03af1586",
+    "candidate/controls.py": "9001462c455f36cc5b3b5c297d2e65d8a83366ff0b25681b03962cc8d4f3345c",
+    "candidate/datasets.py": "28abbd9ecef713fdc1e3afbab52b2590537acf3bbeb2e7b855913158282450b7",
+    "candidate/execution.py": "be2db2bc0fd14ebfc281694cc4fb498672bc38c015490d06d25c59055ce595e1",
+    "candidate/export.py": "4cd058e2bdb1c0d7d5c6341e1d93c7d36af1c2d08c8055de5dc8ba63db5865fe",
+    "candidate/fixtures.py": "d60f4e1339e07b376394bbd02ef5fccaeb7134f747d82ff06e089d1f9e9a1927",
     "candidate/ov_launch.py": "accdd9e3189860c47dabe26793f94426e0fd545a496282b4345109a8bac95356",
-    "candidate/ov_live.py": "05aa5d7c263b225f9f4a79ff7d0e555bce625bd55a882e02d66ef4191bb3359c",
-    "candidate/runner.py": "e76e6d8f25b97f8312bb68e711c3d9138438826a5b9e222c2a43d366c329cbaf",
-    "candidate/runtime.py": "1001a84c3a29995b0fc6d0fdae9f848c796908ba532a4171b3265160f210ba81",
+    "candidate/ov_live.py": "ba7791f2390026e086e7257bc70556e78ba3abb5f0531526b2792040dc1b6fb8",
+    "candidate/runner.py": "e76d2a97927aa4ee47d808475b7e8df0bbfc72304e23b256e7a9200f8a1fba52",
+    "candidate/runtime.py": "91c0026104b05db1d967f7e40b0207f3a7a5ce19fecfe8973851a8252cbeb495",
     "review/__init__.py": "1da7ada131921d0bbda633563a594b15f794be1158694c55d9671cc91683f1e1",
     "review/fixture_definitions.py": "6693d851adbc56e256ffb122c9c38b3550a7df34754d1abfb83068930d92d7ae",
-    "review/fixtures.py": "2619ac9c0460998029e9e792b6737c72bdde96109b50349f3ddcb8bc635a2080",
+    "review/fixtures.py": "d41b97a87df3abb60798a23670ea73e8e2474fc6a76ce10616af08ec8143f9c7",
     "review/origin_queries.py": "74cb286631e2ac04bb5b974c314bf9c6e679da7845e0dbc5c3cbdbf43eef6d26",
     "review/ov_scope_launch.py": "2012f7825003d81ffd9988c3f5c36f4f2d03c277c5d04377e0663b21d74d9412",
-    "review/placement_values.py": "d35082fe6c729a6b6f49f2f922903cac13da9dd805ceff7a09153ecf487a369c",
+    "review/placement_values.py": "1e96ee4dd372e398fe12d039c38dec62506bab5e1677251a8da5252793810af1",
     "review/runner.py": "817264f18235aa91e17b70af51f592ba6c003c6b01359eef7c27ffcb9e24c2b2",
     "review/scope.py": "5fb7b287cb7144efbd6f5ddd9abd27afe9e4157aa6c70bfa1c45bb5f4fa94f45",
-    "review/test_contracts.py": "e194efd348587e96cd09f3865947e9e4d8f8324812b74ddedf60415fe09ab40b",
+    "review/test_contracts.py": "eb38d826137ab1a86f8db1bda8eaed7e6ca5b32c902ff77cf520293fcd53202f",
     "review/test_wkt_contracts.py": "75dec51fea396448983b07d44c2c024db10322d5ce4aa492d25ccd95ce01226f",
     "review/wkt_profile.py": "521906a17156ee3fd0f16dfb288d3cef695d2ec02084d9173be2854b421191ef",
-    "schema/generated/generatedSchema.usda": "8f38e55993738f8977136225a3c7137b3c8aaae225521112bc0fa4d7e93bb8ae",
-    "schema/schema.usda": "e40449532de87486a2b20eb0fb4de03f024a8c520989715956009ebff1b96fa8",
-    "schema/generated/plugInfo.json": "010b75c61671ea280d083a223a81506100dee0b9a842722b7a979e4034c1809f",
-    "native/leans.cpp": "389807f01f5308b499ea04aec71fbddb4e760b3a74b115d34c60be467835ccaf",
+    "schema/generated/generatedSchema.usda": "b5bc71ea5f2fbad7b803aa98c1cf070a54ffbd1bcc7b6691b48063d291fef72d",
+    "schema/schema.usda": "06fc7dafadb05faf7f413900d9a8140964647e99da44e28b53a89c4845f92bad",
+    "schema/generated/plugInfo.json": "7544f67091cf313bfb218787571111da92174a9043a10a5730d8bee19e2a557f",
+    "native/leans.cpp": "2b134d27103b3820764e05a9a3423b81bb58ecb888be8243e3fd88550a423090",
     "native/leansRender.cpp": "6fd0d453ac74d120dfa4585e4ba45b4b1110558431ecb0da5e7927e9480c2646",
     "native/CMakeLists.txt": "d38d85d03a61336324f5741fc7b883878eec1ce7a0335880677500bcca86d5f5",
     "run.py": "cad2a0965ebcbcb1bd25f01e6904a98e40a03c73457018fa3386f2ea1ea5ceea",
-    "inputs.json": "533f25d71b10a2e11cac22798be582c2f6ba56c43b3d568341ec65818573b13b",
-    "proposal-quality.json": "474bfcfe5a837dd3a5d5160adb811d194f22b71e3960d9a0cb4d04fa1eed1ee7",
+    "inputs.json": "0027c0b654330062b76e21dab7c8e94b031bc3bbecc7140d0837b0cd879484a7",
+    "proposal-quality.json": "7a82c92d341a2d0a010d1895fb8254e430528b4f57ffe42c9ef817d1578336ea",
     "ov/geobuild.kit": "5fc4d60271d18a04ad3b6675539033f1c06b37e86ce6b2cba25ed20b02e69d88",
-    "geobuild/quality.py": "85d924f79d75c6cfcea5284dda1c7b5423e61d0c171ad5f60e8d8e00f299ef0c",
-    "proposal/data-model.md": "881562cd1a3453986260a8d2ad8bfc97dd42fdaac9b52ea3c389260f9d53a4fa",
-    "proposal/distinguishing-examples.md": "8cd6e64b5720b2093a3ed3dffe40582eedac9f9b259b2e332bdd375da9f2c69b",
-    "proposal/local-draft.patch": "180cb0ce17bf43c07b4ac59059917c0f23bb0291236fdf0ffc4e3905db2e289a",
-    "proposal/proposal-source.txt": "2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11",
-    "proposal/requirements.md": "b600e005a6b8b1371813838f7a788b338783449f70e1d11d5f3f5e622cd8a3fc",
-    "proposal/runtime-behavior.md": "b2c409472fdfaa05722b746fa4c5d7f0437638e13074ec23b86734d45c391cc4",
-    "proposal/runtime-open-decisions.md": "6cad79cb6b2050b36309833745fe86f97fecd6d6786fcb91edaaf95d16cd9280",
-    "proposal/traceability.md": "5fd1d04958b1c3f1e219a80d2d8ec1d4f2132f3a57055465c2c4d67d9617a0f0"
+    "geobuild/quality.py": "4cb53ae11b4f780846fc6beb845687afcb792c855c1b282be0e1174d35778471",
+    "proposal/data-model.md": "76bd75ff2aa6319062fb35a86e8e73b7bbca33f40683d25a2cc49493318e88c5",
+    "proposal/distinguishing-examples.md": "5a519bc0a1d9f34650c402c5de5b549869220ad67fa74b51ded3ba4e9bb551b8",
+    "proposal/local-draft.patch": "93383bcb5cd2442791ccec452927f3890928701b2b6f3a08fbef500086058045",
+    "proposal/proposal-source.txt": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
+    "proposal/requirements.md": "6402ed9ed172569bc9494a5a7eb0418f13e47570ed19afd3722306a9826874fa",
+    "proposal/runtime-behavior.md": "d1b314cea44318e2bb388d52dda933f8d13202efd1eed506de79a2d24b73026f",
+    "proposal/runtime-open-decisions.md": "24ded71408d5785f66da95006c6c970a436d2903e40ffd636e58ed7b39d7edc8",
+    "proposal/traceability.md": "f11c66a2310ee3160f9956aad0a10fc126ea28da06d87f20627bc0c17cc4c730"
   },
-  "paths": [
-    {
-      "name": "USD Python",
-      "reader": "pxr.Usd composed stage",
-      "placement": "candidate.runtime.Runtime complete point map",
-      "conversion": "pyproj / PROJ",
-      "sink": "numeric records, geometry and frame queries"
-    },
-    {
-      "name": "USD C++",
-      "reader": "native OpenUSD stage",
-      "placement": "native/leans.cpp independent placement arithmetic",
-      "conversion": "PROJ C API",
-      "sink": "numeric records and geometry used by export"
-    },
-    {
-      "name": "Omniverse live geometry",
-      "reader": "omni.usd live composed stage",
-      "placement": "same Python placement implementation",
-      "conversion": "same pyproj / PROJ",
-      "sink": "runtime point buffers and double world matrices, read back; 27 edit/failure/recovery checks"
-    },
-    {
-      "name": "Hydra / Storm",
-      "reader": "UsdImagingSceneIndex on resolved ordinary USD export",
-      "placement": "C++ results baked by exporter; no live CRS filter",
-      "conversion": "already performed by C++ path",
-      "sink": "Hydra points/transform readback plus native Storm color AOV PNG"
-    }
-  ],
   "claims": {
     "usd_placement_implementations": 2,
     "geodetic_engines_used": 1,
@@ -79,16 +49,46 @@
     "ov_rendering": false,
     "hydra_resolved_export": true,
     "hydra_live_crs_filter": false,
-    "physics_integration": false
+    "physics_integration": false,
+    "whole_proposal_conformance": false,
+    "continuous_nonlinear_extent_certificate": false
   },
+  "paths": [
+    {
+      "name": "USD Python",
+      "reader": "pxr.Usd composed stage",
+      "placement": "candidate/runtime.py independent Python point map",
+      "conversion": "pyproj / PROJ",
+      "sink": "numeric records and geometry"
+    },
+    {
+      "name": "USD C++",
+      "reader": "native OpenUSD composed stage",
+      "placement": "native/leans.cpp independent C++ point map",
+      "conversion": "PROJ C API",
+      "sink": "numeric records and export geometry"
+    },
+    {
+      "name": "Omniverse live geometry",
+      "reader": "omni.usd live stage",
+      "placement": "reused Python point map",
+      "sink": "runtime points, normal arrays and world matrices; readback and edit/failure/recovery"
+    },
+    {
+      "name": "Hydra / Storm",
+      "reader": "UsdImagingSceneIndex on ordinary resolved export",
+      "placement": "C++ results materialized by exporter",
+      "sink": "points/transform readback and native Storm color output"
+    }
+  ],
   "observations": {
-    "coordinate_results_per_path": 204729,
+    "coordinate_results_per_path": 213231,
     "ov": {
       "implementation": "shared candidate Python runtime and PROJ; separate live geometry sink",
-      "jobs": 28,
-      "geometry_vertices": 177846,
-      "max_writeback_error_metres": 1.5757286645186782e-05,
-      "edit_checks": 27
+      "jobs": 35,
+      "geometry_vertices": 177864,
+      "max_writeback_error_metres": 2.9560060847411377e-05,
+      "edit_checks": 36
     },
     "hydra": [
       {
@@ -130,7 +130,7 @@
         "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
         "renderer": "HdStormRendererPlugin",
         "vertices": 163440,
-        "image_sha256": "db31d81511673e6070ec60040227ecc0d9061c170a30f26ad93eb949f27a76be"
+        "image_sha256": "b1cf4cf1e0a3d1489c9e39678e323aa0cd145ddb76b25e9bd354c7a60167ee89"
       },
       {
         "name": "terrain",
@@ -143,21 +143,21 @@
         "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
         "renderer": "HdStormRendererPlugin",
         "vertices": 14359,
-        "image_sha256": "a1bc82bb63b9f271596e9e490df9e446739f2c98fce8d19f7c5009f88d466bfe"
+        "image_sha256": "547fe6bec57dcd1c62e4aaebb5f8860dcc688cf41dc344854fb2ab5a08086498"
       }
     ],
     "exports": [
       {
         "path": "exports/tower.usda",
-        "fresh_reader_max_error_metres": 1.4311113271442638e-05,
-        "quantization_metres": 1.4311113271442638e-05,
+        "fresh_reader_max_error_metres": 2.9560060847411377e-05,
+        "quantization_metres": 2.9560060847411377e-05,
         "parts": 8,
         "vertices": 163440,
         "timeSamples": [
           0
         ],
         "timeCodesPerSecond": 24.0,
-        "dependency": "conservative Profiles hard claim retained",
+        "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
           "/Resolved/Part0": "/Control0/Marker",
           "/Resolved/Part1": "/Control1/Marker",
@@ -168,65 +168,109 @@
           "/Resolved/Part6": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1",
           "/Resolved/Part7": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2"
         },
-        "shading": "geometric normals recomputed after pointwise deformation; original authored normals not exported",
+        "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+        "normal_arrays": 3,
         "native_fresh_reader_vertices": 163440
       },
       {
         "path": "exports/terrain.usda",
-        "fresh_reader_max_error_metres": 1.5757286645186782e-05,
-        "quantization_metres": 1.5757277489590627e-05,
+        "fresh_reader_max_error_metres": 1.5314451221837112e-05,
+        "quantization_metres": 1.5314446962552462e-05,
         "parts": 1,
         "vertices": 14359,
         "timeSamples": [
           0
         ],
         "timeCodesPerSecond": 24.0,
-        "dependency": "conservative Profiles hard claim retained",
+        "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
           "/Resolved/Part0": "/Terrain/Breaklines"
         },
-        "shading": "geometric normals recomputed after pointwise deformation; original authored normals not exported",
+        "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+        "normal_arrays": 0,
         "native_fresh_reader_vertices": 14359
       },
       {
         "path": "exports/composition.usda",
-        "fresh_reader_max_error_metres": 0.0,
-        "quantization_metres": 0.0,
+        "fresh_reader_max_error_metres": 4.864687754809043e-07,
+        "quantization_metres": 4.864687754809043e-07,
         "parts": 2,
         "vertices": 6,
         "timeSamples": [
           0
         ],
         "timeCodesPerSecond": 24.0,
-        "dependency": "conservative Profiles hard claim retained",
+        "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
           "/Resolved/Part0": "/Project/Model/Child/Mesh",
           "/Resolved/Part1": "/Project/Model/Independent/Mesh"
         },
-        "shading": "geometric normals recomputed after pointwise deformation; original authored normals not exported",
+        "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+        "normal_arrays": 0,
         "native_fresh_reader_vertices": 6
       },
       {
         "path": "exports/instances.usda",
-        "fresh_reader_max_error_metres": 0.0,
-        "quantization_metres": 0.0,
+        "fresh_reader_max_error_metres": 1.0151522865794432e-07,
+        "quantization_metres": 1.0151522865794432e-07,
         "parts": 6,
         "vertices": 18,
         "timeSamples": [
           0
         ],
         "timeCodesPerSecond": 24.0,
-        "dependency": "conservative Profiles hard claim retained",
+        "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
           "/Resolved/Part0": "/Native0/Asset/Geometry",
           "/Resolved/Part1": "/Native1/Asset/Geometry",
           "/Resolved/Part2": "/Native2/Asset/Geometry",
-          "/Resolved/Part3": "/PointModels/Instances/_ResolvedInstance0/One",
-          "/Resolved/Part4": "/PointModels/Instances/_ResolvedInstance1/One",
-          "/Resolved/Part5": "/PointModels/Instances/_ResolvedInstance2/One"
+          "/Resolved/Part3": "/PointModels/Instances/_ResolvedInstance0/Root",
+          "/Resolved/Part4": "/PointModels/Instances/_ResolvedInstance1/Root",
+          "/Resolved/Part5": "/PointModels/Instances/_ResolvedInstance2/Root"
         },
-        "shading": "geometric normals recomputed after pointwise deformation; original authored normals not exported",
+        "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+        "normal_arrays": 0,
         "native_fresh_reader_vertices": 18
+      },
+      {
+        "path": "exports/geographic-scene.usda",
+        "fresh_reader_max_error_metres": 1.5007967348477094e-08,
+        "quantization_metres": 1.5002855227052984e-08,
+        "parts": 1,
+        "vertices": 2,
+        "timeSamples": [
+          5
+        ],
+        "timeCodesPerSecond": 48.0,
+        "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
+        "source_paths": {
+          "/Resolved/Part0": "/World/Model/Sample"
+        },
+        "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+        "normal_arrays": 0,
+        "native_fresh_reader_vertices": 2
+      },
+      {
+        "path": "exports/instances-independent-prototype.usda",
+        "fresh_reader_max_error_metres": 8.018582241415993e-08,
+        "quantization_metres": 8.018582241415993e-08,
+        "parts": 5,
+        "vertices": 15,
+        "timeSamples": [
+          0
+        ],
+        "timeCodesPerSecond": 24.0,
+        "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
+        "source_paths": {
+          "/Resolved/Part0": "/Native0/Asset/Geometry",
+          "/Resolved/Part1": "/Native1/Asset/Geometry",
+          "/Resolved/Part2": "/Native2/Asset/Geometry",
+          "/Resolved/Part3": "/PointModels/Instances/_ResolvedInstance0/Root",
+          "/Resolved/Part4": "/PointModels/Instances/_ResolvedInstance2/Root"
+        },
+        "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+        "normal_arrays": 0,
+        "native_fresh_reader_vertices": 15
       },
       {
         "path": "exports/climate.usda",
@@ -256,8 +300,17 @@
         "dependency": "Profiles hard claim retained for absolute measurement coordinates"
       },
       {
+        "path": "exports/global-3d-geographic.usda",
+        "samples": 154,
+        "values_and_masks_preserved": true,
+        "observation_times_preserved": true,
+        "coordinates_preserved": true,
+        "fresh_reader_verified": true,
+        "dependency": "Profiles hard claim retained for absolute measurement coordinates"
+      },
+      {
         "path": "exports/time-sampled.usda",
-        "fresh_reader_max_error_metres": 1.497392076998949e-08,
+        "fresh_reader_max_error_metres": 1.5002855227052984e-08,
         "quantization_metres": 0.0,
         "parts": 1,
         "vertices": 2,
@@ -267,11 +320,12 @@
           10
         ],
         "timeCodesPerSecond": 48.0,
-        "dependency": "conservative Profiles hard claim retained",
+        "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
           "/Resolved/Part0": "/World/Model/Sample"
         },
-        "shading": "geometric normals recomputed after pointwise deformation; original authored normals not exported",
+        "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+        "normal_arrays": 0,
         "trajectory_between_samples": "No original-trajectory guarantee claimed; Core interpolates exported output samples",
         "native_fresh_reader_sample_times": [
           0,
@@ -281,5 +335,5 @@
       }
     ]
   },
-  "sharing": "All conversion paths use PROJ. External-format decoding is shared between Python and C++. OV reuses Python placement, not a third independent implementation."
+  "sharing": "Both placements use PROJ; native dataset decoding is shared. OV is not a third independent placement implementation."
 }

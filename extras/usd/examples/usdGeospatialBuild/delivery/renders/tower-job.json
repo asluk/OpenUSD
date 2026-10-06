@@ -1,15 +1,15 @@
 {
-  "stage": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-leans-run-20261006-final\\exports\\tower.usda",
+  "stage": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-contract-run-20261006-v6\\exports\\tower.usda",
   "time": 0,
-  "render": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-leans-run-20261006-final\\renders\\tower.png",
+  "render": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-contract-run-20261006-v6\\renders\\tower.png",
   "camera_eye": [
-    648983.125,
-    6861447.89,
-    483.79
+    648983.0900020442,
+    6861447.92626258,
+    483.7899506349079
   ],
   "camera_aim": [
-    648383.125,
-    6862247.89,
-    163.79
+    648383.0900020442,
+    6862247.92626258,
+    163.78995063490788
   ]
 }

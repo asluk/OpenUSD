@@ -1,96 +1,101 @@
-# Geospatial candidate: proposal quality and executed evidence
+# Geospatial proposal candidate and executed evidence
 
-The four emailed leans now have **explicit local candidate contracts** for working frames, stage-axis mapping, external measurement association and Profiles dependency coverage. They are review proposals, not group agreement. **The proposal is not yet fully ready:** independently CRS-bound point-instancer prototypes remain a specialized model gap (G11). Q9 geographic scene geometry/frames/bounds remains separate from supported geographic coordinate queries. A full functional-requirement conformance claim would be premature.
+The proposal now contains a **complete proposed answer for every known retained-scope contract gap** from the audit. It remains a review candidate: input-only model attitude, descendant-transform meaning, native-data association, independently bound prototypes, geographic scene charts, Profiles, export representation and WKT string normalization require author alignment. No computed projection result becomes a source USD property. Passing this run does not establish group agreement or whole-proposal conformance.
 
-This completed candidate iteration executed **64 regression tests and 47 distinguishing controls**, with 204,729 coordinate results per path in Python and C++. It includes live Omniverse geometry writeback, two native Hydra/Storm renders, and eight freshly reread exports. All advertised evidence belongs to this frozen run.
+The full local loop passed **64 regressions and 61 distinguishing controls**, compared 213,231 coordinate results per Python/C++ path, verified 35 OV-hosted jobs, rendered two native Hydra/Storm exports and reread 11 exports. The maximum measured Python/C++ coordinate difference was 3.39e-08 m. Original source inputs and frozen executed files remained unchanged.
 
-[Editable slides](delivery/geospatial-build.pptx) · [PDF](delivery/geospatial-build.pdf) · [Run receipt](delivery/run-report.json) · [Proposal quality](proposal-quality.json) · [Requirement trace](proposal/traceability.md) · [Build loop](BUILD_LOOP.md)
+[Editable slides](delivery/geospatial-build.pptx) Â· [PDF](delivery/geospatial-build.pdf) Â· [Receipt](delivery/run-report.json) Â· [Proposal audit](proposal-quality.json) Â· [Whole proposal](proposal/proposal-source.txt) Â· [Build loop](BUILD_LOOP.md)
 
-## Proposal authority and decisions requiring review
+## Proposal quality and review choices
 
-The sole authority is the [whole local proposal candidate](proposal/proposal-source.txt), SHA-256 `2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11`, based on published revision `a5c7dd3792503e09b75abfa84b0caef9d80feea6`. Derived notes add no authored fact or normative behavior. All 31 functional requirements have a source trace. Concrete candidate details extend the agreed direction and need review on their own merits.
+The sole normative candidate is the whole proposal, SHA-256 `1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0`, with the exact local diff retained beside it. Requirement traceability now uses the actual 31 functional requirements and their exact normative clauses. Derived notes, fixtures and adapter code add no authority. The pre-implementation gate distinguishes missing meanings from complete choices awaiting review; the post-implementation gate checks both authored fields and observable results in reverse.
 
-| Subject | Explicit local answer |
+| Subject | Proposed answer |
 |---|---|
-| Q3: ordinary adjustments | Nearest enclosing CRS supplies the fixed working chart. The candidate spells out chart zero/site origin, pivots and descendant resets. |
-| Q6: stage conventions | Z-up uses (x,y,z). Y-up uses (x,-z,y). Stage units precede dimensionless scale and orientation. |
-| Q11: external measurements | Proposed non-Xformable GeospatialDataSource identifies asset, format, field and coordinate domain. Native formats retain values, masks and observation times. |
-| Q12: dependency declaration | Existing Profiles ClaimsAPI on defaultPrim carries a proposed hard capability claim. Publishers conservatively maintain whole-scene coverage, including unloaded content. |
+| Inputs / Q2, Q6 | Position plus physical geodetic-attitude quaternion. Projection scale/convergence are computed; intentional scale uses xformOps. |
+| Transform order / Q3 | Anchor xformOps adjust the resolved placement in a fixed working chart. Descendants retain model-local USD meaning. |
+| Absolute data / Q11 | Xformable carrier selects native asset, format, field and coordinate domain; values, masks and observation times stay paired. |
+| Instances and geographic output | Bound prototypes retain their own anchor; geographic tuples have an associated geocentric Cartesian scene chart. |
+| Profiles, export and WKT | Whole-scene hard dependency claim; nonbinding Cartesian context for baked geometry; lexical WKT normal form distinct from semantic CRS equality. |
 
-The external association is a proposed **new typed schema**, not an assertion that the existing schema already supplies these fields. `data:asset`, `data:format`, `data:field` and `data:coordinateDomain` select data; WKT retains authority for CRS meaning. `crs:position`, `crs:orientation` and `crs:scale` describe models separately from ordinary xformOps. No coordinate-epoch attribute, duplicated WKT axis/unit metadata, private binding relationship or already-resolved flag is authored.
+The authored model inputs are `double3 crs:position` and `quatd crs:orientation`. Their scope, defaults, units, ordering, quaternion validity and time behavior are defined. `crs:scale`, coordinate epoch, heading/pitch/roll outputs, convergence and computed projection-scale properties are not authored inputs. The proposed external schema uses `data:asset`, `data:format`, `data:field` and `data:coordinateDomain`; this is an explicit new schema candidate, not a claim that existing fields already covered association. WKT retains CRS authority. Ordinary scaling and pivots remain xformOps.
 
-The geographic working-chart origin, Cartesian chart-zero pivot, anchor-adjustment versus descendant-offset distinction, external association carrier and whole-scene Profiles maintenance are concrete proposals. An implementer must not infer group approval from passing tests. The group still needs to decide whether independently bound point-instancer prototypes belong in initial scope or a later extension. The run rejects that combination in both implementations. Coordinate epochs remain deferred without foreclosing a future model.
+Coordinate epochs and scene-authored operation/resource controls remain deferred without foreclosing later support. Larger-scale geographic workflows remain represented. Nothing in these choices is justified by a fixture name or an adapter limitation.
 
-## Physical placement and ordinary transforms
+## Ordered math and the descendant choice
 
-The complete point map preserves source placement and transports ordinary adjustments through a fixed authoring chart. A geographic asset beneath a projected site uses its own geographic coordinates. Its ordinary +10 adjustment moves it 10 metres along site easting even with a 90-degree model orientation. A descendant +3 local-X offset follows the oriented model. A descendant reset removes the ordinary anchor adjustment while retaining intrinsic CRS placement. The enclosing model's ordinary +100000 does not leak into an independently bound asset.
+The intrinsic map converts model-local stage coordinates through geospatial attitude and the source datum's ENU/ECEF relationship. The anchor's ordinary stack adjusts the resolved point in its fixed working chart, then the adjusted physical point is expressed in the requested output CRS. The nearest strictly enclosing direct CRS binding selects that working context; the source CRS is its fallback. Output selection never reinterprets raw adjustment values.
 
-The same adjusted physical positions survive an ECEF output request. Explicit pivots and inverse ops follow UsdGeom's evaluated order. Invalid nearest bindings fail even when the ordinary adjustment is identity; both forward and inverse requests are covered. Y-up centimetre controls independently verify the axis mapping, scale and orientation. Its local-frame Jacobian rows are `[[0.0, 0.020000000000000004, 0.0], [0.0, 0.0, 0.04], [0.02999999901900689, 6.661338147750939e-18, 0.0]]` in metres per stage unit.
+Descendant xformOps, including authored asset conformance, define the model-local point supplied to placement. This is a **proposed clarification** of the call's broad post-placement wording, not an assertion that descendant semantics were already settled. The tested all-working-axis counterfactual differs by **4.222137 m** in the distinguishing rotated-child case. Both exact coordinates are retained in [the comparison](delivery/transform-order-comparison.json). This review choice is visible rather than hidden behind an implementation order.
 
-Cartesian local frames are numerical derivatives of the full map, with an explicit chart, units and convergence residual. They may contain shear and are not reduced to a quaternion and diagonal scale. Resolved polygonal bounds enclose every returned vertex and straight polygonal face. Neither a derivative nor those bounds certifies the nonlinear image of a continuous source surface. A same-CRS Cartesian affine case has an analytical zero approximation error, separate from floating arithmetic; requests for uncertified nonlinear extent guarantees fail visibly.
+An anchor +10 translation moves along site easting; the oriented child +3 local-X offset follows model axes. A descendant reset removes ordinary ancestors and retains intrinsic placement. Independent direct bindings exclude ancestor xformOps without ignoring the enclosing CRS's role. Per-instance transforms are applied once; bound prototypes retain their own absolute source placement. A separate prototype-child reset control excludes a +100 prototype transform and retains the explicitly selected instance transform.
 
-## Eiffel model and native Hydra rendering
+## Eiffel geometry and shading
 
-![Native Storm render of the resolved Eiffel model](delivery/renders/tower.png)
+![Native Storm Eiffel rendering](delivery/renders/tower.png)
 
-The original model contributes **163,440 resolved vertices**. Python and C++ evaluate complete geometry. The exporter consumes the C++ results, rebases float geometry around double translations, and writes an ordinary USD scene in the output CRS. A fresh Python reader and a fresh C++ reader reject double placement. UsdImaging's scene index supplies points and transforms to native Hydra/Storm, whose readback agrees with the exported ordinary-USD world geometry. The image has an illustrative plane and markers, not surveyed Paris context or independent ground truth. This route is a resolved-export bridge, not a live geospatial scene-index filter.
+The native C++ path resolves **163,440 vertices**, including the illustrative context markers and plane. **163,416 authored vertex normals** are transported through the full-map Jacobian, compared between readers, retained in the output and reread. The export's ordinary points and double transforms reach Hydra data sources and native Storm color output. The plane and markers are illustrative, not surveyed Paris context. This is a resolved-export rendering path; no live geospatial Hydra filter or OV render is claimed.
 
-## Colorado survey geometry and site calibration
+## Colorado site calibration
 
-![Native Storm render of original LandXML breakline geometry](delivery/renders/terrain.png)
+![Native Storm survey rendering](delivery/renders/terrain.png)
 
-The Colorado workflow resolves **14,359 original LandXML breakline vertices** into the calibrated site CRS. It does not fabricate a terrain surface. US survey feet remain declared CRS units; the stage basis and metre conversion remain separate. The site calibration lives in WKT, while object placement lives on the model. The underlying source geometry and definitions remain unchanged.
+The original LandXML survey contributes **14,359 breakline vertices**. WKT carries the calibrated site relationship and US survey foot units. Stage conventions remain separate. No terrain surface was fabricated. Fresh readers verify placement; polygonal bounds describe returned vertices and straight faces, not the continuous nonlinear image of an original surface.
 
-## Non-visual measurements and regional geometry
+## Native measurements and larger-scale workflows
 
-![Original global scalar grid](delivery/plots/global-grid.png)
+![Synthetic global 3D measurements](delivery/plots/global-3d.png)
 
-The global CF illustration retains **2,664 original scalar values and horizontal coordinates**. Original physical units and observation times were not supplied, so neither is invented. A request for 3D ECEF fails without a height reference and coordinate. The original dataset is preserved; a separately authored illustrative CF association makes its horizontal coordinate roles explicit.
+The synthetic global CF domain has **154 samples over two observation times**, explicit **100 m ellipsoidal height** and illustrative temperature units in kelvin. Both readers resolve it into geographic and ECEF coordinates without changing values or treating observation time as a coordinate epoch. A fresh CF export preserves values, masks, coordinates, height and observation-time metadata.
 
-The synthetic multi-domain CF case selects geographic or projected coordinates for the same 12 samples. The values, one missing mask and two observation times stay paired through resolution and export. Observation time is not a coordinate epoch. GeoTIFF controls preserve explicit band/IFD selection and PixelIsArea/PixelIsPoint sample locations.
+The original global scalar grid retains **2,664 values** and its explicitly horizontal association. Missing physical units, height and observation times remain missing. Unsupported 3D requests fail visibly. Synthetic imagery adjustment retains native pixel values and coordinate bytes while adding +25 m east and -10 m north in the project frame. CF controls select distinct geographic/projected coordinate domains and retain missing masks and native times.
 
 ![Railway horizontal resolution](delivery/plots/railway.png)
 
-The original railway contributes **15,822 horizontal vertices across 2,386 parts**. The reader follows RFC 7946 semantics for an explicitly written horizontal copy and projects it into UTM 32. The original third components remain intact and uninterpreted. Plot offsets are only for display, not an authored calibration or changed source values.
+The original railway retains **15,822 horizontal vertices** across 2,386 parts. An explicit horizontal illustrative copy resolves to UTM 32. Its original third components remain untouched and uninterpreted; no height reference is guessed. Plot origins serve display only.
 
-## Same partner coordinate inputs in both implementations and the OV host
+## Same partner data in both placements
 
-| Case | Source E / N / H | USD Python output | USD C++ output | OV-hosted Python output |
+**France_01: CC49 to Lambert-93 (m).**
+
+| Component | Source | USD Python | USD C++ | OV-hosted Python |
 |---|---|---|---|---|
-| CC49 to Lambert-93 (m) | 1661099.0390, 8180053.1170, 37.2980 | 661101.1094, 6857834.2565, 37.2980 | 661101.1094, 6857834.2565, 37.2980 | 661101.1094, 6857834.2565, 37.2980 |
-| Colorado State Plane to Westminster site grid (ftUS) | 3108002.1122, 1752265.0666, 5482.9424 | 3108871.4501, 1206317.4694, 5484.6779 | 3108871.4501, 1206317.4694, 5484.6779 | 3108871.4501, 1206317.4694, 5484.6779 |
+| Easting | 1661099.03900000 | 661101.10941715 | 661101.10941715 | 661101.10941715 |
+| Northing | 8180053.11700000 | 6857834.25653567 | 6857834.25653567 | 6857834.25653567 |
+| Height | 37.29800000 | 37.29800000 | 37.29800000 | 37.29800000 |
 
-All 59 France controls are queried in both directions and all five Colorado controls in the selected source systems. Provider CSVs are PROJ-generated intake/rounding references, not survey truth. Matching output numbers do not establish geodetic accuracy. The independent axis, pivot, reset, interpolation and failure controls distinguish implementations that share the same projection engine.
+**Colorado_02: State Plane to Westminster site grid (ftUS).**
 
-## Actual consumers and shared components
+| Component | Source | USD Python | USD C++ | OV-hosted Python |
+|---|---|---|---|---|
+| Easting | 3108002.11220000 | 3108871.45010067 | 3108871.45010067 | 3108871.45010067 |
+| Northing | 1752265.06660000 | 1206317.46940319 | 1206317.46940311 | 1206317.46940319 |
+| Height | 5482.94240000 | 5484.67794933 | 5484.67794927 | 5484.67794933 |
 
-| Path | Placement implementation | Actual destination |
-|---|---|---|
-| USD Python | candidate.runtime.Runtime complete point map | numeric records, geometry and frame queries |
-| USD C++ | native/leans.cpp independent placement arithmetic | numeric records and geometry used by export |
-| Omniverse live geometry | same Python placement implementation | runtime point buffers and double world matrices, read back; 27 edit/failure/recovery checks |
-| Hydra / Storm | C++ results baked by exporter; no live CRS filter | Hydra points/transform readback plus native Storm color AOV PNG |
+All coordinate-conversion paths use PROJ. Independent placement arithmetic is verified, but engine-independent geodetic validation and survey accuracy are not established by these comparisons. Operation-pipeline comparability is reported separately from numerical agreement.
 
-There are **two placement implementations**, Python and C++. Omniverse reuses the Python interpretation and PROJ through a separate live geometry sink. It writes runtime point buffers and double world matrices, reads them back, and exercises source edits, failed resolution hiding stale geometry, and recovery. It is not a third independent placement engine. No Omniverse rendering or physics integration is claimed. Native Hydra consumes the C++-resolved export and performs real rendering.
+## Geographic scene charts and exports
 
-The live sink read back **177,846 vertices** over the geometry cases, with 27 update/failure/recovery checks. Its maximum writeback error is **15.757 micrometres** against resolved coordinates. Python/C++ coordinate agreement is at most **2.946 nanometres** in these cases, under a predeclared 1 mm acceptance distance. Native PROJ 9.4.1 and Python/OV PROJ 9.8.1 produce matching realized pipeline spelling; selected resource files and the native database/library have hashes in the receipt. Agreement is computational evidence, not independent geodetic certification. External format decoding is shared.
+Geographic coordinate tuples remain angular/height tuples. Scene geometry, derivatives and polygonal bounds use the associated geocentric Cartesian CRS of the same datum. An explicit control rejects angular scene bounds; fresh Python and C++ readers verify the exported geographic workflow's Cartesian geometry context.
 
-## Source interpolation and freshly reread exports
+The 11 exports cover Eiffel, survey, composition, ordinary instances, independently bound prototypes, geographic-scene geometry, four CF domains and a sampled geometry trajectory. Baked geometry has a typed, nonbinding Cartesian CRS context and ordinary geometry/transforms, without an active placement binding or private already-resolved flag. Fresh readers verify placement once. Original sample keys **0, 5, 10** and **48 time codes/second** are preserved. The source-first midpoint is 971.421 m from the converted-endpoint chord; no original-trajectory guarantee is claimed between exported samples.
 
-Source longitude moves from 0 to 2 degrees at zero ellipsoidal height. Core interpolates source placement before ECEF conversion. At time 5 the result is the 1-degree surface position. Interpolating only the converted endpoints instead produces a chord, whose midpoint differs by **971.421 m**.
+## Consumer evidence and limits
 
-The sampled geometry export writes actual `timeSamples` keys **0, 5 and 10**, with explicit `timeCodesPerSecond = 48`. Fresh Python and C++ readers verify every exported geometry sample. Core interpolation of those output samples remains ordinary USD behavior; this does not claim the original trajectory between export samples.
+| Path | Observed output |
+|---|---|
+| USD Python / C++ | Two independent placement readers; 213,231 comparable coordinate results each. Shared PROJ and dataset decoding. |
+| Omniverse live stage | 177,864 geometry vertices read back from runtime buffers/world matrices; 36 edit, failure and recovery checks. Reuses Python placement; normal buffers also checked. |
+| Hydra / Storm | C++-resolved ordinary exports reach points/transform sources and two native rendered images. |
 
-Eight exports cover Eiffel geometry, Colorado breaklines, composition, instances, three CF coordinate-domain cases and sampled geometry. Their fresh-reader geometry error is at most 15.758 micrometres. CF exports retain original measurement values, missing masks and observation-time associations. Materializing instances preserves the tested resolved geometry and source-path association in the receipt, but does not certify all instancing, material or authored normal/primvar behavior. Exported Scenes conservatively retain the proposed Profiles hard dependency claim; no private resolved marker is used.
+Analytically affine geocentric placement has a zero mathematical approximation-error certificate at the evaluated time. General nonlinear continuous-domain and between-sample certificates remain unsupported by these adapters and fail visibly. Numerical frame derivatives and polygonal bounds are not certificates. General coordinate-bearing primvar transport, physics integration, independently implemented WKT normalization and a live geospatial Hydra filter have no complete evidence here. These are implementation/verification limits, not newly deferred model meanings.
 
-## Postimplementation audit and remaining limits
+The implementation audit corrected angular bounds, a native prototype reset, the relative-result frame and source-normal export. It also caught an independent Y-up test oracle that applied scale in the wrong mapped axis order. Native diagnostic logging now retains distinct realized pipelines rather than a repeated entry for every point. None of these repairs introduced a source property or changed the pinned proposal.
 
-The reverse audit finds only the eight geospatial fields defined by the candidate. The source closure, original data/scene inputs, transformation-resource files and generated fixture bytes remain unchanged during execution. The two negative jobs reject missing height and independently bound point-instancer prototypes in Python and C++.
+## Source credit
 
-Recovery also caught implementation defects rather than filling them with new proposal facts: registered schema fallbacks had hidden blocks and bad declarations; an inverse path bypassed an invalid enclosing binding; an OV host timeline update modified an input layer. Readers now inspect authored declarations/blocks and enclosing bindings. The live host protects source layers and keeps authorized edit controls in a restored session layer. Expected rejection checks accept contract errors, not arbitrary exceptions.
+The Eiffel geometry is “( FREE ) La tour Eiffel” by [SDC PERFORMANCE](https://sketchfab.com/Lambo_SC04), [original model](https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The example reorients, places and renders that geometry with illustrative context. Partner-data credit and permission are retained in `data/README.md` and `data/LICENSE-partner.txt`.
 
-G11 and Q9 remain visible design matters. The adapters visibly refuse unimplemented BOUNDCRS and geographic gravity-height ENU charts, unsupported format coordinates, and uncertified continuous extent/trajectory requests. Native validation is not a second independent WKT normalizer. Physics, a live geospatial Hydra filter and a general surface/material export guarantee have no evidence here. These are limits on advertised conformance; a green run cannot erase them.
+## Reproduce and derive delivery
 
-## Reproducing and deriving delivery
-
-`run.py` requires a fresh output directory, the OpenUSD SDK/native build, PROJ/resources and the installed OV host. It freezes source and inputs, compiles the executed native targets, runs independent contract checks, reads every query/consumer output and audits source preservation. `collateral/derive_leans_delivery.py --run <directory>` checks that frozen source before deriving this README, public evidence and slide data. `collateral/leans_slides.mjs` derives the editable deck from that README and immutable numerical returns. Delivery verification checks both claim boundaries and the final artifact hashes. Local-path relinking in public fixture copies is ordinary writer work and is recorded separately from immutable executed inputs.
+`run.py` requires a fresh run directory and the pinned USD, PROJ/resources and OV tools. It freezes source/inputs, compiles native targets, runs controls, verifies exports and actual consumers, then audits fields and preserved inputs. `collateral/derive_contract_delivery.py --run <directory>` verifies that freeze before deriving this README, portable evidence and story. `collateral/contract_slides.mjs` derives the deck from the README/story and immutable returns. `collateral/verify_contract_delivery.py` checks the actual artifacts and rejects unsupported integration claims. Prior generators remain historical and are excluded from the active delivery path.

@@ -1,0 +1,2031 @@
+[
+  {
+    "name": "basis-Z-1",
+    "stage": "fixtures/basis-Z-1.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6378137,
+        0,
+        4
+      ],
+      [
+        6378137,
+        -3,
+        0
+      ],
+      [
+        6378139,
+        0,
+        0
+      ]
+    ],
+    "time": 0,
+    "interpolation": "linear",
+    "frames": [
+      "/World/Model"
+    ]
+  },
+  {
+    "name": "basis-Y-1",
+    "stage": "fixtures/basis-Y-1.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6378137,
+        0,
+        3
+      ],
+      [
+        6378139,
+        0,
+        0
+      ],
+      [
+        6378137,
+        4,
+        0
+      ]
+    ],
+    "time": 0,
+    "interpolation": "linear",
+    "frames": [
+      "/World/Model"
+    ]
+  },
+  {
+    "name": "basis-Y-0.01",
+    "stage": "fixtures/basis-Y-0.01.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6378137.0,
+        0.0,
+        0.03
+      ],
+      [
+        6378137.02,
+        0.0,
+        0.0
+      ],
+      [
+        6378137.0,
+        0.04,
+        0.0
+      ]
+    ],
+    "time": 0,
+    "interpolation": "linear",
+    "frames": [
+      "/World/Model"
+    ]
+  },
+  {
+    "name": "working-adjustment",
+    "stage": "fixtures/working-adjustment.usda",
+    "output_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1.0],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0.0,0.0,84.0,6.0]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
+    "queries": [
+      {
+        "prim": "/World/Asset",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Asset/Child",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Asset/Reset",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear"
+  },
+  {
+    "name": "working-adjustment-ecef",
+    "stage": "fixtures/working-adjustment.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Asset",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Asset/Child",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Asset/Reset",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "frames": [
+      "/World/Asset"
+    ]
+  },
+  {
+    "name": "geographic-working",
+    "stage": "fixtures/geographic-working.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Asset",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear"
+  },
+  {
+    "name": "pivot-order",
+    "stage": "fixtures/pivot-order.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6378136,
+        0,
+        0
+      ],
+      [
+        6378137,
+        0,
+        2
+      ]
+    ],
+    "time": 0,
+    "interpolation": "linear"
+  },
+  {
+    "name": "time-source",
+    "stage": "fixtures/time-source.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6377165.5788417,
+        111313.83923667614,
+        0
+      ]
+    ],
+    "time": 5,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "time-source-held",
+    "stage": "fixtures/time-source.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6378137,
+        0,
+        0
+      ]
+    ],
+    "time": 5,
+    "interpolation": "held",
+    "geometry": true
+  },
+  {
+    "name": "time-source-t0",
+    "stage": "fixtures/time-source.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6378137,
+        0,
+        0
+      ]
+    ],
+    "time": 0,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "time-source-t10",
+    "stage": "fixtures/time-source.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6374251.6112710945,
+        222593.77119959943,
+        0
+      ]
+    ],
+    "time": 10,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "relative-position",
+    "stage": "fixtures/relative-position.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/A",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "relative": {
+      "from": "/World/A",
+      "to": "/World/B",
+      "expected_output_difference": [
+        0,
+        -10,
+        0
+      ]
+    }
+  },
+  {
+    "name": "prototype-reset",
+    "stage": "fixtures/prototype-reset.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "tower",
+    "stage": "fixtures/tower.usda",
+    "output_wkt": "COMPOUNDCRS[\"RGF93 v2b / Lambert-93 + NGF-IGN69 height\",PROJCRS[\"RGF93 v2b / Lambert-93\",BASEGEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137.0,298.257222101,LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",1313]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",9782]],CONVERSION[\"Lambert-93\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",46.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",3.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",49.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",44.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",700000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",6600000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8827]],ID[\"EPSG\",18085]],CS[Cartesian,2],AXIS[\"easting (E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"northing (N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",9794]],VERTCRS[\"NGF-IGN69 height\",VDATUM[\"Nivellement General de la France - IGN69\",ID[\"EPSG\",5119]],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",5720]],ID[\"EPSG\",10499]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "terrain",
+    "stage": "fixtures/terrain.usda",
+    "output_wkt": "COMPOUNDCRS[\"Westminster site grid + site height\",DERIVEDPROJCRS[\"Westminster site grid\",BASEPROJCRS[\"NAD83(2011) / Colorado Central (ftUS)\",BASEGEOGCRS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",ELLIPSOID[\"GRS 1980\",6378137.0,298.257222101,LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",1116]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",6318]],CONVERSION[\"SPCS83 Colorado Central zone (US survey foot)\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",37.8333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",-105.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",39.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",38.45,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",3000000.0,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",1000000.0,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8827]],ID[\"EPSG\",15314]],ID[\"EPSG\",6428]],DERIVINGCONVERSION[\"Westminster site calibration (horizontal)\",METHOD[\"Affine parametric transformation\",ID[\"EPSG\",9624]],PARAMETER[\"A0\",503.9253920478007,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8623]],PARAMETER[\"A1\",1.000231041946945,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8624]],PARAMETER[\"A2\",-0.00020126312919239097,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8625]],PARAMETER[\"B0\",-546977.9701600745,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8639]],PARAMETER[\"B1\",0.00020126312919239097,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8640]],PARAMETER[\"B2\",1.000231041946945,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8641]]],CS[Cartesian,2],AXIS[\"site easting (E)\",east,ORDER[1],LENGTHUNIT[\"US survey foot\",0.304800609601219]],AXIS[\"site northing (N)\",north,ORDER[2],LENGTHUNIT[\"US survey foot\",0.304800609601219]]],VERTCRS[\"Westminster site height\",BASEVERTCRS[\"NAVD88 height (ftUS)\",VDATUM[\"North American Vertical Datum 1988\",ID[\"EPSG\",5103]],ID[\"EPSG\",6360]],DERIVINGCONVERSION[\"Westminster site calibration (vertical)\",METHOD[\"Vertical Offset and Slope\",ID[\"EPSG\",1046]],PARAMETER[\"Ordinate 1 of evaluation point\",39.89815166091368,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8617]],PARAMETER[\"Ordinate 2 of evaluation point\",-105.11508529887352,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8618]],PARAMETER[\"Vertical Offset\",1.7355492174519394,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8603]],PARAMETER[\"Inclination in latitude\",-18.196450752028323,ANGLEUNIT[\"arc-second\",0.00000484813681109536],ID[\"EPSG\",8730]],PARAMETER[\"Inclination in longitude\",-11.949966705964858,ANGLEUNIT[\"arc-second\",0.00000484813681109536],ID[\"EPSG\",8731]],PARAMETER[\"EPSG code for Horizontal CRS\",6318.0,ID[\"EPSG\",1037]]],CS[vertical,1],AXIS[\"site height (H)\",up,LENGTHUNIT[\"US survey foot\",0.304800609601219]]]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "composition",
+    "stage": "fixtures/composition.usda",
+    "output_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1.0],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0.0,0.0,84.0,6.0]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "instances",
+    "stage": "fixtures/instances.usda",
+    "output_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1.0],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0.0,0.0,84.0,6.0]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "instances-masked",
+    "stage": "fixtures/instances-masked.usda",
+    "output_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1.0],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0.0,0.0,84.0,6.0]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "instances-independent-prototype",
+    "stage": "fixtures/instances-independent-prototype.usda",
+    "output_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1.0],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1.0,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0.0,0.0,84.0,6.0]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "geographic-scene",
+    "stage": "fixtures/time-source.usda",
+    "output_wkt": "GEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,3],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4979]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "time": 5,
+    "interpolation": "linear",
+    "geometry": true,
+    "frames": [
+      "/World/Model"
+    ]
+  },
+  {
+    "name": "France_01",
+    "stage": "fixtures/France_01.usda",
+    "output_wkt": "COMPOUNDCRS[\"RGF93 v2b / Lambert-93 + NGF-IGN69 height\",PROJCRS[\"RGF93 v2b / Lambert-93\",BASEGEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137.0,298.257222101,LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",1313]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",9782]],CONVERSION[\"Lambert-93\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",46.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",3.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",49.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",44.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",700000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",6600000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8827]],ID[\"EPSG\",18085]],CS[Cartesian,2],AXIS[\"easting (E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"northing (N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",9794]],VERTCRS[\"NGF-IGN69 height\",VDATUM[\"Nivellement General de la France - IGN69\",ID[\"EPSG\",5119]],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",5720]],ID[\"EPSG\",10499]]",
+    "queries": [
+      {
+        "prim": "/World/Control0",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control1",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control2",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control3",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control4",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control5",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control6",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control7",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control8",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control9",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control10",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control11",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control12",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control13",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control14",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control15",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control16",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control17",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control18",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control19",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control20",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control21",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control22",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control23",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control24",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control25",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control26",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control27",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control28",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control29",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control30",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control31",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control32",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control33",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control34",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control35",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control36",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control37",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control38",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control39",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control40",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control41",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control42",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control43",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control44",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control45",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control46",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control47",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control48",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control49",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control50",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control51",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control52",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control53",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control54",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control55",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control56",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control57",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control58",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "time": 0,
+    "interpolation": "linear",
+    "expected": null
+  },
+  {
+    "name": "France_02",
+    "stage": "fixtures/France_02.usda",
+    "output_wkt": "COMPOUNDCRS[\"RGF93 v2b / CC49 + NGF-IGN69 height\",PROJCRS[\"RGF93 v2b / CC49\",BASEGEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137.0,298.257222101,LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",1313]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",9782]],CONVERSION[\"France Conic Conformal zone 8\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",49.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",3.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",48.25,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",49.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",1700000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",8200000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8827]],ID[\"EPSG\",18108]],CS[Cartesian,2],AXIS[\"easting (E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"northing (N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",9849]],VERTCRS[\"NGF-IGN69 height\",VDATUM[\"Nivellement General de la France - IGN69\",ID[\"EPSG\",5119]],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",5720]]]",
+    "queries": [
+      {
+        "prim": "/World/Control0",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control1",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control2",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control3",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control4",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control5",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control6",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control7",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control8",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control9",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control10",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control11",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control12",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control13",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control14",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control15",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control16",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control17",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control18",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control19",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control20",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control21",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control22",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control23",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control24",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control25",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control26",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control27",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control28",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control29",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control30",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control31",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control32",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control33",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control34",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control35",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control36",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control37",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control38",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control39",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control40",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control41",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control42",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control43",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control44",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control45",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control46",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control47",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control48",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control49",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control50",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control51",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control52",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control53",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control54",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control55",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control56",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control57",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control58",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "time": 0,
+    "interpolation": "linear",
+    "expected": null
+  },
+  {
+    "name": "Colorado_01",
+    "stage": "fixtures/Colorado_01.usda",
+    "output_wkt": "COMPOUNDCRS[\"Westminster site grid + site height\",DERIVEDPROJCRS[\"Westminster site grid\",BASEPROJCRS[\"NAD83(2011) / Colorado Central (ftUS)\",BASEGEOGCRS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",ELLIPSOID[\"GRS 1980\",6378137.0,298.257222101,LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",1116]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",6318]],CONVERSION[\"SPCS83 Colorado Central zone (US survey foot)\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",37.8333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",-105.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",39.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",38.45,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",3000000.0,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",1000000.0,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8827]],ID[\"EPSG\",15314]],ID[\"EPSG\",6428]],DERIVINGCONVERSION[\"Westminster site calibration (horizontal)\",METHOD[\"Affine parametric transformation\",ID[\"EPSG\",9624]],PARAMETER[\"A0\",503.9253920478007,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8623]],PARAMETER[\"A1\",1.000231041946945,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8624]],PARAMETER[\"A2\",-0.00020126312919239097,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8625]],PARAMETER[\"B0\",-546977.9701600745,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8639]],PARAMETER[\"B1\",0.00020126312919239097,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8640]],PARAMETER[\"B2\",1.000231041946945,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8641]]],CS[Cartesian,2],AXIS[\"site easting (E)\",east,ORDER[1],LENGTHUNIT[\"US survey foot\",0.304800609601219]],AXIS[\"site northing (N)\",north,ORDER[2],LENGTHUNIT[\"US survey foot\",0.304800609601219]]],VERTCRS[\"Westminster site height\",BASEVERTCRS[\"NAVD88 height (ftUS)\",VDATUM[\"North American Vertical Datum 1988\",ID[\"EPSG\",5103]],ID[\"EPSG\",6360]],DERIVINGCONVERSION[\"Westminster site calibration (vertical)\",METHOD[\"Vertical Offset and Slope\",ID[\"EPSG\",1046]],PARAMETER[\"Ordinate 1 of evaluation point\",39.89815166091368,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8617]],PARAMETER[\"Ordinate 2 of evaluation point\",-105.11508529887352,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8618]],PARAMETER[\"Vertical Offset\",1.7355492174519394,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8603]],PARAMETER[\"Inclination in latitude\",-18.196450752028323,ANGLEUNIT[\"arc-second\",0.00000484813681109536],ID[\"EPSG\",8730]],PARAMETER[\"Inclination in longitude\",-11.949966705964858,ANGLEUNIT[\"arc-second\",0.00000484813681109536],ID[\"EPSG\",8731]],PARAMETER[\"EPSG code for Horizontal CRS\",6318.0,ID[\"EPSG\",1037]]],CS[vertical,1],AXIS[\"site height (H)\",up,LENGTHUNIT[\"US survey foot\",0.304800609601219]]]]",
+    "queries": [
+      {
+        "prim": "/World/Control0",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control1",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control2",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control3",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control4",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "time": 0,
+    "interpolation": "linear",
+    "expected": null
+  },
+  {
+    "name": "Colorado_02",
+    "stage": "fixtures/Colorado_02.usda",
+    "output_wkt": "COMPOUNDCRS[\"Westminster site grid + site height\",DERIVEDPROJCRS[\"Westminster site grid\",BASEPROJCRS[\"NAD83(2011) / Colorado Central (ftUS)\",BASEGEOGCRS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",ELLIPSOID[\"GRS 1980\",6378137.0,298.257222101,LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",1116]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",6318]],CONVERSION[\"SPCS83 Colorado Central zone (US survey foot)\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",37.8333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",-105.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",39.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",38.45,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",3000000.0,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",1000000.0,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8827]],ID[\"EPSG\",15314]],ID[\"EPSG\",6428]],DERIVINGCONVERSION[\"Westminster site calibration (horizontal)\",METHOD[\"Affine parametric transformation\",ID[\"EPSG\",9624]],PARAMETER[\"A0\",503.9253920478007,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8623]],PARAMETER[\"A1\",1.000231041946945,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8624]],PARAMETER[\"A2\",-0.00020126312919239097,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8625]],PARAMETER[\"B0\",-546977.9701600745,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8639]],PARAMETER[\"B1\",0.00020126312919239097,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8640]],PARAMETER[\"B2\",1.000231041946945,SCALEUNIT[\"coefficient\",1.0],ID[\"EPSG\",8641]]],CS[Cartesian,2],AXIS[\"site easting (E)\",east,ORDER[1],LENGTHUNIT[\"US survey foot\",0.304800609601219]],AXIS[\"site northing (N)\",north,ORDER[2],LENGTHUNIT[\"US survey foot\",0.304800609601219]]],VERTCRS[\"Westminster site height\",BASEVERTCRS[\"NAVD88 height (ftUS)\",VDATUM[\"North American Vertical Datum 1988\",ID[\"EPSG\",5103]],ID[\"EPSG\",6360]],DERIVINGCONVERSION[\"Westminster site calibration (vertical)\",METHOD[\"Vertical Offset and Slope\",ID[\"EPSG\",1046]],PARAMETER[\"Ordinate 1 of evaluation point\",39.89815166091368,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8617]],PARAMETER[\"Ordinate 2 of evaluation point\",-105.11508529887352,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8618]],PARAMETER[\"Vertical Offset\",1.7355492174519394,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8603]],PARAMETER[\"Inclination in latitude\",-18.196450752028323,ANGLEUNIT[\"arc-second\",0.00000484813681109536],ID[\"EPSG\",8730]],PARAMETER[\"Inclination in longitude\",-11.949966705964858,ANGLEUNIT[\"arc-second\",0.00000484813681109536],ID[\"EPSG\",8731]],PARAMETER[\"EPSG code for Horizontal CRS\",6318.0,ID[\"EPSG\",1037]]],CS[vertical,1],AXIS[\"site height (H)\",up,LENGTHUNIT[\"US survey foot\",0.304800609601219]]]]",
+    "queries": [
+      {
+        "prim": "/World/Control0",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control1",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control2",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control3",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control4",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "time": 0,
+    "interpolation": "linear",
+    "expected": null
+  },
+  {
+    "name": "Colorado_03",
+    "stage": "fixtures/Colorado_03.usda",
+    "output_wkt": "COMPOUNDCRS[\"NAD83(2011) / Colorado Central (ftUS) + NAVD88 height (ftUS)\",PROJCRS[\"NAD83(2011) / Colorado Central (ftUS)\",BASEGEOGCRS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",ELLIPSOID[\"GRS 1980\",6378137.0,298.257222101,LENGTHUNIT[\"metre\",1.0]],ID[\"EPSG\",1116]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",6318]],CONVERSION[\"SPCS83 Colorado Central zone (US survey foot)\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",37.8333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",-105.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",39.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",38.45,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",3000000.0,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",1000000.0,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8827]],ID[\"EPSG\",15314]],CS[Cartesian,2],AXIS[\"easting (X)\",east,ORDER[1],LENGTHUNIT[\"US survey foot\",0.304800609601219]],AXIS[\"northing (Y)\",north,ORDER[2],LENGTHUNIT[\"US survey foot\",0.304800609601219]],ID[\"EPSG\",6428]],VERTCRS[\"NAVD88 height (ftUS)\",VDATUM[\"North American Vertical Datum 1988\",ID[\"EPSG\",5103]],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"US survey foot\",0.304800609601219]],ID[\"EPSG\",6360]]]",
+    "queries": [
+      {
+        "prim": "/World/Control0",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control1",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control2",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control3",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      {
+        "prim": "/World/Control4",
+        "points": [
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    ],
+    "time": 0,
+    "interpolation": "linear",
+    "expected": null
+  },
+  {
+    "name": "climate",
+    "stage": "fixtures/climate.usda",
+    "output_wkt": "GEOGCRS[\"WGS 84 (CRS84)\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic longitude (Lon)\",east,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic latitude (Lat)\",north,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Not known.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"OGC\",\"CRS84\"]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "dataset": "/World/Data"
+  },
+  {
+    "name": "climate-no-height",
+    "stage": "fixtures/climate.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "dataset": "/World/Data",
+    "expect_failure": "dimensional"
+  },
+  {
+    "name": "city",
+    "stage": "fixtures/city.usda",
+    "output_wkt": "GEOGCRS[\"WGS 84 (CRS84)\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic longitude (Lon)\",east,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic latitude (Lat)\",north,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Not known.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"OGC\",\"CRS84\"]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "dataset": "/World/Data"
+  },
+  {
+    "name": "city-point",
+    "stage": "fixtures/city-point.usda",
+    "output_wkt": "GEOGCRS[\"WGS 84 (CRS84)\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic longitude (Lon)\",east,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic latitude (Lat)\",north,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Not known.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"OGC\",\"CRS84\"]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "dataset": "/World/Data"
+  },
+  {
+    "name": "city-adjusted",
+    "stage": "fixtures/city-adjusted.usda",
+    "output_wkt": "GEOGCRS[\"WGS 84 (CRS84)\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic longitude (Lon)\",east,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic latitude (Lat)\",north,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Not known.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"OGC\",\"CRS84\"]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "dataset": "/World/Data"
+  },
+  {
+    "name": "city-adjusted-grid",
+    "stage": "fixtures/city-adjusted.usda",
+    "output_wkt": "PROJCRS[\"WGS 84 / UTM zone 32N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4326]],CONVERSION[\"UTM zone 32N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",9.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1.0],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Navigation and medium accuracy spatial referencing.\"],AREA[\"Between 6°E and 12°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Austria. Cameroon. Denmark. Equatorial Guinea. France. Gabon. Germany. Italy. Libya. Liechtenstein. Monaco. Netherlands. Niger. Nigeria. Norway. Sao Tome and Principe. Svalbard. Sweden. Switzerland. Tunisia. Vatican City State.\"],BBOX[0.0,6.0,84.0,12.0]],ID[\"EPSG\",32632]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "dataset": "/World/Data"
+  },
+  {
+    "name": "multi-geographic",
+    "stage": "fixtures/multi-geographic.usda",
+    "output_wkt": "GEOGCRS[\"WGS 84 (CRS84)\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic longitude (Lon)\",east,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic latitude (Lat)\",north,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Not known.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"OGC\",\"CRS84\"]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "dataset": "/World/Data"
+  },
+  {
+    "name": "multi-projected",
+    "stage": "fixtures/multi-projected.usda",
+    "output_wkt": "GEOGCRS[\"WGS 84 (CRS84)\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic longitude (Lon)\",east,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic latitude (Lat)\",north,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Not known.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"OGC\",\"CRS84\"]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "dataset": "/World/Data"
+  },
+  {
+    "name": "global-3d",
+    "stage": "fixtures/global-3d.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "dataset": "/World/Data"
+  },
+  {
+    "name": "global-3d-geographic",
+    "stage": "fixtures/global-3d.usda",
+    "output_wkt": "GEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,3],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4979]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "dataset": "/World/Data"
+  },
+  {
+    "name": "railway",
+    "stage": "fixtures/railway.usda",
+    "output_wkt": "PROJCRS[\"WGS 84 / UTM zone 32N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4326]],CONVERSION[\"UTM zone 32N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",9.0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1.0],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0.0,LENGTHUNIT[\"metre\",1.0],ID[\"EPSG\",8807]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Navigation and medium accuracy spatial referencing.\"],AREA[\"Between 6°E and 12°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Austria. Cameroon. Denmark. Equatorial Guinea. France. Gabon. Germany. Italy. Libya. Liechtenstein. Monaco. Netherlands. Niger. Nigeria. Norway. Sao Tome and Principe. Svalbard. Sweden. Switzerland. Tunisia. Vatican City State.\"],BBOX[0.0,6.0,84.0,12.0]],ID[\"EPSG\",32632]]",
+    "queries": [],
+    "expected": null,
+    "time": 0,
+    "interpolation": "linear",
+    "dataset": "/World/Data"
+  }
+]

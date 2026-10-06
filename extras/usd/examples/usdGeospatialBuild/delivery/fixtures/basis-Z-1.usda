@@ -11,7 +11,7 @@ def Xform "World" (
     customData = {
         dictionary profilesInfo = {
             dictionary capabilityUsages = {
-                string "geospatial:crsResolution" = "hard"
+                string "usd.geospatial.crsResolution" = "hard"
             }
         }
         string userDocBrief = "Concrete prim schema for a transform, which implements Xformable."
@@ -25,7 +25,8 @@ def Xform "World" (
     {
         quatd crs:orientation = (0.7071067811865476, 0, 0, 0.7071067811865476)
         double3 crs:position = (6378137, 0, 0)
-        double3 crs:scale = (2, 3, 4)
+        float3 xformOp:scale = (2, 3, 4)
+        uniform token[] xformOpOrder = ["xformOp:scale"]
     }
 }
 

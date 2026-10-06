@@ -11,7 +11,7 @@ def Xform "World" (
     customData = {
         dictionary profilesInfo = {
             dictionary capabilityUsages = {
-                string "geospatial:crsResolution" = "hard"
+                string "usd.geospatial.crsResolution" = "hard"
             }
         }
         string userDocBrief = "Concrete prim schema for a transform, which implements Xformable."
@@ -23,7 +23,7 @@ def Xform "World" (
         prepend references = @./crs-library.usda@</Definitions/C3f0a6b68843a1b02>
     )
     {
-        uniform asset data:asset = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-leans-run-20261006-final\fixtures\multi-domain.nc@
+        uniform asset data:asset = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-contract-run-20261006-v6\fixtures\multi-domain.nc@
         uniform string data:coordinateDomain = "projected"
         uniform string data:field = "measurement"
         uniform token data:format = "CF"

@@ -1,0 +1,62 @@
+{
+  "executed_source_content_commit": "c177734e52eb7cdda1c357953744f55ca5b842e0",
+  "commit_blobs_match_immutable_freeze": true,
+  "source_file_count": 40,
+  "rejected_false_claim_controls": [
+    {
+      "false_claim": "usd_placement_implementations",
+      "rejected": true
+    },
+    {
+      "false_claim": "ov_rendering",
+      "rejected": true
+    },
+    {
+      "false_claim": "hydra_live_crs_filter",
+      "rejected": true
+    },
+    {
+      "false_claim": "physics_integration",
+      "rejected": true
+    },
+    {
+      "false_claim": "whole_proposal_conformance",
+      "rejected": true
+    },
+    {
+      "false_claim": "independent_geodetic_validation",
+      "rejected": true
+    },
+    {
+      "false_claim": "continuous_nonlinear_extent_certificate",
+      "rejected": true
+    }
+  ],
+  "portable_export_readbacks": [
+    {
+      "name": "geographic-scene",
+      "portable_fresh_reader_verified": true
+    },
+    {
+      "name": "instances-independent-prototype",
+      "portable_fresh_reader_verified": true
+    },
+    {
+      "name": "climate",
+      "portable_fresh_reader_verified": true
+    },
+    {
+      "name": "multi-geographic",
+      "portable_fresh_reader_verified": true
+    },
+    {
+      "name": "multi-projected",
+      "portable_fresh_reader_verified": true
+    },
+    {
+      "name": "global-3d-geographic",
+      "portable_fresh_reader_verified": true
+    }
+  ],
+  "remote_mutations": []
+}

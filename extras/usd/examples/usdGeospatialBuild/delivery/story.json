@@ -1,42 +1,63 @@
 {
-  "readme_sha256": "c8526cd9672f2b8759543cc9d70a0c46dfb12b90f6efdc873b35ce1f4b6c0226",
-  "run_receipt_sha256": "6c79acd04eab6bc51bc3a0e3ed50dcd66f1e7ec12395db537c76bc0dbb94a35d",
-  "immutable_receipt_sha256": "d3c90dd02e9642080edef6d0dfed00c95e6e3d01e18b746df9fdd185e63c31ca",
-  "proposal_sha256": "2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11",
-  "executed_source_commit": "874ad2059b4a0c168600804acc9ce56e5834d35a",
-  "integration_evidence_sha256": "235be1ab2b43c161614d1bba09517b8cb20166592929e7061d6b53f59f2ae8e9",
+  "readme_sha256": "f471c007044418d39804cfdc39a84f82cd195d428bd6cd934455f544ff35ab11",
+  "run_receipt_sha256": "f9694edf234e4a69cef58bb6ea0f5551b45f22c4f3a61501db1b27f513c44fed",
+  "immutable_receipt_sha256": "3baf0e2c215e8ac2ea30fb41197242b663469cd51f31ba48dc9e6c0d7b76833c",
+  "proposal_sha256": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
+  "integration_evidence_sha256": "0bcdb95aa92032522d31c919ae91894cece9557fbd0371cb3a66fdcdb8199fd1",
+  "executed_source_commit": "5c116fd2dd5767d42d34083d616edf66723efe92",
   "tests": {
     "regressions_passed": 64,
-    "distinguishing_controls_passed": 47,
+    "distinguishing_controls_passed": 61,
     "failed": 0
   },
-  "coordinate_count": 204729,
-  "max_cpp_error_metres": 2.945675730910151e-09,
+  "coordinate_count": 213231,
+  "max_cpp_error_metres": 3.3945759188783683e-08,
   "ov": {
     "implementation": "shared candidate Python runtime and PROJ; separate live geometry sink",
-    "jobs": 28,
-    "geometry_vertices": 177846,
-    "max_writeback_error_metres": 1.5757286645186782e-05,
-    "edit_checks": 27
+    "jobs": 35,
+    "geometry_vertices": 177864,
+    "max_writeback_error_metres": 2.9560060847411377e-05,
+    "edit_checks": 36
   },
-  "answers": [
+  "export_count": 11,
+  "choices": [
     [
-      "Q3: ordinary adjustments",
-      "Nearest enclosing CRS supplies the fixed working chart. The candidate spells out chart zero/site origin, pivots and descendant resets."
+      "Inputs / Q2, Q6",
+      "Position plus physical geodetic-attitude quaternion. Projection scale/convergence are computed; intentional scale uses xformOps."
     ],
     [
-      "Q6: stage conventions",
-      "Z-up uses (x,y,z). Y-up uses (x,-z,y). Stage units precede dimensionless scale and orientation."
+      "Transform order / Q3",
+      "Anchor xformOps adjust the resolved placement in a fixed working chart. Descendants retain model-local USD meaning."
     ],
     [
-      "Q11: external measurements",
-      "Proposed non-Xformable GeospatialDataSource identifies asset, format, field and coordinate domain. Native formats retain values, masks and observation times."
+      "Absolute data / Q11",
+      "Xformable carrier selects native asset, format, field and coordinate domain; values, masks and observation times stay paired."
     ],
     [
-      "Q12: dependency declaration",
-      "Existing Profiles ClaimsAPI on defaultPrim carries a proposed hard capability claim. Publishers conservatively maintain whole-scene coverage, including unloaded content."
+      "Instances and geographic output",
+      "Bound prototypes retain their own anchor; geographic tuples have an associated geocentric Cartesian scene chart."
+    ],
+    [
+      "Profiles, export and WKT",
+      "Whole-scene hard dependency claim; nonbinding Cartesian context for baked geometry; lexical WKT normal form distinct from semantic CRS equality."
     ]
   ],
+  "comparison": {
+    "candidate": "model-local descendant",
+    "alternative": "raw working-axis descendant",
+    "candidate_coordinates": [
+      448262.0291841338,
+      5411957.908700555,
+      35.000000704079866
+    ],
+    "alternative_coordinates": [
+      448265.00137536495,
+      5411954.909947274,
+      34.99999999906868
+    ],
+    "difference_metres": 4.222137130780142,
+    "normative_authority": "Evaluation, requirements 9 and 15; alternative is not an adopted contract"
+  },
   "examples": {
     "France_01": {
       "source": [
@@ -50,17 +71,17 @@
       "python": [
         661101.1094171533,
         6857834.256535667,
-        37.298
+        37.297999998112694
       ],
       "native": [
         661101.1094171533,
         6857834.256535667,
-        37.298
+        37.298000000906654
       ],
       "ov": [
         661101.1094171533,
         6857834.256535667,
-        37.298
+        37.297999998112694
       ]
     },
     "Colorado_02": {
@@ -69,61 +90,26 @@
         1752265.0666,
         5482.9424
       ],
-      "source_label": "Colorado State Plane",
+      "source_label": "State Plane",
       "target_label": "Westminster site grid",
       "unit": "ftUS",
       "python": [
         3108871.450100667,
-        1206317.469403112,
-        5484.677949267536
+        1206317.4694031866,
+        5484.677949332321
       ],
       "native": [
         3108871.450100667,
         1206317.469403112,
-        5484.677949267536
+        5484.677949268161
       ],
       "ov": [
         3108871.450100667,
-        1206317.469403112,
-        5484.677949267536
+        1206317.4694031866,
+        5484.677949332321
       ]
     }
   },
-  "frame": [
-    [
-      0.0,
-      0.020000000000000004,
-      0.0
-    ],
-    [
-      0.0,
-      0.0,
-      0.04
-    ],
-    [
-      0.02999999901900689,
-      6.661338147750939e-18,
-      0.0
-    ]
-  ],
-  "source_time_coordinates": [
-    [
-      6378137.0,
-      0.0,
-      0.0
-    ],
-    [
-      6377165.5788417,
-      111313.83923667614,
-      0.0
-    ],
-    [
-      6374251.6112710945,
-      222593.77119959943,
-      0.0
-    ]
-  ],
-  "chord_error_metres": 971.4211583005462,
   "working_queries": [
     {
       "prim": "/World/Asset",
@@ -161,46 +147,64 @@
       ]
     }
   ],
+  "source_time_coordinates": [
+    [
+      6378137.0,
+      0.0,
+      0.0
+    ],
+    [
+      6377165.5788417,
+      111313.83923667613,
+      0.0
+    ],
+    [
+      6374251.6112710945,
+      222593.77119959943,
+      0.0
+    ]
+  ],
+  "chord_error_metres": 971.4211583005459,
   "slides": [
     {
-      "title": "Proposal quality and candidate evidence",
-      "section": "Proposal authority and decisions requiring review"
+      "title": "Proposal quality and review choices",
+      "section": "Proposal quality and review choices"
     },
     {
-      "title": "Concrete contracts for group review",
-      "section": "Proposal authority and decisions requiring review"
+      "title": "Authored inputs and computed results",
+      "section": "Proposal quality and review choices"
     },
     {
-      "title": "A fixed working frame for project adjustments",
-      "section": "Physical placement and ordinary transforms"
+      "title": "Anchor adjustments and model-local descendants",
+      "section": "Ordered math and the descendant choice"
     },
     {
-      "title": "Eiffel geometry in the native Hydra consumer",
-      "section": "Eiffel model and native Hydra rendering"
+      "title": "Eiffel geometry in native Hydra / Storm",
+      "section": "Eiffel geometry and shading"
     },
     {
-      "title": "Colorado survey geometry in a calibrated site",
-      "section": "Colorado survey geometry and site calibration"
+      "title": "Colorado survey in a calibrated site",
+      "section": "Colorado site calibration"
     },
     {
-      "title": "Georeferenced measurements remain usable as data",
-      "section": "Non-visual measurements and regional geometry"
+      "title": "Global measurements in geographic and ECEF coordinates",
+      "section": "Native measurements and larger-scale workflows"
     },
     {
-      "title": "Regional geometry retains its source coordinates",
-      "section": "Non-visual measurements and regional geometry"
+      "title": "Railway geometry retains its source coordinates",
+      "section": "Native measurements and larger-scale workflows"
     },
     {
-      "title": "Matching partner-coordinate queries",
-      "section": "Same partner coordinate inputs in both implementations and the OV host"
+      "title": "The same partner data in both placements",
+      "section": "Same partner data in both placements"
     },
     {
       "title": "Source interpolation and sampled exports",
-      "section": "Source interpolation and freshly reread exports"
+      "section": "Geographic scene charts and exports"
     },
     {
-      "title": "Consumer evidence and remaining limits",
-      "section": "Actual consumers and shared components"
+      "title": "Verified consumers and remaining evidence limits",
+      "section": "Consumer evidence and limits"
     }
   ]
 }

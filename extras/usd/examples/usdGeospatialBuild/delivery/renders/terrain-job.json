@@ -1,15 +1,15 @@
 {
-  "stage": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-leans-run-20261006-final\\exports\\terrain.usda",
+  "stage": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-contract-run-20261006-v6\\exports\\terrain.usda",
   "time": 0,
-  "render": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-leans-run-20261006-final\\renders\\terrain.png",
+  "render": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-contract-run-20261006-v6\\renders\\terrain.png",
   "camera_eye": [
-    948078.9354859528,
-    367000.51823191944,
-    2272.4409444738912
+    948078.1934529544,
+    367000.66118181444,
+    2272.4313312554127
   ],
   "camera_aim": [
-    947628.9354859528,
-    367700.51823191944,
-    1672.4409444738915
+    947628.1934529544,
+    367700.66118181444,
+    1672.4313312554127
   ]
 }
