@@ -31,6 +31,8 @@ async def main():
             r=Runtime(stage,job['output_wkt'],job['time']);readback={}
             for path,values in record['geometry'].items():
                 coordinates=np.array(values);center=coordinates[0];local=r.stage_coordinates(coordinates,center)
+                chart_coordinates=r.convert(r.output,r.scene_crs,coordinates) if r.output.is_geographic else coordinates
+                chart_center=chart_coordinates[0]
                 source_path=record.get('geometry_sources',{}).get(path,path);source=stage.GetPrimAtPath(source_path);rp=rt.GetPrimAtPath(path)
                 if not rp:
                     prototype=rt.GetPrimAtPath(source_path)
@@ -42,12 +44,18 @@ async def main():
                 attribute=rp.GetAttribute('points')
                 if not attribute or len(attribute.Get())!=len(source.GetAttribute('points').Get(Usd.TimeCode(job['time']))):raise RuntimeError('Live source geometry was not ingested')
                 attribute.Set(usdrt.Vt.Vec3fArray([usdrt.Gf.Vec3f(*map(float,p)) for p in local]))
-                matrix=np.eye(4);matrix[3,:3]=(center*factors(r.output))@r.B.T/r.unit
+                matrix=np.eye(4);matrix[3,:3]=(chart_center*factors(r.scene_crs))@r.B.T/r.unit
                 x=usdrt.Rt.Xformable(rp);world=x.CreateFabricHierarchyWorldMatrixAttr();world.Set(usdrt.Gf.Matrix4d(*matrix.ravel().tolist()))
                 raw=np.array(attribute.Get(),float);m=np.array(world.Get(),float)
-                actual=(np.c_[raw,np.ones(len(raw))]@m)[:,:3]@r.B*r.unit/factors(r.output)
-                error=float(np.max(np.linalg.norm((actual-coordinates)*factors(r.output),axis=1)))
+                actual=(np.c_[raw,np.ones(len(raw))]@m)[:,:3]@r.B*r.unit/factors(r.scene_crs)
+                error=float(np.max(np.linalg.norm((actual-chart_coordinates)*factors(r.scene_crs),axis=1)))
                 if error>.001:raise RuntimeError(f'Live geometry readback exceeded 1mm: {path} {error}')
+                normal=record.get('geometry_normals',{}).get(path)
+                if normal:
+                    na=rp.GetAttribute('normals')
+                    if not na:na=rp.CreateAttribute('normals',Sdf.ValueTypeNames.Normal3fArray,True)
+                    na.Set(usdrt.Vt.Vec3fArray([usdrt.Gf.Vec3f(*map(float,n)) for n in normal['values']]))
+                    if np.max(abs(np.array(na.Get())-normal['values']))>1e-6:raise RuntimeError('Live normals readback failed')
                 usdrt.UsdGeom.Imageable(rp).CreateVisibilityAttr().Set('inherited')
                 readback[path]={'vertices':len(raw),'max_metric_error':error,'first_native_coordinate':actual[0].tolist()}
             return readback

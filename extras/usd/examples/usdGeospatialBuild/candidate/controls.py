@@ -41,7 +41,7 @@ def verify(jobs,results,targets,directory):
     fails('blocked position has no zero fallback',lambda:r.placement(p,[[0,0,0]]));s.GetSessionLayer().ImportFromString(before[s.GetSessionLayer().identifier])
     with Usd.EditContext(s,s.GetSessionLayer()):p.GetAttribute('crs:orientation').Set(Gf.Quatd(2))
     fails('nonunit quaternion rejected',lambda:r.placement(p,[[0,0,0]]));s.GetSessionLayer().ImportFromString(before[s.GetSessionLayer().identifier])
-    with Usd.EditContext(s,s.GetSessionLayer()):p.GetAttribute('crs:scale').Set(Gf.Vec3d(0,1,1))
+    with Usd.EditContext(s,s.GetSessionLayer()):UsdGeom.Xformable(p).AddScaleOp(opSuffix='singular').Set((0,1,1))
     yes('singular scale permits forward point',np.isfinite(r.placement(p,[[1,0,0]])).all())
     s.GetSessionLayer().ImportFromString(before[s.GetSessionLayer().identifier])
     yes('authored layers preserved through negative controls',before==r.snapshot())
@@ -70,7 +70,7 @@ def verify(jobs,results,targets,directory):
     yes('one external container retains separate selected coordinate domains',np.max(abs(np.array(mg['dataset_coordinates'])-mp['dataset_coordinates']))<1e-10 and mg['association']['domain']!=mp['association']['domain'])
     yes('CF measurement values and missing masks remain paired across domains',mg['measurement_sha256']==mp['measurement_sha256'] and mg['association']['mask']==mp['association']['mask'] and sum(mg['association']['mask'])==1)
     yes('CF observation times remain native metadata independent of USD time',mg['association']['times']['time']['values']==[0,3600] and mg['association']['times']['time']['units']=='seconds since 2026-10-05 00:00:00')
-    yes('relative position follows target orientation and scale',np.max(abs(np.array(results['relative-position']['relative_position'])-[[-5,0,0]]))<1e-8)
+    yes('relative position uses output CRS rather than target model frame',np.max(abs(np.array(results['relative-position']['relative_position'])-[[0,-10,0]]))<1e-8)
     full=results['instances']['geometry'];masked=results['instances-masked']['geometry']
     for name in ['tower','terrain','composition','instances']:
         vertices=np.concatenate([np.array(v) for v in results[name]['geometry'].values()]);box=results[name]['polygonal_bounds']
@@ -84,6 +84,32 @@ def verify(jobs,results,targets,directory):
     unloaded=Usd.Stage.Open(str(directory/'dependency-assembly.usda'),load=Usd.Stage.LoadNone)
     yes('Profiles summary readable with outside unloaded payload',dependency(unloaded)['usage']=='hard' and not unloaded.GetPrimAtPath('/Outside').IsLoaded())
     # Authored unknown dependency conservatively retains hard; ordinary Core composition still permits a bad override, detected here.
-    with Usd.EditContext(unloaded,unloaded.GetSessionLayer()):unloaded.GetDefaultPrim().SetCustomData({'profilesInfo':{'capabilityUsages':{'geospatial:crsResolution':'soft'}}})
+    with Usd.EditContext(unloaded,unloaded.GetSessionLayer()):unloaded.GetDefaultPrim().SetCustomData({'profilesInfo':{'capabilityUsages':{'usd.geospatial.crsResolution':'soft'}}})
     fails('stronger layer cannot silently weaken required summary',lambda:dependency(unloaded))
+    # Newly defined outcomes, checked against explicit geometry/metadata facts.
+    shifted=np.array(results['city-adjusted-grid']['dataset_coordinates'])
+    yes('adjusted imagery keeps native measurements',results['city-adjusted']['measurement_sha256']==results['city']['measurement_sha256'])
+    yes('adjusted imagery keeps native coordinate bytes',results['city-adjusted']['source_coordinates_sha256']==results['city']['source_coordinates_sha256'])
+    yes('adjusted imagery adds 25m east and 10m south in project axes',np.linalg.norm(shifted[0]-[500030,5499985])<1e-7)
+    reset_geometry=results['prototype-reset']['geometry'];yes('prototype-child reset excludes the +100 prototype offset',np.linalg.norm(np.asarray(next(iter(reset_geometry.values())))[0]-[6378137,11,0])<1e-8)
+    g=results['geographic-scene'];yes('geographic scene frame names Cartesian chart',g['frames']['/World/Model']['chart']=='associated geocentric Cartesian')
+    yes('geographic bounds use the associated Cartesian scene chart',CRS.from_wkt(g['polygonal_bounds']['chart_wkt']).is_geocentric and g['polygonal_bounds']['min'][0]>6e6)
+    independent=results['instances-independent-prototype']['geometry']
+    yes('independently CRS-bound prototypes no longer fail',sum('/_ResolvedInstance' in key for key in independent)==2)
+    # Conformance counterexample: D is model-local while A is a working adjustment.
+    s=Usd.Stage.Open(byname['working-adjustment']['stage']);r=Runtime(s,targets['utm31']);child=s.GetPrimAtPath('/World/Asset/Child')
+    local=r.placement(child,[[0,0,0]])[0];world=r.placement(child,[[0,0,0]],descendants_in_working=True)[0]
+    yes('model-local versus raw working-child alternatives are distinguishable',np.linalg.norm(local-world)>4)
+    from pathlib import Path
+    (Path(directory).parent/'transform-order-comparison.json').write_text(json.dumps({'candidate':'model-local descendant','alternative':'raw working-axis descendant','candidate_coordinates':local.tolist(),'alternative_coordinates':world.tolist(),'difference_metres':float(np.linalg.norm(local-world)),'normative_authority':'Evaluation, requirements 9 and 15; alternative is not an adopted contract'},indent=2))
+    glob=results['global-3d'];geo=results['global-3d-geographic']
+    yes('synthetic global 3D keeps all positions and both observation times',len(glob['dataset_coordinates'])==154 and geo['association']['times']['time']['values']==[0,3600])
+    yes('synthetic global height is explicit rather than inferred',all(abs(c[2]-100)<1e-8 for c in geo['dataset_coordinates']))
+    yes('global geographic/ECEF outputs retain the same measurement values',glob['measurement_sha256']==geo['measurement_sha256'])
+    # Normal transport has an independently known direction at the equator.
+    s=Usd.Stage.Open(byname['basis-Z-1']['stage']);r=Runtime(s,targets['ecef3']);p=s.GetPrimAtPath('/World/Model')
+    n=r.normal(p,[[0,0,0]],[[1,0,0]])[0]
+    yes('normal follows geodetic attitude and output Cartesian axes',np.linalg.norm(n-[0,0,1])<1e-8)
+    with Usd.EditContext(s,s.GetSessionLayer()):UsdGeom.Xformable(p).AddScaleOp(opSuffix='singular').Set((0,1,1))
+    fails('singular normal map rejected',lambda:r.normal(p,[[0,0,0]],[[1,0,0]]))
     return checks

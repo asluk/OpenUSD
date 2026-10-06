@@ -15,10 +15,11 @@ def read(prim, time):
     if not UsdGeom.Xformable(owner):
         raise ScopeError('Model binding must be on Xformable')
     result = dict(definition)
+    if owner.HasAttribute('crs:scale') and owner.GetAttribute('crs:scale').HasAuthoredValueOpinion():
+        raise ScopeError('Undocumented crs:scale is not an input')
     for name, kind, fallback in [
             ('position', Sdf.ValueTypeNames.Double3, None),
-            ('orientation', Sdf.ValueTypeNames.Quatd, (1., 0., 0., 0.)),
-            ('scale', Sdf.ValueTypeNames.Double3, (1., 1., 1.))]:
+            ('orientation', Sdf.ValueTypeNames.Quatd, (1., 0., 0., 0.))]:
         attribute = owner.GetAttribute('crs:' + name)
         authored=attribute.GetPropertyStack(Usd.TimeCode(time)) if attribute else []
         if authored and authored[0].typeName!=kind:

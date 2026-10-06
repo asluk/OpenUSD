@@ -13,7 +13,7 @@ def mark(p,name):
 
 def claim(stage):
     p=stage.GetDefaultPrim();UsdProfiles.ClaimsAPI.Apply(p)
-    d=p.GetCustomData();d.setdefault('profilesInfo',{})['capabilityUsages']={'geospatial:crsResolution':'hard'}
+    d=p.GetCustomData();d.setdefault('profilesInfo',{})['capabilityUsages']={'usd.geospatial.crsResolution':'hard'}
     p.SetCustomData(d)
 
 def attr(p,name,typ,value,uniform=False):
@@ -44,12 +44,14 @@ def build(root,directory):
 
     for axis,unit in [('Z',1),('Y',1),('Y',.01)]:
         name=f'basis-{axis}-{unit}';s,p=make(name,axis,unit);a=anchor(s,'/World/Model',targets['ecef3'],[6378137,0,0]);
-        attr(a,'crs:scale',Sdf.ValueTypeNames.Double3,Gf.Vec3d(2,3,4))
+        UsdGeom.Xformable(a).AddScaleOp().Set((2,3,4))
         attr(a,'crs:orientation',Sdf.ValueTypeNames.Quatd,Gf.Rotation(Gf.Vec3d(0,0,1),90).GetQuat())
         v=[[1,0,0],[0,1,0],[0,0,1]]
         # Independent expected formula: axis convention, scale, quarter-turn.
         ordered=np.array(v) if axis=='Z' else np.array([[1,0,0],[0,0,1],[0,-1,0]])
-        scaled=ordered*unit*[2,3,4];expected=np.c_[-scaled[:,1],scaled[:,0],scaled[:,2]]+[6378137,0,0]
+        rotated=np.c_[-ordered[:,1],ordered[:,0],ordered[:,2]]*unit
+        # At lon=lat=0, ECEF directions of E,N,U are +Y,+Z,+X.
+        expected=rotated[:,[2,0,1]]*([2,3,4] if axis=='Z' else [2,4,3])+[6378137,0,0]
         save(name,s,'ecef3',[{'prim':str(a.GetPath()),'points':v}],expected.tolist())
         jobs[-1]['frames']=[str(a.GetPath())]
 
@@ -62,9 +64,9 @@ def build(root,directory):
     jobs.append({**jobs[-1],'name':'working-adjustment-ecef','output_wkt':targets['ecef3']})
     jobs[-1]['frames']=['/World/Asset']
     s,p=make('geographic-working');anchor(s,'/World',targets['geo3'],[2.29,48.85,20]);a=anchor(s,'/World/Asset',targets['geo3'],[2.2945,48.8584,35]);UsdGeom.Xformable(a).AddTranslateOp().Set((12,4,3));save('geographic-working',s,'ecef3',[{'prim':str(a.GetPath()),'points':[[0,0,0],[1,0,0]]}])
-    s,p=make('pivot-order');a=anchor(s,'/World/Model',targets['ecef3'],[100,200,300]);x=UsdGeom.Xformable(a)
-    x.AddTranslateOp(opSuffix='pivot').Set((100,200,300));x.AddRotateZOp().Set(90);x.AddTranslateOp(opSuffix='pivot',isInverseOp=True)
-    save('pivot-order',s,'ecef3',[{'prim':str(a.GetPath()),'points':[[1,0,0],[0,2,0]]}],[[100,201,300],[98,200,300]])
+    s,p=make('pivot-order');a=anchor(s,'/World/Model',targets['ecef3'],[6378137,0,0]);x=UsdGeom.Xformable(a)
+    x.AddTranslateOp(opSuffix='pivot').Set((0,0,0));x.AddRotateZOp().Set(90);x.AddTranslateOp(opSuffix='pivot',isInverseOp=True)
+    save('pivot-order',s,'ecef3',[{'prim':str(a.GetPath()),'points':[[1,0,0],[0,2,0]]}],[[6378136,0,0],[6378137,0,2]])
     s,p=make('time-source');a=anchor(s,'/World/Model',targets['geo3'],[0,0,0]);a.GetAttribute('crs:position').Clear();a.GetAttribute('crs:position').Set((0,0,0),0);a.GetAttribute('crs:position').Set((2,0,0),10)
     point=UsdGeom.Points.Define(s,'/World/Model/Sample');point.CreatePointsAttr(Vt.Vec3fArray([Gf.Vec3f(0),Gf.Vec3f(1,0,0)]));point.CreateWidthsAttr(Vt.FloatArray([.01]))
     save('time-source',s,'ecef3',[{'prim':str(a.GetPath()),'points':[[0,0,0]]}],[[6378137*np.cos(np.pi/180),6378137*np.sin(np.pi/180),0]],5)
@@ -74,8 +76,16 @@ def build(root,directory):
     jobs.append({**jobs[-3],'name':'time-source-t10','time':10,'expected':[[6378137*np.cos(2*np.pi/180),6378137*np.sin(2*np.pi/180),0]]})
 
     s,p=make('relative-position');a=anchor(s,'/World/A',targets['ecef3'],[6378137,0,0]);b=anchor(s,'/World/B',targets['ecef3'],[6378137,10,0])
-    attr(b,'crs:orientation',Sdf.ValueTypeNames.Quatd,Gf.Rotation(Gf.Vec3d(0,0,1),90).GetQuat());attr(b,'crs:scale',Sdf.ValueTypeNames.Double3,Gf.Vec3d(2,3,1))
-    save('relative-position',s,'ecef3',[{'prim':str(a.GetPath()),'points':[[0,0,0]]}]);jobs[-1]['relative']={'from':'/World/A','to':'/World/B','expected_local':[-5,0,0]}
+    attr(b,'crs:orientation',Sdf.ValueTypeNames.Quatd,Gf.Rotation(Gf.Vec3d(0,0,1),90).GetQuat());UsdGeom.Xformable(b).AddScaleOp().Set((2,3,1))
+    save('relative-position',s,'ecef3',[{'prim':str(a.GetPath()),'points':[[0,0,0]]}]);jobs[-1]['relative']={'from':'/World/A','to':'/World/B','expected_output_difference':[0,-10,0]}
+
+    # A prototype-child reset excludes its prototype transform, while the
+    # explicitly selected per-instance transform still positions the copy.
+    s,p=make('prototype-reset');anchor(s,'/World',targets['ecef3'],[6378137,0,0])
+    proto=UsdGeom.Xform.Define(s,'/World/Proto');proto.AddTranslateOp().Set((100,0,0))
+    point=UsdGeom.Points.Define(s,'/World/Proto/Child');point.CreatePointsAttr(Vt.Vec3fArray([Gf.Vec3f(0)]));point.AddTranslateOp().Set((1,0,0));point.SetResetXformStack(True)
+    inst=UsdGeom.PointInstancer.Define(s,'/World/Inst');inst.CreatePrototypesRel().SetTargets(['/World/Proto']);inst.CreateProtoIndicesAttr(Vt.IntArray([0]));inst.CreatePositionsAttr(Vt.Vec3fArray([Gf.Vec3f(10,0,0)]))
+    save('prototype-reset',s,'ecef3',[]);jobs[-1]['geometry']=True
 
     # Original geometry is retained; old experimental role markers are writer-side intake only and are removed.
     migrations=[]
@@ -89,6 +99,9 @@ def build(root,directory):
             if rel and rel.HasAuthoredTargets():
                 cp=dst.GetPrimAtPath(rel.GetTargets()[0]);wkt=normalize(cp.GetAttribute('crs:wkt').Get());prim.RemoveProperty('crs:binding');bind(prim,wkt,library)
             if prim.HasRelationship('crs:coordinateProperties'):prim.RemoveProperty('crs:coordinateProperties')
+            if prim.HasAttribute('crs:scale'):
+                scale=prim.GetAttribute('crs:scale').Get();prim.RemoveProperty('crs:scale')
+                if scale and tuple(scale)!=(1,1,1):UsdGeom.Xformable(prim).AddScaleOp(opSuffix='intentional').Set(scale)
         dst.GetRootLayer().customLayerData={}
         if not dst.GetDefaultPrim(): dst.SetDefaultPrim(next(iter(dst.GetPseudoRoot().GetChildren())))
         claim(dst);dst.GetRootLayer().Export(str(directory/(name+'.usda')))
@@ -102,9 +115,11 @@ def build(root,directory):
             jobs.append({**jobs[-1],'name':'instances-masked','stage':str(directory/'instances-masked.usda')})
             negative=Usd.Stage.Open(str(directory/(name+'.usda')))
             inst=next(UsdGeom.PointInstancer(p) for p in negative.Traverse() if p.IsA(UsdGeom.PointInstancer))
-            proto=negative.GetPrimAtPath(inst.GetPrototypesRel().GetTargets()[0]);bind(proto,targets['utm31'],library);attr(proto,'crs:position',Sdf.ValueTypeNames.Double3,Gf.Vec3d(0))
+            proto=negative.GetPrimAtPath(inst.GetPrototypesRel().GetTargets()[0]);bind(proto,targets['utm31'],library);attr(proto,'crs:position',Sdf.ValueTypeNames.Double3,Gf.Vec3d(448251,5411932,35))
             negative.GetRootLayer().Export(str(directory/'instances-independent-prototype.usda'))
-            jobs.append({**jobs[-1],'name':'instances-independent-prototype','stage':str(directory/'instances-independent-prototype.usda'),'expect_failure':True,'expect_error_tokens':['Independently CRS-bound point-instancer prototype']})
+            jobs.append({**jobs[-1],'name':'instances-independent-prototype','stage':str(directory/'instances-independent-prototype.usda')})
+    # Geographic coordinate output retains an associated Cartesian geometry chart.
+    jobs.append({**next(j for j in jobs if j['name']=='time-source'),'name':'geographic-scene','output_wkt':targets['geo3'],'frames':['/World/Model'],'expected':[[1,0,0]]})
     # Partner point controls in both directions, all three source coordinates retained.
     controls=json.loads((root/'data/partner-controls.json').read_text())
     # Use original committed fixture positions, not rounded CSV as numerical truth.
@@ -151,6 +166,9 @@ def build(root,directory):
     with rio_open(point_tif,'w',driver='GTiff',width=64,height=64,count=1,dtype='float64',crs='EPSG:32632',transform=from_origin(500000,5500000,10,10)) as ds:
         ds.write(image,1);ds.update_tags(AREA_OR_POINT='Point')
     dataset('city-point','GeoTIFF',point_tif,'1','0','utm32_2','geo2')
+    shifted,d=dataset('city-adjusted','GeoTIFF',tif,'1','0','utm32_2','geo2')
+    UsdGeom.Xformable(d).AddTranslateOp().Set((25,-10,0));shifted.GetRootLayer().Save()
+    jobs.append({**jobs[-1],'name':'city-adjusted-grid','output_wkt':targets['utm32_2']})
     multi=directory/'multi-domain.nc';lat2=np.array([48.,49.]);lon2=np.array([8.,9.,10.]);lo,la=np.meshgrid(lon2,lat2)
     from pyproj import Transformer
     xx2,yy2=Transformer.from_crs('OGC:CRS84',32632,always_xy=True).transform(lo,la)
@@ -163,6 +181,19 @@ def build(root,directory):
         values=nc.createVariable('measurement','f8',('time','row','column'),fill_value=-9999);values[:]=np.arange(12).reshape(2,2,3);values[1,1,2]=-9999;values.units='1';values.coordinates='longitude latitude time';values.grid_mapping='geographic: longitude latitude projected: easting northing'
     dataset('multi-geographic','CF',multi,'measurement','geographic','geo2','geo2')
     dataset('multi-projected','CF',multi,'measurement','projected','utm32_2','geo2')
+    # Explicit synthetic 3D global domain; no height is inserted into partner data.
+    global3=directory/'global-3d.nc';lat3=np.linspace(-75,75,7);lon3=np.linspace(-150,150,11);lo3,la3=np.meshgrid(lon3,lat3)
+    with Dataset(global3,'w') as nc:
+        nc.Conventions='CF-1.12';nc.createDimension('time',2);nc.createDimension('latitude',7);nc.createDimension('longitude',11)
+        a=nc.createVariable('time','f8',('time',));a[:]=[0,3600];a.standard_name='time';a.units='seconds since 2026-10-06 00:00:00';a.calendar='standard'
+        for name,values,units in [('latitude',lat3,'degrees_north'),('longitude',lon3,'degrees_east')]:
+            a=nc.createVariable(name,'f8',(name,));a[:]=values;a.standard_name=name;a.units=units
+        h=nc.createVariable('height','f8',('latitude','longitude'));h[:]=100.;h.standard_name='height_above_reference_ellipsoid';h.units='m'
+        gm=nc.createVariable('crs','i4');gm.setncatts(CRS.from_wkt(targets['geo3']).to_cf())
+        a=nc.createVariable('temperature','f8',('time','latitude','longitude'));a[:]=np.stack([288-.3*abs(la3)+3*np.sin(lo3*np.pi/180),289-.3*abs(la3)+3*np.sin(lo3*np.pi/180)]);a.units='K';a.grid_mapping='crs';a.coordinates='longitude latitude height time'
+        nc.comment='Synthetic illustrative global measurements, explicit 100m ellipsoidal height, two observation times; no coordinate epoch.'
+    dataset('global-3d','CF',global3,'temperature','crs','geo3','ecef3')
+    jobs.append({**jobs[-1],'name':'global-3d-geographic','output_wkt':targets['geo3']})
     source=json.loads((root/'data/railway.geojson').read_text())
     # Horizontal-only illustrative copy; original heights remain untouched and explicitly uninterpreted.
     source.pop('crs',None)

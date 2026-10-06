@@ -1,7 +1,15 @@
 # Derived excerpt — no additional authority
 
-Source SHA-256: 2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11
+Source SHA-256: 1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0
 
-# Local candidate decisions and review status
+# Review choices
 
-Q3, Q6, Q11 and Q12 now have explicit candidate contracts in the sole proposal source. They remain review proposals, not group agreements. In particular, the geographic adjustment-chart origin, ordinary anchor versus descendant offset semantics, non-Xformable external association and whole-scene Profiles summary need review. Q9 geographic scene frames/bounds remains a separate scope question; coordinate queries remain supported. Continuous extent certificates and production renderer/physics coverage require evidence before a claim, not new scene attributes. Coordinate epochs remain deferred.
+- Physical geodetic quaternion, removing crs:scale
+- Anchor adjustment versus model-local descendant transforms
+- Absolute external-data carrier and adjustments
+- Independent point-instancer prototype semantics
+- Geographic coordinate output with associated geocentric scene chart
+- Profiles identity and publication maintenance
+- WKT lexical normal form and comparison rules
+
+These are complete proposed contracts, not group agreement.

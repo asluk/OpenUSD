@@ -17,7 +17,7 @@ def equivalent(a,b):
 
 def read_source(prim):
     if prim.GetTypeName()!='GeospatialDataSource': raise ContractError('No explicit external coordinate role')
-    if any(prim.HasAttribute(n) and prim.GetAttribute(n).HasAuthoredValueOpinion() for n in ['crs:position','crs:orientation','crs:scale','xformOpOrder']):
+    if any(prim.HasAttribute(n) and prim.GetAttribute(n).HasAuthoredValueOpinion() for n in ['crs:position','crs:orientation','crs:scale']):
         raise ContractError('Absolute measurement source cannot have model placement')
     asset=required(prim,'data:asset',Sdf.ValueTypeNames.Asset)
     profile=required(prim,'data:format',Sdf.ValueTypeNames.Token)
@@ -50,7 +50,7 @@ def read_source(prim):
             if 'grid_mapping_name' in cfattrs:
                 try:
                     cf_crs=CRS.from_cf(cfattrs)
-                    if not cf_crs.equals(external,ignore_axis_order=True): raise ContractError('CF/WKT projection metadata conflict')
+                    if not cf_crs.to_2d().equals(external.to_2d(),ignore_axis_order=True): raise ContractError('CF/WKT projection metadata conflict')
                 except Exception as e: raise ContractError('CF/WKT projection metadata conflict or unsupported definition') from e
             coordinate_names=selections.get(domain,str(getattr(v,'coordinates','')).split())
             # The observation-time association belongs to the field, independent of selected spatial mapping.
@@ -118,5 +118,5 @@ def read_source(prim):
 
 def resolved(prim,runtime):
     record=read_source(prim)
-    points=runtime.convert(record['crs'],runtime.output,record['coordinates'])
+    points=runtime.measurement(prim,record['coordinates'],record['crs'])
     return record,points

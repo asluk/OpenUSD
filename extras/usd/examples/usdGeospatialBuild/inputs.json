@@ -1,12 +1,12 @@
 {
-  "status": "Entire emailed-lean local candidate pinned; specialized G11 remains an explicit rejected combination",
+  "status": "October 6 input-only contract candidate; local execution, no remote delivery",
   "proposal": {
-    "revision": "a5c7dd3792503e09b75abfa84b0caef9d80feea6",
-    "sha256": "2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11",
+    "revision": "abff336bde02816b260f05aadf678a086790f884",
+    "sha256": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
     "local_candidate": true,
     "group_agreement": false,
     "source": "proposal/proposal-source.txt",
-    "status": "October 5 emailed-lean candidate"
+    "status": "October 6 complete proposed input-only contract"
   },
   "openusd": {
     "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
@@ -19,7 +19,7 @@
     "local_copy_sha256": "b2feeb2c900befe224a372b2d60d0ddcc6e35048ab54c32c17d5c085b44c642d"
   },
   "inherited_geospatial_implementation": true,
-  "inherited_model_or_runtime_candidate": true,
+  "inherited_model_or_runtime_candidate": false,
   "inherited_fixture_code_or_expected_outputs": false,
   "new_derivation_required": [
     "conceptual_model",
@@ -39,7 +39,7 @@
     "implementation_to_proposal_and_reverse_coverage",
     "attempts_to_expose_fixture_shortcuts_and_self_justifying_proposal_changes"
   ],
-  "publication": "existing fork draft delivery authorized",
+  "publication": "Local review only for this iteration",
   "geospatial_references": [
     {
       "standard": "OGC 18-005r8",
@@ -52,12 +52,12 @@
   ],
   "previous_executed_source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47",
   "derivation": {
-    "requirements.md": "b600e005a6b8b1371813838f7a788b338783449f70e1d11d5f3f5e622cd8a3fc",
-    "data-model.md": "881562cd1a3453986260a8d2ad8bfc97dd42fdaac9b52ea3c389260f9d53a4fa",
-    "runtime-behavior.md": "b2c409472fdfaa05722b746fa4c5d7f0437638e13074ec23b86734d45c391cc4",
-    "runtime-open-decisions.md": "6cad79cb6b2050b36309833745fe86f97fecd6d6786fcb91edaaf95d16cd9280",
-    "distinguishing-examples.md": "8cd6e64b5720b2093a3ed3dffe40582eedac9f9b259b2e332bdd375da9f2c69b",
-    "traceability.md": "5fd1d04958b1c3f1e219a80d2d8ec1d4f2132f3a57055465c2c4d67d9617a0f0"
+    "requirements.md": "6402ed9ed172569bc9494a5a7eb0418f13e47570ed19afd3722306a9826874fa",
+    "data-model.md": "76bd75ff2aa6319062fb35a86e8e73b7bbca33f40683d25a2cc49493318e88c5",
+    "runtime-behavior.md": "d1b314cea44318e2bb388d52dda933f8d13202efd1eed506de79a2d24b73026f",
+    "runtime-open-decisions.md": "24ded71408d5785f66da95006c6c970a436d2903e40ffd636e58ed7b39d7edc8",
+    "distinguishing-examples.md": "5a519bc0a1d9f34650c402c5de5b549869220ad67fa74b51ded3ba4e9bb551b8",
+    "traceability.md": "f11c66a2310ee3160f9956aad0a10fc126ea28da06d87f20627bc0c17cc4c730"
   },
   "inherited_code_execution": "Prior relationship-based placement code retained in history/source, excluded from current execution except an explicit incompatibility control.",
   "current_execution": "Python and C++ complete point-map queries, Cartesian frame derivatives and polygonal bounds; native Hydra resolved export; live OV geometry writeback; selected external measurement domains and sampled exports",

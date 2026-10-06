@@ -1,39 +1,208 @@
-# Requirement traceability
+# Requirement authority trace
 
-Authority: the complete local candidate SHA-256 `2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11`, based on `a5c7dd3792503e09b75abfa84b0caef9d80feea6`. This ledger adds no normative authority. Candidate details require group review.
+This trace is bounded to the actual functional requirements. Each clause is a
+source location, not an additional normative authority.
 
-| Requirement | Source line | Unresolved model dependency |
-|---|---:|---|
-| R1 Data loss at interchange boundaries | 111 | None identified within the supported initial candidate domain |
-| R2 No standard for CRS inheritance | 116 | None identified within the supported initial candidate domain |
-| R3 Precision hazards | 121 | None identified within the supported initial candidate domain |
-| R4 Multi-CRS composition is undefined | 128 | None identified within the supported initial candidate domain |
-| R5 Industry adoption is blocked | 136 | None identified within the supported initial candidate domain |
-| R6 Minimal disruption | 489 | None identified within the supported initial candidate domain |
-| R7 Extensible | 493 | G11 |
-| R8 Interoperable | 499 | G11 |
-| R9 Positions, and offsets from them | 735 | G11 |
-| R10 Offsets along the axes of their position | 753 | None identified within the supported initial candidate domain |
-| R11 Position or offset, and the scene says which | 772 | None identified within the supported initial candidate domain |
-| R12 No angle read as a length | 789 | None identified within the supported initial candidate domain |
-| R13 One axis mapping | 803 | None identified within the supported initial candidate domain |
-| R14 Scene conventions stay the scene's | 820 | None identified within the supported initial candidate domain |
-| R15 Placement separate from conformance | 833 | None identified within the supported initial candidate domain |
-| R16 One CRS out | 845 | None identified within the supported initial candidate domain |
-| R17 The same answer for every consumer | 865 | G11 |
-| R18 Coordinates back out | 878 | G11 |
-| R19 Resolution leaves the scene as authored | 893 | None identified within the supported initial candidate domain |
-| R20 Positions between recorded moments | 912 | None identified within the supported initial candidate domain |
-| R21 Never placed by a guess | 929 | None identified within the supported initial candidate domain |
-| R22 A CRS suited to the project's size | 978 | None identified within the supported initial candidate domain |
-| R23 Detail that does not depend on location | 991 | None identified within the supported initial candidate domain |
-| R24 Extent under one position is bounded and stated | 1000 | None identified within the supported initial candidate domain |
-| R25 Additive for consumers that ignore it | 1015 | None identified within the supported initial candidate domain |
-| R26 Declares its dependency | 1025 | None identified within the supported initial candidate domain |
-| R27 Checkable before use | 1036 | None identified within the supported initial candidate domain |
-| R28 A result says what produced it | 1051 | None identified within the supported initial candidate domain |
-| R29 Implementable from the text alone | 1069 | None identified within the supported initial candidate domain |
-| R30 Measurements remain usable as data | 961 | None identified within the supported initial candidate domain |
-| R31 Same definition, same meaning | 656 | None identified within the supported initial candidate domain |
+## Requirement 1, Self-contained definitions.
 
-Q9 geographic scene geometry/frames/bounds is separately open. G11 addresses independently CRS-bound point-instancer prototypes. Neither an explicit unsupported result nor a passed fixture proves every functional requirement. The execution receipt and consumer audit state the tested domain, shared engines and limits.
+Functional source: line 591.
+
+- Line 1406: ### GeospatialCRS typed schema
+
+## Requirement 2, Defined once, and describing no object.
+
+Functional source: line 604.
+
+- Line 1638: ### WKT string normalization
+- Line 1476: #### Authored properties
+
+## Requirement 3, Datum, realization and epoch.
+
+Functional source: line 621.
+
+- Line 1291: #### Roadmap question 15: coordinate epochs
+
+## Requirement 4, A site's own grid is a CRS like any other.
+
+Functional source: line 633.
+
+- Line 1247: #### Decision on question 7: site calibration
+
+## Requirement 31, Same definition, same meaning.
+
+Functional source: line 657.
+
+- Line 1638: ### WKT string normalization
+
+## Requirement 5, A discoverable CRS.
+
+Functional source: line 679.
+
+- Line 1345: ### CRS binding and inheritance
+
+## Requirement 6, Declared for a subtree, not a prim.
+
+Functional source: line 689.
+
+- Line 1345: ### CRS binding and inheritance
+
+## Requirement 7, Composition agnostic
+
+Functional source: line 700.
+
+- Line 1345: ### CRS binding and inheritance
+- Line 2050: ### Composition arcs
+
+## Requirement 8, Brought-in data keeps its coordinates and its CRS.
+
+Functional source: line 710.
+
+- Line 1788: #### Evaluation
+- Line 1558: ### External measurement association
+
+## Requirement 9, Positions, and offsets from them.
+
+Functional source: line 736.
+
+- Line 1476: #### Authored properties
+- Line 1788: #### Evaluation
+
+## Requirement 10, Offsets along the axes of their position.
+
+Functional source: line 754.
+
+- Line 1521: #### Geospatial model attitude and stage axes
+
+## Requirement 11, Position or offset, and the scene says which.
+
+Functional source: line 773.
+
+- Line 1345: ### CRS binding and inheritance
+- Line 1788: #### Evaluation
+
+## Requirement 12, No angle read as a length.
+
+Functional source: line 790.
+
+- Line 1505: #### Position components
+- Line 1558: ### External measurement association
+- Line 1854: #### Queries, scene charts and instances
+
+## Requirement 13, One axis mapping.
+
+Functional source: line 804.
+
+- Line 1505: #### Position components
+
+## Requirement 14, Scene conventions stay the scene's.
+
+Functional source: line 821.
+
+- Line 1521: #### Geospatial model attitude and stage axes
+- Line 2025: ### Stage metadata: metersPerUnit and upAxis
+
+## Requirement 15, Placement separate from conformance.
+
+Functional source: line 834.
+
+- Line 1225: #### Decision on question 4: authored unit and up-axis conformance
+- Line 1788: #### Evaluation
+
+## Requirement 16, One CRS out.
+
+Functional source: line 846.
+
+- Line 1725: ## Runtime coordinate transformation
+- Line 1854: #### Queries, scene charts and instances
+
+## Requirement 17, The same answer for every consumer.
+
+Functional source: line 866.
+
+- Line 1854: #### Queries, scene charts and instances
+- Line 1919: ### Extent and result comparison
+
+## Requirement 18, Coordinates back out.
+
+Functional source: line 879.
+
+- Line 1854: #### Queries, scene charts and instances
+
+## Requirement 19, Resolution leaves the scene as authored.
+
+Functional source: line 894.
+
+- Line 1905: ### Observable outcomes and failures
+- Line 1972: ### Explicit export and sampling
+
+## Requirement 20, Positions between recorded moments.
+
+Functional source: line 913.
+
+- Line 1788: #### Evaluation
+- Line 1972: ### Explicit export and sampling
+
+## Requirement 21, Never placed by a guess.
+
+Functional source: line 930.
+
+- Line 1905: ### Observable outcomes and failures
+- Line 1558: ### External measurement association
+
+## Requirement 30, Measurements remain usable as data.
+
+Functional source: line 962.
+
+- Line 1558: ### External measurement association
+
+## Requirement 22, A CRS suited to the project's size.
+
+Functional source: line 979.
+
+- Line 1854: #### Queries, scene charts and instances
+
+## Requirement 23, Detail that does not depend on location.
+
+Functional source: line 992.
+
+- Line 1385: ### Precision handling
+- Line 1972: ### Explicit export and sampling
+
+## Requirement 24, Extent under one position is bounded and stated.
+
+Functional source: line 1001.
+
+- Line 1919: ### Extent and result comparison
+
+## Requirement 25, Additive for consumers that ignore it.
+
+Functional source: line 1016.
+
+- Line 2040: ### Transform stack and resetXformStack
+
+## Requirement 26, Declares its dependency.
+
+Functional source: line 1026.
+
+- Line 1611: ### Dependency declaration with Profiles
+
+## Requirement 27, Checkable before use.
+
+Functional source: line 1037.
+
+- Line 1476: #### Authored properties
+- Line 1611: ### Dependency declaration with Profiles
+- Line 1905: ### Observable outcomes and failures
+
+## Requirement 28, A result says what produced it.
+
+Functional source: line 1052.
+
+- Line 1905: ### Observable outcomes and failures
+- Line 1919: ### Extent and result comparison
+
+## Requirement 29, Implementable from the text alone.
+
+Functional source: line 1070.
+
+- Line 1919: ### Extent and result comparison

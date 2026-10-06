@@ -164,14 +164,11 @@ def placement_jobs(directory, wkt):
             orientation = parent.CreateAttribute('crs:orientation', Sdf.ValueTypeNames.Quatd, custom=False)
             orientation.Set(Gf.Quatd(1., Gf.Vec3d(0)), 0)
             orientation.Set(Gf.Quatd(0., Gf.Vec3d(0, 0, 1)), 10)
-            scale = parent.CreateAttribute('crs:scale', Sdf.ValueTypeNames.Double3, custom=False)
-            scale.Set((1., 2., 3.), 0)
-            scale.Set((3., 4., 5.), 10)
             if name == 'placement-held':
                 interpolation = 'held'
-                expected_position, expected_scale = [0., 0., 1.], [1., 2., 3.]
+                expected_position = [0., 0., 1.]
             else:
-                expected_position, expected_scale = [5., 10., 2.], [2., 3., 4.]
+                expected_position = [5., 10., 2.]
                 expected_orientation = {'real': 2**-.5, 'imaginary': [0., 0., 2**-.5]}
         elif name == 'geographic-no-unwrapping':
             # This is a source-coordinate interpolation control, not projection.
@@ -211,13 +208,13 @@ def placement_jobs(directory, wkt):
             error = 'Placement position must be varying'
         elif name == 'nonfinite-scale':
             parent.CreateAttribute('crs:scale', Sdf.ValueTypeNames.Double3, custom=False).Set((1., float('nan'), 1.))
-            error = 'Placement scale is nonfinite'
+            error = 'Undocumented crs:scale is not an input'
         elif name == 'zero-quaternion':
             parent.CreateAttribute('crs:orientation', Sdf.ValueTypeNames.Quatd, custom=False).Set(Gf.Quatd(0.))
             error = 'Placement orientation is a zero quaternion'
         elif name == 'singular-source-scale':
             parent.CreateAttribute('crs:scale', Sdf.ValueTypeNames.Double3, custom=False).Set((0., -1., 2.))
-            expected_scale = [0., -1., 2.]
+            error = 'Undocumented crs:scale is not an input'
         stage.GetRootLayer().Save()
         value = {'prim': query, 'success': not bool(error)}
         if error:
@@ -225,7 +222,7 @@ def placement_jobs(directory, wkt):
         else:
             value.update(binding_prim=owner,
                          wkt=GEOGRAPHIC if name == 'geographic-no-unwrapping' else wkt,
-                         position=expected_position, orientation=expected_orientation, scale=expected_scale)
+                         position=expected_position, orientation=expected_orientation)
         jobs.append({'name': name, 'stage': str(directory/(name+'.usda')), 'kind': 'placement_values',
                      'load_none': False, 'time': time, 'interpolation': interpolation,
                      'queries': [query], 'expected': [value]})

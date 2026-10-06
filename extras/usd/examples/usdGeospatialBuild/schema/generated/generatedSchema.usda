@@ -20,7 +20,6 @@ class "GeospatialCRSBindingAPI" (
 {
     quatd crs:orientation = (1, 0, 0, 0)
     double3 crs:position
-    double3 crs:scale = (1, 1, 1)
 }
 
 class GeospatialDataSource "GeospatialDataSource" (
@@ -33,5 +32,35 @@ class GeospatialDataSource "GeospatialDataSource" (
     uniform string data:coordinateDomain
     uniform string data:field
     uniform token data:format
+    rel proxyPrim (
+        customData = {
+            string userDocBrief = '''The proxyPrim relationship allows us to link a
+        prim whose purpose is "render" to its (single target)
+        purpose="proxy" prim.'''
+        }
+    )
+    uniform token purpose = "default" (
+        allowedTokens = ["default", "render", "proxy", "guide"]
+        customData = {
+            string userDocBrief = """Purpose is a classification of geometry into categories that
+        can each be independently included or excluded from traversals of prims
+        on a stage, such as rendering or bounding-box computation traversals."""
+        }
+    )
+    token visibility = "inherited" (
+        allowedTokens = ["inherited", "invisible"]
+        customData = {
+            string userDocBrief = '''Visibility is meant to be the simplest form of "pruning"
+        visibility that is supported by most DCC apps.'''
+        }
+    )
+    uniform token[] xformOpOrder (
+        customData = {
+            string userDocBrief = """Encodes the sequence of transformation operations in the
+        order in which they should be pushed onto a transform stack while
+        visiting a UsdStage's prims in a graph traversal that will effect
+        the desired positioning for this prim and its descendant prims."""
+        }
+    )
 }
 

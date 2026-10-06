@@ -1,7 +1,18 @@
 # Derived excerpt — no additional authority
 
-Source SHA-256: 2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11
+Source SHA-256: 1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0
 
-# Independently specified controls
+## Appendix C: Distinguishing examples
 
-The candidate fixtures specify expected stage/basis, quarter-turn, unit, pivot and source-interpolation answers before execution. A geographic asset in a projected project has a +10m ordinary anchor adjustment along site easting, while descendant X follows the oriented model. Descendant reset removes the ordinary anchor adjustment while retaining intrinsic CRS placement. Reprojection to ECEF preserves the adjusted physical result. External CF domains retain values, masks and observation times; 2D data receives no invented height. Profiles claims remain discoverable when payloads outside the interface subtree are unloaded.
+These cases illustrate the proposed contracts; they add no normative fields.
+
+| Case | Distinguishing result |
+|---|---|
+| Same physical tower re-expressed in geographic, CC49 and Lambert-93 coordinates | Geodetic model attitude and local lengths stay physical; output grid convergence and scale come from resolution, not stored output properties. |
+| Tower attitude turns 90 degrees, then a descendant translates along working-grid X | The descendant translation follows the model's turned X, while an anchor adjustment follows working-grid X; interpreting both as raw working offsets loses local conformance. |
+| Two independent origins, one at 100 and its directly bound child at 20 | Relative output-coordinate difference is 80; the child does not accumulate 100 or return a reference-model-local offset. |
+| Project-adjusted satellite imagery | Original pixel values, indices and native coordinates remain unchanged; queries and visualization include the same working-frame adjustment even for another output CRS. |
+| Global climate domain | Measurement times remain attached to the same samples; geographic coordinate queries and geocentric scene visualization use the same locations without a global flattened surface. |
+| Independently bound point-instancer prototype | Each instance retains the prototype's source georeference and applies its per-instance adjustment once; the instancer does not add a second absolute anchor. |
+| Linear mesh exported after a nonlinear map | Vertex and exported-polygon bounds alone do not certify the continuous image of the original face; a requested continuous guarantee needs separate evidence. |
+| Scene with an unloaded geospatial payload | The published interface retains the conservative hard Profiles claim; a consumer need not load the payload to detect dependency. |
