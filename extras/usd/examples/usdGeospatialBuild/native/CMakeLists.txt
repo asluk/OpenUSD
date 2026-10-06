@@ -26,3 +26,13 @@ add_executable(proposalScope proposalScope.cpp)
 target_include_directories(proposalScope PRIVATE ${PXR_INCLUDE_DIRS} ${USD_SDK}/include ${Python3_INCLUDE_DIRS})
 target_link_directories(proposalScope PRIVATE ${USD_SDK}/lib)
 target_link_libraries(proposalScope PRIVATE usd usdGeom gf tf sdf vt js proj)
+
+# Fresh pointwise candidate: reference binding, fixed working chart, no affine claim.
+add_executable(leansNative leans.cpp)
+target_include_directories(leansNative PRIVATE ${PXR_INCLUDE_DIRS} ${USD_SDK}/include ${Python3_INCLUDE_DIRS})
+target_link_directories(leansNative PRIVATE ${USD_SDK}/lib)
+target_link_libraries(leansNative PRIVATE usd usdGeom gf tf sdf vt js plug proj)
+add_executable(leansRender leansRender.cpp)
+target_include_directories(leansRender PRIVATE ${PXR_INCLUDE_DIRS} ${USD_SDK}/include ${Python3_INCLUDE_DIRS})
+target_link_directories(leansRender PRIVATE ${USD_SDK}/lib)
+target_link_libraries(leansRender PRIVATE usd usdGeom usdImaging usdImagingGL hd hdx hgi glf garch hio gf tf js sdf vt plug opengl32 user32 gdi32)

@@ -20,6 +20,13 @@ def read(prim, time):
             ('orientation', Sdf.ValueTypeNames.Quatd, (1., 0., 0., 0.)),
             ('scale', Sdf.ValueTypeNames.Double3, (1., 1., 1.))]:
         attribute = owner.GetAttribute('crs:' + name)
+        authored=attribute.GetPropertyStack(Usd.TimeCode(time)) if attribute else []
+        if authored and authored[0].typeName!=kind:
+            raise ScopeError('Placement ' + name + ' has wrong type')
+        if authored and authored[0].variability!=Sdf.VariabilityVarying:
+            raise ScopeError('Placement ' + name + ' must be varying')
+        if attribute and attribute.GetResolveInfo(Usd.TimeCode(time)).ValueIsBlocked():
+            raise ScopeError('Placement ' + name + ' is unavailable')
         if attribute and attribute.GetTypeName() != kind:
             raise ScopeError('Placement ' + name + ' has wrong type')
         if attribute and attribute.GetVariability() != Sdf.VariabilityVarying:

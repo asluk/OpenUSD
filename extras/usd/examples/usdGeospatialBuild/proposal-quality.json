@@ -1,9 +1,9 @@
 {
-  "status": "Full local review candidate audited; four dependent contracts remain unspecified",
-  "shared_proposal_commit": "39c8fb816a9113b14c8f64b020270724b8357312",
-  "source_sha256": "a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904",
-  "source_scope": "Entire unpublished local review candidate",
-  "classification": "Four missing contracts. Five former gaps now have proposed candidate answers. Adoption is separate from derivability.",
+  "status": "Explicit local candidate contracts; specialized model gap and verification limits remain visible",
+  "shared_proposal_commit": "a5c7dd3792503e09b75abfa84b0caef9d80feea6",
+  "source_sha256": "2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11",
+  "source_scope": "Entire October 5 local candidate, based on published a5c7dd3",
+  "classification": "Local executable review candidate. No new agreement asserted.",
   "semantic_gaps": [
     {
       "id": "G01",
@@ -28,17 +28,17 @@
       "references": [
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1211,
+          "line": 1222,
           "clause": "#### Decision on question 2: CRS placement attributes"
         },
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1299,
+          "line": 1311,
           "clause": "#### Decision on question 3: working context and placement order"
         },
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1237,
+          "line": 1248,
           "clause": "#### Decision on question 11: coordinate domains and property roles"
         }
       ],
@@ -61,26 +61,26 @@
         2,
         6
       ],
-      "already_defined": "Names, types, variability, fallbacks, required position, quaternion semantics, scale order, signed/singular policy and source interpolation are proposed in the README. Adoption pending does not mean no definitions exist. Exact stage-to-placement basis conversion remains a genuine behavior gap; ground/grid scale ownership also needs geospatial review.",
-      "remaining": "Finite values, mixed component units, no duplicate projection factor, and no assumption that source R/S fields constrain resolved frames to R/S only.",
+      "already_defined": "Candidate placement fields plus the explicit right-handed stage-to-basis table, units, scale-before-quaternion and complete point-map contract.",
+      "remaining": "Group review of the concrete conventions is pending; production geospatial coverage must be tested independently.",
       "references": [
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1211,
+          "line": 1222,
           "clause": "#### Decision on question 2: CRS placement attributes"
         },
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1555,
+          "line": 1570,
           "clause": "### CRS association and model placement"
         }
       ],
-      "candidate_answer_status": "Field contract proposed; frame conversion still incomplete"
+      "candidate_answer_status": "Defined in the full local candidate, not adopted group scope"
     },
     {
       "id": "G03",
       "name": "Physical coordinate context of project adjustments",
-      "status": "open",
+      "status": "closed",
       "requirements": [
         5,
         6,
@@ -94,26 +94,21 @@
       "questions": [
         3
       ],
-      "already_defined": "Post-CRS order is decided. The controlling composed frame, adjustment axes/units/pivot and preservation across output changes are not. The complete xform stack must supply the intended adjustment; raw numeric reuse in another CRS is insufficient.",
-      "remaining": "A 90-degree oriented model distinguishes a model-X adjustment from a grid-easting adjustment. The text identifies this precise choice rather than reopening placement order.",
+      "already_defined": "### Candidate working-frame and point-evaluation contract",
+      "remaining": "Adoption remains pending. Execution and coverage must be assessed separately.",
       "references": [
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1299,
-          "clause": "#### Decision on question 3: working context and placement order"
-        },
-        {
-          "source": "proposal/proposal-source.txt",
-          "line": 1299,
-          "clause": "#### Decision on question 3: working context and placement order"
+          "line": 1773,
+          "clause": "### Candidate working-frame and point-evaluation contract"
         }
       ],
-      "candidate_answer_status": "Genuine remaining contract"
+      "candidate_answer_status": "Explicit local proposed contract; group review pending"
     },
     {
       "id": "G04",
       "name": "Remaining component conventions and scene result domain",
-      "status": "open",
+      "status": "closed",
       "requirements": [
         12,
         13,
@@ -126,16 +121,16 @@
         6,
         9
       ],
-      "already_defined": "Geographic longitude/latitude/height and geocentric XYZ have proposed conventions. Canonical tuple order does not specify a Y-up or Z-up scene basis. Geographic coordinate queries are settled functional scope; using angular coordinates as a scene frame remains distinct.",
-      "remaining": "Requirement 13 distinguishes coordinate components from scene axes. Returned query tuples use the same role order; unsupported component sets cannot be guessed.",
+      "already_defined": "### Candidate working-frame and point-evaluation contract",
+      "remaining": "Q9 geographic scene frames/bounds remain separately open.",
       "references": [
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1590,
-          "clause": "#### Position components"
+          "line": 1773,
+          "clause": "### Candidate working-frame and point-evaluation contract"
         }
       ],
-      "candidate_answer_status": "Source component orders proposed; scene-frame rule/profile still open"
+      "candidate_answer_status": "Explicit local proposed contract; group review pending"
     },
     {
       "id": "G05",
@@ -154,12 +149,12 @@
       "questions": [
         10
       ],
-      "already_defined": "The local candidate contains a referenced lossless lexical profile, exact-decimal convention, fixed-point validation and separate serialized identity/CRS-equivalence comparison. No independent normalizer implementation or conformance result is claimed. Whole-definition sharing tradeoffs remain explicit.",
+      "already_defined": "The local candidate contains a referenced lossless lexical profile, exact-decimal convention, fixed-point validation and separate serialized identity/CRS-equivalence comparison. Python lexical normalizer is exercised by the contract tests; no second independent normalizer or universal WKT conformance is claimed. Whole-definition sharing tradeoffs remain explicit.",
       "remaining": "Requirement 31 is one sentence; formatted WKT examples are labeled as illustrations requiring normalization before conforming authoring. Valid WKT cannot be simplified by silently dropping its defining conversion.",
       "references": [
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1669,
+          "line": 1686,
           "clause": "### WKT string normalization"
         }
       ],
@@ -168,7 +163,7 @@
     {
       "id": "G06",
       "name": "Measurement-coordinate association",
-      "status": "open",
+      "status": "closed",
       "requirements": [
         2,
         5,
@@ -184,26 +179,21 @@
       "questions": [
         11
       ],
-      "already_defined": "Subtree scope and measurement preservation are settled. The carrier identifying absolute coordinate properties or an external dataset domain is missing; neither API application nor float3 shape supplies that role. Coordinate-only data must not acquire a fake model anchor or receive crs:position twice.",
-      "remaining": "Two bounded authored facts, multiple domains, retained format associations and the external-format/composed-binding authority conflict are stated. No new relation or generic measurement schema is invented.",
+      "already_defined": "### Candidate external measurement association",
+      "remaining": "Adoption remains pending. Execution and coverage must be assessed separately.",
       "references": [
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1237,
-          "clause": "#### Decision on question 11: coordinate domains and property roles"
-        },
-        {
-          "source": "proposal/proposal-source.txt",
-          "line": 1237,
-          "clause": "#### Decision on question 11: coordinate domains and property roles"
+          "line": 1875,
+          "clause": "### Candidate external measurement association"
         }
       ],
-      "candidate_answer_status": "Genuine remaining authored-data contract"
+      "candidate_answer_status": "Explicit local proposed contract; group review pending"
     },
     {
       "id": "G07",
       "name": "Dependency declaration carrier and composition",
-      "status": "open",
+      "status": "closed",
       "requirements": [
         7,
         19,
@@ -214,10 +204,16 @@
       "questions": [
         12
       ],
-      "already_defined": "Coverage is already all placed content. The carrier, root/session interpretation, conservative assembly maintenance across composition/unloaded content, and export update rule are not specified. Traversal for detection is not the promised declaration.",
-      "remaining": "Existing Core customLayerData is identified as a possible carrier, not selected as a normative key. Composition does not automatically aggregate it; no prototype layer flag is promoted.",
-      "references": [],
-      "candidate_answer_status": "Genuine remaining authored-data/assembly contract"
+      "already_defined": "### Candidate Profiles dependency integration",
+      "remaining": "Adoption remains pending. Execution and coverage must be assessed separately.",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1932,
+          "clause": "### Candidate Profiles dependency integration"
+        }
+      ],
+      "candidate_answer_status": "Explicit local proposed contract; group review pending"
     },
     {
       "id": "G08",
@@ -241,16 +237,16 @@
       "references": [
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1354,
+          "line": 1367,
           "clause": "#### Decision on question 13: operation and resource responsibility"
         },
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1824,
+          "line": 2039,
           "clause": "### Extent and result comparison"
         }
       ],
-      "candidate_answer_status": "Observable contract and metrics proposed; dependent frame definitions still required"
+      "candidate_answer_status": "Pointwise reference, metrics and visible unsupported extent claims defined; implementation coverage remains bounded"
     },
     {
       "id": "G09",
@@ -271,12 +267,12 @@
       "references": [
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1273,
+          "line": 1285,
           "clause": "#### Decision on question 14: explicit export"
         },
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1871,
+          "line": 2086,
           "clause": "### Explicit export and sampling"
         }
       ],
@@ -302,327 +298,315 @@
       "references": [
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1211,
+          "line": 1222,
           "clause": "#### Decision on question 2: CRS placement attributes"
         },
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1237,
+          "line": 1248,
           "clause": "#### Decision on question 11: coordinate domains and property roles"
         },
         {
           "source": "proposal/proposal-source.txt",
-          "line": 1491,
+          "line": 1506,
           "clause": "### GeospatialCRS typed schema"
         }
       ],
       "candidate_answer_status": "Editorial inconsistency reconciled in draft"
+    },
+    {
+      "id": "G11",
+      "name": "Independently CRS-bound point-instancer prototypes",
+      "status": "open",
+      "requirements": [
+        7,
+        8,
+        9,
+        17,
+        18
+      ],
+      "questions": [
+        3
+      ],
+      "already_defined": "Native instances and point-instanced local model geometry use the composed placement map; prototype indices and retained instance association survive resolution.",
+      "remaining": "An absolute CRS-bound prototype combined with instancer placements has no defined precedence/transport contract. The candidate explicitly fails this specialized combination rather than inventing it.",
+      "candidate_answer_status": "Explicit specialized model gap; do not claim full instance combinations",
+      "references": [
+        {
+          "source": "proposal/proposal-source.txt",
+          "line": 1852,
+          "clause": "This initial candidate does not define independently CRS-bound"
+        }
+      ]
     }
   ],
   "requirements": [
     {
       "id": 1,
-      "title": "Self-contained definitions",
-      "normative_statement": "A CRS carried in a scene can be read from the scene alone, without a lookup against an external registry.",
-      "source_line": 588,
+      "title": "Data loss at interchange boundaries",
+      "normative_statement": "CRS metadata stored in `customData` or proprietary attributes is routinely stripped during USD export/import cycles across different tools.",
+      "source_line": 111,
       "remaining_gap_ids": [],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 2,
-      "title": "Defined once, and describing no object",
-      "normative_statement": "A complete CRS definition used in many places is authored once and referred to, describes no object-specific placement, orientation or scale, and has its authored WKT as the sole authored authority for the information that WKT determines.",
-      "source_line": 601,
-      "remaining_gap_ids": [
-        "G06"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "title": "No standard for CRS inheritance",
+      "normative_statement": "Without a defined inheritance model, every prim in a large scene must redundantly carry CRS metadata, or tools must implement ad-hoc resolution logic.",
+      "source_line": 116,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 3,
-      "title": "Datum, realization and epoch",
-      "normative_statement": "The scene can identify the datum realization and any frame reference epoch defined by its CRS, without inferring a coordinate epoch for the coordinates.",
-      "source_line": 618,
+      "title": "Precision hazards",
+      "normative_statement": "A UTM easting of 481,948 m exceeds the useful range of `float32`, and implementations store it in a `point3f` array anyway, because nothing tells them not to. The result is visible jitter and drift in scenes that look correct on paper.",
+      "source_line": 121,
       "remaining_gap_ids": [],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 4,
-      "title": "A site's own grid is a CRS like any other",
-      "normative_statement": "A project grid — its origin, orientation and scale relative to a geodetic or projected CRS, and, where applicable, its heights relative to a vertical CRS, agreed once for a site — can be the CRS its content is expressed in, and content in it needs nothing that content in a national grid does not.",
-      "source_line": 630,
+      "title": "Multi-CRS composition is undefined",
+      "normative_statement": "A cross-state pipeline spans UTM zones 11 and 12, and a regional twin draws on imagery, terrain and vectors that each arrive in their own CRS. Today the only way to put them on one stage is to convert them all first, which is a cost the largest projects cannot pay.",
+      "source_line": 128,
       "remaining_gap_ids": [],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 5,
-      "title": "A discoverable CRS",
-      "normative_statement": "The CRS in which any authored position is expressed can be determined from the scene alone.",
-      "source_line": 676,
-      "remaining_gap_ids": [
-        "G03",
-        "G06"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "title": "Industry adoption is blocked",
+      "normative_statement": "GIS vendors, AECO tool makers, and digital twin platforms cannot fully adopt USD without a standard way to express CRS, because it is a foundational requirement for their workflows.",
+      "source_line": 136,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 6,
-      "title": "Declared for a subtree, not a prim",
-      "normative_statement": "A CRS declared once applies to the content beneath it, and part of that content can declare a different one.",
-      "source_line": 686,
-      "remaining_gap_ids": [
-        "G03",
-        "G06"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "title": "Minimal disruption",
+      "normative_statement": "No changes to existing USD schemas or core APIs. The geospatial schemas are additive and optional.",
+      "source_line": 489,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 7,
-      "title": "Composition agnostic",
-      "normative_statement": "CRS declarations and their scope are interpreted on the composed stage, following the composition and value-resolution rules of the [AOUSD USD Core Specification v1.0.1](https://github.com/aousd/specifications-public/blob/main/core/1.0.1/core_spec.md).",
-      "source_line": 697,
+      "title": "Extensible",
+      "normative_statement": "Third-party CRS libraries (PROJ, GDAL, Esri, Trimble) can supply coordinate operations. The proposal specifies data and observable runtime behavior, including validation and resolved queries; it does not prescribe callable interfaces or a particular implementation architecture.",
+      "source_line": 493,
       "remaining_gap_ids": [
-        "G06",
-        "G07"
+        "G11"
       ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 8,
-      "title": "Brought-in data keeps its coordinates and its CRS",
-      "normative_statement": "Data authored in one CRS can be brought into a project working in another, and given project-specific placement, with its authored coordinate values and CRS unchanged and that placement preserved in any supported requested output CRS.",
-      "source_line": 707,
+      "title": "Interoperable",
+      "normative_statement": "The design should facilitate round-trip exchange with glTF (geospatial extension), IFC, CityGML, and OGC 3D Tiles.",
+      "source_line": 499,
       "remaining_gap_ids": [
-        "G03"
+        "G11"
       ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 9,
       "title": "Positions, and offsets from them",
       "normative_statement": "Content is placed by a position, orientation and scale with defined meaning in a named CRS, and the content beneath that placement is authored and moved as ordinary scene offsets in scene distances by someone who need know no geodesy.",
-      "source_line": 733,
+      "source_line": 735,
       "remaining_gap_ids": [
-        "G03"
+        "G11"
       ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 10,
       "title": "Offsets along the axes of their position",
       "normative_statement": "Offsets beneath a CRS placement have an orientation and scale discoverable from its authored placement and CRS without resolving into another CRS, and resolution accounts for changes in local axes and scale as well as position.",
-      "source_line": 751,
+      "source_line": 753,
       "remaining_gap_ids": [],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 11,
       "title": "Position or offset, and the scene says which",
       "normative_statement": "Whether an authored location is a position in a CRS or an offset from its parent can be read from the scene, and a CRS position does not accumulate ancestor xformOps.",
-      "source_line": 770,
-      "remaining_gap_ids": [
-        "G03"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "source_line": 772,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 12,
       "title": "No angle read as a length",
       "normative_statement": "Every coordinate's unit, and the surface its height is measured from, are unambiguous, and no reading of the scene takes an angular coordinate as a scene distance.",
-      "source_line": 787,
-      "remaining_gap_ids": [
-        "G04",
-        "G06"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "source_line": 789,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 13,
       "title": "One axis mapping",
       "normative_statement": "The semantic component order of a CRS position is fixed by this proposal rather than by the CRS's declared storage order, with easting, northing and up occupying the first, second and third components respectively, and its representation in a scene frame follows the common convention specified under requirement 14.",
-      "source_line": 801,
-      "remaining_gap_ids": [
-        "G04"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "source_line": 803,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 14,
       "title": "Scene conventions stay the scene's",
       "normative_statement": "A CRS binding changes neither the scene's units nor its up axis, and where a CRS's units or axes differ from the scene's, the relation between the two is defined by this proposal once, not by each implementation.",
-      "source_line": 818,
-      "remaining_gap_ids": [
-        "G04"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "source_line": 820,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 15,
       "title": "Placement separate from conformance",
       "normative_statement": "Where an instance sits is recorded separately from the corrections that adapt its source asset's conventions.",
-      "source_line": 831,
-      "remaining_gap_ids": [
-        "G03"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "source_line": 833,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 16,
       "title": "One CRS out",
       "normative_statement": "Content expressed in any number of CRSs resolves into one output CRS selected by the consumer, with the scene able to name a default for consumers that make no selection.",
-      "source_line": 843,
-      "remaining_gap_ids": [
-        "G03",
-        "G04"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "source_line": 845,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 17,
       "title": "The same answer for every consumer",
       "normative_statement": "A world position, a bound, an instance, a physics body and a rendered image all come from the same resolution, and none of them needs a renderer.",
-      "source_line": 863,
+      "source_line": 865,
       "remaining_gap_ids": [
-        "G04"
+        "G11"
       ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 18,
       "title": "Coordinates back out",
       "normative_statement": "Any resolved position can be reported as coordinates in any CRS the scene or the consumer names, and the placement of one prim relative to another can be asked for in the output CRS.",
-      "source_line": 876,
+      "source_line": 878,
       "remaining_gap_ids": [
-        "G04",
-        "G06"
+        "G11"
       ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 19,
       "title": "Resolution leaves the scene as authored",
-      "normative_statement": "Resolving a scene writes nothing into it — authored coordinates, placement values, CRS definitions and bindings are unchanged — and writing a resolved result out is a separate, explicit act that records the CRS it was written in and, for content that varies over time, how it was sampled.",
-      "source_line": 891,
-      "remaining_gap_ids": [
-        "G03",
-        "G06",
-        "G07"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "normative_statement": "Resolving a scene writes nothing into it â€” authored coordinates, placement values, CRS definitions and bindings are unchanged â€” and writing a resolved result out is a separate, explicit act that records the CRS it was written in and, for content that varies over time, how it was sampled.",
+      "source_line": 893,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 20,
       "title": "Positions between recorded moments",
       "normative_statement": "A position recorded as samples over time is interpolated on the recorded values, in the CRS they were recorded in, and converting the result to another CRS does not change the path.",
-      "source_line": 910,
+      "source_line": 912,
       "remaining_gap_ids": [],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 21,
       "title": "Never placed by a guess",
-      "normative_statement": "A requested transformation outside the supported scope or one that cannot be computed — no engine, a definition that cannot be read or is unsupported, a missing grid, a point outside the transformation's domain of validity, a requested change of coordinate epoch that the operation does not model — never places content by a substitute, a result that could only be partly computed is a failure and not a partial placement, and the failure surfaces where it can be known: in validation for what the authored scene reveals, from the engine for what only resolution can discover.",
-      "source_line": 927,
-      "remaining_gap_ids": [
-        "G06"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "normative_statement": "A requested transformation outside the supported scope or one that cannot be computed â€” no engine, a definition that cannot be read or is unsupported, a missing grid, a point outside the transformation's domain of validity, a requested change of coordinate epoch that the operation does not model â€” never places content by a substitute, a result that could only be partly computed is a failure and not a partial placement, and the failure surfaces where it can be known: in validation for what the authored scene reveals, from the engine for what only resolution can discover.",
+      "source_line": 929,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 22,
       "title": "A CRS suited to the project's size",
       "normative_statement": "The scheme supports site, regional and global projects without requiring their geometry to be approximated by a single tangent plane.",
-      "source_line": 976,
+      "source_line": 978,
       "remaining_gap_ids": [],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 23,
       "title": "Detail that does not depend on location",
       "normative_statement": "Changing only an asset's geospatial placement does not reduce the precision of its asset-relative geometry as authored.",
-      "source_line": 989,
+      "source_line": 991,
       "remaining_gap_ids": [],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 24,
       "title": "Extent under one position is bounded and stated",
       "normative_statement": "Content beneath one position is placed to within a stated distance of where placing each of its points would put it, and the extent over which that holds is stated.",
-      "source_line": 998,
+      "source_line": 1000,
       "remaining_gap_ids": [],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 25,
       "title": "Additive for consumers that ignore it",
       "normative_statement": "A consumer that does not interpret the geospatial information reads the same scene it would have read without it.",
-      "source_line": 1013,
-      "remaining_gap_ids": [
-        "G07"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "source_line": 1015,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 26,
       "title": "Declares its dependency",
       "normative_statement": "A scene whose correct placement depends on resolving CRSs says so, in a way a consumer can read without traversing the scene, and the declaration covers every piece of placed content in it.",
-      "source_line": 1023,
-      "remaining_gap_ids": [
-        "G07"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "source_line": 1025,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 27,
       "title": "Checkable before use",
-      "normative_statement": "What the scene itself establishes — a position nested beneath another position, a binding to no definition, content outside any CRS, a dependency declaration missing or left behind by a written-out result — can be detected in the authored scene without resolving it.",
-      "source_line": 1034,
-      "remaining_gap_ids": [
-        "G06",
-        "G07"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "normative_statement": "What the scene itself establishes â€” a position nested beneath another position, a binding to no definition, content outside any CRS, a dependency declaration missing or left behind by a written-out result â€” can be detected in the authored scene without resolving it.",
+      "source_line": 1036,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 28,
       "title": "A result says what produced it",
       "normative_statement": "A resolved result can name the coordinate operation that produced it and the accuracy attributed to it.",
-      "source_line": 1049,
+      "source_line": 1051,
       "remaining_gap_ids": [],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 29,
       "title": "Implementable from the text alone",
       "normative_statement": "Two implementations built from this proposal without consulting its authors give the same coordinate interpretation and, using equivalent coordinate operations, place the same scene within a stated agreement distance using a specified distance measure and units at stated output coordinate magnitudes.",
-      "source_line": 1067,
+      "source_line": 1069,
       "remaining_gap_ids": [],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 30,
       "title": "Measurements remain usable as data",
       "normative_statement": "Georeferenced measurements remain accessible to consumers together with their associated positions and times, without requiring renderable geometry or a visualization, and coordinate resolution preserves those associations and measurement values.",
-      "source_line": 959,
-      "remaining_gap_ids": [
-        "G06"
-      ],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "source_line": 961,
+      "remaining_gap_ids": [],
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     },
     {
       "id": 31,
       "title": "Same definition, same meaning",
       "normative_statement": "CRS definitions use the proposal's prescribed WKT string normal form, whose specified lexical variants normalize to identical text without loss of represented information or changed coordinate interpretation, while comparisons distinguish serialized-definition identity from CRS equivalence and do not infer different CRS meaning or a necessary transformation solely from different normalized text.",
-      "source_line": 654,
+      "source_line": 656,
       "remaining_gap_ids": [],
-      "current_evidence": "Partial controls only; see run receipt. No whole-requirement conformance implied."
+      "current_evidence": "Bounded executed evidence is recorded separately. A passed control does not certify a complete functional requirement."
     }
   ],
   "verification_gaps": [
-    "Full model placement, Hydra geometry, OV resolved geometry, relative frames/bounds and physics require the remaining frame contracts.",
-    "Measurement association and conservative dependency declaration/export require their missing authored contracts.",
-    "WKT normalizer is bounded: context-dependent legacy UNIT spelling is rejected rather than guessed. No universal OGC coverage or geodetic accuracy certified.",
-    "Near-unit quaternion validation, geographic result-distance controls and complete resolved-scene export are not claimed by partial source/origin controls."
+    "Q9 geographic scene geometry, frames and bounds remains a design question; geographic coordinate queries remain supported.",
+    "Continuous nonlinear extent and between-sample trajectory guarantees are unsupported, with visible failure rather than an inferred certificate.",
+    "C++ validation is not a second independent WKT normalizer. External format decoding is shared; Python and C++ share PROJ, while OV reuses the Python placement algorithm.",
+    "Hydra consumes an ordinary resolved export; no live geospatial scene-index filter or physics integration is claimed.",
+    "External adapters cover selected CF, single-IFD GeoTIFF and RFC 7946 domains, not all coordinate forms in those standards.",
+    "Export preserves tested geometry/sample associations but materializes instances; authored shading-normal and general material/primvar semantics are not certified."
   ],
   "implementation_gaps": [
     {
@@ -667,5 +651,12 @@
     "A semantic change requires a new pinned specification before affected code/tests and invalidates affected evidence.",
     "A missing required test is unfinished verification, not an open design question.",
     "The default build gate stops while specification gaps remain. An explicit experimental invocation records proposal_ready=false and requirements_build_complete=false."
+  ],
+  "postimplementation_audit_required": [
+    "Map every authored field to a source property contract.",
+    "Separate internal algorithms from authored facts and new normative choices.",
+    "Audit every advertised consumer path against actual sink readback.",
+    "Record unsupported combinations and absent tests instead of declaring whole-requirement conformance.",
+    "Require source hashes and immutable receipts before delivery."
   ]
 }

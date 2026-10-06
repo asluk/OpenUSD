@@ -12,16 +12,26 @@ class CoordinateReferenceSystem "CoordinateReferenceSystem" (
     uniform token crs:wkt
 }
 
-class "GeospatialBindingAPI" (
+class "GeospatialCRSBindingAPI" (
     customData = {
         string userDocBrief = "Experimental authored binding and placement."
     }
 )
 {
-    rel crs:binding
-    rel crs:coordinateProperties
     quatd crs:orientation = (1, 0, 0, 0)
     double3 crs:position
     double3 crs:scale = (1, 1, 1)
+}
+
+class GeospatialDataSource "GeospatialDataSource" (
+    customData = {
+        string userDocBrief = "External absolute measurement association in the local candidate; not model placement."
+    }
+)
+{
+    uniform asset data:asset
+    uniform string data:coordinateDomain
+    uniform string data:field
+    uniform token data:format
 }
 

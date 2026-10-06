@@ -44,11 +44,18 @@ def test_readiness_tracks_full_local_candidate_and_derivation():
     assert hashlib.sha256((ROOT/'proposal/proposal-source.txt').read_bytes()).hexdigest() == inputs['proposal']['sha256']
     for name, expected in inputs['derivation'].items():
         assert hashlib.sha256((ROOT/'proposal'/name).read_bytes()).hexdigest() == expected
-    with pytest.raises(ProposalNotReady, match='Dependent implementation stopped'):
+    source=(ROOT/'proposal/proposal-source.txt').read_text(encoding='utf-8')
+    for heading in ['### Candidate working-frame and point-evaluation contract',
+                    '### Candidate external measurement association',
+                    '### Candidate Profiles dependency integration']:
+        assert heading in source
+    with pytest.raises(ProposalNotReady,match='G11'):
         require_derivable_proposal(ROOT)
     result = assessment(ROOT)
     assert 'G01' not in result['open_semantic_gap_ids']
-    assert set(result['open_semantic_gap_ids']) == {'G03', 'G04', 'G06', 'G07'}
+    assert result['open_semantic_gap_ids']==['G11']
+    assert inputs['proposal']['group_agreement'] is False
+    assert 'independently CRS-bound point-instancer' in source
     assert result['proposal_ready'] is False
 
 

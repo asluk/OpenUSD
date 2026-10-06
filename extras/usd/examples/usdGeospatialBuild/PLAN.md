@@ -1,7 +1,9 @@
-# Current run
+# Current candidate iteration
 
-Pin the entire unpublished local proposal candidate at SHA-256 `a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904`, on base `39c8fb816a9113b14c8f64b020270724b8357312`. All31 functional requirements are audited. G03/G04/G06/G07 stop their dependent implementation. Proposed field, WKT, comparison and sampling answers can be exercised without claiming group adoption.
+The emailed leans are made explicit in the full local proposal before implementation. Pin the whole candidate and derived source, test authored facts and independent expected outcomes, verify the final consumer output, then perform both authority and reverse-coverage audits. Group adoption is separate from local derivability.
 
-Freeze derivation and source before executing headless OpenUSD, native OpenUSD and live OV controls. Exercise binding composition, source fields and interpolation, lossless WKT normalization and direct anchor-origin coordinate conversion without ordinary adjustments. An ordinary-adjustment request stops visibly. No undocumented measurement carrier or dependency flag enters the scenes.
+The current run completes its selected controls, native Hydra render/export path, live OV geometry sink and fresh-reader exports. The readonly source-layer policy prevents host timeline authoring; deliberate source-edit controls use a restored session layer. Frame derivatives are numerical estimates and polygonal bounds cover only resolved straight geometry. An unsupported continuous guarantee must fail visibly.
 
-Complete the postimplementation authority and reverse-coverage audit, then derive README, fork review body and editable slides from the new receipt. Replace current delivery artifacts together and preserve historical receipts. Deliver to the existing fork draft under standing authorization. PR9 and group communications remain unchanged by this build delivery.
+Keep G11 independently bound point-instancer prototypes and Q9 geographic scene frames/bounds visible. Physics and a live geospatial Hydra filter have no passing consumer evidence. Neither matching numbers nor a green execution promotes these limits into completed conformance. Current evidence and candidate choices are summarized in README.md and proposal-quality.json; prior runs live in Git history, not a growing current-state log.
+
+Publish the candidate experiment and updated delivery to the authorized fork draft. Proposal publication and group communications are separate and require their own authorization.

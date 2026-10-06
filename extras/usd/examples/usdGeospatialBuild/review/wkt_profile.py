@@ -66,8 +66,13 @@ def strict_crs(value):
     context = proj.proj_context_create()
     obj = None
     try:
-        if not proj.proj_context_set_database_path(context,
-                str(Path(pyproj.datadir.get_data_dir())/'proj.db').encode(), None, None):
+        # PROJ can return a search-path list after appending grid resources.
+        # The strict grammar context needs one actual database, not a joined path.
+        import os
+        database=next((Path(p)/'proj.db' for p in pyproj.datadir.get_data_dir().split(os.pathsep)
+                       if (Path(p)/'proj.db').is_file()),None)
+        if database is None or not proj.proj_context_set_database_path(context,
+                str(database).encode(), None, None):
             raise UnsupportedWKT('Strict syntax reader database unavailable')
         options = (s*3)(b'STRICT=YES', b'UNSET_IDENTIFIERS_IF_INCOMPATIBLE_DEF=NO', None)
         warnings, errors = ss(), ss()

@@ -199,11 +199,15 @@ def placement_jobs(directory, wkt):
         elif name == 'position-wrong-type':
             parent.RemoveProperty('crs:position')
             parent.CreateAttribute('crs:position', Sdf.ValueTypeNames.Float3, custom=False).Set((10., 20., 30.))
+            # A registered schema can supply its built-in type to CreateAttribute.
+            # Deliberately author the invalid declaration in Sdf, then verify it.
+            stage.GetRootLayer().GetAttributeAtPath('/Model.crs:position').SetInfo('typeName','float3')
             error = 'Placement position has wrong type'
         elif name == 'position-wrong-variability':
             parent.RemoveProperty('crs:position')
             parent.CreateAttribute('crs:position', Sdf.ValueTypeNames.Double3,
                                    custom=False, variability=Sdf.VariabilityUniform).Set((10., 20., 30.))
+            stage.GetRootLayer().GetAttributeAtPath('/Model.crs:position').SetInfo('variability',Sdf.VariabilityUniform)
             error = 'Placement position must be varying'
         elif name == 'nonfinite-scale':
             parent.CreateAttribute('crs:scale', Sdf.ValueTypeNames.Double3, custom=False).Set((1., float('nan'), 1.))

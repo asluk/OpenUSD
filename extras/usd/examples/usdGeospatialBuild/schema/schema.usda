@@ -11,14 +11,25 @@ class CoordinateReferenceSystem "CoordinateReferenceSystem" (
 ) {
     uniform token crs:wkt
 }
-class "GeospatialBindingAPI" (
+class "GeospatialCRSBindingAPI" (
     inherits = </APISchemaBase>
-    customData = { token apiSchemaType = "singleApply" }
+    customData = {
+        token apiSchemaType = "singleApply"
+        dictionary extraPlugInfo = { string[] impliesCapabilities = ["geospatial:crsResolution"] }
+    }
     doc = "Experimental authored binding and placement. Applied USD data schema; no standard callable API proposed."
 ) {
-    rel crs:binding
     double3 crs:position
     quatd crs:orientation = (1,0,0,0)
     double3 crs:scale = (1,1,1)
-    rel crs:coordinateProperties
+}
+class GeospatialDataSource "GeospatialDataSource" (
+    inherits = </Typed>
+    customData = { dictionary extraPlugInfo = { string[] impliesCapabilities = ["geospatial:crsResolution"] } }
+    doc = "External absolute measurement association in the local candidate; not model placement."
+) {
+    uniform asset data:asset
+    uniform token data:format
+    uniform string data:field
+    uniform string data:coordinateDomain
 }

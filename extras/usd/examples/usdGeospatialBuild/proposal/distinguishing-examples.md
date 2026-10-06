@@ -1,11 +1,7 @@
-# Distinguishing controls
+# Derived excerpt — no additional authority
 
-Authority: the entire unpublished local candidate, SHA-256 `a5444966c41e3a067d7c4db5b2e9a300a08b17fcce377bd6fb24727b390e6904`, based on `39c8fb816a9113b14c8f64b020270724b8357312`. [proposal-source.txt](proposal-source.txt) is the sole proposal authority. These files record derivation and do not add normative choices. Proposed details remain under author review.
+Source SHA-256: 2120953af221f83816486afbe88a06768e206d23cb570b5e39a193f254ba7a11
 
-Reference, sublayer, variant and class paths producing the same composed binding must give the same discovery result. A broken nearer binding must not inherit a farther definition. An unloaded payload supplies no invented prim.
+# Independently specified controls
 
-Omitted orientation/scale use the proposed fallbacks; blocked values fail. A same-CRS child direct binding retains its own absolute source position. Core held/linear/slerp operate on source values. Longitude 179 to -179 interpolates to zero, with no invented unwrapping.
-
-Lexical variants have hand-specified normalized text. Quoted metadata and exact decimals survive. Differently named equivalent CRS definitions remain distinct tokens. A PROJ writer round trip is a negative preservation control.
-
-Colorado and France provider coordinate rows serve only as illustrative adjustment-free anchor origins. Their CSVs are PROJ-generated rounding references, not independent geodetic ground truth. WGS84 equatorial origin conversions have analytic expected coordinates. An anchor with an ordinary adjustment stops instead of guessing its frame.
+The candidate fixtures specify expected stage/basis, quarter-turn, unit, pivot and source-interpolation answers before execution. A geographic asset in a projected project has a +10m ordinary anchor adjustment along site easting, while descendant X follows the oriented model. Descendant reset removes the ordinary anchor adjustment while retaining intrinsic CRS placement. Reprojection to ECEF preserves the adjusted physical result. External CF domains retain values, masks and observation times; 2D data receives no invented height. Profiles claims remain discoverable when payloads outside the interface subtree are unloaded.
