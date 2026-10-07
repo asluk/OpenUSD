@@ -1,0 +1,111 @@
+{
+  "inspection_performed_by": "Codex agent",
+  "user_comprehension_test_performed": false,
+  "rendered_readme_inspected": true,
+  "readme_sha256": "a45f759d69e14f28301cce5931f6578c8a64ebc8262403a6c8cc3b15b9a0b069",
+  "pptx_sha256": "fee6a89aeeb8a31a9e4bebf9b591398f9e5a3a39e9e70331b824501dd69f3965",
+  "pdf_sha256": "6f92650e4b5e3b991d54d015922b54ec095e1c49bfff788bf60ad37777f7a41e",
+  "slides": [
+    {
+      "number": 1,
+      "inspected": true,
+      "image_sha256": "87cb10ac2b54f23e888ac23b6ccecef087fdf1fec9ef2e12ea25639b5c3ed1f4"
+    },
+    {
+      "number": 2,
+      "inspected": true,
+      "image_sha256": "d291d8a9b8b24339ac652a610583d5ca789113238c75f51daea7d79a0aabfad7"
+    },
+    {
+      "number": 3,
+      "inspected": true,
+      "image_sha256": "03da99bbaf2e21c1a11626d89931fc528a96f971be9388a897994de8160f008a"
+    },
+    {
+      "number": 4,
+      "inspected": true,
+      "image_sha256": "288e7e08cbada8069ade4141d706871afae5a2bb07e80f49cc635fefdd52b0e5"
+    },
+    {
+      "number": 5,
+      "inspected": true,
+      "image_sha256": "d056f3a6f98b22271e27f30dfbc5a94022faa56eab5fa28933c34da562566153"
+    },
+    {
+      "number": 6,
+      "inspected": true,
+      "image_sha256": "3ea70c80ae8e4818e1b44f96284c7d2bb4e317e1f1ec20e8e9ad5960176e39b5"
+    },
+    {
+      "number": 7,
+      "inspected": true,
+      "image_sha256": "84cef6c37ae96f885d2c3439ef2da50c1102d5c95e92d8f3e87b1e30033dc7ab"
+    },
+    {
+      "number": 8,
+      "inspected": true,
+      "image_sha256": "7bae68b193fb7f8017257b76ca1cc63fe0c7bc2d0b2fe51fd74757cabcee174b"
+    },
+    {
+      "number": 9,
+      "inspected": true,
+      "image_sha256": "0f7a433a5b82208fae69edaa786afb98390fff474abe293bb1037a057008aab2"
+    },
+    {
+      "number": 10,
+      "inspected": true,
+      "image_sha256": "8c01256407c205cab4c69d471ef45105b2b8a7639c87389b7c8dec961fab6afe"
+    },
+    {
+      "number": 11,
+      "inspected": true,
+      "image_sha256": "6e78dcadb5b164222d26c48a1c6b339e04721b6f78a64efff7640b5be6c387fc"
+    },
+    {
+      "number": 12,
+      "inspected": true,
+      "image_sha256": "6266068438870cb15790fbac093293baf459cfb79c6942bd3266b49a3eb40f7a"
+    },
+    {
+      "number": 13,
+      "inspected": true,
+      "image_sha256": "c2e89b5503c23e64c0fdda1e116545a28c087bd3465eafcb3cc5879c53abb04b"
+    },
+    {
+      "number": 14,
+      "inspected": true,
+      "image_sha256": "b393e79a4221d8e8ec635ee21bb0ccd9caaa80e9465b04ad0ae0780d8cbf7555"
+    }
+  ],
+  "unresolved_layout_findings": [],
+  "assessment": {
+    "problem_and_plain_language": "Shape versus Earth location explained before fields. CRS and WKT introduced by their purpose.",
+    "proposal_quality": "Expected behavior, observed behavior, proposal implication and limits traced to exact clauses for nine cases.",
+    "visual_interpretation": "Two illustrative Eiffel steps labelled separately from native renderer outputs and synthetic temperature data.",
+    "uncertainty": "Agreement, missing meanings, known failures, unverified coverage and deferred scope distinguished.",
+    "legibility": "Every native PowerPoint slide inspected. Crowded prose and the audit table were repaired; final slides inspected again. README images, captions, assessment tables and expanded supporting sections inspected in Edge.",
+    "claim_boundary": "Agent inspection is not a user comprehension study."
+  },
+  "readme_sections_inspected": [
+    "opening",
+    "coordinates",
+    "adjustments",
+    "bake",
+    "measurements",
+    "audit",
+    "railway",
+    "choices",
+    "details"
+  ],
+  "negative_control_checks": [
+    "Missing evidence limit",
+    "Omitted later audit issue",
+    "Omitted demonstration assessment",
+    "Stale README story",
+    "Changed proposal authority",
+    "Changed execution receipt",
+    "Changed later audit",
+    "Invented proposal clause"
+  ],
+  "delivery_refresh_without_runtime_repairs": true
+}

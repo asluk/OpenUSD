@@ -1,99 +1,83 @@
-// Current candidate evidence, derived from README and frozen consumer returns.
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import {createHash} from 'node:crypto';
+import {execFileSync} from 'node:child_process';
 import {Presentation,PresentationFile} from '@oai/artifact-tool';
-const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const [skill,python,workspace,outputName='Geospatial-contract-evidence-2026-10-06.pptx']=process.argv.slice(2);
-const tmp=path.join(workspace,'work/geospatial-contract-deck-20261006');
-const final=path.join(workspace,'outputs/geospatial-contract-deck-20261006',outputName);
-await fs.mkdir(tmp,{recursive:true});await fs.mkdir(path.dirname(final),{recursive:true});
+
+const root=path.resolve(process.argv[2]||path.join(path.dirname(fileURLToPath(import.meta.url)),'..'));
+const workspace=path.resolve(process.argv[3]||process.cwd());
+const output=path.resolve(process.argv[4]||path.join(workspace,'outputs/geospatial-human-delivery-20261006'));
+const build=path.join(workspace,'work/geospatial-human-delivery-render-20261006');
+const skill='C:/Users/aluk/.codex/plugins/cache/openai-primary-runtime/presentations/26.909.12148/skills/presentations';
+const python='C:/Users/aluk/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe';
+process.env.RUNTIME_NODE_MODULES='C:/Users/aluk/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
+await fs.mkdir(build,{recursive:true});await fs.mkdir(output,{recursive:true});
 const sha=b=>createHash('sha256').update(b).digest('hex');
 const story=JSON.parse(await fs.readFile(path.join(root,'delivery/story.json'),'utf8'));
-if(sha(await fs.readFile(path.join(root,'README.md')))!==story.readme_sha256)throw Error('Re-derive changed README');
-if(sha(await fs.readFile(path.join(root,'delivery/run-report.json')))!==story.run_receipt_sha256)throw Error('Changed receipt');
-const report=JSON.parse(await fs.readFile(path.join(root,'delivery/run-report.json'),'utf8'));
-const {resolvePresentationFont,applyPresentationChartFont,finalizePresentation}=await import(pathToFileURL(path.join(skill,'container_tools/artifact_tool_utils.mjs')).href);
-const font=resolvePresentationFont({fontFamily:'Arial'}),p=Presentation.create({slideSize:{width:1280,height:720}});
-const C={ink:'#213744',teal:'#157C87',muted:'#526B79',light:'#D7E1E6',amber:'#A25D20',blue:'#2A6199'};
-function text(s,t,x,y,w,h,size=28,bold=false,color=C.ink){const sh=s.shapes.add({geometry:'textbox',position:{left:x,top:y,width:w,height:h},fill:'none',line:{fill:'none',width:0}});sh.text=t;sh.text.style={typeface:font,fontSize:size,bold,color,autoFit:'none'};return sh;}
-function table(s,values,y,h,widths,size=24,x=64,w=1152){const t=s.tables.add({rows:values.length,columns:values[0].length,left:x,top:y,width:w,height:h,values,columnWidths:widths});t.borders.assign({width:1,fill:C.light,style:'solid'});for(let r=0;r<values.length;r++){t.rows[r].height=h/values.length;for(let c=0;c<values[0].length;c++){const cell=t.getCell(r,c);cell.fill=r?'#FFFFFF':C.ink;cell.text.style={typeface:font,fontSize:size,color:r?C.ink:'#FFFFFF',bold:!r,autoFit:'none'};}}return t;}
-async function pic(s,file,x,y,w,h,alt){s.images.add({blob:new Uint8Array(await fs.readFile(path.join(root,'delivery',file))),contentType:'image/png',alt,fit:'contain',position:{left:x,top:y,width:w,height:h}});}
-function axis(title,format='0'){return {title:{text:title,textStyle:{typeface:font,fontSize:19,fill:C.ink}},numberFormatCode:format,textStyle:{typeface:font,fontSize:18,fill:C.muted},line:{fill:C.light,width:1},majorGridlines:{fill:'#E9EEF1',width:1}};}
-for(let i=0;i<story.slides.length;i++){
- const d=story.slides[i],s=p.slides.add();s.background.fill='#FFFFFF';text(s,d.title,64,35,1152,110,42,true);let notes='';
- if(i===0){
-  text(s,'Known contract gaps now have concrete proposed answers.',64,173,1152,112,39,true);
-  text(s,'Position and model attitude are source inputs. Detailed transform, dataset, instance and scene-chart choices still need author review.',64,323,1152,130,32,false,C.amber);
-  text(s,`${story.tests.regressions_passed} regressions and ${story.tests.distinguishing_controls_passed} distinguishing controls passed.\n${story.coordinate_count.toLocaleString()} coordinate results per Python/C++ path.`,64,500,1152,107,32,false,C.teal);
-  text(s,'No new computed source properties. Group adoption and whole-proposal conformance are not claimed.',64,652,1152,45,23,false,C.muted);
- }else if(i===1){
-  table(s,[['Authored inputs','Meaning in the proposed model'],
-   ['crs:position','Absolute 3D model origin in source WKT components, units and height reference.'],
-   ['crs:orientation','Physical geodetic ENU model attitude; identity fallback. Distinct from projected grid convergence.'],
-   ['Ordinary xformOps','Intentional scale, pivots and project adjustment. Descendant stacks retain model-local meaning.'],
-   ['Native data association','Asset, format, field and coordinate domain. Values, masks and observation times remain native.'],
-   ['Computed results','Resolution, convergence, projection scale and bounds are results; no crs:scale source property.']],150,450,[300,852],24);
-  text(s,'This is a complete review candidate. Tests do not establish author agreement to the detailed choices.',64,641,1152,66,25,false,C.amber);
- }else if(i===2){
-  text(s,'A geographic asset sits inside a projected site. Its model orientation turns local X northward.',64,158,1152,80,30);
-  const q=story.working_queries;
-  const rows=[['Queried position','Easting (m)','Northing (m)','Height (m)'],['Anchor with +10 site adjustment',...q[0].coordinates[0].map(v=>v.toFixed(4))],['Child with +3 local X',...q[1].coordinates[0].map(v=>v.toFixed(4))],['Child with ordinary reset',...q[2].coordinates[0].map(v=>v.toFixed(4))]];
-  table(s,rows,269,237,[474,226,226,226],25);
-  text(s,'The +10 follows site easting. The child offset follows the oriented model.\nThe reset removes the ordinary adjustment and retains CRS placement.',64,539,1152,104,29,false,C.teal);
-  text(s,`The raw working-axis child alternative differs by ${story.comparison.difference_metres.toFixed(3)} m. Descendant semantics are proposed for review.`,64,662,1152,46,22,false,C.muted);
- }else if(i===3){
-  await pic(s,'renders/tower.png',30,142,805,474,'Native Hydra Storm rendering of resolved Eiffel geometry');
-  text(s,'163,440 vertices',865,184,350,63,36,true,C.teal);
-  text(s,'C++ pointwise results\n163,416 shading normals\nFresh USD export readers\nNative Storm color output',865,277,350,219,27);
-  text(s,'Illustrative plane and markers.\nNo surveyed Paris context.',865,533,350,79,24,false,C.muted);
-  text(s,'The renderer consumes an ordinary resolved export. This run does not install a live geospatial scene-index filter.',64,653,1152,51,24,false,C.muted);
-  notes='Eiffel mesh: ( FREE ) La tour Eiffel by SDC PERFORMANCE, https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674 ; CC BY 4.0, https://creativecommons.org/licenses/by/4.0/ . Reoriented, placed and rendered with illustrative context. Actual native Storm output from this frozen run.';
- }else if(i===4){
-  await pic(s,'renders/terrain.png',25,143,814,477,'Native Storm rendering of resolved Colorado survey breaklines');
-  text(s,'14,359 vertices',866,181,349,63,36,true,C.teal);
-  text(s,'Original LandXML breaklines\nWKT-carried site calibration\nDeclared US survey feet\nSeparate stage conventions',866,276,349,229,27);
-  text(s,'No terrain surface\nwas fabricated.',866,544,349,78,25,false,C.muted);
-  text(s,'Fresh readers verify the resolved geometry. Polygonal bounds cover returned vertices and straight faces, with no continuous-surface certificate.',64,651,1152,61,23,false,C.muted);
- }else if(i===5){
-  await pic(s,'plots/global-3d.png',39,154,1200,369,'Synthetic CF global temperature domain with explicit ellipsoidal height');
-  text(s,'154 synthetic 3D samples retain values and two observation times.',64,547,1152,47,30,true,C.teal);
-  text(s,'Explicit 100 m ellipsoidal height; illustrative temperature in kelvin. Both readers resolve geographic and ECEF outputs. Observation time is distinct from epoch.',64,615,1152,87,28);
- }else if(i===6){
-  await pic(s,'plots/railway.png',29,148,682,513,'Original railway horizontal coordinates resolved to UTM 32');
-  text(s,'15,822 vertices',756,188,460,57,36,true,C.teal);
-  text(s,'2,386 railway parts\nExplicit horizontal source copy\nUTM 32 output coordinates\nOriginal data retained',756,282,460,201,29);
-  text(s,'Original third components\nremain uninterpreted.',756,535,460,95,27,false,C.amber);
-  text(s,'The larger-scale workflows keep useful 2D resolution without inventing height. Plot offsets serve display only.',64,670,1152,35,22,false,C.muted);
- }else if(i===7){
-  let y=156;
-  for(const [key,label] of [['France_01','France: CC49 to Lambert-93 (metres)'],['Colorado_02','Colorado: State Plane to calibrated site (US survey feet)']]){
-   const e=story.examples[key];text(s,label,64,y,1152,44,27,true,C.teal);
-   const rows=[['Component','Source','USD Python','USD C++','OV-hosted Python'],...['Easting','Northing','Height'].map((l,k)=>[l,...['source','python','native','ov'].map(n=>e[n][k].toFixed(4))])];
-   table(s,rows,y+53,164,[190,233,233,233,263],22);y+=244;
-  }
-  text(s,'Both USD implementations agree. OV reuses Python placement. All paths share PROJ; these comparisons do not certify survey accuracy.',64,655,1152,55,22,false,C.muted);
- }else if(i===8){
-  const xyz=story.source_time_coordinates,base=(xyz[0][0]+xyz[2][0])/2;
-  const curve=Array.from({length:61},(_,n)=>{const a=(2*n/60)*Math.PI/180;return [6378137*Math.sin(a)/1000,6378137*Math.cos(a)-base]});
-  const chart=s.charts.add('scatter',{position:{left:45,top:163,width:752,height:431},title:'Source-first ECEF path',titleTextStyle:{typeface:font,fontSize:25,fill:C.ink,bold:true},series:[
-   {name:'Analytic guide',xValues:curve.map(v=>+v[0].toFixed(6)),values:curve.map(v=>+v[1].toFixed(6)),line:{fill:C.teal,width:3},marker:{symbol:'none'}},
-   {name:'Converted endpoint chord',xValues:[xyz[0][1]/1000,xyz[2][1]/1000].map(v=>+v.toFixed(6)),values:[+(xyz[0][0]-base).toFixed(6),+(xyz[2][0]-base).toFixed(6)],line:{fill:C.amber,width:3},marker:{symbol:'none'}},
-   {name:'Resolved export samples',xValues:xyz.map(v=>+(v[1]/1000).toFixed(6)),values:xyz.map(v=>+(v[0]-base).toFixed(6)),fill:C.blue,line:{fill:'none',width:0},marker:{symbol:'circle',size:10}}],scatterOptions:{style:'lineWithMarkers'},hasLegend:true,legend:{position:'bottom',textStyle:{typeface:font,fontSize:18,fill:C.ink}},xAxis:axis('ECEF Y (km)'),yAxis:axis('ECEF X relative to chord midpoint (m)'),chartFill:'#FFFFFF',plotAreaFill:'#FFFFFF'});applyPresentationChartFont(chart,{fontFamily:font});
-  text(s,`${story.chord_error_metres.toFixed(3)} m`,842,202,374,62,40,true,C.teal);
-  text(s,'Midpoint difference from\ninterpolating only the\nconverted endpoints.',842,292,374,132,28);
-  text(s,'Fresh geometry exports\nSample keys 0, 5, 10\ntimeCodesPerSecond = 48',842,473,374,115,27);
-  text(s,'Both readers verify each exported sample. No original-trajectory guarantee is claimed between samples. Chart axes use different distance scales.',64,641,1152,70,24,false,C.muted);
-  notes='The curve is a 61-point analytic visualization guide. Dots are the three actual resolved sample positions verified in fresh geometry exports. Source longitude goes from 0 to 2 degrees. Chart offset is for presentation only. Literal chart snapshots round plotted values to six decimals; underlying results remain unchanged.';
- }else{
-  table(s,[['Consumer','Evidence reaching its output'],['USD Python and C++','Independent placement arithmetic; full point maps, Cartesian frame estimates and polygonal bounds. Shared PROJ and external decoding.'],['Omniverse live geometry',`${story.ov.geometry_vertices.toLocaleString()} vertices read back from runtime buffers/matrices. ${story.ov.edit_checks} edit, failure and recovery checks. Reuses Python placement.`],['Hydra / Storm','Two ordinary resolved exports reach points/transform data sources and the native renderer. No live CRS filter.']],155,335,[320,832],25);
-  text(s,`All ${story.export_count} exports pass fresh-reader checks. Geographic scene charts and bound prototypes are covered.`,64,522,1152,59,30,true,C.teal);
-  text(s,'Remaining evidence limits: continuous nonlinear certificates, general primvar coverage and physics integration. Detailed candidate choices still need author review.',64,608,1152,98,27,false,C.amber);
- }
- s.speakerNotes.textFrame.setText(`README section: ${d.section}\nREADME SHA-256: ${story.readme_sha256}\nReceipt SHA-256: ${story.run_receipt_sha256}\nImmutable execution receipt SHA-256: ${story.immutable_receipt_sha256}\nProposal SHA-256: ${story.proposal_sha256}\nIntegration evidence SHA-256: ${story.integration_evidence_sha256}\nExecuted source parent: ${story.executed_source_commit}; exact executed files frozen in receipt.\n\nLocal candidate, not group agreement or whole-requirement conformance. Two placement implementations; all use PROJ. OV reuses Python with a verified runtime geometry sink, without an OV render claim. Hydra uses a resolved ordinary-USD export from C++ results. Source data and measured limitations are documented in the README.\n\n${notes}`);
+if(story.readme_sha256!==sha(await fs.readFile(path.join(root,'README.md'))))throw Error('Stale README story');
+if(story.narrative_version!==1||story.slides.length!==14)throw Error('Reassess narrative structure');
+const {applyPresentationChartFont,finalizePresentation}=await import(pathToFileURL(path.join(skill,'container_tools/artifact_tool_utils.mjs')).href);
+const p=Presentation.create({slideSize:{width:1280,height:720}});
+const C={ink:'#213744',teal:'#157C87',muted:'#526B79',light:'#D7E1E6',amber:'#A25D20'};
+const slides=Array.from({length:14},()=>p.slides.add());
+function text(s,value,x,y,w,h,size=28,bold=false,color=C.ink){
+ const shape=s.shapes.add({geometry:'rect',position:{left:x,top:y,width:w,height:h},fill:'#FFFFFF',line:{fill:'#FFFFFF',width:0}});
+ shape.text=value;shape.text.style={typeface:'Arial',fontSize:size,bold,color,autoFit:'none',verticalAlignment:'top'};return shape;
 }
-const candidate=path.join(tmp,'candidate.pptx');await(await PresentationFile.exportPptx(p)).save(candidate);
-const tables=[2,3,8,10];const result=await finalizePresentation({workspaceDir:workspace,candidatePath:candidate,finalPath:final,pythonExecutable:python,
- integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-heading-fit',...tables.flatMap(n=>['--require-native-table-slide',String(n)])],explicitTotalSlideCount:10,requiredNativeTableOwnerSlides:tables,requiredNativeChartOwnerSlides:[9],materializeLiteralChartWorkbooks:true,fontPolicy:{basis:'design',families:['Arial']},verifyArtifactToolImport:true,receiptPath:path.join(tmp,outputName+'.validation.json')});
-console.log(JSON.stringify({final,validation:result.status,slides:10}));
+function slide(n){const s=slides[n-1];s.background.fill='#FFFFFF';text(s,story.slides[n-1].title,64,34,1152,104,42,true);return s;}
+function table(s,rows,y,h,widths,size=25){
+ const t=s.tables.add({rows:rows.length,columns:rows[0].length,left:64,top:y,width:1152,height:h,values:rows,columnWidths:widths});
+ t.borders.assign({width:1,fill:C.light,style:'solid'});
+ t.cells.block({row:0,column:0,rowCount:rows.length,columnCount:rows[0].length}).assign({margins:{left:10,right:10,top:2,bottom:2}});
+ for(let r=0;r<rows.length;r++){t.rows[r].height=h/rows.length;for(let c=0;c<rows[0].length;c++){const cell=t.getCell(r,c);cell.fill=r?'#FFFFFF':C.ink;cell.text.style={typeface:'Arial',fontSize:size,color:r?C.ink:'#FFFFFF',bold:!r,autoFit:'none'};}}return t;
+}
+async function image(s,case_,x,y,w,h){const asset=case_.image;const im=s.images.add({blob:new Uint8Array(await fs.readFile(path.join(root,'delivery',asset.path))),contentType:'image/png',alt:asset.alt,fit:case_.kind==='illustration'?'cover':'contain',position:{left:x,top:y,width:w,height:h}});if(case_.kind==='illustration')im.crop={left:0,top:140/1560,right:0,bottom:520/1560};}
+function notes(s,n,extra=''){
+ const meta=story.slides[n-1],case_=story.cases.find(c=>c.id===meta.case);
+ const assessment=case_?['Question: '+case_.question,'Proposed rule: '+case_.rule,'Expected: '+case_.expected,'Observed: '+case_.observed,'Implication for proposal quality: '+case_.implication,'Limit: '+case_.boundary,'Proposal: '+case_.clause_heading+' at proposal/proposal-source.txt:'+case_.clause_line,'Functional requirements: '+JSON.stringify(case_.requirements),'Image role: '+(case_.image?.role||'Recorded numerical evidence')].join('\n'):JSON.stringify({section:meta.section,status:story.status_rows,issues:n===8?story.issue_rows:undefined});
+ s.speakerNotes.textFrame.setText(assessment+'\n'+extra+'\nREADME SHA-256 '+story.readme_sha256+'\nProposal SHA-256 '+story.proposal_sha256+'\nImmutable execution receipt SHA-256 '+story.immutable_receipt_sha256+'\nLater audit SHA-256 '+story.audit_sha256+'\n'+story.provenance_disposition+'\nEiffel mesh credit: SDC PERFORMANCE, https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674 ; CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ . Illustrative context is not surveyed ground truth.');
+}
+{
+ const s=slide(1);text(s,story.opening,64,153,1152,163,31);text(s,story.assessment,64,347,1152,181,31,false,C.teal);text(s,story.summary,64,575,1152,127,27,false,C.muted);notes(s,1,'Main explanation: 1–8. Supporting evidence and review choices: 9–14.');
+}
+{
+ const s=slide(2),c=story.cases.find(c=>c.id==='inputs');text(s,c.question,64,150,1152,79,31);table(s,[['Source information','Plain meaning'],...story.input_rows],254,333,[330,822],25);text(s,c.expected,64,622,1152,84,27,false,C.teal);notes(s,2);
+}
+for(const n of [3,4,6,9,10]){
+ const s=slide(n),c=story.cases.find(c=>c.id===story.slides[n-1].case);text(s,c.question,64,147,1152,81,31,true,C.teal);
+ await image(s,c,64,250,762,429);
+ text(s,'Observed',865,250,351,32,22,true,C.teal);text(s,c.observed,865,287,351,168,24);
+ text(s,'What it establishes',865,465,351,33,22,true,C.teal);text(s,c.implication,865,503,351,189,24);
+ text(s,c.image.role[0].toUpperCase()+c.image.role.slice(1)+'. Limits in the notes and README.',64,686,762,25,18,false,C.muted);notes(s,n);
+}
+// Reader tables come directly from the recorded evidence also displayed in the README.
+{
+ const s=slide(5),c=story.cases.find(c=>c.id==='readers');text(s,c.question,64,146,1152,80,31);let y=242;
+ for(const [key,label] of [['France_01','France: CC49 to Lambert-93, metres'],['Colorado_02','Colorado: State Plane to site grid, US survey feet']]){const e=story.examples[key];text(s,label,64,y,1152,37,25,true,C.teal);table(s,[['Resolved component','Python reader','C++ reader'],...['Map east coordinate','Map north coordinate','Height'].map((label,k)=>[label,...['python','native'].map(reader=>e[reader][k].toLocaleString('en-US',{minimumFractionDigits:6,maximumFractionDigits:6}))])],y+45,142,[352,400,400],24);y+=203;}
+ text(s,c.boundary.split('. ')[0]+'.',64,654,1152,58,23,false,C.muted);notes(s,5,'The tables round one point per dataset to six decimals in their declared units. Shared PROJ and decoding limit independence. Required component/angular reports remain incomplete (audit A6). '+JSON.stringify(story.examples));
+}
+{
+ const s=slide(7),c=story.cases.find(c=>c.id==='measurements');text(s,c.question,64,145,1152,95,30);await image(s,c,64,249,1152,332);text(s,c.observed,64,594,1152,63,25,false,C.teal);text(s,c.boundary,64,663,1152,48,21,false,C.muted);notes(s,7);
+}
+{
+ const s=slide(8);text(s,'The recorded suite passed, then the audit exercised cases it had missed.',64,145,1152,68,30);table(s,[['Affected behavior','Confirmed issue'],...story.issue_rows],229,370,[330,822],22);text(s,'Repair these against the existing proposed rules. If repair reveals truly unspecified meaning, flag that separately.',64,654,1152,57,24,false,C.amber);notes(s,8,'No additional model blocker was established by this audit; this is not an exhaustive finding. R1 remains unreproduced.');
+}
+{
+ const s=slide(11),c=story.cases.find(c=>c.id==='animation');text(s,c.rule,64,148,1152,81,30,true,C.teal);
+ const chart=s.charts.add('bar',{position:{left:45,top:265,width:756,height:408},categories:['0','5','10'],series:[{name:'Error from interpolating converted endpoints',values:[0,+story.chord_error_metres.toFixed(6),0],fill:C.amber}],barOptions:{direction:'column',grouping:'clustered',gapWidth:130},hasLegend:false,xAxis:{title:{text:'USD sample time code',textStyle:{typeface:'Arial',fontSize:21,fill:C.ink}},textStyle:{typeface:'Arial',fontSize:23,fill:C.ink},line:{fill:C.light,width:1}},yAxis:{title:{text:'Distance from source-first result (m)',textStyle:{typeface:'Arial',fontSize:21,fill:C.ink}},numberFormatCode:'0',textStyle:{typeface:'Arial',fontSize:20,fill:C.muted},majorGridlines:{fill:'#E9EEF1',width:1}},dataLabels:{showValue:true,position:'outEnd',numberFormatCode:'0.0',textStyle:{typeface:'Arial',fontSize:25,fill:C.ink,bold:true}},chartFill:'#FFFFFF',plotAreaFill:'#FFFFFF'});applyPresentationChartFont(chart,{fontFamily:'Arial'});
+ text(s,'Why the order matters',850,271,366,55,30,true);text(s,c.implication,850,343,366,196,27);text(s,c.boundary,850,561,366,137,24,false,C.muted);notes(s,11,'The chart uses literal values from frozen source samples '+JSON.stringify(story.source_time_coordinates)+'; midpoint difference '+story.chord_error_metres+' m. Whole-metre chart labels; six-decimal workbook values. No continuous error curve is claimed.');
+}
+for(const n of [12,13]){
+ const s=slide(n),rows=n===12?story.placement_choice_rows:story.data_choice_rows;table(s,[['Topic','Proposed meaning to review'],...rows],154,447,[355,797],25);
+ text(s,n===12?'These are definitions in the candidate, not new inferred behavior supplied by the demonstrations.':'Coordinate epochs and scene-authored operation/resource controls remain deferred without foreclosing later support.',64,637,1152,70,26,false,C.amber);notes(s,n,JSON.stringify(rows));
+}
+{
+ const s=slide(14);table(s,[['Path or check','Recorded evidence'],...story.evidence_rows],151,459,[340,812],23);text(s,'There are two placement readers. Omniverse reuses Python with a verified stage geometry sink. Hydra consumes a C++-resolved ordinary USD bake.',64,637,1152,75,25,false,C.muted);notes(s,14,JSON.stringify(story.evidence_rows));
+}
+const candidate=path.join(build,'candidate.pptx');await(await PresentationFile.exportPptx(p)).save(candidate);
+execFileSync(python,[path.join(path.dirname(fileURLToPath(import.meta.url)),'repair_slide_viewports.py'),candidate],{stdio:'inherit'});
+const final=path.join(output,'Geospatial-proposal-assessment-2026-10-06-v2.pptx');
+const reference=path.join(root,'delivery/geospatial-build.pptx');
+const result=await finalizePresentation({workspaceDir:workspace,candidatePath:candidate,finalPath:final,pythonExecutable:python,integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-heading-fit',...story.required_native_table_slides.flatMap(n=>['--require-native-table-slide',String(n)])],explicitTotalSlideCount:14,requiredNativeTableOwnerSlides:story.required_native_table_slides,requiredNativeChartOwnerSlides:story.required_native_chart_slides,materializeLiteralChartWorkbooks:true,fontPolicy:{basis:'reference',families:['Arial'],referencePath:reference,referenceSha256:sha(await fs.readFile(reference))},verifyArtifactToolImport:true,receiptPath:path.join(build,'validation-v2.json')});
+console.log(JSON.stringify({final,status:result.status,readme_sha256:story.readme_sha256}));

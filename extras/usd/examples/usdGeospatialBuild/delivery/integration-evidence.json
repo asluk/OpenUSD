@@ -69,8 +69,8 @@
       "sink": "numeric records and export geometry"
     },
     {
-      "name": "Omniverse live geometry",
-      "reader": "omni.usd live stage",
+      "name": "Omniverse stage geometry integration",
+      "reader": "omni.usd stage",
       "placement": "reused Python point map",
       "sink": "runtime points, normal arrays and world matrices; readback and edit/failure/recovery"
     },

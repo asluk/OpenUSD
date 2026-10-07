@@ -1,101 +1,280 @@
-# Geospatial proposal candidate and executed evidence
+# Geospatial proposal assessment
 
-The proposal now contains a **complete proposed answer for every known retained-scope contract gap** from the audit. It remains a review candidate: input-only model attitude, descendant-transform meaning, native-data association, independently bound prototypes, geographic scene charts, Profiles, export representation and WKT string normalization require author alignment. No computed projection result becomes a source USD property. Passing this run does not establish group agreement or whole-proposal conformance.
+USD describes a 3D model's shape and size. Geospatial information says where it belongs on Earth, so models, surveys and measurements can work together.
 
-The full local loop passed **64 regressions and 61 distinguishing controls**, compared 213,231 coordinate results per Python/C++ path, verified 35 OV-hosted jobs, rendered two native Hydra/Storm exports and reread 11 exports. The maximum measured Python/C++ coordinate difference was 3.39e-08 m. Original source inputs and frozen executed files remained unchanged.
+The question: can another implementer derive the behavior without guessing? The draft now defines the tested inputs and rules. Those choices still need group review.
 
-[Editable slides](delivery/geospatial-build.pptx) Â· [PDF](delivery/geospatial-build.pdf) Â· [Receipt](delivery/run-report.json) Â· [Proposal audit](proposal-quality.json) Â· [Whole proposal](proposal/proposal-source.txt) Â· [Build loop](BUILD_LOOP.md)
+[Slides](delivery/geospatial-build.pptx) · [PDF](delivery/geospatial-build.pdf) · [Proposal snapshot](proposal/proposal-source.txt) · [Build loop](BUILD_LOOP.md)
 
-## Proposal quality and review choices
+## Assessment of the proposal
 
-The sole normative candidate is the whole proposal, SHA-256 `1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0`, with the exact local diff retained beside it. Requirement traceability now uses the actual 31 functional requirements and their exact normative clauses. Derived notes, fixtures and adapter code add no authority. The pre-implementation gate distinguishes missing meanings from complete choices awaiting review; the post-implementation gate checks both authored fields and observable results in reverse.
-
-| Subject | Proposed answer |
+| Review dimension | Current assessment |
 |---|---|
-| Inputs / Q2, Q6 | Position plus physical geodetic-attitude quaternion. Projection scale/convergence are computed; intentional scale uses xformOps. |
-| Transform order / Q3 | Anchor xformOps adjust the resolved placement in a fixed working chart. Descendants retain model-local USD meaning. |
-| Absolute data / Q11 | Xformable carrier selects native asset, format, field and coordinate domain; values, masks and observation times stay paired. |
-| Instances and geographic output | Bound prototypes retain their own anchor; geographic tuples have an associated geocentric Cartesian scene chart. |
-| Profiles, export and WKT | Whole-scene hard dependency claim; nonbinding Cartesian context for baked geometry; lexical WKT normal form distinct from semantic CRS equality. |
+| Proposal definitions | The candidate specifies inputs and evaluation rules for the displayed cases. Detailed choices still need group review. |
+| Newly confirmed model gap | This audit established no additional data-model blocker. It does not establish an exhaustive search for missing meaning. |
+| Implementation evidence | The selected cases work. 7 later audit issues remain failed or unverified. |
+| Deferred capabilities | Coordinate epochs and scene-authored transformation resources remain on the roadmap. Initial choices must preserve a path to adding them. |
 
-The authored model inputs are `double3 crs:position` and `quatd crs:orientation`. Their scope, defaults, units, ordering, quaternion validity and time behavior are defined. `crs:scale`, coordinate epoch, heading/pitch/roll outputs, convergence and computed projection-scale properties are not authored inputs. The proposed external schema uses `data:asset`, `data:format`, `data:field` and `data:coordinateDomain`; this is an explicit new schema candidate, not a claim that existing fields already covered association. WKT retains CRS authority. Ordinary scaling and pivots remain xformOps.
+Selected demonstrations work. A later audit found seven prototype issues. No additional model blocker was confirmed; this does not establish complete coverage.
 
-Coordinate epochs and scene-authored operation/resource controls remain deferred without foreclosing later support. Larger-scale geographic workflows remain represented. Nothing in these choices is justified by a fixture name or an adapter limitation.
+## Source inputs and computed placement
 
-## Ordered math and the descendant choice
+### A geographic location for a 3D model
 
-The intrinsic map converts model-local stage coordinates through geospatial attitude and the source datum's ENU/ECEF relationship. The anchor's ordinary stack adjusts the resolved point in its fixed working chart, then the adjusted physical point is expressed in the requested output CRS. The nearest strictly enclosing direct CRS binding selects that working context; the source CRS is its fallback. Output selection never reinterprets raw adjustment values.
+**Question.** Can a reader distinguish the model's shape from its location on Earth?
 
-Descendant xformOps, including authored asset conformance, define the model-local point supplied to placement. This is a **proposed clarification** of the call's broad post-placement wording, not an assertion that descendant semantics were already settled. The tested all-working-axis counterfactual differs by **4.222137 m** in the distinguishing rotated-child case. Both exact coordinates are retained in [the comparison](delivery/transform-order-comparison.json). This review choice is visible rather than hidden behind an implementation order.
+The scene records local geometry separately from its geographic origin and physical orientation. A coordinate reference system (CRS) defines how to interpret the origin's axes, units and height.
 
-An anchor +10 translation moves along site easting; the oriented child +3 local-X offset follows model axes. A descendant reset removes ordinary ancestors and retains intrinsic placement. Independent direct bindings exclude ancestor xformOps without ignoring the enclosing CRS's role. Per-instance transforms are applied once; bound prototypes retain their own absolute source placement. A separate prototype-child reset control excludes a +100 prototype transform and retains the explicitly selected instance transform.
+**Expected behavior.** A reader has enough source information to place the model, without interpreting longitude or latitude as a distance or adding computed results to the source schema.
 
-## Eiffel geometry and shading
+**Observed result.** The candidate defines position and orientation inputs, with concrete component, unit, default and evaluation rules. Ordinary model transforms remain separate.
 
-![Native Storm Eiffel rendering](delivery/renders/tower.png)
+**What this says about the proposal.** These definitions make the intended inputs explicit. Their usefulness depends on the agreed meanings, not on choosing a particular implementation library.
 
-The native C++ path resolves **163,440 vertices**, including the illustrative context markers and plane. **163,416 authored vertex normals** are transported through the full-map Jacobian, compared between readers, retained in the output and reread. The export's ordinary points and double transforms reach Hydra data sources and native Storm color output. The plane and markers are illustrative, not surveyed Paris context. This is a resolved-export rendering path; no live geospatial Hydra filter or OV render is claimed.
+**Limit.** This is an explanation of proposed definitions. The group still needs to review them.
 
-## Colorado site calibration
+Proposal basis: [Authored properties](proposal/proposal-source.txt#L1476). Functional requirements [9](proposal/proposal-source.txt#L736), [10](proposal/proposal-source.txt#L754), [12](proposal/proposal-source.txt#L790), [14](proposal/proposal-source.txt#L821), [15](proposal/proposal-source.txt#L834).
 
-![Native Storm survey rendering](delivery/renders/terrain.png)
+| Source information | Plain meaning |
+|---|---|
+| Model geometry | Shape and local distances, with declared model units and up direction. In USD: points, metersPerUnit and upAxis. |
+| Coordinate reference | A CRS binding refers to WKT, the standard text description of the location's axes, units and height meaning. |
+| Geographic origin | crs:position locates the model origin. The illustrative example uses longitude 2.2945 degrees, latitude 48.8584 degrees and ellipsoidal height 80 m. |
+| Physical orientation | crs:orientation says which way the model faces and tilts relative to local east, north and up at its origin. |
 
-The original LandXML survey contributes **14,359 breakline vertices**. WKT carries the calibrated site relationship and US survey foot units. Stage conventions remain separate. No terrain surface was fabricated. Fresh readers verify placement; polygonal bounds describe returned vertices and straight faces, not the continuous nonlinear image of an original surface.
+A reader computes coordinate-query results and scene placement from those inputs. Projection scale, convergence and other computed results do not become source geospatial properties. An ordinary USD scale operation records an author's intentional adjustment.
 
-## Native measurements and larger-scale workflows
+## Demonstrations and their meaning
 
-![Synthetic global 3D measurements](delivery/plots/global-3d.png)
+### One physical place, different coordinates
 
-The synthetic global CF domain has **154 samples over two observation times**, explicit **100 m ellipsoidal height** and illustrative temperature units in kelvin. Both readers resolve it into geographic and ECEF coordinates without changing values or treating observation time as a coordinate epoch. A fresh CF export preserves values, masks, coordinates, height and observation-time metadata.
+**Question.** Does changing coordinate systems preserve physical placement?
 
-The original global scalar grid retains **2,664 values** and its explicitly horizontal association. Missing physical units, height and observation times remain missing. Unsupported 3D requests fail visibly. Synthetic imagery adjustment retains native pixel values and coordinate bytes while adding +25 m east and -10 m north in the project frame. CF controls select distinct geographic/projected coordinate domains and retain missing masks and native times.
+CRS conversion expresses the same physical placement using different coordinates. The reader computes projection effects instead of recording them as additional source properties.
 
-![Railway horizontal resolution](delivery/plots/railway.png)
+![Illustrative Eiffel origin changes from longitude, latitude and height to map coordinates while physical placement stays the same](delivery/figures/03-crs-resolved.png)
 
-The original railway retains **15,822 horizontal vertices** across 2,386 parts. An explicit horizontal illustrative copy resolves to UTM 32. Its original third components remain untouched and uninterpreted; no height reference is guessed. Plot origins serve display only.
+*Informative illustration. The location, height and orientation are illustrative. This image explains the proposed math and does not verify surveyed Paris placement.*
 
-## Same partner data in both placements
+**Expected behavior.** Longitude and latitude can become map east and north coordinates while the tower stays at the same physical place.
 
-**France_01: CC49 to Lambert-93 (m).**
+**Observed result.** The illustration converts longitude, latitude and height into map coordinates. The physical site stays the same; map north and local scale can differ.
 
-| Component | Source | USD Python | USD C++ | OV-hosted Python |
+**What this says about the proposal.** The proposed rules distinguish a new coordinate representation from a physical move. An image explains this distinction; numerical controls must test it.
+
+Proposal basis: [Source placement evaluation and transform order](proposal/proposal-source.txt#L1750). Functional requirements [9](proposal/proposal-source.txt#L736), [12](proposal/proposal-source.txt#L790), [13](proposal/proposal-source.txt#L804), [16](proposal/proposal-source.txt#L846), [19](proposal/proposal-source.txt#L894).
+
+### Ordinary model adjustments after placement
+
+**Question.** In which coordinates do an author's scale, rotation and translation operate?
+
+On an object with its own CRS binding, ordinary USD transforms (xformOps) adjust the resolved placement in a fixed project working frame. The requested output CRS does not reinterpret those adjustment values.
+
+![Illustrative Eiffel tower moves east and south after ordinary scale and rotation, with its previous position outlined in blue](delivery/figures/05-usd-translate.png)
+
+*Informative illustration. The image is informative. The child-transform rule is a proposed clarification, not a claim that the call settled every descendant case.*
+
+**Expected behavior.** A project adjustment moves or resizes the placed model while its source geospatial inputs remain unchanged. The proposal separately specifies how child transforms retain model-local meaning.
+
+**Observed result.** The illustration applies scale 1.15, rotation 20 degrees, then moves 120 m east and 60 m south. A child-transform control separates two interpretations by 4.222 m.
+
+**What this says about the proposal.** Order changes the result. The control makes the proposed child-transform choice reviewable; matching readers do not establish agreement.
+
+Proposal basis: [Evaluation](proposal/proposal-source.txt#L1788). Functional requirements [9](proposal/proposal-source.txt#L736), [14](proposal/proposal-source.txt#L821), [15](proposal/proposal-source.txt#L834), [17](proposal/proposal-source.txt#L866), [19](proposal/proposal-source.txt#L894).
+
+### The same rules in two placement readers
+
+**Question.** Can separate implementations derive the same coordinates from the proposed inputs and rules?
+
+Consumers use the same declared coordinate meanings and resolution rules for a requested output. Agreement must be assessed with declared units and numerical evidence.
+
+**Expected behavior.** Python and C++ readers resolve the same partner points into matching output coordinates within the recorded tolerance.
+
+**Observed result.** France and Colorado points resolve through both readers. The maximum measured difference over the recorded coordinates is 3.39e-08 m.
+
+**What this says about the proposal.** The compared cases support reproducible interpretation of the proposed placement rules. They do not establish coverage of every rule or every input layout.
+
+**Limit.** Both readers use PROJ, the same CRS conversion library, and share native dataset decoding. Agreement therefore does not independently verify geodetic accuracy or detect shared mistakes. The later audit also finds incomplete per-component and angular error reporting.
+
+Proposal basis: [Extent and result comparison](proposal/proposal-source.txt#L1919). Functional requirements [4](proposal/proposal-source.txt#L633), [13](proposal/proposal-source.txt#L804), [16](proposal/proposal-source.txt#L846), [17](proposal/proposal-source.txt#L866), [18](proposal/proposal-source.txt#L879), [28](proposal/proposal-source.txt#L1052), [29](proposal/proposal-source.txt#L1070).
+
+### Ordinary USD geometry for rendering
+
+**Question.** Can a renderer use the result without implementing geospatial evaluation?
+
+An explicit bake creates a derived copy containing resolved geometry and ordinary transforms. It retains the output coordinate context and applies each placement effect once.
+
+![Actual Hydra Storm render of the ordinary USD Eiffel bake on an illustrative ground plane](delivery/renders/tower.png)
+
+*Recorded native render. The ground plane is illustrative, without surveyed Paris context. This run has no geospatial Hydra filter or Omniverse render proof. Other bake diagnostics fail, as listed below.*
+
+**Expected behavior.** A USD renderer reads the derived copy as ordinary geometry while the source scene keeps its authored geospatial inputs.
+
+**Observed result.** The C++ reader's resolved Eiffel copy reaches Hydra/Storm, a USD rendering path. This image is actual output from the recorded run.
+
+**What this says about the proposal.** This case shows compatibility with an ordinary USD renderer. A separate nested-geometry failure prevents a claim that every bake is correct.
+
+Proposal basis: [Explicit export and sampling](proposal/proposal-source.txt#L1972). Functional requirements [17](proposal/proposal-source.txt#L866), [19](proposal/proposal-source.txt#L894), [23](proposal/proposal-source.txt#L992), [25](proposal/proposal-source.txt#L1016), [29](proposal/proposal-source.txt#L1070).
+
+### Measurements stay paired with their locations
+
+**Question.** Can the scene make a native measurement dataset usable without rewriting its values or guessing what its coordinates mean?
+
+The scene identifies the asset, field and coordinate domain. The reader resolves sample locations while preserving their association with values, missing-data masks and observation times.
+
+![Synthetic global temperature values shown at their longitude and latitude locations](delivery/plots/global-3d.png)
+
+*Plot of recorded synthetic data. The heatmap contains synthetic temperatures in kelvin. A different array layout mispairs four of six values and locations. This passing case does not establish support for every layout.*
+
+**Expected behavior.** The same sample keeps the same measurement value and observation time whether its location is returned as longitude/latitude/height or Earth-centred Cartesian coordinates.
+
+**Observed result.** The synthetic global temperature case returns both coordinate forms for 154 samples and preserves the native values and two observation times.
+
+**What this says about the proposal.** The example exercises larger-scale analytical use, beyond model rendering. The proposal's association rule also identifies the later shared-decoder mistake as a failure.
+
+Proposal basis: [External measurement association](proposal/proposal-source.txt#L1558). Functional requirements [8](proposal/proposal-source.txt#L710), [12](proposal/proposal-source.txt#L790), [18](proposal/proposal-source.txt#L879), [19](proposal/proposal-source.txt#L894), [21](proposal/proposal-source.txt#L930), [30](proposal/proposal-source.txt#L962).
+
+## What the later audit changes
+
+The recorded suite passed, then the audit exercised cases it had missed. These are known prototype failures or unsupported policies, not evidence that the required behavior should change to fit the implementation.
+
+| Affected behavior | Confirmed issue |
+|---|---|
+| Surface lighting directions | A private sampling shortcut has no justified error bound. One projected case differs by about 1.24 degrees. |
+| Repeated models | A referenced model outside the bound subtree fails instead of receiving the instancer's placement. |
+| Baked geometry | Two source triangles become three output triangles. The check misses the extra geometry. |
+| Measurement locations | A different array dimension order pairs four of six values with the wrong locations. Both readers share this decoder. |
+| Other scene information | The bake removes an unrelated MotionAPI schema application, changing other scene meaning. |
+| Error reporting | Reports omit required per-component errors and separate angular errors. |
+| Invalid input detection | An invalid placement attribute on an inherited-only child is silently ignored. |
+
+Repair these against the existing proposed rules. If repair reveals truly unspecified meaning, flag that separately. Do not make a shortcut normative simply because both readers used it. The audit's static batch-operation concern was not reproduced and is not counted as an eighth confirmed issue.
+
+[Independent audit](delivery/independent-audit.json) · [Diagnostic results](delivery/audit-diagnostics.json)
+
+## Supporting cases
+
+<details>
+<summary>Colorado, railway and animation demonstrations</summary>
+
+### A construction site's own survey grid
+
+**Question.** Can a project's local survey grid participate as a defined CRS?
+
+Site calibration records how a local survey grid relates to a broader coordinate system. The source WKT, a standard text description, carries that relationship and its units.
+
+![Actual Storm render of resolved Colorado survey breaklines in the calibrated site grid](delivery/renders/terrain.png)
+
+*Recorded native render. The image shows survey breaklines. It does not independently validate the survey or certify a continuous terrain surface.*
+
+**Expected behavior.** The partner survey resolves into the calibrated site grid using US survey feet, separately from the scene's model units and up direction.
+
+**Observed result.** The original LandXML survey breaklines resolve and reach an ordinary USD bake rendered by Storm.
+
+**What this says about the proposal.** The case supports a site's calibrated CRS using partner survey lines. It does not establish independent survey accuracy.
+
+Proposal basis: [Decision on question 7: site calibration](proposal/proposal-source.txt#L1247). Functional requirements [4](proposal/proposal-source.txt#L633), [14](proposal/proposal-source.txt#L821), [15](proposal/proposal-source.txt#L834), [17](proposal/proposal-source.txt#L866).
+
+### Useful horizontal placement without invented height
+
+**Question.** Can incomplete source metadata still support an honestly limited workflow?
+
+A consumer does not invent missing coordinate meaning. An explicitly horizontal association can support horizontal resolution while leaving uninterpreted third components unchanged.
+
+![Railway horizontal coordinates expressed in UTM 32 with display-only plotting offsets](delivery/plots/railway.png)
+
+*Plot of recorded resolved geometry. The original third components remain uninterpreted. This demonstration supports horizontal placement only.*
+
+**Expected behavior.** The horizontal copy resolves into the UTM 32 map system. The original GeoJSON remains unchanged, and no height reference is guessed.
+
+**Observed result.** The horizontal railway copy resolves 15,822 vertices across 2,386 parts. The plot uses display-only offsets.
+
+**What this says about the proposal.** This case exercises visible limits on interpretation, not a silent assumption that every three-number tuple is a valid geographic 3D position.
+
+Proposal basis: [External measurement association](proposal/proposal-source.txt#L1558). Functional requirements [8](proposal/proposal-source.txt#L710), [12](proposal/proposal-source.txt#L790), [19](proposal/proposal-source.txt#L894), [21](proposal/proposal-source.txt#L930).
+
+### Animation evaluation order
+
+**Question.** Does the proposal say how to resolve positions between authored moments?
+
+Interpolate the authored source location first, then convert coordinates. Interpolating already-converted endpoints can produce a different path.
+
+**Expected behavior.** At the middle sample, both readers return the converted source-interpolated position. An ordinary bake states exactly which samples it preserves.
+
+**Observed result.** In the equatorial test, the source longitude spans 0 to 2 degrees. Interpolating converted endpoints misses the source-first midpoint by 971.421 m.
+
+**What this says about the proposal.** The distinguishing control makes the ordering rule testable. Preserving sample times alone cannot prove preservation of the original trajectory between samples.
+
+**Limit.** The bake preserves time codes 0, 5, 10 and 48 time codes per second. It provides no original-trajectory guarantee between those samples.
+
+Proposal basis: [Evaluation](proposal/proposal-source.txt#L1788). Functional requirements [20](proposal/proposal-source.txt#L913), [29](proposal/proposal-source.txt#L1070).
+
+</details>
+
+## Proposed choices awaiting agreement
+
+These are definitions in the candidate, not new inferred behavior supplied by the demonstrations. A complete proposed answer, author agreement and successful implementation coverage are separate assessments.
+
+| Placement topic | Proposed meaning to review |
+|---|---|
+| Physical orientation | Record model orientation relative to local east, north and up. A different map projection does not redefine it. |
+| The object with its own georeference | Its ordinary scale, rotation and translation adjust placed geometry in a fixed project frame. |
+| Child objects | Child transforms define model-local geometry. Their offsets follow model axes instead of being silently reinterpreted as map axes. |
+| Independently georeferenced repeated models | Keep a prototype's own geographic placement and apply each instance effect once. |
+| Geographic queries and scene geometry | Return longitude/latitude/height for geographic queries. Cartesian geometry and bounds use the datum's Earth-centred frame. |
+
+| Data or declaration topic | Proposed meaning to review |
+|---|---|
+| Native data association | Name the asset, format, field and coordinate domain. Preserve the association between values, locations and observation times. |
+| WKT string normalization | A prescribed text form supports token comparison. Different normalized texts can still describe equivalent CRSs. |
+| Semantic CRS comparison | Specify equivalence criteria and the comparison domain, accounting for relevant axes, units and metadata. |
+| Dependency declaration using Profiles | Declare the composed scene's need for geospatial interpretation, including unloaded content. Writers and assemblers maintain the declaration. |
+| Baked output context | Keep a Cartesian CRS context without an active placement binding, so readers do not apply georeferencing a second time. |
+
+Coordinate epochs and scene-authored operation/resource controls remain deferred without foreclosing later support. Regional and global workflows remain represented.
+
+## Detailed evidence
+
+<details>
+<summary>Reader comparisons, consumer coverage and provenance</summary>
+
+| Path or check | Recorded evidence |
+|---|---|
+| Python and C++ readers | 213,231 coordinate results per reader. Maximum measured difference 3.39e-08 m. They share PROJ and native dataset decoding. |
+| Omniverse stage geometry integration | Reuses Python placement. Recorded readback covers 177,864 geometry vertices and 36 edit, failure and recovery checks, across 35 jobs. |
+| Hydra / Storm | Two selected ordinary USD bakes reach native rendering. This consumer path uses the C++ placement results. |
+| Recorded tests | 64 regressions and 61 distinguishing controls passed. The later audit exposes cases the suite missed. |
+| Source preservation | Original inputs and 40 executed source-file hashes remain unchanged. The immutable receipt identifies the executed content. |
+| Bake readbacks | 11 selected exports were checked. The later nested-geometry case demonstrates that the original inventory check was incomplete. |
+
+### France_01: CC49 to Lambert-93 (m)
+
+| Component | Source | Python | C++ | OV-hosted Python |
 |---|---|---|---|---|
-| Easting | 1661099.03900000 | 661101.10941715 | 661101.10941715 | 661101.10941715 |
-| Northing | 8180053.11700000 | 6857834.25653567 | 6857834.25653567 | 6857834.25653567 |
+| Map east coordinate | 1,661,099.03900000 | 661,101.10941715 | 661,101.10941715 | 661,101.10941715 |
+| Map north coordinate | 8,180,053.11700000 | 6,857,834.25653567 | 6,857,834.25653567 | 6,857,834.25653567 |
 | Height | 37.29800000 | 37.29800000 | 37.29800000 | 37.29800000 |
 
-**Colorado_02: State Plane to Westminster site grid (ftUS).**
+### Colorado_02: State Plane to Westminster site grid (ftUS)
 
-| Component | Source | USD Python | USD C++ | OV-hosted Python |
+| Component | Source | Python | C++ | OV-hosted Python |
 |---|---|---|---|---|
-| Easting | 3108002.11220000 | 3108871.45010067 | 3108871.45010067 | 3108871.45010067 |
-| Northing | 1752265.06660000 | 1206317.46940319 | 1206317.46940311 | 1206317.46940319 |
-| Height | 5482.94240000 | 5484.67794933 | 5484.67794927 | 5484.67794933 |
+| Map east coordinate | 3,108,002.11220000 | 3,108,871.45010067 | 3,108,871.45010067 | 3,108,871.45010067 |
+| Map north coordinate | 1,752,265.06660000 | 1,206,317.46940319 | 1,206,317.46940311 | 1,206,317.46940319 |
+| Height | 5,482.94240000 | 5,484.67794933 | 5,484.67794927 | 5,484.67794933 |
 
-All coordinate-conversion paths use PROJ. Independent placement arithmetic is verified, but engine-independent geodetic validation and survey accuracy are not established by these comparisons. Operation-pipeline comparability is reported separately from numerical agreement.
+There are two placement readers. Omniverse reuses Python with a verified stage geometry sink. Hydra consumes a C++-resolved ordinary USD bake. Shared libraries do not establish independent geodetic validation. This run establishes no Omniverse rendering, physics integration, general coordinate-bearing primvar coverage or geospatial Hydra filter.
 
-## Geographic scene charts and exports
+Bounds for the returned polygonal geometry cover its vertices and straight faces. They do not certify the continuous image of an original curved surface or behavior between exported time samples. These remain implementation and verification limits.
 
-Geographic coordinate tuples remain angular/height tuples. Scene geometry, derivatives and polygonal bounds use the associated geocentric Cartesian CRS of the same datum. An explicit control rejects angular scene bounds; fresh Python and C++ readers verify the exported geographic workflow's Cartesian geometry context.
+Executed proposal SHA-256: `1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0`. Immutable receipt SHA-256: `3baf0e2c215e8ac2ea30fb41197242b663469cd51f31ba48dc9e6c0d7b76833c`. The exact candidate text and diff remain in `proposal/`; derived explanations add no normative authority.
 
-The 11 exports cover Eiffel, survey, composition, ordinary instances, independently bound prototypes, geographic-scene geometry, four CF domains and a sampled geometry trajectory. Baked geometry has a typed, nonbinding Cartesian CRS context and ordinary geometry/transforms, without an active placement binding or private already-resolved flag. Fresh readers verify placement once. Original sample keys **0, 5, 10** and **48 time codes/second** are preserved. The source-first midpoint is 971.421 m from the converted-endpoint chord; no original-trajectory guarantee is claimed between exported samples.
+[Receipt](delivery/run-report.json) · [Requirement trace](proposal-quality.json) · [Integration evidence](delivery/integration-evidence.json) · [Exact child-transform comparison](delivery/transform-order-comparison.json)
 
-## Consumer evidence and limits
+</details>
 
-| Path | Observed output |
-|---|---|
-| USD Python / C++ | Two independent placement readers; 213,231 comparable coordinate results each. Shared PROJ and dataset decoding. |
-| Omniverse live stage | 177,864 geometry vertices read back from runtime buffers/world matrices; 36 edit, failure and recovery checks. Reuses Python placement; normal buffers also checked. |
-| Hydra / Storm | C++-resolved ordinary exports reach points/transform sources and two native rendered images. |
+## Sources and reproduction
 
-Analytically affine geocentric placement has a zero mathematical approximation-error certificate at the evaluated time. General nonlinear continuous-domain and between-sample certificates remain unsupported by these adapters and fail visibly. Numerical frame derivatives and polygonal bounds are not certificates. General coordinate-bearing primvar transport, physics integration, independently implemented WKT normalization and a live geospatial Hydra filter have no complete evidence here. These are implementation/verification limits, not newly deferred model meanings.
+The Eiffel mesh is `( FREE ) La tour Eiffel` by [SDC PERFORMANCE](https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674), under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The examples reorient and render it with illustrative context. Partner-data credit and permission remain in `data/README.md` and `data/LICENSE-partner.txt`.
 
-The implementation audit corrected angular bounds, a native prototype reset, the relative-result frame and source-normal export. It also caught an independent Y-up test oracle that applied scale in the wrong mapped axis order. Native diagnostic logging now retains distinct realized pipelines rather than a repeated entry for every point. None of these repairs introduced a source property or changed the pinned proposal.
-
-## Source credit
-
-The Eiffel geometry is “( FREE ) La tour Eiffel” by [SDC PERFORMANCE](https://sketchfab.com/Lambo_SC04), [original model](https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674), licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The example reorients, places and renders that geometry with illustrative context. Partner-data credit and permission are retained in `data/README.md` and `data/LICENSE-partner.txt`.
-
-## Reproduce and derive delivery
-
-`run.py` requires a fresh run directory and the pinned USD, PROJ/resources and OV tools. It freezes source/inputs, compiles native targets, runs controls, verifies exports and actual consumers, then audits fields and preserved inputs. `collateral/derive_contract_delivery.py --run <directory>` verifies that freeze before deriving this README, portable evidence and story. `collateral/contract_slides.mjs` derives the deck from the README/story and immutable returns. `collateral/verify_contract_delivery.py` checks the actual artifacts and rejects unsupported integration claims. Prior generators remain historical and are excluded from the active delivery path.
+`run.py` executes a fresh run with pinned inputs and dependencies. `collateral/derive_contract_delivery.py` binds the assessment to that receipt, the proposal and a later audit, then derives this README and its slide story. `collateral/contract_slides.mjs` uses the same assessment sentences and recorded data. `collateral/verify_contract_delivery.py` checks the actual artifacts and the audience review record. [Delivery guidance](collateral/README.md) explains the required human-oriented assessment and visual review.

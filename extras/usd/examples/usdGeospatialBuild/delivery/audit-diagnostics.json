@@ -1,0 +1,348 @@
+{
+  "proposal_sha256": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
+  "cases": [
+    {
+      "name": "normal_sampling_private_policy",
+      "uniform_result": {
+        "values": [
+          [
+            -0.06637232865040145,
+            -0.06637232865040145,
+            0.9955849677345708
+          ]
+        ],
+        "interpolation": "uniform"
+      },
+      "analytic_vertex_normals": [
+        [
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        [
+          -0.19611613794814378,
+          -0.0,
+          0.9805806751289282
+        ],
+        [
+          -0.0,
+          -0.19611613794814378,
+          0.9805806751289282
+        ]
+      ],
+      "maximum_uniform_direction_error_degrees": 8.40167395666987,
+      "constant_result_interpolation": "vertex",
+      "source_interpolation": "constant",
+      "constant_result_count": 3,
+      "result_has_domain_or_bound": false
+    },
+    {
+      "name": "unbound_prototype_outside_bound_subtree",
+      "python": {
+        "error": "ContractError: No CRS binding in the composed ancestry"
+      },
+      "cpp": {
+        "exit_code": 1,
+        "stderr": "No CRS binding"
+      },
+      "expected_instance_vertices": [
+        [
+          6378136.999999999,
+          10.0,
+          0.0
+        ],
+        [
+          6378137.0,
+          11.000000000000002,
+          0.0
+        ],
+        [
+          6378136.999999998,
+          9.999999999999998,
+          0.9999999999999996
+        ]
+      ],
+      "proposal_rule": "Unbound prototype uses instancer placement; no CRS binding on /Library required."
+    },
+    {
+      "name": "nested_export_extra_geometry",
+      "source_geometry_keys": [
+        "/World/Model/Parent",
+        "/World/Model/Parent/Child"
+      ],
+      "export_geometry_keys": [
+        "/Resolved/Part0",
+        "/Resolved/Part0/Child",
+        "/Resolved/Part1"
+      ],
+      "export_checked_keys": [
+        "/Resolved/Part0",
+        "/Resolved/Part1"
+      ],
+      "unchecked_extra_geometry_keys": [
+        "/Resolved/Part0/Child"
+      ],
+      "export_receipt": {
+        "path": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\outputs\\geospatial-independent-audit-20261006\\nested-geometry-export.usda",
+        "fresh_reader_max_error_metres": 1.7763568394002505e-15,
+        "quantization_metres": 1.7763568394002505e-15,
+        "parts": 2,
+        "vertices": 9,
+        "timeSamples": [
+          0
+        ],
+        "timeCodesPerSecond": 48.0,
+        "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
+        "source_paths": {
+          "/Resolved/Part0": "/World/Model/Parent",
+          "/Resolved/Part1": "/World/Model/Parent/Child"
+        },
+        "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+        "normal_arrays": 0
+      },
+      "extra_geometry_coordinates": {
+        "/Resolved/Part0/Child": [
+          [
+            6378147.0,
+            0.0,
+            0.0
+          ],
+          [
+            6378148.0,
+            0.0,
+            0.0
+          ],
+          [
+            6378147.0,
+            1.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    {
+      "name": "non_geospatial_applied_schema_export",
+      "source_applied_schemas": [
+        "MotionAPI"
+      ],
+      "export_applied_schemas": [],
+      "source_velocity_scale": 2.0,
+      "export_velocity_scale": 2.0
+    },
+    {
+      "name": "missing_comparison_report_fields",
+      "comparison": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0.0005,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean"
+      },
+      "missing_required_report_items": [
+        "residual components in output units",
+        "coordinate magnitudes"
+      ]
+    },
+    {
+      "name": "instance_id_reporting",
+      "geometry_keys": [
+        "/World/Model/Instances/_ResolvedInstance0/Root",
+        "/World/Model/Instances/_ResolvedInstance1/Root"
+      ],
+      "actual_ids": [
+        123,
+        456
+      ],
+      "ids_in_record": false
+    },
+    {
+      "name": "actual_projected_normal_sampling",
+      "uniform_result": {
+        "values": [
+          [
+            -0.0052279380196218785,
+            -0.010512517496991248,
+            0.9999310754446721
+          ]
+        ],
+        "interpolation": "uniform"
+      },
+      "pointwise_vertex_normals": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -0.015674209982043167,
+          0.0,
+          0.9998771520249069
+        ],
+        [
+          -5.215134371099538e-05,
+          -0.03153741942410563,
+          0.9995025705101039
+        ]
+      ],
+      "maximum_direction_difference_degrees": 1.2408700002254556,
+      "cpp_exit_code": 0,
+      "cpp_uniform_result": {
+        "/World/Model/Mesh": {
+          "interpolation": "uniform",
+          "values": [
+            [
+              -0.005227938020703755,
+              -0.010512520289102491,
+              0.9999310754153122
+            ]
+          ]
+        }
+      },
+      "source_face_width_metres": [
+        100000,
+        200000
+      ]
+    },
+    {
+      "name": "CF_coordinate_dimension_permutation",
+      "measurement_dimension_order": [
+        "y",
+        "x"
+      ],
+      "coordinate_dimension_order": [
+        "x",
+        "y"
+      ],
+      "actual_coordinates": [
+        [
+          1.0,
+          45.0
+        ],
+        [
+          1.1,
+          46.0
+        ],
+        [
+          2.0,
+          45.2
+        ],
+        [
+          2.1,
+          46.2
+        ],
+        [
+          3.0,
+          45.4
+        ],
+        [
+          3.1,
+          46.4
+        ]
+      ],
+      "expected_coordinates": [
+        [
+          1.0,
+          45.0
+        ],
+        [
+          2.0,
+          45.2
+        ],
+        [
+          3.0,
+          45.4
+        ],
+        [
+          1.1,
+          46.0
+        ],
+        [
+          2.1,
+          46.2
+        ],
+        [
+          3.1,
+          46.4
+        ]
+      ],
+      "values": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0
+      ],
+      "association_correct": false,
+      "shared_decoder_used_by_cpp": true
+    },
+    {
+      "name": "invalid_inherited_descendant_placement",
+      "python": {
+        "success": true,
+        "geometry": [
+          "/World/Model/Mesh"
+        ]
+      },
+      "cpp_exit_code": 0,
+      "authored_field": "crs:position on inherited-only mesh",
+      "proposal_requires_invalid": true,
+      "runtime_not_a_complete_validator": true
+    },
+    {
+      "name": "operation_provenance_multiregion_batch",
+      "separate_point_evidence": [
+        {
+          "point": [
+            -100.0,
+            40.0
+          ],
+          "unavailable": "Coordinate operation failed; no substitute"
+        },
+        {
+          "point": [
+            -155.0,
+            20.0
+          ],
+          "unavailable": "Coordinate operation failed; no substitute"
+        },
+        {
+          "point": [
+            -150.0,
+            60.0
+          ],
+          "result": [
+            [
+              -150.0,
+              60.0
+            ]
+          ],
+          "operations": [
+            {
+              "description": "NAD83 to WGS 84 (1) (with axis order normalized for visualization)",
+              "definition": "proj=noop ellps=GRS80",
+              "accuracy_metres": 4.0
+            }
+          ]
+        }
+      ],
+      "batch": {
+        "results": [
+          [
+            -150.0,
+            60.0
+          ]
+        ],
+        "operations": [
+          {
+            "description": "NAD83 to WGS 84 (1) (with axis order normalized for visualization)",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 4.0
+          }
+        ]
+      },
+      "realized_operations_omitted_by_batch_log": []
+    }
+  ],
+  "source_freeze_verified": true,
+  "native_binary_matches_completed_run": true
+}

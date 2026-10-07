@@ -1,23 +1,25 @@
 {
-  "readme_sha256": "f471c007044418d39804cfdc39a84f82cd195d428bd6cd934455f544ff35ab11",
+  "readme_sha256": "a45f759d69e14f28301cce5931f6578c8a64ebc8262403a6c8cc3b15b9a0b069",
   "receipt_sha256": "f9694edf234e4a69cef58bb6ea0f5551b45f22c4f3a61501db1b27f513c44fed",
   "immutable_execution_receipt_sha256": "3baf0e2c215e8ac2ea30fb41197242b663469cd51f31ba48dc9e6c0d7b76833c",
   "proposal_sha256": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
   "source_parent_at_execution": "5c116fd2dd5767d42d34083d616edf66723efe92",
   "executed_file_hashes_verified": true,
-  "pptx_sha256": "44f70309398b71fb4ddbe2c231960b1d12cb4b1d632988ae554566e8f77e4242",
-  "pdf_sha256": "8a8e5fa6f577703000fe42d796696e0b9098666e0b20f024e3c27d02f2542825",
-  "story_sha256": "d3c37d54bb8a73dd316b7adc57e1f3c5bf82f009f29e884e66e52b0a9fd07da5",
-  "pr_body_sha256": "dba6559e6b57eb9aeedc36f9450b1cc3237fe237964ae0962f5c67fe7cf1c388",
-  "slides": 10,
+  "pptx_sha256": "fee6a89aeeb8a31a9e4bebf9b591398f9e5a3a39e9e70331b824501dd69f3965",
+  "pdf_sha256": "6f92650e4b5e3b991d54d015922b54ec095e1c49bfff788bf60ad37777f7a41e",
+  "story_sha256": "1a1d05603352c2eb29865404a2057cb862a4a2b65eb8a5aa5cb46dc7674b164d",
+  "pr_body_sha256": "e80a56a017bab97e9a09e58bf311f0dca83dc73b0a305acda8f387e11538657e",
+  "slides": 14,
   "native_table_slides": [
     2,
-    3,
+    5,
     8,
-    10
+    12,
+    13,
+    14
   ],
   "native_chart_slides": [
-    9
+    11
   ],
   "tests": {
     "regressions_passed": 64,
@@ -39,9 +41,29 @@
   },
   "proposal_ready": true,
   "requirements_build_complete": false,
-  "visual_review": "Every rendered final slide inspected individually; PDF derived from the inspected slide pages. The deck includes actual native Storm outputs and scientific data plots, with editable coordinate tables and sampling chart.",
+  "visual_review": "Every final slide rendered by native PowerPoint and inspected individually by Codex; PDF exported from the same presentation. README rendered and inspected. This is not a user comprehension test.",
+  "assessment_checks": {
+    "structural_assessment_checks_passed": true,
+    "claim": "Each case has sourced expectation, observation, interpretation and limits. Human-oriented clarity still requires explicit inspection of rendered artifacts.",
+    "rejected_controls": [
+      "Missing evidence limit",
+      "Omitted later audit issue",
+      "Omitted demonstration assessment",
+      "Stale README story",
+      "Changed proposal authority",
+      "Changed execution receipt",
+      "Changed later audit",
+      "Invented proposal clause"
+    ],
+    "automatic_checks_prove_comprehension": false
+  },
+  "audience_review_sha256": "48f231f65354519bd66339eebee2008cb8dcf190157af24fea133f576e03f8c4",
+  "later_audit_sha256": "9456363dd93059d7884c0b71a7942f5eed5454ee0d0628e567c2f4856b60a00b",
+  "delivery_refresh_without_runtime_repairs": true,
   "portable_delivery": "Local path prefixes relinked in public copies; immutable execution receipt SHA retained. Source input hashes remain in receipt.",
   "files": {
+    "audience-review.json": "48f231f65354519bd66339eebee2008cb8dcf190157af24fea133f576e03f8c4",
+    "audit-diagnostics.json": "a57599fe5df74e7e4e3f5f4e3c136f14e9aa2a56758e0247e71578cfc85f7877",
     "exports/climate.nc": "16b116d377f243601a786522b91fa5a77397f658421d4a91d966690c3e5e271c",
     "exports/climate.usda": "3a332864f27bac71ada71de4541ce1a5a20508c3608dfef79188f66d56d66c8b",
     "exports/composition.usda": "1356ea67583030efdaffe7b313f787515fefbfc55793a8b8db61bc59f8c24ba1",
@@ -57,6 +79,8 @@
     "exports/terrain.usda": "52f3fb26b0085bc640fbb7d491d27828eb400b6d6b5711647b87ced349f48c5e",
     "exports/time-sampled.usda": "f00ea03a745aeccc08109fb5add761c90287d63844a7c0b4d84ef7f8ce72fb59",
     "exports/tower.usda": "90826ca3a5c7b03a5f1a7911b59d9a87232b33ffa429c7aa1cedfd3784aa0569",
+    "figures/03-crs-resolved.png": "c3f091334dd801fa1ec35c3a7a26397c5f5b33dbef6ac99117df6afd9456bd9f",
+    "figures/05-usd-translate.png": "534075f98d31e84c89ca299e13aa81bc87c52e917ec3c38932a2436c03849785",
     "fixtures/basis-Y-0.01.usda": "666d187a0cd282c2820f7da873f47902054a7c504b1ff8299119736eb823d3ea",
     "fixtures/basis-Y-1.usda": "8c5f88fc92b151f1aee87573979a3aa1319c1deaeb5190678e32382023131f53",
     "fixtures/basis-Z-1.usda": "2c018316617ada5f4cc9b41ec60f8f07bea94f25738324d6958aa62659bcda13",
@@ -96,18 +120,19 @@
     "fixtures/tower.usda": "cef3353c2b73620c2019824b8be85a6e7fa9dbe0efbbb1bdecab42e2752e3e10",
     "fixtures/working-adjustment.usda": "a94b960ea53240bf1d623dc83bc2172784ddb05cd1b04f8fae3f3faca4a2fcc4",
     "fixtures/writer-intake.json": "2973bfbad87604cdab3e73ca40ca722485fce52acfa087d2412366239f63e4ab",
-    "geospatial-build.pdf": "8a8e5fa6f577703000fe42d796696e0b9098666e0b20f024e3c27d02f2542825",
-    "geospatial-build.pptx": "44f70309398b71fb4ddbe2c231960b1d12cb4b1d632988ae554566e8f77e4242",
-    "integration-evidence.json": "0bcdb95aa92032522d31c919ae91894cece9557fbd0371cb3a66fdcdb8199fd1",
+    "geospatial-build.pdf": "6f92650e4b5e3b991d54d015922b54ec095e1c49bfff788bf60ad37777f7a41e",
+    "geospatial-build.pptx": "fee6a89aeeb8a31a9e4bebf9b591398f9e5a3a39e9e70331b824501dd69f3965",
+    "independent-audit.json": "9456363dd93059d7884c0b71a7942f5eed5454ee0d0628e567c2f4856b60a00b",
+    "integration-evidence.json": "53ed98f3a7c200a3210e31fd716264e2c6453027de44627eb2190e668b98180c",
     "jobs.json": "1165b46726c188c069e05283a06b3ba8f0a5fb919e2ca7d938a9c5b9fd2ae206",
-    "local-delivery-verification.json": "a4ecf11bd7a1e95ce1cb51d4e4063db16d14205c395c466b21ceb8b965a1eb65",
+    "local-delivery-verification.json": "5b17833a2865eb73efdd39aed6f54b08957e598b6646468ee35ec055c2db90bd",
     "native-results.json": "fa66dc13dd34d3219562be5a5233997c8c2ba00dcc1e4c92eb944cacd615d095",
     "ov-results.json": "c440ca2b1705d8884767f745e3db3923b846ce079df0d0b552433a176ff8eb1b",
     "plots/global-3d.png": "dbe6b1866510b42fc87c35bbcb6fb5b9a152559665e815f2d973683276b6b48a",
     "plots/global-grid.png": "ab343286f91b778545034f1a1b03cbdf9428aa65d813879d8c30d72db7ae0fb5",
     "plots/railway.png": "146ecc12ecf045afae1d0ea0c80d9644f9d24e791720e3df216d667fcebcfc28",
     "postimplementation-review.json": "23c91a4a2edb4bd2ecde43f00534de629b647b3593ddc2dec60927bc7499c42c",
-    "pr-body.md": "dba6559e6b57eb9aeedc36f9450b1cc3237fe237964ae0962f5c67fe7cf1c388",
+    "pr-body.md": "e80a56a017bab97e9a09e58bf311f0dca83dc73b0a305acda8f387e11538657e",
     "proposal-quality.json": "7a82c92d341a2d0a010d1895fb8254e430528b4f57ffe42c9ef817d1578336ea",
     "python-results.json": "bfd14f8d2fe6704dadf73e0edd0d752eada290ded6ed8db58f5bccd68ad2fc74",
     "renders/terrain-job.json": "5ee5b41b9642704be1e4eb4d7a65ec22e6cadb24ee3aacd54307dea89d035525",
@@ -117,7 +142,7 @@
     "renders/tower-readback.json": "ec43889f60fae51c99e4f25daa1a1282452fbcb23f367593d3d031c672060e38",
     "renders/tower.png": "b1cf4cf1e0a3d1489c9e39678e323aa0cd145ddb76b25e9bd354c7a60167ee89",
     "run-report.json": "f9694edf234e4a69cef58bb6ea0f5551b45f22c4f3a61501db1b27f513c44fed",
-    "story.json": "d3c37d54bb8a73dd316b7adc57e1f3c5bf82f009f29e884e66e52b0a9fd07da5",
+    "story.json": "1a1d05603352c2eb29865404a2057cb862a4a2b65eb8a5aa5cb46dc7674b164d",
     "transform-order-comparison.json": "e186d01bc1f3d53db500bf7606633b1c8a72aedbd50812b13bb7e7b90dced831"
   }
 }
