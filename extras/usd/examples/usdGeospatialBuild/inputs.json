@@ -1,8 +1,8 @@
 {
-  "status": "October 8 local split and fresh full-follow-up execution",
+  "status": "October 8 authored-HPR candidate and full build-loop execution",
   "proposal": {
-    "revision": "bbe3e488d5267227a994992a837a637f0cf98dee",
-    "sha256": "28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9",
+    "revision": "0e955c68c9b0f07b313c43c2cf291eead868c8af",
+    "sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
     "local_candidate": true,
     "group_agreement": false,
     "source": "proposal/proposal-source.txt",
@@ -52,12 +52,12 @@
   ],
   "previous_executed_source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47",
   "derivation": {
-    "requirements.md": "a241562574edacec6d928d9ce77c58c8d55549be590a3091906adfbbe08d0674",
-    "data-model.md": "31690bcf5b5db3818bcbf013b763dbc58df0162e19037247941eb4687db5a164",
-    "runtime-behavior.md": "f536d4f1612e059b0743ad3cd9ab67af79128ecc7fa9646fad1d3d3ea5989c7c",
-    "runtime-open-decisions.md": "a6891abea65fe97ea5f2753f155059d623499d1bb6bfb704ecb5ed6a913e78c2",
-    "distinguishing-examples.md": "47a81bec820e5d7de96667ef0d0adf200f8f69ae63f5fbd3792d7957394dd8e7",
-    "traceability.md": "c2ed901b95ce322c5439cb158eaeb83559f5ef27846b7530df065c258d485ead"
+    "requirements.md": "46b034a3d9ce3309588a9850770c6673db2e63a9f7194ab515701658b450c135",
+    "data-model.md": "26900d40918593b7471ff1246ffe1dfb336d2a8272c9561d2108180763198e65",
+    "runtime-behavior.md": "44790c4e83b8711d33461e992eddcf77e3c00a66b0b8ae92754d428b2dd7d9da",
+    "runtime-open-decisions.md": "9982bb58af4a941e0c27164d70658eb96a1aa8a5b42bb35d9acd00c6f3548a59",
+    "distinguishing-examples.md": "71d958aec012c7146041c652f184e42ad1fbbdb732eb368b3f6b00054f582997",
+    "traceability.md": "e9b67c9f03159132cee0321ee4a7efbf49618c0ad1fd3df80ac5790cbb05e6c4"
   },
   "inherited_code_execution": "Prior relationship-based placement code retained in history/source, excluded from current execution except an explicit incompatibility control.",
   "current_execution": "Python and C++ complete point-map queries, Cartesian frame derivatives and polygonal bounds; native Hydra resolved export; Omniverse stage geometry writeback; selected external measurement domains and sampled exports",

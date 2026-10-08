@@ -1,6 +1,6 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9
+Source SHA-256: 0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0
 
 ### Schema design
 
@@ -172,9 +172,9 @@ are query results. They are not additional properties of the source schema.
 | Property | USD type | Variability | Fallback | Meaning |
 |---|---|---|---|---|
 | `crs:position` | `double3` | varying | None | Absolute position of the model-placement origin, in the source WKT's units and height reference. |
-| `crs:orientation` | `quatd` | varying | Identity | Geospatial model attitude: a right-handed unit rotation of ordered model east/north/up axes into geodetic east/north/up at that position. |
+| `crs:orientation` | `double3` | varying | `(0, 0, 0)` | Heading, pitch and roll in degrees, in that order, defining physical model attitude against local geodetic east/north/up. |
 
-The quaternion encodes physical attitude, not grid convergence. Its value need
+The tuple encodes physical attitude, not grid convergence. Its value need
 not change when an author re-expresses a placement position in another CRS of
 the same physical reference frame. Correcting the WKT while keeping the numeric
 position is a different authoring action and may move the placement. Neither
@@ -189,8 +189,9 @@ Intentional object scaling, reflection and pivots use ordinary USD xformOps.
 
 A model position requires three finite components and a complete 3D CRS.
 Missing or blocked position is an error. An unauthored orientation uses its
-identity fallback; an explicitly blocked orientation is unavailable. Orientation
-must be finite and unit length. These properties are invalid on measurement
+zero-angle identity fallback; an explicitly blocked orientation is unavailable.
+All three angles must be finite; their order, units and evaluation are defined
+below. These properties are invalid on measurement
 carriers and on inherited-only model descendants: another absolute placement
 requires another direct model binding. Validation must report an authored or
 blocked placement field in either invalid role; resolution must reject that
@@ -234,8 +235,9 @@ Map a conformed stage vector to ordered model ENU as follows, multiplying by
 | Z-up | `(x,y,z)` |
 | Y-up | `(x,-z,y)` |
 
-Both mappings are right-handed. Rotate this metric vector by the authored
-quaternion, then embed it in the source datum's geocentric coordinates using
+Both mappings are right-handed. Rotate this metric vector by the physical
+orientation evaluated from the authored angles, then embed it in the source
+datum's geocentric coordinates using
 the ENU origin/basis. This defines the model's finite point map, not just an
 origin or derivative. Convert those points through the source CRS as needed;
 the WKT's projection, calibration and vertical conversions are retained.
@@ -243,14 +245,23 @@ Model distances are physical local lengths in scene units, not angular
 increments or an assumed metre of projected grid. Absolute survey/grid samples
 use the measurement role below instead of this local-model interpretation.
 
-Heading/pitch/roll are a human-readable presentation of the quaternion, not
-three additional authored authorities. For the proposed presentation, model
-forward is ordered +N. Heading is clockwise from true north. Intrinsic heading,
-pitch and roll correspond, in Core row-vector form, to
-`R_N(roll) * R_E(pitch) * R_U(-heading)` with angles in degrees. A pure positive
-pitch raises forward; positive roll follows the right-hand rule about forward.
-The quaternion and its source-space slerp avoid an extra Euler interpolation
-contract. The common matrix convention is the one in USD Core.
+The single `crs:orientation` tuple is ordered heading, pitch, roll in degrees.
+Model forward is ordered +N. Heading is clockwise from true north; up is the
+source datum's ellipsoid normal. Intrinsic heading, pitch and roll correspond,
+in Core row-vector form, to
+`R_N(roll) * R_E(pitch) * R_U(-heading)`. A pure positive pitch raises forward;
+positive roll follows the right-hand rule about forward. A bearing measured
+from grid north must be converted to this declared reference when authoring;
+it is not silently read as a true-north heading. Asset unit/up-axis conformance
+remains separate under requirement 15.
+
+The tuple composes as one ordinary USD property. It is not three independently
+composed fields, and no second quaternion authority is authored. The common
+matrix convention is the one in USD Core. For sample evaluation, the equivalent
+unit quaternion is `q_U(-heading) * q_E(pitch) * q_N(roll)`, where a signed
+axis rotation of angle a has scalar `cos(a/2)` and imaginary vector
+`axis * sin(a/2)`, with angles converted to radians. This fixes the endpoint
+quaternion signs as well as the physical rotation.
 
 ### External measurement association
 

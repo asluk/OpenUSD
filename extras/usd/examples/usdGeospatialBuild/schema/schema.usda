@@ -20,7 +20,7 @@ class "GeospatialCRSBindingAPI" (
     doc = "Experimental authored binding and placement. Applied USD data schema; no standard callable API proposed."
 ) {
     double3 crs:position
-    quatd crs:orientation = (1,0,0,0)
+    double3 crs:orientation = (0,0,0)
 }
 class GeospatialDataSource "GeospatialDataSource" (
     inherits = </Xformable>

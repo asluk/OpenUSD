@@ -19,7 +19,7 @@ def command(args,log,env=None,timeout=650):
 
 def source_closure(root):
     paths=[*sorted((root/'candidate').glob('*.py')),*sorted((root/'review').glob('*.py')),*sorted((root/'schema').rglob('*.usda')),*sorted((root/'schema/generated').glob('*.json')),
-           *[root/p for p in ['native/leans.cpp','native/leansRender.cpp','native/CMakeLists.txt','review/scope.py','review/placement_values.py','review/wkt_profile.py','review/test_contracts.py','review/test_wkt_contracts.py','run.py','inputs.json','proposal-quality.json','ov/geobuild.kit','BUILD_LOOP.md','PLAN.md','AUDIT.md','QUALITY_REVIEW.md']],
+           *[root/p for p in ['native/leans.cpp','native/leansRender.cpp','native/CMakeLists.txt','review/scope.py','review/placement_values.py','review/wkt_profile.py','review/test_contracts.py','review/test_wkt_contracts.py','run.py','inputs.json','proposal-quality.json','ov/geobuild.kit','BUILD_LOOP.md','PLAN.md','AUDIT.md','QUALITY_REVIEW.md','BUILD_LOOP.md','PLAN.md','AUDIT.md','QUALITY_REVIEW.md']],
            root/'geobuild/quality.py',*sorted((root/'proposal').glob('*'))]
     return {p.relative_to(root).as_posix():sha(p) for p in paths if p.is_file()}
 
@@ -41,7 +41,7 @@ def execute(root,args):
     buildcmd=out/'build-native.cmd'
     buildcmd.write_text('@echo off\ncall "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Auxiliary/Build/vcvars64.bat" >nul\nif errorlevel 1 exit /b %errorlevel%\n"'+args.cmake+'" --build "'+args.native_build+'" --target leansNative leansRender\nexit /b %errorlevel%\n')
     command(['cmd','/c',str(buildcmd)],out/'native-build.log',env)
-    command([sys.executable,'-X','utf8','-m','pytest',str(root/'review/test_contracts.py'),str(root/'review/test_wkt_contracts.py'),str(root/'review/test_split_feedback.py'),'-q','-p','no:cacheprovider','--basetemp='+str(out/'pytest'),'--junitxml='+str(out/'contracts.xml')],out/'contracts.log',env)
+    command([sys.executable,'-X','utf8','-m','pytest',str(root/'review/test_contracts.py'),str(root/'review/test_wkt_contracts.py'),str(root/'review/test_split_feedback.py'),str(root/'review/test_hpr_contracts.py'),'-q','-p','no:cacheprovider','--basetemp='+str(out/'pytest'),'--junitxml='+str(out/'contracts.xml')],out/'contracts.log',env)
     tests=ET.parse(out/'contracts.xml').getroot().findall('.//testcase');assert not any(t.findall('failure') or t.findall('error') for t in tests)
     jobs,targets=build(root,out/'fixtures');write(out/'jobs.json',jobs)
     fixture_hashes={p.relative_to(out/'fixtures').as_posix():sha(p) for p in (out/'fixtures').rglob('*') if p.is_file()}

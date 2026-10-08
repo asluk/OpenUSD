@@ -3,7 +3,8 @@
 The pinned full candidate and proposal/traceability.md are the semantic
 authority; these notes are an audit checklist, not additional requirements.
 
-Before execution: compare the exact Git blob; check every authored field,
+Before execution: justify stored fields against concrete authoring tasks and
+check pose interpolation against composed source samples. Then compare the exact Git blob; check every authored field,
 coordinate domain, transform order, chart, reset, instance, normal, dependency,
 failure and export rule. Reject a new source field or semantic shortcut lacking
 a proposal clause. A settled functional outcome can still have pending model

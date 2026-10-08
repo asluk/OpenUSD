@@ -1,13 +1,39 @@
-"""Read source placement records without inventing a resolved frame.
-
-This control validates type, variability, availability and finite values.
-It is not the complete geospatial validator or a placement/projection runtime.
-In particular, it does not prescribe a near-unit quaternion acceptance tolerance.
+"""Evaluate composed placement inputs. Returned quaternions are transient query data,
+not authored USD properties. HPR composition and sample selection precede conversion.
 """
 import math
-from pxr import Sdf, Usd, UsdGeom
+from pxr import Gf, Sdf, Usd, UsdGeom
 from review.scope import discover, ScopeError
 
+
+def orientation_sample(attribute, time):
+    value = attribute.Get(time)
+    if value is None:
+        raise ScopeError('Placement orientation is unavailable')
+    if not all(math.isfinite(v) for v in value):
+        raise ScopeError('Placement orientation is nonfinite')
+    h,p,r = [math.radians(v)/2 for v in value]
+    qh = Gf.Quatd(math.cos(h), Gf.Vec3d(0,0,-math.sin(h)))
+    qp = Gf.Quatd(math.cos(p), Gf.Vec3d(math.sin(p),0,0))
+    qr = Gf.Quatd(math.cos(r), Gf.Vec3d(0,math.sin(r),0))
+    return (qh*qp*qr).GetNormalized()
+
+def orientation_value(attribute, time, stage):
+    time = Usd.TimeCode(time)
+    if time.IsDefault():
+        return orientation_sample(attribute,time)
+    bracket = attribute.GetBracketingTimeSamples(time.GetValue())
+    if not bracket:
+        return orientation_sample(attribute,time)
+    lower,upper = bracket
+    first = orientation_sample(attribute,Usd.TimeCode(lower))
+    if lower == upper or stage.GetInterpolationType() == Usd.InterpolationTypeHeld:
+        return first
+    second = orientation_sample(attribute,Usd.TimeCode(upper))
+    dot = first.GetReal()*second.GetReal() + Gf.Dot(first.GetImaginary(),second.GetImaginary())
+    if dot < 0:
+        second=Gf.Quatd(-second.GetReal(),-second.GetImaginary())
+    return Gf.Slerp((time.GetValue()-lower)/(upper-lower),first,second).GetNormalized()
 
 def read(prim, time):
     candidate=prim
@@ -30,7 +56,7 @@ def read(prim, time):
         raise ScopeError('Undocumented crs:scale is not an input')
     for name, kind, fallback in [
             ('position', Sdf.ValueTypeNames.Double3, None),
-            ('orientation', Sdf.ValueTypeNames.Quatd, (1., 0., 0., 0.))]:
+            ('orientation', Sdf.ValueTypeNames.Double3, (1., 0., 0., 0.))]:
         attribute = owner.GetAttribute('crs:' + name)
         authored=attribute.GetPropertyStack(Usd.TimeCode(time)) if attribute else []
         if authored and authored[0].typeName!=kind:
@@ -48,15 +74,13 @@ def read(prim, time):
                 raise ScopeError('Placement position is unavailable')
             values = fallback
         else:
-            value = attribute.Get(Usd.TimeCode(time))
+            value = orientation_value(attribute,time,prim.GetStage()) if name == 'orientation' else attribute.Get(Usd.TimeCode(time))
             if value is None:
                 raise ScopeError('Placement ' + name + ' is unavailable')
             values = (value.GetReal(), *value.GetImaginary()) if name == 'orientation' else tuple(value)
         if not all(math.isfinite(v) for v in values):
             raise ScopeError('Placement ' + name + ' is nonfinite')
         if name == 'orientation':
-            if not any(values):
-                raise ScopeError('Placement orientation is a zero quaternion')
             result[name] = {'real': values[0], 'imaginary': list(values[1:])}
         else:
             result[name] = list(values)

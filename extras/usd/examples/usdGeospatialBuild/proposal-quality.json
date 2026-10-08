@@ -1,14 +1,14 @@
 {
   "status": "Local stacked follow-up: proposed detailed contract, separately assessed author alignment and implementation evidence",
-  "source_sha256": "28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9",
+  "source_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
   "requirements": [
     {
       "id": 1,
       "title": "Self-contained definitions.",
-      "source_line": 632,
+      "source_line": 634,
       "clauses": [
         {
-          "line": 1453,
+          "line": 1462,
           "clause": "### GeospatialCRS typed schema"
         }
       ],
@@ -17,14 +17,14 @@
     {
       "id": 2,
       "title": "Defined once, and describing no object.",
-      "source_line": 645,
+      "source_line": 647,
       "clauses": [
         {
-          "line": 1697,
+          "line": 1717,
           "clause": "### WKT string normalization"
         },
         {
-          "line": 1523,
+          "line": 1532,
           "clause": "#### Authored properties"
         }
       ],
@@ -33,10 +33,10 @@
     {
       "id": 3,
       "title": "Datum, realization and epoch.",
-      "source_line": 662,
+      "source_line": 664,
       "clauses": [
         {
-          "line": 1338,
+          "line": 1347,
           "clause": "#### Roadmap question 15: coordinate epochs"
         }
       ],
@@ -45,10 +45,10 @@
     {
       "id": 4,
       "title": "A site's own grid is a CRS like any other.",
-      "source_line": 674,
+      "source_line": 676,
       "clauses": [
         {
-          "line": 1294,
+          "line": 1303,
           "clause": "#### Decision on question 7: site calibration"
         }
       ],
@@ -57,10 +57,10 @@
     {
       "id": 31,
       "title": "Same definition, same meaning.",
-      "source_line": 698,
+      "source_line": 700,
       "clauses": [
         {
-          "line": 1697,
+          "line": 1717,
           "clause": "### WKT string normalization"
         }
       ],
@@ -69,10 +69,10 @@
     {
       "id": 5,
       "title": "A discoverable CRS.",
-      "source_line": 720,
+      "source_line": 722,
       "clauses": [
         {
-          "line": 1392,
+          "line": 1401,
           "clause": "### CRS binding and inheritance"
         }
       ],
@@ -81,10 +81,10 @@
     {
       "id": 6,
       "title": "Declared for a subtree, not a prim.",
-      "source_line": 730,
+      "source_line": 732,
       "clauses": [
         {
-          "line": 1392,
+          "line": 1401,
           "clause": "### CRS binding and inheritance"
         }
       ],
@@ -93,14 +93,14 @@
     {
       "id": 7,
       "title": "Composition agnostic",
-      "source_line": 741,
+      "source_line": 743,
       "clauses": [
         {
-          "line": 1392,
+          "line": 1401,
           "clause": "### CRS binding and inheritance"
         },
         {
-          "line": 2190,
+          "line": 2233,
           "clause": "### Composition arcs"
         }
       ],
@@ -109,14 +109,14 @@
     {
       "id": 8,
       "title": "Brought-in data keeps its coordinates and its CRS.",
-      "source_line": 751,
+      "source_line": 753,
       "clauses": [
         {
-          "line": 1910,
+          "line": 1930,
           "clause": "#### Evaluation"
         },
         {
-          "line": 1610,
+          "line": 1630,
           "clause": "### External measurement association"
         }
       ],
@@ -125,14 +125,14 @@
     {
       "id": 9,
       "title": "Positions, and offsets from them.",
-      "source_line": 777,
+      "source_line": 779,
       "clauses": [
         {
-          "line": 1523,
+          "line": 1532,
           "clause": "#### Authored properties"
         },
         {
-          "line": 1910,
+          "line": 1930,
           "clause": "#### Evaluation"
         }
       ],
@@ -141,10 +141,10 @@
     {
       "id": 10,
       "title": "Offsets along the axes of their position.",
-      "source_line": 795,
+      "source_line": 800,
       "clauses": [
         {
-          "line": 1573,
+          "line": 1583,
           "clause": "#### Geospatial model attitude and stage axes"
         }
       ],
@@ -153,14 +153,14 @@
     {
       "id": 11,
       "title": "Position or offset, and the scene says which.",
-      "source_line": 814,
+      "source_line": 819,
       "clauses": [
         {
-          "line": 1392,
+          "line": 1401,
           "clause": "### CRS binding and inheritance"
         },
         {
-          "line": 1910,
+          "line": 1930,
           "clause": "#### Evaluation"
         }
       ],
@@ -169,18 +169,18 @@
     {
       "id": 12,
       "title": "No angle read as a length.",
-      "source_line": 831,
+      "source_line": 836,
       "clauses": [
         {
-          "line": 1555,
+          "line": 1565,
           "clause": "#### Position components"
         },
         {
-          "line": 1610,
+          "line": 1630,
           "clause": "### External measurement association"
         },
         {
-          "line": 1977,
+          "line": 2020,
           "clause": "#### Queries, scene charts and instances"
         }
       ],
@@ -189,10 +189,10 @@
     {
       "id": 13,
       "title": "One axis mapping.",
-      "source_line": 845,
+      "source_line": 850,
       "clauses": [
         {
-          "line": 1555,
+          "line": 1565,
           "clause": "#### Position components"
         }
       ],
@@ -201,14 +201,14 @@
     {
       "id": 14,
       "title": "Scene conventions stay the scene's.",
-      "source_line": 857,
+      "source_line": 862,
       "clauses": [
         {
-          "line": 1573,
+          "line": 1583,
           "clause": "#### Geospatial model attitude and stage axes"
         },
         {
-          "line": 2165,
+          "line": 2208,
           "clause": "### Stage metadata: metersPerUnit and upAxis"
         }
       ],
@@ -217,14 +217,14 @@
     {
       "id": 15,
       "title": "Placement separate from conformance.",
-      "source_line": 870,
+      "source_line": 875,
       "clauses": [
         {
-          "line": 1272,
+          "line": 1281,
           "clause": "#### Decision on question 4: authored unit and up-axis conformance"
         },
         {
-          "line": 1910,
+          "line": 1930,
           "clause": "#### Evaluation"
         }
       ],
@@ -233,14 +233,14 @@
     {
       "id": 16,
       "title": "One CRS out.",
-      "source_line": 882,
+      "source_line": 887,
       "clauses": [
         {
-          "line": 1784,
+          "line": 1804,
           "clause": "## Runtime coordinate transformation"
         },
         {
-          "line": 1977,
+          "line": 2020,
           "clause": "#### Queries, scene charts and instances"
         }
       ],
@@ -249,14 +249,14 @@
     {
       "id": 17,
       "title": "The same answer for every consumer.",
-      "source_line": 902,
+      "source_line": 907,
       "clauses": [
         {
-          "line": 1977,
+          "line": 2020,
           "clause": "#### Queries, scene charts and instances"
         },
         {
-          "line": 2042,
+          "line": 2085,
           "clause": "### Extent and result comparison"
         }
       ],
@@ -265,10 +265,10 @@
     {
       "id": 18,
       "title": "Coordinates back out.",
-      "source_line": 917,
+      "source_line": 922,
       "clauses": [
         {
-          "line": 1977,
+          "line": 2020,
           "clause": "#### Queries, scene charts and instances"
         }
       ],
@@ -277,14 +277,14 @@
     {
       "id": 19,
       "title": "Resolution leaves the scene as authored.",
-      "source_line": 932,
+      "source_line": 937,
       "clauses": [
         {
-          "line": 2028,
+          "line": 2071,
           "clause": "### Observable outcomes and failures"
         },
         {
-          "line": 2095,
+          "line": 2138,
           "clause": "### Explicit export and sampling"
         }
       ],
@@ -293,14 +293,14 @@
     {
       "id": 20,
       "title": "Positions between recorded moments.",
-      "source_line": 951,
+      "source_line": 956,
       "clauses": [
         {
-          "line": 1910,
+          "line": 1930,
           "clause": "#### Evaluation"
         },
         {
-          "line": 2095,
+          "line": 2138,
           "clause": "### Explicit export and sampling"
         }
       ],
@@ -309,14 +309,14 @@
     {
       "id": 21,
       "title": "Never placed by a guess.",
-      "source_line": 968,
+      "source_line": 973,
       "clauses": [
         {
-          "line": 2028,
+          "line": 2071,
           "clause": "### Observable outcomes and failures"
         },
         {
-          "line": 1610,
+          "line": 1630,
           "clause": "### External measurement association"
         }
       ],
@@ -325,10 +325,10 @@
     {
       "id": 30,
       "title": "Measurements remain usable as data.",
-      "source_line": 1003,
+      "source_line": 1008,
       "clauses": [
         {
-          "line": 1610,
+          "line": 1630,
           "clause": "### External measurement association"
         }
       ],
@@ -337,10 +337,10 @@
     {
       "id": 22,
       "title": "A CRS suited to the project's size.",
-      "source_line": 1025,
+      "source_line": 1030,
       "clauses": [
         {
-          "line": 1977,
+          "line": 2020,
           "clause": "#### Queries, scene charts and instances"
         }
       ],
@@ -349,14 +349,14 @@
     {
       "id": 23,
       "title": "Detail that does not depend on location.",
-      "source_line": 1038,
+      "source_line": 1043,
       "clauses": [
         {
-          "line": 1432,
+          "line": 1441,
           "clause": "### Precision handling"
         },
         {
-          "line": 2095,
+          "line": 2138,
           "clause": "### Explicit export and sampling"
         }
       ],
@@ -365,10 +365,10 @@
     {
       "id": 24,
       "title": "Extent under one position is bounded and stated.",
-      "source_line": 1047,
+      "source_line": 1052,
       "clauses": [
         {
-          "line": 2042,
+          "line": 2085,
           "clause": "### Extent and result comparison"
         }
       ],
@@ -377,10 +377,10 @@
     {
       "id": 25,
       "title": "Additive for consumers that ignore it.",
-      "source_line": 1062,
+      "source_line": 1067,
       "clauses": [
         {
-          "line": 2180,
+          "line": 2223,
           "clause": "### Transform stack and resetXformStack"
         }
       ],
@@ -389,10 +389,10 @@
     {
       "id": 26,
       "title": "Declares its dependency.",
-      "source_line": 1072,
+      "source_line": 1077,
       "clauses": [
         {
-          "line": 1670,
+          "line": 1690,
           "clause": "### Dependency declaration with Profiles"
         }
       ],
@@ -401,18 +401,18 @@
     {
       "id": 27,
       "title": "Checkable before use.",
-      "source_line": 1083,
+      "source_line": 1088,
       "clauses": [
         {
-          "line": 1523,
+          "line": 1532,
           "clause": "#### Authored properties"
         },
         {
-          "line": 1670,
+          "line": 1690,
           "clause": "### Dependency declaration with Profiles"
         },
         {
-          "line": 2028,
+          "line": 2071,
           "clause": "### Observable outcomes and failures"
         }
       ],
@@ -421,14 +421,14 @@
     {
       "id": 28,
       "title": "A result says what produced it.",
-      "source_line": 1099,
+      "source_line": 1104,
       "clauses": [
         {
-          "line": 2028,
+          "line": 2071,
           "clause": "### Observable outcomes and failures"
         },
         {
-          "line": 2042,
+          "line": 2085,
           "clause": "### Extent and result comparison"
         }
       ],
@@ -437,10 +437,10 @@
     {
       "id": 29,
       "title": "Implementable from the text alone.",
-      "source_line": 1117,
+      "source_line": 1122,
       "clauses": [
         {
-          "line": 2042,
+          "line": 2085,
           "clause": "### Extent and result comparison"
         }
       ],
@@ -449,7 +449,7 @@
   ],
   "semantic_gaps": [],
   "pending_design_agreement": [
-    "Stored quaternion versus one heading/pitch/roll tuple, including sample interpolation",
+    "Preferred authored heading/pitch/roll tuple and explicit pose interpolation await author adoption",
     "Detailed anchor chart/reset and independently bound instance rules",
     "Exact external-data association carrier and supported format profiles",
     "Associated geocentric scene chart for geographic coordinate outputs",
@@ -472,9 +472,9 @@
   ],
   "candidate_agreed": false,
   "clarity_review": {
-    "authority": "bbe3e488d5267227a994992a837a637f0cf98dee",
+    "authority": "0e955c68c9b0f07b313c43c2cf291eead868c8af",
     "changes": [
-      "Explicit array association order",
+      "Workflow-grounded authored HPR and composed orientation-sample evaluation",
       "Invalid-placement failure",
       "Required precision-preserving ordinary bake",
       "Supported direction separated from unsettled storage/conventions",

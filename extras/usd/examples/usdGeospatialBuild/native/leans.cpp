@@ -107,6 +107,28 @@ GfVec3d Unchart(const std::string& work,GfVec3d p,GfVec3d origin){auto& w=Def(wo
 }
 void Field(UsdPrim p,const char* name,SdfValueTypeName type){auto attr=p.GetAttribute(TfToken(name));if(!attr)return;auto stack=attr.GetPropertyStack(timeCode);if(!stack.empty()&&(stack[0]->GetTypeName()!=type||stack[0]->GetVariability()!=SdfVariabilityVarying))throw std::runtime_error("Invalid authored placement field declaration");if(attr.GetResolveInfo(timeCode).ValueIsBlocked())throw std::runtime_error("Blocked placement field unavailable");}
 GfVec3d Position(UsdPrim p){Field(p,"crs:position",SdfValueTypeNames->Double3);GfVec3d v;if(!p.GetAttribute(TfToken("crs:position")).Get(&v,timeCode)||!std::isfinite(v[0])||!std::isfinite(v[1])||!std::isfinite(v[2]))throw std::runtime_error("Missing/nonfinite position");return v;}
+GfQuatd HprSample(const UsdAttribute& a,UsdTimeCode t){
+ GfVec3d hpr;if(!a.Get(&hpr,t))throw std::runtime_error("Unavailable orientation");
+ for(int i=0;i<3;i++)if(!std::isfinite(hpr[i]))throw std::runtime_error("Nonfinite orientation");
+ double h=hpr[0]/360*3.141592653589793,p=hpr[1]/360*3.141592653589793,r=hpr[2]/360*3.141592653589793;
+ auto qh=GfQuatd(cos(h),GfVec3d(0,0,-sin(h)));auto qp=GfQuatd(cos(p),GfVec3d(sin(p),0,0));auto qr=GfQuatd(cos(r),GfVec3d(0,sin(r),0));
+ return (qh*qp*qr).GetNormalized();
+}
+GfQuatd Orientation(UsdPrim p){
+ Field(p,"crs:orientation",SdfValueTypeNames->Double3);auto a=p.GetAttribute(TfToken("crs:orientation"));
+ if(a&&a.GetResolveInfo(timeCode).ValueIsBlocked())throw std::runtime_error("Unavailable orientation");
+ if(!a||!a.HasAuthoredValueOpinion())return GfQuatd(1);
+ if(timeCode.IsDefault())return HprSample(a,timeCode);
+ double lower=0,upper=0;bool has=false;
+ if(!a.GetBracketingTimeSamples(timeCode.GetValue(),&lower,&upper,&has))throw std::runtime_error("Unavailable orientation samples");
+ if(!has)return HprSample(a,timeCode);
+ auto first=HprSample(a,UsdTimeCode(lower));
+ if(lower==upper||stage->GetInterpolationType()==UsdInterpolationTypeHeld)return first;
+ auto second=HprSample(a,UsdTimeCode(upper));
+ double dot=first.GetReal()*second.GetReal()+GfDot(first.GetImaginary(),second.GetImaginary());
+ if(dot<0)second=GfQuatd(-second.GetReal(),-second.GetImaginary());
+ return GfSlerp((timeCode.GetValue()-lower)/(upper-lower),first,second).GetNormalized();
+}
 std::map<std::string,std::function<GfVec3d(GfVec3d)>> preparedMaps;
 GfVec3d Full(UsdPrim prim,GfVec3d point,const GfMatrix4d* instance=nullptr){
  std::ostringstream identity;identity.precision(17);identity<<prim.GetPath().GetString();if(instance)identity<<*instance;auto key=identity.str();auto found=preparedMaps.find(key);if(found!=preparedMaps.end())return found->second(point);
@@ -118,8 +140,7 @@ GfVec3d Full(UsdPrim prim,GfVec3d point,const GfMatrix4d* instance=nullptr){
  }
  if(anchor.GetTypeName()==TfToken("GeospatialDataSource"))throw std::runtime_error("Data source is not a model anchor");
  auto old=anchor.GetAttribute(TfToken("crs:scale"));if(old&&old.HasAuthoredValueOpinion())throw std::runtime_error("Undocumented crs:scale is not an input");
- Field(anchor,"crs:orientation",SdfValueTypeNames->Quatd);GfQuatd rotation(1);auto a=anchor.GetAttribute(TfToken("crs:orientation"));if(a&&a.HasAuthoredValueOpinion()&&!a.Get(&rotation,timeCode))throw std::runtime_error("Unavailable orientation");
- if(!std::isfinite(rotation.GetLength())||std::abs(rotation.GetLength()-1)>8*std::numeric_limits<double>::epsilon())throw std::runtime_error("Invalid nonunit orientation");
+ auto rotation=Orientation(anchor);
  auto origin=Position(anchor);auto work=Working(anchor,source);Def(work);if(d.dimensions!=3)throw std::runtime_error("Complete 3D model CRS required");
  auto gw=Geographic(source);auto go=Convert(source,gw,origin);auto base=Ecef(Def(gw),go);auto axes=Enu(Def(gw),go);auto R=GfMatrix3d(rotation);
  GfMatrix4d A(1);bool ignored;if(!reset)UsdGeomXformable(anchor).GetLocalTransformation(&A,&ignored,timeCode);if(instance)A=A*(*instance);

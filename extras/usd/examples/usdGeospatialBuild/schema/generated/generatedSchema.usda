@@ -18,7 +18,7 @@ class "GeospatialCRSBindingAPI" (
     }
 )
 {
-    quatd crs:orientation = (1, 0, 0, 0)
+    double3 crs:orientation = (0, 0, 0)
     double3 crs:position
 }
 

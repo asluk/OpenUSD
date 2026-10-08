@@ -140,7 +140,7 @@ def placement_jobs(directory, wkt):
     for name in ['placement-defaults', 'placement-linear', 'placement-held',
                  'geographic-no-unwrapping', 'same-crs-independent-anchor',
                  'position-missing', 'orientation-blocked', 'position-wrong-type',
-                 'position-wrong-variability', 'nonfinite-scale', 'zero-quaternion',
+                 'position-wrong-variability', 'nonfinite-scale', 'nonfinite-orientation',
                  'singular-source-scale']:
         stage = Usd.Stage.CreateNew(str(directory/(name+'.usda')))
         UsdGeom.SetStageMetersPerUnit(stage, .01)
@@ -161,9 +161,9 @@ def placement_jobs(directory, wkt):
             p.Clear()
             p.Set((0., 0., 1.), 0)
             p.Set((10., 20., 3.), 10)
-            orientation = parent.CreateAttribute('crs:orientation', Sdf.ValueTypeNames.Quatd, custom=False)
-            orientation.Set(Gf.Quatd(1., Gf.Vec3d(0)), 0)
-            orientation.Set(Gf.Quatd(0., Gf.Vec3d(0, 0, 1)), 10)
+            orientation = parent.CreateAttribute('crs:orientation', Sdf.ValueTypeNames.Double3, custom=False)
+            orientation.Set(Gf.Vec3d(0,0,0), 0)
+            orientation.Set(Gf.Vec3d(-180,0,0), 10)
             if name == 'placement-held':
                 interpolation = 'held'
                 expected_position = [0., 0., 1.]
@@ -191,7 +191,7 @@ def placement_jobs(directory, wkt):
             p.Clear()
             error = 'Placement position is unavailable'
         elif name == 'orientation-blocked':
-            parent.CreateAttribute('crs:orientation', Sdf.ValueTypeNames.Quatd, custom=False).Block()
+            parent.CreateAttribute('crs:orientation', Sdf.ValueTypeNames.Double3, custom=False).Block()
             error = 'Placement orientation is unavailable'
         elif name == 'position-wrong-type':
             parent.RemoveProperty('crs:position')
@@ -209,9 +209,9 @@ def placement_jobs(directory, wkt):
         elif name == 'nonfinite-scale':
             parent.CreateAttribute('crs:scale', Sdf.ValueTypeNames.Double3, custom=False).Set((1., float('nan'), 1.))
             error = 'Undocumented crs:scale is not an input'
-        elif name == 'zero-quaternion':
-            parent.CreateAttribute('crs:orientation', Sdf.ValueTypeNames.Quatd, custom=False).Set(Gf.Quatd(0.))
-            error = 'Placement orientation is a zero quaternion'
+        elif name == 'nonfinite-orientation':
+            parent.CreateAttribute('crs:orientation', Sdf.ValueTypeNames.Double3, custom=False).Set((float('nan'),0,0))
+            error = 'Placement orientation is nonfinite'
         elif name == 'singular-source-scale':
             parent.CreateAttribute('crs:scale', Sdf.ValueTypeNames.Double3, custom=False).Set((0., -1., 2.))
             error = 'Undocumented crs:scale is not an input'

@@ -1,6 +1,6 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9
+Source SHA-256: 0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0
 
 ## Runtime coordinate transformation
 
@@ -40,9 +40,9 @@ position and model-attitude inputs; computed placement results are runtime data.
 The source is a static RGF93 v2b realization. Both working and output contexts
 are Lambert-93 in metres with ellipsoidal height, so this example needs no
 working-to-output transport. Geometry is already conformed to stage metres and
-Z-up; height, attitude and adjustments are illustrative. The quaternion encoding
-remains proposed. This is not surveyed placement, an epoch or gravity-related
-height conversion, or a finite-extent affine certificate.
+Z-up; height, attitude and adjustments are illustrative. The heading/pitch/roll
+encoding remains proposed. This is not surveyed placement, an epoch or
+gravity-related height conversion, or a finite-extent affine certificate.
 
 Every panel uses the same camera and ground grid. Blue outlines show the
 previous state; height guides, model-front markers and translation arrows make
@@ -63,8 +63,8 @@ from true north, with zero pitch and roll, in local geodetic east/north/up.
 Here model +Y is chosen as front, not prescribed as a general convention.
 For this right-handed Z-up example, the attitude is a minus-30-degree turn about
 local +Up. It is a placement input, distinct from the later ordinary USD rotation
-about working-grid +Z. Heading/pitch/roll are an authoring presentation of the
-model attitude; this illustration does not decide the stored encoding.
+about working-grid +Z. The authored heading/pitch/roll tuple supplies this
+model attitude; its preferred encoding remains subject to author alignment.
 
 ##### 3. CRS placement and resolution
 
@@ -131,10 +131,33 @@ asset, inputs and reproduction record.
 #### Evaluation
 
 **Proposed complete evaluation contract for questions 3, 6, 9 and instances.**
-Read composed placement values under Core resolution. Position interpolates in
-its recorded CRS; quaternion orientation uses Core slerp when linear
-interpolation is selected. Held remains held. Interpolate before conversion;
-do not infer longitude unwrapping, a motion model or a coordinate epoch.
+Resolve placement opinions, defaults, blocks and sample times using
+[Core value resolution](https://github.com/aousd/specifications-public/blob/main/core/1.0.1/core_spec.md#value-resolution),
+including layer/reference time offsets and value clips. Position interpolates
+in its recorded CRS using Core. For orientation, select the applicable composed
+angle samples first, convert each selected tuple by the rotation convention
+above, then evaluate the physical orientation. Do not convert an already
+component-interpolated `double3`: ordinary Core tuple interpolation is not this
+geospatial orientation evaluation.
+
+At a default-time query, use the composed default or the schema fallback; do
+not substitute a time sample for a default. With no samples, use the resolved
+default. At an exact sample or outside the sampled interval, use that sample or
+the nearest endpoint respectively. Held interpolation uses the preceding
+sample, clamped to the first endpoint. Linear interpolation uses quaternion
+slerp between the bracketing samples with the normalized time fraction; select
+the equivalent endpoint sign giving a nonnegative quaternion dot product, and
+retain the defined signs if the dot product is exactly zero. Required samples
+that are blocked, unavailable, wrongly typed or non-finite cause visible
+failure, not an identity or held-value substitute.
+
+These samples specify physical poses and shortest-arc motion, not angle
+winding. A pair such as headings 0 and 360 degrees does not command a full
+revolution; intermediate poses must specify the intended longer turn.
+Conversion and interpolation produce transient results and write no USD
+property or normalized angle back into the source. Interpolate source position
+and physical orientation before CRS conversion; do not infer longitude
+unwrapping, a motion model or a coordinate epoch.
 
 For a model, let `F(x)` be the intrinsic finite point map defined by the
 placement position, stage-to-ENU mapping and geospatial attitude above. `x` is

@@ -62,7 +62,7 @@ def test_retained_experiment_is_not_a_shared_proposal_implementation(jobs):
 @pytest.mark.parametrize('name', ['placement-defaults', 'placement-linear', 'placement-held',
     'geographic-no-unwrapping', 'same-crs-independent-anchor', 'position-missing',
     'orientation-blocked', 'position-wrong-type', 'position-wrong-variability',
-    'nonfinite-scale', 'zero-quaternion', 'singular-source-scale'])
+    'nonfinite-scale', 'nonfinite-orientation', 'singular-source-scale'])
 def test_candidate_source_placement_records(name, jobs):
     from review.runner import assert_results
     job = next(x for x in jobs if x['name'] == name)

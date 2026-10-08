@@ -1,6 +1,6 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9
+Source SHA-256: 0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0
 
 ### Functional requirements
 
@@ -249,6 +249,9 @@ are distinct steps.
    A scan records ground distances, while a projected grid may have a
    different distance scale and grid north; converting the model's origin
    alone does not align its geometry with survey control.
+   A placement author enters and checks an origin and physical orientation,
+   for example a surveyed position and heading/pitch/roll, then corrects those
+   inputs without replacing them with projection results.
    Place a tower on a site and not one byte of the tower changes;
    move the position and everything beneath it moves with it.*
 
@@ -645,7 +648,7 @@ The proposal remains subject to author review.
 | # | Question | Requirements and status |
 |--:|---|---|
 | 1 | May a model-placement position be recorded in a geographic CRS, or only in one with length axes? | 5, 8, 12, 17, 18, 19, 20, 22, 30; Decided: [geographic source positions](#decision-on-question-1-geographic-source-positions); encoding remains question 2 |
-| 2 | What field definitions and conventions record source position and physical model attitude, with computed projection effects kept out of the source schema? | 9, 10, 11, 12, 20; Input-only meaning agreed; [position and attitude candidate](#crs-association-and-model-placement); quaternion versus one heading/pitch/roll tuple remains open, with no `crs:scale` |
+| 2 | What field definitions and conventions record source position and physical model attitude, with computed projection effects kept out of the source schema? | 9, 10, 11, 12, 20; Input-only meaning agreed; preferred [position and heading/pitch/roll candidate](#crs-association-and-model-placement), including explicit orientation-sample evaluation, awaits alignment; no `crs:scale` |
 | 3 | What coordinate context applies to project adjustments expressed as ordinary USD transforms when the consumer changes the requested output CRS? | 5, 6, 8, 9, 11, 15, 16, 19; Anchor project adjustments and descendant model-local transforms agreed; [complete chart, reset and instance contract](#evaluation) remains a review candidate |
 | 4 | Whose job is the up-axis and unit correction, the writer's or the reader's? | 14, 15; Decided: [writer or assembler](#decision-on-question-4-authored-unit-and-up-axis-conformance) |
 | 5 | Does the scene record where CRS coordinates give way to scene offsets, or does the binding determine it? | 11, 19, 27; Decided: [direct binding establishes the anchor](#decision-on-question-5-the-position-and-offset-boundary) |
@@ -684,12 +687,16 @@ Source position and physical model attitude are authored inputs distinct from
 ordinary USD transforms. Projection convergence, scale and resolved orientation
 are runtime results, not additional source properties; no `crs:scale` is proposed.
 Intentional object scaling uses ordinary USD xformOps. This input-only meaning
-has author support. The candidate below stores attitude as `quatd` with a
-normative heading/pitch/roll presentation. The alternative under discussion
-stores one heading/pitch/roll tuple. Its exact field definition and sample
-evaluation would need an explicit contract before replacing the candidate;
-converting angles to a quaternion does not by itself make Core interpolate a
-`double3` as an orientation. The stored type remains an alignment question.
+has author support.
+
+The preferred candidate stores one heading/pitch/roll tuple. A placement author
+can enter, inspect and correct the same physical angles supplied by a survey or
+orientation measurement, with their north/up references stated. This addresses
+the workflow under requirement 9 directly. Tam's alternative stores a quaternion
+and requires a normative heading/pitch/roll presentation; it remains a valid
+comparison, but Core interpolation convenience alone does not choose the source
+representation. The authored-angle candidate and its evaluation below are
+proposed for author alignment, not recorded as unanimous agreement.
 
 #### Decision on question 5: the position and offset boundary
 

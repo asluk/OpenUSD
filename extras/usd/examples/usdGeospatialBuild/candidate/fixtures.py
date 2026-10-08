@@ -1,6 +1,6 @@
 """Writer-side fixtures and independent expected controls, specified before execution."""
 from pathlib import Path
-import json, hashlib
+import json, hashlib, math
 import numpy as np
 from pxr import Gf,Sdf,Usd,UsdGeom,UsdProfiles,Vt
 from pyproj import CRS
@@ -45,7 +45,7 @@ def build(root,directory):
     for axis,unit in [('Z',1),('Y',1),('Y',.01)]:
         name=f'basis-{axis}-{unit}';s,p=make(name,axis,unit);a=anchor(s,'/World/Model',targets['ecef3'],[6378137,0,0]);
         UsdGeom.Xformable(a).AddScaleOp().Set((2,3,4))
-        attr(a,'crs:orientation',Sdf.ValueTypeNames.Quatd,Gf.Rotation(Gf.Vec3d(0,0,1),90).GetQuat())
+        attr(a,'crs:orientation',Sdf.ValueTypeNames.Double3,Gf.Vec3d(-90,0,0))
         v=[[1,0,0],[0,1,0],[0,0,1]]
         # Independent expected formula: axis convention, scale, quarter-turn.
         ordered=np.array(v) if axis=='Z' else np.array([[1,0,0],[0,0,1],[0,-1,0]])
@@ -57,7 +57,7 @@ def build(root,directory):
 
     s,p=make('working-adjustment');anchor(s,'/World',targets['utm31'],[448251,5411932,0]);UsdGeom.Xformable(p).AddTranslateOp().Set((100000,0,0))
     a=anchor(s,'/World/Asset',targets['geo3'],[2.2945,48.8584,35]);UsdGeom.Xformable(a).AddTranslateOp().Set((10,0,0))
-    attr(a,'crs:orientation',Sdf.ValueTypeNames.Quatd,Gf.Rotation(Gf.Vec3d(0,0,1),90).GetQuat())
+    attr(a,'crs:orientation',Sdf.ValueTypeNames.Double3,Gf.Vec3d(-90,0,0))
     c=UsdGeom.Xform.Define(s,'/World/Asset/Child');c.AddTranslateOp().Set((3,0,0))
     reset=UsdGeom.Xform.Define(s,'/World/Asset/Reset');reset.SetResetXformStack(True);reset.AddTranslateOp().Set((3,0,0))
     save('working-adjustment',s,'utm31',[{'prim':str(a.GetPath()),'points':[[0,0,0],[1,0,0]]},{'prim':str(c.GetPath()),'points':[[0,0,0]]},{'prim':str(reset.GetPath()),'points':[[0,0,0]]}])
@@ -76,8 +76,23 @@ def build(root,directory):
     jobs.append({**jobs[-3],'name':'time-source-t10','time':10,'expected':[[6378137*np.cos(2*np.pi/180),6378137*np.sin(2*np.pi/180),0]]})
 
     s,p=make('relative-position');a=anchor(s,'/World/A',targets['ecef3'],[6378137,0,0]);b=anchor(s,'/World/B',targets['ecef3'],[6378137,10,0])
-    attr(b,'crs:orientation',Sdf.ValueTypeNames.Quatd,Gf.Rotation(Gf.Vec3d(0,0,1),90).GetQuat());UsdGeom.Xformable(b).AddScaleOp().Set((2,3,1))
+    attr(b,'crs:orientation',Sdf.ValueTypeNames.Double3,Gf.Vec3d(-90,0,0));UsdGeom.Xformable(b).AddScaleOp().Set((2,3,1))
     save('relative-position',s,'ecef3',[{'prim':str(a.GetPath()),'points':[[0,0,0]]}]);jobs[-1]['relative']={'from':'/World/A','to':'/World/B','expected_output_difference':[0,-10,0]}
+
+    # Source HPR wrap: convert composed endpoint poses before interpolation.
+    s,p=make('orientation-wrap');a=anchor(s,'/World/Model',targets['ecef3'],[6378137,0,0])
+    orientation=a.CreateAttribute('crs:orientation',Sdf.ValueTypeNames.Double3,custom=False)
+    orientation.Set((170,0,0),0);orientation.Set((-170,0,0),10)
+    point=UsdGeom.Points.Define(s,'/World/Model/Sample')
+    point.CreatePointsAttr(Vt.Vec3fArray([Gf.Vec3f(0),Gf.Vec3f(0,2,0)]));point.CreateWidthsAttr(Vt.FloatArray([.02]))
+    save('orientation-wrap',s,'ecef3',[{'prim':str(a.GetPath()),'points':[[0,2,0]]}],[[6378137,0,-2]],5)
+    jobs[-1]['geometry']=True
+    for name,t in [('orientation-wrap-t0',0),('orientation-wrap-t10',10)]:
+        h=170 if t==0 else -170
+        expected=[[6378137,2*math.sin(math.radians(h)),2*math.cos(math.radians(h))]]
+        jobs.append({**jobs[-1],'name':name,'time':t,'expected':expected})
+    jobs.append({**jobs[-3],'name':'orientation-wrap-held','interpolation':'held',
+                 'expected':[[6378137,2*math.sin(math.radians(170)),2*math.cos(math.radians(170))]]})
 
     # A prototype-child reset excludes its prototype transform, while the
     # explicitly selected per-instance transform still positions the copy.
@@ -99,6 +114,20 @@ def build(root,directory):
             if rel and rel.HasAuthoredTargets():
                 cp=dst.GetPrimAtPath(rel.GetTargets()[0]);wkt=normalize(cp.GetAttribute('crs:wkt').Get());prim.RemoveProperty('crs:binding');bind(prim,wkt,library)
             if prim.HasRelationship('crs:coordinateProperties'):prim.RemoveProperty('crs:coordinateProperties')
+            orientation=prim.GetAttribute('crs:orientation')
+            if orientation and orientation.HasAuthoredValueOpinion() and orientation.GetTypeName()==Sdf.ValueTypeNames.Quatd:
+                # Historical fixture intake only; preserve the original scene file.
+                times=orientation.GetTimeSamples()
+                records=[(Usd.TimeCode(t),orientation.Get(t)) for t in times] if times else [(Usd.TimeCode.Default(),orientation.Get())]
+                prim.RemoveProperty('crs:orientation')
+                authored=prim.CreateAttribute('crs:orientation',Sdf.ValueTypeNames.Double3,custom=False)
+                for time,value in records:
+                    angles=Gf.Rotation(value).Decompose(Gf.Vec3d(0,0,1),Gf.Vec3d(1,0,0),Gf.Vec3d(0,1,0))
+                    hpr=Gf.Vec3d(-angles[0],angles[1],angles[2])
+                    from review.placement_values import orientation_sample
+                    authored.Set(hpr,time)
+                    if not np.allclose(np.array(Gf.Matrix3d(orientation_sample(authored,time))),np.array(Gf.Matrix3d(value)),atol=1e-12,rtol=0):
+                        raise ValueError('Historical orientation intake failed physical round-trip')
             if prim.HasAttribute('crs:scale'):
                 scale=prim.GetAttribute('crs:scale').Get();prim.RemoveProperty('crs:scale')
                 if scale and tuple(scale)!=(1,1,1):UsdGeom.Xformable(prim).AddScaleOp(opSuffix='intentional').Set(scale)
