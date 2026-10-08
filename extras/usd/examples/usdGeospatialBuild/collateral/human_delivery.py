@@ -90,10 +90,10 @@ def publish(root, base, assessment_path, audit_path):
         ["Model geometry", "Shape and local distances, with declared model units and up direction. In USD: points, metersPerUnit and upAxis."],
         ["Coordinate reference", "A CRS binding refers to WKT, the standard text description of the location's axes, units and height meaning."],
         ["Geographic origin", "crs:position locates the model origin. The illustrative example uses longitude 2.2945 degrees, latitude 48.8584 degrees and ellipsoidal height 80 m."],
-        ["Physical orientation", "crs:orientation says which way the model faces and tilts relative to local east, north and up at its origin."],
+        ["Physical orientation", "crs:orientation stores heading, pitch and roll in degrees: which way the model faces and tilts at its origin."],
     ]
     placement_choices = [
-        ["Physical orientation", "Input-only meaning is supported. Stored quaternion versus one heading/pitch/roll tuple and its interpolation need review."],
+        ["Physical orientation", "Preferred HPR tuple in degrees, with explicit pose interpolation. Authored inputs only; adoption pending."],
         ["The object with its own georeference", "Project adjustment meaning is supported. The detailed fixed working-frame convention remains a candidate."],
         ["Child objects", "Model-local meaning is supported. The follow-up specifies chart/reset details and tests that offsets retain their interpretation."],
         ["Independently georeferenced repeated models", "Keep a prototype's own geographic placement and apply each instance effect once."],
@@ -149,7 +149,7 @@ def publish(root, base, assessment_path, audit_path):
     for key in ["colorado", "railway", "animation"]:
         text += case_markdown(by_id[key])
     text += "</details>\n\n## Proposed choices awaiting agreement\n\n"
-    text += "The group supports input-only physical placement and project adjustments versus model-local child offsets. Stored orientation and detailed chart, carrier and export conventions remain candidates. Proposed definitions, adoption and implementation coverage are separate assessments.\n\n"
+    text += "The group supports input-only physical placement and project adjustments versus model-local child offsets. The preferred HPR input and detailed chart, carrier and export conventions await adoption. Proposed definitions, adoption and implementation coverage are separate assessments.\n\n"
     text += markdown_table(["Placement topic", "Proposed meaning to review"], placement_choices) + "\n\n" + markdown_table(["Data or declaration topic", "Proposed meaning to review"], data_choices) + "\n\n"
     text += "Coordinate epochs and scene-authored operation/resource controls remain deferred without foreclosing later support. Regional and global workflows remain represented.\n\n"
     text += "## Detailed evidence\n\n<details>\n<summary>Reader comparisons, consumer coverage and provenance</summary>\n\n" + markdown_table(["Path or check", "Recorded evidence"], evidence_rows) + "\n\n"
@@ -211,7 +211,7 @@ def publish(root, base, assessment_path, audit_path):
     if assessment.get("comparison"):
         comparison = json.loads((root / "delivery/run-comparison.json").read_text(encoding="utf-8"))
         pr = assessment["assessment"] + "\n\n" + assessment["comparison"]["explanation"] + "\n\n"
-        pr += f"Fresh execution: {base['tests']['regressions_passed']} regression checks and {base['tests']['distinguishing_controls_passed']} distinguishing controls passed. All {len(comparison['numeric_case_comparisons'])} recorded numerical case comparisons across both placement readers and the Omniverse geometry sink exactly match the prior run. Six prior audit defects pass fresh counterexamples after clause-traced repairs; normal sampling remains unresolved. Whole-proposal conformance is not claimed.\n\n"
+        pr += f"Fresh execution: {base['tests']['regressions_passed']} regression checks and {base['tests']['distinguishing_controls_passed']} distinguishing controls passed. All {len(comparison['numeric_case_comparisons'])} recorded numerical case comparisons across both placement readers and the Omniverse geometry sink pass their existing acceptance limits; {sum(c['exactly_equal'] for c in comparison['numeric_case_comparisons'])} are exactly equal. Six prior audit defects pass fresh counterexamples after clause-traced repairs; normal sampling remains unresolved. Whole-proposal conformance is not claimed.\n\n"
         pr += "The README and slides pair the working demonstrations with their proposal meaning and limits. Detailed candidate choices still need group review. Shared PROJ and dataset decoding limit independent verification.\n\n" + assessment["provenance_disposition"] + "\n"
     (root / "delivery/pr-body.md").write_text(pr, encoding="utf-8", newline="\n")
     assert not re.search(r"https://github.com/(?:PixarAnimationStudios/OpenUSD|[^/]+/OpenUSD-proposals)/(?:pull|issues)/", text + pr)
@@ -241,6 +241,14 @@ def validate_narrative(root, story):
     for rows in [story['issue_rows'],story['status_rows'],story['placement_choice_rows'],story['data_choice_rows'],story['evidence_rows']]:
         for row in rows:
             assert all(cell in readme for cell in row)
+    if (root / 'delivery/run-comparison.json').exists():
+        comparison=json.loads((root / 'delivery/run-comparison.json').read_text(encoding='utf-8'))
+        records=comparison['numeric_case_comparisons']
+        assert not comparison['numeric_regressions']
+        pr=(root / 'delivery/pr-body.md').read_text(encoding='utf-8')
+        assert f"{sum(c['exactly_equal'] for c in records)} are exactly equal" in pr
+        if not all(c['exactly_equal'] for c in records):
+            assert 'exactly match the prior run' not in pr, 'Review body overstates previous-run equality'
     assert "Omniverse live geometry" not in readme and "Omniverse live stage" not in readme
     assert "readability" not in story.get("automatic_pass_claim", "").lower()
     return {"structural_assessment_checks_passed": True, "claim": "Each case has sourced expectation, observation, interpretation and limits. Human-oriented clarity still requires explicit inspection of rendered artifacts."}

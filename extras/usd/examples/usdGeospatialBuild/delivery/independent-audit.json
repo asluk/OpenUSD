@@ -8,9 +8,9 @@
     "future_gate": "Reassess each issue against the intended claim and delivery milestone. Stop only work dependent on genuinely unspecified meaning, while continuing independent work.",
     "model_policy": "Repair against existing contracts first. Clarify truly missing semantics if needed; do not standardize an implementation workaround."
   },
-  "proposal_commit": "bbe3e488d5267227a994992a837a637f0cf98dee",
-  "proposal_sha256": "28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9",
-  "implementation_commit": "dfa9f71ca5ae32fbf5714e526d0f7f8fc0b4af13",
+  "proposal_commit": "0e955c68c9b0f07b313c43c2cf291eead868c8af",
+  "proposal_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+  "implementation_commit": "ba4cce79f41741a4e39ffd32072a4c4171a45a5f",
   "delivery_commit": null,
   "executed_source_files_match": true,
   "native_executable_matches_run": true,
@@ -26,8 +26,8 @@
         "native/leans.cpp:147"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2018",
-        "proposal/proposal-source.txt:2053"
+        "proposal/proposal-source.txt:2061",
+        "proposal/proposal-source.txt:2096"
       ],
       "disposition": "Do not promote the centroid workaround into the proposal. Derive transport from source normal/interpolation semantics and the full map; support the consumed domain with justified approximation evidence or visibly reject the unsupported result. Clarify only any remaining semantic ambiguity, independent of the shortcut.",
       "diagnostics": [
@@ -51,7 +51,7 @@
         "native/leans.cpp:182"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2003"
+        "proposal/proposal-source.txt:2046"
       ],
       "disposition": "Repair the prototype classification/discovery path; this requires no new scene property or new scope deferral.",
       "diagnostics": [
@@ -74,7 +74,7 @@
         "candidate/export.py:46"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2097"
+        "proposal/proposal-source.txt:2140"
       ],
       "disposition": "Make the export topology and geometry inventory exact, preserve each effect once, and reject unexpected extras in fresh-reader validation.",
       "diagnostics": [
@@ -96,8 +96,8 @@
         "candidate/datasets.py:78"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1626",
-        "proposal/proposal-source.txt:1631"
+        "proposal/proposal-source.txt:1646",
+        "proposal/proposal-source.txt:1651"
       ],
       "prior_art": "https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html",
       "disposition": "Align by named dimensions before broadcasting. Both placement paths consume the same decoder, so their coordinate agreement cannot detect this defect.",
@@ -120,7 +120,7 @@
         "candidate/export.py:29"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2097"
+        "proposal/proposal-source.txt:2140"
       ],
       "disposition": "Audit and preserve non-geospatial semantics, or explicitly reject/export only a documented supported subset. Do not silently treat every schema as a placement effect.",
       "diagnostics": [
@@ -142,7 +142,7 @@
         "candidate/execution.py:49"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2078"
+        "proposal/proposal-source.txt:2121"
       ],
       "disposition": "Complete reporting from the existing output arrays without adding authored scene metadata.",
       "diagnostics": [
@@ -189,8 +189,8 @@
         "candidate/runtime.py:98"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2033",
-        "proposal/proposal-source.txt:2070"
+        "proposal/proposal-source.txt:2076",
+        "proposal/proposal-source.txt:2113"
       ],
       "evidence": "The attempted regional fixture had two visible unavailable-operation failures and one available operation; it did not demonstrate omitted operations. Do not present this concern as a reproduced result failure.",
       "disposition": "Require attributable operation coverage before claiming comparison of multiregion batches.",
@@ -214,9 +214,9 @@
     "Python/C++ agreement misses shared policy and decoder mistakes. Existing normal evidence uses vertex normals and the prototype fixtures live under bound ancestry.",
     "Fresh export verification did not compare the complete geometry/topology inventory."
   ],
-  "conclusion": "No new undefined model rule was confirmed in reviewed paths. This is not an exhaustive proof of proposal completeness. Detailed adoption choices and unverified consumers remain separate.",
+  "conclusion": "The authored HPR rule and sample selection are explicitly defined and pass the new controls. No new undefined model rule was confirmed in reviewed paths. This is not an exhaustive proof of proposal completeness. Detailed adoption choices and unverified consumers remain separate.",
   "diagnostic_file": "audit-diagnostics.json",
-  "source_audit_sha256": "a184562af36d2471493c1ed1cd06f43e6430d517f778744437d262d7191fbd42",
-  "execution_receipt_sha256": "b12019e039ab52f930fb2f4321ca2289875bcdefbd3dbbd669b72a8689647e46",
+  "source_audit_sha256": "a97b48d12c6d21ef29a2d6a47f67afb7815109aa4c95221b4e03fd1a596f7dd6",
+  "execution_receipt_sha256": "bc2c422dc4a9ec855fe6831a1b6afcd2ef86961db5bc954bd71c74d5ec39d842",
   "audit_binding": "Fresh diagnostics checked every new frozen execution file and the actually executed native binary. Seven known issues reproduced; no runtime repairs claimed."
 }

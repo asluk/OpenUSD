@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "proposal_sha256": "28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9",
-  "execution_receipt_sha256": "b12019e039ab52f930fb2f4321ca2289875bcdefbd3dbbd669b72a8689647e46",
-  "audit_source_sha256": "a184562af36d2471493c1ed1cd06f43e6430d517f778744437d262d7191fbd42",
+  "proposal_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+  "execution_receipt_sha256": "bc2c422dc4a9ec855fe6831a1b6afcd2ef86961db5bc954bd71c74d5ec39d842",
+  "audit_source_sha256": "a97b48d12c6d21ef29a2d6a47f67afb7815109aa4c95221b4e03fd1a596f7dd6",
   "audience": "Readers who may be unfamiliar with both geospatial concepts and OpenUSD",
   "purpose": "Assess whether the proposal supplies sufficient, consistent data and observable rules for another implementer to derive meaningful results and tests",
-  "title": "Geospatial proposal: mergeable requirements and a tested follow-up",
+  "title": "Geospatial proposal: placement authoring and tested behavior",
   "opening": "USD describes a 3D model's shape and size. Geospatial information says where it belongs on Earth, so models, surveys and measurements can work together.",
-  "assessment": "The local split gives reviewers a focused requirements baseline and a separate full model/runtime candidate. Clearer array, invalid-input and bake rules now have fresh tests.",
-  "summary": "All prior recorded numeric results match. Six audited defects are corrected; normal sampling remains unresolved. Orientation storage and detailed conventions still need review.",
+  "assessment": "The full follow-up now starts from placement authoring: a readable heading/pitch/roll input, with explicit physical meaning and sample evaluation. The focused requirements baseline remains separate.",
+  "summary": "All 105 prior case comparisons remain within their existing acceptance limits. New orientation and composition controls pass. Normal sampling remains unresolved; the preferred HPR model still needs group adoption.",
   "cases": [
     {
       "id": "inputs",
@@ -17,9 +17,9 @@
       "question": "Can a reader distinguish the model's shape from its location on Earth?",
       "rule": "The scene records local geometry separately from its geographic origin and physical orientation. A coordinate reference system (CRS) defines how to interpret the origin's axes, units and height.",
       "expected": "A reader has enough source information to place the model, without interpreting longitude or latitude as a distance or adding computed results to the source schema.",
-      "observed": "The candidate defines position and orientation inputs, with concrete component, unit, default and evaluation rules. Ordinary model transforms remain separate.",
-      "implication": "These definitions make the intended inputs explicit. Their usefulness depends on the agreed meanings, not on choosing a particular implementation library.",
-      "boundary": "This is an explanation of proposed definitions. The group still needs to review them.",
+      "observed": "The source stores a single double3 heading/pitch/roll tuple in degrees. The rules define its true-north/ellipsoid-up meaning, rotation order and time-sample evaluation; computed quaternions stay transient.",
+      "implication": "The proposed representation follows the concrete authoring workflow. New checks show that reading, editing and composing these inputs produces the specified physical pose.",
+      "boundary": "This is the preferred local candidate, not group adoption. At +170 and -170 degrees the readers pass through 180 degrees; ordinary tuple interpolation would face 0 degrees.",
       "requirement_ids": [
         9,
         10,
@@ -131,7 +131,7 @@
       "expected": "The same sample keeps the same measurement value and observation time whether its location is returned as longitude/latitude/height or Earth-centred Cartesian coordinates.",
       "observed": "The synthetic global temperature case returns both coordinate forms for {global_samples} samples and preserves the native values and two observation times.",
       "implication": "The example exercises larger-scale analytical use, beyond model rendering. The proposal's association rule also identifies the later shared-decoder mistake as a failure.",
-      "boundary": "Synthetic values. Dimension-name tests check associations independently of the shared decoder.",
+      "boundary": "The values are synthetic. Named-dimension associations are independently tested; agreeing readers alone cannot verify shared decoding.",
       "requirement_ids": [
         8,
         12,
@@ -202,7 +202,7 @@
       "expected": "At the middle sample, both readers return the converted source-interpolated position. An ordinary bake states exactly which samples it preserves.",
       "observed": "In the equatorial test, the source longitude spans 0 to 2 degrees. Interpolating converted endpoints misses the source-first midpoint by {chord_difference:.3f} m.",
       "implication": "The distinguishing control makes the ordering rule testable. Preserving sample times alone cannot prove preservation of the original trajectory between samples.",
-      "boundary": "The bake preserves time codes 0, 5, 10 and 48 time codes per second. It provides no original-trajectory guarantee between those samples.",
+      "boundary": "Position interpolation is shown here. HPR wrap, held samples, reference offsets and value clips pass separate controls.",
       "requirement_ids": [
         20,
         29
@@ -212,19 +212,27 @@
   ],
   "provenance_disposition": "Fresh October 8 execution of the local stacked follow-up, with clause-traced adapter repairs and repeated independent diagnostics. No changes have been published.",
   "comparison": {
-    "explanation": "The requirements baseline can be reviewed without approving exact schema fields or runtime conventions. The full follow-up retains the complete candidate for derivation and testing.",
+    "explanation": "This run tests the full model/runtime follow-up after choosing the authoring representation. The focused terms/requirements branch is unchanged.",
     "rows": [
       [
         "Review scope",
-        "All 31 requirement IDs remain. Exact fields, evaluation rules, illustrations and detailed examples move to the stacked follow-up."
+        "All 31 requirement IDs remain. The requirements-only branch is unchanged; this run uses the full local follow-up."
       ],
       [
-        "Contract clarity",
+        "Authoring workflow",
+        "A single authored heading/pitch/roll tuple lets authors read and correct physical placement directly. It is the preferred candidate, not group consensus."
+      ],
+      [
+        "Time and composition",
+        "Select composed HPR samples, convert each to a pose, then interpolate. Reference time offsets, value clips and shortest-path wrap have fresh controls."
+      ],
+      [
+        "Retained protections",
         "Dimension-name ordering, invalid-placement failures and required precision-preserving ordinary USD bakes are explicit."
       ],
       [
         "Numerical results",
-        "All 105 recorded case comparisons exactly match the prior run."
+        "All 105 prior comparisons pass existing acceptance limits; 102 are exactly equal. Four orientation jobs extend reader and consumer coverage."
       ],
       [
         "Implementation audit",
@@ -232,7 +240,7 @@
       ],
       [
         "Alignment",
-        "Input-only physical meaning and anchor/descendant distinction have supportive feedback. Stored orientation and detailed carrier/chart conventions remain candidate."
+        "Input-only physical meaning and anchor/descendant distinction have supportive feedback. Preferred HPR storage and detailed carrier/chart conventions await adoption."
       ]
     ]
   }

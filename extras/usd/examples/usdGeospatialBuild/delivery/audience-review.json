@@ -2,19 +2,19 @@
   "inspection_performed_by": "Codex agent",
   "user_comprehension_test_performed": false,
   "rendered_readme_inspected": true,
-  "readme_sha256": "708a3b5c2d26a82e32e7ec3c381c2ebb7cda8274fd4567709f98d76d85ca8f6c",
-  "pptx_sha256": "57633639dac31dcc0e40dfea1bbb85e75c3a9ee052b811045754e26d5008f691",
-  "pdf_sha256": "b3e9d1bff261bf0f64dbede8ce37387faf58dfda1583cc4ecfea6e4963c975a5",
+  "readme_sha256": "e7a38c47715e43994a8c44f1474cd6c4a0e924aab1ae63af557fc405cff0a90e",
+  "pptx_sha256": "28226792f9b1149779a578d2bf7d1bda348d4edee2f5805b93de2d39a0fee4ce",
+  "pdf_sha256": "cb0319e1252a3cfa29a1535f9446c5e42bc4f30ba599d0aaa8cf0a99d5b8d5b0",
   "slides": [
     {
       "slide": 1,
       "inspected": true,
-      "image_sha256": "76172dc6a22488927bba574021a0ccc1ead9edb0c2840ae0eccfc95625939474"
+      "image_sha256": "a514b0db87a0708284ac5d6ebf8335841f406ad55840f87ca33c60fd23d4ce3d"
     },
     {
       "slide": 2,
       "inspected": true,
-      "image_sha256": "d291d8a9b8b24339ac652a610583d5ca789113238c75f51daea7d79a0aabfad7"
+      "image_sha256": "b1f82584a7ef06ffa1970d5eafcdcaf443d9c3d6e8913e021dd198e9a7678110"
     },
     {
       "slide": 3,
@@ -34,12 +34,12 @@
     {
       "slide": 6,
       "inspected": true,
-      "image_sha256": "5a5ba91faa4c2dd93ffe205ba5781308d63b12a63e000db55352e09fd837724f"
+      "image_sha256": "b36f5b18e1d95d91c03564593c5f3571afe75dffa985e35074c3e9e360918607"
     },
     {
       "slide": 7,
       "inspected": true,
-      "image_sha256": "fc89bf1fb260ddde20b32ffa7b8098dcf4ec17dc2f109ff5e1e6db240085971e"
+      "image_sha256": "9bd56a125f22e863c7bb8cf532d41116a9ec664021e339d21d920a4309bc1ba2"
     },
     {
       "slide": 8,
@@ -59,12 +59,12 @@
     {
       "slide": 11,
       "inspected": true,
-      "image_sha256": "91af0ef205255796af8a2ec9c27bd8961b6877701c0d9bda0d042a1a89981230"
+      "image_sha256": "0c8e5936a6c495085efe50ae378e83b48fd76ef6414c74c759a9c44d45cd39e3"
     },
     {
       "slide": 12,
       "inspected": true,
-      "image_sha256": "e0182eb25ed19aa681740cfe391d392ca0b2b2282cf33d60579a473d466869ea"
+      "image_sha256": "cb1e40bfce18b54534368f1c855c33df42d9adf63d67319b9d12245ed4a48d87"
     },
     {
       "slide": 13,
@@ -74,12 +74,12 @@
     {
       "slide": 14,
       "inspected": true,
-      "image_sha256": "57c5fce0c1cc26e68286b73fcee481a15c73949795cbc88298089aaaee2cb7f4"
+      "image_sha256": "db06adac656cc6b03f9570020c22c227d779b31b454bf869884bd2cc8c968277"
     }
   ],
   "unresolved_layout_findings": [],
   "native_powerpoint_rendering_inspected": true,
-  "estimator_warning_count": 6,
+  "estimator_warning_count": 7,
   "estimator_warning_disposition": "All 14 final native PowerPoint renders were inspected individually. The estimated table/text overflow warnings did not appear as clipping or overlap in those renders.",
   "content_checks": [
     "Source inputs distinguished from runtime outputs",
@@ -88,7 +88,8 @@
     "Native Hydra/Storm renders labelled recorded",
     "Two placement implementations; Omniverse reuses Python",
     "Six repaired audit findings and unresolved normal sampling shown",
-    "Supported physical meaning distinguished from candidate storage details"
+    "Supported physical meaning distinguished from candidate storage details",
+    "Preferred HPR follows authoring workflow; interpolation converts composed samples before pose interpolation"
   ],
   "readme_render_check": {
     "images": [
@@ -121,5 +122,6 @@
     "tables": 9,
     "headings": 20
   },
-  "claim_boundary": "Artifact inspection by Codex; no human comprehension test or independent geodetic certification."
+  "claim_boundary": "Artifact inspection by Codex; no human comprehension test or independent geodetic certification.",
+  "inspection_evidence": "All first revision slide images inspected individually; the corrected final revision has identical pixels on 13 slides, and the changed slide 11 was inspected again. README opening, comparison, demonstrations, audit, choices and evidence were inspected."
 }

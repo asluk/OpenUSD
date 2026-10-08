@@ -33,7 +33,7 @@ def Xform "Tower" (
     prepend references = @./crs-library.usda@</Definitions/C605b11a8b4adc2b7>
 )
 {
-    quatd crs:orientation = (0.9238795325112867, 0, 0, 0.3826834323650898)
+    double3 crs:orientation = (-45.000000000000014, 0, -0)
     double3 crs:position = (648237.125, 6862251.89, 33.79)
 
     def Xform "AssetConformance"

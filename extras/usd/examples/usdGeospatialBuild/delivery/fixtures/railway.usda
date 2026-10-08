@@ -23,7 +23,7 @@ def Xform "World" (
         prepend references = @./crs-library.usda@</Definitions/C21567ba65f4034ba>
     )
     {
-        uniform asset data:asset = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-split-run-20261008-v1\fixtures\rail-horizontal.geojson@
+        uniform asset data:asset = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-hpr-run-20261008-v2\fixtures\rail-horizontal.geojson@
         uniform string data:coordinateDomain = "geometry"
         uniform string data:field = ""
         uniform token data:format = "GeoJSON"

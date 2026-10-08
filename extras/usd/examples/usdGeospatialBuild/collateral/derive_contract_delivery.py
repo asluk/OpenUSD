@@ -27,7 +27,7 @@ def main():
             if normalized.startswith(ROOT.as_posix()+'/'):return '../'+normalized[len(ROOT.as_posix())+1:]
             return v  # USD prim paths are scene identities, not filesystem paths.
         return v
-    public=portable(report);public['delivery_provenance']={'immutable_private_receipt_sha256':sha(run/'delivery/run-report.json'),'adaptation':'Portable filesystem paths, preserving USD prim identities; masked NaNs serialized as null. Exact executed file hashes and finite results retained.'}
+    public=portable(report);public['ov']['implementation']='Python placement reader with separate stage geometry writeback and readback';public['delivery_provenance']={'immutable_private_receipt_sha256':sha(run/'delivery/run-report.json'),'adaptation':'Portable filesystem paths, preserving USD prim identities; masked NaNs serialized as null; OV integration label clarified as stage geometry writeback. Exact executed file hashes and finite results retained.'}
     js(d/'run-report.json',public);js(d/'proposal-quality.json',report['proposal_quality']);js(d/'jobs.json',portable(json.loads((run/'jobs.json').read_text(encoding='utf-8'))))
     data={n:json.loads((run/(n+'-results.json')).read_text(encoding='utf-8')) for n in ['python','native','ov']};py,cpp=data['python'],data['native'];ov={j['name']:j['records'] for j in data['ov']['jobs']}
     for n,v in data.items():js(d/(n+'-results.json'),portable(v))

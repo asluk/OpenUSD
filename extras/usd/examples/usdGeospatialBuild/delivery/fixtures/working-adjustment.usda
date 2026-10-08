@@ -28,7 +28,7 @@ def Xform "World" (
         prepend references = @./crs-library.usda@</Definitions/C7aada0dc0fa0bcab>
     )
     {
-        quatd crs:orientation = (0.7071067811865476, 0, 0, 0.7071067811865476)
+        double3 crs:orientation = (-90, 0, 0)
         double3 crs:position = (2.2945, 48.8584, 35)
         double3 xformOp:translate = (10, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate"]

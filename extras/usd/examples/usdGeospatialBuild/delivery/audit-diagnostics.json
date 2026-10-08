@@ -1,6 +1,125 @@
 {
-  "proposal_sha256": "28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9",
+  "proposal_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
   "cases": [
+    {
+      "name": "preferred_authored_hpr_sample_evaluation",
+      "authored_samples_degrees": [
+        [
+          170,
+          0,
+          0
+        ],
+        [
+          -170,
+          0,
+          0
+        ]
+      ],
+      "ordinary_core_tuple_midpoint": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_physical_forward": [
+        6378137,
+        0,
+        -2
+      ],
+      "python": [
+        6378136.999999999,
+        0.0,
+        -1.9999999999999996
+      ],
+      "cpp": [
+        6378137.0,
+        0.0,
+        -1.9999999999999998
+      ],
+      "distance_from_component_interpolated_pose_metres": 3.9999999999999996,
+      "passed": true,
+      "source_unchanged": true
+    },
+    {
+      "name": "hpr_composed_reference_time_offsets",
+      "source_times": [
+        0,
+        10
+      ],
+      "composed_times": [
+        2,
+        22
+      ],
+      "query_time": 12,
+      "expected": [
+        6378137,
+        0,
+        -2
+      ],
+      "python": [
+        6378136.999999999,
+        0.0,
+        -1.9999999999999996
+      ],
+      "cpp": [
+        6378137.0,
+        0.0,
+        -1.9999999999999998
+      ],
+      "passed": true
+    },
+    {
+      "name": "hpr_value_clip_sample_mapping",
+      "clip_times": [
+        0,
+        10
+      ],
+      "stage_times": [
+        0,
+        20
+      ],
+      "query_time": 10,
+      "expected": [
+        6378137,
+        0,
+        -2
+      ],
+      "python": [
+        6378136.999999999,
+        0.0,
+        -1.9999999999999996
+      ],
+      "cpp": [
+        6378137.0,
+        0.0,
+        -1.9999999999999998
+      ],
+      "passed": true
+    },
+    {
+      "name": "inspectable_hpr_hand_edit",
+      "authored_hpr_degrees": [
+        40.0,
+        0.0,
+        0.0
+      ],
+      "expected": [
+        6378137,
+        1.2855752193730785,
+        1.532088886237956
+      ],
+      "python": [
+        6378137.0,
+        1.2855752193730787,
+        1.532088886237956
+      ],
+      "cpp": [
+        6378137.0,
+        1.2855752193730787,
+        1.5320888862379556
+      ],
+      "source_unchanged": true,
+      "passed": true
+    },
     {
       "name": "orientation_interpolation_choice",
       "illustrative_only_not_proposed_source_fields": true,
@@ -171,7 +290,7 @@
       ],
       "unchecked_extra_geometry_keys": [],
       "export_receipt": {
-        "path": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\outputs\\geospatial-independent-audit-20261008\\nested-geometry-export.usda",
+        "path": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\outputs\\geospatial-independent-audit-hpr-20261008-v2\\nested-geometry-export.usda",
         "fresh_reader_max_error_metres": 1.7763568394002505e-15,
         "quantization_metres": 1.7763568394002505e-15,
         "parts": 2,

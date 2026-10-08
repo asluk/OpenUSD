@@ -438,6 +438,114 @@
     }
   },
   {
+    "name": "orientation-wrap",
+    "stage": "fixtures/orientation-wrap.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            0,
+            2,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6378137,
+        0,
+        -2
+      ]
+    ],
+    "time": 5,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "orientation-wrap-t0",
+    "stage": "fixtures/orientation-wrap.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            0,
+            2,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6378137,
+        0.34729635533386055,
+        -1.969615506024416
+      ]
+    ],
+    "time": 0,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "orientation-wrap-t10",
+    "stage": "fixtures/orientation-wrap.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            0,
+            2,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6378137,
+        -0.34729635533386055,
+        -1.969615506024416
+      ]
+    ],
+    "time": 10,
+    "interpolation": "linear",
+    "geometry": true
+  },
+  {
+    "name": "orientation-wrap-held",
+    "stage": "fixtures/orientation-wrap.usda",
+    "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+    "queries": [
+      {
+        "prim": "/World/Model",
+        "points": [
+          [
+            0,
+            2,
+            0
+          ]
+        ]
+      }
+    ],
+    "expected": [
+      [
+        6378137,
+        0.34729635533386055,
+        -1.969615506024416
+      ]
+    ],
+    "time": 5,
+    "interpolation": "held",
+    "geometry": true
+  },
+  {
     "name": "prototype-reset",
     "stage": "fixtures/prototype-reset.usda",
     "output_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",

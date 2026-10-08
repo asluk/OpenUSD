@@ -7,8 +7,8 @@ import {Presentation,PresentationFile} from '@oai/artifact-tool';
 
 const root=path.resolve(process.argv[2]||path.join(path.dirname(fileURLToPath(import.meta.url)),'..'));
 const workspace=path.resolve(process.argv[3]||process.cwd());
-const output=path.resolve(process.argv[4]||path.join(workspace,'outputs/geospatial-split-20261008'));
-const build=path.join(workspace,'work/geospatial-split-delivery-render-20261008-v3');
+const output=path.resolve(process.argv[4]||path.join(workspace,'outputs/geospatial-hpr-20261008'));
+const build=path.join(workspace,'work/geospatial-hpr-delivery-render-20261008-v2');
 const skill='C:/Users/aluk/.codex/plugins/cache/openai-primary-runtime/presentations/26.1007.11041/skills/presentations';
 const python='C:/Users/aluk/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe';
 process.env.RUNTIME_NODE_MODULES='C:/Users/aluk/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
@@ -70,7 +70,7 @@ for(const n of [3,4,6,9,10]){
 }
 for(const n of [12,13]){
  const s=slide(n),rows=n===12?story.placement_choice_rows:story.data_choice_rows;table(s,[['Topic','Supported meaning and candidate detail'],...rows],154,447,[355,797],25);
- text(s,n===12?'Review stored orientation and detailed conventions; keep the supported input-only meaning.':'Coordinate epochs and scene-authored operation/resource controls remain deferred without foreclosing later support.',64,637,1152,70,26,false,C.amber);notes(s,n,JSON.stringify(rows));
+ text(s,n===12?'Prefer HPR for authoring; review the precise pose convention and interpolation before adoption.':'Coordinate epochs and scene-authored operation/resource controls remain deferred without foreclosing later support.',64,637,1152,70,26,false,C.amber);notes(s,n,JSON.stringify(rows));
 }
 {
  const s=slide(14);table(s,[['Path or check','Recorded evidence'],...story.evidence_rows],151,459,[340,812],23);text(s,'There are two placement readers. Omniverse reuses Python with a verified stage geometry sink. Hydra consumes a C++-resolved ordinary USD bake.',64,637,1152,75,25,false,C.muted);notes(s,14,JSON.stringify(story.evidence_rows));
@@ -79,7 +79,7 @@ const draftCandidate=path.join(build,'draft.pptx');await(await PresentationFile.
 execFileSync(python,[path.join(path.dirname(fileURLToPath(import.meta.url)),'repair_slide_viewports.py'),draftCandidate],{stdio:'inherit'});
 const candidate=path.join(build,'finalization-input.pptx');
 await fs.copyFile(draftCandidate,candidate);
-const final=path.join(output,'Geospatial-proposal-assessment-2026-10-08-v3.pptx');
+const final=path.join(output,'Geospatial-HPR-proposal-assessment-2026-10-08-v2.pptx');
 const reference=path.join(root,'delivery/geospatial-build.pptx');
 const result=await finalizePresentation({workspaceDir:workspace,candidatePath:candidate,finalPath:final,pythonExecutable:python,integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-heading-fit',...story.required_native_table_slides.flatMap(n=>['--require-native-table-slide',String(n)])],explicitTotalSlideCount:14,requiredNativeTableOwnerSlides:story.required_native_table_slides,requiredNativeChartOwnerSlides:story.required_native_chart_slides,materializeLiteralChartWorkbooks:true,fontPolicy:{basis:'reference',families:['Arial'],referencePath:reference,referenceSha256:sha(await fs.readFile(reference))},verifyArtifactToolImport:true,receiptPath:path.join(build,'validation.json')});
 console.log(JSON.stringify({final,status:result.status,readme_sha256:story.readme_sha256}));

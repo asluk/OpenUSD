@@ -1,8 +1,8 @@
-# Geospatial proposal: mergeable requirements and a tested follow-up
+# Geospatial proposal: placement authoring and tested behavior
 
 USD describes a 3D model's shape and size. Geospatial information says where it belongs on Earth, so models, surveys and measurements can work together.
 
-The local split gives reviewers a focused requirements baseline and a separate full model/runtime candidate. Clearer array, invalid-input and bake rules now have fresh tests.
+The full follow-up now starts from placement authoring: a readable heading/pitch/roll input, with explicit physical meaning and sample evaluation. The focused requirements baseline remains separate.
 
 [Slides](delivery/geospatial-build.pptx) · [PDF](delivery/geospatial-build.pdf) · [Proposal snapshot](proposal/proposal-source.txt) · [Build loop](BUILD_LOOP.md)
 
@@ -15,19 +15,21 @@ The local split gives reviewers a focused requirements baseline and a separate f
 | Implementation evidence | The selected cases work. 6 prior defects pass fresh counterexamples; 1 remains unresolved. |
 | Deferred capabilities | Coordinate epochs and scene-authored transformation resources remain on the roadmap. Initial choices must preserve a path to adding them. |
 
-All prior recorded numeric results match. Six audited defects are corrected; normal sampling remains unresolved. Orientation storage and detailed conventions still need review.
+All 105 prior case comparisons remain within their existing acceptance limits. New orientation and composition controls pass. Normal sampling remains unresolved; the preferred HPR model still needs group adoption.
 
 ## Changes since the previous run
 
-The requirements baseline can be reviewed without approving exact schema fields or runtime conventions. The full follow-up retains the complete candidate for derivation and testing.
+This run tests the full model/runtime follow-up after choosing the authoring representation. The focused terms/requirements branch is unchanged.
 
 | Compared aspect | Finding |
 |---|---|
-| Review scope | All 31 requirement IDs remain. Exact fields, evaluation rules, illustrations and detailed examples move to the stacked follow-up. |
-| Contract clarity | Dimension-name ordering, invalid-placement failures and required precision-preserving ordinary USD bakes are explicit. |
-| Numerical results | All 105 recorded case comparisons exactly match the prior run. |
+| Review scope | All 31 requirement IDs remain. The requirements-only branch is unchanged; this run uses the full local follow-up. |
+| Authoring workflow | A single authored heading/pitch/roll tuple lets authors read and correct physical placement directly. It is the preferred candidate, not group consensus. |
+| Time and composition | Select composed HPR samples, convert each to a pose, then interpolate. Reference time offsets, value clips and shortest-path wrap have fresh controls. |
+| Retained protections | Dimension-name ordering, invalid-placement failures and required precision-preserving ordinary USD bakes are explicit. |
+| Numerical results | All 105 prior comparisons pass existing acceptance limits; 102 are exactly equal. Four orientation jobs extend reader and consumer coverage. |
 | Implementation audit | Six counterexamples pass after repair; normal sampling still lacks justified approximation evidence. |
-| Alignment | Input-only physical meaning and anchor/descendant distinction have supportive feedback. Stored orientation and detailed carrier/chart conventions remain candidate. |
+| Alignment | Input-only physical meaning and anchor/descendant distinction have supportive feedback. Preferred HPR storage and detailed carrier/chart conventions await adoption. |
 
 [Full comparison](delivery/run-comparison.json)
 
@@ -41,20 +43,20 @@ The scene records local geometry separately from its geographic origin and physi
 
 **Expected behavior.** A reader has enough source information to place the model, without interpreting longitude or latitude as a distance or adding computed results to the source schema.
 
-**Observed result.** The candidate defines position and orientation inputs, with concrete component, unit, default and evaluation rules. Ordinary model transforms remain separate.
+**Observed result.** The source stores a single double3 heading/pitch/roll tuple in degrees. The rules define its true-north/ellipsoid-up meaning, rotation order and time-sample evaluation; computed quaternions stay transient.
 
-**What this says about the proposal.** These definitions make the intended inputs explicit. Their usefulness depends on the agreed meanings, not on choosing a particular implementation library.
+**What this says about the proposal.** The proposed representation follows the concrete authoring workflow. New checks show that reading, editing and composing these inputs produces the specified physical pose.
 
-**Limit.** This is an explanation of proposed definitions. The group still needs to review them.
+**Limit.** This is the preferred local candidate, not group adoption. At +170 and -170 degrees the readers pass through 180 degrees; ordinary tuple interpolation would face 0 degrees.
 
-Proposal basis: [Authored properties](proposal/proposal-source.txt#L1523). Functional requirements [9](proposal/proposal-source.txt#L777), [10](proposal/proposal-source.txt#L795), [12](proposal/proposal-source.txt#L831), [14](proposal/proposal-source.txt#L857), [15](proposal/proposal-source.txt#L870).
+Proposal basis: [Authored properties](proposal/proposal-source.txt#L1532). Functional requirements [9](proposal/proposal-source.txt#L779), [10](proposal/proposal-source.txt#L800), [12](proposal/proposal-source.txt#L836), [14](proposal/proposal-source.txt#L862), [15](proposal/proposal-source.txt#L875).
 
 | Source information | Plain meaning |
 |---|---|
 | Model geometry | Shape and local distances, with declared model units and up direction. In USD: points, metersPerUnit and upAxis. |
 | Coordinate reference | A CRS binding refers to WKT, the standard text description of the location's axes, units and height meaning. |
 | Geographic origin | crs:position locates the model origin. The illustrative example uses longitude 2.2945 degrees, latitude 48.8584 degrees and ellipsoidal height 80 m. |
-| Physical orientation | crs:orientation says which way the model faces and tilts relative to local east, north and up at its origin. |
+| Physical orientation | crs:orientation stores heading, pitch and roll in degrees: which way the model faces and tilts at its origin. |
 
 A reader computes coordinate-query results and scene placement from those inputs. Projection scale, convergence and other computed results do not become source geospatial properties. An ordinary USD scale operation records an author's intentional adjustment.
 
@@ -76,7 +78,7 @@ CRS conversion expresses the same physical placement using different coordinates
 
 **What this says about the proposal.** The proposed rules distinguish a new coordinate representation from a physical move. An image explains this distinction; numerical controls must test it.
 
-Proposal basis: [Source placement evaluation and transform order](proposal/proposal-source.txt#L1810). Functional requirements [9](proposal/proposal-source.txt#L777), [12](proposal/proposal-source.txt#L831), [13](proposal/proposal-source.txt#L845), [16](proposal/proposal-source.txt#L882), [19](proposal/proposal-source.txt#L932).
+Proposal basis: [Source placement evaluation and transform order](proposal/proposal-source.txt#L1830). Functional requirements [9](proposal/proposal-source.txt#L779), [12](proposal/proposal-source.txt#L836), [13](proposal/proposal-source.txt#L850), [16](proposal/proposal-source.txt#L887), [19](proposal/proposal-source.txt#L937).
 
 ### Ordinary model adjustments after placement
 
@@ -94,7 +96,7 @@ On an object with its own CRS binding, ordinary USD transforms (xformOps) adjust
 
 **What this says about the proposal.** Order changes the result. The control tests the agreed anchor/child distinction while detailed chart and instance conventions remain candidates.
 
-Proposal basis: [Evaluation](proposal/proposal-source.txt#L1910). Functional requirements [9](proposal/proposal-source.txt#L777), [14](proposal/proposal-source.txt#L857), [15](proposal/proposal-source.txt#L870), [17](proposal/proposal-source.txt#L902), [19](proposal/proposal-source.txt#L932).
+Proposal basis: [Evaluation](proposal/proposal-source.txt#L1930). Functional requirements [9](proposal/proposal-source.txt#L779), [14](proposal/proposal-source.txt#L862), [15](proposal/proposal-source.txt#L875), [17](proposal/proposal-source.txt#L907), [19](proposal/proposal-source.txt#L937).
 
 ### The same rules in two placement readers
 
@@ -110,7 +112,7 @@ Consumers use the same declared coordinate meanings and resolution rules for a r
 
 **Limit.** Both readers use PROJ and share dataset decoding. Agreement is limited to tested domains and is not independent geodetic validation.
 
-Proposal basis: [Extent and result comparison](proposal/proposal-source.txt#L2042). Functional requirements [4](proposal/proposal-source.txt#L674), [13](proposal/proposal-source.txt#L845), [16](proposal/proposal-source.txt#L882), [17](proposal/proposal-source.txt#L902), [18](proposal/proposal-source.txt#L917), [28](proposal/proposal-source.txt#L1099), [29](proposal/proposal-source.txt#L1117).
+Proposal basis: [Extent and result comparison](proposal/proposal-source.txt#L2085). Functional requirements [4](proposal/proposal-source.txt#L676), [13](proposal/proposal-source.txt#L850), [16](proposal/proposal-source.txt#L887), [17](proposal/proposal-source.txt#L907), [18](proposal/proposal-source.txt#L922), [28](proposal/proposal-source.txt#L1104), [29](proposal/proposal-source.txt#L1122).
 
 ### Ordinary USD geometry for rendering
 
@@ -128,7 +130,7 @@ An explicit bake creates a derived copy containing resolved geometry and ordinar
 
 **What this says about the proposal.** Unaware viewers receive resolved ordinary geometry. Fresh checks reject duplicate meshes and retain an unrelated applied schema.
 
-Proposal basis: [Explicit export and sampling](proposal/proposal-source.txt#L2095). Functional requirements [17](proposal/proposal-source.txt#L902), [19](proposal/proposal-source.txt#L932), [23](proposal/proposal-source.txt#L1038), [25](proposal/proposal-source.txt#L1062), [29](proposal/proposal-source.txt#L1117).
+Proposal basis: [Explicit export and sampling](proposal/proposal-source.txt#L2138). Functional requirements [17](proposal/proposal-source.txt#L907), [19](proposal/proposal-source.txt#L937), [23](proposal/proposal-source.txt#L1043), [25](proposal/proposal-source.txt#L1067), [29](proposal/proposal-source.txt#L1122).
 
 ### Measurements stay paired with their locations
 
@@ -138,7 +140,7 @@ The scene identifies the asset, field and coordinate domain. The reader resolves
 
 ![Synthetic global temperature values shown at their longitude and latitude locations](delivery/plots/global-3d.png)
 
-*Plot of recorded synthetic data. Synthetic values. Dimension-name tests check associations independently of the shared decoder.*
+*Plot of recorded synthetic data. The values are synthetic. Named-dimension associations are independently tested; agreeing readers alone cannot verify shared decoding.*
 
 **Expected behavior.** The same sample keeps the same measurement value and observation time whether its location is returned as longitude/latitude/height or Earth-centred Cartesian coordinates.
 
@@ -146,7 +148,7 @@ The scene identifies the asset, field and coordinate domain. The reader resolves
 
 **What this says about the proposal.** The example exercises larger-scale analytical use, beyond model rendering. The proposal's association rule also identifies the later shared-decoder mistake as a failure.
 
-Proposal basis: [External measurement association](proposal/proposal-source.txt#L1610). Functional requirements [8](proposal/proposal-source.txt#L751), [12](proposal/proposal-source.txt#L831), [18](proposal/proposal-source.txt#L917), [19](proposal/proposal-source.txt#L932), [21](proposal/proposal-source.txt#L968), [30](proposal/proposal-source.txt#L1003).
+Proposal basis: [External measurement association](proposal/proposal-source.txt#L1630). Functional requirements [8](proposal/proposal-source.txt#L753), [12](proposal/proposal-source.txt#L836), [18](proposal/proposal-source.txt#L922), [19](proposal/proposal-source.txt#L937), [21](proposal/proposal-source.txt#L973), [30](proposal/proposal-source.txt#L1008).
 
 ## Fresh independent audit
 
@@ -187,7 +189,7 @@ Site calibration records how a local survey grid relates to a broader coordinate
 
 **What this says about the proposal.** The case supports a site's calibrated CRS using partner survey lines. It does not establish independent survey accuracy.
 
-Proposal basis: [Decision on question 7: site calibration](proposal/proposal-source.txt#L1294). Functional requirements [4](proposal/proposal-source.txt#L674), [14](proposal/proposal-source.txt#L857), [15](proposal/proposal-source.txt#L870), [17](proposal/proposal-source.txt#L902).
+Proposal basis: [Decision on question 7: site calibration](proposal/proposal-source.txt#L1303). Functional requirements [4](proposal/proposal-source.txt#L676), [14](proposal/proposal-source.txt#L862), [15](proposal/proposal-source.txt#L875), [17](proposal/proposal-source.txt#L907).
 
 ### Useful horizontal placement without invented height
 
@@ -205,7 +207,7 @@ A consumer does not invent missing coordinate meaning. An explicitly horizontal 
 
 **What this says about the proposal.** This case exercises visible limits on interpretation, not a silent assumption that every three-number tuple is a valid geographic 3D position.
 
-Proposal basis: [External measurement association](proposal/proposal-source.txt#L1610). Functional requirements [8](proposal/proposal-source.txt#L751), [12](proposal/proposal-source.txt#L831), [19](proposal/proposal-source.txt#L932), [21](proposal/proposal-source.txt#L968).
+Proposal basis: [External measurement association](proposal/proposal-source.txt#L1630). Functional requirements [8](proposal/proposal-source.txt#L753), [12](proposal/proposal-source.txt#L836), [19](proposal/proposal-source.txt#L937), [21](proposal/proposal-source.txt#L973).
 
 ### Animation evaluation order
 
@@ -219,19 +221,19 @@ Interpolate the authored source location first, then convert coordinates. Interp
 
 **What this says about the proposal.** The distinguishing control makes the ordering rule testable. Preserving sample times alone cannot prove preservation of the original trajectory between samples.
 
-**Limit.** The bake preserves time codes 0, 5, 10 and 48 time codes per second. It provides no original-trajectory guarantee between those samples.
+**Limit.** Position interpolation is shown here. HPR wrap, held samples, reference offsets and value clips pass separate controls.
 
-Proposal basis: [Evaluation](proposal/proposal-source.txt#L1910). Functional requirements [20](proposal/proposal-source.txt#L951), [29](proposal/proposal-source.txt#L1117).
+Proposal basis: [Evaluation](proposal/proposal-source.txt#L1930). Functional requirements [20](proposal/proposal-source.txt#L956), [29](proposal/proposal-source.txt#L1122).
 
 </details>
 
 ## Proposed choices awaiting agreement
 
-The group supports input-only physical placement and project adjustments versus model-local child offsets. Stored orientation and detailed chart, carrier and export conventions remain candidates. Proposed definitions, adoption and implementation coverage are separate assessments.
+The group supports input-only physical placement and project adjustments versus model-local child offsets. The preferred HPR input and detailed chart, carrier and export conventions await adoption. Proposed definitions, adoption and implementation coverage are separate assessments.
 
 | Placement topic | Proposed meaning to review |
 |---|---|
-| Physical orientation | Input-only meaning is supported. Stored quaternion versus one heading/pitch/roll tuple and its interpolation need review. |
+| Physical orientation | Preferred HPR tuple in degrees, with explicit pose interpolation. Authored inputs only; adoption pending. |
 | The object with its own georeference | Project adjustment meaning is supported. The detailed fixed working-frame convention remains a candidate. |
 | Child objects | Model-local meaning is supported. The follow-up specifies chart/reset details and tests that offsets retain their interpretation. |
 | Independently georeferenced repeated models | Keep a prototype's own geographic placement and apply each instance effect once. |
@@ -254,10 +256,10 @@ Coordinate epochs and scene-authored operation/resource controls remain deferred
 
 | Path or check | Recorded evidence |
 |---|---|
-| Python and C++ readers | 213,231 coordinate results per reader. Maximum measured difference 3.39e-08 m. They share PROJ and native dataset decoding. |
-| Omniverse stage geometry integration | Reuses Python placement. Recorded readback covers 177,864 geometry vertices and 36 edit, failure and recovery checks, across 35 jobs. |
+| Python and C++ readers | 213,243 coordinate results per reader. Maximum measured difference 3.39e-08 m. They share PROJ and native dataset decoding. |
+| Omniverse stage geometry integration | Reuses Python placement. Recorded readback covers 177,872 geometry vertices and 48 edit, failure and recovery checks, across 39 jobs. |
 | Hydra / Storm | Two selected ordinary USD bakes reach native rendering. This consumer path uses the C++ placement results. |
-| Recorded tests | 70 regressions and 61 distinguishing controls passed. Fresh independent diagnostics verify six repairs and retain the unresolved normal case. |
+| Recorded tests | 88 regressions and 65 distinguishing controls passed. Fresh independent diagnostics verify six repairs and retain the unresolved normal case. |
 | Source preservation | Original inputs and all frozen execution files remained unchanged during this run. The immutable receipt identifies the exact executed content. |
 | Bake readbacks | 11 selected exports were checked. The fresh nested-geometry counterexample verifies the complete inventory, including unexpected extras. |
 
@@ -281,7 +283,7 @@ There are two placement readers. Omniverse reuses Python with a verified stage g
 
 Bounds for the returned polygonal geometry cover its vertices and straight faces. They do not certify the continuous image of an original curved surface or behavior between exported time samples. These remain implementation and verification limits.
 
-Executed proposal SHA-256: `28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9`. Immutable receipt SHA-256: `b12019e039ab52f930fb2f4321ca2289875bcdefbd3dbbd669b72a8689647e46`. The exact candidate text and diff remain in `proposal/`; derived explanations add no normative authority.
+Executed proposal SHA-256: `0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0`. Immutable receipt SHA-256: `bc2c422dc4a9ec855fe6831a1b6afcd2ef86961db5bc954bd71c74d5ec39d842`. The exact candidate text and diff remain in `proposal/`; derived explanations add no normative authority.
 
 [Receipt](delivery/run-report.json) · [Requirement trace](proposal-quality.json) · [Integration evidence](delivery/integration-evidence.json) · [Exact child-transform comparison](delivery/transform-order-comparison.json)
 

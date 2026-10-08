@@ -4,25 +4,29 @@
       "scene": "tower",
       "original_scene_sha256": "8618899aca9c73fda50e72964ddb175b6f585530d010b89b06ad451cb173d21d",
       "binding_migration": "reference + applied schema; private relationships removed",
-      "source_geometry": "unchanged"
+      "source_geometry": "unchanged",
+      "orientation_intake": "Historical quaternion declarations converted to HPR with checked physical rotation round-trip; originals unchanged"
     },
     {
       "scene": "terrain",
       "original_scene_sha256": "d59a603856289fd09c1d39cb0c3bb04a48034fbb0f17811f844431c974855fb0",
       "binding_migration": "reference + applied schema; private relationships removed",
-      "source_geometry": "unchanged"
+      "source_geometry": "unchanged",
+      "orientation_intake": "Historical quaternion declarations converted to HPR with checked physical rotation round-trip; originals unchanged"
     },
     {
       "scene": "composition",
       "original_scene_sha256": "790ab3e250d20ba76cd9c1ea72e288366acae9e2675c64cffde3ab6102e18c3e",
       "binding_migration": "reference + applied schema; private relationships removed",
-      "source_geometry": "unchanged"
+      "source_geometry": "unchanged",
+      "orientation_intake": "Historical quaternion declarations converted to HPR with checked physical rotation round-trip; originals unchanged"
     },
     {
       "scene": "instances",
       "original_scene_sha256": "72482e500fef267e219aae24cb72624e8466cb90cb88352e8d9de78481d2f531",
       "binding_migration": "reference + applied schema; private relationships removed",
-      "source_geometry": "unchanged"
+      "source_geometry": "unchanged",
+      "orientation_intake": "Historical quaternion declarations converted to HPR with checked physical rotation round-trip; originals unchanged"
     }
   ],
   "global_cf": "Illustrative explicit horizontal association; original coordinates and scalar values retained; no invented height or physical units",

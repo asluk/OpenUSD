@@ -1,19 +1,22 @@
 {
-  "previous_execution_receipt_sha256": "4f212b53f00cd7f31bae7b94ea63e6a4b99e3a9cf9e645b2989e888a51ceecbf",
-  "execution_receipt_sha256": "b12019e039ab52f930fb2f4321ca2289875bcdefbd3dbbd669b72a8689647e46",
-  "proposal_sha256": "28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9",
-  "proposal_revision": "bbe3e488d5267227a994992a837a637f0cf98dee",
+  "previous_execution_receipt_sha256": "b12019e039ab52f930fb2f4321ca2289875bcdefbd3dbbd669b72a8689647e46",
+  "execution_receipt_sha256": "bc2c422dc4a9ec855fe6831a1b6afcd2ef86961db5bc954bd71c74d5ec39d842",
+  "proposal_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+  "proposal_revision": "0e955c68c9b0f07b313c43c2cf291eead868c8af",
   "source_input_hashes_unchanged": true,
   "resource_hashes_unchanged": true,
   "runtime_implementation_files_unchanged": false,
   "changed_frozen_files": [
-    "candidate/datasets.py",
-    "candidate/execution.py",
-    "candidate/export.py",
+    "candidate/controls.py",
+    "candidate/fixtures.py",
     "candidate/runner.py",
-    "candidate/runtime.py",
+    "review/fixtures.py",
     "review/placement_values.py",
-    "review/test_split_feedback.py",
+    "review/test_contracts.py",
+    "review/test_hpr_contracts.py",
+    "schema/generated/generatedSchema.usda",
+    "schema/schema.usda",
+    "schema/generated/plugInfo.json",
     "native/leans.cpp",
     "inputs.json",
     "proposal-quality.json",
@@ -23,7 +26,6 @@
     "QUALITY_REVIEW.md",
     "proposal/data-model.md",
     "proposal/distinguishing-examples.md",
-    "proposal/local-draft.patch",
     "proposal/proposal-source.txt",
     "proposal/requirements.md",
     "proposal/runtime-behavior.md",
@@ -31,13 +33,13 @@
     "proposal/traceability.md"
   ],
   "tests_before": {
-    "regressions_passed": 64,
+    "regressions_passed": 70,
     "distinguishing_controls_passed": 61,
     "failed": 0
   },
   "tests_after": {
-    "regressions_passed": 70,
-    "distinguishing_controls_passed": 61,
+    "regressions_passed": 88,
+    "distinguishing_controls_passed": 65,
     "failed": 0
   },
   "numeric_case_comparisons": [
@@ -47,7 +49,30 @@
       "arrays_compared": 3,
       "numeric_elements": 21,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378139.0,
+          3.000000000000001,
+          4.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -55,7 +80,30 @@
       "arrays_compared": 3,
       "numeric_elements": 21,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378139.0,
+          4.000000000000001,
+          3.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -63,7 +111,30 @@
       "arrays_compared": 3,
       "numeric_elements": 21,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.02,
+          0.04000000000000001,
+          0.03000000000000001
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -71,7 +142,30 @@
       "arrays_compared": 3,
       "numeric_elements": 12,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          448262.0291841338,
+          5411957.908700555,
+          35.000000704079866
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -79,7 +173,30 @@
       "arrays_compared": 5,
       "numeric_elements": 24,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          4200958.356916233,
+          168334.01655171457,
+          4780241.43510437
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -87,7 +204,30 @@
       "arrays_compared": 1,
       "numeric_elements": 6,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 2,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          4200957.309041312,
+          168336.9720687441,
+          4780244.291258035
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -95,7 +235,30 @@
       "arrays_compared": 1,
       "numeric_elements": 6,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 2,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          9.313225746154787e-10,
+          1.9999999999999996
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -103,7 +266,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6377165.5788417,
+          111314.83908437128,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -111,7 +297,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          1.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -119,7 +328,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          1.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -127,7 +359,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6374251.6112710945,
+          222594.77059042643,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -135,7 +390,30 @@
       "arrays_compared": 2,
       "numeric_elements": 6,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -143,15 +421,61 @@
       "arrays_compared": 3,
       "numeric_elements": 9,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          11.000000000000002,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
       "case": "tower",
       "arrays_compared": 13,
       "numeric_elements": 980574,
-      "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "exactly_equal": false,
+      "max_absolute_difference_in_recorded_component_units": 3.2075286870991704e-10,
+      "coordinate_acceptance": {
+        "coordinate_count": 163440,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          648640.6361155438,
+          6862655.400064835,
+          333.7899946316942
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -159,7 +483,30 @@
       "arrays_compared": 3,
       "numeric_elements": 43083,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 14359,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109136.6253866665,
+          1206516.933080377,
+          5490.961200982949
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -167,7 +514,30 @@
       "arrays_compared": 4,
       "numeric_elements": 24,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 6,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1007.0000989843393,
+          2012.0108126656328,
+          44.000002515502274
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -175,7 +545,30 @@
       "arrays_compared": 8,
       "numeric_elements": 60,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 18,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860043.873565627,
+          40.0000378433615
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -183,7 +576,30 @@
       "arrays_compared": 7,
       "numeric_elements": 51,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 15,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860043.873565627,
+          40.0000378433615
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -191,7 +607,30 @@
       "arrays_compared": 7,
       "numeric_elements": 51,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 15,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860002.996723255,
+          40.000000704079866
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -199,7 +638,33 @@
       "arrays_compared": 6,
       "numeric_elements": 27,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1.000008983152841,
+          0.0,
+          7.82310962677002e-08
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -207,7 +672,30 @@
       "arrays_compared": 59,
       "numeric_elements": 177,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          661251.857815285,
+          6857890.385230772,
+          37.865999998952944
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -215,7 +703,30 @@
       "arrays_compared": 59,
       "numeric_elements": 177,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1661249.794984726,
+          8180109.229969219,
+          37.86599999884759
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -223,7 +734,30 @@
       "arrays_compared": 5,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109885.7385100373,
+          1206317.4694017544,
+          5484.677923960019
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -231,7 +765,30 @@
       "arrays_compared": 5,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109885.7385213156,
+          1206317.4694031866,
+          5484.677949332321
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -239,7 +796,30 @@
       "arrays_compared": 5,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109015.9935786873,
+          1752265.066596982,
+          5482.942350794532
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -247,7 +827,30 @@
       "arrays_compared": 2,
       "numeric_elements": 7992,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 2664,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          357.5,
+          90.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -255,7 +858,30 @@
       "arrays_compared": 2,
       "numeric_elements": 12288,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.008797168371862,
+          49.652497949451686
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -263,7 +889,30 @@
       "arrays_compared": 2,
       "numeric_elements": 12288,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.008797168371862,
+          49.652497949451686
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -271,7 +920,30 @@
       "arrays_compared": 2,
       "numeric_elements": 12288,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.009143496729225,
+          49.65240800276874
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -279,7 +951,27 @@
       "arrays_compared": 2,
       "numeric_elements": 12288,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          500660.0,
+          5499985.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -287,7 +979,30 @@
       "arrays_compared": 2,
       "numeric_elements": 36,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          10.0,
+          49.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -295,7 +1010,30 @@
       "arrays_compared": 2,
       "numeric_elements": 36,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          10.0,
+          49.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -303,7 +1041,30 @@
       "arrays_compared": 2,
       "numeric_elements": 616,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 154,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378237.0,
+          6378237.0,
+          6138862.27494087
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -311,7 +1072,33 @@
       "arrays_compared": 2,
       "numeric_elements": 616,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 154,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          150.0,
+          75.0,
+          100.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "python",
@@ -319,7 +1106,27 @@
       "arrays_compared": 2,
       "numeric_elements": 47466,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 15822,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          580291.0725370954,
+          5927640.369272906
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -327,7 +1134,30 @@
       "arrays_compared": 3,
       "numeric_elements": 21,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378139.0,
+          3.000000000000001,
+          4.000000000000001
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -335,7 +1165,30 @@
       "arrays_compared": 3,
       "numeric_elements": 21,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378139.0,
+          4.000000000000001,
+          3.000000000000001
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -343,7 +1196,30 @@
       "arrays_compared": 3,
       "numeric_elements": 21,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.02,
+          0.04000000000000001,
+          0.03000000000000001
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -351,7 +1227,30 @@
       "arrays_compared": 3,
       "numeric_elements": 12,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          448262.02918413375,
+          5411957.908700553,
+          35.00000070501119
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -359,7 +1258,30 @@
       "arrays_compared": 5,
       "numeric_elements": 24,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          4200958.356916233,
+          168334.01655171457,
+          4780241.435104369
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -367,7 +1289,30 @@
       "arrays_compared": 1,
       "numeric_elements": 6,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 2,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          4200957.309041314,
+          168336.97206874416,
+          4780244.291258036
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -375,7 +1320,30 @@
       "arrays_compared": 1,
       "numeric_elements": 6,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 2,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          2.220446049250313e-16,
+          1.9999999999999998
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -383,7 +1351,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6377165.578841701,
+          111314.8390843713,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -391,7 +1382,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          1.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -399,7 +1413,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          1.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -407,7 +1444,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6374251.611271095,
+          222594.77059042646,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -415,7 +1475,30 @@
       "arrays_compared": 2,
       "numeric_elements": 6,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -423,15 +1506,61 @@
       "arrays_compared": 3,
       "numeric_elements": 9,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          11.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
       "case": "tower",
       "arrays_compared": 13,
       "numeric_elements": 980574,
-      "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "exactly_equal": false,
+      "max_absolute_difference_in_recorded_component_units": 1.8010248847843968e-10,
+      "coordinate_acceptance": {
+        "coordinate_count": 163440,
+        "max_distance_metres": 1.4210854715202004e-14,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          1.4210854715202004e-14
+        ],
+        "max_abs_output_coordinate_components": [
+          648640.6361155438,
+          6862655.400064835,
+          333.78999462983154
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -439,7 +1568,30 @@
       "arrays_compared": 3,
       "numeric_elements": 43083,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 14359,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109136.6253866665,
+          1206516.9330803072,
+          5490.9612009248995
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -447,7 +1599,30 @@
       "arrays_compared": 4,
       "numeric_elements": 24,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 6,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1007.0000989843393,
+          2012.010812665632,
+          44.00000251736492
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -455,7 +1630,30 @@
       "arrays_compared": 8,
       "numeric_elements": 60,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 18,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860043.873565627,
+          40.000037842430174
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -463,7 +1661,30 @@
       "arrays_compared": 7,
       "numeric_elements": 51,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 15,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860043.873565627,
+          40.000037842430174
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -471,7 +1692,30 @@
       "arrays_compared": 7,
       "numeric_elements": 51,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 15,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860002.996723255,
+          40.00000070501119
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -479,7 +1723,33 @@
       "arrays_compared": 6,
       "numeric_elements": 27,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1.000008983152841,
+          0.0,
+          7.916241884231567e-08
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -487,7 +1757,30 @@
       "arrays_compared": 59,
       "numeric_elements": 177,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          661251.857815285,
+          6857890.385230772,
+          37.86599999895294
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -495,7 +1788,30 @@
       "arrays_compared": 59,
       "numeric_elements": 177,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1661249.794984726,
+          8180109.229969219,
+          37.86599999977891
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -503,7 +1819,30 @@
       "arrays_compared": 5,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109885.738510038,
+          1206317.4694016804,
+          5484.677923892805
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -511,7 +1850,30 @@
       "arrays_compared": 5,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109885.7385213156,
+          1206317.469403112,
+          5484.677949268161
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -519,7 +1881,30 @@
       "arrays_compared": 5,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109015.9935786873,
+          1752265.0665968985,
+          5482.942350736477
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -527,7 +1912,30 @@
       "arrays_compared": 1,
       "numeric_elements": 5328,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 2664,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          357.5,
+          90.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -535,7 +1943,30 @@
       "arrays_compared": 1,
       "numeric_elements": 8192,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.008797168371862,
+          49.652497949451686
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -543,7 +1974,30 @@
       "arrays_compared": 1,
       "numeric_elements": 8192,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.008797168371862,
+          49.652497949451686
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -551,7 +2005,30 @@
       "arrays_compared": 1,
       "numeric_elements": 8192,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.009143496729225,
+          49.65240800276874
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -559,7 +2036,27 @@
       "arrays_compared": 1,
       "numeric_elements": 8192,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          500660.0,
+          5499985.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -567,7 +2064,30 @@
       "arrays_compared": 1,
       "numeric_elements": 24,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          10.0,
+          49.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -575,7 +2095,30 @@
       "arrays_compared": 1,
       "numeric_elements": 24,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          10.0,
+          49.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -583,7 +2126,30 @@
       "arrays_compared": 1,
       "numeric_elements": 462,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 154,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378237.0,
+          6378237.0,
+          6138862.27494087
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -591,7 +2157,33 @@
       "arrays_compared": 1,
       "numeric_elements": 462,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 154,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          150.0,
+          75.0,
+          100.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "native",
@@ -599,7 +2191,27 @@
       "arrays_compared": 1,
       "numeric_elements": 31644,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 15822,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          580291.0725370954,
+          5927640.369272906
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -607,7 +2219,30 @@
       "arrays_compared": 3,
       "numeric_elements": 21,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378139.0,
+          3.000000000000001,
+          4.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -615,7 +2250,30 @@
       "arrays_compared": 3,
       "numeric_elements": 21,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378139.0,
+          4.000000000000001,
+          3.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -623,7 +2281,30 @@
       "arrays_compared": 3,
       "numeric_elements": 21,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.02,
+          0.04000000000000001,
+          0.03000000000000001
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -631,7 +2312,30 @@
       "arrays_compared": 3,
       "numeric_elements": 12,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          448262.0291841338,
+          5411957.908700555,
+          35.000000704079866
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -639,7 +2343,30 @@
       "arrays_compared": 5,
       "numeric_elements": 24,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          4200958.356916233,
+          168334.01655171457,
+          4780241.43510437
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -647,7 +2374,30 @@
       "arrays_compared": 1,
       "numeric_elements": 6,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 2,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          4200957.309041312,
+          168336.9720687441,
+          4780244.291258035
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -655,7 +2405,30 @@
       "arrays_compared": 1,
       "numeric_elements": 6,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 2,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          9.313225746154787e-10,
+          1.9999999999999996
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -663,7 +2436,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6377165.5788417,
+          111314.83908437128,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -671,7 +2467,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          1.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -679,7 +2498,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          1.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -687,7 +2529,30 @@
       "arrays_compared": 4,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6374251.6112710945,
+          222594.77059042643,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -695,7 +2560,30 @@
       "arrays_compared": 2,
       "numeric_elements": 6,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -703,15 +2591,61 @@
       "arrays_compared": 3,
       "numeric_elements": 9,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          11.000000000000002,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
       "case": "tower",
       "arrays_compared": 13,
       "numeric_elements": 980574,
-      "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "exactly_equal": false,
+      "max_absolute_difference_in_recorded_component_units": 3.2075286870991704e-10,
+      "coordinate_acceptance": {
+        "coordinate_count": 163440,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          648640.6361155438,
+          6862655.400064835,
+          333.7899946316942
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -719,7 +2653,30 @@
       "arrays_compared": 3,
       "numeric_elements": 43083,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 14359,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109136.6253866665,
+          1206516.933080377,
+          5490.961200982949
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -727,7 +2684,30 @@
       "arrays_compared": 4,
       "numeric_elements": 24,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 6,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1007.0000989843393,
+          2012.0108126656328,
+          44.000002515502274
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -735,7 +2715,30 @@
       "arrays_compared": 8,
       "numeric_elements": 60,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 18,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860043.873565627,
+          40.0000378433615
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -743,7 +2746,30 @@
       "arrays_compared": 7,
       "numeric_elements": 51,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 15,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860043.873565627,
+          40.0000378433615
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -751,7 +2777,30 @@
       "arrays_compared": 7,
       "numeric_elements": 51,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 15,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860002.996723255,
+          40.000000704079866
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -759,7 +2808,33 @@
       "arrays_compared": 6,
       "numeric_elements": 27,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1.000008983152841,
+          0.0,
+          7.82310962677002e-08
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -767,7 +2842,30 @@
       "arrays_compared": 59,
       "numeric_elements": 177,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          661251.857815285,
+          6857890.385230772,
+          37.865999998952944
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -775,7 +2873,30 @@
       "arrays_compared": 59,
       "numeric_elements": 177,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1661249.794984726,
+          8180109.229969219,
+          37.86599999884759
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -783,7 +2904,30 @@
       "arrays_compared": 5,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109885.7385100373,
+          1206317.4694017544,
+          5484.677923960019
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -791,7 +2935,30 @@
       "arrays_compared": 5,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109885.7385213156,
+          1206317.4694031866,
+          5484.677949332321
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -799,7 +2966,30 @@
       "arrays_compared": 5,
       "numeric_elements": 15,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109015.9935786873,
+          1752265.066596982,
+          5482.942350794532
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -807,7 +2997,30 @@
       "arrays_compared": 2,
       "numeric_elements": 7992,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 2664,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          357.5,
+          90.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -815,7 +3028,30 @@
       "arrays_compared": 2,
       "numeric_elements": 12288,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.008797168371862,
+          49.652497949451686
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -823,7 +3059,30 @@
       "arrays_compared": 2,
       "numeric_elements": 12288,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.008797168371862,
+          49.652497949451686
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -831,7 +3090,30 @@
       "arrays_compared": 2,
       "numeric_elements": 12288,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.009143496729225,
+          49.65240800276874
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -839,7 +3121,27 @@
       "arrays_compared": 2,
       "numeric_elements": 12288,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          500660.0,
+          5499985.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -847,7 +3149,30 @@
       "arrays_compared": 2,
       "numeric_elements": 36,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          10.0,
+          49.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -855,7 +3180,30 @@
       "arrays_compared": 2,
       "numeric_elements": 36,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          10.0,
+          49.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -863,7 +3211,30 @@
       "arrays_compared": 2,
       "numeric_elements": 616,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 154,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378237.0,
+          6378237.0,
+          6138862.27494087
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -871,7 +3242,33 @@
       "arrays_compared": 2,
       "numeric_elements": 616,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 154,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          150.0,
+          75.0,
+          100.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     },
     {
       "path": "ov",
@@ -879,10 +3276,145 @@
       "arrays_compared": 2,
       "numeric_elements": 47466,
       "exactly_equal": true,
-      "max_absolute_difference_in_recorded_component_units": 0.0
+      "max_absolute_difference_in_recorded_component_units": 0.0,
+      "coordinate_acceptance": {
+        "coordinate_count": 15822,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          580291.0725370954,
+          5927640.369272906
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
+    }
+  ],
+  "numeric_rounding_differences": [
+    {
+      "path": "python",
+      "case": "tower",
+      "arrays_compared": 13,
+      "numeric_elements": 980574,
+      "exactly_equal": false,
+      "max_absolute_difference_in_recorded_component_units": 3.2075286870991704e-10,
+      "coordinate_acceptance": {
+        "coordinate_count": 163440,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          648640.6361155438,
+          6862655.400064835,
+          333.7899946316942
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
+    },
+    {
+      "path": "native",
+      "case": "tower",
+      "arrays_compared": 13,
+      "numeric_elements": 980574,
+      "exactly_equal": false,
+      "max_absolute_difference_in_recorded_component_units": 1.8010248847843968e-10,
+      "coordinate_acceptance": {
+        "coordinate_count": 163440,
+        "max_distance_metres": 1.4210854715202004e-14,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          1.4210854715202004e-14
+        ],
+        "max_abs_output_coordinate_components": [
+          648640.6361155438,
+          6862655.400064835,
+          333.78999462983154
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
+    },
+    {
+      "path": "ov",
+      "case": "tower",
+      "arrays_compared": 13,
+      "numeric_elements": 980574,
+      "exactly_equal": false,
+      "max_absolute_difference_in_recorded_component_units": 3.2075286870991704e-10,
+      "coordinate_acceptance": {
+        "coordinate_count": 163440,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          648640.6361155438,
+          6862655.400064835,
+          333.7899946316942
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "within_previous_acceptance": true
     }
   ],
   "numeric_regressions": [],
+  "new_case_names": {
+    "python": [
+      "orientation-wrap",
+      "orientation-wrap-held",
+      "orientation-wrap-t0",
+      "orientation-wrap-t10"
+    ],
+    "native": [
+      "orientation-wrap",
+      "orientation-wrap-held",
+      "orientation-wrap-t0",
+      "orientation-wrap-t10"
+    ],
+    "ov": [
+      "orientation-wrap",
+      "orientation-wrap-held",
+      "orientation-wrap-t0",
+      "orientation-wrap-t10"
+    ]
+  },
   "repaired_counterexamples": [
     "A2",
     "A3",
@@ -895,15 +3427,125 @@
     "A1"
   ],
   "orientation_choice_evidence": {
-    "name": "orientation_interpolation_choice",
-    "illustrative_only_not_proposed_source_fields": true,
-    "headings_authored_degrees": [
-      170.0,
-      -170.0
+    "name": "preferred_authored_hpr_sample_evaluation",
+    "authored_samples_degrees": [
+      [
+        170,
+        0,
+        0
+      ],
+      [
+        -170,
+        0,
+        0
+      ]
     ],
-    "core_double3_midpoint_heading_degrees": 0.0,
-    "core_quaternion_midpoint_heading_degrees": 180.0,
-    "meaning": "A stored angle tuple needs an explicit geospatial interpolation rule if physical shortest-arc attitude is intended. This test does not select the representation."
+    "ordinary_core_tuple_midpoint": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "expected_physical_forward": [
+      6378137,
+      0,
+      -2
+    ],
+    "python": [
+      6378136.999999999,
+      0.0,
+      -1.9999999999999996
+    ],
+    "cpp": [
+      6378137.0,
+      0.0,
+      -1.9999999999999998
+    ],
+    "distance_from_component_interpolated_pose_metres": 3.9999999999999996,
+    "passed": true,
+    "source_unchanged": true
   },
+  "hpr_composition_evidence": [
+    {
+      "name": "hpr_composed_reference_time_offsets",
+      "source_times": [
+        0,
+        10
+      ],
+      "composed_times": [
+        2,
+        22
+      ],
+      "query_time": 12,
+      "expected": [
+        6378137,
+        0,
+        -2
+      ],
+      "python": [
+        6378136.999999999,
+        0.0,
+        -1.9999999999999996
+      ],
+      "cpp": [
+        6378137.0,
+        0.0,
+        -1.9999999999999998
+      ],
+      "passed": true
+    },
+    {
+      "name": "hpr_value_clip_sample_mapping",
+      "clip_times": [
+        0,
+        10
+      ],
+      "stage_times": [
+        0,
+        20
+      ],
+      "query_time": 10,
+      "expected": [
+        6378137,
+        0,
+        -2
+      ],
+      "python": [
+        6378136.999999999,
+        0.0,
+        -1.9999999999999996
+      ],
+      "cpp": [
+        6378137.0,
+        0.0,
+        -1.9999999999999998
+      ],
+      "passed": true
+    },
+    {
+      "name": "inspectable_hpr_hand_edit",
+      "authored_hpr_degrees": [
+        40.0,
+        0.0,
+        0.0
+      ],
+      "expected": [
+        6378137,
+        1.2855752193730785,
+        1.532088886237956
+      ],
+      "python": [
+        6378137.0,
+        1.2855752193730787,
+        1.532088886237956
+      ],
+      "cpp": [
+        6378137.0,
+        1.2855752193730787,
+        1.5320888862379556
+      ],
+      "source_unchanged": true,
+      "passed": true
+    }
+  ],
   "interpretation": "Fresh evidence tests the full follow-up, preserves the prior input datasets/resources, compares recorded arrays and repeats independent counterexamples. No blanket conformance or independent geodetic engine claim."
 }
