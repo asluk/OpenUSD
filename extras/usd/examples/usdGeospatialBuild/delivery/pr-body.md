@@ -6,4 +6,4 @@ Fresh execution: 88 regression checks and 65 distinguishing controls passed. All
 
 The README and slides pair the working demonstrations with their proposal meaning and limits. Detailed candidate choices still need group review. Shared PROJ and dataset decoding limit independent verification.
 
-Fresh October 8 execution of the local stacked follow-up, with clause-traced adapter repairs and repeated independent diagnostics. No changes have been published.
+Fresh October 8 execution of the local stacked follow-up, with clause-traced adapter repairs and repeated independent diagnostics. Author adoption remains pending.
