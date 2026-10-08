@@ -1,0 +1,25 @@
+#usda 1.0
+(
+    defaultPrim = "Interface"
+)
+
+def Xform "Interface" (
+    prepend apiSchemas = ["ClaimsAPI"]
+    customData = {
+        dictionary profilesInfo = {
+            dictionary capabilityUsages = {
+                string "usd.geospatial.crsResolution" = "hard"
+            }
+        }
+        string userDocBrief = "Concrete prim schema for a transform, which implements Xformable."
+    }
+)
+{
+}
+
+def Xform "Outside" (
+    prepend payload = @./dependency-payload.usda@</Payload>
+)
+{
+}
+

@@ -1,0 +1,32 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    timeCodesPerSecond = 48
+    upAxis = "Z"
+)
+
+def Xform "World" (
+    prepend apiSchemas = ["ClaimsAPI"]
+    customData = {
+        dictionary profilesInfo = {
+            dictionary capabilityUsages = {
+                string "usd.geospatial.crsResolution" = "hard"
+            }
+        }
+        string userDocBrief = "Concrete prim schema for a transform, which implements Xformable."
+    }
+)
+{
+    def Xform "Model" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/Ce51fe9bfc6119195>
+    )
+    {
+        double3 crs:orientation = (-90, 0, 0)
+        double3 crs:position = (6378137, 0, 0)
+        float3 xformOp:scale = (2, 3, 4)
+        uniform token[] xformOpOrder = ["xformOp:scale"]
+    }
+}
+

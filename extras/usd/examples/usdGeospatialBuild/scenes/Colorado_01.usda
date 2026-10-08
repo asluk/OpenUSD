@@ -1,0 +1,28 @@
+#usda 1.0
+(
+    customLayerData = {
+        bool geospatialResolutionRequired = 1
+    }
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Scope "CRS"
+{
+    def CoordinateReferenceSystem "Source"
+    {
+        uniform token crs:wkt = 'GEOGCRS["NAD83(2011) with ellipsoidal height in ftUS",DATUM["NAD83 (National Spatial Reference System 2011)",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]],ID["EPSG",1116]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ELLIPSOIDAL,3],AXIS["geodetic latitude (Lat)",NORTH,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",EAST,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],AXIS["ellipsoidal height (h)",UP,ORDER[3],LENGTHUNIT["US survey foot",0.304800609601219]]]'
+    }
+}
+
+def Scope "Controls" (
+    prepend apiSchemas = ["GeospatialBindingAPI"]
+)
+{
+    rel crs:binding = </CRS/Source>
+    rel crs:coordinateProperties = </Controls.data:coordinates>
+    custom double3[] data:coordinates = [(-105.1150853, 39.89815166, 5428.1388), (-105.113652, 39.89722585, 5408.8704), (-105.1145273, 39.8953823, 5389.5233), (-105.1165177, 39.89694548, 5409.9137), (-105.111485, 39.89578338, 5397.3219)]
+    custom string[] data:ids = ["Control1", "Control2", "Control3", "Control4", "Control5"]
+    custom double[] data:values = [0, 1, 2, 3, 4]
+}
+

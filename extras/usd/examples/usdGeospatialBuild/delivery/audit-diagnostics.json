@@ -1,0 +1,561 @@
+{
+  "proposal_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+  "cases": [
+    {
+      "name": "preferred_authored_hpr_sample_evaluation",
+      "authored_samples_degrees": [
+        [
+          170,
+          0,
+          0
+        ],
+        [
+          -170,
+          0,
+          0
+        ]
+      ],
+      "ordinary_core_tuple_midpoint": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_physical_forward": [
+        6378137,
+        0,
+        -2
+      ],
+      "python": [
+        6378136.999999999,
+        0.0,
+        -1.9999999999999996
+      ],
+      "cpp": [
+        6378137.0,
+        0.0,
+        -1.9999999999999998
+      ],
+      "distance_from_component_interpolated_pose_metres": 3.9999999999999996,
+      "passed": true,
+      "source_unchanged": true
+    },
+    {
+      "name": "hpr_composed_reference_time_offsets",
+      "source_times": [
+        0,
+        10
+      ],
+      "composed_times": [
+        2,
+        22
+      ],
+      "query_time": 12,
+      "expected": [
+        6378137,
+        0,
+        -2
+      ],
+      "python": [
+        6378136.999999999,
+        0.0,
+        -1.9999999999999996
+      ],
+      "cpp": [
+        6378137.0,
+        0.0,
+        -1.9999999999999998
+      ],
+      "passed": true
+    },
+    {
+      "name": "hpr_value_clip_sample_mapping",
+      "clip_times": [
+        0,
+        10
+      ],
+      "stage_times": [
+        0,
+        20
+      ],
+      "query_time": 10,
+      "expected": [
+        6378137,
+        0,
+        -2
+      ],
+      "python": [
+        6378136.999999999,
+        0.0,
+        -1.9999999999999996
+      ],
+      "cpp": [
+        6378137.0,
+        0.0,
+        -1.9999999999999998
+      ],
+      "passed": true
+    },
+    {
+      "name": "inspectable_hpr_hand_edit",
+      "authored_hpr_degrees": [
+        40.0,
+        0.0,
+        0.0
+      ],
+      "expected": [
+        6378137,
+        1.2855752193730785,
+        1.532088886237956
+      ],
+      "python": [
+        6378137.0,
+        1.2855752193730787,
+        1.532088886237956
+      ],
+      "cpp": [
+        6378137.0,
+        1.2855752193730787,
+        1.5320888862379556
+      ],
+      "source_unchanged": true,
+      "passed": true
+    },
+    {
+      "name": "orientation_interpolation_choice",
+      "illustrative_only_not_proposed_source_fields": true,
+      "headings_authored_degrees": [
+        170.0,
+        -170.0
+      ],
+      "core_double3_midpoint_heading_degrees": 0.0,
+      "core_quaternion_midpoint_heading_degrees": 180.0,
+      "meaning": "A stored angle tuple needs an explicit geospatial interpolation rule if physical shortest-arc attitude is intended. This test does not select the representation."
+    },
+    {
+      "name": "normal_sampling_private_policy",
+      "uniform_result": {
+        "values": [
+          [
+            -0.06637232865040145,
+            -0.06637232865040145,
+            0.9955849677345708
+          ]
+        ],
+        "interpolation": "uniform"
+      },
+      "analytic_vertex_normals": [
+        [
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        [
+          -0.19611613794814378,
+          -0.0,
+          0.9805806751289282
+        ],
+        [
+          -0.0,
+          -0.19611613794814378,
+          0.9805806751289282
+        ]
+      ],
+      "maximum_uniform_direction_error_degrees": 8.40167395666987,
+      "constant_result_interpolation": "vertex",
+      "source_interpolation": "constant",
+      "constant_result_count": 3,
+      "result_has_domain_or_bound": false
+    },
+    {
+      "name": "unbound_prototype_outside_bound_subtree",
+      "python": {
+        "geometry_keys": [
+          "/World/Model/Instances/_ResolvedInstance0/Root"
+        ],
+        "geometry": {
+          "/World/Model/Instances/_ResolvedInstance0/Root": [
+            [
+              6378136.999999999,
+              10.0,
+              0.0
+            ],
+            [
+              6378137.0,
+              11.000000000000002,
+              0.0
+            ],
+            [
+              6378136.999999998,
+              9.999999999999998,
+              0.9999999999999996
+            ]
+          ]
+        }
+      },
+      "cpp": {
+        "exit_code": 0,
+        "stderr": "",
+        "result": {
+          "engine_version": "9.4.1",
+          "geometry": {
+            "/World/Model/Instances/_ResolvedInstance0/Root": [
+              [
+                6378136.999999999,
+                10.0,
+                0.0
+              ],
+              [
+                6378137.0,
+                11.0,
+                0.0
+              ],
+              [
+                6378136.999999999,
+                10.0,
+                1.0
+              ]
+            ]
+          },
+          "geometry_normals": {},
+          "geometry_sources": {
+            "/World/Model/Instances/_ResolvedInstance0/Root": "/Library/Proto"
+          },
+          "operations": [
+            {
+              "accuracy_metres": null,
+              "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+              "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)"
+            },
+            {
+              "accuracy_metres": null,
+              "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+              "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+            },
+            {
+              "accuracy_metres": 0.0,
+              "definition": "proj=noop ellps=GRS80",
+              "description": "Null geocentric translation from WGS 84 to WGS 84"
+            }
+          ],
+          "polygonal_bounds": {
+            "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+            "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate",
+            "max": [
+              6378137.0,
+              11.0,
+              1.0
+            ],
+            "min": [
+              6378136.999999999,
+              10.0,
+              0.0
+            ]
+          },
+          "queries": [],
+          "source_unchanged": true
+        }
+      },
+      "expected_instance_vertices": [
+        [
+          6378136.999999999,
+          10.0,
+          0.0
+        ],
+        [
+          6378137.0,
+          11.000000000000002,
+          0.0
+        ],
+        [
+          6378136.999999998,
+          9.999999999999998,
+          0.9999999999999996
+        ]
+      ],
+      "proposal_rule": "Unbound prototype uses instancer placement; no CRS binding on /Library required."
+    },
+    {
+      "name": "nested_export_extra_geometry",
+      "source_geometry_keys": [
+        "/World/Model/Parent",
+        "/World/Model/Parent/Child"
+      ],
+      "export_geometry_keys": [
+        "/Resolved/ExportOrigin/Part0",
+        "/Resolved/ExportOrigin/Part1"
+      ],
+      "export_checked_keys": [
+        "/Resolved/ExportOrigin/Part0",
+        "/Resolved/ExportOrigin/Part1"
+      ],
+      "unchecked_extra_geometry_keys": [],
+      "export_receipt": {
+        "path": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\outputs\\geospatial-independent-audit-hpr-20261008-v2\\nested-geometry-export.usda",
+        "fresh_reader_max_error_metres": 1.7763568394002505e-15,
+        "quantization_metres": 1.7763568394002505e-15,
+        "parts": 2,
+        "vertices": 6,
+        "timeSamples": [
+          0
+        ],
+        "timeCodesPerSecond": 48.0,
+        "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
+        "source_paths": {
+          "/Resolved/ExportOrigin/Part0": "/World/Model/Parent",
+          "/Resolved/ExportOrigin/Part1": "/World/Model/Parent/Child"
+        },
+        "export_origin": {
+          "prim": "/Resolved/ExportOrigin",
+          "stage_coordinates": [
+            6378137.0,
+            0.0,
+            0.0
+          ],
+          "usd_type": "double3 translate",
+          "scene_crs": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]"
+        },
+        "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+        "normal_arrays": 0
+      },
+      "extra_geometry_coordinates": {}
+    },
+    {
+      "name": "non_geospatial_applied_schema_export",
+      "source_applied_schemas": [
+        "MotionAPI"
+      ],
+      "export_applied_schemas": [
+        "MotionAPI"
+      ],
+      "source_velocity_scale": 2.0,
+      "export_velocity_scale": 2.0
+    },
+    {
+      "name": "missing_comparison_report_fields",
+      "comparison": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0.0005,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0005,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.0005,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "missing_required_report_items": []
+    },
+    {
+      "name": "instance_id_reporting",
+      "geometry_keys": [
+        "/World/Model/Instances/_ResolvedInstance0/Root",
+        "/World/Model/Instances/_ResolvedInstance1/Root"
+      ],
+      "actual_ids": [
+        123,
+        456
+      ],
+      "ids_in_record": false
+    },
+    {
+      "name": "actual_projected_normal_sampling",
+      "uniform_result": {
+        "values": [
+          [
+            -0.0052279380196218785,
+            -0.010512517496991248,
+            0.9999310754446721
+          ]
+        ],
+        "interpolation": "uniform"
+      },
+      "pointwise_vertex_normals": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          -0.015674209982043167,
+          0.0,
+          0.9998771520249069
+        ],
+        [
+          -5.215134371099538e-05,
+          -0.03153741942410563,
+          0.9995025705101039
+        ]
+      ],
+      "maximum_direction_difference_degrees": 1.2408700002254556,
+      "cpp_exit_code": 0,
+      "cpp_uniform_result": {
+        "/World/Model/Mesh": {
+          "interpolation": "uniform",
+          "values": [
+            [
+              -0.005227938020703755,
+              -0.010512520289102491,
+              0.9999310754153122
+            ]
+          ]
+        }
+      },
+      "source_face_width_metres": [
+        100000,
+        200000
+      ]
+    },
+    {
+      "name": "CF_coordinate_dimension_permutation",
+      "measurement_dimension_order": [
+        "y",
+        "x"
+      ],
+      "coordinate_dimension_order": [
+        "x",
+        "y"
+      ],
+      "actual_coordinates": [
+        [
+          1.0,
+          45.0
+        ],
+        [
+          2.0,
+          45.2
+        ],
+        [
+          3.0,
+          45.4
+        ],
+        [
+          1.1,
+          46.0
+        ],
+        [
+          2.1,
+          46.2
+        ],
+        [
+          3.1,
+          46.4
+        ]
+      ],
+      "expected_coordinates": [
+        [
+          1.0,
+          45.0
+        ],
+        [
+          2.0,
+          45.2
+        ],
+        [
+          3.0,
+          45.4
+        ],
+        [
+          1.1,
+          46.0
+        ],
+        [
+          2.1,
+          46.2
+        ],
+        [
+          3.1,
+          46.4
+        ]
+      ],
+      "values": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0
+      ],
+      "association_correct": true,
+      "max_component_error": 0.0,
+      "shared_decoder_used_by_cpp": true
+    },
+    {
+      "name": "invalid_inherited_descendant_placement",
+      "python": {
+        "success": false,
+        "error": "Invalid placement field on inherited-only descendant: crs:position"
+      },
+      "cpp_exit_code": 1,
+      "authored_field": "crs:position on inherited-only mesh",
+      "proposal_requires_invalid": true,
+      "runtime_not_a_complete_validator": true
+    },
+    {
+      "name": "operation_provenance_multiregion_batch",
+      "separate_point_evidence": [
+        {
+          "point": [
+            -100.0,
+            40.0
+          ],
+          "unavailable": "Coordinate operation failed; no substitute"
+        },
+        {
+          "point": [
+            -155.0,
+            20.0
+          ],
+          "unavailable": "Coordinate operation failed; no substitute"
+        },
+        {
+          "point": [
+            -150.0,
+            60.0
+          ],
+          "result": [
+            [
+              -150.0,
+              60.0
+            ]
+          ],
+          "operations": [
+            {
+              "description": "NAD83 to WGS 84 (1) (with axis order normalized for visualization)",
+              "definition": "proj=noop ellps=GRS80",
+              "accuracy_metres": 4.0
+            }
+          ]
+        }
+      ],
+      "batch": {
+        "results": [
+          [
+            -150.0,
+            60.0
+          ]
+        ],
+        "operations": [
+          {
+            "description": "NAD83 to WGS 84 (1) (with axis order normalized for visualization)",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 4.0
+          }
+        ]
+      },
+      "realized_operations_omitted_by_batch_log": []
+    }
+  ],
+  "source_freeze_verified": true,
+  "native_binary_matches_completed_run": true
+}

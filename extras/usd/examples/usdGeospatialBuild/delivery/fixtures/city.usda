@@ -1,0 +1,32 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    timeCodesPerSecond = 48
+    upAxis = "Z"
+)
+
+def Xform "World" (
+    prepend apiSchemas = ["ClaimsAPI"]
+    customData = {
+        dictionary profilesInfo = {
+            dictionary capabilityUsages = {
+                string "usd.geospatial.crsResolution" = "hard"
+            }
+        }
+        string userDocBrief = "Concrete prim schema for a transform, which implements Xformable."
+    }
+)
+{
+    def GeospatialDataSource "Data" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @./crs-library.usda@</Definitions/C3f0a6b68843a1b02>
+    )
+    {
+        uniform asset data:asset = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-hpr-run-20261008-v2\fixtures\city.tif@
+        uniform string data:coordinateDomain = "0"
+        uniform string data:field = "1"
+        uniform token data:format = "GeoTIFF"
+    }
+}
+

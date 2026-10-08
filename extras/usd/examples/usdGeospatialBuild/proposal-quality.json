@@ -1,0 +1,485 @@
+{
+  "status": "Local stacked follow-up: proposed detailed contract, separately assessed author alignment and implementation evidence",
+  "source_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+  "requirements": [
+    {
+      "id": 1,
+      "title": "Self-contained definitions.",
+      "source_line": 634,
+      "clauses": [
+        {
+          "line": 1462,
+          "clause": "### GeospatialCRS typed schema"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 2,
+      "title": "Defined once, and describing no object.",
+      "source_line": 647,
+      "clauses": [
+        {
+          "line": 1717,
+          "clause": "### WKT string normalization"
+        },
+        {
+          "line": 1532,
+          "clause": "#### Authored properties"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 3,
+      "title": "Datum, realization and epoch.",
+      "source_line": 664,
+      "clauses": [
+        {
+          "line": 1347,
+          "clause": "#### Roadmap question 15: coordinate epochs"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 4,
+      "title": "A site's own grid is a CRS like any other.",
+      "source_line": 676,
+      "clauses": [
+        {
+          "line": 1303,
+          "clause": "#### Decision on question 7: site calibration"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 31,
+      "title": "Same definition, same meaning.",
+      "source_line": 700,
+      "clauses": [
+        {
+          "line": 1717,
+          "clause": "### WKT string normalization"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 5,
+      "title": "A discoverable CRS.",
+      "source_line": 722,
+      "clauses": [
+        {
+          "line": 1401,
+          "clause": "### CRS binding and inheritance"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 6,
+      "title": "Declared for a subtree, not a prim.",
+      "source_line": 732,
+      "clauses": [
+        {
+          "line": 1401,
+          "clause": "### CRS binding and inheritance"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 7,
+      "title": "Composition agnostic",
+      "source_line": 743,
+      "clauses": [
+        {
+          "line": 1401,
+          "clause": "### CRS binding and inheritance"
+        },
+        {
+          "line": 2233,
+          "clause": "### Composition arcs"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 8,
+      "title": "Brought-in data keeps its coordinates and its CRS.",
+      "source_line": 753,
+      "clauses": [
+        {
+          "line": 1930,
+          "clause": "#### Evaluation"
+        },
+        {
+          "line": 1630,
+          "clause": "### External measurement association"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 9,
+      "title": "Positions, and offsets from them.",
+      "source_line": 779,
+      "clauses": [
+        {
+          "line": 1532,
+          "clause": "#### Authored properties"
+        },
+        {
+          "line": 1930,
+          "clause": "#### Evaluation"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 10,
+      "title": "Offsets along the axes of their position.",
+      "source_line": 800,
+      "clauses": [
+        {
+          "line": 1583,
+          "clause": "#### Geospatial model attitude and stage axes"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 11,
+      "title": "Position or offset, and the scene says which.",
+      "source_line": 819,
+      "clauses": [
+        {
+          "line": 1401,
+          "clause": "### CRS binding and inheritance"
+        },
+        {
+          "line": 1930,
+          "clause": "#### Evaluation"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 12,
+      "title": "No angle read as a length.",
+      "source_line": 836,
+      "clauses": [
+        {
+          "line": 1565,
+          "clause": "#### Position components"
+        },
+        {
+          "line": 1630,
+          "clause": "### External measurement association"
+        },
+        {
+          "line": 2020,
+          "clause": "#### Queries, scene charts and instances"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 13,
+      "title": "One axis mapping.",
+      "source_line": 850,
+      "clauses": [
+        {
+          "line": 1565,
+          "clause": "#### Position components"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 14,
+      "title": "Scene conventions stay the scene's.",
+      "source_line": 862,
+      "clauses": [
+        {
+          "line": 1583,
+          "clause": "#### Geospatial model attitude and stage axes"
+        },
+        {
+          "line": 2208,
+          "clause": "### Stage metadata: metersPerUnit and upAxis"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 15,
+      "title": "Placement separate from conformance.",
+      "source_line": 875,
+      "clauses": [
+        {
+          "line": 1281,
+          "clause": "#### Decision on question 4: authored unit and up-axis conformance"
+        },
+        {
+          "line": 1930,
+          "clause": "#### Evaluation"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 16,
+      "title": "One CRS out.",
+      "source_line": 887,
+      "clauses": [
+        {
+          "line": 1804,
+          "clause": "## Runtime coordinate transformation"
+        },
+        {
+          "line": 2020,
+          "clause": "#### Queries, scene charts and instances"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 17,
+      "title": "The same answer for every consumer.",
+      "source_line": 907,
+      "clauses": [
+        {
+          "line": 2020,
+          "clause": "#### Queries, scene charts and instances"
+        },
+        {
+          "line": 2085,
+          "clause": "### Extent and result comparison"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 18,
+      "title": "Coordinates back out.",
+      "source_line": 922,
+      "clauses": [
+        {
+          "line": 2020,
+          "clause": "#### Queries, scene charts and instances"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 19,
+      "title": "Resolution leaves the scene as authored.",
+      "source_line": 937,
+      "clauses": [
+        {
+          "line": 2071,
+          "clause": "### Observable outcomes and failures"
+        },
+        {
+          "line": 2138,
+          "clause": "### Explicit export and sampling"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 20,
+      "title": "Positions between recorded moments.",
+      "source_line": 956,
+      "clauses": [
+        {
+          "line": 1930,
+          "clause": "#### Evaluation"
+        },
+        {
+          "line": 2138,
+          "clause": "### Explicit export and sampling"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 21,
+      "title": "Never placed by a guess.",
+      "source_line": 973,
+      "clauses": [
+        {
+          "line": 2071,
+          "clause": "### Observable outcomes and failures"
+        },
+        {
+          "line": 1630,
+          "clause": "### External measurement association"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 30,
+      "title": "Measurements remain usable as data.",
+      "source_line": 1008,
+      "clauses": [
+        {
+          "line": 1630,
+          "clause": "### External measurement association"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 22,
+      "title": "A CRS suited to the project's size.",
+      "source_line": 1030,
+      "clauses": [
+        {
+          "line": 2020,
+          "clause": "#### Queries, scene charts and instances"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 23,
+      "title": "Detail that does not depend on location.",
+      "source_line": 1043,
+      "clauses": [
+        {
+          "line": 1441,
+          "clause": "### Precision handling"
+        },
+        {
+          "line": 2138,
+          "clause": "### Explicit export and sampling"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 24,
+      "title": "Extent under one position is bounded and stated.",
+      "source_line": 1052,
+      "clauses": [
+        {
+          "line": 2085,
+          "clause": "### Extent and result comparison"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 25,
+      "title": "Additive for consumers that ignore it.",
+      "source_line": 1067,
+      "clauses": [
+        {
+          "line": 2223,
+          "clause": "### Transform stack and resetXformStack"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 26,
+      "title": "Declares its dependency.",
+      "source_line": 1077,
+      "clauses": [
+        {
+          "line": 1690,
+          "clause": "### Dependency declaration with Profiles"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 27,
+      "title": "Checkable before use.",
+      "source_line": 1088,
+      "clauses": [
+        {
+          "line": 1532,
+          "clause": "#### Authored properties"
+        },
+        {
+          "line": 1690,
+          "clause": "### Dependency declaration with Profiles"
+        },
+        {
+          "line": 2071,
+          "clause": "### Observable outcomes and failures"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 28,
+      "title": "A result says what produced it.",
+      "source_line": 1104,
+      "clauses": [
+        {
+          "line": 2071,
+          "clause": "### Observable outcomes and failures"
+        },
+        {
+          "line": 2085,
+          "clause": "### Extent and result comparison"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    },
+    {
+      "id": 29,
+      "title": "Implementable from the text alone.",
+      "source_line": 1122,
+      "clauses": [
+        {
+          "line": 2085,
+          "clause": "### Extent and result comparison"
+        }
+      ],
+      "status": "proposed contract defined; execution coverage separately assessed"
+    }
+  ],
+  "semantic_gaps": [],
+  "pending_design_agreement": [
+    "Preferred authored heading/pitch/roll tuple and explicit pose interpolation await author adoption",
+    "Detailed anchor chart/reset and independently bound instance rules",
+    "Exact external-data association carrier and supported format profiles",
+    "Associated geocentric scene chart for geographic coordinate outputs",
+    "Profiles capability identity, publication and conservative maintenance",
+    "Detailed WKT string normal form and identity/equivalence comparison profile",
+    "Required ordinary double-precision bake-origin representation and sampling/coverage record"
+  ],
+  "verification_gaps": [
+    "General nonlinear continuous-domain and between-sample certificates remain visibly unsupported",
+    "Independent normal-transport diagnostics and wider primvar coverage remain necessary",
+    "No executed physics integration, geospatial Hydra filter or Omniverse render",
+    "Both placement readers share PROJ; external-format decoding is shared",
+    "Material bindings and arbitrary namespace-bearing properties need broader bake coverage"
+  ],
+  "audit_corrections": [
+    "Actual requirement titles and exact clauses, excluding background/principle lists",
+    "No closed status based on presence of 31 numbers",
+    "Every proposed restriction tied to a role, dimensionality or explicit unsupported request",
+    "Pending agreement is distinct from undefined semantics"
+  ],
+  "candidate_agreed": false,
+  "clarity_review": {
+    "authority": "0e955c68c9b0f07b313c43c2cf291eead868c8af",
+    "changes": [
+      "Workflow-grounded authored HPR and composed orientation-sample evaluation",
+      "Invalid-placement failure",
+      "Required precision-preserving ordinary bake",
+      "Supported direction separated from unsettled storage/conventions",
+      "Unsupported south-axis background examples labeled"
+    ],
+    "automatic_completeness_claim": false
+  }
+}

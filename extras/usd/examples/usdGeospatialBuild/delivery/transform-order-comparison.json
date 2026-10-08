@@ -1,0 +1,16 @@
+{
+  "candidate": "model-local descendant",
+  "alternative": "raw working-axis descendant",
+  "candidate_coordinates": [
+    448262.0291841338,
+    5411957.908700555,
+    35.000000704079866
+  ],
+  "alternative_coordinates": [
+    448265.00137536495,
+    5411954.909947274,
+    34.99999999906868
+  ],
+  "difference_metres": 4.222137130780142,
+  "normative_authority": "Evaluation, requirements 9 and 15; alternative is not an adopted contract"
+}

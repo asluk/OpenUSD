@@ -1,0 +1,3693 @@
+{
+  "status": "Candidate build loop executed; proposed contracts remain under review",
+  "completed_utc": "2026-10-08T18:10:47.030387+00:00",
+  "inputs": {
+    "status": "October 8 authored-HPR candidate and full build-loop execution",
+    "proposal": {
+      "revision": "0e955c68c9b0f07b313c43c2cf291eead868c8af",
+      "sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+      "local_candidate": true,
+      "group_agreement": false,
+      "source": "proposal/proposal-source.txt",
+      "status": "Local full follow-up; requirements-only branch is not an implementation authority"
+    },
+    "openusd": {
+      "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
+      "base_commit": "0ace5b88702edbfe00dd031369f38ff526cb07b8"
+    },
+    "composition_reference": {
+      "repository": "https://github.com/aousd/specifications-public",
+      "path": "core/1.0.1/core_spec.md",
+      "local_reference_revision": "18d8ee695647d81d022dbe70f4c4fef5f059d90d",
+      "local_copy_sha256": "b2feeb2c900befe224a372b2d60d0ddcc6e35048ab54c32c17d5c085b44c642d"
+    },
+    "inherited_geospatial_implementation": true,
+    "inherited_model_or_runtime_candidate": false,
+    "inherited_fixture_code_or_expected_outputs": false,
+    "new_derivation_required": [
+      "conceptual_model",
+      "authored_model",
+      "normative_runtime_behavior",
+      "implementations",
+      "content_validator",
+      "fixtures_and_tests",
+      "audit_evidence",
+      "README",
+      "review_body",
+      "slides"
+    ],
+    "required_reviews": [
+      "requirements_sufficiency_and_consistency",
+      "representation_necessity_and_USD_semantics",
+      "implementation_to_proposal_and_reverse_coverage",
+      "attempts_to_expose_fixture_shortcuts_and_self_justifying_proposal_changes"
+    ],
+    "publication": "Local branches, commits and evidence only. No remote or communication writes authorized.",
+    "geospatial_references": [
+      {
+        "standard": "OGC 18-005r8",
+        "role": "coordinate reference and coordinate-metadata concepts"
+      },
+      {
+        "standard": "OGC 18-010r11",
+        "role": "WKT encoding including COORDINATEMETADATA"
+      }
+    ],
+    "previous_executed_source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47",
+    "derivation": {
+      "requirements.md": "46b034a3d9ce3309588a9850770c6673db2e63a9f7194ab515701658b450c135",
+      "data-model.md": "26900d40918593b7471ff1246ffe1dfb336d2a8272c9561d2108180763198e65",
+      "runtime-behavior.md": "44790c4e83b8711d33461e992eddcf77e3c00a66b0b8ae92754d428b2dd7d9da",
+      "runtime-open-decisions.md": "9982bb58af4a941e0c27164d70658eb96a1aa8a5b42bb35d9acd00c6f3548a59",
+      "distinguishing-examples.md": "71d958aec012c7146041c652f184e42ad1fbbdb732eb368b3f6b00054f582997",
+      "traceability.md": "e9b67c9f03159132cee0321ee4a7efbf49618c0ad1fd3df80ac5790cbb05e6c4"
+    },
+    "inherited_code_execution": "Prior relationship-based placement code retained in history/source, excluded from current execution except an explicit incompatibility control.",
+    "current_execution": "Python and C++ complete point-map queries, Cartesian frame derivatives and polygonal bounds; native Hydra resolved export; Omniverse stage geometry writeback; selected external measurement domains and sampled exports",
+    "normalizer_references": [
+      "OGC 18-010r11 clauses 6-7 and Annex B",
+      "W3C XML Schema Part 2 canonical integer and decimal lexical representations"
+    ]
+  },
+  "source_files": {
+    "candidate/__init__.py": "08af67442b1fff96f52a5b8921637763bc10f6d6e198dabde4ccc74c1a43eff3",
+    "candidate/controls.py": "8543e893b4cbcda3bea1c3217db6f59a4c7cb9b0fd6eb4b544c5c09a8e5ecca3",
+    "candidate/datasets.py": "37373800b3017a72f3138a0faabe43d318aca855d94f84a4b6554a4cefa8e7ea",
+    "candidate/execution.py": "95967c534d13d9f3dc54e326006684370ed83f3add89a32fe7711685983a871d",
+    "candidate/export.py": "ee9319b4fdbb12ab18f2f20a78446c9f9145b02d0e0f14ac9f6947797c948c2b",
+    "candidate/fixtures.py": "4cd26397094618821a18585959388b9a60b3b57112bed425dbc4cdc68ff20ba5",
+    "candidate/ov_launch.py": "accdd9e3189860c47dabe26793f94426e0fd545a496282b4345109a8bac95356",
+    "candidate/ov_live.py": "ba7791f2390026e086e7257bc70556e78ba3abb5f0531526b2792040dc1b6fb8",
+    "candidate/runner.py": "626d2df4a4d9f9fc9e4e17a4e56be494e2dc7075790335252473700b50484970",
+    "candidate/runtime.py": "fcbbd06e0bf7cfa9ab46d5e4ee03480fbfc01fea194e9a0255af20c32225e447",
+    "review/__init__.py": "1da7ada131921d0bbda633563a594b15f794be1158694c55d9671cc91683f1e1",
+    "review/fixture_definitions.py": "6693d851adbc56e256ffb122c9c38b3550a7df34754d1abfb83068930d92d7ae",
+    "review/fixtures.py": "ffb8834000952318b6e2e6e9810d4583af120444f0ad9aa9c0f9d3ed7474edaf",
+    "review/origin_queries.py": "74cb286631e2ac04bb5b974c314bf9c6e679da7845e0dbc5c3cbdbf43eef6d26",
+    "review/ov_scope_launch.py": "2012f7825003d81ffd9988c3f5c36f4f2d03c277c5d04377e0663b21d74d9412",
+    "review/placement_values.py": "cefd7cc6e3d09d5bda3c441739345fac1bf8e98029be860c2bf6db6e8ca6fedd",
+    "review/runner.py": "817264f18235aa91e17b70af51f592ba6c003c6b01359eef7c27ffcb9e24c2b2",
+    "review/scope.py": "5fb7b287cb7144efbd6f5ddd9abd27afe9e4157aa6c70bfa1c45bb5f4fa94f45",
+    "review/test_contracts.py": "f8ea8a94edce7f15aafd13635b0cc4cbcf89d830fdfe43296783ab97eee5b6b9",
+    "review/test_hpr_contracts.py": "7664f931d4fad7c7916b13c3b201ad500f23da70f020040689e259d5041fe2a3",
+    "review/test_split_feedback.py": "85b37c75d4757dd67725711c5bf5e2baba3dc12f17f0be823890310964b3b0ea",
+    "review/test_wkt_contracts.py": "75dec51fea396448983b07d44c2c024db10322d5ce4aa492d25ccd95ce01226f",
+    "review/wkt_profile.py": "521906a17156ee3fd0f16dfb288d3cef695d2ec02084d9173be2854b421191ef",
+    "schema/generated/generatedSchema.usda": "76db5d432be334a254da5607de46d7d4f45028f0d81e62321a67472e0888ef02",
+    "schema/schema.usda": "e4a513f85e9b7f70b3a837d7133f87fec8f7b762e6849c6e7b4d5e3792f2095b",
+    "schema/generated/plugInfo.json": "e53cd1c5e627316937ecd3326412f26fa0bf2debf9cdc93b5b3041ca63e1f55d",
+    "native/leans.cpp": "0e2482c333b1c04c9fae31c6a2703def998f43c60326b143a120159124a6ab47",
+    "native/leansRender.cpp": "6fd0d453ac74d120dfa4585e4ba45b4b1110558431ecb0da5e7927e9480c2646",
+    "native/CMakeLists.txt": "d38d85d03a61336324f5741fc7b883878eec1ce7a0335880677500bcca86d5f5",
+    "run.py": "cad2a0965ebcbcb1bd25f01e6904a98e40a03c73457018fa3386f2ea1ea5ceea",
+    "inputs.json": "270d1f77517ccc364598c3fcd3b2b07aa282631ec867558164521424fba0de99",
+    "proposal-quality.json": "10c5edba89ed26819953b06cb520b89ff86ac90f0b9c8958c3e3062c08a2741b",
+    "ov/geobuild.kit": "5fc4d60271d18a04ad3b6675539033f1c06b37e86ce6b2cba25ed20b02e69d88",
+    "BUILD_LOOP.md": "3df9580ecbe13aeb47706d729c037b58228246b6f7d1330d0bc94f41f56ad6e9",
+    "PLAN.md": "3cc0e1f0fb1ca49e81c94b5cd25d5bdba508ea4e52e0b347beef3f684b804d48",
+    "AUDIT.md": "f23ee08b6b484f6df2cfbc01a5e16d9d62cfae7aeb4fe6878ae096408b930583",
+    "QUALITY_REVIEW.md": "b5613ea9025feebdb853df3e02ab86d3b4d07d274ac73fa16ef39ace7c70cbf9",
+    "geobuild/quality.py": "4cb53ae11b4f780846fc6beb845687afcb792c855c1b282be0e1174d35778471",
+    "proposal/data-model.md": "26900d40918593b7471ff1246ffe1dfb336d2a8272c9561d2108180763198e65",
+    "proposal/distinguishing-examples.md": "71d958aec012c7146041c652f184e42ad1fbbdb732eb368b3f6b00054f582997",
+    "proposal/local-draft.patch": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "proposal/proposal-source.txt": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+    "proposal/requirements.md": "46b034a3d9ce3309588a9850770c6673db2e63a9f7194ab515701658b450c135",
+    "proposal/runtime-behavior.md": "44790c4e83b8711d33461e992eddcf77e3c00a66b0b8ae92754d428b2dd7d9da",
+    "proposal/runtime-open-decisions.md": "9982bb58af4a941e0c27164d70658eb96a1aa8a5b42bb35d9acd00c6f3548a59",
+    "proposal/traceability.md": "e9b67c9f03159132cee0321ee4a7efbf49618c0ad1fd3df80ac5790cbb05e6c4"
+  },
+  "source_commit": "ba4cce79f41741a4e39ffd32072a4c4171a45a5f",
+  "source_is_uncommitted": false,
+  "proposal_quality": {
+    "status": "Local stacked follow-up: proposed detailed contract, separately assessed author alignment and implementation evidence",
+    "source_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+    "requirements": [
+      {
+        "id": 1,
+        "title": "Self-contained definitions.",
+        "source_line": 634,
+        "clauses": [
+          {
+            "line": 1462,
+            "clause": "### GeospatialCRS typed schema"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 2,
+        "title": "Defined once, and describing no object.",
+        "source_line": 647,
+        "clauses": [
+          {
+            "line": 1717,
+            "clause": "### WKT string normalization"
+          },
+          {
+            "line": 1532,
+            "clause": "#### Authored properties"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 3,
+        "title": "Datum, realization and epoch.",
+        "source_line": 664,
+        "clauses": [
+          {
+            "line": 1347,
+            "clause": "#### Roadmap question 15: coordinate epochs"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 4,
+        "title": "A site's own grid is a CRS like any other.",
+        "source_line": 676,
+        "clauses": [
+          {
+            "line": 1303,
+            "clause": "#### Decision on question 7: site calibration"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 31,
+        "title": "Same definition, same meaning.",
+        "source_line": 700,
+        "clauses": [
+          {
+            "line": 1717,
+            "clause": "### WKT string normalization"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 5,
+        "title": "A discoverable CRS.",
+        "source_line": 722,
+        "clauses": [
+          {
+            "line": 1401,
+            "clause": "### CRS binding and inheritance"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 6,
+        "title": "Declared for a subtree, not a prim.",
+        "source_line": 732,
+        "clauses": [
+          {
+            "line": 1401,
+            "clause": "### CRS binding and inheritance"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 7,
+        "title": "Composition agnostic",
+        "source_line": 743,
+        "clauses": [
+          {
+            "line": 1401,
+            "clause": "### CRS binding and inheritance"
+          },
+          {
+            "line": 2233,
+            "clause": "### Composition arcs"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 8,
+        "title": "Brought-in data keeps its coordinates and its CRS.",
+        "source_line": 753,
+        "clauses": [
+          {
+            "line": 1930,
+            "clause": "#### Evaluation"
+          },
+          {
+            "line": 1630,
+            "clause": "### External measurement association"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 9,
+        "title": "Positions, and offsets from them.",
+        "source_line": 779,
+        "clauses": [
+          {
+            "line": 1532,
+            "clause": "#### Authored properties"
+          },
+          {
+            "line": 1930,
+            "clause": "#### Evaluation"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 10,
+        "title": "Offsets along the axes of their position.",
+        "source_line": 800,
+        "clauses": [
+          {
+            "line": 1583,
+            "clause": "#### Geospatial model attitude and stage axes"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 11,
+        "title": "Position or offset, and the scene says which.",
+        "source_line": 819,
+        "clauses": [
+          {
+            "line": 1401,
+            "clause": "### CRS binding and inheritance"
+          },
+          {
+            "line": 1930,
+            "clause": "#### Evaluation"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 12,
+        "title": "No angle read as a length.",
+        "source_line": 836,
+        "clauses": [
+          {
+            "line": 1565,
+            "clause": "#### Position components"
+          },
+          {
+            "line": 1630,
+            "clause": "### External measurement association"
+          },
+          {
+            "line": 2020,
+            "clause": "#### Queries, scene charts and instances"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 13,
+        "title": "One axis mapping.",
+        "source_line": 850,
+        "clauses": [
+          {
+            "line": 1565,
+            "clause": "#### Position components"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 14,
+        "title": "Scene conventions stay the scene's.",
+        "source_line": 862,
+        "clauses": [
+          {
+            "line": 1583,
+            "clause": "#### Geospatial model attitude and stage axes"
+          },
+          {
+            "line": 2208,
+            "clause": "### Stage metadata: metersPerUnit and upAxis"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 15,
+        "title": "Placement separate from conformance.",
+        "source_line": 875,
+        "clauses": [
+          {
+            "line": 1281,
+            "clause": "#### Decision on question 4: authored unit and up-axis conformance"
+          },
+          {
+            "line": 1930,
+            "clause": "#### Evaluation"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 16,
+        "title": "One CRS out.",
+        "source_line": 887,
+        "clauses": [
+          {
+            "line": 1804,
+            "clause": "## Runtime coordinate transformation"
+          },
+          {
+            "line": 2020,
+            "clause": "#### Queries, scene charts and instances"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 17,
+        "title": "The same answer for every consumer.",
+        "source_line": 907,
+        "clauses": [
+          {
+            "line": 2020,
+            "clause": "#### Queries, scene charts and instances"
+          },
+          {
+            "line": 2085,
+            "clause": "### Extent and result comparison"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 18,
+        "title": "Coordinates back out.",
+        "source_line": 922,
+        "clauses": [
+          {
+            "line": 2020,
+            "clause": "#### Queries, scene charts and instances"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 19,
+        "title": "Resolution leaves the scene as authored.",
+        "source_line": 937,
+        "clauses": [
+          {
+            "line": 2071,
+            "clause": "### Observable outcomes and failures"
+          },
+          {
+            "line": 2138,
+            "clause": "### Explicit export and sampling"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 20,
+        "title": "Positions between recorded moments.",
+        "source_line": 956,
+        "clauses": [
+          {
+            "line": 1930,
+            "clause": "#### Evaluation"
+          },
+          {
+            "line": 2138,
+            "clause": "### Explicit export and sampling"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 21,
+        "title": "Never placed by a guess.",
+        "source_line": 973,
+        "clauses": [
+          {
+            "line": 2071,
+            "clause": "### Observable outcomes and failures"
+          },
+          {
+            "line": 1630,
+            "clause": "### External measurement association"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 30,
+        "title": "Measurements remain usable as data.",
+        "source_line": 1008,
+        "clauses": [
+          {
+            "line": 1630,
+            "clause": "### External measurement association"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 22,
+        "title": "A CRS suited to the project's size.",
+        "source_line": 1030,
+        "clauses": [
+          {
+            "line": 2020,
+            "clause": "#### Queries, scene charts and instances"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 23,
+        "title": "Detail that does not depend on location.",
+        "source_line": 1043,
+        "clauses": [
+          {
+            "line": 1441,
+            "clause": "### Precision handling"
+          },
+          {
+            "line": 2138,
+            "clause": "### Explicit export and sampling"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 24,
+        "title": "Extent under one position is bounded and stated.",
+        "source_line": 1052,
+        "clauses": [
+          {
+            "line": 2085,
+            "clause": "### Extent and result comparison"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 25,
+        "title": "Additive for consumers that ignore it.",
+        "source_line": 1067,
+        "clauses": [
+          {
+            "line": 2223,
+            "clause": "### Transform stack and resetXformStack"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 26,
+        "title": "Declares its dependency.",
+        "source_line": 1077,
+        "clauses": [
+          {
+            "line": 1690,
+            "clause": "### Dependency declaration with Profiles"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 27,
+        "title": "Checkable before use.",
+        "source_line": 1088,
+        "clauses": [
+          {
+            "line": 1532,
+            "clause": "#### Authored properties"
+          },
+          {
+            "line": 1690,
+            "clause": "### Dependency declaration with Profiles"
+          },
+          {
+            "line": 2071,
+            "clause": "### Observable outcomes and failures"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 28,
+        "title": "A result says what produced it.",
+        "source_line": 1104,
+        "clauses": [
+          {
+            "line": 2071,
+            "clause": "### Observable outcomes and failures"
+          },
+          {
+            "line": 2085,
+            "clause": "### Extent and result comparison"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      },
+      {
+        "id": 29,
+        "title": "Implementable from the text alone.",
+        "source_line": 1122,
+        "clauses": [
+          {
+            "line": 2085,
+            "clause": "### Extent and result comparison"
+          }
+        ],
+        "status": "proposed contract defined; execution coverage separately assessed"
+      }
+    ],
+    "semantic_gaps": [],
+    "pending_design_agreement": [
+      "Preferred authored heading/pitch/roll tuple and explicit pose interpolation await author adoption",
+      "Detailed anchor chart/reset and independently bound instance rules",
+      "Exact external-data association carrier and supported format profiles",
+      "Associated geocentric scene chart for geographic coordinate outputs",
+      "Profiles capability identity, publication and conservative maintenance",
+      "Detailed WKT string normal form and identity/equivalence comparison profile",
+      "Required ordinary double-precision bake-origin representation and sampling/coverage record"
+    ],
+    "verification_gaps": [
+      "General nonlinear continuous-domain and between-sample certificates remain visibly unsupported",
+      "Independent normal-transport diagnostics and wider primvar coverage remain necessary",
+      "No executed physics integration, geospatial Hydra filter or Omniverse render",
+      "Both placement readers share PROJ; external-format decoding is shared",
+      "Material bindings and arbitrary namespace-bearing properties need broader bake coverage"
+    ],
+    "audit_corrections": [
+      "Actual requirement titles and exact clauses, excluding background/principle lists",
+      "No closed status based on presence of 31 numbers",
+      "Every proposed restriction tied to a role, dimensionality or explicit unsupported request",
+      "Pending agreement is distinct from undefined semantics"
+    ],
+    "candidate_agreed": false,
+    "clarity_review": {
+      "authority": "0e955c68c9b0f07b313c43c2cf291eead868c8af",
+      "changes": [
+        "Workflow-grounded authored HPR and composed orientation-sample evaluation",
+        "Invalid-placement failure",
+        "Required precision-preserving ordinary bake",
+        "Supported direction separated from unsettled storage/conventions",
+        "Unsupported south-axis background examples labeled"
+      ],
+      "automatic_completeness_claim": false
+    }
+  },
+  "tests": {
+    "regressions_passed": 88,
+    "distinguishing_controls_passed": 65,
+    "failed": 0
+  },
+  "controls": [
+    {
+      "name": "basis-Z-1 analytic expected",
+      "passed": true
+    },
+    {
+      "name": "basis-Z-1 local frame derivative matches the independent affine matrix",
+      "passed": true
+    },
+    {
+      "name": "basis-Y-1 analytic expected",
+      "passed": true
+    },
+    {
+      "name": "basis-Y-1 local frame derivative matches the independent affine matrix",
+      "passed": true
+    },
+    {
+      "name": "basis-Y-0.01 analytic expected",
+      "passed": true
+    },
+    {
+      "name": "basis-Y-0.01 local frame derivative matches the independent affine matrix",
+      "passed": true
+    },
+    {
+      "name": "pivot-order analytic expected",
+      "passed": true
+    },
+    {
+      "name": "time-source analytic expected",
+      "passed": true
+    },
+    {
+      "name": "time-source-held analytic expected",
+      "passed": true
+    },
+    {
+      "name": "time-source-t0 analytic expected",
+      "passed": true
+    },
+    {
+      "name": "time-source-t10 analytic expected",
+      "passed": true
+    },
+    {
+      "name": "orientation-wrap analytic expected",
+      "passed": true
+    },
+    {
+      "name": "orientation-wrap-t0 analytic expected",
+      "passed": true
+    },
+    {
+      "name": "orientation-wrap-t10 analytic expected",
+      "passed": true
+    },
+    {
+      "name": "orientation-wrap-held analytic expected",
+      "passed": true
+    },
+    {
+      "name": "geographic-scene analytic expected",
+      "passed": true
+    },
+    {
+      "name": "anchor +10 means site easting after 90 degree orientation",
+      "passed": true
+    },
+    {
+      "name": "parent ordinary +100000 excluded",
+      "passed": true
+    },
+    {
+      "name": "physical placement survives output change 0",
+      "passed": true
+    },
+    {
+      "name": "physical placement survives output change 1",
+      "passed": true
+    },
+    {
+      "name": "physical placement survives output change 2",
+      "passed": true
+    },
+    {
+      "name": "descendant reset removes anchor adjustment and retains CRS placement",
+      "passed": true
+    },
+    {
+      "name": "descendant offset retains oriented model axes",
+      "passed": true
+    },
+    {
+      "name": "blocked position has no zero fallback",
+      "passed": true,
+      "visible_error": "Placement position is unavailable"
+    },
+    {
+      "name": "nonfinite authored heading rejected",
+      "passed": true,
+      "visible_error": "Placement orientation is nonfinite"
+    },
+    {
+      "name": "singular scale permits forward point",
+      "passed": true
+    },
+    {
+      "name": "authored layers preserved through negative controls",
+      "passed": true
+    },
+    {
+      "name": "same Cartesian CRS has an analytically affine map over the stated extent",
+      "passed": true
+    },
+    {
+      "name": "finite samples cannot certify a continuous nonlinear extent",
+      "passed": true,
+      "visible_error": "No continuous approximation certificate for this nonlinear operation"
+    },
+    {
+      "name": "invalid nearest enclosing binding is not bypassed for an identity adjustment",
+      "passed": true,
+      "visible_error": "Invalid WKT: Strict WKT grammar check failed: Missing DATUM or ENSEMBLE node"
+    },
+    {
+      "name": "invalid nearest enclosing binding also rejects inverse requests",
+      "passed": true,
+      "visible_error": "Invalid WKT: Strict WKT grammar check failed: Missing DATUM or ENSEMBLE node"
+    },
+    {
+      "name": "global domain has original 2664 values",
+      "passed": true
+    },
+    {
+      "name": "global domain stays 2D with no observation time invented",
+      "passed": true
+    },
+    {
+      "name": "unknown original physical units remain unknown",
+      "passed": true
+    },
+    {
+      "name": "geographic coordinate support does not invent a scene frame",
+      "passed": true,
+      "visible_error": "3D Cartesian scene frame requires height"
+    },
+    {
+      "name": "missing height fails 3D request",
+      "passed": true,
+      "visible_error": "No implicit height or dimensional promotion"
+    },
+    {
+      "name": "external and composed CRS conflict fails",
+      "passed": true,
+      "visible_error": "External CRS conflicts with composed WKT"
+    },
+    {
+      "name": "absolute samples never receive model anchor twice",
+      "passed": true,
+      "visible_error": "Absolute measurement source cannot have model placement"
+    },
+    {
+      "name": "railway preserves all 15822 horizontal vertices",
+      "passed": true
+    },
+    {
+      "name": "GeoTIFF PixelIsPoint and PixelIsArea resolve declared sample centers",
+      "passed": true
+    },
+    {
+      "name": "one external container retains separate selected coordinate domains",
+      "passed": true
+    },
+    {
+      "name": "CF measurement values and missing masks remain paired across domains",
+      "passed": true
+    },
+    {
+      "name": "CF observation times remain native metadata independent of USD time",
+      "passed": true
+    },
+    {
+      "name": "relative position uses output CRS rather than target model frame",
+      "passed": true
+    },
+    {
+      "name": "tower polygonal bounds enclose every resolved vertex",
+      "passed": true
+    },
+    {
+      "name": "terrain polygonal bounds enclose every resolved vertex",
+      "passed": true
+    },
+    {
+      "name": "composition polygonal bounds enclose every resolved vertex",
+      "passed": true
+    },
+    {
+      "name": "instances polygonal bounds enclose every resolved vertex",
+      "passed": true
+    },
+    {
+      "name": "point instancers resolve every retained prototype copy",
+      "passed": true
+    },
+    {
+      "name": "invisible instance ID suppresses its geometry without reindexing survivors",
+      "passed": true
+    },
+    {
+      "name": "Profiles summary readable with outside unloaded payload",
+      "passed": true
+    },
+    {
+      "name": "stronger layer cannot silently weaken required summary",
+      "passed": true,
+      "visible_error": "Missing/weak whole-scene Profiles dependency claim"
+    },
+    {
+      "name": "adjusted imagery keeps native measurements",
+      "passed": true
+    },
+    {
+      "name": "adjusted imagery keeps native coordinate bytes",
+      "passed": true
+    },
+    {
+      "name": "adjusted imagery adds 25m east and 10m south in project axes",
+      "passed": true
+    },
+    {
+      "name": "prototype-child reset excludes the +100 prototype offset",
+      "passed": true
+    },
+    {
+      "name": "geographic scene frame names Cartesian chart",
+      "passed": true
+    },
+    {
+      "name": "geographic bounds use the associated Cartesian scene chart",
+      "passed": true
+    },
+    {
+      "name": "independently CRS-bound prototypes no longer fail",
+      "passed": true
+    },
+    {
+      "name": "model-local versus raw working-child alternatives are distinguishable",
+      "passed": true
+    },
+    {
+      "name": "synthetic global 3D keeps all positions and both observation times",
+      "passed": true
+    },
+    {
+      "name": "synthetic global height is explicit rather than inferred",
+      "passed": true
+    },
+    {
+      "name": "global geographic/ECEF outputs retain the same measurement values",
+      "passed": true
+    },
+    {
+      "name": "normal follows geodetic attitude and output Cartesian axes",
+      "passed": true
+    },
+    {
+      "name": "singular normal map rejected",
+      "passed": true,
+      "visible_error": "Singular normal transport"
+    }
+  ],
+  "expected_failures": [
+    {
+      "name": "climate-no-height",
+      "python": "No implicit height or dimensional promotion",
+      "native": "No implicit height or dimensional promotion\n",
+      "expected": true
+    }
+  ],
+  "metrics": [
+    {
+      "name": "basis-Z-1",
+      "native_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 1.8626451492311688e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          1.862645149230957e-09,
+          9.860761315262648e-32,
+          8.881784197001252e-16
+        ],
+        "max_abs_output_coordinate_components": [
+          6378139.0,
+          3.000000000000001,
+          4.000000000000001
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378139.0,
+          3.000000000000001,
+          4.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "basis-Y-1",
+      "native_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 1.8626451492311688e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          1.862645149230957e-09,
+          9.860761315262648e-32,
+          8.881784197001252e-16
+        ],
+        "max_abs_output_coordinate_components": [
+          6378139.0,
+          4.000000000000001,
+          3.000000000000001
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378139.0,
+          4.000000000000001,
+          3.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "basis-Y-0.01",
+      "native_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 1.5407439555097887e-33,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          1.5407439555097887e-33,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.02,
+          0.04000000000000001,
+          0.03000000000000001
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.02,
+          0.04000000000000001,
+          0.03000000000000001
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "working-adjustment",
+      "native_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 2.0833139037915134e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          5.820766091346741e-11,
+          1.862645149230957e-09,
+          9.313225746154785e-10
+        ],
+        "max_abs_output_coordinate_components": [
+          448262.0291841338,
+          5411957.908700555,
+          35.00000070501119
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          448262.0291841338,
+          5411957.908700555,
+          35.000000704079866
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "working-adjustment-ecef",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 2.945675730910151e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          2.7939677238464355e-09,
+          5.820766091346741e-11,
+          9.313225746154785e-10
+        ],
+        "max_abs_output_coordinate_components": [
+          4200958.356916233,
+          168334.01655171457,
+          4780241.43510437
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          4200958.356916233,
+          168334.01655171457,
+          4780241.43510437
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "geographic-working",
+      "native_vs_python": {
+        "coordinate_count": 2,
+        "max_distance_metres": 2.6356246319293113e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          1.862645149230957e-09,
+          8.731149137020111e-11,
+          1.862645149230957e-09
+        ],
+        "max_abs_output_coordinate_components": [
+          4200957.309041314,
+          168336.97206874416,
+          4780244.291258036
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 2,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          4200957.309041312,
+          168336.9720687441,
+          4780244.291258035
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "pivot-order",
+      "native_vs_python": {
+        "coordinate_count": 2,
+        "max_distance_metres": 9.313225746155052e-10,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          9.313225746154787e-10,
+          2.220446049250313e-16
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          9.313225746154787e-10,
+          1.9999999999999998
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 2,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          9.313225746154787e-10,
+          1.9999999999999996
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "time-source",
+      "native_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 9.31436254515153e-10,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          9.313225746154785e-10,
+          1.4551915228366852e-11,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6377165.578841701,
+          111314.8390843713,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6377165.5788417,
+          111314.83908437128,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "time-source-held",
+      "native_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          1.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          1.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "time-source-t0",
+      "native_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          1.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          1.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "time-source-t10",
+      "native_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 9.317772109982395e-10,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          9.313225746154785e-10,
+          2.9103830456733704e-11,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6374251.611271095,
+          222594.77059042646,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6374251.6112710945,
+          222594.77059042643,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "relative-position",
+      "native_vs_python": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "orientation-wrap",
+      "native_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 9.31322574615505e-10,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          9.313225746154785e-10,
+          0.0,
+          2.220446049250313e-16
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.0,
+          1.9999999999999998
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.0,
+          1.9999999999999996
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "orientation-wrap-t0",
+      "native_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 1.1102230246251565e-15,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          8.881784197001252e-16,
+          6.661338147750939e-16
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.34729635533386144,
+          1.9696155060244163
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.34729635533386055,
+          1.9696155060244163
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "orientation-wrap-t10",
+      "native_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 1.1102230246251565e-15,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          8.881784197001252e-16,
+          6.661338147750939e-16
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.34729635533386144,
+          1.9696155060244163
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.34729635533386055,
+          1.9696155060244163
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "orientation-wrap-held",
+      "native_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 1.1102230246251565e-15,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          8.881784197001252e-16,
+          6.661338147750939e-16
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.34729635533386144,
+          1.9696155060244163
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 3,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.34729635533386055,
+          1.9696155060244163
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "prototype-reset",
+      "native_vs_python": {
+        "coordinate_count": 1,
+        "max_distance_metres": 1.7763568394002505e-15,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          1.7763568394002505e-15,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          11.000000000000002,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 1,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          11.000000000000002,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "tower",
+      "native_vs_python": {
+        "coordinate_count": 163440,
+        "max_distance_metres": 5.269652172781932e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          1.1641532182693481e-10,
+          4.6566128730773926e-09,
+          4.656627083932108e-09
+        ],
+        "max_abs_output_coordinate_components": [
+          648640.6361155438,
+          6862655.400064835,
+          333.7899946316942
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 163440,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          648640.6361155438,
+          6862655.400064835,
+          333.7899946316942
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "terrain",
+      "native_vs_python": {
+        "coordinate_count": 14359,
+        "max_distance_metres": 3.3945759188783683e-08,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          1.1175870895385742e-08,
+          8.847564458847046e-08,
+          7.638118404429406e-08
+        ],
+        "max_abs_output_coordinate_components": [
+          3109136.6253866665,
+          1206516.933080377,
+          5490.961200982949
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 14359,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109136.6253866665,
+          1206516.933080377,
+          5490.961200982949
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      }
+    },
+    {
+      "name": "composition",
+      "native_vs_python": {
+        "coordinate_count": 6,
+        "max_distance_metres": 1.862645274131043e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          6.821210263296962e-13,
+          1.862645149230957e-09
+        ],
+        "max_abs_output_coordinate_components": [
+          1007.0000989843393,
+          2012.0108126656328,
+          44.00000251736492
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 6,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1007.0000989843393,
+          2012.0108126656328,
+          44.000002515502274
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "instances",
+      "native_vs_python": {
+        "coordinate_count": 18,
+        "max_distance_metres": 2.7939677238464355e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          1.1641532182693481e-10,
+          9.313225746154785e-10,
+          2.7939677238464355e-09
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860043.873565627,
+          40.0000378433615
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 18,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860043.873565627,
+          40.0000378433615
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "instances-masked",
+      "native_vs_python": {
+        "coordinate_count": 15,
+        "max_distance_metres": 2.7939677238464355e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          1.1641532182693481e-10,
+          0.0,
+          2.7939677238464355e-09
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860043.873565627,
+          40.0000378433615
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 15,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860043.873565627,
+          40.0000378433615
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "instances-independent-prototype",
+      "native_vs_python": {
+        "coordinate_count": 15,
+        "max_distance_metres": 2.7939677238464355e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          1.1641532182693481e-10,
+          9.313225746154785e-10,
+          2.7939677238464355e-09
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860002.996723255,
+          40.00000070501119
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 15,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          650021.9978151643,
+          6860002.996723255,
+          40.000000704079866
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "geographic-scene",
+      "native_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 9.313225746154785e-10,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          9.313225746154785e-10
+        ],
+        "max_abs_output_coordinate_components": [
+          1.000008983152841,
+          0.0,
+          7.916241884231567e-08
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1.000008983152841,
+          0.0,
+          7.82310962677002e-08
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "France_01",
+      "native_vs_python": {
+        "coordinate_count": 59,
+        "max_distance_metres": 4.16499481635444e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          3.725290298461914e-09,
+          3.7252831930345565e-09
+        ],
+        "max_abs_output_coordinate_components": [
+          661251.857815285,
+          6857890.385230772,
+          37.865999998952944
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          661251.857815285,
+          6857890.385230772,
+          37.865999998952944
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "France_02",
+      "native_vs_python": {
+        "coordinate_count": 59,
+        "max_distance_metres": 3.725290298461914e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          2.3283064365386963e-10,
+          2.7939677238464355e-09,
+          3.725290298461914e-09
+        ],
+        "max_abs_output_coordinate_components": [
+          1661249.794984726,
+          8180109.229969219,
+          37.86599999977891
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 59,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          1661249.794984726,
+          8180109.229969219,
+          37.86599999884759
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "Colorado_01",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 3.1058443927457566e-08,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          4.656612873077393e-10,
+          7.916241884231567e-08,
+          6.721711542923003e-08
+        ],
+        "max_abs_output_coordinate_components": [
+          3109885.738510038,
+          1206317.4694017544,
+          5484.677923960019
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109885.7385100373,
+          1206317.4694017544,
+          5484.677923960019
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      }
+    },
+    {
+      "name": "Colorado_02",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 3.105876823718491e-08,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          4.656612873077393e-10,
+          7.916241884231567e-08,
+          6.416030373657122e-08
+        ],
+        "max_abs_output_coordinate_components": [
+          3109885.7385213156,
+          1206317.4694031866,
+          5484.677949332321
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109885.7385213156,
+          1206317.4694031866,
+          5484.677949332321
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      }
+    },
+    {
+      "name": "Colorado_03",
+      "native_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 3.106016464641807e-08,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          4.656612873077393e-10,
+          8.35862010717392e-08,
+          6.72216629027389e-08
+        ],
+        "max_abs_output_coordinate_components": [
+          3109015.9935786873,
+          1752265.066596982,
+          5482.942350794532
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 5,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          3109015.9935786873,
+          1752265.066596982,
+          5482.942350794532
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "US survey foot",
+          "US survey foot",
+          "US survey foot"
+        ]
+      }
+    },
+    {
+      "name": "climate",
+      "native_vs_python": {
+        "coordinate_count": 2664,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          357.5,
+          90.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 2664,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          357.5,
+          90.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      }
+    },
+    {
+      "name": "city",
+      "native_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 2.828405820148886e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          7.105427357601002e-15
+        ],
+        "max_abs_output_coordinate_components": [
+          9.008797168371862,
+          49.652497949451686
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          1.2401310215141802e-16
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.008797168371862,
+          49.652497949451686
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      }
+    },
+    {
+      "name": "city-point",
+      "native_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 2.828405820148886e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          7.105427357601002e-15
+        ],
+        "max_abs_output_coordinate_components": [
+          9.008797168371862,
+          49.652497949451686
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          1.2401310215141802e-16
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.008797168371862,
+          49.652497949451686
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      }
+    },
+    {
+      "name": "city-adjusted",
+      "native_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 1.7680125226754444e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          7.105427357601002e-15
+        ],
+        "max_abs_output_coordinate_components": [
+          9.009143496729225,
+          49.65240800276874
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          1.2401310215141802e-16
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          9.009143496729225,
+          49.65240800276874
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      }
+    },
+    {
+      "name": "city-adjusted-grid",
+      "native_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          500660.0,
+          5499985.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 4096,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          500660.0,
+          5499985.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "multi-geographic",
+      "native_vs_python": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          10.0,
+          49.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          10.0,
+          49.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      }
+    },
+    {
+      "name": "multi-projected",
+      "native_vs_python": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          10.0,
+          49.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 12,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          10.0,
+          49.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree"
+        ]
+      }
+    },
+    {
+      "name": "global-3d",
+      "native_vs_python": {
+        "coordinate_count": 154,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378237.0,
+          6378237.0,
+          6138862.27494087
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 154,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378237.0,
+          6378237.0,
+          6138862.27494087
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "global-3d-geographic",
+      "native_vs_python": {
+        "coordinate_count": 154,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          150.0,
+          75.0,
+          100.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 154,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "ellipsoidal geodesic plus height",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          150.0,
+          75.0,
+          100.0
+        ],
+        "max_abs_angular_residuals_radians": [
+          0.0,
+          0.0
+        ],
+        "component_units": [
+          "degree",
+          "degree",
+          "metre"
+        ]
+      }
+    },
+    {
+      "name": "railway",
+      "native_vs_python": {
+        "coordinate_count": 15822,
+        "max_distance_metres": 1.862645149230957e-09,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          1.1641532182693481e-10,
+          1.862645149230957e-09
+        ],
+        "max_abs_output_coordinate_components": [
+          580291.0725370954,
+          5927640.369272906
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre"
+        ]
+      },
+      "ov_vs_python": {
+        "coordinate_count": 15822,
+        "max_distance_metres": 0,
+        "acceptance_metres": 0.001,
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          580291.0725370954,
+          5927640.369272906
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre"
+        ]
+      }
+    }
+  ],
+  "operation_comparability": [
+    {
+      "name": "basis-Z-1",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "basis-Y-1",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "basis-Y-0.01",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "working-adjustment",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ]
+    },
+    {
+      "name": "working-adjustment-ecef",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=cart ellps=WGS84",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=cart ellps=WGS84",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ]
+    },
+    {
+      "name": "geographic-working",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "pivot-order",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "time-source",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "time-source-held",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "time-source-t0",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "time-source-t10",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "relative-position",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "orientation-wrap",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "orientation-wrap-t0",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "orientation-wrap-t10",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "orientation-wrap-held",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "prototype-reset",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "tower",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80 step proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg",
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80 step proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg",
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80"
+      ]
+    },
+    {
+      "name": "terrain",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694 step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step inv proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg",
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694 step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step inv proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg",
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694"
+      ]
+    },
+    {
+      "name": "composition",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ]
+    },
+    {
+      "name": "instances",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ]
+    },
+    {
+      "name": "instances-masked",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ]
+    },
+    {
+      "name": "instances-independent-prototype",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
+      ]
+    },
+    {
+      "name": "geographic-scene",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "France_01",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step inv proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80 step proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80",
+        "proj=pipeline step inv proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80 step proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg",
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step inv proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80 step proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80",
+        "proj=pipeline step inv proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80 step proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg",
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80"
+      ]
+    },
+    {
+      "name": "France_02",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step inv proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80 step proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80",
+        "proj=pipeline step inv proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80 step proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg",
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step inv proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80 step proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80",
+        "proj=pipeline step inv proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80 step proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg",
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80"
+      ]
+    },
+    {
+      "name": "Colorado_01",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=us-ft xy_out=rad z_out=m step inv proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=us-ft xy_out=rad z_out=m step inv proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694"
+      ]
+    },
+    {
+      "name": "Colorado_02",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft",
+        "proj=pipeline step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694",
+        "proj=pipeline step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft",
+        "proj=pipeline step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694",
+        "proj=pipeline step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg"
+      ]
+    },
+    {
+      "name": "Colorado_03",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step inv proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694 step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step inv proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft",
+        "proj=pipeline step inv proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694 step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step inv proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg",
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step inv proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694 step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step inv proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft",
+        "proj=pipeline step inv proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694 step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step inv proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg",
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step inv proj=vgridshift grids=us_noaa_g2018u0.tif multiplier=1 step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694"
+      ]
+    },
+    {
+      "name": "climate",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "city",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ]
+    },
+    {
+      "name": "city-point",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ]
+    },
+    {
+      "name": "city-adjusted",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ]
+    },
+    {
+      "name": "city-adjusted-grid",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "multi-geographic",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "multi-projected",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step inv proj=utm zone=32 ellps=WGS84 step proj=unitconvert xy_in=rad xy_out=deg"
+      ]
+    },
+    {
+      "name": "global-3d",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84"
+      ]
+    },
+    {
+      "name": "global-3d-geographic",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=noop ellps=GRS80"
+      ],
+      "native_pipelines": [
+        "proj=noop ellps=GRS80"
+      ]
+    },
+    {
+      "name": "railway",
+      "realized_pipelines_identical": true,
+      "comparability": "identical realized pipeline spelling and pinned grids",
+      "python_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step proj=utm zone=32 ellps=WGS84"
+      ],
+      "native_pipelines": [
+        "proj=pipeline step proj=unitconvert xy_in=deg xy_out=rad step proj=utm zone=32 ellps=WGS84"
+      ]
+    }
+  ],
+  "exports": [
+    {
+      "path": "exports/tower.usda",
+      "fresh_reader_max_error_metres": 2.9560060847411377e-05,
+      "quantization_metres": 2.9560060847411377e-05,
+      "parts": 8,
+      "vertices": 163440,
+      "timeSamples": [
+        0
+      ],
+      "timeCodesPerSecond": 24.0,
+      "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
+      "source_paths": {
+        "/Resolved/ExportOrigin/Part0": "/Control0/Marker",
+        "/Resolved/ExportOrigin/Part1": "/Control1/Marker",
+        "/Resolved/ExportOrigin/Part2": "/Control2/Marker",
+        "/Resolved/ExportOrigin/Part3": "/Control3/Marker",
+        "/Resolved/ExportOrigin/Part4": "/Ground/Plane",
+        "/Resolved/ExportOrigin/Part5": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0",
+        "/Resolved/ExportOrigin/Part6": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1",
+        "/Resolved/ExportOrigin/Part7": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2"
+      },
+      "export_origin": {
+        "prim": "/Resolved/ExportOrigin",
+        "stage_coordinates": [
+          648383.0900020442,
+          6862247.92626258,
+          33.78995063490787
+        ],
+        "usd_type": "double3 translate",
+        "scene_crs": "COMPOUNDCRS[\"RGF93 v2b / Lambert-93 + NGF-IGN69 height\",PROJCRS[\"RGF93 v2b / Lambert-93\",BASEGEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",9782]],CONVERSION[\"Lambert-93\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",46.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",49,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",44,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",700000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",6600000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8827]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]]],VERTCRS[\"NGF-IGN69 height\",VDATUM[\"Nivellement General de la France - IGN69\"],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1]]],ID[\"EPSG\",10499]]"
+      },
+      "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+      "normal_arrays": 3,
+      "native_fresh_reader_vertices": 163440
+    },
+    {
+      "path": "exports/terrain.usda",
+      "fresh_reader_max_error_metres": 1.5314451221837112e-05,
+      "quantization_metres": 1.5314446962552462e-05,
+      "parts": 1,
+      "vertices": 14359,
+      "timeSamples": [
+        0
+      ],
+      "timeCodesPerSecond": 24.0,
+      "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
+      "source_paths": {
+        "/Resolved/ExportOrigin/Part0": "/Terrain/Breaklines"
+      },
+      "export_origin": {
+        "prim": "/Resolved/ExportOrigin",
+        "stage_coordinates": [
+          947578.1934529544,
+          367700.66118181444,
+          1672.4313312554127
+        ],
+        "usd_type": "double3 translate",
+        "scene_crs": "COMPOUNDCRS[\"Westminster site grid + site height\",DERIVEDPROJCRS[\"Westminster site grid\",BASEPROJCRS[\"NAD83(2011) / Colorado Central (ftUS)\",BASEGEOGCRS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]]],CONVERSION[\"SPCS83 Colorado Central zone (US survey foot)\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",37.8333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",-105.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",39.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",38.45,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",3000000,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",1000000,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8827]]],ID[\"EPSG\",6428]],DERIVINGCONVERSION[\"Westminster site calibration (horizontal)\",METHOD[\"Affine parametric transformation\",ID[\"EPSG\",9624]],PARAMETER[\"A0\",503.925392047801,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8623]],PARAMETER[\"A1\",1.00023104194694,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8624]],PARAMETER[\"A2\",-0.000201263129192391,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8625]],PARAMETER[\"B0\",-546977.970160075,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8639]],PARAMETER[\"B1\",0.000201263129192391,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8640]],PARAMETER[\"B2\",1.00023104194694,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8641]]],CS[Cartesian,2],AXIS[\"site easting (E)\",east,ORDER[1],LENGTHUNIT[\"US survey foot\",0.304800609601219]],AXIS[\"site northing (N)\",north,ORDER[2],LENGTHUNIT[\"US survey foot\",0.304800609601219]]],VERTCRS[\"Westminster site height\",BASEVERTCRS[\"NAVD88 height (ftUS)\",VDATUM[\"North American Vertical Datum 1988\"],ID[\"EPSG\",6360]],DERIVINGCONVERSION[\"Westminster site calibration (vertical)\",METHOD[\"Vertical Offset and Slope\",ID[\"EPSG\",1046]],PARAMETER[\"Ordinate 1 of evaluation point\",39.8981516609137,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8617]],PARAMETER[\"Ordinate 2 of evaluation point\",-105.115085298874,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8618]],PARAMETER[\"Vertical Offset\",1.73554921745194,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8603]],PARAMETER[\"Inclination in latitude\",-18.1964507520283,ANGLEUNIT[\"arc-second\",4.84813681109536E-06],ID[\"EPSG\",8730]],PARAMETER[\"Inclination in longitude\",-11.9499667059649,ANGLEUNIT[\"arc-second\",4.84813681109536E-06],ID[\"EPSG\",8731]],PARAMETER[\"EPSG code for Horizontal CRS\",6318,ID[\"EPSG\",1037]]],CS[vertical,1],AXIS[\"site height (H)\",up,LENGTHUNIT[\"US survey foot\",0.304800609601219]]]]"
+      },
+      "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+      "normal_arrays": 0,
+      "native_fresh_reader_vertices": 14359
+    },
+    {
+      "path": "exports/composition.usda",
+      "fresh_reader_max_error_metres": 4.864687754809043e-07,
+      "quantization_metres": 4.864687754809043e-07,
+      "parts": 2,
+      "vertices": 6,
+      "timeSamples": [
+        0
+      ],
+      "timeCodesPerSecond": 24.0,
+      "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
+      "source_paths": {
+        "/Resolved/ExportOrigin/Part0": "/Project/Model/Child/Mesh",
+        "/Resolved/ExportOrigin/Part1": "/Project/Model/Independent/Mesh"
+      },
+      "export_origin": {
+        "prim": "/Resolved/ExportOrigin",
+        "stage_coordinates": [
+          998.9787705085473,
+          2012.010812665632,
+          44.00000251736492
+        ],
+        "usd_type": "double3 translate",
+        "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
+      },
+      "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+      "normal_arrays": 0,
+      "native_fresh_reader_vertices": 6
+    },
+    {
+      "path": "exports/instances.usda",
+      "fresh_reader_max_error_metres": 1.0151522865794432e-07,
+      "quantization_metres": 1.0151522865794432e-07,
+      "parts": 6,
+      "vertices": 18,
+      "timeSamples": [
+        0
+      ],
+      "timeCodesPerSecond": 24.0,
+      "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
+      "source_paths": {
+        "/Resolved/ExportOrigin/Part0": "/Native0/Asset/Geometry",
+        "/Resolved/ExportOrigin/Part1": "/Native1/Asset/Geometry",
+        "/Resolved/ExportOrigin/Part2": "/Native2/Asset/Geometry",
+        "/Resolved/ExportOrigin/Part3": "/PointModels/Instances/_ResolvedInstance0/Root",
+        "/Resolved/ExportOrigin/Part4": "/PointModels/Instances/_ResolvedInstance1/Root",
+        "/Resolved/ExportOrigin/Part5": "/PointModels/Instances/_ResolvedInstance2/Root"
+      },
+      "export_origin": {
+        "prim": "/Resolved/ExportOrigin",
+        "stage_coordinates": [
+          650000.0000000001,
+          6860000.0,
+          40.0
+        ],
+        "usd_type": "double3 translate",
+        "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
+      },
+      "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+      "normal_arrays": 0,
+      "native_fresh_reader_vertices": 18
+    },
+    {
+      "path": "exports/geographic-scene.usda",
+      "fresh_reader_max_error_metres": 1.5007967348477094e-08,
+      "quantization_metres": 1.5002855227052984e-08,
+      "parts": 1,
+      "vertices": 2,
+      "timeSamples": [
+        5
+      ],
+      "timeCodesPerSecond": 48.0,
+      "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
+      "source_paths": {
+        "/Resolved/ExportOrigin/Part0": "/World/Model/Sample"
+      },
+      "export_origin": {
+        "prim": "/Resolved/ExportOrigin",
+        "stage_coordinates": [
+          6377165.578841701,
+          111313.83923667614,
+          0.0
+        ],
+        "usd_type": "double3 translate",
+        "scene_crs": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],MEMBER[\"World Geodetic System 1984 (G2139)\",ID[\"EPSG\",1309]],MEMBER[\"World Geodetic System 1984 (G2296)\",ID[\"EPSG\",1383]],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",7030]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]]]"
+      },
+      "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+      "normal_arrays": 0,
+      "native_fresh_reader_vertices": 2
+    },
+    {
+      "path": "exports/instances-independent-prototype.usda",
+      "fresh_reader_max_error_metres": 8.018582241415993e-08,
+      "quantization_metres": 8.018582241415993e-08,
+      "parts": 5,
+      "vertices": 15,
+      "timeSamples": [
+        0
+      ],
+      "timeCodesPerSecond": 24.0,
+      "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
+      "source_paths": {
+        "/Resolved/ExportOrigin/Part0": "/Native0/Asset/Geometry",
+        "/Resolved/ExportOrigin/Part1": "/Native1/Asset/Geometry",
+        "/Resolved/ExportOrigin/Part2": "/Native2/Asset/Geometry",
+        "/Resolved/ExportOrigin/Part3": "/PointModels/Instances/_ResolvedInstance0/Root",
+        "/Resolved/ExportOrigin/Part4": "/PointModels/Instances/_ResolvedInstance2/Root"
+      },
+      "export_origin": {
+        "prim": "/Resolved/ExportOrigin",
+        "stage_coordinates": [
+          650000.0000000001,
+          6860000.0,
+          40.0
+        ],
+        "usd_type": "double3 translate",
+        "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
+      },
+      "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+      "normal_arrays": 0,
+      "native_fresh_reader_vertices": 15
+    },
+    {
+      "path": "exports/climate.usda",
+      "samples": 2664,
+      "values_and_masks_preserved": true,
+      "observation_times_preserved": true,
+      "coordinates_preserved": true,
+      "fresh_reader_verified": true,
+      "dependency": "Profiles hard claim retained for absolute measurement coordinates"
+    },
+    {
+      "path": "exports/multi-geographic.usda",
+      "samples": 12,
+      "values_and_masks_preserved": true,
+      "observation_times_preserved": true,
+      "coordinates_preserved": true,
+      "fresh_reader_verified": true,
+      "dependency": "Profiles hard claim retained for absolute measurement coordinates"
+    },
+    {
+      "path": "exports/multi-projected.usda",
+      "samples": 12,
+      "values_and_masks_preserved": true,
+      "observation_times_preserved": true,
+      "coordinates_preserved": true,
+      "fresh_reader_verified": true,
+      "dependency": "Profiles hard claim retained for absolute measurement coordinates"
+    },
+    {
+      "path": "exports/global-3d-geographic.usda",
+      "samples": 154,
+      "values_and_masks_preserved": true,
+      "observation_times_preserved": true,
+      "coordinates_preserved": true,
+      "fresh_reader_verified": true,
+      "dependency": "Profiles hard claim retained for absolute measurement coordinates"
+    },
+    {
+      "path": "exports/time-sampled.usda",
+      "fresh_reader_max_error_metres": 1.5002855227052984e-08,
+      "quantization_metres": 0.0,
+      "parts": 1,
+      "vertices": 2,
+      "timeSamples": [
+        0,
+        5,
+        10
+      ],
+      "timeCodesPerSecond": 48.0,
+      "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
+      "source_paths": {
+        "/Resolved/ExportOrigin/Part0": "/World/Model/Sample"
+      },
+      "export_origin": {
+        "prim": "/Resolved/ExportOrigin",
+        "stage_coordinates": [
+          6378137.0,
+          0.0,
+          0.0
+        ],
+        "usd_type": "double3 translate",
+        "scene_crs": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]"
+      },
+      "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
+      "normal_arrays": 0,
+      "trajectory_between_samples": "No original-trajectory guarantee claimed; Core interpolates exported output samples",
+      "native_fresh_reader_sample_times": [
+        0,
+        5,
+        10
+      ]
+    }
+  ],
+  "hydra": [
+    {
+      "name": "tower",
+      "geometry_readback": {
+        "/Resolved/ExportOrigin/Part0": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Resolved/ExportOrigin/Part1": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Resolved/ExportOrigin/Part2": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Resolved/ExportOrigin/Part3": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 5
+        },
+        "/Resolved/ExportOrigin/Part4": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 4
+        },
+        "/Resolved/ExportOrigin/Part5": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 65532
+        },
+        "/Resolved/ExportOrigin/Part6": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 65533
+        },
+        "/Resolved/ExportOrigin/Part7": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 32351
+        }
+      },
+      "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
+      "renderer": "HdStormRendererPlugin",
+      "vertices": 163440,
+      "image_sha256": "ddebe865ad16e71f3f6b7f0ea14e5ea2577b66ea8001fcedd1f0a8af626142b2"
+    },
+    {
+      "name": "terrain",
+      "geometry_readback": {
+        "/Resolved/ExportOrigin/Part0": {
+          "max_stage_unit_error": 0.0,
+          "vertices": 14359
+        }
+      },
+      "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
+      "renderer": "HdStormRendererPlugin",
+      "vertices": 14359,
+      "image_sha256": "547fe6bec57dcd1c62e4aaebb5f8860dcc688cf41dc344854fb2ab5a08086498"
+    }
+  ],
+  "ov": {
+    "implementation": "Python placement reader with separate stage geometry writeback and readback",
+    "jobs": 39,
+    "geometry_vertices": 177872,
+    "max_writeback_error_metres": 2.9560060847411377e-05,
+    "edit_checks": 48
+  },
+  "postimplementation_audit": {
+    "undocumented_authored_fields": [],
+    "field_usage_counts": {
+      "data:asset": 8,
+      "data:format": 8,
+      "crs:wkt": 193,
+      "crs:orientation": 8,
+      "data:coordinateDomain": 8,
+      "crs:position": 168,
+      "data:field": 8
+    },
+    "source_preserved": true,
+    "source_freeze_preserved": true,
+    "native_binary_sha256": "4bde2a8fb147d1a971120c8cf9da52debbd583e75a309e84fa759b59c379c279",
+    "hydra_binary_sha256": "5d3360e40240d30eaaabe0b3790674f00e414d606b8b31458cde44e51c27c091"
+  },
+  "limitations": [
+    "Input-only meaning and anchor/descendant distinction have supportive feedback. Stored orientation and detailed chart, association, instance and declaration conventions remain candidate definitions.",
+    "Analytically affine geocentric placement has a zero mathematical-error certificate at the evaluated time. General nonlinear continuous-domain and between-sample certificates are unsupported by these adapters and fail visibly.",
+    "Python and C++ share PROJ; OV reuses the Python algorithm and external dataset decoding is shared. Pipeline equivalence is separately reported.",
+    "Hydra consumes a resolved ordinary-USD export from C++ results. This is not a live geospatial scene-index filter. OV runtime geometry writeback is verified; no OV render is claimed.",
+    "Export materializes instances. Authored vertex shading normals are transported and compared between Python/C++ and exported; broader coordinate-bearing primvar consumer coverage remains limited.",
+    "External original climate metadata is incomplete and original railway heights remain uninterpreted; explicit horizontal illustrative associations preserve their useful workflows.",
+    "Geographic output uses an associated geocentric scene chart. Coordinate epochs remain deferred.",
+    "Independent bound prototypes now have a candidate contract and controls. Frame derivatives are numerical estimates, not continuous-domain certificates. Pending author decisions and implementation coverage remain separate."
+  ],
+  "readiness": {
+    "proposal_ready": true,
+    "requirements_build_complete": false,
+    "open_semantic_gap_ids": [],
+    "verification_gaps": [
+      "General nonlinear continuous-domain and between-sample certificates remain visibly unsupported",
+      "Independent normal-transport diagnostics and wider primvar coverage remain necessary",
+      "No executed physics integration, geospatial Hydra filter or Omniverse render",
+      "Both placement readers share PROJ; external-format decoding is shared",
+      "Material bindings and arbitrary namespace-bearing properties need broader bake coverage"
+    ],
+    "pending_design_agreement": [
+      "Preferred authored heading/pitch/roll tuple and explicit pose interpolation await author adoption",
+      "Detailed anchor chart/reset and independently bound instance rules",
+      "Exact external-data association carrier and supported format profiles",
+      "Associated geocentric scene chart for geographic coordinate outputs",
+      "Profiles capability identity, publication and conservative maintenance",
+      "Detailed WKT string normal form and identity/equivalence comparison profile",
+      "Required ordinary double-precision bake-origin representation and sampling/coverage record"
+    ]
+  },
+  "execution_authority": "Explicitly authorized local run using emailed candidate leans; no group agreement or whole-proposal conformance asserted",
+  "input_data_sha256": {
+    "targets.json": "d4213d3e3269d0ce28eba66e8d31f39455ad02a64a71277acb3ab3d823da6609",
+    "data/Colorado/01_NAD83-2011_Geographic3D_Coordinates.csv": "d3d1fb2cf302a86348039a39fa9cbd18ad8d0e01a0d9a9b46febcf21bc10031b",
+    "data/Colorado/01_NAD83-2011_Geographic3D_WKT2.txt": "564a87cce9458225367f7235af8c17615eaf0f25a6a9d69143b64a8341f72317",
+    "data/Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_Coordinates.csv": "8acb27644409b84300ba0b9380bfe70dcd78c26b1e07e35c792727d80929ad6c",
+    "data/Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_WKT2.txt": "7223312af480611f6089dea506d59f96288f8c9a214347d84c105da07dd23dfe",
+    "data/Colorado/03_Westminster_Site_Calibration_Coordinates.csv": "52bebebc5490bc62661fa1c8f8add4d584b5cd70c24cb04ebd6a02d407dd036d",
+    "data/Colorado/03_Westminster_Site_Calibration_WKT2.txt": "0a788ca9a0b444bbaf9fcc06648eea7de3c4acf53e4eeef42bcb8acd8af44521",
+    "data/Colorado/Trimble Westminster Park and Ride LandXML.xml": "0f0be8491c91a4cb38b852d119d9c80ec5190591730cd74a293de361868dac02",
+    "data/France/01_RGF93v2b_CC49_IGN69_Coordinates.csv": "c062096dc9bb4f3f0b0e2e0daf26fb24516b461974fe442aa422ecf2339db672",
+    "data/France/01_RGF93v2b_CC49_IGN69_WKT2.txt": "f23a657b6c53f668eee60d8306bd8d44422fc8c06ff1665c242cdb867aefe6e9",
+    "data/France/02_RGF93v2b_Lambert93_IGN69_Coordinates.csv": "194961025e20fb44a8a1940e01143a124372bba00f3c4f788ba124b872e5e913",
+    "data/France/02_RGF93v2b_Lambert93_IGN69_WKT2.txt": "7fc9a869b1b5eaf26b549e508c5af215513e550843f23bf1f35fef1a4d517819",
+    "data/France/03_RGF93v2b_Geocentric_Coordinates.csv": "359b94a07258e7eedafd3b422078fa0f545ee58769d3e105d410d9614a861fb2",
+    "data/France/03_RGF93v2b_Geocentric_WKT2.txt": "571a3cac4eb3fb580941649dca7d26965772d60a317b217466ddbc80f5144e42",
+    "data/France/04_RGF93v2b_Geographic3D_Coordinates.csv": "cf29098896634f254f73519dcaf6674fa0b197ce92333017287c18b4172b5c03",
+    "data/France/04_RGF93v2b_Geographic3D_WKT2.txt": "08a3d0c2c9ce6525eaca3155c313be805c8e9067b6a41560eb428e819c4bfe05",
+    "data/France/05_ITRF2014_Geocentric_epoch2019.0_Coordinates.csv": "2b153f797f4950608136cbe2d3ba8c5db4d6ce43aa1aeb59eeeec46a50ec78fa",
+    "data/France/05_ITRF2014_Geocentric_epoch2019.0_WKT2.txt": "e6bc6a0a72e666c6d364e4d5dac3f0b4ebb26e83b48f4af105fd352303301c8b",
+    "data/France/06_ITRF2020_Geocentric_epoch2026.5_Coordinates.csv": "2a62393052029a9b5697a361f66a41888fcc30bf55681cf34a90da246e3d31e8",
+    "data/France/06_ITRF2020_Geocentric_epoch2026.5_WKT2.txt": "d4fa5415670d7a4be6d6c491f9b81de304a5a73bf1605a6fd38cdb70444d4a99",
+    "data/gfs_t2m.nc": "025136ab8f2852968e87e58e159cd9167649d84e6ed94501899f7da9c0525c9e",
+    "data/LICENSE-partner.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "data/manifest.json": "0d1713dfce0052f30c47073c85542e19d4d2677093ab58e9dfb38df83a053681",
+    "data/partner-controls.json": "40bc67b20ac899eee6696599ed4e5adab9a7f8d9ac7a08ef22ae2b1a821e1e2e",
+    "data/rail-topology.npz": "045757d007b09ae28e025e1ca48d4efc8691643aafe962af0fd58b72e36634c9",
+    "data/railway.geojson": "885026bb98e36bfd259fece09c4218496f6b20ba463525d746e9299e0edb12b7",
+    "data/README.md": "3cda32be488ac5ac93143cc0377003c51cf48de54d13699bf5c4dc201d01cdbb",
+    "data/resources.json": "d154ae3178b292eb21318215fa85604584fba2cb9dd87781f457e0b6d41e30eb",
+    "data/tower.usdz": "6596585290f066c1567f8e3e70a25c87a190a0df6e67028d0249c1764b5a1fcb",
+    "scenes/city.usda": "d9f1c0d369823f0aa99d8464fc7ed29d24dbf4156e72e5c6a79cb48ba8ac8e0d",
+    "scenes/climate.usda": "4ef8879fc65957172b51112f7d1d410ed22b9af22285f444f1e5611715dc83e2",
+    "scenes/Colorado_01.usda": "2bb38614518886b6e14051f2705c91b235318f259f4ae776f27f756040124ab2",
+    "scenes/Colorado_02.usda": "93e658a4b55f49307daaca584710e0ae732ac39e97219c7415de601d63072bda",
+    "scenes/Colorado_03.usda": "3df9602f8d2edf8498e4847dd19043f836c69a70dc6bb3e27fb6290d528562fa",
+    "scenes/composition.usda": "790ab3e250d20ba76cd9c1ea72e288366acae9e2675c64cffde3ab6102e18c3e",
+    "scenes/default-output.usda": "11aa8f90d0be4cd02dbb85849f5d54205a0d88afdab4d3ef318690ba8be22462",
+    "scenes/France_01.usda": "fa6e12b0a7c400072fd440714b869c9a1d9f73fccec553c90ca2ad5bdaab9c26",
+    "scenes/France_02.usda": "e8ede3bd958b707cd6f6fb3ae8960a996a182c76eaa9b5f171389b8d60acc0b9",
+    "scenes/France_03.usda": "5c43400cc33b2e0f6ad7cf1707f11d4ffe593719a8690e61aba8b721ad524f50",
+    "scenes/France_04.usda": "b4544836a18acf3a01895ae45cf06a4dfb1751aaaed9714b0480d111ab2808f7",
+    "scenes/instance-asset.usda": "9d4cd1fe9b7c6d5f99956fb3edbf1f6db3ba955142d42f490d0ac395824b4c60",
+    "scenes/instances.usda": "72482e500fef267e219aae24cb72624e8466cb90cb88352e8d9de78481d2f531",
+    "scenes/railway.usda": "dd8093f5c0656ffc6aeabcfe658ad2462ce72ca416ea3761e08dc06592123fd2",
+    "scenes/terrain.usda": "d59a603856289fd09c1d39cb0c3bb04a48034fbb0f17811f844431c974855fb0",
+    "scenes/tower.usda": "8618899aca9c73fda50e72964ddb175b6f585530d010b89b06ad451cb173d21d"
+  },
+  "transformation_resource_sha256": {
+    "fr_ign_RAF20.tif": "dc0cc2a38f0ea1029fe72cca3b5b7ed6dfe7e1db2a8d8482b7326ce3d6f25605",
+    "manifest.json": "d154ae3178b292eb21318215fa85604584fba2cb9dd87781f457e0b6d41e30eb",
+    "us_noaa_g2018u0.tif": "fa9a407ac7ee3f5a3694008e4bcd09ce9cc250452f0c3b11700a4960340abce2"
+  },
+  "toolchain": {
+    "native_proj_library_sha256": "51e7addd9f263d721afc2701a94db252043f3de89048078ad852cf536aee91c5",
+    "native_proj_database_sha256": "976d427f037791c88b8d051a452e1fb13157c1c14b6e56d5a868097a4813cb7e",
+    "ov_app_version": "0.1.0"
+  },
+  "delivery_provenance": {
+    "immutable_private_receipt_sha256": "bc2c422dc4a9ec855fe6831a1b6afcd2ef86961db5bc954bd71c74d5ec39d842",
+    "adaptation": "Portable filesystem paths, preserving USD prim identities; masked NaNs serialized as null; OV integration label clarified as stage geometry writeback. Exact executed file hashes and finite results retained."
+  }
+}

@@ -1,0 +1,866 @@
+{
+  "run_receipt_sha256": "c3c0a2225526beb3de79fd3bf050ec4d2676fcf3d8a334d5b29a68f3e6402b4f",
+  "immutable_receipt_sha256": "bc2c422dc4a9ec855fe6831a1b6afcd2ef86961db5bc954bd71c74d5ec39d842",
+  "proposal_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+  "integration_evidence_sha256": "90deeb317f9d1a969687d576515f78211e8882cd5032abfa085174efb5b8ef98",
+  "executed_source_commit": "ba4cce79f41741a4e39ffd32072a4c4171a45a5f",
+  "tests": {
+    "regressions_passed": 88,
+    "distinguishing_controls_passed": 65,
+    "failed": 0
+  },
+  "coordinate_count": 213243,
+  "max_cpp_error_metres": 3.3945759188783683e-08,
+  "ov": {
+    "implementation": "shared candidate Python runtime and PROJ; separate live geometry sink",
+    "jobs": 39,
+    "geometry_vertices": 177872,
+    "max_writeback_error_metres": 2.9560060847411377e-05,
+    "edit_checks": 48
+  },
+  "export_count": 11,
+  "comparison": {
+    "candidate": "model-local descendant",
+    "alternative": "raw working-axis descendant",
+    "candidate_coordinates": [
+      448262.0291841338,
+      5411957.908700555,
+      35.000000704079866
+    ],
+    "alternative_coordinates": [
+      448265.00137536495,
+      5411954.909947274,
+      34.99999999906868
+    ],
+    "difference_metres": 4.222137130780142,
+    "normative_authority": "Evaluation, requirements 9 and 15; alternative is not an adopted contract"
+  },
+  "examples": {
+    "France_01": {
+      "source": [
+        1661099.039,
+        8180053.117,
+        37.298
+      ],
+      "source_label": "CC49",
+      "target_label": "Lambert-93",
+      "unit": "m",
+      "python": [
+        661101.1094171533,
+        6857834.256535667,
+        37.297999998112694
+      ],
+      "native": [
+        661101.1094171533,
+        6857834.256535667,
+        37.298000000906654
+      ],
+      "ov": [
+        661101.1094171533,
+        6857834.256535667,
+        37.297999998112694
+      ]
+    },
+    "Colorado_02": {
+      "source": [
+        3108002.1122,
+        1752265.0666,
+        5482.9424
+      ],
+      "source_label": "State Plane",
+      "target_label": "Westminster site grid",
+      "unit": "ftUS",
+      "python": [
+        3108871.450100667,
+        1206317.4694031866,
+        5484.677949332321
+      ],
+      "native": [
+        3108871.450100667,
+        1206317.469403112,
+        5484.677949268161
+      ],
+      "ov": [
+        3108871.450100667,
+        1206317.4694031866,
+        5484.677949332321
+      ]
+    }
+  },
+  "working_queries": [
+    {
+      "prim": "/World/Asset",
+      "coordinates": [
+        [
+          448262.00137536495,
+          5411954.909947274,
+          34.99999999906868
+        ],
+        [
+          448262.0106449533,
+          5411955.9095317,
+          35.000000077299774
+        ]
+      ]
+    },
+    {
+      "prim": "/World/Asset/Child",
+      "coordinates": [
+        [
+          448262.0291841338,
+          5411957.908700555,
+          35.000000704079866
+        ]
+      ]
+    },
+    {
+      "prim": "/World/Asset/Reset",
+      "coordinates": [
+        [
+          448252.0291841338,
+          5411957.908700555,
+          35.000000704079866
+        ]
+      ]
+    }
+  ],
+  "source_time_coordinates": [
+    [
+      6378137.0,
+      0.0,
+      0.0
+    ],
+    [
+      6377165.5788417,
+      111313.83923667613,
+      0.0
+    ],
+    [
+      6374251.6112710945,
+      222593.77119959943,
+      0.0
+    ]
+  ],
+  "chord_error_metres": 971.4211583005459,
+  "dataset_counts": {
+    "global_samples": 154,
+    "railway_vertices": 15822,
+    "railway_parts": 2386
+  },
+  "readme_sha256": "e7a38c47715e43994a8c44f1474cd6c4a0e924aab1ae63af557fc405cff0a90e",
+  "narrative_version": 1,
+  "audience": "Readers who may be unfamiliar with both geospatial concepts and OpenUSD",
+  "purpose": "Assess whether the proposal supplies sufficient, consistent data and observable rules for another implementer to derive meaningful results and tests",
+  "opening": "USD describes a 3D model's shape and size. Geospatial information says where it belongs on Earth, so models, surveys and measurements can work together.",
+  "assessment": "The full follow-up now starts from placement authoring: a readable heading/pitch/roll input, with explicit physical meaning and sample evaluation. The focused requirements baseline remains separate.",
+  "summary": "All 105 prior case comparisons remain within their existing acceptance limits. New orientation and composition controls pass. Normal sampling remains unresolved; the preferred HPR model still needs group adoption.",
+  "cases": [
+    {
+      "id": "inputs",
+      "kind": "explanation",
+      "title": "A geographic location for a 3D model",
+      "question": "Can a reader distinguish the model's shape from its location on Earth?",
+      "rule": "The scene records local geometry separately from its geographic origin and physical orientation. A coordinate reference system (CRS) defines how to interpret the origin's axes, units and height.",
+      "expected": "A reader has enough source information to place the model, without interpreting longitude or latitude as a distance or adding computed results to the source schema.",
+      "observed": "The source stores a single double3 heading/pitch/roll tuple in degrees. The rules define its true-north/ellipsoid-up meaning, rotation order and time-sample evaluation; computed quaternions stay transient.",
+      "implication": "The proposed representation follows the concrete authoring workflow. New checks show that reading, editing and composing these inputs produces the specified physical pose.",
+      "boundary": "This is the preferred local candidate, not group adoption. At +170 and -170 degrees the readers pass through 180 degrees; ordinary tuple interpolation would face 0 degrees.",
+      "requirement_ids": [
+        9,
+        10,
+        12,
+        14,
+        15
+      ],
+      "clause_heading": "#### Authored properties",
+      "clause_line": 1532,
+      "requirements": [
+        {
+          "id": 9,
+          "title": "Positions, and offsets from them.",
+          "line": 779
+        },
+        {
+          "id": 10,
+          "title": "Offsets along the axes of their position.",
+          "line": 800
+        },
+        {
+          "id": 12,
+          "title": "No angle read as a length.",
+          "line": 836
+        },
+        {
+          "id": 14,
+          "title": "Scene conventions stay the scene's.",
+          "line": 862
+        },
+        {
+          "id": 15,
+          "title": "Placement separate from conformance.",
+          "line": 875
+        }
+      ]
+    },
+    {
+      "id": "coordinates",
+      "kind": "illustration",
+      "title": "One physical place, different coordinates",
+      "question": "Does changing coordinate systems preserve physical placement?",
+      "rule": "CRS conversion expresses the same physical placement using different coordinates. The reader computes projection effects instead of recording them as additional source properties.",
+      "expected": "Longitude and latitude can become map east and north coordinates while the tower stays at the same physical place.",
+      "observed": "The illustration converts longitude, latitude and height into map coordinates. The physical site stays the same; map north and local scale can differ.",
+      "implication": "The proposed rules distinguish a new coordinate representation from a physical move. An image explains this distinction; numerical controls must test it.",
+      "boundary": "The location, height and orientation are illustrative. This image explains the proposed math and does not verify surveyed Paris placement.",
+      "requirement_ids": [
+        9,
+        12,
+        13,
+        16,
+        19
+      ],
+      "clause_heading": "### Source placement evaluation and transform order",
+      "image": {
+        "path": "figures/03-crs-resolved.png",
+        "role": "informative illustration",
+        "alt": "Illustrative Eiffel origin changes from longitude, latitude and height to map coordinates while physical placement stays the same"
+      },
+      "clause_line": 1830,
+      "requirements": [
+        {
+          "id": 9,
+          "title": "Positions, and offsets from them.",
+          "line": 779
+        },
+        {
+          "id": 12,
+          "title": "No angle read as a length.",
+          "line": 836
+        },
+        {
+          "id": 13,
+          "title": "One axis mapping.",
+          "line": 850
+        },
+        {
+          "id": 16,
+          "title": "One CRS out.",
+          "line": 887
+        },
+        {
+          "id": 19,
+          "title": "Resolution leaves the scene as authored.",
+          "line": 937
+        }
+      ]
+    },
+    {
+      "id": "adjustments",
+      "kind": "illustration",
+      "title": "Ordinary model adjustments after placement",
+      "question": "In which coordinates do an author's scale, rotation and translation operate?",
+      "rule": "On an object with its own CRS binding, ordinary USD transforms (xformOps) adjust the resolved placement in a fixed project working frame. The requested output CRS does not reinterpret those adjustment values.",
+      "expected": "A project adjustment moves or resizes the placed model while its source geospatial inputs remain unchanged. The proposal separately specifies how child transforms retain model-local meaning.",
+      "observed": "The illustration applies scale 1.15, rotation 20 degrees, then moves 120 m east and 60 m south. A child-transform control separates two interpretations by 4.222 m.",
+      "implication": "Order changes the result. The control tests the agreed anchor/child distinction while detailed chart and instance conventions remain candidates.",
+      "boundary": "The image is informative. Feedback supports project adjustments versus model-local child offsets; detailed rules still need review.",
+      "requirement_ids": [
+        9,
+        14,
+        15,
+        17,
+        19
+      ],
+      "clause_heading": "#### Evaluation",
+      "image": {
+        "path": "figures/05-usd-translate.png",
+        "role": "informative illustration",
+        "alt": "Illustrative Eiffel tower moves east and south after ordinary scale and rotation, with its previous position outlined in blue"
+      },
+      "clause_line": 1930,
+      "requirements": [
+        {
+          "id": 9,
+          "title": "Positions, and offsets from them.",
+          "line": 779
+        },
+        {
+          "id": 14,
+          "title": "Scene conventions stay the scene's.",
+          "line": 862
+        },
+        {
+          "id": 15,
+          "title": "Placement separate from conformance.",
+          "line": 875
+        },
+        {
+          "id": 17,
+          "title": "The same answer for every consumer.",
+          "line": 907
+        },
+        {
+          "id": 19,
+          "title": "Resolution leaves the scene as authored.",
+          "line": 937
+        }
+      ]
+    },
+    {
+      "id": "readers",
+      "kind": "evidence",
+      "title": "The same rules in two placement readers",
+      "question": "Can separate implementations derive the same coordinates from the proposed inputs and rules?",
+      "rule": "Consumers use the same declared coordinate meanings and resolution rules for a requested output. Agreement must be assessed with declared units and numerical evidence.",
+      "expected": "Python and C++ readers resolve the same partner points into matching output coordinates within the recorded tolerance.",
+      "observed": "France and Colorado points resolve through both readers. The maximum measured difference over the recorded coordinates is 3.39e-08 m.",
+      "implication": "The compared cases support reproducible interpretation of the proposed placement rules. They do not establish coverage of every rule or every input layout.",
+      "boundary": "Both readers use PROJ and share dataset decoding. Agreement is limited to tested domains and is not independent geodetic validation.",
+      "requirement_ids": [
+        4,
+        13,
+        16,
+        17,
+        18,
+        28,
+        29
+      ],
+      "clause_heading": "### Extent and result comparison",
+      "clause_line": 2085,
+      "requirements": [
+        {
+          "id": 4,
+          "title": "A site's own grid is a CRS like any other.",
+          "line": 676
+        },
+        {
+          "id": 13,
+          "title": "One axis mapping.",
+          "line": 850
+        },
+        {
+          "id": 16,
+          "title": "One CRS out.",
+          "line": 887
+        },
+        {
+          "id": 17,
+          "title": "The same answer for every consumer.",
+          "line": 907
+        },
+        {
+          "id": 18,
+          "title": "Coordinates back out.",
+          "line": 922
+        },
+        {
+          "id": 28,
+          "title": "A result says what produced it.",
+          "line": 1104
+        },
+        {
+          "id": 29,
+          "title": "Implementable from the text alone.",
+          "line": 1122
+        }
+      ]
+    },
+    {
+      "id": "bake",
+      "kind": "evidence",
+      "title": "Ordinary USD geometry for rendering",
+      "question": "Can a renderer use the result without implementing geospatial evaluation?",
+      "rule": "An explicit bake creates a derived copy containing resolved geometry and ordinary transforms. It retains the output coordinate context and applies each placement effect once.",
+      "expected": "A USD renderer reads the derived copy as ordinary geometry while the source scene keeps its authored geospatial inputs.",
+      "observed": "Native Hydra/Storm renders the ordinary USD bake. A double-precision origin keeps local points small; fresh readers recover the placement.",
+      "implication": "Unaware viewers receive resolved ordinary geometry. Fresh checks reject duplicate meshes and retain an unrelated applied schema.",
+      "boundary": "This is a recorded native render. General materials, primvars and continuous coverage remain unverified.",
+      "requirement_ids": [
+        17,
+        19,
+        23,
+        25,
+        29
+      ],
+      "clause_heading": "### Explicit export and sampling",
+      "image": {
+        "path": "renders/tower.png",
+        "role": "recorded native render",
+        "alt": "Actual Hydra Storm render of the ordinary USD Eiffel bake on an illustrative ground plane"
+      },
+      "clause_line": 2138,
+      "requirements": [
+        {
+          "id": 17,
+          "title": "The same answer for every consumer.",
+          "line": 907
+        },
+        {
+          "id": 19,
+          "title": "Resolution leaves the scene as authored.",
+          "line": 937
+        },
+        {
+          "id": 23,
+          "title": "Detail that does not depend on location.",
+          "line": 1043
+        },
+        {
+          "id": 25,
+          "title": "Additive for consumers that ignore it.",
+          "line": 1067
+        },
+        {
+          "id": 29,
+          "title": "Implementable from the text alone.",
+          "line": 1122
+        }
+      ]
+    },
+    {
+      "id": "measurements",
+      "kind": "evidence",
+      "title": "Measurements stay paired with their locations",
+      "question": "Can the scene make a native measurement dataset usable without rewriting its values or guessing what its coordinates mean?",
+      "rule": "The scene identifies the asset, field and coordinate domain. The reader resolves sample locations while preserving their association with values, missing-data masks and observation times.",
+      "expected": "The same sample keeps the same measurement value and observation time whether its location is returned as longitude/latitude/height or Earth-centred Cartesian coordinates.",
+      "observed": "The synthetic global temperature case returns both coordinate forms for 154 samples and preserves the native values and two observation times.",
+      "implication": "The example exercises larger-scale analytical use, beyond model rendering. The proposal's association rule also identifies the later shared-decoder mistake as a failure.",
+      "boundary": "The values are synthetic. Named-dimension associations are independently tested; agreeing readers alone cannot verify shared decoding.",
+      "requirement_ids": [
+        8,
+        12,
+        18,
+        19,
+        21,
+        30
+      ],
+      "clause_heading": "### External measurement association",
+      "image": {
+        "path": "plots/global-3d.png",
+        "role": "plot of recorded synthetic data",
+        "alt": "Synthetic global temperature values shown at their longitude and latitude locations"
+      },
+      "clause_line": 1630,
+      "requirements": [
+        {
+          "id": 8,
+          "title": "Brought-in data keeps its coordinates and its CRS.",
+          "line": 753
+        },
+        {
+          "id": 12,
+          "title": "No angle read as a length.",
+          "line": 836
+        },
+        {
+          "id": 18,
+          "title": "Coordinates back out.",
+          "line": 922
+        },
+        {
+          "id": 19,
+          "title": "Resolution leaves the scene as authored.",
+          "line": 937
+        },
+        {
+          "id": 21,
+          "title": "Never placed by a guess.",
+          "line": 973
+        },
+        {
+          "id": 30,
+          "title": "Measurements remain usable as data.",
+          "line": 1008
+        }
+      ]
+    },
+    {
+      "id": "colorado",
+      "kind": "evidence",
+      "title": "A construction site's own survey grid",
+      "question": "Can a project's local survey grid participate as a defined CRS?",
+      "rule": "Site calibration records how a local survey grid relates to a broader coordinate system. The source WKT, a standard text description, carries that relationship and its units.",
+      "expected": "The partner survey resolves into the calibrated site grid using US survey feet, separately from the scene's model units and up direction.",
+      "observed": "The original LandXML survey breaklines resolve and reach an ordinary USD bake rendered by Storm.",
+      "implication": "The case supports a site's calibrated CRS using partner survey lines. It does not establish independent survey accuracy.",
+      "boundary": "The image shows survey breaklines. It does not independently validate the survey or certify a continuous terrain surface.",
+      "requirement_ids": [
+        4,
+        14,
+        15,
+        17
+      ],
+      "clause_heading": "#### Decision on question 7: site calibration",
+      "image": {
+        "path": "renders/terrain.png",
+        "role": "recorded native render",
+        "alt": "Actual Storm render of resolved Colorado survey breaklines in the calibrated site grid"
+      },
+      "clause_line": 1303,
+      "requirements": [
+        {
+          "id": 4,
+          "title": "A site's own grid is a CRS like any other.",
+          "line": 676
+        },
+        {
+          "id": 14,
+          "title": "Scene conventions stay the scene's.",
+          "line": 862
+        },
+        {
+          "id": 15,
+          "title": "Placement separate from conformance.",
+          "line": 875
+        },
+        {
+          "id": 17,
+          "title": "The same answer for every consumer.",
+          "line": 907
+        }
+      ]
+    },
+    {
+      "id": "railway",
+      "kind": "evidence",
+      "title": "Useful horizontal placement without invented height",
+      "question": "Can incomplete source metadata still support an honestly limited workflow?",
+      "rule": "A consumer does not invent missing coordinate meaning. An explicitly horizontal association can support horizontal resolution while leaving uninterpreted third components unchanged.",
+      "expected": "The horizontal copy resolves into the UTM 32 map system. The original GeoJSON remains unchanged, and no height reference is guessed.",
+      "observed": "The horizontal railway copy resolves 15,822 vertices across 2,386 parts. The plot uses display-only offsets.",
+      "implication": "This case exercises visible limits on interpretation, not a silent assumption that every three-number tuple is a valid geographic 3D position.",
+      "boundary": "The original third components remain uninterpreted. This demonstration supports horizontal placement only.",
+      "requirement_ids": [
+        8,
+        12,
+        19,
+        21
+      ],
+      "clause_heading": "### External measurement association",
+      "image": {
+        "path": "plots/railway.png",
+        "role": "plot of recorded resolved geometry",
+        "alt": "Railway horizontal coordinates expressed in UTM 32 with display-only plotting offsets"
+      },
+      "clause_line": 1630,
+      "requirements": [
+        {
+          "id": 8,
+          "title": "Brought-in data keeps its coordinates and its CRS.",
+          "line": 753
+        },
+        {
+          "id": 12,
+          "title": "No angle read as a length.",
+          "line": 836
+        },
+        {
+          "id": 19,
+          "title": "Resolution leaves the scene as authored.",
+          "line": 937
+        },
+        {
+          "id": 21,
+          "title": "Never placed by a guess.",
+          "line": 973
+        }
+      ]
+    },
+    {
+      "id": "animation",
+      "kind": "evidence",
+      "title": "Animation evaluation order",
+      "question": "Does the proposal say how to resolve positions between authored moments?",
+      "rule": "Interpolate the authored source location first, then convert coordinates. Interpolating already-converted endpoints can produce a different path.",
+      "expected": "At the middle sample, both readers return the converted source-interpolated position. An ordinary bake states exactly which samples it preserves.",
+      "observed": "In the equatorial test, the source longitude spans 0 to 2 degrees. Interpolating converted endpoints misses the source-first midpoint by 971.421 m.",
+      "implication": "The distinguishing control makes the ordering rule testable. Preserving sample times alone cannot prove preservation of the original trajectory between samples.",
+      "boundary": "Position interpolation is shown here. HPR wrap, held samples, reference offsets and value clips pass separate controls.",
+      "requirement_ids": [
+        20,
+        29
+      ],
+      "clause_heading": "#### Evaluation",
+      "clause_line": 1930,
+      "requirements": [
+        {
+          "id": 20,
+          "title": "Positions between recorded moments.",
+          "line": 956
+        },
+        {
+          "id": 29,
+          "title": "Implementable from the text alone.",
+          "line": 1122
+        }
+      ]
+    }
+  ],
+  "status_rows": [
+    [
+      "Proposal definitions",
+      "A focused requirements baseline is separate from the full candidate used for execution. Supported meaning and pending conventions are distinguished."
+    ],
+    [
+      "Newly confirmed model gap",
+      "No additional undefined model rule was confirmed in reviewed paths. This is a scoped assessment, not an exhaustive completeness proof."
+    ],
+    [
+      "Implementation evidence",
+      "The selected cases work. 6 prior defects pass fresh counterexamples; 1 remains unresolved."
+    ],
+    [
+      "Deferred capabilities",
+      "Coordinate epochs and scene-authored transformation resources remain on the roadmap. Initial choices must preserve a path to adding them."
+    ]
+  ],
+  "input_rows": [
+    [
+      "Model geometry",
+      "Shape and local distances, with declared model units and up direction. In USD: points, metersPerUnit and upAxis."
+    ],
+    [
+      "Coordinate reference",
+      "A CRS binding refers to WKT, the standard text description of the location's axes, units and height meaning."
+    ],
+    [
+      "Geographic origin",
+      "crs:position locates the model origin. The illustrative example uses longitude 2.2945 degrees, latitude 48.8584 degrees and ellipsoidal height 80 m."
+    ],
+    [
+      "Physical orientation",
+      "crs:orientation stores heading, pitch and roll in degrees: which way the model faces and tilts at its origin."
+    ]
+  ],
+  "issue_rows": [
+    [
+      "Surface lighting directions",
+      "Remaining: normal sampling has no justified domain/error bound; projected difference about 1.24 degrees."
+    ],
+    [
+      "Repeated models",
+      "Corrected: an unbound library prototype receives its instancer placement in both readers."
+    ],
+    [
+      "Baked geometry",
+      "Corrected: two source meshes yield exactly two baked meshes; extras are rejected."
+    ],
+    [
+      "Measurement locations",
+      "Corrected: all six measurements retain the coordinates declared by dimension names."
+    ],
+    [
+      "Other scene information",
+      "Corrected: the bake retains MotionAPI and its velocity-scale value."
+    ],
+    [
+      "Error reporting",
+      "Corrected: reports include component errors, magnitudes and angular errors."
+    ],
+    [
+      "Invalid input detection",
+      "Corrected: both readers reject an invalid child placement field."
+    ]
+  ],
+  "placement_choice_rows": [
+    [
+      "Physical orientation",
+      "Preferred HPR tuple in degrees, with explicit pose interpolation. Authored inputs only; adoption pending."
+    ],
+    [
+      "The object with its own georeference",
+      "Project adjustment meaning is supported. The detailed fixed working-frame convention remains a candidate."
+    ],
+    [
+      "Child objects",
+      "Model-local meaning is supported. The follow-up specifies chart/reset details and tests that offsets retain their interpretation."
+    ],
+    [
+      "Independently georeferenced repeated models",
+      "Keep a prototype's own geographic placement and apply each instance effect once."
+    ],
+    [
+      "Geographic queries and scene geometry",
+      "Return longitude/latitude/height for geographic queries. Cartesian geometry and bounds use the datum's Earth-centred frame."
+    ]
+  ],
+  "data_choice_rows": [
+    [
+      "Native data association",
+      "Name the asset, format, field and coordinate domain. Preserve the association between values, locations and observation times."
+    ],
+    [
+      "WKT string normalization",
+      "A prescribed text form supports token comparison. Different normalized texts can still describe equivalent CRSs."
+    ],
+    [
+      "Semantic CRS comparison",
+      "Specify equivalence criteria and the comparison domain, accounting for relevant axes, units and metadata."
+    ],
+    [
+      "Dependency declaration using Profiles",
+      "Declare the composed scene's need for geospatial interpretation, including unloaded content. Writers and assemblers maintain the declaration."
+    ],
+    [
+      "Baked output context",
+      "Record a Cartesian CRS and ordinary double-precision origin. Preserve precision and space/time coverage."
+    ]
+  ],
+  "evidence_rows": [
+    [
+      "Python and C++ readers",
+      "213,243 coordinate results per reader. Maximum measured difference 3.39e-08 m. They share PROJ and native dataset decoding."
+    ],
+    [
+      "Omniverse stage geometry integration",
+      "Reuses Python placement. Recorded readback covers 177,872 geometry vertices and 48 edit, failure and recovery checks, across 39 jobs."
+    ],
+    [
+      "Hydra / Storm",
+      "Two selected ordinary USD bakes reach native rendering. This consumer path uses the C++ placement results."
+    ],
+    [
+      "Recorded tests",
+      "88 regressions and 65 distinguishing controls passed. Fresh independent diagnostics verify six repairs and retain the unresolved normal case."
+    ],
+    [
+      "Source preservation",
+      "Original inputs and all frozen execution files remained unchanged during this run. The immutable receipt identifies the exact executed content."
+    ],
+    [
+      "Bake readbacks",
+      "11 selected exports were checked. The fresh nested-geometry counterexample verifies the complete inventory, including unexpected extras."
+    ]
+  ],
+  "audit_sha256": "2c11e5d97389f5cdcabab87f586d0511c5d6e4e8bdc0b2bd4cdcbfdb7f9d783c",
+  "assessment_sha256": "9c2fceaa6f1029cffd6122734bda0200c7dff93e0bd7890df357effb28523774",
+  "provenance_disposition": "Fresh October 8 execution of the local stacked follow-up, with clause-traced adapter repairs and repeated independent diagnostics. No changes have been published.",
+  "run_comparison": {
+    "explanation": "This run tests the full model/runtime follow-up after choosing the authoring representation. The focused terms/requirements branch is unchanged.",
+    "rows": [
+      [
+        "Review scope",
+        "All 31 requirement IDs remain. The requirements-only branch is unchanged; this run uses the full local follow-up."
+      ],
+      [
+        "Authoring workflow",
+        "A single authored heading/pitch/roll tuple lets authors read and correct physical placement directly. It is the preferred candidate, not group consensus."
+      ],
+      [
+        "Time and composition",
+        "Select composed HPR samples, convert each to a pose, then interpolate. Reference time offsets, value clips and shortest-path wrap have fresh controls."
+      ],
+      [
+        "Retained protections",
+        "Dimension-name ordering, invalid-placement failures and required precision-preserving ordinary USD bakes are explicit."
+      ],
+      [
+        "Numerical results",
+        "All 105 prior comparisons pass existing acceptance limits; 102 are exactly equal. Four orientation jobs extend reader and consumer coverage."
+      ],
+      [
+        "Implementation audit",
+        "Six counterexamples pass after repair; normal sampling still lacks justified approximation evidence."
+      ],
+      [
+        "Alignment",
+        "Input-only physical meaning and anchor/descendant distinction have supportive feedback. Preferred HPR storage and detailed carrier/chart conventions await adoption."
+      ]
+    ]
+  },
+  "main_slide_count": 8,
+  "appendix_slide_count": 6,
+  "required_native_table_slides": [
+    2,
+    5,
+    8,
+    12,
+    13,
+    14
+  ],
+  "required_native_chart_slides": [
+    11
+  ],
+  "slides": [
+    {
+      "title": "Geospatial proposal assessment",
+      "section": "Assessment of the proposal",
+      "kind": "assessment"
+    },
+    {
+      "title": "A geographic location for a 3D model",
+      "section": "A geographic location for a 3D model",
+      "case": "inputs",
+      "kind": "explanation"
+    },
+    {
+      "title": "One physical place, different coordinates",
+      "section": "One physical place, different coordinates",
+      "case": "coordinates",
+      "kind": "illustration"
+    },
+    {
+      "title": "Ordinary model adjustments after placement",
+      "section": "Ordinary model adjustments after placement",
+      "case": "adjustments",
+      "kind": "illustration"
+    },
+    {
+      "title": "The same rules in two placement readers",
+      "section": "The same rules in two placement readers",
+      "case": "readers",
+      "kind": "evidence"
+    },
+    {
+      "title": "Ordinary USD geometry for rendering",
+      "section": "Ordinary USD geometry for rendering",
+      "case": "bake",
+      "kind": "evidence"
+    },
+    {
+      "title": "Measurements stay paired with their locations",
+      "section": "Measurements stay paired with their locations",
+      "case": "measurements",
+      "kind": "evidence"
+    },
+    {
+      "title": "Fresh independent audit",
+      "section": "Fresh independent audit",
+      "kind": "audit"
+    },
+    {
+      "title": "Appendix: A construction site's own survey grid",
+      "section": "A construction site's own survey grid",
+      "case": "colorado",
+      "kind": "evidence"
+    },
+    {
+      "title": "Appendix: Useful horizontal placement without invented height",
+      "section": "Useful horizontal placement without invented height",
+      "case": "railway",
+      "kind": "evidence"
+    },
+    {
+      "title": "Appendix: Animation evaluation order",
+      "section": "Animation evaluation order",
+      "case": "animation",
+      "kind": "evidence"
+    },
+    {
+      "title": "Appendix: Placement choices under review",
+      "section": "Proposed choices awaiting agreement",
+      "kind": "placement_choices"
+    },
+    {
+      "title": "Appendix: Data and declaration choices",
+      "section": "Proposed choices awaiting agreement",
+      "kind": "data_choices"
+    },
+    {
+      "title": "Appendix: Evidence and its limits",
+      "section": "Detailed evidence",
+      "kind": "evidence"
+    }
+  ]
+}

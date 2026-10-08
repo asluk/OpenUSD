@@ -1,0 +1,11 @@
+{
+    "geometry_readback": {
+        "/Resolved/ExportOrigin/Part0": {
+            "max_stage_unit_error": 0.0,
+            "vertices": 14359
+        }
+    },
+    "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
+    "renderer": "HdStormRendererPlugin",
+    "vertices": 14359
+}

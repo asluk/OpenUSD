@@ -1,0 +1,127 @@
+{
+  "inspection_performed_by": "Codex agent",
+  "user_comprehension_test_performed": false,
+  "rendered_readme_inspected": true,
+  "readme_sha256": "e7a38c47715e43994a8c44f1474cd6c4a0e924aab1ae63af557fc405cff0a90e",
+  "pptx_sha256": "28226792f9b1149779a578d2bf7d1bda348d4edee2f5805b93de2d39a0fee4ce",
+  "pdf_sha256": "cb0319e1252a3cfa29a1535f9446c5e42bc4f30ba599d0aaa8cf0a99d5b8d5b0",
+  "slides": [
+    {
+      "slide": 1,
+      "inspected": true,
+      "image_sha256": "a514b0db87a0708284ac5d6ebf8335841f406ad55840f87ca33c60fd23d4ce3d"
+    },
+    {
+      "slide": 2,
+      "inspected": true,
+      "image_sha256": "b1f82584a7ef06ffa1970d5eafcdcaf443d9c3d6e8913e021dd198e9a7678110"
+    },
+    {
+      "slide": 3,
+      "inspected": true,
+      "image_sha256": "03da99bbaf2e21c1a11626d89931fc528a96f971be9388a897994de8160f008a"
+    },
+    {
+      "slide": 4,
+      "inspected": true,
+      "image_sha256": "49380e1f5fabc07527a12f93ab30f1171a76c1cdc238cc68ff68ab1033698c4a"
+    },
+    {
+      "slide": 5,
+      "inspected": true,
+      "image_sha256": "d2170e38d762cdbf1efffb022cfe762d67ced47a00893e26fa221e3b62524e02"
+    },
+    {
+      "slide": 6,
+      "inspected": true,
+      "image_sha256": "b36f5b18e1d95d91c03564593c5f3571afe75dffa985e35074c3e9e360918607"
+    },
+    {
+      "slide": 7,
+      "inspected": true,
+      "image_sha256": "9bd56a125f22e863c7bb8cf532d41116a9ec664021e339d21d920a4309bc1ba2"
+    },
+    {
+      "slide": 8,
+      "inspected": true,
+      "image_sha256": "d8cdf9bc5562f27012e5ba09768fc239e72ea1651ab969f83f5776733c554230"
+    },
+    {
+      "slide": 9,
+      "inspected": true,
+      "image_sha256": "0f7a433a5b82208fae69edaa786afb98390fff474abe293bb1037a057008aab2"
+    },
+    {
+      "slide": 10,
+      "inspected": true,
+      "image_sha256": "8c01256407c205cab4c69d471ef45105b2b8a7639c87389b7c8dec961fab6afe"
+    },
+    {
+      "slide": 11,
+      "inspected": true,
+      "image_sha256": "0c8e5936a6c495085efe50ae378e83b48fd76ef6414c74c759a9c44d45cd39e3"
+    },
+    {
+      "slide": 12,
+      "inspected": true,
+      "image_sha256": "cb1e40bfce18b54534368f1c855c33df42d9adf63d67319b9d12245ed4a48d87"
+    },
+    {
+      "slide": 13,
+      "inspected": true,
+      "image_sha256": "2c3cd0fa0018e9dcd82757b548c73e1463f80125e8f67720cfb0f8fe38375827"
+    },
+    {
+      "slide": 14,
+      "inspected": true,
+      "image_sha256": "db06adac656cc6b03f9570020c22c227d779b31b454bf869884bd2cc8c968277"
+    }
+  ],
+  "unresolved_layout_findings": [],
+  "native_powerpoint_rendering_inspected": true,
+  "estimator_warning_count": 7,
+  "estimator_warning_disposition": "All 14 final native PowerPoint renders were inspected individually. The estimated table/text overflow warnings did not appear as clipping or overlap in those renders.",
+  "content_checks": [
+    "Source inputs distinguished from runtime outputs",
+    "Illustrative Eiffel sequence labelled informative",
+    "Synthetic measurements labelled synthetic",
+    "Native Hydra/Storm renders labelled recorded",
+    "Two placement implementations; Omniverse reuses Python",
+    "Six repaired audit findings and unresolved normal sampling shown",
+    "Supported physical meaning distinguished from candidate storage details",
+    "Preferred HPR follows authoring workflow; interpolation converts composed samples before pose interpolation"
+  ],
+  "readme_render_check": {
+    "images": [
+      {
+        "src": "delivery/figures/03-crs-resolved.png",
+        "loaded": true
+      },
+      {
+        "src": "delivery/figures/05-usd-translate.png",
+        "loaded": true
+      },
+      {
+        "src": "delivery/renders/tower.png",
+        "loaded": true
+      },
+      {
+        "src": "delivery/plots/global-3d.png",
+        "loaded": true
+      },
+      {
+        "src": "delivery/renders/terrain.png",
+        "loaded": true
+      },
+      {
+        "src": "delivery/plots/railway.png",
+        "loaded": true
+      }
+    ],
+    "horizontal_overflow": false,
+    "tables": 9,
+    "headings": 20
+  },
+  "claim_boundary": "Artifact inspection by Codex; no human comprehension test or independent geodetic certification.",
+  "inspection_evidence": "All first revision slide images inspected individually; the corrected final revision has identical pixels on 13 slides, and the changed slide 11 was inspected again. README opening, comparison, demonstrations, audit, choices and evidence were inspected."
+}
