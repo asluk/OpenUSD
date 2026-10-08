@@ -2,112 +2,124 @@
   "inspection_performed_by": "Codex agent",
   "user_comprehension_test_performed": false,
   "rendered_readme_inspected": true,
-  "readme_sha256": "516b20d0c5b90558e7659c4ca71b2f2741d929c1a41d2427ac823f265f49b730",
-  "pptx_sha256": "18ba41bb11adfd36b8e23e362095cbc58048b18813c127b448aea6c97c82e048",
-  "pdf_sha256": "37fcae36208e5c100844f96ae8f38f8022be85998ec4a3624d24495fe6841f74",
+  "readme_sha256": "708a3b5c2d26a82e32e7ec3c381c2ebb7cda8274fd4567709f98d76d85ca8f6c",
+  "pptx_sha256": "57633639dac31dcc0e40dfea1bbb85e75c3a9ee052b811045754e26d5008f691",
+  "pdf_sha256": "b3e9d1bff261bf0f64dbede8ce37387faf58dfda1583cc4ecfea6e4963c975a5",
   "slides": [
     {
-      "number": 1,
+      "slide": 1,
       "inspected": true,
-      "image_sha256": "a11fed84f60a9513abc9413f17f3b6f9d889ebdcd621a77508f86810a68b4f97"
+      "image_sha256": "76172dc6a22488927bba574021a0ccc1ead9edb0c2840ae0eccfc95625939474"
     },
     {
-      "number": 2,
+      "slide": 2,
       "inspected": true,
       "image_sha256": "d291d8a9b8b24339ac652a610583d5ca789113238c75f51daea7d79a0aabfad7"
     },
     {
-      "number": 3,
+      "slide": 3,
       "inspected": true,
       "image_sha256": "03da99bbaf2e21c1a11626d89931fc528a96f971be9388a897994de8160f008a"
     },
     {
-      "number": 4,
+      "slide": 4,
       "inspected": true,
-      "image_sha256": "288e7e08cbada8069ade4141d706871afae5a2bb07e80f49cc635fefdd52b0e5"
+      "image_sha256": "49380e1f5fabc07527a12f93ab30f1171a76c1cdc238cc68ff68ab1033698c4a"
     },
     {
-      "number": 5,
+      "slide": 5,
       "inspected": true,
-      "image_sha256": "d056f3a6f98b22271e27f30dfbc5a94022faa56eab5fa28933c34da562566153"
+      "image_sha256": "d2170e38d762cdbf1efffb022cfe762d67ced47a00893e26fa221e3b62524e02"
     },
     {
-      "number": 6,
+      "slide": 6,
       "inspected": true,
-      "image_sha256": "87bf70d06b92ceb0f1e835b7f3710f44fd62038ea778f7bf2bbfcfda420591dd"
+      "image_sha256": "5a5ba91faa4c2dd93ffe205ba5781308d63b12a63e000db55352e09fd837724f"
     },
     {
-      "number": 7,
+      "slide": 7,
       "inspected": true,
-      "image_sha256": "84cef6c37ae96f885d2c3439ef2da50c1102d5c95e92d8f3e87b1e30033dc7ab"
+      "image_sha256": "fc89bf1fb260ddde20b32ffa7b8098dcf4ec17dc2f109ff5e1e6db240085971e"
     },
     {
-      "number": 8,
+      "slide": 8,
       "inspected": true,
-      "image_sha256": "7bae68b193fb7f8017257b76ca1cc63fe0c7bc2d0b2fe51fd74757cabcee174b"
+      "image_sha256": "d8cdf9bc5562f27012e5ba09768fc239e72ea1651ab969f83f5776733c554230"
     },
     {
-      "number": 9,
+      "slide": 9,
       "inspected": true,
       "image_sha256": "0f7a433a5b82208fae69edaa786afb98390fff474abe293bb1037a057008aab2"
     },
     {
-      "number": 10,
+      "slide": 10,
       "inspected": true,
       "image_sha256": "8c01256407c205cab4c69d471ef45105b2b8a7639c87389b7c8dec961fab6afe"
     },
     {
-      "number": 11,
+      "slide": 11,
       "inspected": true,
       "image_sha256": "91af0ef205255796af8a2ec9c27bd8961b6877701c0d9bda0d042a1a89981230"
     },
     {
-      "number": 12,
+      "slide": 12,
       "inspected": true,
-      "image_sha256": "6266068438870cb15790fbac093293baf459cfb79c6942bd3266b49a3eb40f7a"
+      "image_sha256": "e0182eb25ed19aa681740cfe391d392ca0b2b2282cf33d60579a473d466869ea"
     },
     {
-      "number": 13,
+      "slide": 13,
       "inspected": true,
-      "image_sha256": "c2e89b5503c23e64c0fdda1e116545a28c087bd3465eafcb3cc5879c53abb04b"
+      "image_sha256": "2c3cd0fa0018e9dcd82757b548c73e1463f80125e8f67720cfb0f8fe38375827"
     },
     {
-      "number": 14,
+      "slide": 14,
       "inspected": true,
-      "image_sha256": "c36f2a259715d0638dbbc5b34e89a7f375d4b7462e206ead7d62dc5a929d6b30"
+      "image_sha256": "57c5fce0c1cc26e68286b73fcee481a15c73949795cbc88298089aaaee2cb7f4"
     }
   ],
   "unresolved_layout_findings": [],
-  "assessment": {
-    "problem_and_plain_language": "Shape versus Earth location explained before fields. CRS and WKT introduced by their purpose.",
-    "proposal_quality": "Expected behavior, observation, implication and limits traced to exact clauses for nine cases. The opening distinguishes editorial clarity improvements, unchanged numerical observations and seven repeated implementation issues.",
-    "visual_interpretation": "Two illustrative Eiffel steps labelled separately from native renderer outputs and synthetic temperature data.",
-    "uncertainty": "Agreement, missing meanings, known failures, unverified coverage and deferred scope distinguished.",
-    "legibility": "Every final native PowerPoint slide inspected individually. README images, captions, the new before/after comparison and expanded supporting sections inspected in Edge; all images loaded and no horizontal overflow.",
-    "claim_boundary": "Agent inspection is not a user comprehension study."
+  "native_powerpoint_rendering_inspected": true,
+  "estimator_warning_count": 6,
+  "estimator_warning_disposition": "All 14 final native PowerPoint renders were inspected individually. The estimated table/text overflow warnings did not appear as clipping or overlap in those renders.",
+  "content_checks": [
+    "Source inputs distinguished from runtime outputs",
+    "Illustrative Eiffel sequence labelled informative",
+    "Synthetic measurements labelled synthetic",
+    "Native Hydra/Storm renders labelled recorded",
+    "Two placement implementations; Omniverse reuses Python",
+    "Six repaired audit findings and unresolved normal sampling shown",
+    "Supported physical meaning distinguished from candidate storage details"
+  ],
+  "readme_render_check": {
+    "images": [
+      {
+        "src": "delivery/figures/03-crs-resolved.png",
+        "loaded": true
+      },
+      {
+        "src": "delivery/figures/05-usd-translate.png",
+        "loaded": true
+      },
+      {
+        "src": "delivery/renders/tower.png",
+        "loaded": true
+      },
+      {
+        "src": "delivery/plots/global-3d.png",
+        "loaded": true
+      },
+      {
+        "src": "delivery/renders/terrain.png",
+        "loaded": true
+      },
+      {
+        "src": "delivery/plots/railway.png",
+        "loaded": true
+      }
+    ],
+    "horizontal_overflow": false,
+    "tables": 9,
+    "headings": 20
   },
-  "readme_sections_inspected": [
-    "opening",
-    "changes",
-    "coordinates",
-    "adjustments",
-    "bake",
-    "measurements",
-    "audit",
-    "railway",
-    "choices",
-    "details"
-  ],
-  "negative_control_checks": [
-    "Missing evidence limit",
-    "Omitted later audit issue",
-    "Omitted demonstration assessment",
-    "Stale README story",
-    "Changed proposal authority",
-    "Changed execution receipt",
-    "Changed later audit",
-    "Invented proposal clause"
-  ],
-  "fresh_execution": true,
-  "runtime_repairs_claimed": false
+  "claim_boundary": "Artifact inspection by Codex; no human comprehension test or independent geodetic certification."
 }

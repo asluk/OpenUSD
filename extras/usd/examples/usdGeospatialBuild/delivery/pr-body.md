@@ -1,9 +1,9 @@
-The merged background separates map-grid distances and north from physical model size and orientation. A narrow clarification keeps stage axes distinct. Existing placement rules remain unchanged.
+The local split gives reviewers a focused requirements baseline and a separate full model/runtime candidate. Clearer array, invalid-input and bake rules now have fresh tests.
 
-The merge improves the vocabulary for reviewing scale and orientation. The run uses the current published text, including its existing geographic scene and ordinary-UsdGeom bake clarifications. It changes no placement fields or evaluation rules.
+The requirements baseline can be reviewed without approving exact schema fields or runtime conventions. The full follow-up retains the complete candidate for derivation and testing.
 
-Fresh execution: 64 regression checks and 61 distinguishing controls passed. All 105 recorded numerical case comparisons across both placement readers and the Omniverse geometry sink exactly match the prior run. Seven known prototype issues reproduce; no implementation repairs or whole-proposal conformance are claimed.
+Fresh execution: 70 regression checks and 61 distinguishing controls passed. All 105 recorded numerical case comparisons across both placement readers and the Omniverse geometry sink exactly match the prior run. Six prior audit defects pass fresh counterexamples after clause-traced repairs; normal sampling remains unresolved. Whole-proposal conformance is not claimed.
 
 The README and slides pair the working demonstrations with their proposal meaning and limits. Detailed candidate choices still need group review. Shared PROJ and dataset decoding limit independent verification.
 
-Fresh October 7 execution of the merged proposal candidate, compared with the prior immutable run and followed by repeated independent diagnostics. No runtime implementation repairs.
+Fresh October 8 execution of the local stacked follow-up, with clause-traced adapter repairs and repeated independent diagnostics. No changes have been published.

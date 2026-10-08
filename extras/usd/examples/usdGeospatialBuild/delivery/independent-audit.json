@@ -1,5 +1,5 @@
 {
-  "assessment": "Current prototype evidence with reported known issues. Independent diagnostics found undocumented consumer policies and failures of existing contracts. These are not classified as blockers for the present proposal-review phase.",
+  "assessment": "Six prior defects repaired and independently retested; normal sampling remains a failed implementation policy.",
   "phase_disposition": {
     "current_phase": "Proposal review and prototype evidence",
     "overall_progress": "Continue proposal alignment and share the demonstrated results with the known issues disclosed.",
@@ -8,149 +8,178 @@
     "future_gate": "Reassess each issue against the intended claim and delivery milestone. Stop only work dependent on genuinely unspecified meaning, while continuing independent work.",
     "model_policy": "Repair against existing contracts first. Clarify truly missing semantics if needed; do not standardize an implementation workaround."
   },
-  "proposal_commit": "c29074a0743d2771439e6d0ca4ac22e3cec7e520",
-  "proposal_sha256": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
-  "implementation_commit": "deaeab88f364702476db9801f337f56bac1a75db",
+  "proposal_commit": "bbe3e488d5267227a994992a837a637f0cf98dee",
+  "proposal_sha256": "28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9",
+  "implementation_commit": "dfa9f71ca5ae32fbf5714e526d0f7f8fc0b4af13",
   "delivery_commit": null,
   "executed_source_files_match": true,
   "native_executable_matches_run": true,
-  "scope": "Fresh execution of the published merged candidate; pending author agreement and whole-proposal coverage remain separate.",
+  "scope": "Full local stacked follow-up, not the intentionally reduced terms/requirements baseline.",
   "integration_name": "Omniverse stage geometry integration",
   "proposal_and_implementation_modified": false,
   "findings": [
     {
       "id": "A1",
       "classification": "Undocumented observable consumer policy / unsupported approximation",
-      "finding": "Both readers sample uniform face normals at the arithmetic mean of face vertices. They convert constant normals to per-vertex interpolation.",
-      "evidence": "An analytic nonlinear-map counterexample has 8.4017-degree direction differences. An actual ENU/ECEF-to-UTM case has 1.24087-degree differences between the returned uniform normal and pointwise transported vertex normals. Both readers return success without an approximation domain or bound for this convention.",
       "implementation": [
         "candidate/runtime.py:282",
         "native/leans.cpp:147"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1994",
-        "proposal/proposal-source.txt:2029"
+        "proposal/proposal-source.txt:2018",
+        "proposal/proposal-source.txt:2053"
       ],
       "disposition": "Do not promote the centroid workaround into the proposal. Derive transport from source normal/interpolation semantics and the full map; support the consumed domain with justified approximation evidence or visibly reject the unsupported result. Clarify only any remaining semantic ambiguity, independent of the shortcut.",
       "diagnostics": [
         "normal_sampling_private_policy",
         "actual_projected_normal_sampling"
       ],
-      "phase_status": "Reported known prototype issue; follow-up work",
-      "current_proposal_review_blocker": false
+      "phase_status": "confirmed unresolved",
+      "current_proposal_review_blocker": false,
+      "status": "confirmed unresolved",
+      "result_summary": "Remaining: normal sampling has no justified domain/error bound; projected difference about 1.24 degrees.",
+      "previous_finding": "Both readers sample uniform face normals at the arithmetic mean of face vertices. They convert constant normals to per-vertex interpolation.",
+      "finding": "Remaining: normal sampling has no justified domain/error bound; projected difference about 1.24 degrees.",
+      "previous_evidence": "An analytic nonlinear-map counterexample has 8.4017-degree direction differences. An actual ENU/ECEF-to-UTM case has 1.24087-degree differences between the returned uniform normal and pointwise transported vertex normals. Both readers return success without an approximation domain or bound for this convention.",
+      "evidence": "Fresh diagnostic-results.json cases: normal_sampling_private_policy, actual_projected_normal_sampling"
     },
     {
       "id": "A2",
       "classification": "Implementation defect against an existing contract",
-      "finding": "An unbound point-instancer prototype outside any CRS-bound subtree is rejected by both readers instead of using the instancer placement.",
-      "evidence": "A prototype at /Library/Proto and an instancer at /World/Model/Instances fail with No CRS binding in Python and the actual compiled C++ reader. The proposal-derived expected vertices are independently evaluated through the instancer.",
       "implementation": [
         "candidate/runtime.py:238",
         "native/leans.cpp:182"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1979"
+        "proposal/proposal-source.txt:2003"
       ],
       "disposition": "Repair the prototype classification/discovery path; this requires no new scene property or new scope deferral.",
       "diagnostics": [
         "unbound_prototype_outside_bound_subtree"
       ],
-      "phase_status": "Reported known prototype issue; follow-up work",
-      "current_proposal_review_blocker": false
+      "phase_status": "resolved in executed counterexample",
+      "current_proposal_review_blocker": false,
+      "status": "resolved in executed counterexample",
+      "result_summary": "Corrected: an unbound library prototype receives its instancer placement in both readers.",
+      "previous_finding": "An unbound point-instancer prototype outside any CRS-bound subtree is rejected by both readers instead of using the instancer placement.",
+      "finding": "Corrected: an unbound library prototype receives its instancer placement in both readers.",
+      "previous_evidence": "A prototype at /Library/Proto and an instancer at /World/Model/Instances fail with No CRS binding in Python and the actual compiled C++ reader. The proposal-derived expected vertices are independently evaluated through the instancer.",
+      "evidence": "Fresh diagnostic-results.json cases: unbound_prototype_outside_bound_subtree"
     },
     {
       "id": "A3",
       "classification": "Export defect and incomplete verifier",
-      "finding": "Copying each geometry prim also copies its children, then independently exports those children again. The reread check compares only mapped Part roots and misses the extra geometry.",
-      "evidence": "Two source triangles produce three exported triangles. The extra /Resolved/Part0/Child retains unconverted local geometry, while the exporter reports a successful fresh-read comparison of the two Part roots.",
       "implementation": [
         "candidate/export.py:23",
         "candidate/export.py:46"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2073"
+        "proposal/proposal-source.txt:2097"
       ],
       "disposition": "Make the export topology and geometry inventory exact, preserve each effect once, and reject unexpected extras in fresh-reader validation.",
       "diagnostics": [
         "nested_export_extra_geometry"
       ],
-      "phase_status": "Reported known prototype issue; follow-up work",
-      "current_proposal_review_blocker": false
+      "phase_status": "resolved in executed counterexample",
+      "current_proposal_review_blocker": false,
+      "status": "resolved in executed counterexample",
+      "result_summary": "Corrected: two source meshes yield exactly two baked meshes; extras are rejected.",
+      "previous_finding": "Copying each geometry prim also copies its children, then independently exports those children again. The reread check compares only mapped Part roots and misses the extra geometry.",
+      "finding": "Corrected: two source meshes yield exactly two baked meshes; extras are rejected.",
+      "previous_evidence": "Two source triangles produce three exported triangles. The extra /Resolved/Part0/Child retains unconverted local geometry, while the exporter reports a successful fresh-read comparison of the two Part roots.",
+      "evidence": "Fresh diagnostic-results.json cases: nested_export_extra_geometry"
     },
     {
       "id": "A4",
       "classification": "Shared external-format decoding defect",
-      "finding": "CF auxiliary-coordinate arrays are reshaped into data-variable order without first permuting their named dimensions. Measurement values become associated with different coordinates.",
-      "evidence": "A measurement(y,x) with longitude(x,y) and latitude(x,y) has four of six samples assigned the wrong coordinate pair; decoding returns success.",
       "implementation": [
         "candidate/datasets.py:78"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1610",
-        "proposal/proposal-source.txt:1615"
+        "proposal/proposal-source.txt:1626",
+        "proposal/proposal-source.txt:1631"
       ],
       "prior_art": "https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html",
       "disposition": "Align by named dimensions before broadcasting. Both placement paths consume the same decoder, so their coordinate agreement cannot detect this defect.",
       "diagnostics": [
         "CF_coordinate_dimension_permutation"
       ],
-      "phase_status": "Reported known prototype issue; follow-up work",
-      "current_proposal_review_blocker": false
+      "phase_status": "resolved in executed counterexample",
+      "current_proposal_review_blocker": false,
+      "status": "resolved in executed counterexample",
+      "result_summary": "Corrected: all six measurements retain the coordinates declared by dimension names.",
+      "previous_finding": "CF auxiliary-coordinate arrays are reshaped into data-variable order without first permuting their named dimensions. Measurement values become associated with different coordinates.",
+      "finding": "Corrected: all six measurements retain the coordinates declared by dimension names.",
+      "previous_evidence": "A measurement(y,x) with longitude(x,y) and latitude(x,y) has four of six samples assigned the wrong coordinate pair; decoding returns success.",
+      "evidence": "Fresh diagnostic-results.json cases: CF_coordinate_dimension_permutation"
     },
     {
       "id": "A5",
       "classification": "Overbroad consumer export policy / collateral USD semantics loss",
-      "finding": "The exporter clears all applied schemas rather than removing only geospatial/dependency declarations no longer required by the derived copy.",
-      "evidence": "A source MotionAPI application disappears while its motion:velocityScale input remains authored. The exporter reports success. No documented target export profile justifies this broad deletion.",
       "implementation": [
         "candidate/export.py:29"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2073"
+        "proposal/proposal-source.txt:2097"
       ],
       "disposition": "Audit and preserve non-geospatial semantics, or explicitly reject/export only a documented supported subset. Do not silently treat every schema as a placement effect.",
       "diagnostics": [
         "non_geospatial_applied_schema_export"
       ],
-      "phase_status": "Reported known prototype issue; follow-up work",
-      "current_proposal_review_blocker": false
+      "phase_status": "resolved in executed counterexample",
+      "current_proposal_review_blocker": false,
+      "status": "resolved in executed counterexample",
+      "result_summary": "Corrected: the bake retains MotionAPI and its velocity-scale value.",
+      "previous_finding": "The exporter clears all applied schemas rather than removing only geospatial/dependency declarations no longer required by the derived copy.",
+      "finding": "Corrected: the bake retains MotionAPI and its velocity-scale value.",
+      "previous_evidence": "A source MotionAPI application disappears while its motion:velocityScale input remains authored. The exporter reports success. No documented target export profile justifies this broad deletion.",
+      "evidence": "Fresh diagnostic-results.json cases: non_geospatial_applied_schema_export"
     },
     {
       "id": "A6",
       "classification": "Incomplete result evidence against a specified reporting obligation",
-      "finding": "Comparison records report metric maxima but omit component residuals, coordinate magnitudes and separate geographic angular residuals.",
       "implementation": [
         "candidate/execution.py:49"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2054"
+        "proposal/proposal-source.txt:2078"
       ],
       "disposition": "Complete reporting from the existing output arrays without adding authored scene metadata.",
       "diagnostics": [
         "missing_comparison_report_fields"
       ],
-      "phase_status": "Reported known prototype issue; follow-up work",
-      "current_proposal_review_blocker": false
+      "phase_status": "resolved in executed counterexample",
+      "current_proposal_review_blocker": false,
+      "status": "resolved in executed counterexample",
+      "result_summary": "Corrected: reports include component errors, magnitudes and angular errors.",
+      "previous_finding": "Comparison records report metric maxima but omit component residuals, coordinate magnitudes and separate geographic angular residuals.",
+      "finding": "Corrected: reports include component errors, magnitudes and angular errors.",
+      "previous_evidence": null,
+      "evidence": "Fresh diagnostic-results.json cases: missing_comparison_report_fields"
     },
     {
       "id": "A7",
       "classification": "Input validation coverage gap",
-      "finding": "Both runtime paths silently ignore an authored crs:position on an inherited-only mesh, even though the proposal declares those fields invalid there.",
-      "evidence": "The invalid descendant field is accepted in the independent fixture. This demonstrates missing role/scope validation, not that every placement query is required to implement the complete validator.",
       "implementation": [
         "candidate/runtime.py:166",
         "review/placement_values.py:19",
         "native/leans.cpp:113"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1537"
+        "proposal/proposal-source.txt:1548"
       ],
       "disposition": "Add and exercise explicit role/scope validation in the build; distinguish validator coverage from the supported runtime path.",
       "diagnostics": [
         "invalid_inherited_descendant_placement"
       ],
-      "phase_status": "Reported known prototype issue; follow-up work",
-      "current_proposal_review_blocker": false
+      "phase_status": "resolved in executed counterexample",
+      "current_proposal_review_blocker": false,
+      "status": "resolved in executed counterexample",
+      "result_summary": "Corrected: both readers reject an invalid child placement field.",
+      "previous_finding": "Both runtime paths silently ignore an authored crs:position on an inherited-only mesh, even though the proposal declares those fields invalid there.",
+      "finding": "Corrected: both readers reject an invalid child placement field.",
+      "previous_evidence": "The invalid descendant field is accepted in the independent fixture. This demonstrates missing role/scope validation, not that every placement query is required to implement the complete validator.",
+      "evidence": "Fresh diagnostic-results.json cases: invalid_inherited_descendant_placement"
     },
     {
       "id": "R1",
@@ -160,8 +189,8 @@
         "candidate/runtime.py:98"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2009",
-        "proposal/proposal-source.txt:2046"
+        "proposal/proposal-source.txt:2033",
+        "proposal/proposal-source.txt:2070"
       ],
       "evidence": "The attempted regional fixture had two visible unavailable-operation failures and one available operation; it did not demonstrate omitted operations. Do not present this concern as a reproduced result failure.",
       "disposition": "Require attributable operation coverage before claiming comparison of multiregion batches.",
@@ -169,7 +198,8 @@
         "operation_provenance_multiregion_batch"
       ],
       "phase_status": "Reported research concern; not reproduced",
-      "current_proposal_review_blocker": false
+      "current_proposal_review_blocker": false,
+      "status": "static concern, not reproduced"
     }
   ],
   "not_findings": [
@@ -184,9 +214,9 @@
     "Python/C++ agreement misses shared policy and decoder mistakes. Existing normal evidence uses vertex normals and the prototype fixtures live under bound ancestry.",
     "Fresh export verification did not compare the complete geometry/topology inventory."
   ],
-  "conclusion": "Report the known prototype issues alongside the working examples and narrower verified claims. They are not classified as current proposal-review blockers. Withdraw blanket assurances that no undocumented behavior remained. Repair against existing semantics first; flag any genuinely missing meaning separately and stop only its dependent portion. Never close a gap by recording an implementation shortcut as normative authority.",
-  "diagnostic_file": "diagnostic-results.json",
-  "source_audit_sha256": "3879146f2ccfef03b2b30a48cbb53f2026b174dd6663a64dedeed5b21fb8e0aa",
-  "execution_receipt_sha256": "4f212b53f00cd7f31bae7b94ea63e6a4b99e3a9cf9e645b2989e888a51ceecbf",
+  "conclusion": "No new undefined model rule was confirmed in reviewed paths. This is not an exhaustive proof of proposal completeness. Detailed adoption choices and unverified consumers remain separate.",
+  "diagnostic_file": "audit-diagnostics.json",
+  "source_audit_sha256": "a184562af36d2471493c1ed1cd06f43e6430d517f778744437d262d7191fbd42",
+  "execution_receipt_sha256": "b12019e039ab52f930fb2f4321ca2289875bcdefbd3dbbd669b72a8689647e46",
   "audit_binding": "Fresh diagnostics checked every new frozen execution file and the actually executed native binary. Seven known issues reproduced; no runtime repairs claimed."
 }

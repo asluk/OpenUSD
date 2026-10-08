@@ -1,34 +1,34 @@
 {
     "geometry_readback": {
-        "/Resolved/Part0": {
+        "/Resolved/ExportOrigin/Part0": {
             "max_stage_unit_error": 0.0,
             "vertices": 5
         },
-        "/Resolved/Part1": {
+        "/Resolved/ExportOrigin/Part1": {
             "max_stage_unit_error": 0.0,
             "vertices": 5
         },
-        "/Resolved/Part2": {
+        "/Resolved/ExportOrigin/Part2": {
             "max_stage_unit_error": 0.0,
             "vertices": 5
         },
-        "/Resolved/Part3": {
+        "/Resolved/ExportOrigin/Part3": {
             "max_stage_unit_error": 0.0,
             "vertices": 5
         },
-        "/Resolved/Part4": {
+        "/Resolved/ExportOrigin/Part4": {
             "max_stage_unit_error": 0.0,
             "vertices": 4
         },
-        "/Resolved/Part5": {
+        "/Resolved/ExportOrigin/Part5": {
             "max_stage_unit_error": 0.0,
             "vertices": 65532
         },
-        "/Resolved/Part6": {
+        "/Resolved/ExportOrigin/Part6": {
             "max_stage_unit_error": 0.0,
             "vertices": 65533
         },
-        "/Resolved/Part7": {
+        "/Resolved/ExportOrigin/Part7": {
             "max_stage_unit_error": 0.0,
             "vertices": 32351
         }

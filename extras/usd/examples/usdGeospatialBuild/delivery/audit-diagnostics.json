@@ -1,6 +1,17 @@
 {
-  "proposal_sha256": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
+  "proposal_sha256": "28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9",
   "cases": [
+    {
+      "name": "orientation_interpolation_choice",
+      "illustrative_only_not_proposed_source_fields": true,
+      "headings_authored_degrees": [
+        170.0,
+        -170.0
+      ],
+      "core_double3_midpoint_heading_degrees": 0.0,
+      "core_quaternion_midpoint_heading_degrees": 180.0,
+      "meaning": "A stored angle tuple needs an explicit geospatial interpolation rule if physical shortest-arc attitude is intended. This test does not select the representation."
+    },
     {
       "name": "normal_sampling_private_policy",
       "uniform_result": {
@@ -39,11 +50,91 @@
     {
       "name": "unbound_prototype_outside_bound_subtree",
       "python": {
-        "error": "ContractError: No CRS binding in the composed ancestry"
+        "geometry_keys": [
+          "/World/Model/Instances/_ResolvedInstance0/Root"
+        ],
+        "geometry": {
+          "/World/Model/Instances/_ResolvedInstance0/Root": [
+            [
+              6378136.999999999,
+              10.0,
+              0.0
+            ],
+            [
+              6378137.0,
+              11.000000000000002,
+              0.0
+            ],
+            [
+              6378136.999999998,
+              9.999999999999998,
+              0.9999999999999996
+            ]
+          ]
+        }
       },
       "cpp": {
-        "exit_code": 1,
-        "stderr": "No CRS binding"
+        "exit_code": 0,
+        "stderr": "",
+        "result": {
+          "engine_version": "9.4.1",
+          "geometry": {
+            "/World/Model/Instances/_ResolvedInstance0/Root": [
+              [
+                6378136.999999999,
+                10.0,
+                0.0
+              ],
+              [
+                6378137.0,
+                11.0,
+                0.0
+              ],
+              [
+                6378136.999999999,
+                10.0,
+                1.0
+              ]
+            ]
+          },
+          "geometry_normals": {},
+          "geometry_sources": {
+            "/World/Model/Instances/_ResolvedInstance0/Root": "/Library/Proto"
+          },
+          "operations": [
+            {
+              "accuracy_metres": null,
+              "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+              "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)"
+            },
+            {
+              "accuracy_metres": null,
+              "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+              "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+            },
+            {
+              "accuracy_metres": 0.0,
+              "definition": "proj=noop ellps=GRS80",
+              "description": "Null geocentric translation from WGS 84 to WGS 84"
+            }
+          ],
+          "polygonal_bounds": {
+            "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137.0,298.257223563,LENGTHUNIT[\"metre\",1.0]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0.0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1.0]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1.0]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90.0,-180.0,90.0,180.0]],ID[\"EPSG\",4978]]",
+            "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate",
+            "max": [
+              6378137.0,
+              11.0,
+              1.0
+            ],
+            "min": [
+              6378136.999999999,
+              10.0,
+              0.0
+            ]
+          },
+          "queries": [],
+          "source_unchanged": true
+        }
       },
       "expected_instance_vertices": [
         [
@@ -71,61 +162,52 @@
         "/World/Model/Parent/Child"
       ],
       "export_geometry_keys": [
-        "/Resolved/Part0",
-        "/Resolved/Part0/Child",
-        "/Resolved/Part1"
+        "/Resolved/ExportOrigin/Part0",
+        "/Resolved/ExportOrigin/Part1"
       ],
       "export_checked_keys": [
-        "/Resolved/Part0",
-        "/Resolved/Part1"
+        "/Resolved/ExportOrigin/Part0",
+        "/Resolved/ExportOrigin/Part1"
       ],
-      "unchecked_extra_geometry_keys": [
-        "/Resolved/Part0/Child"
-      ],
+      "unchecked_extra_geometry_keys": [],
       "export_receipt": {
-        "path": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\outputs\\geospatial-independent-audit-20261007\\nested-geometry-export.usda",
+        "path": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\outputs\\geospatial-independent-audit-20261008\\nested-geometry-export.usda",
         "fresh_reader_max_error_metres": 1.7763568394002505e-15,
         "quantization_metres": 1.7763568394002505e-15,
         "parts": 2,
-        "vertices": 9,
+        "vertices": 6,
         "timeSamples": [
           0
         ],
         "timeCodesPerSecond": 48.0,
         "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
-          "/Resolved/Part0": "/World/Model/Parent",
-          "/Resolved/Part1": "/World/Model/Parent/Child"
+          "/Resolved/ExportOrigin/Part0": "/World/Model/Parent",
+          "/Resolved/ExportOrigin/Part1": "/World/Model/Parent/Child"
+        },
+        "export_origin": {
+          "prim": "/Resolved/ExportOrigin",
+          "stage_coordinates": [
+            6378137.0,
+            0.0,
+            0.0
+          ],
+          "usd_type": "double3 translate",
+          "scene_crs": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0
       },
-      "extra_geometry_coordinates": {
-        "/Resolved/Part0/Child": [
-          [
-            6378147.0,
-            0.0,
-            0.0
-          ],
-          [
-            6378148.0,
-            0.0,
-            0.0
-          ],
-          [
-            6378147.0,
-            1.0,
-            0.0
-          ]
-        ]
-      }
+      "extra_geometry_coordinates": {}
     },
     {
       "name": "non_geospatial_applied_schema_export",
       "source_applied_schemas": [
         "MotionAPI"
       ],
-      "export_applied_schemas": [],
+      "export_applied_schemas": [
+        "MotionAPI"
+      ],
       "source_velocity_scale": 2.0,
       "export_velocity_scale": 2.0
     },
@@ -135,12 +217,25 @@
         "coordinate_count": 1,
         "max_distance_metres": 0.0005,
         "acceptance_metres": 0.001,
-        "distance_measure": "metric Euclidean"
+        "distance_measure": "metric Euclidean",
+        "max_abs_component_residuals_output_units": [
+          0.0,
+          0.0005,
+          0.0
+        ],
+        "max_abs_output_coordinate_components": [
+          6378137.0,
+          0.0005,
+          0.0
+        ],
+        "max_abs_angular_residuals_radians": [],
+        "component_units": [
+          "metre",
+          "metre",
+          "metre"
+        ]
       },
-      "missing_required_report_items": [
-        "residual components in output units",
-        "coordinate magnitudes"
-      ]
+      "missing_required_report_items": []
     },
     {
       "name": "instance_id_reporting",
@@ -218,20 +313,20 @@
           45.0
         ],
         [
-          1.1,
-          46.0
-        ],
-        [
           2.0,
           45.2
         ],
         [
-          2.1,
-          46.2
-        ],
-        [
           3.0,
           45.4
+        ],
+        [
+          1.1,
+          46.0
+        ],
+        [
+          2.1,
+          46.2
         ],
         [
           3.1,
@@ -272,18 +367,17 @@
         5.0,
         6.0
       ],
-      "association_correct": false,
+      "association_correct": true,
+      "max_component_error": 0.0,
       "shared_decoder_used_by_cpp": true
     },
     {
       "name": "invalid_inherited_descendant_placement",
       "python": {
-        "success": true,
-        "geometry": [
-          "/World/Model/Mesh"
-        ]
+        "success": false,
+        "error": "Invalid placement field on inherited-only descendant: crs:position"
       },
-      "cpp_exit_code": 0,
+      "cpp_exit_code": 1,
       "authored_field": "crs:position on inherited-only mesh",
       "proposal_requires_invalid": true,
       "runtime_not_a_complete_validator": true

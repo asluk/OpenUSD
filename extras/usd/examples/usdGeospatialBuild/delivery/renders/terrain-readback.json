@@ -1,6 +1,6 @@
 {
     "geometry_readback": {
-        "/Resolved/Part0": {
+        "/Resolved/ExportOrigin/Part0": {
             "max_stage_unit_error": 0.0,
             "vertices": 14359
         }

@@ -2,44 +2,49 @@
   "executed_source_files": {
     "candidate/__init__.py": "08af67442b1fff96f52a5b8921637763bc10f6d6e198dabde4ccc74c1a43eff3",
     "candidate/controls.py": "9001462c455f36cc5b3b5c297d2e65d8a83366ff0b25681b03962cc8d4f3345c",
-    "candidate/datasets.py": "28abbd9ecef713fdc1e3afbab52b2590537acf3bbeb2e7b855913158282450b7",
-    "candidate/execution.py": "be2db2bc0fd14ebfc281694cc4fb498672bc38c015490d06d25c59055ce595e1",
-    "candidate/export.py": "4cd058e2bdb1c0d7d5c6341e1d93c7d36af1c2d08c8055de5dc8ba63db5865fe",
+    "candidate/datasets.py": "37373800b3017a72f3138a0faabe43d318aca855d94f84a4b6554a4cefa8e7ea",
+    "candidate/execution.py": "95967c534d13d9f3dc54e326006684370ed83f3add89a32fe7711685983a871d",
+    "candidate/export.py": "ee9319b4fdbb12ab18f2f20a78446c9f9145b02d0e0f14ac9f6947797c948c2b",
     "candidate/fixtures.py": "d60f4e1339e07b376394bbd02ef5fccaeb7134f747d82ff06e089d1f9e9a1927",
     "candidate/ov_launch.py": "accdd9e3189860c47dabe26793f94426e0fd545a496282b4345109a8bac95356",
     "candidate/ov_live.py": "ba7791f2390026e086e7257bc70556e78ba3abb5f0531526b2792040dc1b6fb8",
-    "candidate/runner.py": "e76d2a97927aa4ee47d808475b7e8df0bbfc72304e23b256e7a9200f8a1fba52",
-    "candidate/runtime.py": "91c0026104b05db1d967f7e40b0207f3a7a5ce19fecfe8973851a8252cbeb495",
+    "candidate/runner.py": "ec32270c46393e2f642644120dc9872156ec06a6cbbf5d9bd943e7d3f650d2d6",
+    "candidate/runtime.py": "fcbbd06e0bf7cfa9ab46d5e4ee03480fbfc01fea194e9a0255af20c32225e447",
     "review/__init__.py": "1da7ada131921d0bbda633563a594b15f794be1158694c55d9671cc91683f1e1",
     "review/fixture_definitions.py": "6693d851adbc56e256ffb122c9c38b3550a7df34754d1abfb83068930d92d7ae",
     "review/fixtures.py": "d41b97a87df3abb60798a23670ea73e8e2474fc6a76ce10616af08ec8143f9c7",
     "review/origin_queries.py": "74cb286631e2ac04bb5b974c314bf9c6e679da7845e0dbc5c3cbdbf43eef6d26",
     "review/ov_scope_launch.py": "2012f7825003d81ffd9988c3f5c36f4f2d03c277c5d04377e0663b21d74d9412",
-    "review/placement_values.py": "1e96ee4dd372e398fe12d039c38dec62506bab5e1677251a8da5252793810af1",
+    "review/placement_values.py": "a50728c137701b448d40edc79b43493628fc9581e4be2b3cca984fe20fc6e3eb",
     "review/runner.py": "817264f18235aa91e17b70af51f592ba6c003c6b01359eef7c27ffcb9e24c2b2",
     "review/scope.py": "5fb7b287cb7144efbd6f5ddd9abd27afe9e4157aa6c70bfa1c45bb5f4fa94f45",
     "review/test_contracts.py": "eb38d826137ab1a86f8db1bda8eaed7e6ca5b32c902ff77cf520293fcd53202f",
+    "review/test_split_feedback.py": "85b37c75d4757dd67725711c5bf5e2baba3dc12f17f0be823890310964b3b0ea",
     "review/test_wkt_contracts.py": "75dec51fea396448983b07d44c2c024db10322d5ce4aa492d25ccd95ce01226f",
     "review/wkt_profile.py": "521906a17156ee3fd0f16dfb288d3cef695d2ec02084d9173be2854b421191ef",
     "schema/generated/generatedSchema.usda": "b5bc71ea5f2fbad7b803aa98c1cf070a54ffbd1bcc7b6691b48063d291fef72d",
     "schema/schema.usda": "06fc7dafadb05faf7f413900d9a8140964647e99da44e28b53a89c4845f92bad",
     "schema/generated/plugInfo.json": "7544f67091cf313bfb218787571111da92174a9043a10a5730d8bee19e2a557f",
-    "native/leans.cpp": "2b134d27103b3820764e05a9a3423b81bb58ecb888be8243e3fd88550a423090",
+    "native/leans.cpp": "46c95587106aa0678a98900f723b7f01624d35042b9bf699bc42c4e268eb2c78",
     "native/leansRender.cpp": "6fd0d453ac74d120dfa4585e4ba45b4b1110558431ecb0da5e7927e9480c2646",
     "native/CMakeLists.txt": "d38d85d03a61336324f5741fc7b883878eec1ce7a0335880677500bcca86d5f5",
     "run.py": "cad2a0965ebcbcb1bd25f01e6904a98e40a03c73457018fa3386f2ea1ea5ceea",
-    "inputs.json": "2c803be374dbf65ca752cdcbc7864d34a1539ae35933e38a16048225670c13db",
-    "proposal-quality.json": "425e07155222f311cee3ba40a6a838b4ee864d5b6bd74259d6fc968392eafbe6",
+    "inputs.json": "0fc1c2f5ea22a4658aaad7de8a4f0a95a3076a41e9649000042e965c56eda304",
+    "proposal-quality.json": "dbef1f736b97e4de32a9106a2cf536dfb56d73f283c710d508b2bfa670bc481b",
     "ov/geobuild.kit": "5fc4d60271d18a04ad3b6675539033f1c06b37e86ce6b2cba25ed20b02e69d88",
+    "BUILD_LOOP.md": "32fa790d5d06711cb43d839497ca71fd2f3406fa3a75f59b30f7c1e2cf67ec48",
+    "PLAN.md": "0c1549fb99e3717ec30ce622295bdab8d8f06fceaad73494e38bb480d469ca56",
+    "AUDIT.md": "314c429171fcf379ff65b070ee196d90ff3a4ed9eff3715c7ccf486ed2a6f36d",
+    "QUALITY_REVIEW.md": "38262e28cc675961812c7d07b2b1073cc582214b2cbae000000095809fb83522",
     "geobuild/quality.py": "4cb53ae11b4f780846fc6beb845687afcb792c855c1b282be0e1174d35778471",
-    "proposal/data-model.md": "ae3b3ed8448429604cf7abc144e5a454b2e02349202f07775d8bc5bb9866bb08",
-    "proposal/distinguishing-examples.md": "91b1bf9bf72c24656193e93444b69ee48816a4392ddf940cbe9faacc2f57908b",
-    "proposal/local-draft.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "proposal/proposal-source.txt": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
-    "proposal/requirements.md": "7c4383c0d6b1edc0991be3fdef9d83651d4b8c906ed634e4ab8ffbb915eb4d8c",
-    "proposal/runtime-behavior.md": "49a368e1af1b4a374639dd733ca633d918c9132d11b32babd2c8231c68e80e4c",
-    "proposal/runtime-open-decisions.md": "6ea157ec5babc28c6281e8ec57d167c5e51d47a18313306a99bd198380d63d61",
-    "proposal/traceability.md": "24aaf452d22cc60a7cbaf87b9c5ac69c43408e29ecfd8f8be1455ce315d2488a"
+    "proposal/data-model.md": "31690bcf5b5db3818bcbf013b763dbc58df0162e19037247941eb4687db5a164",
+    "proposal/distinguishing-examples.md": "47a81bec820e5d7de96667ef0d0adf200f8f69ae63f5fbd3792d7957394dd8e7",
+    "proposal/local-draft.patch": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "proposal/proposal-source.txt": "28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9",
+    "proposal/requirements.md": "a241562574edacec6d928d9ce77c58c8d55549be590a3091906adfbbe08d0674",
+    "proposal/runtime-behavior.md": "f536d4f1612e059b0743ad3cd9ab67af79128ecc7fa9646fad1d3d3ea5989c7c",
+    "proposal/runtime-open-decisions.md": "a6891abea65fe97ea5f2753f155059d623499d1bb6bfb704ecb5ed6a913e78c2",
+    "proposal/traceability.md": "c2ed901b95ce322c5439cb158eaeb83559f5ef27846b7530df065c258d485ead"
   },
   "claims": {
     "usd_placement_implementations": 2,
@@ -94,35 +99,35 @@
       {
         "name": "tower",
         "geometry_readback": {
-          "/Resolved/Part0": {
+          "/Resolved/ExportOrigin/Part0": {
             "max_stage_unit_error": 0.0,
             "vertices": 5
           },
-          "/Resolved/Part1": {
+          "/Resolved/ExportOrigin/Part1": {
             "max_stage_unit_error": 0.0,
             "vertices": 5
           },
-          "/Resolved/Part2": {
+          "/Resolved/ExportOrigin/Part2": {
             "max_stage_unit_error": 0.0,
             "vertices": 5
           },
-          "/Resolved/Part3": {
+          "/Resolved/ExportOrigin/Part3": {
             "max_stage_unit_error": 0.0,
             "vertices": 5
           },
-          "/Resolved/Part4": {
+          "/Resolved/ExportOrigin/Part4": {
             "max_stage_unit_error": 0.0,
             "vertices": 4
           },
-          "/Resolved/Part5": {
+          "/Resolved/ExportOrigin/Part5": {
             "max_stage_unit_error": 0.0,
             "vertices": 65532
           },
-          "/Resolved/Part6": {
+          "/Resolved/ExportOrigin/Part6": {
             "max_stage_unit_error": 0.0,
             "vertices": 65533
           },
-          "/Resolved/Part7": {
+          "/Resolved/ExportOrigin/Part7": {
             "max_stage_unit_error": 0.0,
             "vertices": 32351
           }
@@ -130,12 +135,12 @@
         "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
         "renderer": "HdStormRendererPlugin",
         "vertices": 163440,
-        "image_sha256": "6ba80ae1571060e18e0b62b10339d2ee5dbe38de73af71f9a98f2793854f9a94"
+        "image_sha256": "b1cf4cf1e0a3d1489c9e39678e323aa0cd145ddb76b25e9bd354c7a60167ee89"
       },
       {
         "name": "terrain",
         "geometry_readback": {
-          "/Resolved/Part0": {
+          "/Resolved/ExportOrigin/Part0": {
             "max_stage_unit_error": 0.0,
             "vertices": 14359
           }
@@ -159,14 +164,24 @@
         "timeCodesPerSecond": 24.0,
         "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
-          "/Resolved/Part0": "/Control0/Marker",
-          "/Resolved/Part1": "/Control1/Marker",
-          "/Resolved/Part2": "/Control2/Marker",
-          "/Resolved/Part3": "/Control3/Marker",
-          "/Resolved/Part4": "/Ground/Plane",
-          "/Resolved/Part5": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0",
-          "/Resolved/Part6": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1",
-          "/Resolved/Part7": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2"
+          "/Resolved/ExportOrigin/Part0": "/Control0/Marker",
+          "/Resolved/ExportOrigin/Part1": "/Control1/Marker",
+          "/Resolved/ExportOrigin/Part2": "/Control2/Marker",
+          "/Resolved/ExportOrigin/Part3": "/Control3/Marker",
+          "/Resolved/ExportOrigin/Part4": "/Ground/Plane",
+          "/Resolved/ExportOrigin/Part5": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0",
+          "/Resolved/ExportOrigin/Part6": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1",
+          "/Resolved/ExportOrigin/Part7": "/Tower/AssetConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2"
+        },
+        "export_origin": {
+          "prim": "/Resolved/ExportOrigin",
+          "stage_coordinates": [
+            648383.0900020442,
+            6862247.92626258,
+            33.78995063490787
+          ],
+          "usd_type": "double3 translate",
+          "scene_crs": "COMPOUNDCRS[\"RGF93 v2b / Lambert-93 + NGF-IGN69 height\",PROJCRS[\"RGF93 v2b / Lambert-93\",BASEGEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",9782]],CONVERSION[\"Lambert-93\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",46.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",49,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",44,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",700000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",6600000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8827]]],CS[Cartesian,2],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]]],VERTCRS[\"NGF-IGN69 height\",VDATUM[\"Nivellement General de la France - IGN69\"],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1]]],ID[\"EPSG\",10499]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 3,
@@ -184,7 +199,17 @@
         "timeCodesPerSecond": 24.0,
         "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
-          "/Resolved/Part0": "/Terrain/Breaklines"
+          "/Resolved/ExportOrigin/Part0": "/Terrain/Breaklines"
+        },
+        "export_origin": {
+          "prim": "/Resolved/ExportOrigin",
+          "stage_coordinates": [
+            947578.1934529544,
+            367700.66118181444,
+            1672.4313312554127
+          ],
+          "usd_type": "double3 translate",
+          "scene_crs": "COMPOUNDCRS[\"Westminster site grid + site height\",DERIVEDPROJCRS[\"Westminster site grid\",BASEPROJCRS[\"NAD83(2011) / Colorado Central (ftUS)\",BASEGEOGCRS[\"NAD83(2011)\",DATUM[\"NAD83 (National Spatial Reference System 2011)\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]]],CONVERSION[\"SPCS83 Colorado Central zone (US survey foot)\",METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],PARAMETER[\"Latitude of false origin\",37.8333333333333,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],PARAMETER[\"Longitude of false origin\",-105.5,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],PARAMETER[\"Latitude of 1st standard parallel\",39.75,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],PARAMETER[\"Latitude of 2nd standard parallel\",38.45,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],PARAMETER[\"Easting at false origin\",3000000,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8826]],PARAMETER[\"Northing at false origin\",1000000,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8827]]],ID[\"EPSG\",6428]],DERIVINGCONVERSION[\"Westminster site calibration (horizontal)\",METHOD[\"Affine parametric transformation\",ID[\"EPSG\",9624]],PARAMETER[\"A0\",503.925392047801,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8623]],PARAMETER[\"A1\",1.00023104194694,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8624]],PARAMETER[\"A2\",-0.000201263129192391,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8625]],PARAMETER[\"B0\",-546977.970160075,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8639]],PARAMETER[\"B1\",0.000201263129192391,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8640]],PARAMETER[\"B2\",1.00023104194694,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8641]]],CS[Cartesian,2],AXIS[\"site easting (E)\",east,ORDER[1],LENGTHUNIT[\"US survey foot\",0.304800609601219]],AXIS[\"site northing (N)\",north,ORDER[2],LENGTHUNIT[\"US survey foot\",0.304800609601219]]],VERTCRS[\"Westminster site height\",BASEVERTCRS[\"NAVD88 height (ftUS)\",VDATUM[\"North American Vertical Datum 1988\"],ID[\"EPSG\",6360]],DERIVINGCONVERSION[\"Westminster site calibration (vertical)\",METHOD[\"Vertical Offset and Slope\",ID[\"EPSG\",1046]],PARAMETER[\"Ordinate 1 of evaluation point\",39.8981516609137,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8617]],PARAMETER[\"Ordinate 2 of evaluation point\",-105.115085298874,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8618]],PARAMETER[\"Vertical Offset\",1.73554921745194,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8603]],PARAMETER[\"Inclination in latitude\",-18.1964507520283,ANGLEUNIT[\"arc-second\",4.84813681109536E-06],ID[\"EPSG\",8730]],PARAMETER[\"Inclination in longitude\",-11.9499667059649,ANGLEUNIT[\"arc-second\",4.84813681109536E-06],ID[\"EPSG\",8731]],PARAMETER[\"EPSG code for Horizontal CRS\",6318,ID[\"EPSG\",1037]]],CS[vertical,1],AXIS[\"site height (H)\",up,LENGTHUNIT[\"US survey foot\",0.304800609601219]]]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0,
@@ -202,8 +227,18 @@
         "timeCodesPerSecond": 24.0,
         "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
-          "/Resolved/Part0": "/Project/Model/Child/Mesh",
-          "/Resolved/Part1": "/Project/Model/Independent/Mesh"
+          "/Resolved/ExportOrigin/Part0": "/Project/Model/Child/Mesh",
+          "/Resolved/ExportOrigin/Part1": "/Project/Model/Independent/Mesh"
+        },
+        "export_origin": {
+          "prim": "/Resolved/ExportOrigin",
+          "stage_coordinates": [
+            998.9787705085473,
+            2012.010812665632,
+            44.00000251736492
+          ],
+          "usd_type": "double3 translate",
+          "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0,
@@ -221,12 +256,22 @@
         "timeCodesPerSecond": 24.0,
         "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
-          "/Resolved/Part0": "/Native0/Asset/Geometry",
-          "/Resolved/Part1": "/Native1/Asset/Geometry",
-          "/Resolved/Part2": "/Native2/Asset/Geometry",
-          "/Resolved/Part3": "/PointModels/Instances/_ResolvedInstance0/Root",
-          "/Resolved/Part4": "/PointModels/Instances/_ResolvedInstance1/Root",
-          "/Resolved/Part5": "/PointModels/Instances/_ResolvedInstance2/Root"
+          "/Resolved/ExportOrigin/Part0": "/Native0/Asset/Geometry",
+          "/Resolved/ExportOrigin/Part1": "/Native1/Asset/Geometry",
+          "/Resolved/ExportOrigin/Part2": "/Native2/Asset/Geometry",
+          "/Resolved/ExportOrigin/Part3": "/PointModels/Instances/_ResolvedInstance0/Root",
+          "/Resolved/ExportOrigin/Part4": "/PointModels/Instances/_ResolvedInstance1/Root",
+          "/Resolved/ExportOrigin/Part5": "/PointModels/Instances/_ResolvedInstance2/Root"
+        },
+        "export_origin": {
+          "prim": "/Resolved/ExportOrigin",
+          "stage_coordinates": [
+            650000.0000000001,
+            6860000.0,
+            40.0
+          ],
+          "usd_type": "double3 translate",
+          "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0,
@@ -244,7 +289,17 @@
         "timeCodesPerSecond": 48.0,
         "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
-          "/Resolved/Part0": "/World/Model/Sample"
+          "/Resolved/ExportOrigin/Part0": "/World/Model/Sample"
+        },
+        "export_origin": {
+          "prim": "/Resolved/ExportOrigin",
+          "stage_coordinates": [
+            6377165.578841701,
+            111313.83923667614,
+            0.0
+          ],
+          "usd_type": "double3 translate",
+          "scene_crs": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],MEMBER[\"World Geodetic System 1984 (G2139)\",ID[\"EPSG\",1309]],MEMBER[\"World Geodetic System 1984 (G2296)\",ID[\"EPSG\",1383]],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",7030]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0,
@@ -262,11 +317,21 @@
         "timeCodesPerSecond": 24.0,
         "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
-          "/Resolved/Part0": "/Native0/Asset/Geometry",
-          "/Resolved/Part1": "/Native1/Asset/Geometry",
-          "/Resolved/Part2": "/Native2/Asset/Geometry",
-          "/Resolved/Part3": "/PointModels/Instances/_ResolvedInstance0/Root",
-          "/Resolved/Part4": "/PointModels/Instances/_ResolvedInstance2/Root"
+          "/Resolved/ExportOrigin/Part0": "/Native0/Asset/Geometry",
+          "/Resolved/ExportOrigin/Part1": "/Native1/Asset/Geometry",
+          "/Resolved/ExportOrigin/Part2": "/Native2/Asset/Geometry",
+          "/Resolved/ExportOrigin/Part3": "/PointModels/Instances/_ResolvedInstance0/Root",
+          "/Resolved/ExportOrigin/Part4": "/PointModels/Instances/_ResolvedInstance2/Root"
+        },
+        "export_origin": {
+          "prim": "/Resolved/ExportOrigin",
+          "stage_coordinates": [
+            650000.0000000001,
+            6860000.0,
+            40.0
+          ],
+          "usd_type": "double3 translate",
+          "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0,
@@ -322,7 +387,17 @@
         "timeCodesPerSecond": 48.0,
         "dependency": "No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained",
         "source_paths": {
-          "/Resolved/Part0": "/World/Model/Sample"
+          "/Resolved/ExportOrigin/Part0": "/World/Model/Sample"
+        },
+        "export_origin": {
+          "prim": "/Resolved/ExportOrigin",
+          "stage_coordinates": [
+            6378137.0,
+            0.0,
+            0.0
+          ],
+          "usd_type": "double3 translate",
+          "scene_crs": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0,

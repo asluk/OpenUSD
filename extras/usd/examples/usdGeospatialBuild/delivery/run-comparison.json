@@ -1,14 +1,26 @@
 {
-  "previous_execution_receipt_sha256": "3baf0e2c215e8ac2ea30fb41197242b663469cd51f31ba48dc9e6c0d7b76833c",
-  "execution_receipt_sha256": "4f212b53f00cd7f31bae7b94ea63e6a4b99e3a9cf9e645b2989e888a51ceecbf",
-  "proposal_sha256": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
-  "proposal_revision": "c29074a0743d2771439e6d0ca4ac22e3cec7e520",
+  "previous_execution_receipt_sha256": "4f212b53f00cd7f31bae7b94ea63e6a4b99e3a9cf9e645b2989e888a51ceecbf",
+  "execution_receipt_sha256": "b12019e039ab52f930fb2f4321ca2289875bcdefbd3dbbd669b72a8689647e46",
+  "proposal_sha256": "28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9",
+  "proposal_revision": "bbe3e488d5267227a994992a837a637f0cf98dee",
   "source_input_hashes_unchanged": true,
   "resource_hashes_unchanged": true,
-  "runtime_implementation_files_unchanged": true,
+  "runtime_implementation_files_unchanged": false,
   "changed_frozen_files": [
+    "candidate/datasets.py",
+    "candidate/execution.py",
+    "candidate/export.py",
+    "candidate/runner.py",
+    "candidate/runtime.py",
+    "review/placement_values.py",
+    "review/test_split_feedback.py",
+    "native/leans.cpp",
     "inputs.json",
     "proposal-quality.json",
+    "BUILD_LOOP.md",
+    "PLAN.md",
+    "AUDIT.md",
+    "QUALITY_REVIEW.md",
     "proposal/data-model.md",
     "proposal/distinguishing-examples.md",
     "proposal/local-draft.patch",
@@ -24,7 +36,7 @@
     "failed": 0
   },
   "tests_after": {
-    "regressions_passed": 64,
+    "regressions_passed": 70,
     "distinguishing_controls_passed": 61,
     "failed": 0
   },
@@ -871,8 +883,7 @@
     }
   ],
   "numeric_regressions": [],
-  "known_prototype_issues_reproduced": [
-    "A1",
+  "repaired_counterexamples": [
     "A2",
     "A3",
     "A4",
@@ -880,5 +891,19 @@
     "A6",
     "A7"
   ],
-  "interpretation": "Fresh execution compares recorded numeric outputs and repeats independent diagnostics. Matching results support absence of observed regressions, not complete conformance or independent geodetic validation."
+  "remaining_counterexamples": [
+    "A1"
+  ],
+  "orientation_choice_evidence": {
+    "name": "orientation_interpolation_choice",
+    "illustrative_only_not_proposed_source_fields": true,
+    "headings_authored_degrees": [
+      170.0,
+      -170.0
+    ],
+    "core_double3_midpoint_heading_degrees": 0.0,
+    "core_quaternion_midpoint_heading_degrees": 180.0,
+    "meaning": "A stored angle tuple needs an explicit geospatial interpolation rule if physical shortest-arc attitude is intended. This test does not select the representation."
+  },
+  "interpretation": "Fresh evidence tests the full follow-up, preserves the prior input datasets/resources, compares recorded arrays and repeats independent counterexamples. No blanket conformance or independent geodetic engine claim."
 }

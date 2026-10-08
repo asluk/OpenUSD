@@ -23,7 +23,7 @@ def Xform "World" (
         prepend references = @./crs-library.usda@</Definitions/C21567ba65f4034ba>
     )
     {
-        uniform asset data:asset = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-merged-run-20261007-v1\fixtures\multi-domain.nc@
+        uniform asset data:asset = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-split-run-20261008-v1\fixtures\multi-domain.nc@
         uniform string data:coordinateDomain = "geographic"
         uniform string data:field = "measurement"
         uniform token data:format = "CF"

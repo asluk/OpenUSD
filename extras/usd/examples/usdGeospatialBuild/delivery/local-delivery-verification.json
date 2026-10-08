@@ -1,7 +1,7 @@
 {
-  "executed_source_content_commit": "767f6a52e26d58ee54018be76040b3d550b04191",
+  "executed_source_content_commit": "dfa9f71ca5ae32fbf5714e526d0f7f8fc0b4af13",
   "commit_blobs_match_immutable_freeze": true,
-  "source_file_count": 40,
+  "source_file_count": 45,
   "rejected_false_claim_controls": [
     {
       "false_claim": "usd_placement_implementations",

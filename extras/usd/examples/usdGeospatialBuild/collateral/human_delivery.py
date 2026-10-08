@@ -78,11 +78,12 @@ def publish(root, base, assessment_path, audit_path):
     root = Path(root)
     assessment, cases, audit, confirmed = prepare(root, base, assessment_path, audit_path)
     by_id = {c["id"]: c for c in cases}
-    issues = [ISSUE_TEXT[f["id"]] for f in confirmed]
+    issues = [[ISSUE_TEXT[f["id"]][0], f["result_summary"]] for f in confirmed]
+    unresolved = [f for f in confirmed if f["status"] == "confirmed unresolved"]
     status_rows = [
-        ["Proposal definitions", "The candidate specifies inputs and evaluation rules for the displayed cases. Detailed choices still need group review."],
-        ["Newly confirmed model gap", "This audit established no additional data-model blocker. It does not establish an exhaustive search for missing meaning."],
-        ["Implementation evidence", f"The selected cases work. {len(confirmed)} later audit issues remain failed or unverified."],
+        ["Proposal definitions", "A focused requirements baseline is separate from the full candidate used for execution. Supported meaning and pending conventions are distinguished."],
+        ["Newly confirmed model gap", "No additional undefined model rule was confirmed in reviewed paths. This is a scoped assessment, not an exhaustive completeness proof."],
+        ["Implementation evidence", f"The selected cases work. {len(confirmed)-len(unresolved)} prior defects pass fresh counterexamples; {len(unresolved)} remains unresolved."],
         ["Deferred capabilities", "Coordinate epochs and scene-authored transformation resources remain on the roadmap. Initial choices must preserve a path to adding them."],
     ]
     inputs = [
@@ -92,9 +93,9 @@ def publish(root, base, assessment_path, audit_path):
         ["Physical orientation", "crs:orientation says which way the model faces and tilts relative to local east, north and up at its origin."],
     ]
     placement_choices = [
-        ["Physical orientation", "Record model orientation relative to local east, north and up. A different map projection does not redefine it."],
-        ["The object with its own georeference", "Its ordinary scale, rotation and translation adjust placed geometry in a fixed project frame."],
-        ["Child objects", "Child transforms define model-local geometry. Their offsets follow model axes instead of being silently reinterpreted as map axes."],
+        ["Physical orientation", "Input-only meaning is supported. Stored quaternion versus one heading/pitch/roll tuple and its interpolation need review."],
+        ["The object with its own georeference", "Project adjustment meaning is supported. The detailed fixed working-frame convention remains a candidate."],
+        ["Child objects", "Model-local meaning is supported. The follow-up specifies chart/reset details and tests that offsets retain their interpretation."],
         ["Independently georeferenced repeated models", "Keep a prototype's own geographic placement and apply each instance effect once."],
         ["Geographic queries and scene geometry", "Return longitude/latitude/height for geographic queries. Cartesian geometry and bounds use the datum's Earth-centred frame."],
     ]
@@ -103,15 +104,15 @@ def publish(root, base, assessment_path, audit_path):
         ["WKT string normalization", "A prescribed text form supports token comparison. Different normalized texts can still describe equivalent CRSs."],
         ["Semantic CRS comparison", "Specify equivalence criteria and the comparison domain, accounting for relevant axes, units and metadata."],
         ["Dependency declaration using Profiles", "Declare the composed scene's need for geospatial interpretation, including unloaded content. Writers and assemblers maintain the declaration."],
-        ["Baked output context", "Keep a Cartesian CRS context without an active placement binding, so readers do not apply georeferencing a second time."],
+        ["Baked output context", "Record a Cartesian CRS and ordinary double-precision origin. Preserve precision and space/time coverage."],
     ]
     evidence_rows = [
         ["Python and C++ readers", f"{base['coordinate_count']:,} coordinate results per reader. Maximum measured difference {base['max_cpp_error_metres']:.3g} m. They share PROJ and native dataset decoding."],
         ["Omniverse stage geometry integration", f"Reuses Python placement. Recorded readback covers {base['ov']['geometry_vertices']:,} geometry vertices and {base['ov']['edit_checks']} edit, failure and recovery checks, across {base['ov']['jobs']} jobs."],
         ["Hydra / Storm", "Two selected ordinary USD bakes reach native rendering. This consumer path uses the C++ placement results."],
-        ["Recorded tests", f"{base['tests']['regressions_passed']} regressions and {base['tests']['distinguishing_controls_passed']} distinguishing controls passed. The later audit exposes cases the suite missed."],
+        ["Recorded tests", f"{base['tests']['regressions_passed']} regressions and {base['tests']['distinguishing_controls_passed']} distinguishing controls passed. Fresh independent diagnostics verify six repairs and retain the unresolved normal case."],
         ["Source preservation", "Original inputs and all frozen execution files remained unchanged during this run. The immutable receipt identifies the exact executed content."],
-        ["Bake readbacks", f"{base['export_count']} selected exports were checked. The later nested-geometry case demonstrates that the original inventory check was incomplete."],
+        ["Bake readbacks", f"{base['export_count']} selected exports were checked. The fresh nested-geometry counterexample verifies the complete inventory, including unexpected extras."],
     ]
 
     def case_markdown(case):
@@ -140,15 +141,15 @@ def publish(root, base, assessment_path, audit_path):
     text += "## Demonstrations and their meaning\n\n"
     for key in ["coordinates", "adjustments", "readers", "bake", "measurements"]:
         text += case_markdown(by_id[key])
-    text += "## What the later audit changes\n\nThe recorded suite passed, then the audit exercised cases it had missed. These are known prototype failures or unsupported policies, not evidence that the required behavior should change to fit the implementation.\n\n"
-    text += markdown_table(["Affected behavior", "Confirmed issue"], issues) + "\n\n"
-    text += "Repair these against the existing proposed rules. If repair reveals truly unspecified meaning, flag that separately. Do not make a shortcut normative simply because both readers used it. The audit's static batch-operation concern was not reproduced and is not counted as an eighth confirmed issue.\n\n"
+    text += "## Fresh independent audit\n\nThe fresh audit reruns all seven prior counterexamples. Six now pass after repairs against existing rules; normal sampling remains a failed implementation policy.\n\n"
+    text += markdown_table(["Affected behavior", "Fresh audit result"], issues) + "\n\n"
+    text += "Repair the remaining normal issue against the existing proposed rules. Flag genuinely missing meaning separately. Do not make a shortcut normative simply because both readers used it. The audit's static batch-operation concern was not reproduced and is not counted as an eighth confirmed issue.\n\n"
     text += "[Independent audit](delivery/independent-audit.json) · [Diagnostic results](delivery/audit-diagnostics.json)\n\n"
     text += "## Supporting cases\n\n<details>\n<summary>Colorado, railway and animation demonstrations</summary>\n\n"
     for key in ["colorado", "railway", "animation"]:
         text += case_markdown(by_id[key])
     text += "</details>\n\n## Proposed choices awaiting agreement\n\n"
-    text += "These are definitions in the candidate, not new inferred behavior supplied by the demonstrations. A complete proposed answer, author agreement and successful implementation coverage are separate assessments.\n\n"
+    text += "The group supports input-only physical placement and project adjustments versus model-local child offsets. Stored orientation and detailed chart, carrier and export conventions remain candidates. Proposed definitions, adoption and implementation coverage are separate assessments.\n\n"
     text += markdown_table(["Placement topic", "Proposed meaning to review"], placement_choices) + "\n\n" + markdown_table(["Data or declaration topic", "Proposed meaning to review"], data_choices) + "\n\n"
     text += "Coordinate epochs and scene-authored operation/resource controls remain deferred without foreclosing later support. Regional and global workflows remain represented.\n\n"
     text += "## Detailed evidence\n\n<details>\n<summary>Reader comparisons, consumer coverage and provenance</summary>\n\n" + markdown_table(["Path or check", "Recorded evidence"], evidence_rows) + "\n\n"
@@ -166,7 +167,7 @@ def publish(root, base, assessment_path, audit_path):
 
     descriptions = {
         "author_review": "Detailed candidate choices still need group review. Matching prototype results do not establish agreement.",
-        "known_issues": "Seven later audit issues limit implementation coverage. No new data-model blocker was confirmed by this audit.",
+        "known_issues": f"{len(unresolved)} unresolved audit issue limits implementation coverage; six prior defects pass fresh counterexamples.",
         "consumer_boundary": "Two placement readers. OV reuses Python, and Hydra consumes a bake. No third independent engine or full conformance is established.",
     }
     # The renderer uses sentences and tables that occur in this generated README.
@@ -198,7 +199,7 @@ def publish(root, base, assessment_path, audit_path):
         slides=[
             {"title": "Geospatial proposal assessment", "section": "Assessment of the proposal", "kind": "assessment"},
             *({"title": by_id[key]["title"], "section": by_id[key]["title"], "case": key, "kind": by_id[key]["kind"]} for key in ["inputs", "coordinates", "adjustments", "readers", "bake", "measurements"]),
-            {"title": "What the later audit changes", "section": "What the later audit changes", "kind": "audit"},
+            {"title": "Fresh independent audit", "section": "Fresh independent audit", "kind": "audit"},
             *({"title": "Appendix: " + by_id[key]["title"], "section": by_id[key]["title"], "case": key, "kind": by_id[key]["kind"]} for key in ["colorado", "railway", "animation"]),
             {"title": "Appendix: Placement choices under review", "section": "Proposed choices awaiting agreement", "kind": "placement_choices"},
             {"title": "Appendix: Data and declaration choices", "section": "Proposed choices awaiting agreement", "kind": "data_choices"},
@@ -206,11 +207,11 @@ def publish(root, base, assessment_path, audit_path):
         ],
     )
     (root / "delivery/story.json").write_text(json.dumps(story, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
-    pr = "This run assesses whether another implementer can derive the proposed geospatial behavior without guessing source data or evaluation rules. The README and slides explain each demonstration's expected result, observed behavior and limits, with illustrations distinguished from executed evidence.\n\nThe candidate now specifies the exercised inputs and rules, but detailed choices still need group review. Seven later prototype audit issues remain disclosed; no new data-model blocker was confirmed by that audit. Selected reader comparisons, ordinary USD bakes and native-data cases work. Shared PROJ and decoding limit independent verification, and whole-proposal conformance is not established.\n\nSee the example README, proposal snapshot and audit for the current assessment, review choices and evidence. " + assessment["provenance_disposition"] + "\n"
+    pr = "This run assesses whether another implementer can derive the proposed geospatial behavior without guessing source data or evaluation rules. The README and slides explain each demonstration's expected result, observed behavior and limits, with illustrations distinguished from executed evidence.\n\nThe candidate now specifies the exercised inputs and rules, but detailed choices still need group review. Six prior audit defects pass fresh counterexamples; normal-domain sampling remains unresolved. Selected reader comparisons, ordinary USD bakes and native-data cases work. Shared PROJ and decoding limit independent verification, and whole-proposal conformance is not established.\n\nSee the example README, proposal snapshot and audit for the current assessment, review choices and evidence. " + assessment["provenance_disposition"] + "\n"
     if assessment.get("comparison"):
         comparison = json.loads((root / "delivery/run-comparison.json").read_text(encoding="utf-8"))
         pr = assessment["assessment"] + "\n\n" + assessment["comparison"]["explanation"] + "\n\n"
-        pr += f"Fresh execution: {base['tests']['regressions_passed']} regression checks and {base['tests']['distinguishing_controls_passed']} distinguishing controls passed. All {len(comparison['numeric_case_comparisons'])} recorded numerical case comparisons across both placement readers and the Omniverse geometry sink exactly match the prior run. Seven known prototype issues reproduce; no implementation repairs or whole-proposal conformance are claimed.\n\n"
+        pr += f"Fresh execution: {base['tests']['regressions_passed']} regression checks and {base['tests']['distinguishing_controls_passed']} distinguishing controls passed. All {len(comparison['numeric_case_comparisons'])} recorded numerical case comparisons across both placement readers and the Omniverse geometry sink exactly match the prior run. Six prior audit defects pass fresh counterexamples after clause-traced repairs; normal sampling remains unresolved. Whole-proposal conformance is not claimed.\n\n"
         pr += "The README and slides pair the working demonstrations with their proposal meaning and limits. Detailed candidate choices still need group review. Shared PROJ and dataset decoding limit independent verification.\n\n" + assessment["provenance_disposition"] + "\n"
     (root / "delivery/pr-body.md").write_text(pr, encoding="utf-8", newline="\n")
     assert not re.search(r"https://github.com/(?:PixarAnimationStudios/OpenUSD|[^/]+/OpenUSD-proposals)/(?:pull|issues)/", text + pr)

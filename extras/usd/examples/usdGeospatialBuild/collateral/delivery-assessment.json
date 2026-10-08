@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "proposal_sha256": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
-  "execution_receipt_sha256": "4f212b53f00cd7f31bae7b94ea63e6a4b99e3a9cf9e645b2989e888a51ceecbf",
-  "audit_source_sha256": "3879146f2ccfef03b2b30a48cbb53f2026b174dd6663a64dedeed5b21fb8e0aa",
+  "proposal_sha256": "28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9",
+  "execution_receipt_sha256": "b12019e039ab52f930fb2f4321ca2289875bcdefbd3dbbd669b72a8689647e46",
+  "audit_source_sha256": "a184562af36d2471493c1ed1cd06f43e6430d517f778744437d262d7191fbd42",
   "audience": "Readers who may be unfamiliar with both geospatial concepts and OpenUSD",
   "purpose": "Assess whether the proposal supplies sufficient, consistent data and observable rules for another implementer to derive meaningful results and tests",
-  "title": "Geospatial proposal clarity after the baseline merge",
+  "title": "Geospatial proposal: mergeable requirements and a tested follow-up",
   "opening": "USD describes a 3D model's shape and size. Geospatial information says where it belongs on Earth, so models, surveys and measurements can work together.",
-  "assessment": "The merged background separates map-grid distances and north from physical model size and orientation. A narrow clarification keeps stage axes distinct. Existing placement rules remain unchanged.",
-  "summary": "The fresh run reproduces the selected results with no numerical changes. Seven known prototype issues also reproduce. Clearer explanation does not mean those defects are fixed.",
+  "assessment": "The local split gives reviewers a focused requirements baseline and a separate full model/runtime candidate. Clearer array, invalid-input and bake rules now have fresh tests.",
+  "summary": "All prior recorded numeric results match. Six audited defects are corrected; normal sampling remains unresolved. Orientation storage and detailed conventions still need review.",
   "cases": [
     {
       "id": "inputs",
@@ -61,8 +61,8 @@
       "rule": "On an object with its own CRS binding, ordinary USD transforms (xformOps) adjust the resolved placement in a fixed project working frame. The requested output CRS does not reinterpret those adjustment values.",
       "expected": "A project adjustment moves or resizes the placed model while its source geospatial inputs remain unchanged. The proposal separately specifies how child transforms retain model-local meaning.",
       "observed": "The illustration applies scale 1.15, rotation 20 degrees, then moves 120 m east and 60 m south. A child-transform control separates two interpretations by {child_difference:.3f} m.",
-      "implication": "Order changes the result. The control makes the proposed child-transform choice reviewable; matching readers do not establish agreement.",
-      "boundary": "The image is informative. The child-transform rule is a proposed clarification, not a claim that the call settled every descendant case.",
+      "implication": "Order changes the result. The control tests the agreed anchor/child distinction while detailed chart and instance conventions remain candidates.",
+      "boundary": "The image is informative. Feedback supports project adjustments versus model-local child offsets; detailed rules still need review.",
       "requirement_ids": [
         9,
         14,
@@ -86,7 +86,7 @@
       "expected": "Python and C++ readers resolve the same partner points into matching output coordinates within the recorded tolerance.",
       "observed": "France and Colorado points resolve through both readers. The maximum measured difference over the recorded coordinates is {max_difference:.3g} m.",
       "implication": "The compared cases support reproducible interpretation of the proposed placement rules. They do not establish coverage of every rule or every input layout.",
-      "boundary": "Both readers use PROJ, the same CRS conversion library, and share native dataset decoding. Agreement therefore does not independently verify geodetic accuracy or detect shared mistakes. The later audit also finds incomplete per-component and angular error reporting.",
+      "boundary": "Both readers use PROJ and share dataset decoding. Agreement is limited to tested domains and is not independent geodetic validation.",
       "requirement_ids": [
         4,
         13,
@@ -105,9 +105,9 @@
       "question": "Can a renderer use the result without implementing geospatial evaluation?",
       "rule": "An explicit bake creates a derived copy containing resolved geometry and ordinary transforms. It retains the output coordinate context and applies each placement effect once.",
       "expected": "A USD renderer reads the derived copy as ordinary geometry while the source scene keeps its authored geospatial inputs.",
-      "observed": "The C++ reader's resolved Eiffel copy reaches Hydra/Storm, a USD rendering path. This image is actual output from the recorded run.",
-      "implication": "This case shows compatibility with an ordinary USD renderer. A separate nested-geometry failure prevents a claim that every bake is correct.",
-      "boundary": "The ground plane is illustrative, without surveyed Paris context. This run has no geospatial Hydra filter or Omniverse render proof. Other bake diagnostics fail, as listed below.",
+      "observed": "Native Hydra/Storm renders the ordinary USD bake. A double-precision origin keeps local points small; fresh readers recover the placement.",
+      "implication": "Unaware viewers receive resolved ordinary geometry. Fresh checks reject duplicate meshes and retain an unrelated applied schema.",
+      "boundary": "This is a recorded native render. General materials, primvars and continuous coverage remain unverified.",
       "requirement_ids": [
         17,
         19,
@@ -131,7 +131,7 @@
       "expected": "The same sample keeps the same measurement value and observation time whether its location is returned as longitude/latitude/height or Earth-centred Cartesian coordinates.",
       "observed": "The synthetic global temperature case returns both coordinate forms for {global_samples} samples and preserves the native values and two observation times.",
       "implication": "The example exercises larger-scale analytical use, beyond model rendering. The proposal's association rule also identifies the later shared-decoder mistake as a failure.",
-      "boundary": "The heatmap contains synthetic temperatures in kelvin. A different array layout mispairs four of six values and locations. This passing case does not establish support for every layout.",
+      "boundary": "Synthetic values. Dimension-name tests check associations independently of the shared decoder.",
       "requirement_ids": [
         8,
         12,
@@ -210,29 +210,29 @@
       "clause_heading": "#### Evaluation"
     }
   ],
-  "provenance_disposition": "Fresh October 7 execution of the merged proposal candidate, compared with the prior immutable run and followed by repeated independent diagnostics. No runtime implementation repairs.",
+  "provenance_disposition": "Fresh October 8 execution of the local stacked follow-up, with clause-traced adapter repairs and repeated independent diagnostics. No changes have been published.",
   "comparison": {
-    "explanation": "The merge improves the vocabulary for reviewing scale and orientation. The run uses the current published text, including its existing geographic scene and ordinary-UsdGeom bake clarifications. It changes no placement fields or evaluation rules.",
+    "explanation": "The requirements baseline can be reviewed without approving exact schema fields or runtime conventions. The full follow-up retains the complete candidate for derivation and testing.",
     "rows": [
       [
-        "CRS background",
-        "Four coordinate families, derived CRS, grid/ground distances and grid convergence are now explained together."
+        "Review scope",
+        "All 31 requirement IDs remain. Exact fields, evaluation rules, illustrations and detailed examples move to the stacked follow-up."
       ],
       [
-        "North and stage axes",
-        "The background describes projected grid north. It does not redefine physical model orientation or assign north to every stage Y axis."
-      ],
-      [
-        "Published versus executed text",
-        "The fresh run incorporates existing geographic scene-chart and bake clarifications omitted from the previous executed snapshot."
+        "Contract clarity",
+        "Dimension-name ordering, invalid-placement failures and required precision-preserving ordinary USD bakes are explicit."
       ],
       [
         "Numerical results",
-        "Every compared array in both readers and the Omniverse sink exactly matches the prior run."
+        "All 105 recorded case comparisons exactly match the prior run."
       ],
       [
-        "Known prototype issues",
-        "All seven known issues reproduce. The merge supplies no defect-repair claim."
+        "Implementation audit",
+        "Six counterexamples pass after repair; normal sampling still lacks justified approximation evidence."
+      ],
+      [
+        "Alignment",
+        "Input-only physical meaning and anchor/descendant distinction have supportive feedback. Stored orientation and detailed carrier/chart conventions remain candidate."
       ]
     ]
   }
