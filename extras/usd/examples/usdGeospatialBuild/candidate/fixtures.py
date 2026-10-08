@@ -115,7 +115,7 @@ def build(root,directory):
                 cp=dst.GetPrimAtPath(rel.GetTargets()[0]);wkt=normalize(cp.GetAttribute('crs:wkt').Get());prim.RemoveProperty('crs:binding');bind(prim,wkt,library)
             if prim.HasRelationship('crs:coordinateProperties'):prim.RemoveProperty('crs:coordinateProperties')
             orientation=prim.GetAttribute('crs:orientation')
-            if orientation and orientation.HasAuthoredValueOpinion() and orientation.GetTypeName()==Sdf.ValueTypeNames.Quatd:
+            if orientation and orientation.HasAuthoredValueOpinion() and orientation.GetPropertyStack() and orientation.GetPropertyStack()[0].typeName==Sdf.ValueTypeNames.Quatd:
                 # Historical fixture intake only; preserve the original scene file.
                 times=orientation.GetTimeSamples()
                 records=[(Usd.TimeCode(t),orientation.Get(t)) for t in times] if times else [(Usd.TimeCode.Default(),orientation.Get())]
@@ -136,7 +136,7 @@ def build(root,directory):
         claim(dst);dst.GetRootLayer().Export(str(directory/(name+'.usda')))
         dest='France_02' if name=='tower' else 'Colorado_03' if name=='terrain' else 'utm31'
         jobs.append({'name':name,'stage':str(directory/(name+'.usda')),'output_wkt':targets[dest],'queries':[],'expected':None,'time':0,'interpolation':'linear','geometry':True})
-        migrations.append({'scene':name,'original_scene_sha256':hashlib.sha256((root/'scenes'/(name+'.usda')).read_bytes()).hexdigest(),'binding_migration':'reference + applied schema; private relationships removed','source_geometry':'unchanged'})
+        migrations.append({'scene':name,'original_scene_sha256':hashlib.sha256((root/'scenes'/(name+'.usda')).read_bytes()).hexdigest(),'binding_migration':'reference + applied schema; private relationships removed','source_geometry':'unchanged','orientation_intake':'Historical quaternion declarations converted to HPR with checked physical rotation round-trip; originals unchanged'})
         if name=='instances':
             mask_stage=Usd.Stage.Open(str(directory/(name+'.usda')))
             inst=next(UsdGeom.PointInstancer(p) for p in mask_stage.Traverse() if p.IsA(UsdGeom.PointInstancer))
