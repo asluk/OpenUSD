@@ -110,7 +110,7 @@ def publish(root, base, assessment_path, audit_path):
         ["Omniverse stage geometry integration", f"Reuses Python placement. Recorded readback covers {base['ov']['geometry_vertices']:,} geometry vertices and {base['ov']['edit_checks']} edit, failure and recovery checks, across {base['ov']['jobs']} jobs."],
         ["Hydra / Storm", "Two selected ordinary USD bakes reach native rendering. This consumer path uses the C++ placement results."],
         ["Recorded tests", f"{base['tests']['regressions_passed']} regressions and {base['tests']['distinguishing_controls_passed']} distinguishing controls passed. The later audit exposes cases the suite missed."],
-        ["Source preservation", "Original inputs and 40 executed source-file hashes remain unchanged. The immutable receipt identifies the executed content."],
+        ["Source preservation", "Original inputs and all frozen execution files remained unchanged during this run. The immutable receipt identifies the exact executed content."],
         ["Bake readbacks", f"{base['export_count']} selected exports were checked. The later nested-geometry case demonstrates that the original inventory check was incomplete."],
     ]
 
@@ -131,6 +131,10 @@ def publish(root, base, assessment_path, audit_path):
     text += "[Slides](delivery/geospatial-build.pptx) · [PDF](delivery/geospatial-build.pdf) · [Proposal snapshot](proposal/proposal-source.txt) · [Build loop](BUILD_LOOP.md)\n\n"
     text += "## Assessment of the proposal\n\n" + markdown_table(["Review dimension", "Current assessment"], status_rows) + "\n\n"
     text += assessment["summary"] + "\n\n"
+    if assessment.get("comparison"):
+        text += "## Changes since the previous run\n\n" + assessment["comparison"]["explanation"] + "\n\n"
+        text += markdown_table(["Compared aspect", "Finding"], assessment["comparison"]["rows"]) + "\n\n"
+        text += "[Full comparison](delivery/run-comparison.json)\n\n"
     text += "## Source inputs and computed placement\n\n" + case_markdown(by_id["inputs"]) + markdown_table(["Source information", "Plain meaning"], inputs) + "\n\n"
     text += "A reader computes coordinate-query results and scene placement from those inputs. Projection scale, convergence and other computed results do not become source geospatial properties. An ordinary USD scale operation records an author's intentional adjustment.\n\n"
     text += "## Demonstrations and their meaning\n\n"
@@ -185,7 +189,8 @@ def publish(root, base, assessment_path, audit_path):
         evidence_rows=evidence_rows,
         audit_sha256=sha(audit_path),
         assessment_sha256=sha(assessment_path),
-        provenance_disposition="Explanatory delivery refresh of the same frozen execution, with later audit disclosure. No new runtime execution or repairs.",
+        provenance_disposition=assessment["provenance_disposition"],
+        run_comparison=assessment.get("comparison"),
         main_slide_count=8,
         appendix_slide_count=6,
         required_native_table_slides=[2, 5, 8, 12, 13, 14],
@@ -201,7 +206,12 @@ def publish(root, base, assessment_path, audit_path):
         ],
     )
     (root / "delivery/story.json").write_text(json.dumps(story, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
-    pr = "This run assesses whether another implementer can derive the proposed geospatial behavior without guessing source data or evaluation rules. The README and slides explain each demonstration's expected result, observed behavior and limits, with illustrations distinguished from executed evidence.\n\nThe candidate now specifies the exercised inputs and rules, but detailed choices still need group review. Seven later prototype audit issues remain disclosed; no new data-model blocker was confirmed by that audit. Selected reader comparisons, ordinary USD bakes and native-data cases work. Shared PROJ and decoding limit independent verification, and whole-proposal conformance is not established.\n\nSee the example README, proposal snapshot and audit for the current assessment, review choices and evidence. This delivery refresh adds no execution or defect-repair claim.\n"
+    pr = "This run assesses whether another implementer can derive the proposed geospatial behavior without guessing source data or evaluation rules. The README and slides explain each demonstration's expected result, observed behavior and limits, with illustrations distinguished from executed evidence.\n\nThe candidate now specifies the exercised inputs and rules, but detailed choices still need group review. Seven later prototype audit issues remain disclosed; no new data-model blocker was confirmed by that audit. Selected reader comparisons, ordinary USD bakes and native-data cases work. Shared PROJ and decoding limit independent verification, and whole-proposal conformance is not established.\n\nSee the example README, proposal snapshot and audit for the current assessment, review choices and evidence. " + assessment["provenance_disposition"] + "\n"
+    if assessment.get("comparison"):
+        comparison = json.loads((root / "delivery/run-comparison.json").read_text(encoding="utf-8"))
+        pr = assessment["assessment"] + "\n\n" + assessment["comparison"]["explanation"] + "\n\n"
+        pr += f"Fresh execution: {base['tests']['regressions_passed']} regression checks and {base['tests']['distinguishing_controls_passed']} distinguishing controls passed. All {len(comparison['numeric_case_comparisons'])} recorded numerical case comparisons across both placement readers and the Omniverse geometry sink exactly match the prior run. Seven known prototype issues reproduce; no implementation repairs or whole-proposal conformance are claimed.\n\n"
+        pr += "The README and slides pair the working demonstrations with their proposal meaning and limits. Detailed candidate choices still need group review. Shared PROJ and dataset decoding limit independent verification.\n\n" + assessment["provenance_disposition"] + "\n"
     (root / "delivery/pr-body.md").write_text(pr, encoding="utf-8", newline="\n")
     assert not re.search(r"https://github.com/(?:PixarAnimationStudios/OpenUSD|[^/]+/OpenUSD-proposals)/(?:pull|issues)/", text + pr)
     validate_narrative(root, story)

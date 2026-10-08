@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "proposal_sha256": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
-  "execution_receipt_sha256": "3baf0e2c215e8ac2ea30fb41197242b663469cd51f31ba48dc9e6c0d7b76833c",
-  "audit_source_sha256": "696adf5baf3325d5fa2c51a5f5d70168bd35f386360a5a3df297f5dc43372dc0",
+  "proposal_sha256": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
+  "execution_receipt_sha256": "4f212b53f00cd7f31bae7b94ea63e6a4b99e3a9cf9e645b2989e888a51ceecbf",
+  "audit_source_sha256": "3879146f2ccfef03b2b30a48cbb53f2026b174dd6663a64dedeed5b21fb8e0aa",
   "audience": "Readers who may be unfamiliar with both geospatial concepts and OpenUSD",
   "purpose": "Assess whether the proposal supplies sufficient, consistent data and observable rules for another implementer to derive meaningful results and tests",
-  "title": "Geospatial proposal assessment",
+  "title": "Geospatial proposal clarity after the baseline merge",
   "opening": "USD describes a 3D model's shape and size. Geospatial information says where it belongs on Earth, so models, surveys and measurements can work together.",
-  "assessment": "The question: can another implementer derive the behavior without guessing? The draft now defines the tested inputs and rules. Those choices still need group review.",
-  "summary": "Selected demonstrations work. A later audit found seven prototype issues. No additional model blocker was confirmed; this does not establish complete coverage.",
+  "assessment": "The merged background separates map-grid distances and north from physical model size and orientation. A narrow clarification keeps stage axes distinct. Existing placement rules remain unchanged.",
+  "summary": "The fresh run reproduces the selected results with no numerical changes. Seven known prototype issues also reproduce. Clearer explanation does not mean those defects are fixed.",
   "cases": [
     {
       "id": "inputs",
@@ -209,5 +209,31 @@
       ],
       "clause_heading": "#### Evaluation"
     }
-  ]
+  ],
+  "provenance_disposition": "Fresh October 7 execution of the merged proposal candidate, compared with the prior immutable run and followed by repeated independent diagnostics. No runtime implementation repairs.",
+  "comparison": {
+    "explanation": "The merge improves the vocabulary for reviewing scale and orientation. The run uses the current published text, including its existing geographic scene and ordinary-UsdGeom bake clarifications. It changes no placement fields or evaluation rules.",
+    "rows": [
+      [
+        "CRS background",
+        "Four coordinate families, derived CRS, grid/ground distances and grid convergence are now explained together."
+      ],
+      [
+        "North and stage axes",
+        "The background describes projected grid north. It does not redefine physical model orientation or assign north to every stage Y axis."
+      ],
+      [
+        "Published versus executed text",
+        "The fresh run incorporates existing geographic scene-chart and bake clarifications omitted from the previous executed snapshot."
+      ],
+      [
+        "Numerical results",
+        "Every compared array in both readers and the Omniverse sink exactly matches the prior run."
+      ],
+      [
+        "Known prototype issues",
+        "All seven known issues reproduce. The merge supplies no defect-repair claim."
+      ]
+    ]
+  }
 }

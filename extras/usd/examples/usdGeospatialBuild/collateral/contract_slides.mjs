@@ -7,9 +7,9 @@ import {Presentation,PresentationFile} from '@oai/artifact-tool';
 
 const root=path.resolve(process.argv[2]||path.join(path.dirname(fileURLToPath(import.meta.url)),'..'));
 const workspace=path.resolve(process.argv[3]||process.cwd());
-const output=path.resolve(process.argv[4]||path.join(workspace,'outputs/geospatial-human-delivery-20261006'));
-const build=path.join(workspace,'work/geospatial-human-delivery-render-20261006');
-const skill='C:/Users/aluk/.codex/plugins/cache/openai-primary-runtime/presentations/26.909.12148/skills/presentations';
+const output=path.resolve(process.argv[4]||path.join(workspace,'outputs/geospatial-merged-baseline-20261007'));
+const build=path.join(workspace,'work/geospatial-merged-delivery-render-20261007');
+const skill='C:/Users/aluk/.codex/plugins/cache/openai-primary-runtime/presentations/26.1007.11041/skills/presentations';
 const python='C:/Users/aluk/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe';
 process.env.RUNTIME_NODE_MODULES='C:/Users/aluk/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
 await fs.mkdir(build,{recursive:true});await fs.mkdir(output,{recursive:true});
@@ -77,7 +77,7 @@ for(const n of [12,13]){
 }
 const candidate=path.join(build,'candidate.pptx');await(await PresentationFile.exportPptx(p)).save(candidate);
 execFileSync(python,[path.join(path.dirname(fileURLToPath(import.meta.url)),'repair_slide_viewports.py'),candidate],{stdio:'inherit'});
-const final=path.join(output,'Geospatial-proposal-assessment-2026-10-06-v2.pptx');
+const final=path.join(output,'Geospatial-proposal-assessment-2026-10-07.pptx');
 const reference=path.join(root,'delivery/geospatial-build.pptx');
-const result=await finalizePresentation({workspaceDir:workspace,candidatePath:candidate,finalPath:final,pythonExecutable:python,integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-heading-fit',...story.required_native_table_slides.flatMap(n=>['--require-native-table-slide',String(n)])],explicitTotalSlideCount:14,requiredNativeTableOwnerSlides:story.required_native_table_slides,requiredNativeChartOwnerSlides:story.required_native_chart_slides,materializeLiteralChartWorkbooks:true,fontPolicy:{basis:'reference',families:['Arial'],referencePath:reference,referenceSha256:sha(await fs.readFile(reference))},verifyArtifactToolImport:true,receiptPath:path.join(build,'validation-v2.json')});
+const result=await finalizePresentation({workspaceDir:workspace,candidatePath:candidate,finalPath:final,pythonExecutable:python,integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-heading-fit',...story.required_native_table_slides.flatMap(n=>['--require-native-table-slide',String(n)])],explicitTotalSlideCount:14,requiredNativeTableOwnerSlides:story.required_native_table_slides,requiredNativeChartOwnerSlides:story.required_native_chart_slides,materializeLiteralChartWorkbooks:true,fontPolicy:{basis:'reference',families:['Arial'],referencePath:reference,referenceSha256:sha(await fs.readFile(reference))},verifyArtifactToolImport:true,receiptPath:path.join(build,'validation.json')});
 console.log(JSON.stringify({final,status:result.status,readme_sha256:story.readme_sha256}));

@@ -1,12 +1,12 @@
 {
-  "status": "October 6 input-only contract candidate; local execution, no remote delivery",
+  "status": "October 7 merged-baseline comparison run; exact published proposal candidate, pending author agreement",
   "proposal": {
-    "revision": "abff336bde02816b260f05aadf678a086790f884",
-    "sha256": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
-    "local_candidate": true,
+    "revision": "c29074a0743d2771439e6d0ca4ac22e3cec7e520",
+    "sha256": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
+    "local_candidate": false,
     "group_agreement": false,
     "source": "proposal/proposal-source.txt",
-    "status": "October 6 complete proposed input-only contract"
+    "status": "Merged-background proposal candidate; group agreement remains separate"
   },
   "openusd": {
     "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
@@ -39,7 +39,7 @@
     "implementation_to_proposal_and_reverse_coverage",
     "attempts_to_expose_fixture_shortcuts_and_self_justifying_proposal_changes"
   ],
-  "publication": "Local review only for this iteration",
+  "publication": "PR 9 baseline update authorized; current execution evidence derived afresh",
   "geospatial_references": [
     {
       "standard": "OGC 18-005r8",
@@ -52,15 +52,15 @@
   ],
   "previous_executed_source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47",
   "derivation": {
-    "requirements.md": "6402ed9ed172569bc9494a5a7eb0418f13e47570ed19afd3722306a9826874fa",
-    "data-model.md": "76bd75ff2aa6319062fb35a86e8e73b7bbca33f40683d25a2cc49493318e88c5",
-    "runtime-behavior.md": "d1b314cea44318e2bb388d52dda933f8d13202efd1eed506de79a2d24b73026f",
-    "runtime-open-decisions.md": "24ded71408d5785f66da95006c6c970a436d2903e40ffd636e58ed7b39d7edc8",
-    "distinguishing-examples.md": "5a519bc0a1d9f34650c402c5de5b549869220ad67fa74b51ded3ba4e9bb551b8",
-    "traceability.md": "f11c66a2310ee3160f9956aad0a10fc126ea28da06d87f20627bc0c17cc4c730"
+    "requirements.md": "7c4383c0d6b1edc0991be3fdef9d83651d4b8c906ed634e4ab8ffbb915eb4d8c",
+    "data-model.md": "ae3b3ed8448429604cf7abc144e5a454b2e02349202f07775d8bc5bb9866bb08",
+    "runtime-behavior.md": "49a368e1af1b4a374639dd733ca633d918c9132d11b32babd2c8231c68e80e4c",
+    "runtime-open-decisions.md": "6ea157ec5babc28c6281e8ec57d167c5e51d47a18313306a99bd198380d63d61",
+    "distinguishing-examples.md": "91b1bf9bf72c24656193e93444b69ee48816a4392ddf940cbe9faacc2f57908b",
+    "traceability.md": "24aaf452d22cc60a7cbaf87b9c5ac69c43408e29ecfd8f8be1455ce315d2488a"
   },
   "inherited_code_execution": "Prior relationship-based placement code retained in history/source, excluded from current execution except an explicit incompatibility control.",
-  "current_execution": "Python and C++ complete point-map queries, Cartesian frame derivatives and polygonal bounds; native Hydra resolved export; live OV geometry writeback; selected external measurement domains and sampled exports",
+  "current_execution": "Python and C++ complete point-map queries, Cartesian frame derivatives and polygonal bounds; native Hydra resolved export; Omniverse stage geometry writeback; selected external measurement domains and sampled exports",
   "normalizer_references": [
     "OGC 18-010r11 clauses 6-7 and Annex B",
     "W3C XML Schema Part 2 canonical integer and decimal lexical representations"

@@ -1,6 +1,6 @@
 # Derived excerpt — no additional authority
 
-Source SHA-256: 1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0
+Source SHA-256: 02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a
 
 ### Schema design
 

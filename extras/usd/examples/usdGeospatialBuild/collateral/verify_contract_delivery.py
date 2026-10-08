@@ -65,7 +65,7 @@ def main():
         'source_parent_at_execution':report['source_commit'],'executed_file_hashes_verified':True,'pptx_sha256':sha(d/'geospatial-build.pptx'),'pdf_sha256':sha(d/'geospatial-build.pdf'),'story_sha256':sha(d/'story.json'),'pr_body_sha256':sha(d/'pr-body.md'),'slides':len(slides),'native_table_slides':tables,'native_chart_slides':charts,
         'tests':report['tests'],'coordinate_results_per_path':story['coordinate_count'],'integration_claims':integration['claims'],'proposal_ready':True,'requirements_build_complete':False,
         'visual_review':'Every final slide rendered by native PowerPoint and inspected individually by Codex; PDF exported from the same presentation. README rendered and inspected. This is not a user comprehension test.',
-        'assessment_checks':narrative_proof,'audience_review_sha256':sha(d/'audience-review.json'),'later_audit_sha256':story['audit_sha256'],'delivery_refresh_without_runtime_repairs':True,
+        'assessment_checks':narrative_proof,'audience_review_sha256':sha(d/'audience-review.json'),'later_audit_sha256':story['audit_sha256'],'fresh_execution':bool(story.get('run_comparison')),'runtime_repairs_claimed':False,
         'portable_delivery':'Local path prefixes relinked in public copies; immutable execution receipt SHA retained. Source input hashes remain in receipt.',
         'files':{f.relative_to(d).as_posix():sha(f) for f in sorted(d.rglob('*')) if f.is_file() and f.name!='collateral-manifest.json'}}
     (d/'collateral-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8',newline='\n');print(json.dumps({'validated':True,'slides':len(slides),'tables':tables,'charts':charts}))
