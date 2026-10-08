@@ -28,18 +28,18 @@
     "native/leansRender.cpp": "6fd0d453ac74d120dfa4585e4ba45b4b1110558431ecb0da5e7927e9480c2646",
     "native/CMakeLists.txt": "d38d85d03a61336324f5741fc7b883878eec1ce7a0335880677500bcca86d5f5",
     "run.py": "cad2a0965ebcbcb1bd25f01e6904a98e40a03c73457018fa3386f2ea1ea5ceea",
-    "inputs.json": "0027c0b654330062b76e21dab7c8e94b031bc3bbecc7140d0837b0cd879484a7",
-    "proposal-quality.json": "7a82c92d341a2d0a010d1895fb8254e430528b4f57ffe42c9ef817d1578336ea",
+    "inputs.json": "2c803be374dbf65ca752cdcbc7864d34a1539ae35933e38a16048225670c13db",
+    "proposal-quality.json": "425e07155222f311cee3ba40a6a838b4ee864d5b6bd74259d6fc968392eafbe6",
     "ov/geobuild.kit": "5fc4d60271d18a04ad3b6675539033f1c06b37e86ce6b2cba25ed20b02e69d88",
     "geobuild/quality.py": "4cb53ae11b4f780846fc6beb845687afcb792c855c1b282be0e1174d35778471",
-    "proposal/data-model.md": "76bd75ff2aa6319062fb35a86e8e73b7bbca33f40683d25a2cc49493318e88c5",
-    "proposal/distinguishing-examples.md": "5a519bc0a1d9f34650c402c5de5b549869220ad67fa74b51ded3ba4e9bb551b8",
-    "proposal/local-draft.patch": "93383bcb5cd2442791ccec452927f3890928701b2b6f3a08fbef500086058045",
-    "proposal/proposal-source.txt": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
-    "proposal/requirements.md": "6402ed9ed172569bc9494a5a7eb0418f13e47570ed19afd3722306a9826874fa",
-    "proposal/runtime-behavior.md": "d1b314cea44318e2bb388d52dda933f8d13202efd1eed506de79a2d24b73026f",
-    "proposal/runtime-open-decisions.md": "24ded71408d5785f66da95006c6c970a436d2903e40ffd636e58ed7b39d7edc8",
-    "proposal/traceability.md": "f11c66a2310ee3160f9956aad0a10fc126ea28da06d87f20627bc0c17cc4c730"
+    "proposal/data-model.md": "ae3b3ed8448429604cf7abc144e5a454b2e02349202f07775d8bc5bb9866bb08",
+    "proposal/distinguishing-examples.md": "91b1bf9bf72c24656193e93444b69ee48816a4392ddf940cbe9faacc2f57908b",
+    "proposal/local-draft.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proposal/proposal-source.txt": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
+    "proposal/requirements.md": "7c4383c0d6b1edc0991be3fdef9d83651d4b8c906ed634e4ab8ffbb915eb4d8c",
+    "proposal/runtime-behavior.md": "49a368e1af1b4a374639dd733ca633d918c9132d11b32babd2c8231c68e80e4c",
+    "proposal/runtime-open-decisions.md": "6ea157ec5babc28c6281e8ec57d167c5e51d47a18313306a99bd198380d63d61",
+    "proposal/traceability.md": "24aaf452d22cc60a7cbaf87b9c5ac69c43408e29ecfd8f8be1455ce315d2488a"
   },
   "claims": {
     "usd_placement_implementations": 2,
@@ -130,7 +130,7 @@
         "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
         "renderer": "HdStormRendererPlugin",
         "vertices": 163440,
-        "image_sha256": "b1cf4cf1e0a3d1489c9e39678e323aa0cd145ddb76b25e9bd354c7a60167ee89"
+        "image_sha256": "6ba80ae1571060e18e0b62b10339d2ee5dbe38de73af71f9a98f2793854f9a94"
       },
       {
         "name": "terrain",

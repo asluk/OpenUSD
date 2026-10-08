@@ -1,5 +1,9 @@
-This run assesses whether another implementer can derive the proposed geospatial behavior without guessing source data or evaluation rules. The README and slides explain each demonstration's expected result, observed behavior and limits, with illustrations distinguished from executed evidence.
+The merged background separates map-grid distances and north from physical model size and orientation. A narrow clarification keeps stage axes distinct. Existing placement rules remain unchanged.
 
-The candidate now specifies the exercised inputs and rules, but detailed choices still need group review. Seven later prototype audit issues remain disclosed; no new data-model blocker was confirmed by that audit. Selected reader comparisons, ordinary USD bakes and native-data cases work. Shared PROJ and decoding limit independent verification, and whole-proposal conformance is not established.
+The merge improves the vocabulary for reviewing scale and orientation. The run uses the current published text, including its existing geographic scene and ordinary-UsdGeom bake clarifications. It changes no placement fields or evaluation rules.
 
-See the example README, proposal snapshot and audit for the current assessment, review choices and evidence. This delivery refresh adds no execution or defect-repair claim.
+Fresh execution: 64 regression checks and 61 distinguishing controls passed. All 105 recorded numerical case comparisons across both placement readers and the Omniverse geometry sink exactly match the prior run. Seven known prototype issues reproduce; no implementation repairs or whole-proposal conformance are claimed.
+
+The README and slides pair the working demonstrations with their proposal meaning and limits. Detailed candidate choices still need group review. Shared PROJ and dataset decoding limit independent verification.
+
+Fresh October 7 execution of the merged proposal candidate, compared with the prior immutable run and followed by repeated independent diagnostics. No runtime implementation repairs.

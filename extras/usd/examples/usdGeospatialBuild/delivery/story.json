@@ -1,9 +1,9 @@
 {
-  "run_receipt_sha256": "f9694edf234e4a69cef58bb6ea0f5551b45f22c4f3a61501db1b27f513c44fed",
-  "immutable_receipt_sha256": "3baf0e2c215e8ac2ea30fb41197242b663469cd51f31ba48dc9e6c0d7b76833c",
-  "proposal_sha256": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
-  "integration_evidence_sha256": "53ed98f3a7c200a3210e31fd716264e2c6453027de44627eb2190e668b98180c",
-  "executed_source_commit": "5c116fd2dd5767d42d34083d616edf66723efe92",
+  "run_receipt_sha256": "d2755acb1b654aa74223f32d3cbf8125445f3a207ccedf28c07786797fbd7c5c",
+  "immutable_receipt_sha256": "4f212b53f00cd7f31bae7b94ea63e6a4b99e3a9cf9e645b2989e888a51ceecbf",
+  "proposal_sha256": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
+  "integration_evidence_sha256": "2218fe914372397e14fb4d7454f08bf0d2da5c3b2e2327b5ed43ef186f6a21cf",
+  "executed_source_commit": "deaeab88f364702476db9801f337f56bac1a75db",
   "tests": {
     "regressions_passed": 64,
     "distinguishing_controls_passed": 61,
@@ -147,13 +147,13 @@
     "railway_vertices": 15822,
     "railway_parts": 2386
   },
-  "readme_sha256": "a45f759d69e14f28301cce5931f6578c8a64ebc8262403a6c8cc3b15b9a0b069",
+  "readme_sha256": "516b20d0c5b90558e7659c4ca71b2f2741d929c1a41d2427ac823f265f49b730",
   "narrative_version": 1,
   "audience": "Readers who may be unfamiliar with both geospatial concepts and OpenUSD",
   "purpose": "Assess whether the proposal supplies sufficient, consistent data and observable rules for another implementer to derive meaningful results and tests",
   "opening": "USD describes a 3D model's shape and size. Geospatial information says where it belongs on Earth, so models, surveys and measurements can work together.",
-  "assessment": "The question: can another implementer derive the behavior without guessing? The draft now defines the tested inputs and rules. Those choices still need group review.",
-  "summary": "Selected demonstrations work. A later audit found seven prototype issues. No additional model blocker was confirmed; this does not establish complete coverage.",
+  "assessment": "The merged background separates map-grid distances and north from physical model size and orientation. A narrow clarification keeps stage axes distinct. Existing placement rules remain unchanged.",
+  "summary": "The fresh run reproduces the selected results with no numerical changes. Seven known prototype issues also reproduce. Clearer explanation does not mean those defects are fixed.",
   "cases": [
     {
       "id": "inputs",
@@ -173,32 +173,32 @@
         15
       ],
       "clause_heading": "#### Authored properties",
-      "clause_line": 1476,
+      "clause_line": 1512,
       "requirements": [
         {
           "id": 9,
           "title": "Positions, and offsets from them.",
-          "line": 736
+          "line": 772
         },
         {
           "id": 10,
           "title": "Offsets along the axes of their position.",
-          "line": 754
+          "line": 790
         },
         {
           "id": 12,
           "title": "No angle read as a length.",
-          "line": 790
+          "line": 826
         },
         {
           "id": 14,
           "title": "Scene conventions stay the scene's.",
-          "line": 821
+          "line": 857
         },
         {
           "id": 15,
           "title": "Placement separate from conformance.",
-          "line": 834
+          "line": 870
         }
       ]
     },
@@ -225,32 +225,32 @@
         "role": "informative illustration",
         "alt": "Illustrative Eiffel origin changes from longitude, latitude and height to map coordinates while physical placement stays the same"
       },
-      "clause_line": 1750,
+      "clause_line": 1787,
       "requirements": [
         {
           "id": 9,
           "title": "Positions, and offsets from them.",
-          "line": 736
+          "line": 772
         },
         {
           "id": 12,
           "title": "No angle read as a length.",
-          "line": 790
+          "line": 826
         },
         {
           "id": 13,
           "title": "One axis mapping.",
-          "line": 804
+          "line": 840
         },
         {
           "id": 16,
           "title": "One CRS out.",
-          "line": 846
+          "line": 882
         },
         {
           "id": 19,
           "title": "Resolution leaves the scene as authored.",
-          "line": 894
+          "line": 930
         }
       ]
     },
@@ -277,32 +277,32 @@
         "role": "informative illustration",
         "alt": "Illustrative Eiffel tower moves east and south after ordinary scale and rotation, with its previous position outlined in blue"
       },
-      "clause_line": 1788,
+      "clause_line": 1887,
       "requirements": [
         {
           "id": 9,
           "title": "Positions, and offsets from them.",
-          "line": 736
+          "line": 772
         },
         {
           "id": 14,
           "title": "Scene conventions stay the scene's.",
-          "line": 821
+          "line": 857
         },
         {
           "id": 15,
           "title": "Placement separate from conformance.",
-          "line": 834
+          "line": 870
         },
         {
           "id": 17,
           "title": "The same answer for every consumer.",
-          "line": 866
+          "line": 902
         },
         {
           "id": 19,
           "title": "Resolution leaves the scene as authored.",
-          "line": 894
+          "line": 930
         }
       ]
     },
@@ -326,42 +326,42 @@
         29
       ],
       "clause_heading": "### Extent and result comparison",
-      "clause_line": 1919,
+      "clause_line": 2018,
       "requirements": [
         {
           "id": 4,
           "title": "A site's own grid is a CRS like any other.",
-          "line": 633
+          "line": 669
         },
         {
           "id": 13,
           "title": "One axis mapping.",
-          "line": 804
+          "line": 840
         },
         {
           "id": 16,
           "title": "One CRS out.",
-          "line": 846
+          "line": 882
         },
         {
           "id": 17,
           "title": "The same answer for every consumer.",
-          "line": 866
+          "line": 902
         },
         {
           "id": 18,
           "title": "Coordinates back out.",
-          "line": 879
+          "line": 915
         },
         {
           "id": 28,
           "title": "A result says what produced it.",
-          "line": 1052
+          "line": 1088
         },
         {
           "id": 29,
           "title": "Implementable from the text alone.",
-          "line": 1070
+          "line": 1106
         }
       ]
     },
@@ -388,32 +388,32 @@
         "role": "recorded native render",
         "alt": "Actual Hydra Storm render of the ordinary USD Eiffel bake on an illustrative ground plane"
       },
-      "clause_line": 1972,
+      "clause_line": 2071,
       "requirements": [
         {
           "id": 17,
           "title": "The same answer for every consumer.",
-          "line": 866
+          "line": 902
         },
         {
           "id": 19,
           "title": "Resolution leaves the scene as authored.",
-          "line": 894
+          "line": 930
         },
         {
           "id": 23,
           "title": "Detail that does not depend on location.",
-          "line": 992
+          "line": 1028
         },
         {
           "id": 25,
           "title": "Additive for consumers that ignore it.",
-          "line": 1016
+          "line": 1052
         },
         {
           "id": 29,
           "title": "Implementable from the text alone.",
-          "line": 1070
+          "line": 1106
         }
       ]
     },
@@ -441,37 +441,37 @@
         "role": "plot of recorded synthetic data",
         "alt": "Synthetic global temperature values shown at their longitude and latitude locations"
       },
-      "clause_line": 1558,
+      "clause_line": 1594,
       "requirements": [
         {
           "id": 8,
           "title": "Brought-in data keeps its coordinates and its CRS.",
-          "line": 710
+          "line": 746
         },
         {
           "id": 12,
           "title": "No angle read as a length.",
-          "line": 790
+          "line": 826
         },
         {
           "id": 18,
           "title": "Coordinates back out.",
-          "line": 879
+          "line": 915
         },
         {
           "id": 19,
           "title": "Resolution leaves the scene as authored.",
-          "line": 894
+          "line": 930
         },
         {
           "id": 21,
           "title": "Never placed by a guess.",
-          "line": 930
+          "line": 966
         },
         {
           "id": 30,
           "title": "Measurements remain usable as data.",
-          "line": 962
+          "line": 998
         }
       ]
     },
@@ -497,27 +497,27 @@
         "role": "recorded native render",
         "alt": "Actual Storm render of resolved Colorado survey breaklines in the calibrated site grid"
       },
-      "clause_line": 1247,
+      "clause_line": 1283,
       "requirements": [
         {
           "id": 4,
           "title": "A site's own grid is a CRS like any other.",
-          "line": 633
+          "line": 669
         },
         {
           "id": 14,
           "title": "Scene conventions stay the scene's.",
-          "line": 821
+          "line": 857
         },
         {
           "id": 15,
           "title": "Placement separate from conformance.",
-          "line": 834
+          "line": 870
         },
         {
           "id": 17,
           "title": "The same answer for every consumer.",
-          "line": 866
+          "line": 902
         }
       ]
     },
@@ -543,27 +543,27 @@
         "role": "plot of recorded resolved geometry",
         "alt": "Railway horizontal coordinates expressed in UTM 32 with display-only plotting offsets"
       },
-      "clause_line": 1558,
+      "clause_line": 1594,
       "requirements": [
         {
           "id": 8,
           "title": "Brought-in data keeps its coordinates and its CRS.",
-          "line": 710
+          "line": 746
         },
         {
           "id": 12,
           "title": "No angle read as a length.",
-          "line": 790
+          "line": 826
         },
         {
           "id": 19,
           "title": "Resolution leaves the scene as authored.",
-          "line": 894
+          "line": 930
         },
         {
           "id": 21,
           "title": "Never placed by a guess.",
-          "line": 930
+          "line": 966
         }
       ]
     },
@@ -582,17 +582,17 @@
         29
       ],
       "clause_heading": "#### Evaluation",
-      "clause_line": 1788,
+      "clause_line": 1887,
       "requirements": [
         {
           "id": 20,
           "title": "Positions between recorded moments.",
-          "line": 913
+          "line": 949
         },
         {
           "id": 29,
           "title": "Implementable from the text alone.",
-          "line": 1070
+          "line": 1106
         }
       ]
     }
@@ -726,16 +726,41 @@
     ],
     [
       "Source preservation",
-      "Original inputs and 40 executed source-file hashes remain unchanged. The immutable receipt identifies the executed content."
+      "Original inputs and all frozen execution files remained unchanged during this run. The immutable receipt identifies the exact executed content."
     ],
     [
       "Bake readbacks",
       "11 selected exports were checked. The later nested-geometry case demonstrates that the original inventory check was incomplete."
     ]
   ],
-  "audit_sha256": "9456363dd93059d7884c0b71a7942f5eed5454ee0d0628e567c2f4856b60a00b",
-  "assessment_sha256": "37fd64b7f0909eaa29abb5925c84ab6d7ba87ffc371e5b695316fe50ecf037c3",
-  "provenance_disposition": "Explanatory delivery refresh of the same frozen execution, with later audit disclosure. No new runtime execution or repairs.",
+  "audit_sha256": "75abc802636f2e337b6fda2002b14f4ddf89f434901bae4a034734403f73e35f",
+  "assessment_sha256": "cfdb699ca233cf611725e02b5d41bfd1ea17f887e4221e74357e0a8a18c768c8",
+  "provenance_disposition": "Fresh October 7 execution of the merged proposal candidate, compared with the prior immutable run and followed by repeated independent diagnostics. No runtime implementation repairs.",
+  "run_comparison": {
+    "explanation": "The merge improves the vocabulary for reviewing scale and orientation. The run uses the current published text, including its existing geographic scene and ordinary-UsdGeom bake clarifications. It changes no placement fields or evaluation rules.",
+    "rows": [
+      [
+        "CRS background",
+        "Four coordinate families, derived CRS, grid/ground distances and grid convergence are now explained together."
+      ],
+      [
+        "North and stage axes",
+        "The background describes projected grid north. It does not redefine physical model orientation or assign north to every stage Y axis."
+      ],
+      [
+        "Published versus executed text",
+        "The fresh run incorporates existing geographic scene-chart and bake clarifications omitted from the previous executed snapshot."
+      ],
+      [
+        "Numerical results",
+        "Every compared array in both readers and the Omniverse sink exactly matches the prior run."
+      ],
+      [
+        "Known prototype issues",
+        "All seven known issues reproduce. The merge supplies no defect-repair claim."
+      ]
+    ]
+  },
   "main_slide_count": 8,
   "appendix_slide_count": 6,
   "required_native_table_slides": [

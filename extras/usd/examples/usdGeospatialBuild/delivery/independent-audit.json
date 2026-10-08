@@ -8,13 +8,13 @@
     "future_gate": "Reassess each issue against the intended claim and delivery milestone. Stop only work dependent on genuinely unspecified meaning, while continuing independent work.",
     "model_policy": "Repair against existing contracts first. Clarify truly missing semantics if needed; do not standardize an implementation workaround."
   },
-  "proposal_commit": "86851bf376f2bad8214733517977eca0f8ccfc7a",
-  "proposal_sha256": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
-  "implementation_commit": "c177734e52eb7cdda1c357953744f55ca5b842e0",
-  "delivery_commit": "18f67fe6d",
+  "proposal_commit": "c29074a0743d2771439e6d0ca4ac22e3cec7e520",
+  "proposal_sha256": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
+  "implementation_commit": "deaeab88f364702476db9801f337f56bac1a75db",
+  "delivery_commit": null,
   "executed_source_files_match": true,
   "native_executable_matches_run": true,
-  "scope": "Exact revised local candidate used for the completed run; this does not claim agreement with the published PR 9 or author acceptance of the candidate choices.",
+  "scope": "Fresh execution of the published merged candidate; pending author agreement and whole-proposal coverage remain separate.",
   "integration_name": "Omniverse stage geometry integration",
   "proposal_and_implementation_modified": false,
   "findings": [
@@ -28,8 +28,8 @@
         "native/leans.cpp:147"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1895",
-        "proposal/proposal-source.txt:1930"
+        "proposal/proposal-source.txt:1994",
+        "proposal/proposal-source.txt:2029"
       ],
       "disposition": "Do not promote the centroid workaround into the proposal. Derive transport from source normal/interpolation semantics and the full map; support the consumed domain with justified approximation evidence or visibly reject the unsupported result. Clarify only any remaining semantic ambiguity, independent of the shortcut.",
       "diagnostics": [
@@ -49,7 +49,7 @@
         "native/leans.cpp:182"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1880"
+        "proposal/proposal-source.txt:1979"
       ],
       "disposition": "Repair the prototype classification/discovery path; this requires no new scene property or new scope deferral.",
       "diagnostics": [
@@ -68,7 +68,7 @@
         "candidate/export.py:46"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1974"
+        "proposal/proposal-source.txt:2073"
       ],
       "disposition": "Make the export topology and geometry inventory exact, preserve each effect once, and reject unexpected extras in fresh-reader validation.",
       "diagnostics": [
@@ -86,8 +86,8 @@
         "candidate/datasets.py:78"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1574",
-        "proposal/proposal-source.txt:1579"
+        "proposal/proposal-source.txt:1610",
+        "proposal/proposal-source.txt:1615"
       ],
       "prior_art": "https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html",
       "disposition": "Align by named dimensions before broadcasting. Both placement paths consume the same decoder, so their coordinate agreement cannot detect this defect.",
@@ -106,7 +106,7 @@
         "candidate/export.py:29"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1974"
+        "proposal/proposal-source.txt:2073"
       ],
       "disposition": "Audit and preserve non-geospatial semantics, or explicitly reject/export only a documented supported subset. Do not silently treat every schema as a placement effect.",
       "diagnostics": [
@@ -123,7 +123,7 @@
         "candidate/execution.py:49"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1955"
+        "proposal/proposal-source.txt:2054"
       ],
       "disposition": "Complete reporting from the existing output arrays without adding authored scene metadata.",
       "diagnostics": [
@@ -143,7 +143,7 @@
         "native/leans.cpp:113"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1501"
+        "proposal/proposal-source.txt:1537"
       ],
       "disposition": "Add and exercise explicit role/scope validation in the build; distinguish validator coverage from the supported runtime path.",
       "diagnostics": [
@@ -160,8 +160,8 @@
         "candidate/runtime.py:98"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1910",
-        "proposal/proposal-source.txt:1947"
+        "proposal/proposal-source.txt:2009",
+        "proposal/proposal-source.txt:2046"
       ],
       "evidence": "The attempted regional fixture had two visible unavailable-operation failures and one available operation; it did not demonstrate omitted operations. Do not present this concern as a reproduced result failure.",
       "disposition": "Require attributable operation coverage before claiming comparison of multiregion batches.",
@@ -186,7 +186,7 @@
   ],
   "conclusion": "Report the known prototype issues alongside the working examples and narrower verified claims. They are not classified as current proposal-review blockers. Withdraw blanket assurances that no undocumented behavior remained. Repair against existing semantics first; flag any genuinely missing meaning separately and stop only its dependent portion. Never close a gap by recording an implementation shortcut as normative authority.",
   "diagnostic_file": "diagnostic-results.json",
-  "source_audit_sha256": "696adf5baf3325d5fa2c51a5f5d70168bd35f386360a5a3df297f5dc43372dc0",
-  "execution_receipt_sha256": "3baf0e2c215e8ac2ea30fb41197242b663469cd51f31ba48dc9e6c0d7b76833c",
-  "audit_binding": "Verified all 40 executed source hashes against the audited implementation commit and immutable execution receipt. Later diagnostics add no runtime-repair claim."
+  "source_audit_sha256": "3879146f2ccfef03b2b30a48cbb53f2026b174dd6663a64dedeed5b21fb8e0aa",
+  "execution_receipt_sha256": "4f212b53f00cd7f31bae7b94ea63e6a4b99e3a9cf9e645b2989e888a51ceecbf",
+  "audit_binding": "Fresh diagnostics checked every new frozen execution file and the actually executed native binary. Seven known issues reproduced; no runtime repairs claimed."
 }

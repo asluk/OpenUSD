@@ -23,7 +23,7 @@ def Xform "World" (
         prepend references = @./crs-library.usda@</Definitions/C3f0a6b68843a1b02>
     )
     {
-        uniform asset data:asset = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-contract-run-20261006-v6\fixtures\city-point.tif@
+        uniform asset data:asset = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-merged-run-20261007-v1\fixtures\city-point.tif@
         uniform string data:coordinateDomain = "0"
         uniform string data:field = "1"
         uniform token data:format = "GeoTIFF"

@@ -1,5 +1,5 @@
 {
-  "proposal_sha256": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
+  "proposal_sha256": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
   "cases": [
     {
       "name": "normal_sampling_private_policy",
@@ -83,7 +83,7 @@
         "/Resolved/Part0/Child"
       ],
       "export_receipt": {
-        "path": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\outputs\\geospatial-independent-audit-20261006\\nested-geometry-export.usda",
+        "path": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\outputs\\geospatial-independent-audit-20261007\\nested-geometry-export.usda",
         "fresh_reader_max_error_metres": 1.7763568394002505e-15,
         "quantization_metres": 1.7763568394002505e-15,
         "parts": 2,

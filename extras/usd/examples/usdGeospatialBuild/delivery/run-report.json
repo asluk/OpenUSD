@@ -1,15 +1,15 @@
 {
   "status": "Candidate build loop executed; proposed contracts remain under review",
-  "completed_utc": "2026-10-06T22:46:16.500170+00:00",
+  "completed_utc": "2026-10-08T01:49:54.192069+00:00",
   "inputs": {
-    "status": "October 6 input-only contract candidate; local execution, no remote delivery",
+    "status": "October 7 merged-baseline comparison run; exact published proposal candidate, pending author agreement",
     "proposal": {
-      "revision": "abff336bde02816b260f05aadf678a086790f884",
-      "sha256": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
-      "local_candidate": true,
+      "revision": "c29074a0743d2771439e6d0ca4ac22e3cec7e520",
+      "sha256": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
+      "local_candidate": false,
       "group_agreement": false,
       "source": "proposal/proposal-source.txt",
-      "status": "October 6 complete proposed input-only contract"
+      "status": "Merged-background proposal candidate; group agreement remains separate"
     },
     "openusd": {
       "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
@@ -42,7 +42,7 @@
       "implementation_to_proposal_and_reverse_coverage",
       "attempts_to_expose_fixture_shortcuts_and_self_justifying_proposal_changes"
     ],
-    "publication": "Local review only for this iteration",
+    "publication": "PR 9 baseline update authorized; current execution evidence derived afresh",
     "geospatial_references": [
       {
         "standard": "OGC 18-005r8",
@@ -55,15 +55,15 @@
     ],
     "previous_executed_source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47",
     "derivation": {
-      "requirements.md": "6402ed9ed172569bc9494a5a7eb0418f13e47570ed19afd3722306a9826874fa",
-      "data-model.md": "76bd75ff2aa6319062fb35a86e8e73b7bbca33f40683d25a2cc49493318e88c5",
-      "runtime-behavior.md": "d1b314cea44318e2bb388d52dda933f8d13202efd1eed506de79a2d24b73026f",
-      "runtime-open-decisions.md": "24ded71408d5785f66da95006c6c970a436d2903e40ffd636e58ed7b39d7edc8",
-      "distinguishing-examples.md": "5a519bc0a1d9f34650c402c5de5b549869220ad67fa74b51ded3ba4e9bb551b8",
-      "traceability.md": "f11c66a2310ee3160f9956aad0a10fc126ea28da06d87f20627bc0c17cc4c730"
+      "requirements.md": "7c4383c0d6b1edc0991be3fdef9d83651d4b8c906ed634e4ab8ffbb915eb4d8c",
+      "data-model.md": "ae3b3ed8448429604cf7abc144e5a454b2e02349202f07775d8bc5bb9866bb08",
+      "runtime-behavior.md": "49a368e1af1b4a374639dd733ca633d918c9132d11b32babd2c8231c68e80e4c",
+      "runtime-open-decisions.md": "6ea157ec5babc28c6281e8ec57d167c5e51d47a18313306a99bd198380d63d61",
+      "distinguishing-examples.md": "91b1bf9bf72c24656193e93444b69ee48816a4392ddf940cbe9faacc2f57908b",
+      "traceability.md": "24aaf452d22cc60a7cbaf87b9c5ac69c43408e29ecfd8f8be1455ce315d2488a"
     },
     "inherited_code_execution": "Prior relationship-based placement code retained in history/source, excluded from current execution except an explicit incompatibility control.",
-    "current_execution": "Python and C++ complete point-map queries, Cartesian frame derivatives and polygonal bounds; native Hydra resolved export; live OV geometry writeback; selected external measurement domains and sampled exports",
+    "current_execution": "Python and C++ complete point-map queries, Cartesian frame derivatives and polygonal bounds; native Hydra resolved export; Omniverse stage geometry writeback; selected external measurement domains and sampled exports",
     "normalizer_references": [
       "OGC 18-010r11 clauses 6-7 and Annex B",
       "W3C XML Schema Part 2 canonical integer and decimal lexical representations"
@@ -98,32 +98,32 @@
     "native/leansRender.cpp": "6fd0d453ac74d120dfa4585e4ba45b4b1110558431ecb0da5e7927e9480c2646",
     "native/CMakeLists.txt": "d38d85d03a61336324f5741fc7b883878eec1ce7a0335880677500bcca86d5f5",
     "run.py": "cad2a0965ebcbcb1bd25f01e6904a98e40a03c73457018fa3386f2ea1ea5ceea",
-    "inputs.json": "0027c0b654330062b76e21dab7c8e94b031bc3bbecc7140d0837b0cd879484a7",
-    "proposal-quality.json": "7a82c92d341a2d0a010d1895fb8254e430528b4f57ffe42c9ef817d1578336ea",
+    "inputs.json": "2c803be374dbf65ca752cdcbc7864d34a1539ae35933e38a16048225670c13db",
+    "proposal-quality.json": "425e07155222f311cee3ba40a6a838b4ee864d5b6bd74259d6fc968392eafbe6",
     "ov/geobuild.kit": "5fc4d60271d18a04ad3b6675539033f1c06b37e86ce6b2cba25ed20b02e69d88",
     "geobuild/quality.py": "4cb53ae11b4f780846fc6beb845687afcb792c855c1b282be0e1174d35778471",
-    "proposal/data-model.md": "76bd75ff2aa6319062fb35a86e8e73b7bbca33f40683d25a2cc49493318e88c5",
-    "proposal/distinguishing-examples.md": "5a519bc0a1d9f34650c402c5de5b549869220ad67fa74b51ded3ba4e9bb551b8",
-    "proposal/local-draft.patch": "93383bcb5cd2442791ccec452927f3890928701b2b6f3a08fbef500086058045",
-    "proposal/proposal-source.txt": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
-    "proposal/requirements.md": "6402ed9ed172569bc9494a5a7eb0418f13e47570ed19afd3722306a9826874fa",
-    "proposal/runtime-behavior.md": "d1b314cea44318e2bb388d52dda933f8d13202efd1eed506de79a2d24b73026f",
-    "proposal/runtime-open-decisions.md": "24ded71408d5785f66da95006c6c970a436d2903e40ffd636e58ed7b39d7edc8",
-    "proposal/traceability.md": "f11c66a2310ee3160f9956aad0a10fc126ea28da06d87f20627bc0c17cc4c730"
+    "proposal/data-model.md": "ae3b3ed8448429604cf7abc144e5a454b2e02349202f07775d8bc5bb9866bb08",
+    "proposal/distinguishing-examples.md": "91b1bf9bf72c24656193e93444b69ee48816a4392ddf940cbe9faacc2f57908b",
+    "proposal/local-draft.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "proposal/proposal-source.txt": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
+    "proposal/requirements.md": "7c4383c0d6b1edc0991be3fdef9d83651d4b8c906ed634e4ab8ffbb915eb4d8c",
+    "proposal/runtime-behavior.md": "49a368e1af1b4a374639dd733ca633d918c9132d11b32babd2c8231c68e80e4c",
+    "proposal/runtime-open-decisions.md": "6ea157ec5babc28c6281e8ec57d167c5e51d47a18313306a99bd198380d63d61",
+    "proposal/traceability.md": "24aaf452d22cc60a7cbaf87b9c5ac69c43408e29ecfd8f8be1455ce315d2488a"
   },
-  "source_commit": "5c116fd2dd5767d42d34083d616edf66723efe92",
+  "source_commit": "deaeab88f364702476db9801f337f56bac1a75db",
   "source_is_uncommitted": true,
   "proposal_quality": {
-    "status": "Complete proposed contract, pending author review and execution audit",
-    "source_sha256": "1727a552053cfdcdf202e2c84ad1209d1a898fe2eab2e322d51e9c7b4ad7c7c0",
+    "status": "Merged-background review candidate, editorial consistency checked; execution and pending author agreement assessed separately",
+    "source_sha256": "02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a",
     "requirements": [
       {
         "id": 1,
         "title": "Self-contained definitions.",
-        "source_line": 591,
+        "source_line": 627,
         "clauses": [
           {
-            "line": 1406,
+            "line": 1442,
             "clause": "### GeospatialCRS typed schema"
           }
         ],
@@ -132,14 +132,14 @@
       {
         "id": 2,
         "title": "Defined once, and describing no object.",
-        "source_line": 604,
+        "source_line": 640,
         "clauses": [
           {
-            "line": 1638,
+            "line": 1674,
             "clause": "### WKT string normalization"
           },
           {
-            "line": 1476,
+            "line": 1512,
             "clause": "#### Authored properties"
           }
         ],
@@ -148,10 +148,10 @@
       {
         "id": 3,
         "title": "Datum, realization and epoch.",
-        "source_line": 621,
+        "source_line": 657,
         "clauses": [
           {
-            "line": 1291,
+            "line": 1327,
             "clause": "#### Roadmap question 15: coordinate epochs"
           }
         ],
@@ -160,10 +160,10 @@
       {
         "id": 4,
         "title": "A site's own grid is a CRS like any other.",
-        "source_line": 633,
+        "source_line": 669,
         "clauses": [
           {
-            "line": 1247,
+            "line": 1283,
             "clause": "#### Decision on question 7: site calibration"
           }
         ],
@@ -172,10 +172,10 @@
       {
         "id": 31,
         "title": "Same definition, same meaning.",
-        "source_line": 657,
+        "source_line": 693,
         "clauses": [
           {
-            "line": 1638,
+            "line": 1674,
             "clause": "### WKT string normalization"
           }
         ],
@@ -184,10 +184,10 @@
       {
         "id": 5,
         "title": "A discoverable CRS.",
-        "source_line": 679,
+        "source_line": 715,
         "clauses": [
           {
-            "line": 1345,
+            "line": 1381,
             "clause": "### CRS binding and inheritance"
           }
         ],
@@ -196,10 +196,10 @@
       {
         "id": 6,
         "title": "Declared for a subtree, not a prim.",
-        "source_line": 689,
+        "source_line": 725,
         "clauses": [
           {
-            "line": 1345,
+            "line": 1381,
             "clause": "### CRS binding and inheritance"
           }
         ],
@@ -208,14 +208,14 @@
       {
         "id": 7,
         "title": "Composition agnostic",
-        "source_line": 700,
+        "source_line": 736,
         "clauses": [
           {
-            "line": 1345,
+            "line": 1381,
             "clause": "### CRS binding and inheritance"
           },
           {
-            "line": 2050,
+            "line": 2152,
             "clause": "### Composition arcs"
           }
         ],
@@ -224,14 +224,14 @@
       {
         "id": 8,
         "title": "Brought-in data keeps its coordinates and its CRS.",
-        "source_line": 710,
+        "source_line": 746,
         "clauses": [
           {
-            "line": 1788,
+            "line": 1887,
             "clause": "#### Evaluation"
           },
           {
-            "line": 1558,
+            "line": 1594,
             "clause": "### External measurement association"
           }
         ],
@@ -240,14 +240,14 @@
       {
         "id": 9,
         "title": "Positions, and offsets from them.",
-        "source_line": 736,
+        "source_line": 772,
         "clauses": [
           {
-            "line": 1476,
+            "line": 1512,
             "clause": "#### Authored properties"
           },
           {
-            "line": 1788,
+            "line": 1887,
             "clause": "#### Evaluation"
           }
         ],
@@ -256,10 +256,10 @@
       {
         "id": 10,
         "title": "Offsets along the axes of their position.",
-        "source_line": 754,
+        "source_line": 790,
         "clauses": [
           {
-            "line": 1521,
+            "line": 1557,
             "clause": "#### Geospatial model attitude and stage axes"
           }
         ],
@@ -268,14 +268,14 @@
       {
         "id": 11,
         "title": "Position or offset, and the scene says which.",
-        "source_line": 773,
+        "source_line": 809,
         "clauses": [
           {
-            "line": 1345,
+            "line": 1381,
             "clause": "### CRS binding and inheritance"
           },
           {
-            "line": 1788,
+            "line": 1887,
             "clause": "#### Evaluation"
           }
         ],
@@ -284,18 +284,18 @@
       {
         "id": 12,
         "title": "No angle read as a length.",
-        "source_line": 790,
+        "source_line": 826,
         "clauses": [
           {
-            "line": 1505,
+            "line": 1541,
             "clause": "#### Position components"
           },
           {
-            "line": 1558,
+            "line": 1594,
             "clause": "### External measurement association"
           },
           {
-            "line": 1854,
+            "line": 1953,
             "clause": "#### Queries, scene charts and instances"
           }
         ],
@@ -304,10 +304,10 @@
       {
         "id": 13,
         "title": "One axis mapping.",
-        "source_line": 804,
+        "source_line": 840,
         "clauses": [
           {
-            "line": 1505,
+            "line": 1541,
             "clause": "#### Position components"
           }
         ],
@@ -316,14 +316,14 @@
       {
         "id": 14,
         "title": "Scene conventions stay the scene's.",
-        "source_line": 821,
+        "source_line": 857,
         "clauses": [
           {
-            "line": 1521,
+            "line": 1557,
             "clause": "#### Geospatial model attitude and stage axes"
           },
           {
-            "line": 2025,
+            "line": 2127,
             "clause": "### Stage metadata: metersPerUnit and upAxis"
           }
         ],
@@ -332,14 +332,14 @@
       {
         "id": 15,
         "title": "Placement separate from conformance.",
-        "source_line": 834,
+        "source_line": 870,
         "clauses": [
           {
-            "line": 1225,
+            "line": 1261,
             "clause": "#### Decision on question 4: authored unit and up-axis conformance"
           },
           {
-            "line": 1788,
+            "line": 1887,
             "clause": "#### Evaluation"
           }
         ],
@@ -348,14 +348,14 @@
       {
         "id": 16,
         "title": "One CRS out.",
-        "source_line": 846,
+        "source_line": 882,
         "clauses": [
           {
-            "line": 1725,
+            "line": 1761,
             "clause": "## Runtime coordinate transformation"
           },
           {
-            "line": 1854,
+            "line": 1953,
             "clause": "#### Queries, scene charts and instances"
           }
         ],
@@ -364,14 +364,14 @@
       {
         "id": 17,
         "title": "The same answer for every consumer.",
-        "source_line": 866,
+        "source_line": 902,
         "clauses": [
           {
-            "line": 1854,
+            "line": 1953,
             "clause": "#### Queries, scene charts and instances"
           },
           {
-            "line": 1919,
+            "line": 2018,
             "clause": "### Extent and result comparison"
           }
         ],
@@ -380,10 +380,10 @@
       {
         "id": 18,
         "title": "Coordinates back out.",
-        "source_line": 879,
+        "source_line": 915,
         "clauses": [
           {
-            "line": 1854,
+            "line": 1953,
             "clause": "#### Queries, scene charts and instances"
           }
         ],
@@ -392,14 +392,14 @@
       {
         "id": 19,
         "title": "Resolution leaves the scene as authored.",
-        "source_line": 894,
+        "source_line": 930,
         "clauses": [
           {
-            "line": 1905,
+            "line": 2004,
             "clause": "### Observable outcomes and failures"
           },
           {
-            "line": 1972,
+            "line": 2071,
             "clause": "### Explicit export and sampling"
           }
         ],
@@ -408,14 +408,14 @@
       {
         "id": 20,
         "title": "Positions between recorded moments.",
-        "source_line": 913,
+        "source_line": 949,
         "clauses": [
           {
-            "line": 1788,
+            "line": 1887,
             "clause": "#### Evaluation"
           },
           {
-            "line": 1972,
+            "line": 2071,
             "clause": "### Explicit export and sampling"
           }
         ],
@@ -424,14 +424,14 @@
       {
         "id": 21,
         "title": "Never placed by a guess.",
-        "source_line": 930,
+        "source_line": 966,
         "clauses": [
           {
-            "line": 1905,
+            "line": 2004,
             "clause": "### Observable outcomes and failures"
           },
           {
-            "line": 1558,
+            "line": 1594,
             "clause": "### External measurement association"
           }
         ],
@@ -440,10 +440,10 @@
       {
         "id": 30,
         "title": "Measurements remain usable as data.",
-        "source_line": 962,
+        "source_line": 998,
         "clauses": [
           {
-            "line": 1558,
+            "line": 1594,
             "clause": "### External measurement association"
           }
         ],
@@ -452,10 +452,10 @@
       {
         "id": 22,
         "title": "A CRS suited to the project's size.",
-        "source_line": 979,
+        "source_line": 1015,
         "clauses": [
           {
-            "line": 1854,
+            "line": 1953,
             "clause": "#### Queries, scene charts and instances"
           }
         ],
@@ -464,14 +464,14 @@
       {
         "id": 23,
         "title": "Detail that does not depend on location.",
-        "source_line": 992,
+        "source_line": 1028,
         "clauses": [
           {
-            "line": 1385,
+            "line": 1421,
             "clause": "### Precision handling"
           },
           {
-            "line": 1972,
+            "line": 2071,
             "clause": "### Explicit export and sampling"
           }
         ],
@@ -480,10 +480,10 @@
       {
         "id": 24,
         "title": "Extent under one position is bounded and stated.",
-        "source_line": 1001,
+        "source_line": 1037,
         "clauses": [
           {
-            "line": 1919,
+            "line": 2018,
             "clause": "### Extent and result comparison"
           }
         ],
@@ -492,10 +492,10 @@
       {
         "id": 25,
         "title": "Additive for consumers that ignore it.",
-        "source_line": 1016,
+        "source_line": 1052,
         "clauses": [
           {
-            "line": 2040,
+            "line": 2142,
             "clause": "### Transform stack and resetXformStack"
           }
         ],
@@ -504,10 +504,10 @@
       {
         "id": 26,
         "title": "Declares its dependency.",
-        "source_line": 1026,
+        "source_line": 1062,
         "clauses": [
           {
-            "line": 1611,
+            "line": 1647,
             "clause": "### Dependency declaration with Profiles"
           }
         ],
@@ -516,18 +516,18 @@
       {
         "id": 27,
         "title": "Checkable before use.",
-        "source_line": 1037,
+        "source_line": 1073,
         "clauses": [
           {
-            "line": 1476,
+            "line": 1512,
             "clause": "#### Authored properties"
           },
           {
-            "line": 1611,
+            "line": 1647,
             "clause": "### Dependency declaration with Profiles"
           },
           {
-            "line": 1905,
+            "line": 2004,
             "clause": "### Observable outcomes and failures"
           }
         ],
@@ -536,14 +536,14 @@
       {
         "id": 28,
         "title": "A result says what produced it.",
-        "source_line": 1052,
+        "source_line": 1088,
         "clauses": [
           {
-            "line": 1905,
+            "line": 2004,
             "clause": "### Observable outcomes and failures"
           },
           {
-            "line": 1919,
+            "line": 2018,
             "clause": "### Extent and result comparison"
           }
         ],
@@ -552,10 +552,10 @@
       {
         "id": 29,
         "title": "Implementable from the text alone.",
-        "source_line": 1070,
+        "source_line": 1106,
         "clauses": [
           {
-            "line": 1919,
+            "line": 2018,
             "clause": "### Extent and result comparison"
           }
         ],
@@ -584,7 +584,14 @@
       "Every proposed restriction tied to a role, dimensionality or explicit unsupported request",
       "Pending agreement is distinct from undefined semantics"
     ],
-    "candidate_agreed": false
+    "candidate_agreed": false,
+    "clarity_review": {
+      "findings_repaired": [
+        "C1",
+        "C2"
+      ],
+      "source": "Merged baseline and existing normative contracts; no new semantics derived from implementation"
+    }
   },
   "tests": {
     "regressions_passed": 64,
@@ -2086,7 +2093,7 @@
       "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
       "renderer": "HdStormRendererPlugin",
       "vertices": 163440,
-      "image_sha256": "b1cf4cf1e0a3d1489c9e39678e323aa0cd145ddb76b25e9bd354c7a60167ee89"
+      "image_sha256": "6ba80ae1571060e18e0b62b10339d2ee5dbe38de73af71f9a98f2793854f9a94"
     },
     {
       "name": "terrain",
@@ -2112,13 +2119,13 @@
   "postimplementation_audit": {
     "undocumented_authored_fields": [],
     "field_usage_counts": {
-      "data:coordinateDomain": 8,
       "data:format": 8,
+      "data:asset": 8,
       "crs:position": 167,
       "crs:wkt": 192,
-      "data:asset": 8,
-      "crs:orientation": 7,
-      "data:field": 8
+      "data:field": 8,
+      "data:coordinateDomain": 8,
+      "crs:orientation": 7
     },
     "source_preserved": true,
     "source_freeze_preserved": true,
@@ -2214,7 +2221,7 @@
     "ov_app_version": "0.1.0"
   },
   "delivery_provenance": {
-    "immutable_private_receipt_sha256": "3baf0e2c215e8ac2ea30fb41197242b663469cd51f31ba48dc9e6c0d7b76833c",
+    "immutable_private_receipt_sha256": "4f212b53f00cd7f31bae7b94ea63e6a4b99e3a9cf9e645b2989e888a51ceecbf",
     "adaptation": "Portable filesystem paths, preserving USD prim identities; masked NaNs serialized as null. Exact executed file hashes and finite results retained."
   }
 }
