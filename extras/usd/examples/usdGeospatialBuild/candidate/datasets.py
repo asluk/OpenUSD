@@ -80,6 +80,11 @@ def read_source(prim):
                 for j,d in enumerate(coord.dimensions):
                     if d not in v.dimensions: raise ContractError('Coordinate does not cover selected field domain')
                     shape[v.dimensions.index(d)]=data.shape[j]
+                # Align by declared names before broadcasting into field order.
+                if len(set(coord.dimensions)) != len(coord.dimensions):
+                    raise ContractError('Ambiguous repeated coordinate dimension')
+                permutation=sorted(range(coord.ndim),key=lambda j:v.dimensions.index(coord.dimensions[j]))
+                data=np.transpose(data,permutation)
                 data=np.broadcast_to(data.reshape(shape),v.shape).reshape(-1)
                 coords.append(data*factors_by_unit[units]/factors(crs)[i])
             values=np.ma.asarray(v[:]);mask=np.ma.getmaskarray(values).reshape(-1)

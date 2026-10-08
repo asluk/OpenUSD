@@ -1,6 +1,6 @@
-# Derived excerpt — no additional authority
+# Derived excerpt: no additional authority
 
-Source SHA-256: 02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a
+Source SHA-256: 28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9
 
 ### Schema design
 
@@ -192,7 +192,10 @@ Missing or blocked position is an error. An unauthored orientation uses its
 identity fallback; an explicitly blocked orientation is unavailable. Orientation
 must be finite and unit length. These properties are invalid on measurement
 carriers and on inherited-only model descendants: another absolute placement
-requires another direct model binding. CRS library prims require neither field.
+requires another direct model binding. Validation must report an authored or
+blocked placement field in either invalid role; resolution must reject that
+invalid placement rather than silently omit the field and return success.
+CRS library prims require neither field.
 
 #### Position components
 
@@ -206,8 +209,10 @@ Use the WKT unit for each component and its declared vertical reference.
 Tuple order is independent of WKT storage order and stage `upAxis`; adapt to
 the declared order at the engine boundary and reverse that adaptation on return.
 The initial component profile covers east/north/up axes and geocentric X/Y/Z.
-Other directions and coordinate-system types are unsupported by this profile,
-rather than guessed. A 2D CRS does not acquire height merely by adding a number.
+South-oriented axes are a known extension for a later component profile,
+not a forgotten CRS family. Other directions and coordinate-system types are
+unsupported by the initial profile and fail visibly rather than being guessed
+or changed by WKT string normalization. A 2D CRS does not acquire height merely by adding a number.
 Unrelated engineering coordinates cannot establish an Earth location.
 
 #### Geospatial model attitude and stage axes
@@ -274,7 +279,14 @@ variable name. Its associated coordinates, including expanded multiple-mapping
 syntax, select the domain; dimension coordinates and auxiliary coordinates must
 cover the selected variable's sample domain. Coordinate roles and units come
 from CF metadata, not names or magnitudes. CF/WKT declarations must be mutually
-consistent. Pressure or another non-height vertical coordinate is not a height.
+consistent. The selected measurement variable's declared dimension names and
+order identify each sample; every associated coordinate variable supplies its
+own dimension declarations. Align coordinates to measurements by those named
+dimensions, including declared permutations, before presenting tuples. Do not
+associate independently flattened arrays by storage index. Missing or ambiguous
+dimension associations fail. The native declarations supply this information;
+no additional USD dimension-order property is introduced. Pressure or another
+non-height vertical coordinate is not a height.
 
 For [GeoTIFF 1.1](https://docs.ogc.org/is/19-008r4/19-008r4.html), the field is a
 one-based band number and the domain a zero-based IFD number, both decimal
@@ -413,4 +425,3 @@ An engine writer may be used only if it satisfies the prescribed preservation
 and output rules. Its output must not be assumed lossless merely because it is
 valid WKT or the parsed objects compare equivalent. Numeric values and metadata
 must survive independently of tolerance-based CRS comparison.
-

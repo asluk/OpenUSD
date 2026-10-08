@@ -13,3 +13,12 @@ The current candidate runner executes the exact pinned input-only placement mode
 Two placement implementations read the candidate: Python and C++. The OV sink reuses Python placement; the Hydra sink consumes a C++-resolved ordinary USD export. All coordinate conversion uses PROJ and external format decoding is shared. No third independent placement engine, OV rendering, live geospatial Hydra filter or physics integration is claimed.
 
 Current delivery is derived by `collateral/derive_contract_delivery.py`, `collateral/human_delivery.py`, `collateral/contract_slides.mjs` and `collateral/verify_contract_delivery.py`. The README is the source for review body and slide narrative. `collateral/delivery-assessment.json` binds the informative assessment to the exact proposal, execution and later audit; a changed source requires reassessment. Their claims must agree with delivery/integration-evidence.json and the frozen source/run receipt. Prior generators and adapters are retained for historical reproducibility and are excluded from the active entry point.
+
+## Split proposal authority
+
+When terms/requirements and the full model/runtime candidate are separated,
+execute against the exact full follow-up Git blob, never the reduced baseline.
+Regenerate active plan/audit documents as well as excerpts and trace hashes;
+freeze them with executed code. Check that descriptions of settled meaning,
+pending model adoption and unsupported verification do not contradict each
+other. Retest independent failures, not only the adapter's accepted fixtures.

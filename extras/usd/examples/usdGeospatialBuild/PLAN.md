@@ -1,9 +1,16 @@
-# Current candidate iteration
+# Current build plan
 
-The emailed leans are made explicit in the full local proposal before implementation. Pin the whole candidate and derived source, test authored facts and independent expected outcomes, verify the final consumer output, then perform both authority and reverse-coverage audits. Group adoption is separate from local derivability.
-
-The current run completes its selected controls, native Hydra render/export path, live OV geometry sink and fresh-reader exports. The readonly source-layer policy prevents host timeline authoring; deliberate source-edit controls use a restored session layer. Frame derivatives are numerical estimates and polygonal bounds cover only resolved straight geometry. An unsupported continuous guarantee must fail visibly.
-
-Keep G11 independently bound point-instancer prototypes and Q9 geographic scene frames/bounds visible. Physics and a live geospatial Hydra filter have no passing consumer evidence. Neither matching numbers nor a green execution promotes these limits into completed conformance. Current evidence and candidate choices are summarized in README.md and proposal-quality.json; prior runs live in Git history, not a growing current-state log.
-
-Publish the candidate experiment and updated delivery to the authorized fork draft. Proposal publication and group communications are separate and require their own authorization.
+1. Preserve the previously published candidate; commit a requirements-only
+   branch and a full model/runtime follow-up stacked on it.
+2. Review feedback disposition, both documents end to end and their links;
+   distinguish confirmed physical meaning from pending representation choices.
+3. Pin the exact full follow-up. Refresh all derived authority and active audit
+   documents before allowing clause-traced adapter repairs.
+4. Freeze and run regressions, independent controls, Python/C++ coordinates,
+   Omniverse stage geometry writeback, native Hydra/Storm and ordinary USD bakes.
+5. Retry prior audit counterexamples and compare against the immutable prior
+   receipt. Report regressions, remaining defects and incomplete verification.
+6. Derive a readable proposal-quality README, review body and deck from fresh
+   evidence; show actual working results and their limits. Inspect every slide.
+7. Commit local evidence and draft comment replies. No push or communication
+   writes in this run.

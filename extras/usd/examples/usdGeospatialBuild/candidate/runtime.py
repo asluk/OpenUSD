@@ -163,6 +163,8 @@ class Runtime:
     def placement(self,prim,points,instance_matrix=None,descendants_in_working=False):
         context=self.export_context(prim)
         if context:return self.ordinary_export(prim,points,context)
+        try: read(prim,self.time)
+        except ScopeError as e: raise ContractError(str(e)) from e
         anchor,source=definition(prim)
         if anchor.GetTypeName()=='GeospatialDataSource':raise ContractError('Data source is not a model anchor')
         record,R=self.rotation(anchor);work=self.working(anchor,source)
@@ -235,8 +237,12 @@ class Runtime:
                 for mesh in Usd.PrimRange(proto):
                     a=mesh.GetAttribute('points')
                     if not a or not a.HasAuthoredValue():continue
-                    own,_=definition(mesh)
-                    if str(own.GetPath()).startswith(str(proto.GetPath())):
+                    try: own,_=definition(mesh)
+                    except ContractError as e:
+                        if 'No CRS binding' not in str(e): raise
+                        own=None
+                    independent=bool(own and str(own.GetPath()).startswith(str(proto.GetPath())))
+                    if independent:
                         values=self.placement(mesh,np.array(a.Get(self.time)),instance_matrix=matrix)
                     else:
                         local,reset=self.stack(mesh,proto)
@@ -247,7 +253,7 @@ class Runtime:
                     # Full relative prim path preserves nested prototype identities.
                     path=str(p.GetPath())+'/_ResolvedInstance'+str(i)+'/'+str(mesh.GetPath().MakeRelativePath(proto.GetPath())).replace('.','Root')
                     records[path]=values.tolist();self.geometry_sources[path]=str(mesh.GetPath())
-                    if str(own.GetPath()).startswith(str(proto.GetPath())):fn=lambda x:self.placement(mesh,x,instance_matrix=matrix)
+                    if independent:fn=lambda x:self.placement(mesh,x,instance_matrix=matrix)
                     else:fn=lambda x:self.placement(p,np.array([C.Transform(Gf.Vec3d(*map(float,z))) for z in x]))
                     normals=self.geometry_normal(mesh,fn)
                     if normals:self.geometry_normals[path]=normals

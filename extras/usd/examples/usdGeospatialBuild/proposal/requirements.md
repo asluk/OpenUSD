@@ -1,6 +1,6 @@
-# Derived excerpt — no additional authority
+# Derived excerpt: no additional authority
 
-Source SHA-256: 02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a
+Source SHA-256: 28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9
 
 ### Functional requirements
 
@@ -26,7 +26,7 @@ fixtures cite them.
   end of this section names the requirements each open question is decided
   against; the decision is made there, not here.
 
-Renumbering happens once, at merge, with a published old-to-new mapping.
+Existing identifiers remain unchanged through merge and the follow-up review.
 -->
 
 What a solution has to do, including the explicitly proposed WKT encoding
@@ -303,21 +303,16 @@ are distinct steps.
     geospatial information.*
 
 13. **One axis mapping.**
-    The semantic component order of a CRS position is fixed by this proposal
-    rather than by the CRS's declared storage order, with easting, northing and
-    up occupying the first, second and third components respectively, and its
-    representation in a scene frame follows the common convention specified
-    under requirement 14.
+    The semantic component order is specified once for each supported CRS
+    coordinate system independently of its declared storage order, with
+    easting/northing/up in that order where those components apply, and its scene
+    representation follows the common convention under requirement 14.
 
-    *EPSG:3006, a horizontal CRS, declares northing before easting.
-    Following that order as X and Y would transpose the scene,
-    and a transposed pair is usually still a valid coordinate,
-    so inspection does not catch it.
-    Left to implementations, each would pick its own.
-    These are CRS coordinate components, not a declaration that the stage's
-    Y axis becomes north on a Y-up stage. The source tuple order, placement
-    basis and representation of a resolved frame in scene axes are distinct;
-    fixing the first does not supply the other two.*
+    *EPSG:3006 declares northing before easting. Reading its storage order as
+    scene X/Y transposes plausible coordinates. Geographic and geocentric
+    positions likewise need explicit semantic tuples; their components are not
+    automatically easting/northing/up. Coordinate tuples and their representation
+    in stage axes remain distinct.*
 
 14. **Scene conventions stay the scene's.**
     A CRS binding changes neither the scene's units nor its up axis,
@@ -365,17 +360,19 @@ are distinct steps.
     requirement 8; the adjustment's coordinate context is proposed under question 3.*
 
 17. **The same answer for every consumer.**
-    A world position, a bound, an instance, a physics body and a rendered
-    image all come from the same resolution, and none of them needs a renderer.
+    World positions, bounds, instances, physics bodies and rendered images use
+    the same resolution without requiring a renderer, and a derived ordinary
+    USD copy that preserves resolved placement over stated spatial and time
+    coverage must be available for viewers performing no geospatial computation.
 
-    *The projection is just the projection: whether its result feeds
-    a renderer or an analytics engine does not change it.
-    "Does this work without a renderer" is the first question
-    a GIS or AECO pipeline asks.
-    A building that renders in the right place while a spatial query
-    still answers from its unconverted coordinates is two scenes, not one.
-    The same is true of image or grid samples: an analytical query and
-    an optional visualization refer to the same resolved sample locations.*
+    *A building that renders in the right place while a spatial query uses its
+    unconverted coordinates is two scenes, not one. The same applies to image
+    and grid samples. The source remains an input-only scene; library-free
+    viewers use an explicit bake into ordinary geometry and transforms instead
+    of computed properties stored beside the source inputs. Such a bake must
+    retain local detail at geospatial magnitudes under requirement 23 and state
+    its approximation coverage under requirement 24; an affine matrix alone is
+    insufficient when the conversion is nonlinear over that coverage.*
 
 18. **Coordinates back out.**
     Any resolved position can be reported as coordinates in any CRS
@@ -433,7 +430,8 @@ are distinct steps.
     cannot be computed — no engine, a definition
     that cannot be read or is unsupported, a missing grid,
     a point outside the transformation's domain of validity,
-    a requested change of coordinate epoch that the operation does not model —
+    invalid placement data or a non-finite result, including on a geographic
+    path, a requested coordinate-epoch operation outside scope —
     never places content by a substitute, a result that could only be
     partly computed is a failure and not a partial placement,
     and the failure surfaces where it can be known: in validation
@@ -454,17 +452,20 @@ are distinct steps.
     return plausible coordinates while failing to perform the requested operation.
     The definitions and bindings survive the failure,
     so the scene is recoverable in a tool that has what was missing.
-    A malformed definition or a binding to nothing is visible when the
-    scene is authored; whether a grid covers the point, or an engine
-    is present at all, is not, and no authoring API can promise to say so.*
+    A malformed definition, an invalidly authored placement field or a
+    binding to nothing is visible in the authored scene. Such a field cannot be
+    silently ignored to produce a successful placement. Grid coverage and engine
+    availability are resolution checks; a non-finite engine result is a failure,
+    whether or not the engine raises an exception.*
 
 <!-- Start a separate list so the new identifier renders as 30. -->
 
 30. **Measurements remain usable as data.**
     Georeferenced measurements remain accessible to consumers together with
     their associated positions and times, without requiring renderable geometry
-    or a visualization, and coordinate resolution preserves those associations
-    and measurement values.
+    or a visualization, and coordinate resolution preserves measurement values
+    and their associations using explicitly declared coordinate domains and
+    dimension ordering rather than incidental array storage order.
 
     *An image, terrain model or climate grid carries values that a consumer
     can analyze to identify features or trends, not just colors to display.
@@ -472,8 +473,12 @@ are distinct steps.
     associations intact.
     Derived products can be returned to a GIS with their coordinates,
     values and times still matched.
-    This requires access and preservation; it does not prescribe an analysis
-    algorithm, a storage format or interpolation of measurement values.*
+    Coordinate arrays can declare a different dimension order from the
+    measurement variable; matching their flattened indices independently can
+    attach a plausible location to the wrong measurement. Dimension declarations
+    in the native format can supply that order: this does not require duplicated
+    USD metadata. This requires access and preservation, not an analysis
+    algorithm, storage format or interpolation of measurement values.*
 
 **Staying usable at real sizes**
 
@@ -538,8 +543,9 @@ are distinct steps.
 27. **Checkable before use.**
     What the scene itself establishes — a position nested beneath another
     position, a binding to no definition, content outside any CRS,
-    a dependency declaration missing or left behind by a written-out result —
-    can be detected in the authored scene without resolving it.
+    an invalid placement field, or a dependency declaration missing or
+    left behind by a written-out result —
+    can be detected in the authored scene without computing CRS transformations.
 
     *A description that nothing validates against is violated at render time.
     Because resolution writes nothing into the scene,
@@ -639,11 +645,11 @@ The proposal remains subject to author review.
 | # | Question | Requirements and status |
 |--:|---|---|
 | 1 | May a model-placement position be recorded in a geographic CRS, or only in one with length axes? | 5, 8, 12, 17, 18, 19, 20, 22, 30; Decided: [geographic source positions](#decision-on-question-1-geographic-source-positions); encoding remains question 2 |
-| 2 | What field definitions and coordinate conventions specify the CRS placement attributes for position, orientation and scale? | 9, 10, 11, 12, 20; Recorded direction: separate placement; proposed [input-only position and attitude](#crs-association-and-model-placement) revise the earlier field candidate |
-| 3 | What coordinate context applies to project adjustments expressed as ordinary USD transforms when the consumer changes the requested output CRS? | 5, 6, 8, 9, 11, 15, 16, 19; Proposed [fixed working chart and full post-placement stack](#evaluation), including output changes, resets and instances |
+| 2 | What field definitions and conventions record source position and physical model attitude, with computed projection effects kept out of the source schema? | 9, 10, 11, 12, 20; Input-only meaning agreed; [position and attitude candidate](#crs-association-and-model-placement); quaternion versus one heading/pitch/roll tuple remains open, with no `crs:scale` |
+| 3 | What coordinate context applies to project adjustments expressed as ordinary USD transforms when the consumer changes the requested output CRS? | 5, 6, 8, 9, 11, 15, 16, 19; Anchor project adjustments and descendant model-local transforms agreed; [complete chart, reset and instance contract](#evaluation) remains a review candidate |
 | 4 | Whose job is the up-axis and unit correction, the writer's or the reader's? | 14, 15; Decided: [writer or assembler](#decision-on-question-4-authored-unit-and-up-axis-conformance) |
 | 5 | Does the scene record where CRS coordinates give way to scene offsets, or does the binding determine it? | 11, 19, 27; Decided: [direct binding establishes the anchor](#decision-on-question-5-the-position-and-offset-boundary) |
-| 6 | What component order and scene-frame representation apply to the supported CRS coordinate systems? | 12, 13, 14; Proposed [component profile and right-handed stage mapping](#position-components); model attitude is geodetic ENU, distinct from projected grid axes |
+| 6 | What component order and scene-frame representation apply to the supported CRS coordinate systems? | 12, 13, 14; [Component profile and stage mapping](#position-components) supported in feedback; geodetic attitude differs from grid axes; south-oriented axes are a known extension |
 | 7 | Does site calibration (localization) need a construct of its own? | 2, 4; Decided: [CRS definition and binding](#decision-on-question-7-site-calibration) |
 | 8 | Is the consumer's chosen CRS the one the scene resolves into, or a conversion of a result resolved into the CRS the scene names? | 16, 17, 21, 23; Decided: [consumer-selected output context](#decision-on-question-8-consumer-selected-output-context) |
 | 9 | May a geographic CRS be the resolved scene context for geometry, frames and bounds? | 12, 16, 17, 18, 22; Proposed [geographic tuples with associated geocentric scene chart](#queries-scene-charts-and-instances); angular Euclidean scene frames are unsupported |
@@ -674,16 +680,16 @@ geometry, oriented frames or bounds under question 9.
 
 #### Decision on question 2: CRS placement attributes
 
-The October 2 discussion distinguished CRS placement from ordinary USD
-adjustments and required resolution to account for orientation and scale,
-not just the origin. Sébastien's October 6 clarification distinguishes model
-attitude from geodetic convergence and scale. The proposed input model below
-therefore retains authored position and a geodetic-attitude quaternion, removes
-the earlier dimensionless `crs:scale`, and computes geodetic output quantities.
-Intentional scaling uses ordinary xformOps. This revises the earlier field
-proposal; it does not assert agreement to storing computed output properties.
-See [authored placement](#crs-association-and-model-placement) and
-[evaluation](#evaluation).
+Source position and physical model attitude are authored inputs distinct from
+ordinary USD transforms. Projection convergence, scale and resolved orientation
+are runtime results, not additional source properties; no `crs:scale` is proposed.
+Intentional object scaling uses ordinary USD xformOps. This input-only meaning
+has author support. The candidate below stores attitude as `quatd` with a
+normative heading/pitch/roll presentation. The alternative under discussion
+stores one heading/pitch/roll tuple. Its exact field definition and sample
+evaluation would need an explicit contract before replacing the candidate;
+converting angles to a quaternion does not by itself make Core interpolate a
+`double3` as an orientation. The stored type remains an alignment question.
 
 #### Decision on question 5: the position and offset boundary
 
@@ -716,8 +722,8 @@ The output is authored data in that recorded CRS; rereading it must not repeat
 the original source-to-output placement conversion or depend on a private
 "already resolved" flag. Ordinary composition flattening alone does not perform
 this export. The placement and measurement-coordinate encodings follow questions
-2 and 11, and dependency-declaration maintenance follows question 12. The remaining
-export-specific choice is what the sampling record establishes. The
+2 and 11, and dependency-declaration maintenance follows question 12. The follow-up also specifies an explicit export origin to preserve
+precision, the extent/error obligations and what the sampling record establishes. The
 [proposed export rules](#explicit-export-and-sampling) use existing sample keys
 and `timeCodesPerSecond` to record the actual exported schedule, and distinguish
 it from a guarantee about the original between-sample trajectory. They do not
@@ -735,15 +741,15 @@ the units declared by a CRS or performing a requested coordinate conversion.
 
 #### Decision on question 3: working context and placement order
 
-An independently bound dataset retains its source CRS and coordinates. The
-nearest strictly enclosing direct binding supplies the fixed adjustment CRS;
-the source CRS is the fallback. Sébastien's October 6 reply supports this
-selection and a model-placement-origin pivot. The exact chart, complete stack,
-reset, descendant and instance rules are proposed in [evaluation](#evaluation).
-They apply ordinary transforms after geospatial placement and transport that
-adjusted physical result to the requested output, rather than reuse the raw
-adjustment numbers in another CRS. Ancestor ordinary transforms do not contribute
-another absolute placement. These detailed conventions remain review choices.
+An independently bound dataset retains its source CRS and coordinates. Author
+feedback supports the enclosing-binding/fallback working context, model-origin
+pivot, and the distinction between the anchor's post-placement project
+adjustments and descendants' ordinary model-local transforms. Descendant
+offsets must remain reusable when an asset is referenced into another project.
+Changing the requested output CRS preserves the adjusted physical placement,
+rather than reusing raw adjustment numbers in different output axes. The exact
+chart, complete stack, reset and instance conventions remain the follow-up
+candidate in [evaluation](#evaluation).
 
 #### Decision on question 7: site calibration
 
@@ -810,4 +816,3 @@ future model must expose that tradeoff and respect the authored-authority rule
 in requirement 2. It must keep coordinate epochs distinct from frame reference
 epochs, observation times and USD time codes. The initial model must preserve a
 path to adding this support; no future carrier or model is chosen here.
-

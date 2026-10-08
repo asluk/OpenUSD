@@ -19,14 +19,28 @@ def geometry_export(job,record,path):
     UsdGeom.SetStageMetersPerUnit(dst,r.unit);UsdGeom.SetStageUpAxis(dst,UsdGeom.GetStageUpAxis(source));dst.SetTimeCodesPerSecond(source.GetTimeCodesPerSecond())
     from review.wkt_profile import normalize
     attr(root,'crs:wkt',Sdf.ValueTypeNames.Token,normalize(output.to_wkt()),True)
+    if not record['geometry']: raise ValueError('A geometry bake requires geometry')
+    origin=np.array(next(iter(record['geometry'].values()))[0])
+    origin_stage=(r.convert(r.output,output,origin)*factors(output))@r.B.T/r.unit
+    origin_prim=UsdGeom.Xform.Define(dst,'/Resolved/ExportOrigin')
+    origin_prim.AddTranslateOp(UsdGeom.XformOp.PrecisionDouble,'exportOrigin').Set(Gf.Vec3d(*map(float,origin_stage)))
     quantization=0.;source_paths={}
     for i,(old_path,coordinates) in enumerate(record['geometry'].items()):
-        src=source.GetPrimAtPath(record.get('geometry_sources',{}).get(old_path,old_path));new_path=f'/Resolved/Part{i}'
+        src=source.GetPrimAtPath(record.get('geometry_sources',{}).get(old_path,old_path));new_path=f'/Resolved/ExportOrigin/Part{i}'
         Sdf.CopySpec(copy_layer,src.GetPath(),dst.GetRootLayer(),Sdf.Path(new_path));p=dst.GetPrimAtPath(new_path)
         if p.IsInstance():p.SetInstanceable(False)
+        # Descendant geometry receives a separate resolved part. Avoid copying
+        # it unchanged here as well, while retaining other copied properties.
+        descendants=[q for q in Usd.PrimRange(p) if q!=p and q.HasAttribute('points')]
+        for q in reversed(descendants): dst.RemovePrim(q.GetPath())
         for prop in list(p.GetProperties()):
             if prop.GetName().startswith(('crs:','xformOp:')) or prop.GetName()=='xformOpOrder':p.RemoveProperty(prop.GetName())
-        p.SetMetadata('apiSchemas',Sdf.TokenListOp.CreateExplicit([]))
+        retained=[name for name in p.GetAppliedSchemas() if name!='GeospatialCRSBindingAPI']
+        p.SetMetadata('apiSchemas',Sdf.TokenListOp.CreateExplicit(retained))
+        info=p.GetCustomData().get('profilesInfo',{})
+        if 'capabilityUsages' in info:
+            info['capabilityUsages'].pop('usd.geospatial.crsResolution',None)
+            p.SetCustomDataByKey('profilesInfo',info)
         center=np.array(coordinates[0]);local=r.stage_coordinates(coordinates,center);stored=local.astype(np.float32)
         point_attr=p.GetAttribute('points');point_attr.Clear()
         exported_points=Vt.Vec3fArray([Gf.Vec3f(*map(float,x)) for x in stored])
@@ -38,15 +52,16 @@ def geometry_export(job,record,path):
             UsdGeom.Mesh(p).SetNormalsInterpolation(normal['interpolation'])
         elif p.HasAttribute('normals'):p.RemoveProperty('normals')
         p.GetAttribute('extent').Clear() if p.HasAttribute('extent') else None
-        UsdGeom.Xformable(p).AddTranslateOp(UsdGeom.XformOp.PrecisionDouble).Set(Gf.Vec3d(*map(float,(r.convert(r.output,output,center)*factors(output))@r.B.T/r.unit)))
+        UsdGeom.Xformable(p).AddTranslateOp(UsdGeom.XformOp.PrecisionDouble).Set(Gf.Vec3d(*map(float,(r.convert(r.output,output,center)*factors(output))@r.B.T/r.unit-origin_stage)))
         error=float(np.max(np.linalg.norm((stored.astype(float)-local)*r.unit,axis=1)));quantization=max(quantization,error)
         source_paths[new_path]=old_path
     dst.GetRootLayer().Save()
     fresh=Usd.Stage.Open(str(path));reader=Runtime(fresh,job['output_wkt'],job['time']);actual=reader.geometry();maximum=0.
+    if set(actual)!=set(source_paths): raise AssertionError('Export geometry inventory includes omissions or unexpected extras')
     for new_path,old_path in source_paths.items():
         maximum=max(maximum,coordinate_error(actual[new_path],record['geometry'][old_path],r.output))
     if maximum>.001:raise AssertionError('Fresh export reader exceeds 1mm or reapplies placement')
-    return {'path':str(path),'fresh_reader_max_error_metres':maximum,'quantization_metres':quantization,'parts':len(source_paths),'vertices':sum(len(x) for x in actual.values()),'timeSamples':[job['time']],'timeCodesPerSecond':fresh.GetTimeCodesPerSecond(),'dependency':'No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained','source_paths':source_paths,'shading':'Authored shading normals transported with the complete map; geometric fallback only where source normals are absent','normal_arrays':len(record.get('geometry_normals',{}))}
+    return {'path':str(path),'fresh_reader_max_error_metres':maximum,'quantization_metres':quantization,'parts':len(source_paths),'vertices':sum(len(x) for x in actual.values()),'timeSamples':[job['time']],'timeCodesPerSecond':fresh.GetTimeCodesPerSecond(),'dependency':'No CRS-resolution claim needed for fully baked ordinary geometry; Cartesian WKT context retained','source_paths':source_paths,'export_origin':{'prim':'/Resolved/ExportOrigin','stage_coordinates':origin_stage.tolist(),'usd_type':'double3 translate','scene_crs':output.to_wkt()},'shading':'Authored shading normals transported with the complete map; geometric fallback only where source normals are absent','normal_arrays':len(record.get('geometry_normals',{}))}
 
 def sampled_geometry_export(jobs,records,path):
     """Explicitly scheduled geometry samples, with no between-sample claim."""
@@ -63,7 +78,7 @@ def sampled_geometry_export(jobs,records,path):
             p.GetAttribute('points').Set(Vt.Vec3fArray([Gf.Vec3f(*map(float,x)) for x in local]),job['time'])
             normal=record.get('geometry_normals',{}).get(old_path)
             if normal:p.GetAttribute('normals').Set(Vt.Vec3fArray([Gf.Vec3f(*map(float,n)) for n in normal['values']]),job['time'])
-            p.GetAttribute('xformOp:translate').Set(Gf.Vec3d(*map(float,(r.convert(r.output,output,center)*factors(output))@r.B.T/r.unit)),job['time'])
+            p.GetAttribute('xformOp:translate').Set(Gf.Vec3d(*map(float,(r.convert(r.output,output,center)*factors(output))@r.B.T/r.unit-np.array(receipt['export_origin']['stage_coordinates']))),job['time'])
         dst.GetRootLayer().Save()
         fresh=Usd.Stage.Open(str(path));actual=Runtime(fresh,job['output_wkt'],job['time']).geometry()
         for new_path,old_path in receipt['source_paths'].items():

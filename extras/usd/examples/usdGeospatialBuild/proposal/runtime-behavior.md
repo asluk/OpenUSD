@@ -1,6 +1,6 @@
-# Derived excerpt — no additional authority
+# Derived excerpt: no additional authority
 
-Source SHA-256: 02323339203777b80b0bf8969f2392a4663b78be29e88f26f859df376999774a
+Source SHA-256: 28768109389139a56d5c8e5f473446bfa46dd1ab46a48924165b97fb92cb7ae9
 
 ## Runtime coordinate transformation
 
@@ -158,9 +158,10 @@ ordered as authored. The anchor's own stack is the post-placement adjustment in 
 Descendant stacks retain their ordinary model-local meaning: let `D` be their
 Core product below the anchor, including writer-authored conformance. They
 define the model-local point supplied to the intrinsic placement, `F(x * D)`.
-This is a proposed clarification of the broad October 2 phrase "transforms
-afterward", not a claim that the call explicitly settled descendant semantics.
-It follows requirements 9 and 15 and the existing USD local-frame hierarchy.
+Author feedback supports this distinction, which makes the broad
+"transforms afterward" wording precise without changing an asset's ordinary
+local-frame hierarchy. The complete chart and reset convention remains a
+candidate; agreement on the distinction does not assert whole-contract adoption.
 Interpreting raw child translations in working-grid axes would instead change
 their meaning when the model's geospatial attitude changes. A descendant reset removes the
 ordinary contributions above that reset, but retains inherited geospatial
@@ -324,7 +325,9 @@ represented once: an effect included in exported
 coordinate or geometry values cannot also remain as an unapplied placement or
 ordinary transform that a fresh reader will apply again. This changes the
 exported copy, not the source stage, and requires no private "already resolved"
-flag. Output bindings, coordinate associations and the dependency summary must
+flag. Export retains unrelated authored USD properties and schema applications;
+removing geospatial inputs after baking is not permission to remove other
+semantics. Output bindings, coordinate associations and the dependency summary must
 describe what the exported copy actually requires.
 
 A standalone fully baked Cartesian geometry export uses a
@@ -332,7 +335,19 @@ A standalone fully baked Cartesian geometry export uses a
 `crs:wkt` and ordinary geometry/xforms beneath it. It carries no
 `GeospatialCRSBindingAPI` or model-placement fields: its descendants are already
 Cartesian scene content in that recorded context. Stage units/up-axis map those
-ordinary coordinates to the WKT length components as specified above. The
+ordinary coordinates to the WKT length components as specified above. A required
+ordinary `Xform` beneath the context prim carries the explicitly recorded
+origin as one double-precision translate xformOp, with no prescribed prim or
+operation name.
+Its value is that origin in the recorded Cartesian output context, mapped to
+stage axes and stage units. Exported geometry and ordinary model transforms are
+authored below it relative to that origin, so large absolute coordinates need
+not enter float32 point arrays. The origin can be exporter-selected, but it must
+be recorded and its selection must preserve the stated precision and coverage;
+it is not inferred later or duplicated as a geospatial source property. The
+ordinary origin translate is applied exactly once. A geographic coordinate
+request uses the associated Cartesian scene chart for the baked geometry and
+records that chart's CRS, never angular tuples in ordinary point arrays. The
 definition records the coordinate system, not an object's placement. An ordinary
 USD viewer can read the geometry and matrices; a geospatial reader can identify
 the Cartesian context without a private flag and convert coordinates on request.
@@ -365,4 +380,3 @@ proposal adds no authored interpolation-mode field. Sampling-policy provenance
 or a requirement to force a reader's interpolation setting would be a separate
 model decision; the proposed record here establishes the actual sample times
 and time-code scale, not an unrecorded sample-generation history.
-

@@ -1,13 +1,24 @@
-# Implementation and authority audit
+# Authority and implementation audit
 
-The complete pinned proposal candidate is the sole normative authority. All 31 requirements are traced to source. Q3, Q6, Q11 and Q12 have new candidate answers; these are not recorded group agreement. G11 independently bound point-instancer prototypes remains an explicit specialized model gap. Geographic scene frames/bounds remains Q9.
+The pinned full candidate and proposal/traceability.md are the semantic
+authority; these notes are an audit checklist, not additional requirements.
 
-Eight authored geospatial fields have proposal contracts: crs:wkt, crs:position, crs:orientation, crs:scale, data:asset, data:format, data:field and data:coordinateDomain. Reference binding and composed apiSchemas supply scope; existing Profiles metadata supplies the proposed conservative dependency summary. No epoch attribute, role relationship, private binding relationship or resolved flag is authored.
+Before execution: compare the exact Git blob; check every authored field,
+coordinate domain, transform order, chart, reset, instance, normal, dependency,
+failure and export rule. Reject a new source field or semantic shortcut lacking
+a proposal clause. A settled functional outcome can still have pending model
+adoption. The requirements-only split is not a derivation source.
 
-The reverse audit checks both field authority and required results missing from execution. Cartesian frame estimates and polygonal bounds now have controls, alongside point placement, source interpolation, actual OV geometry buffers and Hydra/Storm output. Continuous nonlinear extent/trajectory certificates, geographic scene geometry and physics are not certified. A derivative is not an extent bound.
+During execution: freeze authority, active plan, validator, both adapters and
+schemas. Rebuild native binaries, execute fresh controls and all consumer sinks.
+After execution: reread every exported geometry part, check unexpected extras,
+and retry independent counterexamples. Record implementation defects separately
+from unspecified meaning. Inspect reverse field usage and source preservation.
 
-Python and C++ independently implement placement arithmetic using the same PROJ engine. External format decoding is shared, and OV reuses Python placement. Hydra reads an ordinary export from C++ results. This differs from a live CRS scene-index filter; there is no OV render claim. Actual readbacks and exact executed hashes are in delivery/integration-evidence.json and delivery/run-report.json. Claims require evidence at the destination, not a host or file name.
+The current authored whitelist has seven fields, excludes crs:scale and epochs,
+and has no output properties. Omniverse stage geometry writeback reuses Python;
+Hydra renders the ordinary USD bake. Neither is a third placement implementation.
 
-Schema registration exposed fallbacks hiding blocks and bad declarations. Inverse lookup bypassed an invalid enclosing binding. Host timeline initialization authored source metadata. These were repaired in the readers/integration, with no new geospatial property or retrofitted proposal semantics. Failure controls accept contract errors, not unrelated exceptions. Source closures, original data and operation resources are hash checked.
-
-Native validation is not a second independent WKT normalizer. Provider CSVs are intake/rounding controls, not survey truth. Operation accuracy, approximation error and computational agreement remain distinct. Materialized exports certify tested geometry/sample associations, not every original instancing, material or normal/primvar behavior. Requirements_build_complete stays false while those conformance claims lack evidence.
+Carry forward A1–A7 as counterexamples until each fresh diagnostic passes.
+Do not claim proposal completeness, total verification or author approval from
+a passing test count or an empty manually maintained semantic-gap list.

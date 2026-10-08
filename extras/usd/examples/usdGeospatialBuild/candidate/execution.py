@@ -48,6 +48,7 @@ def coordinate_error(x,y,wkt):
 
 def compare(a,b,wkt):
     output=CRS.from_wkt(wkt);maximum=0;count=0
+    component_residual=np.zeros(len(output.axis_info));magnitudes=np.zeros(len(output.axis_info))
     def check(x,y):
         nonlocal maximum,count
         x,y=np.array(x),np.array(y)
@@ -58,6 +59,8 @@ def compare(a,b,wkt):
             distance=np.abs(geod.inv(x[:,0]*f[0]*180/np.pi,x[:,1]*f[1]*180/np.pi,y[:,0]*f[0]*180/np.pi,y[:,1]*f[1]*180/np.pi)[2])
             if x.shape[1]==3:distance=np.hypot(distance,(x[:,2]-y[:,2])*f[2])
         else:distance=np.linalg.norm((x-y)*factors(output),axis=1)
+        component_residual[:x.shape[1]]=np.maximum(component_residual[:x.shape[1]],np.max(np.abs(x-y),axis=0))
+        magnitudes[:x.shape[1]]=np.maximum(magnitudes[:x.shape[1]],np.max(np.maximum(np.abs(x),np.abs(y)),axis=0))
         err=float(np.max(distance));maximum=max(maximum,err);count+=len(x)
         if err>0.001: raise AssertionError(f'Comparable coordinate results exceed 1mm: {err}')
     if [q['prim'] for q in a['queries']]!=[q['prim'] for q in b['queries']]:raise AssertionError('Query association mismatch')
@@ -83,7 +86,11 @@ def compare(a,b,wkt):
             chart=CRS.from_wkt(a['polygonal_bounds']['chart_wkt'])
             if not chart.equals(CRS.from_wkt(b['polygonal_bounds']['chart_wkt'])):raise AssertionError('Bounds chart mismatch')
             if coordinate_error([a['polygonal_bounds'][key]],[b['polygonal_bounds'][key]],chart)>.001:raise AssertionError('Bounds agreement exceeds 1mm')
-    return {'coordinate_count':count,'max_distance_metres':maximum,'acceptance_metres':0.001,'distance_measure':'ellipsoidal geodesic plus height' if output.is_geographic else 'metric Euclidean'}
+    return {'coordinate_count':count,'max_distance_metres':maximum,'acceptance_metres':0.001,'distance_measure':'ellipsoidal geodesic plus height' if output.is_geographic else 'metric Euclidean',
+        'max_abs_component_residuals_output_units':component_residual.tolist(),
+        'max_abs_output_coordinate_components':magnitudes.tolist(),
+        'max_abs_angular_residuals_radians':(component_residual[:2]*factors(output)[:2]).tolist() if output.is_geographic else [],
+        'component_units':[{a.direction:a.unit_name for a in output.axis_info}.get(n) for n in (['east','north','up'] if not output.is_geocentric else ['geocentricX','geocentricY','geocentricZ'])[:len(output.axis_info)]]}
 
 def native_job(job,out,native,resources,env):
     from .datasets import read_source

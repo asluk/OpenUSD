@@ -10,6 +10,17 @@ from review.scope import discover, ScopeError
 
 
 def read(prim, time):
+    candidate=prim
+    while candidate and not candidate.IsPseudoRoot():
+        schemas=candidate.GetMetadata('apiSchemas')
+        direct=bool(schemas and 'GeospatialCRSBindingAPI' in schemas.GetAppliedItems())
+        if not direct:
+            for field in ['crs:position','crs:orientation']:
+                a=candidate.GetAttribute(field)
+                if a and a.GetPropertyStack(Usd.TimeCode(time)):
+                    raise ScopeError('Invalid placement field on inherited-only descendant: '+field)
+        if direct: break
+        candidate=candidate.GetParent()
     definition = discover(prim)
     owner = prim.GetStage().GetPrimAtPath(definition['binding_prim'])
     if not UsdGeom.Xformable(owner):
