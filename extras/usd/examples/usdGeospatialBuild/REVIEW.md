@@ -1,3 +1,3 @@
-The local follow-up clarifies instance-local transforms, ordinary USD bake reuse and complete dependency summaries. It names geographic adjustment prerequisites, physical 3D comparison and ambiguous rotation outcomes. The 31 requirements and geospatial input fields remain unchanged.
+This proposal separates local model geometry from its Earth location and defines how readers place models, preserve native measurement associations and create ordinary USD bakes. The README and deck assess the same inputs, observable rules and recorded demonstrations.
 
-Fresh controls support these leans. Existing workflows have no unexpected numerical regression. Normal-domain approximation, near-half-turn uncertainty and the quoted-WKT-keyword false rejection remain prototype limitations. The publishing-profile identity and detailed conventions require group review.
+Selected partner and global workflows support the proposed interpretation. Detailed conventions need group review. Normal-domain accuracy, half-turn numerical uncertainty and quoted-WKT classification remain prototype limits; broader coverage and independent geodetic accuracy are not established.
