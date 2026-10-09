@@ -173,3 +173,9 @@ def test_prototype_storage_parent_does_not_supply_occurrence_context(tmp_path):
     for rec in records(s,tmp_path,geometry=True):
         instance=next(v for k,v in rec['geometry'].items() if '_ResolvedInstance' in k)
         np.testing.assert_allclose(instance[0],ORIGIN+[0,1,0],atol=1e-7,rtol=0)
+
+def test_native_long_wkt_quote_does_not_exhaust_parser_stack(tmp_path):
+    s,a=scene(tmp_path);crs=CRS.from_epsg(4978).to_json_dict();crs['name']='Long quoted CRS name '+('a'*20000)
+    a.GetAttribute('crs:wkt').Set(normalize(CRS.from_json_dict(crs).to_wkt()))
+    for r in records(s,tmp_path,queries=[dict(prim=str(a.GetPath()),points=[[0,0,0]])]):
+        np.testing.assert_allclose(r['queries'][0]['coordinates'][0],ORIGIN,atol=1e-7,rtol=0)

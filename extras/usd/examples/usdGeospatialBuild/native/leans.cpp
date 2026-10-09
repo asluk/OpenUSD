@@ -40,9 +40,26 @@ void RequireNormalWkt(const std::string& w){
  static std::set<std::string> checked;if(checked.count(w))return;
  static const std::map<std::string,std::string> aliases={{"GEODETICCRS","GEODCRS"},{"GEOGRAPHICCRS","GEOGCRS"},{"PROJECTEDCRS","PROJCRS"},{"VERTICALCRS","VERTCRS"},{"ENGINEERINGCRS","ENGCRS"},{"GEODETICDATUM","DATUM"},{"TRF","DATUM"},{"VERTICALDATUM","VDATUM"},{"VRF","VDATUM"},{"ENGINEERINGDATUM","EDATUM"},{"SPHEROID","ELLIPSOID"},{"PRIMEMERIDIAN","PRIMEM"},{"TIMEDATUM","TDATUM"},{"TEMPORALQUANTITY","TIMEUNIT"},{"PARAMETRICDATUM","PDATUM"}};
  static const std::map<std::string,std::string> enums={{"cartesian","Cartesian"},{"ellipsoidal","ellipsoidal"},{"affine","affine"},{"spherical","spherical"},{"vertical","vertical"},{"polar","polar"},{"cylindrical","cylindrical"},{"linear","linear"},{"ordinal","ordinal"},{"parametric","parametric"},{"temporaldatetime","temporalDateTime"},{"temporalcount","temporalCount"},{"temporalmeasure","temporalMeasure"},{"north","north"},{"northnortheast","northNorthEast"},{"northeast","northEast"},{"eastnortheast","eastNorthEast"},{"east","east"},{"eastsoutheast","eastSouthEast"},{"southeast","southEast"},{"southsoutheast","southSouthEast"},{"south","south"},{"southsouthwest","southSouthWest"},{"southwest","southWest"},{"westsouthwest","westSouthWest"},{"west","west"},{"westnorthwest","westNorthWest"},{"northwest","northWest"},{"northnorthwest","northNorthWest"},{"up","up"},{"down","down"},{"geocentricx","geocentricX"},{"geocentricy","geocentricY"},{"geocentricz","geocentricZ"},{"columnpositive","columnPositive"},{"columnnegative","columnNegative"},{"rowpositive","rowPositive"},{"rownegative","rowNegative"},{"displayright","displayRight"},{"displayleft","displayLeft"},{"displayup","displayUp"},{"displaydown","displayDown"},{"forward","forward"},{"aft","aft"},{"port","port"},{"starboard","starboard"},{"clockwise","clockwise"},{"counterclockwise","counterClockwise"},{"towards","towards"},{"awayfrom","awayFrom"},{"future","future"},{"past","past"},{"unspecified","unspecified"},{"exact","exact"},{"wraparound","wraparound"}};
- static const std::regex token(R"rx("(?:[^"]|"")*"|[A-Za-z_][A-Za-z_0-9]*|[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[Ee][+-]?[0-9]+)?|[\[\],])rx");
- std::vector<std::string> ts;size_t pos=0;std::smatch m;
- while(pos<w.size()){auto tail=w.substr(pos);if(!std::regex_search(tail,m,token,std::regex_constants::match_continuous))throw std::runtime_error("Authored WKT is not normalized");ts.push_back(m.str());pos+=m.length();}
+ // A linear scanner avoids std::regex recursion on legitimate long quoted WKT.
+ std::vector<std::string> ts;size_t pos=0;
+ auto digit=[](char c){return c>='0'&&c<='9';};
+ auto letter=[](char c){return (c>='A'&&c<='Z')||(c>='a'&&c<='z')||c=='_';};
+ while(pos<w.size()){
+  size_t start=pos;char c=w[pos];
+  if(c=='"'){
+   pos++;bool closed=false;
+   while(pos<w.size()){if(w[pos]=='"'){if(pos+1<w.size()&&w[pos+1]=='"'){pos+=2;continue;}pos++;closed=true;break;}pos++;}
+   if(!closed)throw std::runtime_error("Unclosed WKT string");
+  }else if(letter(c)){pos++;while(pos<w.size()&&(letter(w[pos])||digit(w[pos])))pos++;}
+  else if(c=='['||c==']'||c==',')pos++;
+  else if(digit(c)||c=='+'||c=='-'||c=='.'){
+   if(c=='+'||c=='-')pos++;size_t digits=0;while(pos<w.size()&&digit(w[pos])){pos++;digits++;}
+   if(pos<w.size()&&w[pos]=='.'){pos++;while(pos<w.size()&&digit(w[pos])){pos++;digits++;}}
+   if(!digits)throw std::runtime_error("Invalid WKT number");
+   if(pos<w.size()&&(w[pos]=='e'||w[pos]=='E')){pos++;if(pos<w.size()&&(w[pos]=='+'||w[pos]=='-'))pos++;size_t e=pos;while(pos<w.size()&&digit(w[pos]))pos++;if(pos==e)throw std::runtime_error("Invalid WKT exponent");}
+  }else throw std::runtime_error("Authored WKT is not normalized");
+  ts.push_back(w.substr(start,pos-start));
+ }
  std::vector<std::pair<std::string,int>> stack;
  for(size_t i=0;i<ts.size();i++){
   auto t=ts[i];if(t==",")continue;
