@@ -22,3 +22,14 @@ Regenerate active plan/audit documents as well as excerpts and trace hashes;
 freeze them with executed code. Check that descriptions of settled meaning,
 pending model adoption and unsupported verification do not contradict each
 other. Retest independent failures, not only the adapter's accepted fixtures.
+
+## Adversarial asset and coverage review
+
+Before freezing, compare occurrence semantics to Core instancer-local inputs,
+bake reassembly to ordinary UsdGeom inheritance, and metric claims to physical
+Cartesian counterexamples. An explicit restriction must describe the remaining
+useful scope, rather than quietly fail an in-scope workflow. A complete Profiles
+summary is a publisher claim: test complete-empty, unknown, positive and stale
+coverage, payload boundaries and retained variants separately. Do not infer its
+truth from a metadata read. Retest ambiguous numerical branches; record evaluator
+limits separately from normative data. Preserve all failed preflight evidence.

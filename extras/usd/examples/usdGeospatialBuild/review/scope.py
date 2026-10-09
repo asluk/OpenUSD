@@ -22,6 +22,8 @@ def discover(prim):
                 raise ScopeError('CRS definition must be a token')
             if attribute.GetVariability() != Sdf.VariabilityUniform:
                 raise ScopeError('CRS definition must be uniform')
+            if attribute.GetNumTimeSamples():
+                raise ScopeError('Uniform CRS definition has time samples')
             value = attribute.Get()
             if not value:
                 raise ScopeError('CRS definition is empty')

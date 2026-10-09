@@ -15,7 +15,7 @@ def geometry_export(job,record,path):
         if not instances:break
         for p in instances:p.SetInstanceable(False)
     copy_layer=flattened.Flatten()
-    dst=Usd.Stage.CreateNew(str(path));root=dst.DefinePrim('/Resolved','CoordinateReferenceSystem');dst.SetDefaultPrim(root)
+    dst=Usd.Stage.CreateNew(str(path));root=dst.DefinePrim('/Resolved','CoordinateReferenceSystem');dst.SetDefaultPrim(root);claim(dst,required=False)
     UsdGeom.SetStageMetersPerUnit(dst,r.unit);UsdGeom.SetStageUpAxis(dst,UsdGeom.GetStageUpAxis(source));dst.SetTimeCodesPerSecond(source.GetTimeCodesPerSecond())
     from review.wkt_profile import normalize
     attr(root,'crs:wkt',Sdf.ValueTypeNames.Token,normalize(output.to_wkt()),True)

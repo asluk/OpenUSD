@@ -26,6 +26,8 @@
 #include <limits>
 #include <functional>
 #include <set>
+#include <regex>
+#include <cctype>
 #include "pxr/usd/usdGeom/mesh.h"
 PXR_NAMESPACE_USING_DIRECTIVE
 namespace {
@@ -33,7 +35,44 @@ PJ_CONTEXT* ctx=nullptr;UsdStageRefPtr stage;UsdTimeCode timeCode;std::string ou
 JsArray operations;std::set<std::string> recordedOperations;
 bool Bound(const UsdPrim& p){SdfTokenListOp schemas;if(!p.GetMetadata(TfToken("apiSchemas"),&schemas))return false;auto names=schemas.GetAppliedItems();return std::find(names.begin(),names.end(),TfToken("GeospatialCRSBindingAPI"))!=names.end();}
 UsdPrim Owner(UsdPrim p){while(p&&!p.IsPseudoRoot()){if(Bound(p)||p.GetTypeName()==TfToken("CoordinateReferenceSystem"))return p;for(auto name:{"crs:position","crs:orientation"}){auto a=p.GetAttribute(TfToken(name));if(a&&!a.GetPropertyStack(timeCode).empty())throw std::runtime_error(std::string("Invalid placement field on inherited-only descendant: ")+name);}p=p.GetParent();}throw std::runtime_error("No CRS binding");}
-std::string Wkt(UsdPrim p){p=Owner(p);TfToken w;auto a=p.GetAttribute(TfToken("crs:wkt"));if(!a||a.GetTypeName()!=SdfValueTypeNames->Token||a.GetVariability()!=SdfVariabilityUniform||!a.Get(&w)||w.IsEmpty())throw std::runtime_error("Invalid nearest CRS binding");return w.GetString();}
+
+void RequireNormalWkt(const std::string& w){
+ static std::set<std::string> checked;if(checked.count(w))return;
+ static const std::map<std::string,std::string> aliases={{"GEODETICCRS","GEODCRS"},{"GEOGRAPHICCRS","GEOGCRS"},{"PROJECTEDCRS","PROJCRS"},{"VERTICALCRS","VERTCRS"},{"ENGINEERINGCRS","ENGCRS"},{"GEODETICDATUM","DATUM"},{"TRF","DATUM"},{"VERTICALDATUM","VDATUM"},{"VRF","VDATUM"},{"ENGINEERINGDATUM","EDATUM"},{"SPHEROID","ELLIPSOID"},{"PRIMEMERIDIAN","PRIMEM"},{"TIMEDATUM","TDATUM"},{"TEMPORALQUANTITY","TIMEUNIT"},{"PARAMETRICDATUM","PDATUM"}};
+ static const std::map<std::string,std::string> enums={{"cartesian","Cartesian"},{"ellipsoidal","ellipsoidal"},{"affine","affine"},{"spherical","spherical"},{"vertical","vertical"},{"polar","polar"},{"cylindrical","cylindrical"},{"linear","linear"},{"ordinal","ordinal"},{"parametric","parametric"},{"temporaldatetime","temporalDateTime"},{"temporalcount","temporalCount"},{"temporalmeasure","temporalMeasure"},{"north","north"},{"northnortheast","northNorthEast"},{"northeast","northEast"},{"eastnortheast","eastNorthEast"},{"east","east"},{"eastsoutheast","eastSouthEast"},{"southeast","southEast"},{"southsoutheast","southSouthEast"},{"south","south"},{"southsouthwest","southSouthWest"},{"southwest","southWest"},{"westsouthwest","westSouthWest"},{"west","west"},{"westnorthwest","westNorthWest"},{"northwest","northWest"},{"northnorthwest","northNorthWest"},{"up","up"},{"down","down"},{"geocentricx","geocentricX"},{"geocentricy","geocentricY"},{"geocentricz","geocentricZ"},{"columnpositive","columnPositive"},{"columnnegative","columnNegative"},{"rowpositive","rowPositive"},{"rownegative","rowNegative"},{"displayright","displayRight"},{"displayleft","displayLeft"},{"displayup","displayUp"},{"displaydown","displayDown"},{"forward","forward"},{"aft","aft"},{"port","port"},{"starboard","starboard"},{"clockwise","clockwise"},{"counterclockwise","counterClockwise"},{"towards","towards"},{"awayfrom","awayFrom"},{"future","future"},{"past","past"},{"unspecified","unspecified"},{"exact","exact"},{"wraparound","wraparound"}};
+ static const std::regex token(R"rx("(?:[^"]|"")*"|[A-Za-z_][A-Za-z_0-9]*|[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[Ee][+-]?[0-9]+)?|[\[\],])rx");
+ std::vector<std::string> ts;size_t pos=0;std::smatch m;
+ while(pos<w.size()){auto tail=w.substr(pos);if(!std::regex_search(tail,m,token,std::regex_constants::match_continuous))throw std::runtime_error("Authored WKT is not normalized");ts.push_back(m.str());pos+=m.length();}
+ std::vector<std::pair<std::string,int>> stack;
+ for(size_t i=0;i<ts.size();i++){
+  auto t=ts[i];if(t==",")continue;
+  if(t=="["){if(i==0)throw std::runtime_error("Invalid WKT node");stack.push_back({ts[i-1],0});continue;}
+  if(t=="]"){if(stack.empty())throw std::runtime_error("Invalid WKT node");stack.pop_back();if(!stack.empty())stack.back().second++;continue;}
+  if(i+1<ts.size()&&ts[i+1]=="["){
+   auto upper=t;std::transform(upper.begin(),upper.end(),upper.begin(),[](unsigned char c){return char(std::toupper(c));});
+   auto a=aliases.find(upper);if(t!=upper||a!=aliases.end()||upper=="UNIT")throw std::runtime_error("Authored WKT keyword is not normalized");continue;
+  }
+  if(stack.empty())throw std::runtime_error("Invalid WKT lexical context");
+  if(t.front()!='"'){
+   if(std::isdigit(static_cast<unsigned char>(t.front()))||t.front()=='-'||t.front()=='+'||t.front()=='.'){
+    auto context=stack.back();bool integer=(context.first=="CS"&&context.second==1)||context.first=="ORDER"||(context.first=="ID"&&context.second==1);
+    static const std::regex intForm("(0|-?[1-9][0-9]*)");
+    static const std::regex realForm("-?(0|[1-9][0-9]*)\\.[0-9]+");
+    if(integer?!std::regex_match(t,intForm):!std::regex_match(t,realForm))throw std::runtime_error("Authored WKT number is not normalized");
+    if(!integer){auto dot=t.find('.');auto frac=t.substr(dot+1);if((frac.size()>1&&frac.back()=='0')||t=="-0.0")throw std::runtime_error("Authored WKT decimal is not normalized");}
+   }else{auto lower=t;std::transform(lower.begin(),lower.end(),lower.begin(),[](unsigned char c){return char(std::tolower(c));});auto e=enums.find(lower);if(e==enums.end()||e->second!=t)throw std::runtime_error("Authored WKT enumeration is not normalized");}
+  }
+  stack.back().second++;
+ }
+ if(!stack.empty())throw std::runtime_error("Unclosed WKT");
+ const char* options[]={"STRICT=YES","UNSET_IDENTIFIERS_IF_INCOMPATIBLE_DEF=NO",nullptr};char** warnings=nullptr;char** errors=nullptr;
+ auto obj=proj_create_from_wkt(ctx,w.c_str(),options,&warnings,&errors);
+ bool bad=!obj||!proj_is_crs(obj)||(warnings&&warnings[0])||(errors&&errors[0]);
+ if(warnings)proj_string_list_destroy(warnings);if(errors)proj_string_list_destroy(errors);if(obj)proj_destroy(obj);
+ if(bad)throw std::runtime_error("Invalid or unsupported strict WKT grammar");checked.insert(w);
+}
+
+std::string Wkt(UsdPrim p){p=Owner(p);TfToken w;auto a=p.GetAttribute(TfToken("crs:wkt"));if(!a||a.GetTypeName()!=SdfValueTypeNames->Token||a.GetVariability()!=SdfVariabilityUniform||a.GetNumTimeSamples()!=0||!a.Get(&w)||w.IsEmpty())throw std::runtime_error("Invalid nearest CRS binding");RequireNormalWkt(w.GetString());return w.GetString();}
 struct Definition {
  PJ* object;bool geographic=false,requiresVertical=false;GfVec3d units{1};int dimensions=0;double a=0,b=0;
  Definition(const std::string& wkt){
@@ -126,33 +165,72 @@ GfQuatd Orientation(UsdPrim p){
  if(lower==upper||stage->GetInterpolationType()==UsdInterpolationTypeHeld)return first;
  auto second=HprSample(a,UsdTimeCode(upper));
  double dot=first.GetReal()*second.GetReal()+GfDot(first.GetImaginary(),second.GetImaginary());
+ if(std::abs(dot)<=64*std::numeric_limits<double>::epsilon())throw std::runtime_error("Ambiguous half-turn orientation; roundoff uncertainty prevents unique arc");
  if(dot<0)second=GfQuatd(-second.GetReal(),-second.GetImaginary());
  return GfSlerp((timeCode.GetValue()-lower)/(upper-lower),first,second).GetNormalized();
 }
 std::map<std::string,std::function<GfVec3d(GfVec3d)>> preparedMaps;
-GfVec3d Full(UsdPrim prim,GfVec3d point,const GfMatrix4d* instance=nullptr){
- std::ostringstream identity;identity.precision(17);identity<<prim.GetPath().GetString();if(instance)identity<<*instance;auto key=identity.str();auto found=preparedMaps.find(key);if(found!=preparedMaps.end())return found->second(point);
- auto anchor=Owner(prim);auto source=Wkt(anchor);auto& d=Def(source);GfMatrix4d D(1);bool reset=false;auto p=prim;
+GfVec3d Full(UsdPrim prim,GfVec3d point,const GfMatrix4d* instance=nullptr,const std::string* workOverride=nullptr){
+ std::ostringstream identity;identity.precision(17);identity<<prim.GetPath().GetString()<<output;if(workOverride)identity<<*workOverride;if(instance)identity<<*instance;auto key=identity.str();auto found=preparedMaps.find(key);if(found!=preparedMaps.end())return found->second(point);
+ auto target=output;auto anchor=Owner(prim);auto source=Wkt(anchor);auto& d=Def(source);GfMatrix4d D(1);bool reset=false;auto p=prim;
  while(p&&p!=anchor){UsdGeomXformable x(p);if(x){GfMatrix4d m;bool r;x.GetLocalTransformation(&m,&r,timeCode);D=D*m;if(r){reset=true;break;}}p=p.GetParent();}
  if(!Bound(anchor)){
   if(d.geographic)throw std::runtime_error("Baked ordinary geometry needs Cartesian context");auto units=d.units;
-  preparedMaps[key]=[=](GfVec3d x){auto v=ToBasis(D.Transform(x))*unit;return Convert(source,output,{v[0]/units[0],v[1]/units[1],v[2]/units[2]});};return preparedMaps[key](point);
+  D=GfMatrix4d(1);auto q=prim;while(q&&!q.IsPseudoRoot()){UsdGeomXformable xf(q);if(xf){GfMatrix4d m;bool r;xf.GetLocalTransformation(&m,&r,timeCode);D=D*m;if(r)break;}q=q.GetParent();}
+  preparedMaps[key]=[=](GfVec3d x){auto v=ToBasis(D.Transform(x))*unit;return Convert(source,target,{v[0]/units[0],v[1]/units[1],v[2]/units[2]});};return preparedMaps[key](point);
  }
  if(anchor.GetTypeName()==TfToken("GeospatialDataSource"))throw std::runtime_error("Data source is not a model anchor");
  auto old=anchor.GetAttribute(TfToken("crs:scale"));if(old&&old.HasAuthoredValueOpinion())throw std::runtime_error("Undocumented crs:scale is not an input");
  auto rotation=Orientation(anchor);
- auto origin=Position(anchor);auto work=Working(anchor,source);Def(work);if(d.dimensions!=3)throw std::runtime_error("Complete 3D model CRS required");
+ auto origin=Position(anchor);auto work=workOverride?*workOverride:Working(anchor,source);Def(work);if(d.dimensions!=3)throw std::runtime_error("Complete 3D model CRS required");
+ if(proj_get_type(d.object)==PJ_TYPE_GEOCENTRIC_CRS&&origin[0]==0&&origin[1]==0)throw std::runtime_error("Geocentric pole has no meridian for model attitude");
  auto gw=Geographic(source);auto go=Convert(source,gw,origin);auto base=Ecef(Def(gw),go);auto axes=Enu(Def(gw),go);auto R=GfMatrix3d(rotation);
  GfMatrix4d A(1);bool ignored;if(!reset)UsdGeomXformable(anchor).GetLocalTransformation(&A,&ignored,timeCode);if(instance)A=A*(*instance);
  auto o=A==GfMatrix4d(1)?GfVec3d(0):Convert(source,work,origin);
  preparedMaps[key]=[=](GfVec3d x){auto metric=ToBasis(D.Transform(x))*unit*R;auto xyz=Convert(gw,source,InverseEcef(Def(gw),base+metric*axes));
-  if(A==GfMatrix4d(1))return Convert(source,output,xyz);auto c=Chart(work,Convert(source,work,xyz),o);return Convert(work,output,Unchart(work,A.Transform(c),o));};
+  if(A==GfMatrix4d(1))return Convert(source,target,xyz);auto c=Chart(work,Convert(source,work,xyz),o);return Convert(work,target,Unchart(work,A.Transform(c),o));};
  return preparedMaps[key](point);
+}
+
+
+struct OutputScope{std::string saved;OutputScope(const std::string& v):saved(output){output=v;}~OutputScope(){output=saved;}};
+GfVec3d InverseFull(UsdPrim prim,GfVec3d coordinate){
+ auto anchor=Owner(prim);if(!Bound(anchor))throw std::runtime_error("Instancer requires geospatial model context");auto source=Wkt(anchor);auto work=Working(anchor,source);
+ auto origin=Position(anchor);auto R=GfMatrix3d(Orientation(anchor));GfMatrix4d D(1);bool reset=false;auto p=prim;
+ while(p&&p!=anchor){UsdGeomXformable x(p);if(x){GfMatrix4d m;bool r;x.GetLocalTransformation(&m,&r,timeCode);D=D*m;if(r){reset=true;break;}}p=p.GetParent();}
+ GfMatrix4d A(1);bool ignored;if(!reset)UsdGeomXformable(anchor).GetLocalTransformation(&A,&ignored,timeCode);
+ if(D.GetDeterminant()==0||A.GetDeterminant()==0)throw std::runtime_error("Singular instancer point map has no inverse");
+ GfVec3d sourcePoint;if(A==GfMatrix4d(1))sourcePoint=Convert(output,source,coordinate);
+ else{auto o=Convert(source,work,origin);auto v=Chart(work,Convert(output,work,coordinate),o);sourcePoint=Convert(work,source,Unchart(work,A.GetInverse().Transform(v),o));}
+ auto gw=Geographic(source);auto& g=Def(gw);auto go=Convert(source,gw,origin);auto q=Convert(source,gw,sourcePoint);
+ auto metric=(Ecef(g,q)-Ecef(g,go))*Enu(g,go).GetTranspose()*R.GetTranspose();
+ return D.GetInverse().Transform(ToStage(metric)/unit);
+}
+std::string OccurrenceWorking(UsdPrim anchor,UsdPrim proto,UsdPrim instancer,const std::string& source){
+ auto p=anchor.GetParent();auto stop=proto.GetParent();while(p&&p!=stop&&!p.IsPseudoRoot()){if(Bound(p))return Wkt(p);p=p.GetParent();}
+ try{return Wkt(instancer);}catch(const std::runtime_error& e){if(std::string(e.what())!="No CRS binding")throw;return source;}
+}
+GfVec3d IndependentInstance(UsdPrim mesh,GfVec3d point,UsdPrim proto,UsdPrim instancer,const GfMatrix4d& I){
+ auto anchor=Owner(mesh);auto work=OccurrenceWorking(anchor,proto,instancer,Wkt(anchor));
+ if(I==GfMatrix4d(1))return Full(mesh,point,nullptr,&work);
+ auto target=output;auto chart=Geocentric(Wkt(instancer));GfVec3d result;
+ {OutputScope scope(chart);auto own=Full(mesh,point,nullptr,&work);auto local=InverseFull(instancer,own);result=Full(instancer,I.Transform(local));}
+ return Convert(chart,target,result);
+}
+JsValue Dependency(){
+ auto p=stage->GetDefaultPrim();if(!p)throw std::runtime_error("No defaultPrim dependency carrier");auto data=p.GetCustomData();
+ VtDictionary info,usages,compat;auto v=data.find("profilesInfo");if(v!=data.end()&&v->second.IsHolding<VtDictionary>())info=v->second.UncheckedGet<VtDictionary>();
+ v=info.find("capabilityUsages");bool dictionary=v!=info.end()&&v->second.IsHolding<VtDictionary>();if(dictionary)usages=v->second.UncheckedGet<VtDictionary>();
+ v=info.find("profileCompatibility");if(v!=info.end()&&v->second.IsHolding<VtDictionary>())compat=v->second.UncheckedGet<VtDictionary>();
+ SdfTokenListOp schemas;p.GetMetadata(TfToken("apiSchemas"),&schemas);auto names=schemas.GetAppliedItems();bool applied=std::find(names.begin(),names.end(),TfToken("ClaimsAPI"))!=names.end();
+ const std::string profile="usd.geospatial.publication.v1";v=compat.find(profile);bool complete=applied&&dictionary&&v!=compat.end()&&v->second.IsHolding<VtTokenArray>()&&v->second.UncheckedGet<VtTokenArray>().empty();
+ auto usage=usages.find("usd.geospatial.crsResolution");bool present=usage!=usages.end();if(present&&(!usage->second.IsHolding<std::string>()||usage->second.UncheckedGet<std::string>()!="hard"))throw std::runtime_error("Weak whole-scene Profiles dependency claim");
+ bool none=complete&&!present;return JsValue(JsObject{{"usage",none?JsValue():JsValue("hard")},{"known_none",JsValue(none)},{"coverage",JsValue(complete?"complete":"unknown")},{"traversal_required",JsValue(false)}});
 }
 
 GfVec3d Measurement(UsdPrim p,const std::string& source,GfVec3d point){
  auto work=Working(p,source);auto& w=Def(work);GfMatrix4d A(1);bool reset;UsdGeomXformable(p).GetLocalTransformation(&A,&reset,timeCode);
- if(A==GfMatrix4d(1))return Convert(source,output,point);auto v=Convert(source,work,point);
+ if(A==GfMatrix4d(1))return Convert(source,output,point);if(w.geographic)throw std::runtime_error("Geographic dataset adjustment requires an explicit Cartesian working CRS");auto v=Convert(source,work,point);
  if(w.dimensions==2){
   if(w.geographic)throw std::runtime_error("Geographic adjustment requires height");
   auto zero=ToBasis(A.Transform(GfVec3d(0)));auto east=ToBasis(A.Transform(ToStage({1,0,0})))-zero;auto north=ToBasis(A.Transform(ToStage({0,1,0})))-zero;auto up=ToBasis(A.Transform(ToStage({0,0,1})))-zero;
@@ -189,7 +267,7 @@ int main(int argc,char** argv){try{
  if(argc!=3)throw std::runtime_error("Usage: leansNative job.json result.json");std::ifstream f(argv[1]);auto job=JsParseStream(f).GetJsObject();
  ctx=proj_context_create();std::vector<std::string> paths;std::istringstream ss(job.at("resources").GetString());std::string part;while(std::getline(ss,part,';'))paths.push_back(part);std::vector<const char*> dirs;for(auto& v:paths)dirs.push_back(v.c_str());proj_context_set_search_paths(ctx,int(dirs.size()),dirs.data());proj_context_set_enable_network(ctx,0);
  if(job.count("schema_directory"))PlugRegistry::GetInstance().RegisterPlugins(job.at("schema_directory").GetString());stage=UsdStage::Open(job.at("stage").GetString());if(!stage)throw std::runtime_error("Stage unavailable");stage->SetInterpolationType(job.at("interpolation").GetString()=="held"?UsdInterpolationTypeHeld:UsdInterpolationTypeLinear);timeCode=UsdTimeCode(job.at("time").GetReal());unit=UsdGeomGetStageMetersPerUnit(stage);yUp=UsdGeomGetStageUpAxis(stage)==TfToken("Y");output=job.at("output_wkt").GetString();if(output.empty())output=Wkt(stage->GetDefaultPrim());
- std::string before;stage->GetRootLayer()->ExportToString(&before);JsArray queries;JsObject geometry,geometrySources,result;
+ std::string before;stage->GetRootLayer()->ExportToString(&before);JsArray queries;JsObject geometry,geometrySources,result;result["dependency"]=Dependency();
  for(auto q:job.at("queries").GetJsArray()){auto query=q.GetJsObject();auto p=stage->GetPrimAtPath(SdfPath(query.at("prim").GetString()));JsArray values;for(auto v:query.at("points").GetJsArray())values.push_back(Json(Full(p,Vec(v))));queries.push_back(JsValue(JsObject{{"prim",query.at("prim")},{"coordinates",JsValue(values)}}));}
  if(job.count("frames")){JsObject frames;for(auto path:job.at("frames").GetJsArray())frames[path.GetString()]=Frame(stage->GetPrimAtPath(SdfPath(path.GetString())));result["frames"]=JsValue(frames);}
  if(job.count("relative")){auto r=job.at("relative").GetJsObject();auto a=stage->GetPrimAtPath(SdfPath(r.at("from").GetString())),b=stage->GetPrimAtPath(SdfPath(r.at("to").GetString()));result["relative_position"]=JsValue(JsArray{Json(Full(a,GfVec3d(0))-Full(b,GfVec3d(0)))});}
@@ -201,8 +279,8 @@ int main(int argc,char** argv){try{
    for(size_t i=0;i<transforms.size();i++){if(!mask.empty()&&!mask[i])continue;auto proto=stage->GetPrimAtPath(prototypes.at(indices[i]));for(auto mesh:UsdPrimRange(proto)){
     VtVec3fArray points;if(!mesh.GetAttribute(TfToken("points")).Get(&points,timeCode))continue;GfMatrix4d local(1);bool localReset=false;auto q=mesh;while(q&&q!=proto){UsdGeomXformable x(q);if(x){GfMatrix4d m;bool reset;x.GetLocalTransformation(&m,&reset,timeCode);local=local*m;if(reset){localReset=true;break;}}q=q.GetParent();}
     UsdPrim owner;try{owner=Owner(mesh);}catch(const std::runtime_error& e){if(std::string(e.what())!="No CRS binding")throw;}bool independent=owner&&owner.GetPath().HasPrefix(proto.GetPath());GfMatrix4d protoLocal(1);bool protoReset;if(!localReset)UsdGeomXformable(proto).GetLocalTransformation(&protoLocal,&protoReset,timeCode);
-    auto matrix=local*protoLocal*transforms[i];JsArray values;for(auto v:points)values.push_back(Json(independent?Full(mesh,GfVec3d(v),&transforms[i]):Full(p,matrix.Transform(GfVec3d(v)))));
-    auto relative=mesh.GetPath().MakeRelativePath(proto.GetPath()).GetString();if(relative==".")relative="Root";std::string path=p.GetPath().GetString()+"/_ResolvedInstance"+std::to_string(i)+"/"+relative;if(geometry.count(path))throw std::runtime_error("Runtime instance output identity collision");geometry[path]=JsValue(values);geometrySources[path]=JsValue(mesh.GetPath().GetString());RecordNormals(mesh,path,[&](GfVec3d v){return independent?Full(mesh,v,&transforms[i]):Full(p,matrix.Transform(v));});
+    auto matrix=local*protoLocal*transforms[i];JsArray values;for(auto v:points)values.push_back(Json(independent?IndependentInstance(mesh,GfVec3d(v),proto,p,transforms[i]):Full(p,matrix.Transform(GfVec3d(v)))));
+    auto relative=mesh.GetPath().MakeRelativePath(proto.GetPath()).GetString();if(relative==".")relative="Root";std::string path=p.GetPath().GetString()+"/_ResolvedInstance"+std::to_string(i)+"/"+relative;if(geometry.count(path))throw std::runtime_error("Runtime instance output identity collision");geometry[path]=JsValue(values);geometrySources[path]=JsValue(mesh.GetPath().GetString());RecordNormals(mesh,path,[&](GfVec3d v){return independent?IndependentInstance(mesh,v,proto,p,transforms[i]):Full(p,matrix.Transform(v));});
    }}
   }
  }

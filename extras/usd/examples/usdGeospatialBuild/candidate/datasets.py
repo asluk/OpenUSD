@@ -8,7 +8,7 @@ from .runtime import ContractError,definition
 
 def required(prim,name,kind):
     a=prim.GetAttribute(name)
-    if not a or a.GetTypeName()!=kind or a.GetVariability()!=Sdf.VariabilityUniform or a.Get() is None:
+    if not a or a.GetTypeName()!=kind or a.GetVariability()!=Sdf.VariabilityUniform or a.GetNumTimeSamples() or a.Get() is None:
         raise ContractError('Missing or invalid external association '+name)
     return a.Get()
 

@@ -1,6 +1,6 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0
+Source SHA-256: 010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75
 
 ### Functional requirements
 
@@ -648,7 +648,7 @@ The proposal remains subject to author review.
 | # | Question | Requirements and status |
 |--:|---|---|
 | 1 | May a model-placement position be recorded in a geographic CRS, or only in one with length axes? | 5, 8, 12, 17, 18, 19, 20, 22, 30; Decided: [geographic source positions](#decision-on-question-1-geographic-source-positions); encoding remains question 2 |
-| 2 | What field definitions and conventions record source position and physical model attitude, with computed projection effects kept out of the source schema? | 9, 10, 11, 12, 20; Input-only meaning agreed; preferred [position and heading/pitch/roll candidate](#crs-association-and-model-placement), including explicit orientation-sample evaluation, awaits alignment; no `crs:scale` |
+| 2 | What field definitions and conventions record source position and physical model attitude, with computed projection effects kept out of the source schema? | 9, 10, 11, 12, 20; Input-only meaning and authored heading/pitch/roll tuple supported in feedback; detailed [field and evaluation conventions](#crs-association-and-model-placement) remain under review; no `crs:scale` |
 | 3 | What coordinate context applies to project adjustments expressed as ordinary USD transforms when the consumer changes the requested output CRS? | 5, 6, 8, 9, 11, 15, 16, 19; Anchor project adjustments and descendant model-local transforms agreed; [complete chart, reset and instance contract](#evaluation) remains a review candidate |
 | 4 | Whose job is the up-axis and unit correction, the writer's or the reader's? | 14, 15; Decided: [writer or assembler](#decision-on-question-4-authored-unit-and-up-axis-conformance) |
 | 5 | Does the scene record where CRS coordinates give way to scene offsets, or does the binding determine it? | 11, 19, 27; Decided: [direct binding establishes the anchor](#decision-on-question-5-the-position-and-offset-boundary) |
@@ -660,7 +660,7 @@ The proposal remains subject to author review.
 | 11 | How are a measurement dataset's source coordinate properties associated with its CRS, separately from model-placement properties and ordinary geometry offsets? | 2, 5, 6, 7, 8, 12, 18, 19, 21, 27, 30; Proposed [external association and adjustment](#external-measurement-association), retaining native values; epochs remain question 15 |
 | 12 | What authored declaration exposes the composed scene's CRS dependency without traversal, including referenced or unloaded content and explicit export? | 7, 19, 25, 26, 27; Proposed [Profiles carrier and conservative maintenance](#dependency-declaration-with-profiles), including unloaded content and export |
 | 13 | How is placement-approximation error established for resolved frames, geometry and bounds, and how is cross-engine agreement measured for comparable operations? | 17, 18, 21, 22, 23, 24, 28, 29; Engine responsibility decided; proposed [extent and comparison rules](#extent-and-result-comparison) distinguish pointwise, polygonal and continuous guarantees |
-| 14 | How does a time-sampled export record its sampling so a reader can distinguish it from resolution of the original authored samples? | 18, 19, 20, 27, 30; Export preservation decided; proposed [Cartesian representation and existing sampling fields](#explicit-export-and-sampling) |
+| 14 | How does a time-sampled export record its sampling so a reader can distinguish it from resolution of the original authored samples? | 18, 19, 20, 27, 30; Ordinary USD bake with a double-precision origin supported in feedback; detailed [representation and sampling guarantees](#explicit-export-and-sampling) remain under review |
 | 15 | How should a future extension represent and associate coordinate epochs, and what must it specify for epoch-dependent resolution? | 2, 3, 5, 7, 19, 21, 27, 28, 30; Roadmap: [coordinate epochs](#roadmap-question-15-coordinate-epochs), outside the initial scope |
 
 The table separates recorded direction from complete proposed definitions.
@@ -689,14 +689,14 @@ are runtime results, not additional source properties; no `crs:scale` is propose
 Intentional object scaling uses ordinary USD xformOps. This input-only meaning
 has author support.
 
-The preferred candidate stores one heading/pitch/roll tuple. A placement author
+The source representation stores one heading/pitch/roll tuple. A placement author
 can enter, inspect and correct the same physical angles supplied by a survey or
 orientation measurement, with their north/up references stated. This addresses
-the workflow under requirement 9 directly. Tam's alternative stores a quaternion
-and requires a normative heading/pitch/roll presentation; it remains a valid
-comparison, but Core interpolation convenience alone does not choose the source
-representation. The authored-angle candidate and its evaluation below are
-proposed for author alignment, not recorded as unanimous agreement.
+the workflow under requirement 9 directly. Author feedback supports this
+representation and converting selected composed angle samples to poses before
+interpolation. The detailed physical conventions and sample-evaluation rules
+below remain part of the model/runtime review. The equivalent quaternion is
+computed, not a second authored source property.
 
 #### Decision on question 5: the position and offset boundary
 

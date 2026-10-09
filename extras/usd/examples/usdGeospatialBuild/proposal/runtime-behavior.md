@@ -1,6 +1,6 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0
+Source SHA-256: 010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75
 
 ## Runtime coordinate transformation
 
@@ -41,7 +41,7 @@ The source is a static RGF93 v2b realization. Both working and output contexts
 are Lambert-93 in metres with ellipsoidal height, so this example needs no
 working-to-output transport. Geometry is already conformed to stage metres and
 Z-up; height, attitude and adjustments are illustrative. The heading/pitch/roll
-encoding remains proposed. This is not surveyed placement, an epoch or
+conventions remain under review. This is not surveyed placement, an epoch or
 gravity-related height conversion, or a finite-extent affine certificate.
 
 Every panel uses the same camera and ground grid. Blue outlines show the
@@ -64,7 +64,7 @@ Here model +Y is chosen as front, not prescribed as a general convention.
 For this right-handed Z-up example, the attitude is a minus-30-degree turn about
 local +Up. It is a placement input, distinct from the later ordinary USD rotation
 about working-grid +Z. The authored heading/pitch/roll tuple supplies this
-model attitude; its preferred encoding remains subject to author alignment.
+model attitude; the physical and evaluation conventions are defined below.
 
 ##### 3. CRS placement and resolution
 
@@ -145,9 +145,13 @@ not substitute a time sample for a default. With no samples, use the resolved
 default. At an exact sample or outside the sampled interval, use that sample or
 the nearest endpoint respectively. Held interpolation uses the preceding
 sample, clamped to the first endpoint. Linear interpolation uses quaternion
-slerp between the bracketing samples with the normalized time fraction; select
-the equivalent endpoint sign giving a nonnegative quaternion dot product, and
-retain the defined signs if the dot product is exactly zero. Required samples
+slerp between the bracketing samples with the normalized time fraction, selecting
+the equivalent endpoint sign for the unique shorter arc. An exactly 180-degree
+relative rotation has two equally short paths: an interior-time query fails
+unless an intermediate authored pose determines the path. Exact-sample and held
+queries remain defined. Numerical uncertainty that prevents establishing a
+unique shorter arc is reported with the evaluator's rotational uncertainty,
+rather than choosing a path from a floating-point sign. Required samples
 that are blocked, unavailable, wrongly typed or non-finite cause visible
 failure, not an identity or held-value substitute.
 
@@ -210,9 +214,12 @@ For an absolute measurement domain, replace `F(x)` with its native sample
 coordinate and apply the carrier's own ordinary stack in `W`. A Cartesian
 domain chart has the working CRS zero as origin, since the domain has no model
 placement origin; use ordinary pivots to choose another adjustment origin.
-A 3D geographic domain chart uses longitude/latitude/ellipsoidal height zero
-of the working datum as its ENU origin. The required height conversion must
-succeed. These chart origins are conventions, not inserted sample heights.
+A nonidentity adjustment of an absolute geographic domain requires an explicitly
+enclosing Cartesian working CRS with a declared relation to that domain.
+Without it, the adjustment is unsupported; the reader must not invent a tangent
+origin. Identity adjustments still permit geographic coordinate queries and
+associated Cartesian scene results. This limits the adjustment convention,
+not geographic source data, global coverage or analytical access.
 For a 2D Cartesian domain use its two horizontal length components and reject
 out-of-plane coupling; no 3D position is created. Independent direct carrier
 bindings exclude ancestor ordinary transforms just as independent model
@@ -225,7 +232,10 @@ A relative-position query returns both resolved origins in `Q` and their
 component difference `from - to`, in `Q`'s declared units; it is not an inverse
 of the second model's local frame. Geographic differences are angular/height
 coordinate differences without implicit wrapping, not metric displacements.
-Physical distance uses the separate comparison rule below. A relative-frame
+A physical 3D distance is measured in the associated Cartesian representation,
+with the required datum and height conversions; missing height does not acquire
+a zero substitute. Horizontal surface distance is a distinct named result.
+A relative-frame
 query, when invertible, names its Cartesian chart and returns the full map or
 local derivative in that chart, with its approximation domain explicitly stated.
 
@@ -245,19 +255,35 @@ CRS. A consumer asking for an angular Euclidean frame receives an unsupported
 request, rather than a fabricated length frame.
 
 Native instance proxies evaluate as equivalent expanded composed prims.
-Point-instancer instances use Core/UsdGeom positions, orientations, scales,
-prototype indices, masks and time behavior. An unbound prototype uses the
-instancer's inherited model placement; its ordinary prototype/instance product defines `D` in the instancer's local
-model frame, while the instancer anchor's own stack defines `A`. A directly bound prototype instead keeps
-its own absolute position and source CRS, using its nearest enclosing binding
-as `W` (or its own source as fallback). Its ordinary prototype stack is followed
-by the per-instance matrix, expressed in that same adjustment chart. The
-instancer's anchor and ancestor xformOps do not add a second absolute placement.
-Do not include the prototype's ordinary transform twice: evaluate its stack
-once and use Core's instance matrix excluding that prototype transform. Bindings
-inside a prototype follow the same independent-anchor rule. A resolved instance
-identity includes instancer path, instance ID/index and full prototype-relative
-prim path; names alone do not identify nested geometry uniquely.
+Point-instancer instances retain the [UsdGeom instancer-local meaning](https://openusd.org/release/api/class_usd_geom_point_instancer.html)
+of positions, orientations, scales, prototype indices, masks and time behavior.
+An unbound prototype uses the instancer's inherited model placement; its ordinary
+prototype/instance product defines `D` in the instancer's local model frame,
+while the anchor's own stack defines `A`.
+
+A directly bound prototype or bound descendant retains its independent absolute
+placement. Interpret enclosing bindings on the expanded instance occurrence:
+first within the prototype, then at the instancer and its ancestors. The storage
+ancestors above the prototype root do not supply that occurrence's context.
+Let `B(x)` be the independently placed point, including its own ordinary stack
+once, and `H_i(x)` the instancer prim's complete resolved point map without any
+per-instance transform. Express both in the associated geocentric CRS of the
+instancer's source datum, fixed independently of the requested output CRS.
+For the Core per-instance matrix `I`, excluding the prototype's own transform,
+the resolved point is `H_i(I(H_i^-1(B(x))))`, then converted to the requested
+output. Thus `I` acts in instancer-local coordinates; it is not reused as a
+matrix in the prototype's CRS axes. Its rotations/scales retain the ordinary
+instancer origin as pivot. The instancer's absolute placement is used to
+transport this adjustment, not added to the prototype a second time.
+
+An identity `I` needs no inverse and preserves `B(x)`. A nonidentity `I` requires
+a valid geospatial model context for the instancer and an invertible point map
+on the consumed domain. Missing context, a singular required inverse or an
+unavailable coordinate operation fails visibly. A derivative alone is not the
+finite transport unless covered by the approximation contract. A resolved
+instance identity includes instancer path, instance ID/index and full
+prototype-relative prim path; names alone do not identify nested geometry
+uniquely.
 
 Local derivatives and finite pointwise results need not be representable as a
 quaternion and diagonal scale. Normal/tangent transport uses the derivative of
@@ -324,14 +350,18 @@ each component's declared length unit to metres, and also report residual
 components in the output's declared units and the coordinate magnitudes.
 Mixing feet and metres in an unconverted norm is not a distance measure.
 
-For geographic coordinate queries, propose reporting horizontal distance using
-the existing [ellipsoidal inverse geodesic](https://proj.org/en/stable/geodesic.html)
-on the output WKT's ellipsoid, height difference in metres in the same declared
-vertical reference, and their Euclidean combination as the agreement distance.
-Angular component residuals are reported separately; degrees and metres must
-not be combined as Cartesian components. This is an explicit proposed comparison
-convention, not an OGC-mandated error measure or a choice already agreed on the
-call. Geographic scene results use the associated Cartesian chart specified above.
+For 3D geographic coordinate queries, the positional agreement distance is the
+Euclidean separation after conversion to the associated geocentric Cartesian
+CRS specified above. The required height/datum conversion must succeed; a surface
+distance must not substitute for an unavailable 3D comparison. Also report
+angular component residuals, ellipsoidal horizontal surface distance using the
+existing [inverse geodesic](https://proj.org/en/stable/geodesic.html), and height
+difference in metres in the same declared vertical reference. These diagnostics
+have distinct meanings; degrees and metres are not Cartesian components.
+A 2D geographic query supports horizontal surface-distance comparison only,
+explicitly named as such, and supplies no physical 3D distance. These are
+proposed comparison conventions, not an OGC-mandated metric or an adopted call
+decision. Geographic scene results use their identified Cartesian chart.
 An acceptance distance is supplied by the request or documented comparison
 case, not guessed after seeing the results or stored in an undocumented scene
 attribute.
@@ -375,10 +405,22 @@ definition records the coordinate system, not an object's placement. An ordinary
 USD viewer can read the geometry and matrices; a geospatial reader can identify
 the Cartesian context without a private flag and convert coordinates on request.
 This explicit-export context is distinguished by its composed type, not a file
-name or provenance layer. Referencing/assembling such a copy requires the writer
-to retain its coordinate context or explicitly re-author it under the model or
-measurement contract; an enclosing unrelated CRS must not silently reinterpret
-its ordinary coordinate numbers.
+name or provenance layer. Its geometry follows the complete ordinary UsdGeom
+transform hierarchy, including ancestors above that context, until an authored
+reset. Those ordinary values use stage axes and units in the recorded Cartesian
+context. The context's type is not an implicit transform reset: aware queries and
+unaware viewers must include the same ordinary transforms. An author wanting an
+absolute bake to ignore enclosing ordinary transforms expresses that intent
+with an ordinary authored reset, never a private runtime boundary.
+
+Referencing/assembling such a copy retains the recorded context at its advertised
+entrypoint; an enclosing unrelated CRS does not reinterpret those Cartesian
+numbers. A writer changing the coordinate context explicitly re-expresses the
+copy through a bake or re-authors it under the model/measurement contract.
+Coordinate declarations and required precision information remain available at
+stable interfaces, including above payloads where the summary is needed. This
+follows [asset-structuring principles](https://docs.omniverse.nvidia.com/usd/latest/learn-openusd/independent/asset-structure-principles.html)
+without prescribing a universal hierarchy, naming scheme or asset kind.
 
 For sampled output, the authored `timeSamples` keys record the actual exported
 sample schedule and the export authors the stage's existing `timeCodesPerSecond`
@@ -394,8 +436,10 @@ source samples before CRS conversion: the equatorial example in requirement
 20 produces a surface midpoint from source longitude samples, but a chord
 midpoint from two exported ECEF endpoints. An exporter claiming to preserve
 the original trajectory between samples must provide sufficient samples to
-meet a stated bound over that time range. Recording two sample times alone
-does not establish that claim.
+meet a stated bound over that time range and identify the existing reader
+interpolation setting covered by that bound. A claim for linear interpolation
+does not establish the held result, or conversely. Recording two sample times
+alone does not establish a between-sample preservation claim.
 
 Core defines held and linear stage interpolation, with linear as the default,
 but how a reader selects that stage setting is implementation-defined. This

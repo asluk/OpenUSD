@@ -1,7 +1,7 @@
 """Interpret the frozen input-only contract, without authored computed outputs."""
 import math
 import numpy as np
-from pxr import Gf, Usd, UsdGeom
+from pxr import Gf, Sdf, Usd, UsdGeom, Vt
 from pyproj import CRS, Transformer
 from review.scope import discover, ScopeError
 from review.placement_values import read
@@ -153,36 +153,45 @@ class Runtime:
         return None
 
     def ordinary_export(self,prim,points,context):
-        c=CRS.from_wkt(context.GetAttribute('crs:wkt').Get())
+        a=context.GetAttribute('crs:wkt')
+        if not a or str(a.GetTypeName())!='token' or a.GetVariability()!=Sdf.VariabilityUniform or a.GetNumTimeSamples():
+            raise ContractError('Invalid uniform baked CRS definition')
+        try:
+            wkt=a.Get()
+            if normalize(wkt)!=wkt:raise ContractError('Baked WKT is not normalized')
+            c=CRS.from_wkt(wkt)
+        except WKTProfileError as e:raise ContractError('Invalid baked WKT: '+str(e)) from e
         if c.is_geographic:raise ContractError('Baked ordinary geometry needs a Cartesian context')
-        D,_=self.stack(prim,context)
+        D,_=self.stack(prim,self.stage.GetPseudoRoot())
         v=np.array([D.Transform(Gf.Vec3d(*map(float,p))) for p in np.atleast_2d(points)])
         native=v@self.B*self.unit/factors(c)
         return self.convert(c,self.output,native)
 
-    def placement(self,prim,points,instance_matrix=None,descendants_in_working=False):
+    def placement(self,prim,points,descendants_in_working=False,work_override=None):
         context=self.export_context(prim)
         if context:return self.ordinary_export(prim,points,context)
         try: read(prim,self.time)
         except ScopeError as e: raise ContractError(str(e)) from e
         anchor,source=definition(prim)
         if anchor.GetTypeName()=='GeospatialDataSource':raise ContractError('Data source is not a model anchor')
-        record,R=self.rotation(anchor);work=self.working(anchor,source)
+        record,R=self.rotation(anchor);work=work_override if work_override is not None else self.working(anchor,source)
         D,reset=self.stack(prim,anchor);v=np.atleast_2d(points)
         # The alternate branch is a fully labelled counterexample, not scene metadata.
         if not descendants_in_working:v=np.array([D.Transform(Gf.Vec3d(*map(float,p))) for p in v])
-        g=geodetic(source);origin=np.array(record['position']);go=self.convert(source,g,origin)
+        g=geodetic(source);origin=np.array(record['position'])
+        if source.is_geocentric and origin[0]==0 and origin[1]==0:raise ContractError('Geocentric pole has no meridian for model attitude')
+        go=self.convert(source,g,origin)
         metric=(v@self.B*self.unit)@R
         s=self.convert(g,source,from_ecef(g,ecef(g,go)+metric@enu(g,go)))
         A=Gf.Matrix4d(1) if reset else UsdGeom.Xformable(anchor).GetLocalTransformation(self.time)
         if descendants_in_working:A=D*A
-        if instance_matrix is not None:A=A*instance_matrix
         return self.apply_adjustment(source,work,s,origin,A)
 
     def measurement(self,prim,points,source):
         if not bound(prim):raise ContractError('Measurement carrier requires direct binding')
         work=self.working(prim,source);A=UsdGeom.Xformable(prim).GetLocalTransformation(self.time)
         if A==Gf.Matrix4d(1):return self.convert(source,self.output,points)
+        if work.is_geographic:raise ContractError('Geographic dataset adjustment requires an explicit Cartesian working CRS')
         w=self.convert(source,work,points);dim=len(work.axis_info)
         if dim==2:
             if work.is_geographic:raise ContractError('Geographic adjustment requires height')
@@ -209,6 +218,30 @@ class Runtime:
         metric=(ecef(g,q)-ecef(g,go))@enu(g,go).T@R.T
         local=metric/self.unit@self.B.T
         return np.array([D.GetInverse().Transform(Gf.Vec3d(*map(float,p))) for p in local])
+
+    def occurrence_working(self,anchor,proto,instancer,source):
+        p=anchor.GetParent();stop=proto.GetParent()
+        while p and p!=stop and not p.IsPseudoRoot():
+            if bound(p):return definition(p)[1]
+            p=p.GetParent()
+        try:return definition(instancer)[1]
+        except ContractError as e:
+            if 'No CRS binding' not in str(e):raise
+            return source
+
+    def independent_instance(self,mesh,points,proto,instancer,matrix):
+        anchor,source=definition(mesh)
+        work=self.occurrence_working(anchor,proto,instancer,source)
+        if matrix==Gf.Matrix4d(1):return self.placement(mesh,points,work_override=work)
+        _,instance_source=definition(instancer)
+        chart=geocentric(instance_source)
+        transport=Runtime(self.stage,chart.to_wkt(),self.time.GetValue())
+        independently_placed=transport.placement(mesh,points,work_override=work)
+        local=transport.inverse_placement(instancer,independently_placed)
+        moved=np.array([matrix.Transform(Gf.Vec3d(*map(float,p))) for p in local])
+        result=transport.placement(instancer,moved)
+        self.operations.extend(o for o in transport.operations if o not in self.operations)
+        return self.convert(chart,self.output,result)
 
     def geometry(self):
         records={};self.geometry_sources={};self.geometry_normals={}
@@ -243,7 +276,7 @@ class Runtime:
                         own=None
                     independent=bool(own and str(own.GetPath()).startswith(str(proto.GetPath())))
                     if independent:
-                        values=self.placement(mesh,np.array(a.Get(self.time)),instance_matrix=matrix)
+                        values=self.independent_instance(mesh,np.array(a.Get(self.time)),proto,p,matrix)
                     else:
                         local,reset=self.stack(mesh,proto)
                         P=UsdGeom.Xformable(proto).GetLocalTransformation(self.time) if not reset and UsdGeom.Xformable(proto) else Gf.Matrix4d(1)
@@ -253,7 +286,7 @@ class Runtime:
                     # Full relative prim path preserves nested prototype identities.
                     path=str(p.GetPath())+'/_ResolvedInstance'+str(i)+'/'+str(mesh.GetPath().MakeRelativePath(proto.GetPath())).replace('.','Root')
                     records[path]=values.tolist();self.geometry_sources[path]=str(mesh.GetPath())
-                    if independent:fn=lambda x:self.placement(mesh,x,instance_matrix=matrix)
+                    if independent:fn=lambda x:self.independent_instance(mesh,x,proto,p,matrix)
                     else:fn=lambda x:self.placement(p,np.array([C.Transform(Gf.Vec3d(*map(float,z))) for z in x]))
                     normals=self.geometry_normal(mesh,fn)
                     if normals:self.geometry_normals[path]=normals
@@ -312,9 +345,20 @@ class Runtime:
         if np.asarray(extent).shape!=(2,3) or not np.isfinite(extent).all():raise ContractError('Invalid requested extent')
         return {'extent':extent,'time':self.time.GetValue(),'affine_approximation_error_metres':0.,'basis':'ENU-to-geocentric map and Cartesian adjustments analytically affine at this time','numeric_quantization_included':False,'operation_accuracy_included':False}
 
+PUBLICATION_PROFILE='usd.geospatial.publication.v1'
+
 def dependency(stage):
     p=stage.GetDefaultPrim()
     if not p:raise ContractError('Publishable scene has no defaultPrim dependency carrier')
-    schemas=p.GetMetadata('apiSchemas');d=p.GetCustomData().get('profilesInfo',{}).get('capabilityUsages',{})
-    if not schemas or 'ClaimsAPI' not in schemas.GetAppliedItems() or d.get('usd.geospatial.crsResolution')!='hard':raise ContractError('Missing/weak whole-scene Profiles dependency claim')
-    return {'carrier':str(p.GetPath()),'capability':'usd.geospatial.crsResolution','usage':'hard','traversal_required':False}
+    schemas=p.GetMetadata('apiSchemas');applied=bool(schemas and 'ClaimsAPI' in schemas.GetAppliedItems())
+    info=p.GetCustomData().get('profilesInfo',{});usages=info.get('capabilityUsages')
+    compatibility=info.get('profileCompatibility',{})
+    qualification=compatibility.get(PUBLICATION_PROFILE) if isinstance(compatibility,dict) else None
+    qualified=applied and isinstance(usages,dict) and isinstance(qualification,Vt.TokenArray) and len(qualification)==0
+    usage=usages.get('usd.geospatial.crsResolution') if isinstance(usages,dict) else None
+    if usage is not None and usage!='hard':raise ContractError('Weak whole-scene Profiles dependency claim')
+    known_none=qualified and usage is None
+    return {'carrier':str(p.GetPath()),'capability':'usd.geospatial.crsResolution',
+            'usage':None if known_none else 'hard','coverage':'complete' if qualified else 'unknown',
+            'known_none':known_none,'publishing_profile':PUBLICATION_PROFILE if qualified else None,
+            'traversal_required':False}

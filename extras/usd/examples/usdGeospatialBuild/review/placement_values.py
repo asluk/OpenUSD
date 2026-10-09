@@ -31,6 +31,11 @@ def orientation_value(attribute, time, stage):
         return first
     second = orientation_sample(attribute,Usd.TimeCode(upper))
     dot = first.GetReal()*second.GetReal() + Gf.Dot(first.GetImaginary(),second.GetImaginary())
+    # Four quaternion components and normalization use a conservative local
+    # roundoff guard. This is an evaluator limit, not an authored scene epsilon.
+    uncertainty = 64 * __import__('sys').float_info.epsilon
+    if abs(dot) <= uncertainty:
+        raise ScopeError('Ambiguous half-turn orientation; dot uncertainty '+str(uncertainty))
     if dot < 0:
         second=Gf.Quatd(-second.GetReal(),-second.GetImaginary())
     return Gf.Slerp((time.GetValue()-lower)/(upper-lower),first,second).GetNormalized()

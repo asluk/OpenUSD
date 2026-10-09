@@ -168,6 +168,8 @@ def placement_jobs(directory, wkt):
                 interpolation = 'held'
                 expected_position = [0., 0., 1.]
             else:
+                # Explicit intermediate pose resolves the half-turn path.
+                orientation.Set(Gf.Vec3d(-90,0,0),5)
                 expected_position = [5., 10., 2.]
                 expected_orientation = {'real': 2**-.5, 'imaginary': [0., 0., 2**-.5]}
         elif name == 'geographic-no-unwrapping':

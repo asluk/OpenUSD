@@ -1,6 +1,6 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0
+Source SHA-256: 010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75
 
 ### Schema design
 
@@ -17,6 +17,13 @@ from the CRS *usage*,
 allowing a single CRS definition to be shared
 across many prims and scenes via USD references.
 
+Property types, variability and fallbacks in the following tables are
+conformance constraints. Uniform properties use their composed default values;
+an active time-sampled value source is invalid even if a default also exists.
+Validation must report it and resolution must reject the affected association,
+rather than ignoring the samples or varying the CRS or dataset selection.
+Weaker value sources masked by Core composition do not affect this check.
+
 ### CRS library pattern
 
 CRS definitions are intended to live in shared **library layers**
@@ -24,10 +31,10 @@ CRS definitions are intended to live in shared **library layers**
 
 ```
 crs_library.usda
-├── /CRS/WGS84_UTM11N       (GeospatialCRS)
-├── /CRS/NAD83_UTM11N        (GeospatialCRS)
-├── /CRS/NAD83_CA_Zone5      (GeospatialCRS)
-└── /CRS/WGS84_Geographic3D  (GeospatialCRS)
+├── /CRS/WGS84_UTM11N       (CoordinateReferenceSystem)
+├── /CRS/NAD83_UTM11N        (CoordinateReferenceSystem)
+├── /CRS/NAD83_CA_Zone5      (CoordinateReferenceSystem)
+└── /CRS/WGS84_Geographic3D  (CoordinateReferenceSystem)
 ```
 
 This pattern is analogous to shared material libraries in M&E workflows.
@@ -224,8 +231,11 @@ position in the datum's 3D geographic CRS first; a required vertical conversion
 must succeed. Deflection of the vertical is outside this ellipsoid-normal model.
 The existing [geocentric/topocentric construction](https://proj.org/en/stable/operations/conversions/topocentric.html)
 defines its origin and basis. At a geographic pole the recorded longitude
-selects the reference meridian for the ENU basis. An unavailable geodetic
-position or normal is an error, not a substitute basis.
+selects the reference meridian for the ENU basis. If the source position does
+not determine that meridian, as with geocentric X = Y = 0, model attitude is
+unsupported; an engine's arbitrary converted longitude must not supply it.
+Coordinate-only conversion of that position does not require model attitude.
+An unavailable geodetic position or basis is an error, not a substitute basis.
 
 Map a conformed stage vector to ordered model ENU as follows, multiplying by
 `metersPerUnit` to obtain metres:
@@ -326,29 +336,45 @@ same adjusted locations; adding a model anchor again would double-place them.
 ### Dependency declaration with Profiles
 
 **Proposed integration for question 12.** Use the existing
-[Profiles capability-usage carrier](https://openusd.org/release/user_guides/schemas/UsdProfiles/overview.html).
-Propose the capability identity `usd.geospatial.crsResolution`, dependent on
-`usd`; this spelling is for registry review, not a claim of existing registration.
-Binding and measurement schemas imply that identity in schema plugin metadata.
-A bare CRS library definition does not imply placed-content dependency.
+[Profiles claims and profile-conformance carrier](https://openusd.org/release/user_guides/schemas/UsdProfiles/overview.html).
+Propose capability `usd.geospatial.crsResolution`, dependent on `usd`, and
+publishing profile `usd.geospatial.publication.v1`. Both identities require
+registry review; these spellings do not claim existing registration. The
+publishing profile requires the coverage and maintenance rules below; it does
+not assert that every consumer implements geospatial resolution. Binding and
+measurement schemas imply the capability. A bare CRS library definition or a
+complete ordinary geometry bake does not require it for correct placement.
 
-A publishable scene's composed `defaultPrim` carries `ClaimsAPI` and
-`customData.profilesInfo.capabilityUsages["usd.geospatial.crsResolution"] = "hard"`
-if any retained content requires CRS resolution. The summary covers the entire
-published composition, including content outside that subtree. Referenced
-assemblies expose the same summary on their interface prim outside payloads.
-The consumer reads this authored summary without traversal or loading payloads.
-Capability usages are publisher claims; schema implications or runtime
-discovery alone do not establish complete assembly coverage.
+A conforming publication's `defaultPrim` carries `ClaimsAPI`, an explicitly
+recorded `customData.profilesInfo.capabilityUsages` dictionary and an unqualified
+`customData.profilesInfo.profileCompatibility["usd.geospatial.publication.v1"] = []`
+claim. These existing Profiles fields assert a complete publisher-maintained
+summary. Record `capabilityUsages["usd.geospatial.crsResolution"] = "hard"` if any
+retained content needs resolution. A qualified complete summary may omit that
+entry when no retained content needs it; this is known-none, not unknown.
+A hard usage remains a dependency even without the completeness qualification.
+Without that qualification and the dictionary, absence is unknown, not proof of
+no dependency. A consumer reads the declarations without traversing or loading
+payloads. These are checkable publisher claims, not proof produced by discovery.
 
-Writers maintain the conservative union when assembling, editing references,
-selecting variants and exporting. An unavailable dependency summary is unknown
-and retains the hard claim. A publisher may inspect/load content to discharge
-uncertainty, but absence of a claim or an unloaded payload is not proof of no
-dependency. Core composition still applies; validation reports a stronger
-opinion that wrongly drops or weakens required coverage. Resolution never repairs
-the authored claim. Export can remove it only after every retained use has
-been baked into ordinary Cartesian data; absolute measurement domains retain it.
+The default summary covers the whole published composition, including content
+outside its subtree. Each advertised reference entrypoint exposes a summary
+outside payloads, covering its retained subtree and every retained variant
+alternative. A whole-publication summary may conservatively cover more than a
+particular reference imports. Writers maintain the conservative union through
+assembly, edits, references, variants and export; unknown coverage retains the
+hard usage. Inspecting/loading content may discharge uncertainty at publication,
+not during the consumer's summary read. A known-none referenced asset needs no
+geospatial hard usage solely because its payload is unloaded.
+
+Core composition applies to both dictionaries. A weaker completeness claim
+cannot justify a stronger usage override that omits retained dependency;
+validation checks coverage before publishing the composed declaration. The
+publisher refreshes or withdraws a stale completeness qualification. Resolution
+never repairs claims. A complete geometry bake can publish known-none only after
+every retained use is represented in ordinary Cartesian data; absolute
+measurement domains retain the capability. This uses existing Profiles metadata,
+not a new geospatial attribute or a scene traversal requirement for the reader.
 
 ### WKT string normalization
 

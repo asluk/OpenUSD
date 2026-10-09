@@ -1,13 +1,12 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0
+Source SHA-256: 010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75
 
 # Pending review choices
 
-- Preferred authored heading/pitch/roll tuple and explicit pose interpolation await author adoption
-- Detailed anchor chart/reset and independently bound instance rules
-- Exact external-data association carrier and supported format profiles
-- Associated geocentric scene chart for geographic coordinate outputs
-- Profiles capability identity, publication and conservative maintenance
-- Detailed WKT string normal form and identity/equivalence comparison profile
-- Required ordinary double-precision bake-origin representation and sampling/coverage record
+- Local revised instancer-occurrence and finite transport rule
+- Ordinary bake hierarchy and authored reset; retained Cartesian context
+- Proposed Profiles publishing-profile identity and completeness protocol
+- Geographic absolute-domain adjustment requires explicit Cartesian context
+- Physical 3D comparison and half-turn interpolation failure policy
+- HPR source representation, WKT normal form and external association carrier remain proposed

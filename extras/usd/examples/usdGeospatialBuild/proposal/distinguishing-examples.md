@@ -1,6 +1,6 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0
+Source SHA-256: 010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75
 
 ## Appendix C: Distinguishing examples
 

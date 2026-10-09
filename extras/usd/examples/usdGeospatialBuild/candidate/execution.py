@@ -3,7 +3,7 @@ import json,os,subprocess,hashlib
 import numpy as np
 from pxr import Usd,UsdGeom
 from pyproj import CRS,Geod,proj_version_str
-from .runtime import Runtime,ContractError,dependency,factors
+from .runtime import Runtime,ContractError,dependency,factors,geocentric
 from .datasets import resolved
 
 def execute_python(job,stage=None):
@@ -34,31 +34,38 @@ def execute_python(job,stage=None):
     if not record['source_unchanged']: raise AssertionError('Source changed during execution')
     return record
 
-def coordinate_error(x,y,wkt):
-    output=CRS.from_wkt(wkt) if isinstance(wkt,str) else wkt
+def coordinate_distances(x,y,output):
+    output=CRS.from_wkt(output) if isinstance(output,str) else output
     x,y=np.asarray(x),np.asarray(y)
-    if x.shape!=y.shape:raise AssertionError("Coordinate/value-domain shape mismatch")
-    if not x.size:return 0.
-    if output.is_geographic:
-        f=factors(output);geod=Geod(a=output.ellipsoid.semi_major_metre,b=output.ellipsoid.semi_minor_metre)
-        distance=np.abs(geod.inv(x[:,0]*f[0]*180/np.pi,x[:,1]*f[1]*180/np.pi,y[:,0]*f[0]*180/np.pi,y[:,1]*f[1]*180/np.pi)[2])
-        if x.shape[1]==3:distance=np.hypot(distance,(x[:,2]-y[:,2])*f[2])
-    else:distance=np.linalg.norm((x-y)*factors(output),axis=1)
-    return float(np.max(distance))
+    if x.shape!=y.shape:raise AssertionError('Coordinate/value-domain shape mismatch')
+    if not x.size:return np.zeros(0)
+    if not output.is_geographic:return np.linalg.norm((x-y)*factors(output),axis=1)
+    if x.shape[1]==3:
+        from .runtime import ecef
+        # Analytic conversion to the associated geocentric CRS preserves native
+        # angular/height units and the output datum; no surface-distance proxy.
+        return np.linalg.norm(ecef(output,x)-ecef(output,y),axis=1)
+    f=factors(output);geod=Geod(a=output.ellipsoid.semi_major_metre,b=output.ellipsoid.semi_minor_metre)
+    return np.abs(geod.inv(x[:,0]*f[0]*180/np.pi,x[:,1]*f[1]*180/np.pi,y[:,0]*f[0]*180/np.pi,y[:,1]*f[1]*180/np.pi)[2])
+
+def coordinate_error(x,y,wkt):
+    d=coordinate_distances(x,y,wkt)
+    return float(np.max(d)) if d.size else 0.
 
 def compare(a,b,wkt):
-    output=CRS.from_wkt(wkt);maximum=0;count=0
+    output=CRS.from_wkt(wkt);maximum=0;count=0;horizontal_maximum=0.;height_maximum=0.
     component_residual=np.zeros(len(output.axis_info));magnitudes=np.zeros(len(output.axis_info))
     def check(x,y):
-        nonlocal maximum,count
+        nonlocal maximum,count,horizontal_maximum,height_maximum
         x,y=np.array(x),np.array(y)
         if x.shape!=y.shape: raise AssertionError('Coordinate/value-domain shape mismatch')
         if not x.size:return
+        distance=coordinate_distances(x,y,output)
         if output.is_geographic:
             f=factors(output);geod=Geod(a=output.ellipsoid.semi_major_metre,b=output.ellipsoid.semi_minor_metre)
-            distance=np.abs(geod.inv(x[:,0]*f[0]*180/np.pi,x[:,1]*f[1]*180/np.pi,y[:,0]*f[0]*180/np.pi,y[:,1]*f[1]*180/np.pi)[2])
-            if x.shape[1]==3:distance=np.hypot(distance,(x[:,2]-y[:,2])*f[2])
-        else:distance=np.linalg.norm((x-y)*factors(output),axis=1)
+            surface=np.abs(geod.inv(x[:,0]*f[0]*180/np.pi,x[:,1]*f[1]*180/np.pi,y[:,0]*f[0]*180/np.pi,y[:,1]*f[1]*180/np.pi)[2])
+            horizontal_maximum=max(horizontal_maximum,float(np.max(surface)))
+            if x.shape[1]==3:height_maximum=max(height_maximum,float(np.max(abs(x[:,2]-y[:,2])*f[2])))
         component_residual[:x.shape[1]]=np.maximum(component_residual[:x.shape[1]],np.max(np.abs(x-y),axis=0))
         magnitudes[:x.shape[1]]=np.maximum(magnitudes[:x.shape[1]],np.max(np.maximum(np.abs(x),np.abs(y)),axis=0))
         err=float(np.max(distance));maximum=max(maximum,err);count+=len(x)
@@ -86,10 +93,12 @@ def compare(a,b,wkt):
             chart=CRS.from_wkt(a['polygonal_bounds']['chart_wkt'])
             if not chart.equals(CRS.from_wkt(b['polygonal_bounds']['chart_wkt'])):raise AssertionError('Bounds chart mismatch')
             if coordinate_error([a['polygonal_bounds'][key]],[b['polygonal_bounds'][key]],chart)>.001:raise AssertionError('Bounds agreement exceeds 1mm')
-    return {'coordinate_count':count,'max_distance_metres':maximum,'acceptance_metres':0.001,'distance_measure':'ellipsoidal geodesic plus height' if output.is_geographic else 'metric Euclidean',
+    return {'coordinate_count':count,'max_distance_metres':maximum,'acceptance_metres':0.001,'distance_measure':('associated Cartesian 3D separation' if len(output.axis_info)==3 else 'horizontal ellipsoidal surface distance') if output.is_geographic else 'metric Euclidean',
         'max_abs_component_residuals_output_units':component_residual.tolist(),
         'max_abs_output_coordinate_components':magnitudes.tolist(),
         'max_abs_angular_residuals_radians':(component_residual[:2]*factors(output)[:2]).tolist() if output.is_geographic else [],
+        'max_horizontal_surface_distance_metres':horizontal_maximum if output.is_geographic else None,
+        'max_abs_height_residual_metres':height_maximum if output.is_geographic and len(output.axis_info)==3 else None,
         'component_units':[{a.direction:a.unit_name for a in output.axis_info}.get(n) for n in (['east','north','up'] if not output.is_geocentric else ['geocentricX','geocentricY','geocentricZ'])[:len(output.axis_info)]]}
 
 def native_job(job,out,native,resources,env):
