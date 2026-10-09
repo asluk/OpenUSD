@@ -8,9 +8,9 @@
     "future_gate": "Reassess each issue against the intended claim and delivery milestone. Stop only work dependent on genuinely unspecified meaning, while continuing independent work.",
     "model_policy": "Repair against existing contracts first. Clarify truly missing semantics if needed; do not standardize an implementation workaround."
   },
-  "proposal_commit": "0e955c68c9b0f07b313c43c2cf291eead868c8af",
-  "proposal_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
-  "implementation_commit": "ba4cce79f41741a4e39ffd32072a4c4171a45a5f",
+  "proposal_commit": "7b5b34b7282305135f672663a3cffb0f94342ecc",
+  "proposal_sha256": "010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75",
+  "implementation_commit": "adab61d5aa33097c3f5f5166b5f6c326399fc5a5",
   "delivery_commit": null,
   "executed_source_files_match": true,
   "native_executable_matches_run": true,
@@ -26,8 +26,8 @@
         "native/leans.cpp:147"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2061",
-        "proposal/proposal-source.txt:2096"
+        "proposal/proposal-source.txt:2167",
+        "proposal/proposal-source.txt:2206"
       ],
       "disposition": "Do not promote the centroid workaround into the proposal. Derive transport from source normal/interpolation semantics and the full map; support the consumed domain with justified approximation evidence or visibly reject the unsupported result. Clarify only any remaining semantic ambiguity, independent of the shortcut.",
       "diagnostics": [
@@ -51,7 +51,7 @@
         "native/leans.cpp:182"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2046"
+        "proposal/proposal-source.txt:2136"
       ],
       "disposition": "Repair the prototype classification/discovery path; this requires no new scene property or new scope deferral.",
       "diagnostics": [
@@ -74,7 +74,7 @@
         "candidate/export.py:46"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2140"
+        "proposal/proposal-source.txt:2197"
       ],
       "disposition": "Make the export topology and geometry inventory exact, preserve each effect once, and reject unexpected extras in fresh-reader validation.",
       "diagnostics": [
@@ -96,8 +96,8 @@
         "candidate/datasets.py:78"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1646",
-        "proposal/proposal-source.txt:1651"
+        "proposal/proposal-source.txt:1668",
+        "proposal/proposal-source.txt:1673"
       ],
       "prior_art": "https://cfconventions.org/Data/cf-conventions/cf-conventions-1.12/cf-conventions.html",
       "disposition": "Align by named dimensions before broadcasting. Both placement paths consume the same decoder, so their coordinate agreement cannot detect this defect.",
@@ -120,7 +120,7 @@
         "candidate/export.py:29"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2140"
+        "proposal/proposal-source.txt:2197"
       ],
       "disposition": "Audit and preserve non-geospatial semantics, or explicitly reject/export only a documented supported subset. Do not silently treat every schema as a placement effect.",
       "diagnostics": [
@@ -142,7 +142,7 @@
         "candidate/execution.py:49"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2121"
+        "proposal/proposal-source.txt:2231"
       ],
       "disposition": "Complete reporting from the existing output arrays without adding authored scene metadata.",
       "diagnostics": [
@@ -166,7 +166,7 @@
         "native/leans.cpp:113"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:1548"
+        "proposal/proposal-source.txt:1564"
       ],
       "disposition": "Add and exercise explicit role/scope validation in the build; distinguish validator coverage from the supported runtime path.",
       "diagnostics": [
@@ -189,8 +189,8 @@
         "candidate/runtime.py:98"
       ],
       "proposal": [
-        "proposal/proposal-source.txt:2076",
-        "proposal/proposal-source.txt:2113"
+        "proposal/proposal-source.txt:2129",
+        "proposal/proposal-source.txt:2223"
       ],
       "evidence": "The attempted regional fixture had two visible unavailable-operation failures and one available operation; it did not demonstrate omitted operations. Do not present this concern as a reproduced result failure.",
       "disposition": "Require attributable operation coverage before claiming comparison of multiregion batches.",
@@ -214,9 +214,9 @@
     "Python/C++ agreement misses shared policy and decoder mistakes. Existing normal evidence uses vertex normals and the prototype fixtures live under bound ancestry.",
     "Fresh export verification did not compare the complete geometry/topology inventory."
   ],
-  "conclusion": "The authored HPR rule and sample selection are explicitly defined and pass the new controls. No new undefined model rule was confirmed in reviewed paths. This is not an exhaustive proof of proposal completeness. Detailed adoption choices and unverified consumers remain separate.",
+  "conclusion": "Revised leans define occurrence transport, ordinary bake inheritance, complete Profiles claims, geographic adjustment context, physical 3D metrics and ambiguous-half-turn outcomes. Fresh controls support these rules. A scoped audit cannot prove exhaustive completeness. Normal-domain approximation remains a prototype defect, and group adoption remains pending.",
   "diagnostic_file": "audit-diagnostics.json",
-  "source_audit_sha256": "a97b48d12c6d21ef29a2d6a47f67afb7815109aa4c95221b4e03fd1a596f7dd6",
-  "execution_receipt_sha256": "bc2c422dc4a9ec855fe6831a1b6afcd2ef86961db5bc954bd71c74d5ec39d842",
+  "source_audit_sha256": "8daf0f4f308bcc42c714a1e22eba14fe4500ec6055b053a9e54c195e083f1f10",
+  "execution_receipt_sha256": "db39bc27bc04bf7f70bfaf2e5048b085798e3ef8b72e58fa54a367a51b7b6d91",
   "audit_binding": "Fresh diagnostics checked every new frozen execution file and the actually executed native binary. Seven known issues reproduced; no runtime repairs claimed."
 }

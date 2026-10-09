@@ -13,6 +13,9 @@ def Xform "World" (
             dictionary capabilityUsages = {
                 string "usd.geospatial.crsResolution" = "hard"
             }
+            dictionary profileCompatibility = {
+                token[] "usd.geospatial.publication.v1" = []
+            }
         }
         string userDocBrief = "Concrete prim schema for a transform, which implements Xformable."
     }

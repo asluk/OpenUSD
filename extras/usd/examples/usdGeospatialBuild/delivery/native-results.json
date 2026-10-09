@@ -1,5 +1,11 @@
 {
   "basis-Z-1": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "frames": {
       "/World/Model": {
@@ -78,6 +84,12 @@
     "source_unchanged": true
   },
   "basis-Y-1": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "frames": {
       "/World/Model": {
@@ -156,6 +168,12 @@
     "source_unchanged": true
   },
   "basis-Y-0.01": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "frames": {
       "/World/Model": {
@@ -234,6 +252,12 @@
     "source_unchanged": true
   },
   "working-adjustment": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -290,6 +314,12 @@
     "source_unchanged": true
   },
   "working-adjustment-ecef": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "frames": {
       "/World/Asset": {
@@ -388,6 +418,12 @@
     "source_unchanged": true
   },
   "geographic-working": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -424,6 +460,12 @@
     "source_unchanged": true
   },
   "pivot-order": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -465,6 +507,12 @@
     "source_unchanged": true
   },
   "time-source": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/World/Model/Sample": [
@@ -525,6 +573,12 @@
     "source_unchanged": true
   },
   "time-source-held": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/World/Model/Sample": [
@@ -585,6 +639,12 @@
     "source_unchanged": true
   },
   "time-source-t0": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/World/Model/Sample": [
@@ -645,6 +705,12 @@
     "source_unchanged": true
   },
   "time-source-t10": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/World/Model/Sample": [
@@ -705,6 +771,12 @@
     "source_unchanged": true
   },
   "relative-position": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -748,6 +820,12 @@
     "source_unchanged": true
   },
   "orientation-wrap": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/World/Model/Sample": [
@@ -813,6 +891,12 @@
     "source_unchanged": true
   },
   "orientation-wrap-t0": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/World/Model/Sample": [
@@ -878,6 +962,12 @@
     "source_unchanged": true
   },
   "orientation-wrap-t10": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/World/Model/Sample": [
@@ -943,6 +1033,12 @@
     "source_unchanged": true
   },
   "orientation-wrap-held": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/World/Model/Sample": [
@@ -1008,6 +1104,12 @@
     "source_unchanged": true
   },
   "prototype-reset": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/World/Inst/_ResolvedInstance0/Child": [
@@ -1057,6 +1159,12 @@
     "source_unchanged": true
   },
   "tower": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/Control0/Marker": [
@@ -1635418,6 +1635526,12 @@
     "source_unchanged": true
   },
   "terrain": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/Terrain/Breaklines": [
@@ -1707257,6 +1707371,12 @@
     "source_unchanged": true
   },
   "composition": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/Project/Model/Child/Mesh": [
@@ -1707334,6 +1707454,12 @@
     "source_unchanged": true
   },
   "instances": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/Native0/Asset/Geometry": [
@@ -1707483,6 +1707609,12 @@
     "source_unchanged": true
   },
   "instances-masked": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/Native0/Asset/Geometry": [
@@ -1707614,6 +1707746,12 @@
     "source_unchanged": true
   },
   "instances-independent-prototype": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {
       "/Native0/Asset/Geometry": [
@@ -1707686,19 +1707824,19 @@
       ],
       "/PointModels/Instances/_ResolvedInstance2/Root": [
         [
-          448271.0,
-          5411932.000000001,
-          35.0
+          448270.96187141235,
+          5411932.748603018,
+          34.1840255279094
         ],
         [
-          448272.9991688831,
-          5411931.981460601,
-          35.000000312924385
+          448272.9610404998,
+          5411932.730063613,
+          34.184032088145614
         ],
         [
-          448271.02780910535,
-          5411934.99875328,
-          35.000000706873834
+          448270.9896805232,
+          5411935.747356603,
+          34.1840266790241
         ]
       ]
     },
@@ -1707725,6 +1707863,16 @@
         "accuracy_metres": 0.0,
         "definition": "proj=noop ellps=GRS80",
         "description": "Inverse of UTM zone 31N + UTM zone 31N"
+      },
+      {
+        "accuracy_metres": 0.0,
+        "definition": "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=cart ellps=WGS84",
+        "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)"
+      },
+      {
+        "accuracy_metres": 0.0,
+        "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=utm zone=31 ellps=WGS84",
+        "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D) + UTM zone 31N"
       }
     ],
     "polygonal_bounds": {
@@ -1707738,13 +1707886,19 @@
       "min": [
         448251.0,
         5411931.981460601,
-        35.0
+        34.1840255279094
       ]
     },
     "queries": [],
     "source_unchanged": true
   },
   "geographic-scene": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "frames": {
       "/World/Model": {
@@ -1707837,6 +1707991,12 @@
     "source_unchanged": true
   },
   "France_01": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1708453,6 +1708613,12 @@
     "source_unchanged": true
   },
   "France_02": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1709069,6 +1709235,12 @@
     "source_unchanged": true
   },
   "Colorado_01": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1709140,6 +1709312,12 @@
     "source_unchanged": true
   },
   "Colorado_02": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1709216,6 +1709394,12 @@
     "source_unchanged": true
   },
   "Colorado_03": {
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1719950,6 +1720134,12 @@
         90.0
       ]
     ],
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1736351,6 +1736541,12 @@
         49.64683101727819
       ]
     ],
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1752752,6 +1752948,12 @@
         49.64683101727819
       ]
     ],
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1769153,6 +1769355,12 @@
         49.64674104440731
       ]
     ],
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1785559,6 +1785767,12 @@
         5499355.0
       ]
     ],
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1785624,6 +1785838,12 @@
         49.0
       ]
     ],
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1785689,6 +1785909,12 @@
         49.0
       ]
     ],
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1786476,6 +1786702,12 @@
         6138862.27494087
       ]
     ],
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1787263,6 +1787495,12 @@
         100.0
       ]
     ],
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},
@@ -1850568,6 +1850806,12 @@
         5927604.726899576
       ]
     ],
+    "dependency": {
+      "coverage": "complete",
+      "known_none": false,
+      "traversal_required": false,
+      "usage": "hard"
+    },
     "engine_version": "9.4.1",
     "geometry": {},
     "geometry_normals": {},

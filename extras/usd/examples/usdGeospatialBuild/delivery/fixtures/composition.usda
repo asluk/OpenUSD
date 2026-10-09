@@ -16,6 +16,9 @@ def Scope "CRS" (
             dictionary capabilityUsages = {
                 string "usd.geospatial.crsResolution" = "hard"
             }
+            dictionary profileCompatibility = {
+                token[] "usd.geospatial.publication.v1" = []
+            }
         }
         string userDocBrief = """Scope is the simplest grouping primitive, and does not carry the
     baggage of transformability."""

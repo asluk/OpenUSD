@@ -11,6 +11,9 @@ def GeospatialDataSource "Data" (
             dictionary capabilityUsages = {
                 string "usd.geospatial.crsResolution" = "hard"
             }
+            dictionary profileCompatibility = {
+                token[] "usd.geospatial.publication.v1" = []
+            }
         }
         string userDocBrief = "External absolute measurement association in the local candidate; not model placement."
     }

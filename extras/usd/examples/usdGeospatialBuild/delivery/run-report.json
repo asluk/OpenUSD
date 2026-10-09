@@ -1,11 +1,11 @@
 {
   "status": "Candidate build loop executed; proposed contracts remain under review",
-  "completed_utc": "2026-10-08T18:10:47.030387+00:00",
+  "completed_utc": "2026-10-09T01:48:25.402792+00:00",
   "inputs": {
-    "status": "October 8 authored-HPR candidate and full build-loop execution",
+    "status": "October 8 revised leans: exact local proposal and fresh complete build loop",
     "proposal": {
-      "revision": "0e955c68c9b0f07b313c43c2cf291eead868c8af",
-      "sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+      "revision": "7b5b34b7282305135f672663a3cffb0f94342ecc",
+      "sha256": "010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75",
       "local_candidate": true,
       "group_agreement": false,
       "source": "proposal/proposal-source.txt",
@@ -55,12 +55,12 @@
     ],
     "previous_executed_source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47",
     "derivation": {
-      "requirements.md": "46b034a3d9ce3309588a9850770c6673db2e63a9f7194ab515701658b450c135",
-      "data-model.md": "26900d40918593b7471ff1246ffe1dfb336d2a8272c9561d2108180763198e65",
-      "runtime-behavior.md": "44790c4e83b8711d33461e992eddcf77e3c00a66b0b8ae92754d428b2dd7d9da",
-      "runtime-open-decisions.md": "9982bb58af4a941e0c27164d70658eb96a1aa8a5b42bb35d9acd00c6f3548a59",
-      "distinguishing-examples.md": "71d958aec012c7146041c652f184e42ad1fbbdb732eb368b3f6b00054f582997",
-      "traceability.md": "e9b67c9f03159132cee0321ee4a7efbf49618c0ad1fd3df80ac5790cbb05e6c4"
+      "requirements.md": "d6edf93499022d45658a946fb18202700f07bcff2a72c087168adca50259bf35",
+      "data-model.md": "9ec772f181b45aa6f06de06cf1e2baa95149f4fe39b649244f8b89c3a9dcbc9c",
+      "runtime-behavior.md": "396955fb2554aad2f7e5a8b65f0e98aa0767469b4992c8eea8c141a6137ec4cc",
+      "runtime-open-decisions.md": "8d6cdc4e610495523083fd84d0f9d388520a2896ec1013c731c4e0afd11fba80",
+      "distinguishing-examples.md": "56361356ac44ceb1d85f8dcade70463d1a89e83254c49a6b4784485f1fb0d030",
+      "traceability.md": "2e952691cffe9edc2984bd282df307f8e5688a9842003dde05be4d43ef92b107"
     },
     "inherited_code_execution": "Prior relationship-based placement code retained in history/source, excluded from current execution except an explicit incompatibility control.",
     "current_execution": "Python and C++ complete point-map queries, Cartesian frame derivatives and polygonal bounds; native Hydra resolved export; Omniverse stage geometry writeback; selected external measurement domains and sampled exports",
@@ -72,64 +72,65 @@
   "source_files": {
     "candidate/__init__.py": "08af67442b1fff96f52a5b8921637763bc10f6d6e198dabde4ccc74c1a43eff3",
     "candidate/controls.py": "8543e893b4cbcda3bea1c3217db6f59a4c7cb9b0fd6eb4b544c5c09a8e5ecca3",
-    "candidate/datasets.py": "37373800b3017a72f3138a0faabe43d318aca855d94f84a4b6554a4cefa8e7ea",
-    "candidate/execution.py": "95967c534d13d9f3dc54e326006684370ed83f3add89a32fe7711685983a871d",
-    "candidate/export.py": "ee9319b4fdbb12ab18f2f20a78446c9f9145b02d0e0f14ac9f6947797c948c2b",
-    "candidate/fixtures.py": "4cd26397094618821a18585959388b9a60b3b57112bed425dbc4cdc68ff20ba5",
+    "candidate/datasets.py": "104d03c78d8cb9136ba51a39062dbe3e612c9358d0907f73ed5f35e7affefcd3",
+    "candidate/execution.py": "ffe7a426df8a8e8d2bdaa2ffeb7320dbf80819cbd1dec1a83ceab2443f5c13b9",
+    "candidate/export.py": "504037fbbe15a97004a1606d8a545ccf01427a249d23fcd337e6b01be1a26288",
+    "candidate/fixtures.py": "78028bbff4e244c9dff27833616ab094488cbe2bb968b28e8ae26be1be69fa40",
     "candidate/ov_launch.py": "accdd9e3189860c47dabe26793f94426e0fd545a496282b4345109a8bac95356",
     "candidate/ov_live.py": "ba7791f2390026e086e7257bc70556e78ba3abb5f0531526b2792040dc1b6fb8",
-    "candidate/runner.py": "626d2df4a4d9f9fc9e4e17a4e56be494e2dc7075790335252473700b50484970",
-    "candidate/runtime.py": "fcbbd06e0bf7cfa9ab46d5e4ee03480fbfc01fea194e9a0255af20c32225e447",
+    "candidate/runner.py": "a46182932648601532981110eef8aa9f90efe7b3b5ff416a9bfa5b08749b3a2e",
+    "candidate/runtime.py": "80ce9073ca032f4328a049b56faa9984c0c394593d6558fbda44bae0ce11f638",
     "review/__init__.py": "1da7ada131921d0bbda633563a594b15f794be1158694c55d9671cc91683f1e1",
     "review/fixture_definitions.py": "6693d851adbc56e256ffb122c9c38b3550a7df34754d1abfb83068930d92d7ae",
-    "review/fixtures.py": "ffb8834000952318b6e2e6e9810d4583af120444f0ad9aa9c0f9d3ed7474edaf",
+    "review/fixtures.py": "ededff383f5729ce924e51d7c3253295d64bc9e4b79897bcddec61e777118af4",
     "review/origin_queries.py": "74cb286631e2ac04bb5b974c314bf9c6e679da7845e0dbc5c3cbdbf43eef6d26",
     "review/ov_scope_launch.py": "2012f7825003d81ffd9988c3f5c36f4f2d03c277c5d04377e0663b21d74d9412",
-    "review/placement_values.py": "cefd7cc6e3d09d5bda3c441739345fac1bf8e98029be860c2bf6db6e8ca6fedd",
+    "review/placement_values.py": "6a9eac186c46b927897239b68b38f9f408ca1f0aabb56fabaa72debe8a6dc2e2",
     "review/runner.py": "817264f18235aa91e17b70af51f592ba6c003c6b01359eef7c27ffcb9e24c2b2",
-    "review/scope.py": "5fb7b287cb7144efbd6f5ddd9abd27afe9e4157aa6c70bfa1c45bb5f4fa94f45",
+    "review/scope.py": "38d903ae2236a63adc1d29ff103b616dad8785df86eb481dafb6c692e92a8fdf",
     "review/test_contracts.py": "f8ea8a94edce7f15aafd13635b0cc4cbcf89d830fdfe43296783ab97eee5b6b9",
     "review/test_hpr_contracts.py": "7664f931d4fad7c7916b13c3b201ad500f23da70f020040689e259d5041fe2a3",
+    "review/test_revised_leans.py": "0e16c2f99f2ae987b2702aed74fd59fe9e8aca0b039d6939b074b0cc5d1f5375",
     "review/test_split_feedback.py": "85b37c75d4757dd67725711c5bf5e2baba3dc12f17f0be823890310964b3b0ea",
     "review/test_wkt_contracts.py": "75dec51fea396448983b07d44c2c024db10322d5ce4aa492d25ccd95ce01226f",
     "review/wkt_profile.py": "521906a17156ee3fd0f16dfb288d3cef695d2ec02084d9173be2854b421191ef",
     "schema/generated/generatedSchema.usda": "76db5d432be334a254da5607de46d7d4f45028f0d81e62321a67472e0888ef02",
     "schema/schema.usda": "e4a513f85e9b7f70b3a837d7133f87fec8f7b762e6849c6e7b4d5e3792f2095b",
     "schema/generated/plugInfo.json": "e53cd1c5e627316937ecd3326412f26fa0bf2debf9cdc93b5b3041ca63e1f55d",
-    "native/leans.cpp": "0e2482c333b1c04c9fae31c6a2703def998f43c60326b143a120159124a6ab47",
+    "native/leans.cpp": "6f9847306820e6a4a44309efee353cc25d81b6ad9882b7f9eb0a857dcb8bc044",
     "native/leansRender.cpp": "6fd0d453ac74d120dfa4585e4ba45b4b1110558431ecb0da5e7927e9480c2646",
     "native/CMakeLists.txt": "d38d85d03a61336324f5741fc7b883878eec1ce7a0335880677500bcca86d5f5",
     "run.py": "cad2a0965ebcbcb1bd25f01e6904a98e40a03c73457018fa3386f2ea1ea5ceea",
-    "inputs.json": "270d1f77517ccc364598c3fcd3b2b07aa282631ec867558164521424fba0de99",
-    "proposal-quality.json": "10c5edba89ed26819953b06cb520b89ff86ac90f0b9c8958c3e3062c08a2741b",
+    "inputs.json": "5ebe7ed660d219e1fb1931f898bb3bfa3b3e91b93a732c6fdb5add8d19424c0a",
+    "proposal-quality.json": "6935bca893a53cc156faacb3dd43c203ce83fd6b93d8af44d4f3a128d97f7bbd",
     "ov/geobuild.kit": "5fc4d60271d18a04ad3b6675539033f1c06b37e86ce6b2cba25ed20b02e69d88",
-    "BUILD_LOOP.md": "3df9580ecbe13aeb47706d729c037b58228246b6f7d1330d0bc94f41f56ad6e9",
-    "PLAN.md": "3cc0e1f0fb1ca49e81c94b5cd25d5bdba508ea4e52e0b347beef3f684b804d48",
-    "AUDIT.md": "f23ee08b6b484f6df2cfbc01a5e16d9d62cfae7aeb4fe6878ae096408b930583",
-    "QUALITY_REVIEW.md": "b5613ea9025feebdb853df3e02ab86d3b4d07d274ac73fa16ef39ace7c70cbf9",
+    "BUILD_LOOP.md": "c0c652c4421a6f2e64ad3d49a743ba5060015b6ecb5069686e38b24d5b059d3d",
+    "PLAN.md": "0c1549fb99e3717ec30ce622295bdab8d8f06fceaad73494e38bb480d469ca56",
+    "AUDIT.md": "314c429171fcf379ff65b070ee196d90ff3a4ed9eff3715c7ccf486ed2a6f36d",
+    "QUALITY_REVIEW.md": "bbf068cc68170b8218912a97c28fdcda88ebb7c62f3432493b6ba940d5c1e94e",
     "geobuild/quality.py": "4cb53ae11b4f780846fc6beb845687afcb792c855c1b282be0e1174d35778471",
-    "proposal/data-model.md": "26900d40918593b7471ff1246ffe1dfb336d2a8272c9561d2108180763198e65",
-    "proposal/distinguishing-examples.md": "71d958aec012c7146041c652f184e42ad1fbbdb732eb368b3f6b00054f582997",
+    "proposal/data-model.md": "9ec772f181b45aa6f06de06cf1e2baa95149f4fe39b649244f8b89c3a9dcbc9c",
+    "proposal/distinguishing-examples.md": "56361356ac44ceb1d85f8dcade70463d1a89e83254c49a6b4784485f1fb0d030",
     "proposal/local-draft.patch": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-    "proposal/proposal-source.txt": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
-    "proposal/requirements.md": "46b034a3d9ce3309588a9850770c6673db2e63a9f7194ab515701658b450c135",
-    "proposal/runtime-behavior.md": "44790c4e83b8711d33461e992eddcf77e3c00a66b0b8ae92754d428b2dd7d9da",
-    "proposal/runtime-open-decisions.md": "9982bb58af4a941e0c27164d70658eb96a1aa8a5b42bb35d9acd00c6f3548a59",
-    "proposal/traceability.md": "e9b67c9f03159132cee0321ee4a7efbf49618c0ad1fd3df80ac5790cbb05e6c4"
+    "proposal/proposal-source.txt": "010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75",
+    "proposal/requirements.md": "d6edf93499022d45658a946fb18202700f07bcff2a72c087168adca50259bf35",
+    "proposal/runtime-behavior.md": "396955fb2554aad2f7e5a8b65f0e98aa0767469b4992c8eea8c141a6137ec4cc",
+    "proposal/runtime-open-decisions.md": "8d6cdc4e610495523083fd84d0f9d388520a2896ec1013c731c4e0afd11fba80",
+    "proposal/traceability.md": "2e952691cffe9edc2984bd282df307f8e5688a9842003dde05be4d43ef92b107"
   },
-  "source_commit": "ba4cce79f41741a4e39ffd32072a4c4171a45a5f",
+  "source_commit": "adab61d5aa33097c3f5f5166b5f6c326399fc5a5",
   "source_is_uncommitted": false,
   "proposal_quality": {
     "status": "Local stacked follow-up: proposed detailed contract, separately assessed author alignment and implementation evidence",
-    "source_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+    "source_sha256": "010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75",
     "requirements": [
       {
         "id": 1,
         "title": "Self-contained definitions.",
-        "source_line": 634,
+        "source_line": 635,
         "clauses": [
           {
-            "line": 1462,
+            "line": 1470,
             "clause": "### GeospatialCRS typed schema"
           }
         ],
@@ -138,14 +139,14 @@
       {
         "id": 2,
         "title": "Defined once, and describing no object.",
-        "source_line": 647,
+        "source_line": 648,
         "clauses": [
           {
-            "line": 1717,
+            "line": 1744,
             "clause": "### WKT string normalization"
           },
           {
-            "line": 1532,
+            "line": 1540,
             "clause": "#### Authored properties"
           }
         ],
@@ -154,10 +155,10 @@
       {
         "id": 3,
         "title": "Datum, realization and epoch.",
-        "source_line": 664,
+        "source_line": 665,
         "clauses": [
           {
-            "line": 1347,
+            "line": 1348,
             "clause": "#### Roadmap question 15: coordinate epochs"
           }
         ],
@@ -166,10 +167,10 @@
       {
         "id": 4,
         "title": "A site's own grid is a CRS like any other.",
-        "source_line": 676,
+        "source_line": 677,
         "clauses": [
           {
-            "line": 1303,
+            "line": 1304,
             "clause": "#### Decision on question 7: site calibration"
           }
         ],
@@ -178,10 +179,10 @@
       {
         "id": 31,
         "title": "Same definition, same meaning.",
-        "source_line": 700,
+        "source_line": 701,
         "clauses": [
           {
-            "line": 1717,
+            "line": 1744,
             "clause": "### WKT string normalization"
           }
         ],
@@ -190,10 +191,10 @@
       {
         "id": 5,
         "title": "A discoverable CRS.",
-        "source_line": 722,
+        "source_line": 723,
         "clauses": [
           {
-            "line": 1401,
+            "line": 1409,
             "clause": "### CRS binding and inheritance"
           }
         ],
@@ -202,10 +203,10 @@
       {
         "id": 6,
         "title": "Declared for a subtree, not a prim.",
-        "source_line": 732,
+        "source_line": 733,
         "clauses": [
           {
-            "line": 1401,
+            "line": 1409,
             "clause": "### CRS binding and inheritance"
           }
         ],
@@ -214,14 +215,14 @@
       {
         "id": 7,
         "title": "Composition agnostic",
-        "source_line": 743,
+        "source_line": 744,
         "clauses": [
           {
-            "line": 1401,
+            "line": 1409,
             "clause": "### CRS binding and inheritance"
           },
           {
-            "line": 2233,
+            "line": 2304,
             "clause": "### Composition arcs"
           }
         ],
@@ -230,14 +231,14 @@
       {
         "id": 8,
         "title": "Brought-in data keeps its coordinates and its CRS.",
-        "source_line": 753,
+        "source_line": 754,
         "clauses": [
           {
-            "line": 1930,
+            "line": 1957,
             "clause": "#### Evaluation"
           },
           {
-            "line": 1630,
+            "line": 1641,
             "clause": "### External measurement association"
           }
         ],
@@ -246,14 +247,14 @@
       {
         "id": 9,
         "title": "Positions, and offsets from them.",
-        "source_line": 779,
+        "source_line": 780,
         "clauses": [
           {
-            "line": 1532,
+            "line": 1540,
             "clause": "#### Authored properties"
           },
           {
-            "line": 1930,
+            "line": 1957,
             "clause": "#### Evaluation"
           }
         ],
@@ -262,10 +263,10 @@
       {
         "id": 10,
         "title": "Offsets along the axes of their position.",
-        "source_line": 800,
+        "source_line": 801,
         "clauses": [
           {
-            "line": 1583,
+            "line": 1591,
             "clause": "#### Geospatial model attitude and stage axes"
           }
         ],
@@ -274,14 +275,14 @@
       {
         "id": 11,
         "title": "Position or offset, and the scene says which.",
-        "source_line": 819,
+        "source_line": 820,
         "clauses": [
           {
-            "line": 1401,
+            "line": 1409,
             "clause": "### CRS binding and inheritance"
           },
           {
-            "line": 1930,
+            "line": 1957,
             "clause": "#### Evaluation"
           }
         ],
@@ -290,18 +291,18 @@
       {
         "id": 12,
         "title": "No angle read as a length.",
-        "source_line": 836,
+        "source_line": 837,
         "clauses": [
           {
-            "line": 1565,
+            "line": 1573,
             "clause": "#### Position components"
           },
           {
-            "line": 1630,
+            "line": 1641,
             "clause": "### External measurement association"
           },
           {
-            "line": 2020,
+            "line": 2054,
             "clause": "#### Queries, scene charts and instances"
           }
         ],
@@ -310,10 +311,10 @@
       {
         "id": 13,
         "title": "One axis mapping.",
-        "source_line": 850,
+        "source_line": 851,
         "clauses": [
           {
-            "line": 1565,
+            "line": 1573,
             "clause": "#### Position components"
           }
         ],
@@ -322,14 +323,14 @@
       {
         "id": 14,
         "title": "Scene conventions stay the scene's.",
-        "source_line": 862,
+        "source_line": 863,
         "clauses": [
           {
-            "line": 1583,
+            "line": 1591,
             "clause": "#### Geospatial model attitude and stage axes"
           },
           {
-            "line": 2208,
+            "line": 2279,
             "clause": "### Stage metadata: metersPerUnit and upAxis"
           }
         ],
@@ -338,14 +339,14 @@
       {
         "id": 15,
         "title": "Placement separate from conformance.",
-        "source_line": 875,
+        "source_line": 876,
         "clauses": [
           {
-            "line": 1281,
+            "line": 1282,
             "clause": "#### Decision on question 4: authored unit and up-axis conformance"
           },
           {
-            "line": 1930,
+            "line": 1957,
             "clause": "#### Evaluation"
           }
         ],
@@ -354,14 +355,14 @@
       {
         "id": 16,
         "title": "One CRS out.",
-        "source_line": 887,
+        "source_line": 888,
         "clauses": [
           {
-            "line": 1804,
+            "line": 1831,
             "clause": "## Runtime coordinate transformation"
           },
           {
-            "line": 2020,
+            "line": 2054,
             "clause": "#### Queries, scene charts and instances"
           }
         ],
@@ -370,14 +371,14 @@
       {
         "id": 17,
         "title": "The same answer for every consumer.",
-        "source_line": 907,
+        "source_line": 908,
         "clauses": [
           {
-            "line": 2020,
+            "line": 2054,
             "clause": "#### Queries, scene charts and instances"
           },
           {
-            "line": 2085,
+            "line": 2138,
             "clause": "### Extent and result comparison"
           }
         ],
@@ -386,10 +387,10 @@
       {
         "id": 18,
         "title": "Coordinates back out.",
-        "source_line": 922,
+        "source_line": 923,
         "clauses": [
           {
-            "line": 2020,
+            "line": 2054,
             "clause": "#### Queries, scene charts and instances"
           }
         ],
@@ -398,14 +399,14 @@
       {
         "id": 19,
         "title": "Resolution leaves the scene as authored.",
-        "source_line": 937,
+        "source_line": 938,
         "clauses": [
           {
-            "line": 2071,
+            "line": 2124,
             "clause": "### Observable outcomes and failures"
           },
           {
-            "line": 2138,
+            "line": 2195,
             "clause": "### Explicit export and sampling"
           }
         ],
@@ -414,14 +415,14 @@
       {
         "id": 20,
         "title": "Positions between recorded moments.",
-        "source_line": 956,
+        "source_line": 957,
         "clauses": [
           {
-            "line": 1930,
+            "line": 1957,
             "clause": "#### Evaluation"
           },
           {
-            "line": 2138,
+            "line": 2195,
             "clause": "### Explicit export and sampling"
           }
         ],
@@ -430,14 +431,14 @@
       {
         "id": 21,
         "title": "Never placed by a guess.",
-        "source_line": 973,
+        "source_line": 974,
         "clauses": [
           {
-            "line": 2071,
+            "line": 2124,
             "clause": "### Observable outcomes and failures"
           },
           {
-            "line": 1630,
+            "line": 1641,
             "clause": "### External measurement association"
           }
         ],
@@ -446,10 +447,10 @@
       {
         "id": 30,
         "title": "Measurements remain usable as data.",
-        "source_line": 1008,
+        "source_line": 1009,
         "clauses": [
           {
-            "line": 1630,
+            "line": 1641,
             "clause": "### External measurement association"
           }
         ],
@@ -458,10 +459,10 @@
       {
         "id": 22,
         "title": "A CRS suited to the project's size.",
-        "source_line": 1030,
+        "source_line": 1031,
         "clauses": [
           {
-            "line": 2020,
+            "line": 2054,
             "clause": "#### Queries, scene charts and instances"
           }
         ],
@@ -470,14 +471,14 @@
       {
         "id": 23,
         "title": "Detail that does not depend on location.",
-        "source_line": 1043,
+        "source_line": 1044,
         "clauses": [
           {
-            "line": 1441,
+            "line": 1449,
             "clause": "### Precision handling"
           },
           {
-            "line": 2138,
+            "line": 2195,
             "clause": "### Explicit export and sampling"
           }
         ],
@@ -486,10 +487,10 @@
       {
         "id": 24,
         "title": "Extent under one position is bounded and stated.",
-        "source_line": 1052,
+        "source_line": 1053,
         "clauses": [
           {
-            "line": 2085,
+            "line": 2138,
             "clause": "### Extent and result comparison"
           }
         ],
@@ -498,10 +499,10 @@
       {
         "id": 25,
         "title": "Additive for consumers that ignore it.",
-        "source_line": 1067,
+        "source_line": 1068,
         "clauses": [
           {
-            "line": 2223,
+            "line": 2294,
             "clause": "### Transform stack and resetXformStack"
           }
         ],
@@ -510,10 +511,10 @@
       {
         "id": 26,
         "title": "Declares its dependency.",
-        "source_line": 1077,
+        "source_line": 1078,
         "clauses": [
           {
-            "line": 1690,
+            "line": 1701,
             "clause": "### Dependency declaration with Profiles"
           }
         ],
@@ -522,18 +523,18 @@
       {
         "id": 27,
         "title": "Checkable before use.",
-        "source_line": 1088,
+        "source_line": 1089,
         "clauses": [
           {
-            "line": 1532,
+            "line": 1540,
             "clause": "#### Authored properties"
           },
           {
-            "line": 1690,
+            "line": 1701,
             "clause": "### Dependency declaration with Profiles"
           },
           {
-            "line": 2071,
+            "line": 2124,
             "clause": "### Observable outcomes and failures"
           }
         ],
@@ -542,14 +543,14 @@
       {
         "id": 28,
         "title": "A result says what produced it.",
-        "source_line": 1104,
+        "source_line": 1105,
         "clauses": [
           {
-            "line": 2071,
+            "line": 2124,
             "clause": "### Observable outcomes and failures"
           },
           {
-            "line": 2085,
+            "line": 2138,
             "clause": "### Extent and result comparison"
           }
         ],
@@ -558,10 +559,10 @@
       {
         "id": 29,
         "title": "Implementable from the text alone.",
-        "source_line": 1122,
+        "source_line": 1123,
         "clauses": [
           {
-            "line": 2085,
+            "line": 2138,
             "clause": "### Extent and result comparison"
           }
         ],
@@ -570,13 +571,12 @@
     ],
     "semantic_gaps": [],
     "pending_design_agreement": [
-      "Preferred authored heading/pitch/roll tuple and explicit pose interpolation await author adoption",
-      "Detailed anchor chart/reset and independently bound instance rules",
-      "Exact external-data association carrier and supported format profiles",
-      "Associated geocentric scene chart for geographic coordinate outputs",
-      "Profiles capability identity, publication and conservative maintenance",
-      "Detailed WKT string normal form and identity/equivalence comparison profile",
-      "Required ordinary double-precision bake-origin representation and sampling/coverage record"
+      "Local revised instancer-occurrence and finite transport rule",
+      "Ordinary bake hierarchy and authored reset; retained Cartesian context",
+      "Proposed Profiles publishing-profile identity and completeness protocol",
+      "Geographic absolute-domain adjustment requires explicit Cartesian context",
+      "Physical 3D comparison and half-turn interpolation failure policy",
+      "HPR source representation, WKT normal form and external association carrier remain proposed"
     ],
     "verification_gaps": [
       "General nonlinear continuous-domain and between-sample certificates remain visibly unsupported",
@@ -593,7 +593,7 @@
     ],
     "candidate_agreed": false,
     "clarity_review": {
-      "authority": "0e955c68c9b0f07b313c43c2cf291eead868c8af",
+      "authority": "7b5b34b7282305135f672663a3cffb0f94342ecc",
       "changes": [
         "Workflow-grounded authored HPR and composed orientation-sample evaluation",
         "Invalid-placement failure",
@@ -605,7 +605,7 @@
     }
   },
   "tests": {
-    "regressions_passed": 88,
+    "regressions_passed": 113,
     "distinguishing_controls_passed": 65,
     "failed": 0
   },
@@ -826,7 +826,7 @@
     {
       "name": "stronger layer cannot silently weaken required summary",
       "passed": true,
-      "visible_error": "Missing/weak whole-scene Profiles dependency claim"
+      "visible_error": "Weak whole-scene Profiles dependency claim"
     },
     {
       "name": "adjusted imagery keeps native measurements",
@@ -909,6 +909,8 @@
           4.000000000000001
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -931,6 +933,8 @@
           4.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -956,6 +960,8 @@
           3.000000000000001
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -978,6 +984,8 @@
           3.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1003,6 +1011,8 @@
           0.03000000000000001
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1025,6 +1035,8 @@
           0.03000000000000001
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1050,6 +1062,8 @@
           35.00000070501119
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1072,6 +1086,8 @@
           35.000000704079866
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1097,6 +1113,8 @@
           4780241.43510437
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1119,6 +1137,8 @@
           4780241.43510437
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1144,6 +1164,8 @@
           4780244.291258036
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1166,6 +1188,8 @@
           4780244.291258035
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1191,6 +1215,8 @@
           1.9999999999999998
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1213,6 +1239,8 @@
           1.9999999999999996
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1238,6 +1266,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1260,6 +1290,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1285,6 +1317,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1307,6 +1341,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1332,6 +1368,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1354,6 +1392,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1379,6 +1419,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1401,6 +1443,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1426,6 +1470,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1448,6 +1494,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1473,6 +1521,8 @@
           1.9999999999999998
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1495,6 +1545,8 @@
           1.9999999999999996
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1520,6 +1572,8 @@
           1.9696155060244163
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1542,6 +1596,8 @@
           1.9696155060244163
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1567,6 +1623,8 @@
           1.9696155060244163
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1589,6 +1647,8 @@
           1.9696155060244163
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1614,6 +1674,8 @@
           1.9696155060244163
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1636,6 +1698,8 @@
           1.9696155060244163
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1661,6 +1725,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1683,6 +1749,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1708,6 +1776,8 @@
           333.7899946316942
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1730,6 +1800,8 @@
           333.7899946316942
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1755,6 +1827,8 @@
           5490.961200982949
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "US survey foot",
           "US survey foot",
@@ -1777,6 +1851,8 @@
           5490.961200982949
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "US survey foot",
           "US survey foot",
@@ -1802,6 +1878,8 @@
           44.00000251736492
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1824,6 +1902,8 @@
           44.000002515502274
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1849,6 +1929,8 @@
           40.0000378433615
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1871,6 +1953,8 @@
           40.0000378433615
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1896,6 +1980,8 @@
           40.0000378433615
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1918,6 +2004,8 @@
           40.0000378433615
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1929,12 +2017,12 @@
       "name": "instances-independent-prototype",
       "native_vs_python": {
         "coordinate_count": 15,
-        "max_distance_metres": 2.7939677238464355e-09,
+        "max_distance_metres": 3.3584357557705734e-09,
         "acceptance_metres": 0.001,
         "distance_measure": "metric Euclidean",
         "max_abs_component_residuals_output_units": [
           1.1641532182693481e-10,
-          9.313225746154785e-10,
+          1.862645149230957e-09,
           2.7939677238464355e-09
         ],
         "max_abs_output_coordinate_components": [
@@ -1943,6 +2031,8 @@
           40.00000070501119
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1965,6 +2055,8 @@
           40.000000704079866
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -1976,9 +2068,9 @@
       "name": "geographic-scene",
       "native_vs_python": {
         "coordinate_count": 4,
-        "max_distance_metres": 9.313225746154785e-10,
+        "max_distance_metres": 9.31436254515153e-10,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "associated Cartesian 3D separation",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0,
@@ -1993,6 +2085,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": 9.313225746154785e-10,
         "component_units": [
           "degree",
           "degree",
@@ -2003,7 +2097,7 @@
         "coordinate_count": 4,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "associated Cartesian 3D separation",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0,
@@ -2018,6 +2112,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": 0.0,
         "component_units": [
           "degree",
           "degree",
@@ -2043,6 +2139,8 @@
           37.865999998952944
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -2065,6 +2163,8 @@
           37.865999998952944
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -2090,6 +2190,8 @@
           37.86599999977891
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -2112,6 +2214,8 @@
           37.86599999884759
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -2137,6 +2241,8 @@
           5484.677923960019
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "US survey foot",
           "US survey foot",
@@ -2159,6 +2265,8 @@
           5484.677923960019
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "US survey foot",
           "US survey foot",
@@ -2184,6 +2292,8 @@
           5484.677949332321
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "US survey foot",
           "US survey foot",
@@ -2206,6 +2316,8 @@
           5484.677949332321
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "US survey foot",
           "US survey foot",
@@ -2231,6 +2343,8 @@
           5482.942350794532
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "US survey foot",
           "US survey foot",
@@ -2253,6 +2367,8 @@
           5482.942350794532
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "US survey foot",
           "US survey foot",
@@ -2266,7 +2382,7 @@
         "coordinate_count": 2664,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0
@@ -2279,6 +2395,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2288,7 +2406,7 @@
         "coordinate_count": 2664,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0
@@ -2301,6 +2419,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2313,7 +2433,7 @@
         "coordinate_count": 4096,
         "max_distance_metres": 2.828405820148886e-09,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           7.105427357601002e-15
@@ -2326,6 +2446,8 @@
           0.0,
           1.2401310215141802e-16
         ],
+        "max_horizontal_surface_distance_metres": 2.828405820148886e-09,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2335,7 +2457,7 @@
         "coordinate_count": 4096,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0
@@ -2348,6 +2470,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2360,7 +2484,7 @@
         "coordinate_count": 4096,
         "max_distance_metres": 2.828405820148886e-09,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           7.105427357601002e-15
@@ -2373,6 +2497,8 @@
           0.0,
           1.2401310215141802e-16
         ],
+        "max_horizontal_surface_distance_metres": 2.828405820148886e-09,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2382,7 +2508,7 @@
         "coordinate_count": 4096,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0
@@ -2395,6 +2521,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2407,7 +2535,7 @@
         "coordinate_count": 4096,
         "max_distance_metres": 1.7680125226754444e-09,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           7.105427357601002e-15
@@ -2420,6 +2548,8 @@
           0.0,
           1.2401310215141802e-16
         ],
+        "max_horizontal_surface_distance_metres": 1.7680125226754444e-09,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2429,7 +2559,7 @@
         "coordinate_count": 4096,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0
@@ -2442,6 +2572,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2464,6 +2596,8 @@
           5499985.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre"
@@ -2483,6 +2617,8 @@
           5499985.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre"
@@ -2495,7 +2631,7 @@
         "coordinate_count": 12,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0
@@ -2508,6 +2644,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2517,7 +2655,7 @@
         "coordinate_count": 12,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0
@@ -2530,6 +2668,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2542,7 +2682,7 @@
         "coordinate_count": 12,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0
@@ -2555,6 +2695,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2564,7 +2706,7 @@
         "coordinate_count": 12,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "horizontal ellipsoidal surface distance",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0
@@ -2577,6 +2719,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "degree",
           "degree"
@@ -2601,6 +2745,8 @@
           6138862.27494087
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -2623,6 +2769,8 @@
           6138862.27494087
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
@@ -2636,7 +2784,7 @@
         "coordinate_count": 154,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "associated Cartesian 3D separation",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0,
@@ -2651,6 +2799,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": 0.0,
         "component_units": [
           "degree",
           "degree",
@@ -2661,7 +2811,7 @@
         "coordinate_count": 154,
         "max_distance_metres": 0,
         "acceptance_metres": 0.001,
-        "distance_measure": "ellipsoidal geodesic plus height",
+        "distance_measure": "associated Cartesian 3D separation",
         "max_abs_component_residuals_output_units": [
           0.0,
           0.0,
@@ -2676,6 +2826,8 @@
           0.0,
           0.0
         ],
+        "max_horizontal_surface_distance_metres": 0.0,
+        "max_abs_height_residual_metres": 0.0,
         "component_units": [
           "degree",
           "degree",
@@ -2699,6 +2851,8 @@
           5927640.369272906
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre"
@@ -2718,6 +2872,8 @@
           5927640.369272906
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre"
@@ -3052,11 +3208,15 @@
       "comparability": "identical realized pipeline spelling and pinned grids",
       "python_pipelines": [
         "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=utm zone=31 ellps=WGS84",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=cart ellps=WGS84",
         "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
         "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
       ],
       "native_pipelines": [
         "proj=noop ellps=GRS80",
+        "proj=pipeline step inv proj=cart ellps=WGS84 step proj=utm zone=31 ellps=WGS84",
+        "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=cart ellps=WGS84",
         "proj=pipeline step inv proj=utm zone=31 ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
         "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=utm zone=31 ellps=WGS84"
       ]
@@ -3388,7 +3548,7 @@
     },
     {
       "path": "exports/geographic-scene.usda",
-      "fresh_reader_max_error_metres": 1.5007967348477094e-08,
+      "fresh_reader_max_error_metres": 1.507488518977013e-08,
       "quantization_metres": 1.5002855227052984e-08,
       "parts": 1,
       "vertices": 2,
@@ -3558,7 +3718,7 @@
       "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
       "renderer": "HdStormRendererPlugin",
       "vertices": 163440,
-      "image_sha256": "ddebe865ad16e71f3f6b7f0ea14e5ea2577b66ea8001fcedd1f0a8af626142b2"
+      "image_sha256": "b1cf4cf1e0a3d1489c9e39678e323aa0cd145ddb76b25e9bd354c7a60167ee89"
     },
     {
       "name": "terrain",
@@ -3584,17 +3744,17 @@
   "postimplementation_audit": {
     "undocumented_authored_fields": [],
     "field_usage_counts": {
-      "data:asset": 8,
       "data:format": 8,
-      "crs:wkt": 193,
-      "crs:orientation": 8,
-      "data:coordinateDomain": 8,
       "crs:position": 168,
-      "data:field": 8
+      "crs:wkt": 193,
+      "data:coordinateDomain": 8,
+      "data:asset": 8,
+      "data:field": 8,
+      "crs:orientation": 8
     },
     "source_preserved": true,
     "source_freeze_preserved": true,
-    "native_binary_sha256": "4bde2a8fb147d1a971120c8cf9da52debbd583e75a309e84fa759b59c379c279",
+    "native_binary_sha256": "02147e734f50c349ea6936b751a80e9c94b8c3ae9eed7d7756535382a8d3b6dd",
     "hydra_binary_sha256": "5d3360e40240d30eaaabe0b3790674f00e414d606b8b31458cde44e51c27c091"
   },
   "limitations": [
@@ -3619,16 +3779,15 @@
       "Material bindings and arbitrary namespace-bearing properties need broader bake coverage"
     ],
     "pending_design_agreement": [
-      "Preferred authored heading/pitch/roll tuple and explicit pose interpolation await author adoption",
-      "Detailed anchor chart/reset and independently bound instance rules",
-      "Exact external-data association carrier and supported format profiles",
-      "Associated geocentric scene chart for geographic coordinate outputs",
-      "Profiles capability identity, publication and conservative maintenance",
-      "Detailed WKT string normal form and identity/equivalence comparison profile",
-      "Required ordinary double-precision bake-origin representation and sampling/coverage record"
+      "Local revised instancer-occurrence and finite transport rule",
+      "Ordinary bake hierarchy and authored reset; retained Cartesian context",
+      "Proposed Profiles publishing-profile identity and completeness protocol",
+      "Geographic absolute-domain adjustment requires explicit Cartesian context",
+      "Physical 3D comparison and half-turn interpolation failure policy",
+      "HPR source representation, WKT normal form and external association carrier remain proposed"
     ]
   },
-  "execution_authority": "Explicitly authorized local run using emailed candidate leans; no group agreement or whole-proposal conformance asserted",
+  "execution_authority": "Explicitly authorized local run using local revised candidate leans; no group agreement or whole-proposal conformance asserted",
   "input_data_sha256": {
     "targets.json": "d4213d3e3269d0ce28eba66e8d31f39455ad02a64a71277acb3ab3d823da6609",
     "data/Colorado/01_NAD83-2011_Geographic3D_Coordinates.csv": "d3d1fb2cf302a86348039a39fa9cbd18ad8d0e01a0d9a9b46febcf21bc10031b",
@@ -3687,7 +3846,7 @@
     "ov_app_version": "0.1.0"
   },
   "delivery_provenance": {
-    "immutable_private_receipt_sha256": "bc2c422dc4a9ec855fe6831a1b6afcd2ef86961db5bc954bd71c74d5ec39d842",
+    "immutable_private_receipt_sha256": "db39bc27bc04bf7f70bfaf2e5048b085798e3ef8b72e58fa54a367a51b7b6d91",
     "adaptation": "Portable filesystem paths, preserving USD prim identities; masked NaNs serialized as null; OV integration label clarified as stage geometry writeback. Exact executed file hashes and finite results retained."
   }
 }

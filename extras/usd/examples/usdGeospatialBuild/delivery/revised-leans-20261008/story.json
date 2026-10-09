@@ -1,0 +1,378 @@
+{
+  "readme_sha256": "e911ac6b2c77038c9d018941e69986e3ba78e8298a790b93c147a72e63e7d715",
+  "proposal_sha256": "010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75",
+  "receipt_sha256": "db39bc27bc04bf7f70bfaf2e5048b085798e3ef8b72e58fa54a367a51b7b6d91",
+  "proposal_revision": "7b5b34b7282305135f672663a3cffb0f94342ecc",
+  "source_commit": "adab61d5aa33097c3f5f5166b5f6c326399fc5a5",
+  "summary": "The revised local proposal addresses the seven red-team concerns without changing the 31 functional requirements or adding geospatial attributes. Fresh tests support its instance and bake semantics, make unsupported requests explicit, and preserve the existing workflows. No additional undefined rule was found in the inspected paths. This is a scoped finding, not proof of exhaustive completeness.",
+  "changes": [
+    [
+      "Repeated models",
+      "Each instance offset keeps its instancer-local meaning, including independently georeferenced prototypes.",
+      "Coincident bound/unbound models agree for translation, rotation and scale. Singular required inverses fail."
+    ],
+    [
+      "Reusing a bake",
+      "The retained Cartesian context follows ordinary USD parent transforms until an authored reset.",
+      "A +100 m parent and an explicit reset agree with ordinary UsdGeom in both readers."
+    ],
+    [
+      "Rotation over time",
+      "A half-turn needs an authored intermediate pose for interior-time resolution.",
+      "Equivalent +180/-180 endpoints both fail on ambiguity. Exact and held samples remain defined."
+    ],
+    [
+      "Geographic measurements",
+      "A nonidentity ordinary adjustment requires an explicitly enclosing Cartesian project frame.",
+      "Geographic coordinates remain available. Missing context fails and supplied context produces the expected +1 m adjustment."
+    ],
+    [
+      "Physical 3D distance",
+      "Use the datum's associated Earth-centred Cartesian coordinates. Report surface distance separately.",
+      "At 400 km ellipsoidal height, the control distinguishes 118.299 km physical separation from 111.319 km surface distance."
+    ],
+    [
+      "Dependency summaries",
+      "Existing Profiles metadata distinguishes complete-empty, positive and unknown coverage.",
+      "Both readers distinguish the cases. Separate publisher controls detect a stale complete-empty retained-variant summary."
+    ],
+    [
+      "Sampled bakes",
+      "A between-sample preservation claim identifies the reader interpolation setting and its covered bound.",
+      "The existing source-first trajectory control remains stable. No general continuous trajectory certificate is claimed."
+    ]
+  ],
+  "limits": [
+    [
+      "Normal transport",
+      "Confirmed prototype defect: one large projected face differs by 1.24 degrees across its domain. Centroid sampling has no justified domain/error bound. The source already requires a faithful derivative or covered approximation."
+    ],
+    [
+      "Near-half-turn numerics",
+      "The proposed failure rule is clear. The prototype's 64-epsilon guard lacks a demonstrated rotational uncertainty bound and a quantified native diagnostic."
+    ],
+    [
+      "WKT quoted text",
+      "Confirmed shared prototype defect: a valid CRS name containing COORDINATEMETADATA is mistaken for a deferred epoch wrapper. Capability detection must use WKT structure, not quoted text."
+    ],
+    [
+      "Publisher coverage",
+      "Retained-variant and unloaded-payload controls pass, including detection of a stale empty claim. This is not a production validator for every composition or variant combination."
+    ],
+    [
+      "Consumer coverage",
+      "Python and C++ share PROJ and external-data decoding. Omniverse reuses Python. General material/primvar baking, physics and nonlinear continuous space/time certificates remain unverified or visibly unsupported."
+    ]
+  ],
+  "review_choices": [
+    [
+      "Instance authoring",
+      "Review finite transport in the instancer frame, including the inverse requirement. It preserves Core input meaning."
+    ],
+    [
+      "Geographic adjustments",
+      "Review the explicit Cartesian project context for absolute-domain adjustments. Geographic and global analytical access remain in scope."
+    ],
+    [
+      "Publication contract",
+      "Review the proposed publishing-profile identity and maintenance obligations in existing Profiles metadata. Registration and group adoption remain pending."
+    ],
+    [
+      "Orientation and comparison",
+      "Review the intermediate-pose policy and physical 3D versus horizontal surface metrics. HPR and detailed WKT string normalization remain proposed."
+    ]
+  ],
+  "metrics": [
+    [
+      "Contract tests",
+      "113 passed"
+    ],
+    [
+      "Existing distinguishing controls",
+      "65 passed"
+    ],
+    [
+      "Coordinates per Python/C++ comparison path",
+      "213,243"
+    ],
+    [
+      "Maximum Python/C++ physical difference",
+      "3.39e-08 m"
+    ],
+    [
+      "Ordinary geometry/data exports",
+      "11"
+    ],
+    [
+      "Native Hydra/Storm images",
+      "2"
+    ],
+    [
+      "Omniverse geometry writeback",
+      "177,872 vertices and 48 edit/recovery checks"
+    ],
+    [
+      "Prior output comparisons",
+      "117, with no unexpected regression"
+    ],
+    [
+      "Prior focused conformance controls",
+      "14 passed"
+    ]
+  ],
+  "examples": [
+    {
+      "name": "France_01",
+      "label": "France: CC49 to Lambert-93",
+      "unit": "m",
+      "python": [
+        661101.1094171533,
+        6857834.256535667,
+        37.297999998112694
+      ],
+      "cpp": [
+        661101.1094171533,
+        6857834.256535667,
+        37.298000000906654
+      ]
+    },
+    {
+      "name": "Colorado_02",
+      "label": "Colorado: State Plane to site grid",
+      "unit": "US survey ft",
+      "python": [
+        3108871.450100667,
+        1206317.4694031866,
+        5484.677949332321
+      ],
+      "cpp": [
+        3108871.450100667,
+        1206317.469403112,
+        5484.677949268161
+      ]
+    }
+  ],
+  "instance_displacements": [
+    [
+      -9.313225746154785e-10,
+      10.0,
+      0.0
+    ],
+    [
+      -9.313225746154785e-10,
+      10.0,
+      0.0
+    ]
+  ],
+  "bake_x": [
+    6378137.0,
+    6378237.0
+  ],
+  "physical_km": 118.29930628668362,
+  "surface_km": 111.31949079327359,
+  "normal_difference_degrees": 1.2408700002254556,
+  "coordinate_count": 213243,
+  "maximum_difference_metres": 3.3945759188783683e-08,
+  "slides": [
+    {
+      "title": "Geospatial proposal quality",
+      "paragraphs": [
+        "The revised local proposal addresses the seven red-team concerns without changing the 31 functional requirements or adding geospatial attributes. Fresh tests support its instance and bake semantics, make unsupported requests explicit, and preserve the existing workflows. No additional undefined rule was found in the inspected paths. This is a scoped finding, not proof of exhaustive completeness.",
+        "Local leans for group review. Authored input fields and the 31 functional requirements remain unchanged."
+      ]
+    },
+    {
+      "title": "Instance offsets retain one meaning",
+      "image": "instance-offset.png",
+      "paragraphs": [
+        "A local +X offset moves both coincident prototypes ten metres east, whether each has its own georeference or inherits one.",
+        "The draft specifies finite transport through the instancer frame. A required singular inverse fails."
+      ]
+    },
+    {
+      "title": "Ordinary USD bake reassembly",
+      "table": [
+        [
+          "Intent",
+          "Ordinary USD X (m)",
+          "Python / C++ X (m)"
+        ],
+        [
+          "+100 m parent",
+          "6,378,237",
+          "6,378,237"
+        ],
+        [
+          "Authored reset",
+          "6,378,137",
+          "6,378,137"
+        ]
+      ],
+      "paragraphs": [
+        "A retained CRS identifies the Cartesian context. Ordinary USD determines transform inheritance and resets."
+      ]
+    },
+    {
+      "title": "Geographic adjustment context",
+      "table": [
+        [
+          "Request",
+          "Proposed outcome"
+        ],
+        [
+          "Read geographic positions",
+          "Retain coordinates and native values"
+        ],
+        [
+          "Adjust in an explicit Cartesian project frame",
+          "Apply the recorded ordinary adjustment"
+        ],
+        [
+          "Adjust without a Cartesian project frame",
+          "Report unsupported adjustment"
+        ]
+      ],
+      "paragraphs": [
+        "This limits one adjustment convention. Global data and analytical queries remain supported."
+      ]
+    },
+    {
+      "title": "Physical 3D and surface distance",
+      "chart": true,
+      "paragraphs": [
+        "Two equatorial positions, one degree apart, both at 400 km ellipsoidal height.",
+        "The draft separates physical 3D separation from horizontal surface distance. Height remains explicit."
+      ]
+    },
+    {
+      "title": "An authored rotation path",
+      "table": [
+        [
+          "Authored poses",
+          "Resolved outcome"
+        ],
+        [
+          "0 and +180 or -180 degrees",
+          "Ambiguous path fails"
+        ],
+        [
+          "0, intermediate 90, then 180 degrees",
+          "Intermediate pose determines the path"
+        ],
+        [
+          "Held reader or exact sample",
+          "Recorded pose remains defined"
+        ]
+      ],
+      "paragraphs": [
+        "The source stores heading, pitch and roll. The reader computes a pose. The prototype uncertainty bound still needs evidence."
+      ]
+    },
+    {
+      "title": "Dependency coverage with Profiles",
+      "table": [
+        [
+          "Publisher declaration",
+          "Consumer interpretation"
+        ],
+        [
+          "Complete summary, no retained use",
+          "Known none"
+        ],
+        [
+          "Hard capability usage",
+          "Resolution dependency"
+        ],
+        [
+          "Missing complete qualification",
+          "Unknown, conservatively hard"
+        ]
+      ],
+      "paragraphs": [
+        "Existing Profiles metadata carries a proposed publishing profile. Publisher checks must cover retained variants and unloaded content. A metadata read alone cannot establish truth."
+      ]
+    },
+    {
+      "title": "Working native visualization",
+      "images": [
+        "tower.png",
+        "terrain.png"
+      ],
+      "paragraphs": [
+        "Fresh native Hydra/Storm images of C++-resolved ordinary USD bakes.",
+        "They demonstrate the render path. Surface-normal accuracy remains a separate failed diagnostic."
+      ]
+    },
+    {
+      "title": "Measurements retain native meaning",
+      "image": "global-temperature.png",
+      "paragraphs": [
+        "The synthetic global field retains 154 observations over two times, with explicit height.",
+        "Geographic and Earth-centred results keep the same measurements. Named-dimension controls check the shared decoder."
+      ]
+    },
+    {
+      "title": "Both readers resolve partner controls",
+      "examples": true,
+      "paragraphs": [
+        "Recorded components in the declared output units. Both placement readers share PROJ and external-data decoding."
+      ]
+    },
+    {
+      "title": "Remaining prototype limits",
+      "table": [
+        [
+          "Finding",
+          "Assessment"
+        ],
+        [
+          "Surface lighting directions",
+          "1.24 degrees across one large projected face. Current sampling lacks an error bound."
+        ],
+        [
+          "Near-half-turn numerical guard",
+          "Correct failure, incomplete rotational uncertainty evidence"
+        ],
+        [
+          "WKT quoted text",
+          "Both readers mistake a quoted name for a deferred epoch wrapper"
+        ],
+        [
+          "Publication and consumer coverage",
+          "Selected controls pass. Broader composition and continuous coverage remains unverified"
+        ]
+      ],
+      "paragraphs": [
+        "The proposal supplies rules for these outcomes. Passing prototype tests cannot establish exhaustive proposal quality."
+      ]
+    },
+    {
+      "title": "Review choices and fresh evidence",
+      "table": [
+        [
+          "Evidence",
+          "Result"
+        ],
+        [
+          "Contract tests",
+          "113 passed"
+        ],
+        [
+          "Coordinates compared per reader",
+          "213,243"
+        ],
+        [
+          "Prior cases",
+          "No unexpected numerical regression"
+        ],
+        [
+          "Omniverse writeback",
+          "177,872 vertices and 48 edit checks"
+        ]
+      ],
+      "paragraphs": [
+        "Review instance transport, Cartesian adjustment context and the publishing-profile contract. HPR, the half-turn policy and comparison conventions remain proposed."
+      ]
+    }
+  ]
+}

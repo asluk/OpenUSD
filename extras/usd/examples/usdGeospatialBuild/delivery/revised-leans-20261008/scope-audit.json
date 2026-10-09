@@ -1,0 +1,126 @@
+{
+  "proposal_sha256": "010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75",
+  "execution_receipt_sha256": "db39bc27bc04bf7f70bfaf2e5048b085798e3ef8b72e58fa54a367a51b7b6d91",
+  "source_freeze_verified": true,
+  "checks": [
+    {
+      "name": "native-rejects-half-turn",
+      "expected": "Visible failure required by the pinned proposal",
+      "actual": {
+        "success": false,
+        "error": "Ambiguous half-turn orientation; roundoff uncertainty prevents unique arc\n"
+      },
+      "passed": true
+    },
+    {
+      "name": "native-rejects-active-uniform",
+      "expected": "Visible failure required by the pinned proposal",
+      "actual": {
+        "success": false,
+        "error": "Invalid nearest CRS binding\n"
+      },
+      "passed": true
+    },
+    {
+      "name": "native-rejects-geocentric-pole",
+      "expected": "Visible failure required by the pinned proposal",
+      "actual": {
+        "success": false,
+        "error": "Geocentric pole has no meridian for model attitude\n"
+      },
+      "passed": true
+    },
+    {
+      "name": "native-rejects-baked-normal-form",
+      "expected": "Visible failure required by the pinned proposal",
+      "actual": {
+        "success": false,
+        "error": "Authored WKT is not normalized\n"
+      },
+      "passed": true
+    },
+    {
+      "name": "conservative-union-georeferenced",
+      "passed": true,
+      "expected": "Hard summary covers every retained variant",
+      "actual": {
+        "carrier": "/World",
+        "capability": "usd.geospatial.crsResolution",
+        "usage": "hard",
+        "coverage": "complete",
+        "known_none": false,
+        "publishing_profile": "usd.geospatial.publication.v1",
+        "traversal_required": false
+      }
+    },
+    {
+      "name": "conservative-union-ordinary",
+      "passed": true,
+      "expected": "Hard summary covers every retained variant",
+      "actual": {
+        "carrier": "/World",
+        "capability": "usd.geospatial.crsResolution",
+        "usage": "hard",
+        "coverage": "complete",
+        "known_none": false,
+        "publishing_profile": "usd.geospatial.publication.v1",
+        "traversal_required": false
+      }
+    },
+    {
+      "name": "publisher-detects-stale-known-none",
+      "passed": true,
+      "expected": "Retained georeferenced alternative invalidates a complete-empty summary",
+      "actual": {
+        "summary_read": {
+          "carrier": "/World",
+          "capability": "usd.geospatial.crsResolution",
+          "usage": null,
+          "coverage": "complete",
+          "known_none": true,
+          "publishing_profile": "usd.geospatial.publication.v1",
+          "traversal_required": false
+        },
+        "retained_variant_inventory": [
+          {
+            "variant": "georeferenced",
+            "requires_resolution": true
+          },
+          {
+            "variant": "ordinary",
+            "requires_resolution": false
+          }
+        ],
+        "stale_claim_detected": true
+      }
+    },
+    {
+      "name": "complete-empty-survives-unloaded-ordinary-payload",
+      "passed": true,
+      "expected": "A publisher-verified ordinary payload remains known-none while unloaded",
+      "actual": {
+        "carrier": "/World",
+        "capability": "usd.geospatial.crsResolution",
+        "usage": null,
+        "coverage": "complete",
+        "known_none": true,
+        "publishing_profile": "usd.geospatial.publication.v1",
+        "traversal_required": false
+      }
+    },
+    {
+      "name": "quantified-native-rotational-uncertainty",
+      "passed": false,
+      "expected": "Report a justified rotational uncertainty rather than an arbitrary numerical sign",
+      "actual": {
+        "error": "Ambiguous half-turn orientation; roundoff uncertainty prevents unique arc\n",
+        "finding": "Failure is correct, but the 64-epsilon guard lacks a demonstrated angular uncertainty certificate and native error omits its numeric value."
+      },
+      "classification": "implementation evidence gap"
+    }
+  ],
+  "passed": 8,
+  "failed": 1,
+  "publisher_validation_scope": "Explicit retained-variant and payload controls. No general production publication validator or all-composition coverage claim.",
+  "implementation_uncertainty_limit": "Near-half-turn rejection uses a prototype numerical guard; its certificate remains unestablished."
+}

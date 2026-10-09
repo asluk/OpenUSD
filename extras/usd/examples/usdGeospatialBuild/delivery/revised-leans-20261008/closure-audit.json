@@ -1,0 +1,203 @@
+{
+  "completed_utc": "2026-10-09T01:51:09.643401+00:00",
+  "local_proposal_sha256": "010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75",
+  "implementation_head": "adab61d5aa33097c3f5f5166b5f6c326399fc5a5",
+  "frozen_build_run": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-revised-leans-run-20261008-v2",
+  "runtime_changed": false,
+  "checks": [
+    {
+      "name": "uniform-crs-with-active-samples",
+      "expected": "Reject the association despite a valid default",
+      "actual": {
+        "success": false,
+        "error": "Uniform CRS definition has time samples",
+        "error_type": "ContractError"
+      },
+      "meets_expected_rule": true,
+      "authority": "Schema design property conformance; requirements 21, 27",
+      "scope": "Python candidate reader"
+    },
+    {
+      "name": "masked-weaker-uniform-samples",
+      "expected": "Accept the stronger default; masked time samples do not participate",
+      "actual": {
+        "success": true,
+        "value": {
+          "composed_samples": [],
+          "discovered_wkt_matches_stronger_default": true
+        }
+      },
+      "meets_expected_rule": true,
+      "authority": "Schema design property conformance; Core value-source selection",
+      "scope": "Core composition and Python CRS discovery"
+    },
+    {
+      "name": "uniform-association-data:asset",
+      "expected": "Reject active time samples, including samples numerically equal to the default",
+      "actual": {
+        "success": false,
+        "error": "Missing or invalid external association data:asset",
+        "error_type": "ContractError"
+      },
+      "meets_expected_rule": true,
+      "authority": "Schema design property conformance; External measurement association; requirements 21, 27, 30",
+      "scope": "Python dataset reader; unchanged frozen railway asset"
+    },
+    {
+      "name": "uniform-association-data:format",
+      "expected": "Reject active time samples, including samples numerically equal to the default",
+      "actual": {
+        "success": false,
+        "error": "Missing or invalid external association data:format",
+        "error_type": "ContractError"
+      },
+      "meets_expected_rule": true,
+      "authority": "Schema design property conformance; External measurement association; requirements 21, 27, 30",
+      "scope": "Python dataset reader; unchanged frozen railway asset"
+    },
+    {
+      "name": "uniform-association-data:field",
+      "expected": "Reject active time samples, including samples numerically equal to the default",
+      "actual": {
+        "success": false,
+        "error": "Missing or invalid external association data:field",
+        "error_type": "ContractError"
+      },
+      "meets_expected_rule": true,
+      "authority": "Schema design property conformance; External measurement association; requirements 21, 27, 30",
+      "scope": "Python dataset reader; unchanged frozen railway asset"
+    },
+    {
+      "name": "uniform-association-data:coordinateDomain",
+      "expected": "Reject active time samples, including samples numerically equal to the default",
+      "actual": {
+        "success": false,
+        "error": "Missing or invalid external association data:coordinateDomain",
+        "error_type": "ContractError"
+      },
+      "meets_expected_rule": true,
+      "authority": "Schema design property conformance; External measurement association; requirements 21, 27, 30",
+      "scope": "Python dataset reader; unchanged frozen railway asset"
+    },
+    {
+      "name": "geocentric-north-pole-model",
+      "expected": "Reject model attitude because position has no meridian",
+      "actual": {
+        "success": false,
+        "error": "Geocentric pole has no meridian for model attitude",
+        "error_type": "ContractError"
+      },
+      "meets_expected_rule": true,
+      "authority": "Geospatial model attitude and stage axes; requirements 9, 10, 21",
+      "scope": "Python candidate reader"
+    },
+    {
+      "name": "geocentric-south-pole-model",
+      "expected": "Reject model attitude because position has no meridian",
+      "actual": {
+        "success": false,
+        "error": "Geocentric pole has no meridian for model attitude",
+        "error_type": "ContractError"
+      },
+      "meets_expected_rule": true,
+      "authority": "Geospatial model attitude and stage axes; requirements 9, 10, 21",
+      "scope": "Python candidate reader"
+    },
+    {
+      "name": "geographic-pole-recorded-longitude-0",
+      "expected": "Accept a recorded longitude and preserve its meridian basis",
+      "actual": {
+        "success": true,
+        "value": {
+          "coordinates": [
+            -0.9999999990642494,
+            1.2246467980013893e-16,
+            6356752.314245101
+          ],
+          "analytic_error_metres": 7.823669249405522e-08
+        }
+      },
+      "meets_expected_rule": true,
+      "authority": "Geospatial model attitude and stage axes; explicit recorded geographic longitude",
+      "scope": "Python candidate reader"
+    },
+    {
+      "name": "geographic-pole-recorded-longitude-90",
+      "expected": "Accept a recorded longitude and preserve its meridian basis",
+      "actual": {
+        "success": true,
+        "value": {
+          "coordinates": [
+            -1.6081226481718349e-16,
+            -0.9999999990642494,
+            6356752.314245101
+          ],
+          "analytic_error_metres": 7.823669249405522e-08
+        }
+      },
+      "meets_expected_rule": true,
+      "authority": "Geospatial model attitude and stage axes; explicit recorded geographic longitude",
+      "scope": "Python candidate reader"
+    },
+    {
+      "name": "geocentric-pole-coordinate-only",
+      "expected": "Accept coordinate conversion without claiming a model-attitude basis",
+      "actual": {
+        "success": true,
+        "value": [
+          0.0,
+          90.0,
+          0.0
+        ]
+      },
+      "meets_expected_rule": true,
+      "authority": "Geospatial model attitude and stage axes; coordinate-only result distinction",
+      "scope": "Python candidate reader"
+    },
+    {
+      "name": "noncanonical-baked-crs-context",
+      "expected": "Reject noncanonical WKT just as for directly bound sources",
+      "actual": {
+        "success": false,
+        "error": "Baked WKT is not normalized",
+        "error_type": "ContractError"
+      },
+      "meets_expected_rule": true,
+      "authority": "WKT string normalization; GeospatialCRS typed schema; explicit export and sampling",
+      "scope": "Python candidate reader"
+    },
+    {
+      "name": "payload-inside-binding",
+      "expected": "Inside opinions disappear; outside opinions and hard summary remain",
+      "actual": {
+        "success": true,
+        "value": {
+          "loaded_binding": true,
+          "unloaded_binding": false,
+          "unloaded_summary": "hard"
+        }
+      },
+      "meets_expected_rule": true,
+      "authority": "Composition arcs; Dependency declaration with Profiles; Core payloads",
+      "scope": "Core composition; externally authored declaration"
+    },
+    {
+      "name": "payload-outside-binding",
+      "expected": "Inside opinions disappear; outside opinions and hard summary remain",
+      "actual": {
+        "success": true,
+        "value": {
+          "loaded_binding": true,
+          "unloaded_binding": true,
+          "unloaded_summary": "hard"
+        }
+      },
+      "meets_expected_rule": true,
+      "authority": "Composition arcs; Dependency declaration with Profiles; Core payloads",
+      "scope": "Core composition; externally authored declaration"
+    }
+  ],
+  "checks_passed": 14,
+  "checks_failed": 0,
+  "interpretation": "Focused conformance audit, not a fresh whole-consumer build. Failed checks are disclosed prototype defects against explicit local candidate rules."
+}

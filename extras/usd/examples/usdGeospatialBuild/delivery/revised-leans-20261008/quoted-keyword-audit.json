@@ -1,0 +1,19 @@
+{
+  "normal_form_verified": true,
+  "root_keyword": "GEODCRS",
+  "semantic_crs_equal": true,
+  "expected": "Accept a normal-form ordinary geocentric CRS; the quoted name does not contain a coordinate-epoch wrapper",
+  "actual": [
+    {
+      "path": "Python",
+      "success": false,
+      "error": "Coordinate epochs deferred"
+    },
+    {
+      "path": "C++",
+      "success": false,
+      "error": "Coordinate epochs deferred\n"
+    }
+  ],
+  "classification": "Existing shared prototype defect; both readers detect a deferred keyword by substring instead of structure"
+}

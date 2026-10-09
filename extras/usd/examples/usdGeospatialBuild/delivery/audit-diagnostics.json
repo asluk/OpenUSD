@@ -1,5 +1,5 @@
 {
-  "proposal_sha256": "0ed1dcda854e43bb82b7e830ba4b2224cdb8da0741fa9d6cb4fe459d4266ace0",
+  "proposal_sha256": "010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75",
   "cases": [
     {
       "name": "preferred_authored_hpr_sample_evaluation",
@@ -196,6 +196,12 @@
         "exit_code": 0,
         "stderr": "",
         "result": {
+          "dependency": {
+            "coverage": "complete",
+            "known_none": false,
+            "traversal_required": false,
+            "usage": "hard"
+          },
           "engine_version": "9.4.1",
           "geometry": {
             "/World/Model/Instances/_ResolvedInstance0/Root": [
@@ -290,7 +296,7 @@
       ],
       "unchecked_extra_geometry_keys": [],
       "export_receipt": {
-        "path": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\outputs\\geospatial-independent-audit-hpr-20261008-v2\\nested-geometry-export.usda",
+        "path": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\outputs\\geospatial-independent-audit-revised-leans-20261008\\nested-geometry-export.usda",
         "fresh_reader_max_error_metres": 1.7763568394002505e-15,
         "quantization_metres": 1.7763568394002505e-15,
         "parts": 2,
@@ -348,6 +354,8 @@
           0.0
         ],
         "max_abs_angular_residuals_radians": [],
+        "max_horizontal_surface_distance_metres": null,
+        "max_abs_height_residual_metres": null,
         "component_units": [
           "metre",
           "metre",
