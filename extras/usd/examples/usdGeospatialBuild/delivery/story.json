@@ -1,8 +1,8 @@
 {
-  "proposal_sha256": "010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75",
-  "receipt_sha256": "db39bc27bc04bf7f70bfaf2e5048b085798e3ef8b72e58fa54a367a51b7b6d91",
-  "proposal_revision": "7b5b34b7282305135f672663a3cffb0f94342ecc",
-  "source_commit": "adab61d5aa33097c3f5f5166b5f6c326399fc5a5",
+  "proposal_sha256": "2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4",
+  "receipt_sha256": "ad59ead3c86c780b6d79a243a23032e492c14809f0c01f575397ae221939068f",
+  "proposal_revision": "da2f49aad42811fc5d660c7bcf9ff190599f2d74",
+  "source_commit": "db9af9539bcf634225e412c8ef903d6e65af713c",
   "limits": [
     [
       "Normal transport",
@@ -36,17 +36,17 @@
     ],
     [
       "Publication contract",
-      "Review the proposed publishing-profile identity and maintenance obligations in existing Profiles metadata. Registration and group adoption remain pending."
+      "Review the fixed v1 identities and approval ownership. Coverage and publisher maintenance have agreement. Registration and group adoption remain pending."
     ],
     [
       "Orientation and comparison",
-      "Review the intermediate-pose policy and physical 3D versus horizontal surface metrics. HPR and detailed WKT string normalization remain proposed."
+      "Review the intermediate-pose policy and physical 3D versus horizontal surface metrics. The HPR tuple is agreed; detailed interpolation and WKT string normalization remain proposed."
     ]
   ],
   "metrics": [
     [
       "Contract tests",
-      "113 passed"
+      "116 passed"
     ],
     [
       "Existing distinguishing controls",
@@ -134,7 +134,7 @@
   "normal_difference_degrees": 1.2408700002254556,
   "coordinate_count": 213243,
   "maximum_difference_metres": 3.3945759188783683e-08,
-  "readme_sha256": "32731631975544a0d484f84f76524fd94c3aac82ac3347a37b6990cbe7907035",
+  "readme_sha256": "f97eb66b4642d85817c1bface96cc358cea536a8a8104a439f22a2715af103d5",
   "narrative_version": 2,
   "opening": "USD describes a 3D model's shape and size. Geospatial information says where it belongs on Earth, so models, surveys and measurements can work together.",
   "assessment": "Proposal quality means that another implementer can derive the inputs, evaluation order and observable outcomes without guessing. The full draft specifies those rules for the workflows shown here.",
@@ -147,10 +147,10 @@
       "rule": "The source records model geometry separately from its absolute origin and physical attitude. WKT supplies the coordinate meaning. Ordinary USD operations express intentional scaling and pivots.",
       "expected": "A reader can place the model without treating longitude or latitude as a distance or adding computed results to the source schema.",
       "observed": "The source stores position and one heading/pitch/roll tuple. Readers compute the physical pose, coordinate results and projection effects without writing them back.",
-      "implication": "Inputs-only authoring gives the reader one authority for each meaning. The detailed field and pose conventions remain proposed.",
+      "implication": "Inputs-only authoring gives the reader one authority for each meaning. Source position and the heading/pitch/roll tuple are agreed; detailed pose conventions remain proposed.",
       "boundary": "The illustrated position is an example, not a surveyed Eiffel location. No crs:scale is proposed.",
       "clause_heading": "#### Authored properties",
-      "clause_line": 1540,
+      "clause_line": 1588,
       "requirement_ids": [
         9,
         10,
@@ -170,7 +170,7 @@
       "implication": "A new coordinate representation has a defined physical meaning. The France and Colorado numerical controls test conversion separately from this illustration.",
       "boundary": "It explains the rule and does not verify surveyed Paris placement.",
       "clause_heading": "### Source placement evaluation and transform order",
-      "clause_line": 1857,
+      "clause_line": 1916,
       "requirement_ids": [
         9,
         12,
@@ -195,7 +195,7 @@
       "implication": "The draft distinguishes project adjustments from model-local child offsets. A numerical control separates those interpretations by 4.222 m.",
       "boundary": "The chart and reset conventions remain proposed. Ordinary pivots follow the authored USD stack.",
       "clause_heading": "#### Evaluation",
-      "clause_line": 1957,
+      "clause_line": 2016,
       "requirement_ids": [
         9,
         14,
@@ -220,7 +220,7 @@
       "implication": "These cases support reproducible interpretation of the proposed behavior. Agreement alone cannot establish all rules or all input layouts.",
       "boundary": "Both readers use PROJ and share native dataset decoding. Agreement does not establish independent geodetic validation.",
       "clause_heading": "### Extent and result comparison",
-      "clause_line": 2138,
+      "clause_line": 2197,
       "requirement_ids": [
         4,
         13,
@@ -242,7 +242,7 @@
       "implication": "The visualization path uses ordinary USD geometry. Reassembly controls confirm that a parent translation and an authored reset keep their USD meaning.",
       "boundary": "Ground context is illustrative. The image does not establish surveyed placement or surface-normal accuracy.",
       "clause_heading": "### Explicit export and sampling",
-      "clause_line": 2195,
+      "clause_line": 2254,
       "requirement_ids": [
         17,
         19,
@@ -252,7 +252,7 @@
       ],
       "kind": "evidence",
       "image": {
-        "path": "revised-leans-20261008/tower.png",
+        "path": "feedback-20261012/tower.png",
         "role": "recorded native render",
         "alt": "Native Hydra Storm image of the resolved ordinary USD Eiffel bake"
       }
@@ -267,7 +267,7 @@
       "implication": "The same data model supports global analytics as well as rendering. Named-dimension controls check the value/location association separately.",
       "boundary": "Synthetic temperatures in kelvin. Both readers share decoding, so their agreement alone cannot verify the association.",
       "clause_heading": "### External measurement association",
-      "clause_line": 1641,
+      "clause_line": 1689,
       "requirement_ids": [
         8,
         12,
@@ -278,7 +278,7 @@
       ],
       "kind": "evidence",
       "image": {
-        "path": "revised-leans-20261008/global-temperature.png",
+        "path": "feedback-20261012/global-temperature.png",
         "role": "plot of recorded synthetic data",
         "alt": "Synthetic global temperature values at their recorded geographic locations"
       }
@@ -293,7 +293,7 @@
       "implication": "The partner case exercises a site's calibrated CRS. Its WKT-carried calibration participates in resolution.",
       "boundary": "The survey-line image does not establish independent survey accuracy or a continuous terrain-surface certificate.",
       "clause_heading": "#### Decision on question 7: site calibration",
-      "clause_line": 1304,
+      "clause_line": 1344,
       "requirement_ids": [
         4,
         14,
@@ -302,7 +302,7 @@
       ],
       "kind": "evidence",
       "image": {
-        "path": "revised-leans-20261008/terrain.png",
+        "path": "feedback-20261012/terrain.png",
         "role": "recorded native render",
         "alt": "Native Storm render of Colorado survey breaklines in the calibrated site grid"
       }
@@ -317,7 +317,7 @@
       "implication": "The draft supports horizontal resolution without inventing a height reference. The original third components remain uninterpreted.",
       "boundary": "Horizontal coordinates only. The original third components remain uninterpreted and supply no physical 3D distance.",
       "clause_heading": "### External measurement association",
-      "clause_line": 1641,
+      "clause_line": 1689,
       "requirement_ids": [
         8,
         12,
@@ -326,7 +326,7 @@
       ],
       "kind": "evidence",
       "image": {
-        "path": "plots/railway.png",
+        "path": "feedback-20261012/railway.png",
         "role": "plot of recorded resolved geometry",
         "alt": "Resolved UTM 32 horizontal railway coordinates with display-only offsets"
       }
@@ -341,7 +341,7 @@
       "implication": "The order is testable. Sample keys alone cannot certify the original trajectory between samples.",
       "boundary": "The bake preserves time codes 0, 5 and 10 at 48 time codes per second. Continuous trajectory coverage remains unverified.",
       "clause_heading": "#### Evaluation",
-      "clause_line": 1957,
+      "clause_line": 2016,
       "requirement_ids": [
         20,
         29
@@ -374,7 +374,7 @@
     ],
     [
       "Group alignment",
-      "The detailed orientation, frame, WKT string normalization and publication conventions remain proposed."
+      "Input and declaration rules have agreement. Detailed conventions and identities await review."
     ],
     [
       "Prototype limitations",
@@ -422,7 +422,7 @@
     ],
     [
       "Dependency declaration",
-      "Existing Profiles metadata carries a proposed complete publication summary, including unloaded and retained variant content."
+      "Profiles records complete publication coverage, including unloaded and retained variant content. Fixed v1 identities remain proposed."
     ],
     [
       "Baked coordinate context",
@@ -444,11 +444,11 @@
     ],
     [
       "Recorded tests",
-      "113 contract tests and 65 distinguishing controls pass. Separate diagnostics expose the reported prototype limits."
+      "116 contract tests and 65 distinguishing controls pass. Separate diagnostics expose the reported prototype limits."
     ],
     [
       "Source preservation",
-      "Original inputs and 47 frozen execution files remain unchanged. The immutable receipt identifies exact executed content."
+      "Original inputs and 48 frozen execution files remain unchanged. The immutable receipt identifies exact executed content."
     ],
     [
       "Bake readbacks",

@@ -39,7 +39,6 @@ visible, and the introduction still explains the complete proposal. Delivery-onl
 edits do not rerun or rewrite an immutable execution receipt. Keep source and
 input hashes verified, and replace current README/story/deck/manifest together.
 
-The existing executed BUILD_LOOP.md is a frozen record and names the older
-delivery entry point. Before the next execution, update that active entry point
-to these generators and freeze the new plan with that run. Do not rewrite the
-previous execution's source or receipt.
+The current frozen BUILD_LOOP.md names these active generators. Freeze any
+subsequent plan changes before the next execution. Keep earlier execution source
+and receipts immutable.

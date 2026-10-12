@@ -1,0 +1,94 @@
+{
+  "inspection_performed_by": "Codex agent",
+  "user_comprehension_test_performed": false,
+  "readme_sha256": "f97eb66b4642d85817c1bface96cc358cea536a8a8104a439f22a2715af103d5",
+  "pptx_sha256": "32493528631db1e2930fe41d9d26f4f7635857b2435ced4306bde2871f119a50",
+  "pdf_sha256": "da6bd4ec1ef1ef1c2a94c898f74a02a7945d11d148fc18834fab0265cac6e542",
+  "rendered_readme_inspected": true,
+  "readme_preview_hashes": {
+    "readme-00.png": "3000ec171748eb7074a0e6ab435c421b36dd881b8a1edf1d6fdc0c3f10f0dfb5",
+    "readme-01.png": "55d0e90a2bdbf4235b9c2a25a630a56094763da6a44043e7cb35f7adaa365688",
+    "readme-02.png": "fa4d5c65f2e14af9e5fe55bebdf573c4bdf3ccc7a0a86018a92c1d563b170470",
+    "readme-03.png": "6a2345c2a8fa095a6aeebfa9fada07ffb4e3e407d226cbb8fb252b7f5b5db949",
+    "readme-04.png": "2762ddb218feddf0538485b41983054c0ffd838b38f9b943e3c87d4b45cc7564",
+    "readme-05.png": "1e31709167be078162e7151d18329331fc1612099e1f537b8c5f87b7e5043fd5",
+    "readme-06.png": "f0b83a704998d9f05422b2c1cc2379b7168f1e28f323d1e379069337665b30bc",
+    "readme-07.png": "14c14e760481933e9745abea990fba7a42a36b09f06c48aa7a64e7cf5885f896",
+    "readme-08.png": "ffa950392ad015d24b78fd5e5cd4268b4c53ec885aca11c75f726674dc70b073"
+  },
+  "slides": [
+    {
+      "slide": 1,
+      "inspected": true,
+      "image_sha256": "e5bd37cc9321ab3dd1852b0ecff4dc8aff50cd551a0b70818fe1d2c520dbbbe0"
+    },
+    {
+      "slide": 2,
+      "inspected": true,
+      "image_sha256": "9920f1bb0199664aa1c471b8dfaeb2c4aeb59e72c586e8794de9ff4d3b777224"
+    },
+    {
+      "slide": 3,
+      "inspected": true,
+      "image_sha256": "1540f97b2698b671e7a38126eb50f35e97d880263baa701bd2ef5c640617d38d"
+    },
+    {
+      "slide": 4,
+      "inspected": true,
+      "image_sha256": "16f30b5bf7ca6960c2876b21b491c12241b6ca1f705cca448eb34d16b636870b"
+    },
+    {
+      "slide": 5,
+      "inspected": true,
+      "image_sha256": "cec8b81e8cc866e433f689d0a4e382844bd05a0face4bb570d3776f3fd9539b0"
+    },
+    {
+      "slide": 6,
+      "inspected": true,
+      "image_sha256": "0546d1582c524df8e822c9e48e63340552705ee34a52757f66e246edb75312fe"
+    },
+    {
+      "slide": 7,
+      "inspected": true,
+      "image_sha256": "526e195e268f8f004f5310ba1b5a52403913a697f7c4705646ac1581f440e685"
+    },
+    {
+      "slide": 8,
+      "inspected": true,
+      "image_sha256": "803bf8f425a169126e58c4939f70406bbe25b1259a7ddeaabcee6c4ee8a8c777"
+    },
+    {
+      "slide": 9,
+      "inspected": true,
+      "image_sha256": "95ac6fdfa40984c06baaf7ca145a2ac393d663cdf524942743e2a8b777a39cea"
+    },
+    {
+      "slide": 10,
+      "inspected": true,
+      "image_sha256": "900220d8022dc725882c2996e1e94b151c3fb6f360216bf16337693abd8bedca"
+    },
+    {
+      "slide": 11,
+      "inspected": true,
+      "image_sha256": "2ba788ef7a1bf005e92fac8b4e63f5243eb0c61ec8997970652ed36a1e9ca90a"
+    },
+    {
+      "slide": 12,
+      "inspected": true,
+      "image_sha256": "0f2b34a371d60c890e2fd56357621c2648d8b65c9aeeba82b7745c6897c23c10"
+    },
+    {
+      "slide": 13,
+      "inspected": true,
+      "image_sha256": "a4af2d7ecf66aee1c124b218a50264f330dcc4ad11f840ee538fe5ea52226ae9"
+    },
+    {
+      "slide": 14,
+      "inspected": true,
+      "image_sha256": "71c13ff4c13523b710e565bd6f72abf35ba19838f962b94f42b9cd6583e78275"
+    }
+  ],
+  "reference": "October 6 v2 deck praised by Tam",
+  "unresolved_layout_findings": [],
+  "estimated_layout_warnings": "Compared against every final native PowerPoint PDF page. No clipping or overlap observed."
+}

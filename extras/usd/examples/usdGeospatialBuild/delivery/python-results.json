@@ -178,7 +178,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -398,7 +398,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -618,7 +618,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -768,7 +768,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1011,7 +1011,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1121,7 +1121,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1179,7 +1179,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1250,7 +1250,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1339,7 +1339,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1428,7 +1428,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1517,7 +1517,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1618,7 +1618,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1696,7 +1696,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1785,7 +1785,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1874,7 +1874,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1963,7 +1963,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -2021,7 +2021,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -819663,7 +819663,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/CRS",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1708614,7 +1708614,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/CRS",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1708724,7 +1708724,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/CRS",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1708953,7 +1708953,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/CRS",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1709154,7 +1709154,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/CRS",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1709354,7 +1709354,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/CRS",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1709547,7 +1709547,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1711090,7 +1711090,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1712583,7 +1712583,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1712726,7 +1712726,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1712869,7 +1712869,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1713012,7 +1713012,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1713034,7 +1713034,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1731727,7 +1731727,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1760455,7 +1760455,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1789188,7 +1789188,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1817921,7 +1817921,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1846649,7 +1846649,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1846788,7 +1846788,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1846927,7 +1846927,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1848214,7 +1848214,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,
@@ -1849501,7 +1849501,7 @@
     "source_unchanged": true,
     "dependency": {
       "carrier": "/World",
-      "capability": "usd.geospatial.crsResolution",
+      "capability": "usd.geospatial.crsResolution.v1",
       "usage": "hard",
       "coverage": "complete",
       "known_none": false,

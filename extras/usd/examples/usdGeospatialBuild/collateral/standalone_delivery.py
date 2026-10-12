@@ -20,13 +20,13 @@ def publish(root, facts, run_dir, output=None):
     assert sha(root/'proposal/proposal-source.txt') == facts['proposal_sha256'] == receipt['inputs']['proposal']['sha256']
     assert all(sha(root/name) == digest for name,digest in receipt['source_files'].items()), 'Execution inputs changed'
     proposal = (root/'proposal/proposal-source.txt').read_text(encoding='utf-8').splitlines()
-    D = root/'delivery/revised-leans-20261008'
+    D = root/'delivery/feedback-20261012'
     opening = "USD describes a 3D model's shape and size. Geospatial information says where it belongs on Earth, so models, surveys and measurements can work together."
     assessment = "Proposal quality means that another implementer can derive the inputs, evaluation order and observable outcomes without guessing. The full draft specifies those rules for the workflows shown here."
     summary = "Selected demonstrations support the proposed behavior. Detailed conventions still need group review, and three prototype limitations remain. This evidence does not establish exhaustive completeness or independent geodetic accuracy."
     status_rows = [
         ['Data model and runtime rules', 'The draft separates authored inputs from computed results and defines placement, adjustment, query and bake behavior.'],
-        ['Group alignment', 'The detailed orientation, frame, WKT string normalization and publication conventions remain proposed.'],
+        ['Group alignment', 'Input and declaration rules have agreement. Detailed conventions and identities await review.'],
         ['Prototype limitations', 'Lighting directions lack an error bound. Rotation uncertainty is unquantified. A quoted CRS name causes false rejection.'],
         ['Verification coverage', 'Selected workflows and distinguishing controls support the rules. Broader composition and continuous space/time coverage remain unverified.']]
     inputs = [
@@ -49,7 +49,7 @@ def publish(root, facts, run_dir, output=None):
          'The source records model geometry separately from its absolute origin and physical attitude. WKT supplies the coordinate meaning. Ordinary USD operations express intentional scaling and pivots.',
          'A reader can place the model without treating longitude or latitude as a distance or adding computed results to the source schema.',
          'The source stores position and one heading/pitch/roll tuple. Readers compute the physical pose, coordinate results and projection effects without writing them back.',
-         'Inputs-only authoring gives the reader one authority for each meaning. The detailed field and pose conventions remain proposed.',
+         'Inputs-only authoring gives the reader one authority for each meaning. Source position and the heading/pitch/roll tuple are agreed; detailed pose conventions remain proposed.',
          'The illustrated position is an example, not a surveyed Eiffel location. No crs:scale is proposed.',
          '#### Authored properties',[9,10,12,14,15],kind='explanation')
     case('coordinates','One physical place, different coordinates',
@@ -84,7 +84,7 @@ def publish(root, facts, run_dir, output=None):
          'Native Hydra/Storm renders the C++-resolved Eiffel bake. A double-precision origin keeps local geometry small.',
          'The visualization path uses ordinary USD geometry. Reassembly controls confirm that a parent translation and an authored reset keep their USD meaning.',
          'Ground context is illustrative. The image does not establish surveyed placement or surface-normal accuracy.',
-         '### Explicit export and sampling',[17,19,23,25,29],('revised-leans-20261008/tower.png','recorded native render','Native Hydra Storm image of the resolved ordinary USD Eiffel bake'))
+         '### Explicit export and sampling',[17,19,23,25,29],('feedback-20261012/tower.png','recorded native render','Native Hydra Storm image of the resolved ordinary USD Eiffel bake'))
     case('measurements','Measurements stay paired with their locations',
          'Can a native measurement dataset remain usable without rewriting values or guessing coordinate meaning?',
          'The scene identifies the native asset, field and coordinate domain. Resolution preserves the pairing of values, locations, missing-data masks and observation times.',
@@ -92,7 +92,7 @@ def publish(root, facts, run_dir, output=None):
          'The global field returns geographic and Earth-centred positions for 154 samples, preserving native values and two observation times.',
          'The same data model supports global analytics as well as rendering. Named-dimension controls check the value/location association separately.',
          'Synthetic temperatures in kelvin. Both readers share decoding, so their agreement alone cannot verify the association.',
-         '### External measurement association',[8,12,18,19,21,30],('revised-leans-20261008/global-temperature.png','plot of recorded synthetic data','Synthetic global temperature values at their recorded geographic locations'))
+         '### External measurement association',[8,12,18,19,21,30],('feedback-20261012/global-temperature.png','plot of recorded synthetic data','Synthetic global temperature values at their recorded geographic locations'))
     case('colorado',"A construction site's own survey grid",
          "Can a project's local survey grid participate as a defined CRS?",
          'The source WKT describes how a calibrated site grid relates to a broader CRS, including its units and height meaning.',
@@ -100,7 +100,7 @@ def publish(root, facts, run_dir, output=None):
          'The original LandXML survey breaklines resolve and reach an ordinary USD bake rendered by Storm.',
          "The partner case exercises a site's calibrated CRS. Its WKT-carried calibration participates in resolution.",
          'The survey-line image does not establish independent survey accuracy or a continuous terrain-surface certificate.',
-         '#### Decision on question 7: site calibration',[4,14,15,17],('revised-leans-20261008/terrain.png','recorded native render','Native Storm render of Colorado survey breaklines in the calibrated site grid'))
+         '#### Decision on question 7: site calibration',[4,14,15,17],('feedback-20261012/terrain.png','recorded native render','Native Storm render of Colorado survey breaklines in the calibrated site grid'))
     case('railway','Horizontal railway placement',
          'Can incomplete source metadata still support a useful, explicitly horizontal workflow?',
          'The reader resolves a declared horizontal association and preserves uninterpreted third components. It does not invent a height reference.',
@@ -108,7 +108,7 @@ def publish(root, facts, run_dir, output=None):
          'The horizontal copy resolves 15,822 vertices across 2,386 parts. The plot uses offsets only for display.',
          'The draft supports horizontal resolution without inventing a height reference. The original third components remain uninterpreted.',
          'Horizontal coordinates only. The original third components remain uninterpreted and supply no physical 3D distance.',
-         '### External measurement association',[8,12,19,21],('plots/railway.png','plot of recorded resolved geometry','Resolved UTM 32 horizontal railway coordinates with display-only offsets'))
+         '### External measurement association',[8,12,19,21],('feedback-20261012/railway.png','plot of recorded resolved geometry','Resolved UTM 32 horizontal railway coordinates with display-only offsets'))
     # The existing recorded control remains unchanged in the immutable execution.
     rpy=json.loads((run_dir/'python-results.json').read_text())
     def origin(name): return rpy[name]['queries'][0]['coordinates'][0]
@@ -132,7 +132,7 @@ def publish(root, facts, run_dir, output=None):
         ['Native data associations', 'Declare the asset, field and coordinate domain. Preserve named dimensions and observation times.'],
         ['WKT string normalization', 'Normalize lexical spelling without losing represented information. Equal tokens establish serialized identity.'],
         ['Semantic CRS comparison', 'Different normalized texts can represent equivalent CRSs. Comparison names its criteria and domain.'],
-        ['Dependency declaration', 'Existing Profiles metadata carries a proposed complete publication summary, including unloaded and retained variant content.'],
+        ['Dependency declaration', 'Profiles records complete publication coverage, including unloaded and retained variant content. Fixed v1 identities remain proposed.'],
         ['Baked coordinate context', 'Retain a Cartesian CRS and double-precision origin without an active source placement binding. Ordinary USD controls subsequent transforms.']]
     evidence=[
         ['Python and C++ readers', f"{facts['coordinate_count']:,} coordinate results per reader. Maximum measured difference {facts['maximum_difference_metres']:.3g} m. Shared PROJ and decoding."],
@@ -168,18 +168,18 @@ def publish(root, facts, run_dir, output=None):
     text+='## Supporting workflows\n\n'
     for k in ['colorado','railway','animation']: text+=render_case(by[k])
     text+='### Repeated models retain instance-local offsets\n\nThe draft expands a repeated model at its occurrence, keeps the prototype\'s independent geographic placement once, and transports the ordinary instance effect through the instancer frame. A required unavailable inverse fails.\n\n'
-    text+='![Recorded instance displacement control](delivery/revised-leans-20261008/instance-offset.png)\n\nIn the synthetic control, an instancer-local +X offset moves two initially coincident prototypes ten metres east, whether they inherit a georeference or carry their own. Both readers return Earth-centred displacement [0, 10, 0] m. Rotation and scale controls also distinguish the frame choices. These controls establish the selected semantics, not surveyed placement or all instancer combinations.\n\n'
+    text+='![Recorded instance displacement control](delivery/feedback-20261012/instance-offset.png)\n\nIn the synthetic control, an instancer-local +X offset moves two initially coincident prototypes ten metres east, whether they inherit a georeference or carry their own. Both readers return Earth-centred displacement [0, 10, 0] m. Rotation and scale controls also distinguish the frame choices. These controls establish the selected semantics, not surveyed placement or all instancer combinations.\n\n'
     text+='### Physical separation and surface distance\n\n'+f"At an explicit 400 km ellipsoidal height, a one-degree equatorial separation is {facts['physical_km']:.3f} km in physical 3D and {facts['surface_km']:.3f} km along the ellipsoid surface. The draft names these as distinct metrics. A horizontal-only coordinate supplies neither an invented zero height nor a physical 3D separation.\n\n"
     text+='### Reusing a resolved bake\n\nA +100 m ordinary parent moves a baked point from X = 6,378,137 m to 6,378,237 m. An authored reset retains X = 6,378,137 m. Both readers match ordinary UsdGeom. A typed CRS definition alone does not reset the ordinary stack. Stable entrypoints and metadata above payloads follow the [NVIDIA asset-structuring guidance](https://docs.omniverse.nvidia.com/usd/latest/learn-openusd/independent/asset-structure-principles.html) without prescribing a fixed scene hierarchy.\n\n'
     text+='## Detailed conventions for group review\n\nThese are proposed definitions in the full draft. The demonstrations provide evidence for evaluating them; they do not make them adopted by the group.\n\n'+table(['Placement topic','Proposed meaning'],placements)+'\n\n'+table(['Data or declaration topic','Proposed meaning'],data)+'\n\n'
     text+='An absolute geographic measurement domain needs an explicit enclosing Cartesian project context for a nonidentity ordinary adjustment. Unadjusted geographic and Earth-centred queries remain supported, including global domains. Orientation follows the unique shorter physical arc. An exact half-turn needs an authored intermediate pose for an interior-time query, while exact-sample and held queries remain defined.\n\n'
-    text+='The proposed publication profile distinguishes complete-empty (known none), positive capability usage and unqualified/absent summaries (unknown, conservatively hard). Writers and assemblers maintain truthful coverage through retained variants and unloaded content. Profile registration and adoption remain pending.\n\n'
+    text+='The agreed publication coverage rules distinguish complete-empty (known none), positive capability usage and unqualified/absent summaries (unknown, conservatively hard). Writers and assemblers maintain truthful coverage through retained variants and unloaded content. The draft names fixed usd.geospatial.crsResolution.v1 and usd.geospatial.publication.v1 identities. A new meaning requires a distinct identity. Technical metadata registration and approval ownership remain separate; naming adoption is pending.\n\n'
     text+='## Evidence and its limits\n\n'+table(['Path or check','Recorded evidence'],evidence)+'\n\n'
     text+='There are two placement readers. Omniverse reuses Python with a verified stage geometry sink. Hydra consumes a C++-resolved ordinary USD bake. This evidence establishes no third independent engine, Omniverse rendering, geospatial Hydra filter or physics integration. Polygonal vertex/face bounds do not certify the continuous image of a curved source surface or a trajectory between baked samples.\n\n'
     text+='## Authority and reproduction\n\nThe README and deck explain the same pinned proposal and immutable execution. Collateral adds no normative authority.\n\n'
     text+=f"Proposal commit: `{facts['proposal_revision']}`. Proposal SHA-256: `{facts['proposal_sha256']}`. Execution source: `{facts['source_commit']}`. Immutable receipt SHA-256: `{facts['receipt_sha256']}`.\n\n"
-    text+='[Receipt](delivery/run-report.json) · [31 requirement mappings](proposal/traceability.md) · [Diagnostic results](delivery/revised-leans-20261008/audit-diagnostics.json) · [Scope and publisher controls](delivery/revised-leans-20261008/scope-audit.json) · [Quoted WKT control](delivery/revised-leans-20261008/quoted-keyword-audit.json) · [Focused conformance controls](delivery/revised-leans-20261008/closure-audit.json)\n\n'
-    text+='<details>\n<summary>Run comparison and execution history</summary>\n\n[Recorded comparison](delivery/revised-leans-20261008/run-comparison.json) separates intended contract effects from regressions. Historical failure and repair records remain in the immutable execution directories. They are supporting evidence, not the structure of this assessment.\n\n</details>\n\n'
+    text+='[Receipt](delivery/run-report.json) · [31 requirement mappings](proposal/traceability.md) · [Diagnostic results](delivery/feedback-20261012/audit-diagnostics.json) · [Scope and publisher controls](delivery/feedback-20261012/scope-audit.json) · [Quoted WKT control](delivery/feedback-20261012/quoted-keyword-audit.json) · [Focused conformance controls](delivery/feedback-20261012/closure-audit.json)\n\n'
+    text+='<details>\n<summary>Run comparison and execution history</summary>\n\n[Recorded comparison](delivery/feedback-20261012/run-comparison.json) separates intended contract effects from regressions. Historical failure and repair records remain in the immutable execution directories. They are supporting evidence, not the structure of this assessment.\n\n</details>\n\n'
     text+='`collateral/revised_leans_delivery.py` extracts pinned evidence. `collateral/standalone_delivery.py` supplies this shared explanation and slide story. `collateral/revised_leans_slides.mjs` renders the story without adding presentation-only technical claims. The delivery review checks standalone meaning, evidence boundaries, literal source wording and every rendered slide.\n\n'
     text+='Eiffel mesh: [SDC PERFORMANCE, Free La Tour Eiffel](https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The diagrams use illustrative positions and ground context. Partner-data credit and permission remain in [data documentation](data/README.md) and [partner license](data/LICENSE-partner.txt).\n'
     (root/'README.md').write_text(text,encoding='utf-8',newline='\n')
@@ -199,5 +199,5 @@ if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,required=True);parser.add_argument('--run',type=Path,required=True);parser.add_argument('--output',type=Path)
     args=parser.parse_args()
-    facts=json.loads((args.root/'delivery/revised-leans-20261008/story.json').read_text())
+    facts=json.loads((args.root/'delivery/feedback-20261012/story.json').read_text())
     publish(args.root,facts,args.run,args.output)

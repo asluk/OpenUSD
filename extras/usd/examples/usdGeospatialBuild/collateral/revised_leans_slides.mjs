@@ -6,8 +6,8 @@ import {Presentation,PresentationFile} from '@oai/artifact-tool';
 
 const W='C:/Users/aluk/Documents/Codex/2026-09-21/have';
 const root='C:/git/worktrees/geospatial-openusd-delivery/extras/usd/examples/usdGeospatialBuild';
-const output=path.join(W,'outputs/geospatial-proposal-quality-20261008');
-const build=path.join(W,'work/geospatial-standalone-assessment-20261008-v3');
+const output=path.join(W,'outputs/geospatial-feedback-build-20261012');
+const build=path.join(W,'work/geospatial-feedback-assessment-20261012-v1');
 const skill='C:/Users/aluk/.codex/plugins/cache/openai-primary-runtime/presentations/26.1007.11041/skills/presentations';
 const python='C:/Users/aluk/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe';
 const reference=path.join(W,'outputs/geospatial-human-delivery-20261006/Geospatial-proposal-assessment-2026-10-06-v2.pptx');
@@ -43,7 +43,7 @@ async function image(s,c,x,y,w,h){
 function notes(s,n,extra=''){
  const meta=story.slides[n-1],c=story.cases.find(c=>c.id===meta.case);
  const words=c?['Question: '+c.question,'Proposed rule: '+c.rule,'Expected behavior: '+c.expected,'Observed result: '+c.observed,'What this says about the proposal: '+c.implication,'Limit: '+c.boundary,'Proposal clause: '+c.clause_heading+' at proposal/proposal-source.txt:'+c.clause_line,'Requirements: '+c.requirement_ids.join(', ')].join('\n'):JSON.stringify({assessment:story.status_rows,placement:story.placement_choice_rows,data:story.data_choice_rows});
- s.speakerNotes.textFrame.setText(words+'\n'+extra+'\nProposal '+story.proposal_revision+' SHA-256 '+story.proposal_sha256+'\nREADME SHA-256 '+story.readme_sha256+'\nImmutable receipt SHA-256 '+story.receipt_sha256+'\nEiffel mesh: SDC PERFORMANCE, https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674, CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ . Informative positions and ground context do not establish surveyed placement.\nFull detailed model remains proposed. Python and C++ share PROJ and decoding. Omniverse reuses Python. Hydra consumes a resolved ordinary USD bake.');
+ s.speakerNotes.textFrame.setText(words+'\n'+extra+'\nProposal '+story.proposal_revision+' SHA-256 '+story.proposal_sha256+'\nREADME SHA-256 '+story.readme_sha256+'\nImmutable receipt SHA-256 '+story.receipt_sha256+'\nEiffel mesh: SDC PERFORMANCE, https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674, CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ . Informative positions and ground context do not establish surveyed placement.\nAccepted source and declaration rules are distinguished from detailed conventions and identities awaiting review. Python and C++ share PROJ and decoding. Omniverse reuses Python. Hydra consumes a resolved ordinary USD bake.');
 }
 {
  const s=slide(1);text(s,story.opening,64,153,1152,163,31);text(s,story.assessment,64,347,1152,181,31,false,C.teal);text(s,story.summary,64,575,1152,127,27,false,C.muted);notes(s,1);
@@ -84,7 +84,7 @@ for(const n of [12,13]){
  const s=slide(14);table(s,[['Path or check','Recorded evidence'],...story.evidence_rows],151,459,[340,812],23);text(s,'There are two placement readers. Omniverse reuses Python with a verified stage geometry sink. Hydra consumes a C++-resolved ordinary USD bake.',64,637,1152,75,25,false,C.muted);notes(s,14,JSON.stringify(story.evidence_rows));
 }
 const draft=path.join(build,'draft.pptx');await(await PresentationFile.exportPptx(p)).save(draft);
-const final=path.join(output,'Geospatial-proposal-quality-assessment-2026-10-08-v3.pptx');
+const final=path.join(output,'Geospatial-proposal-assessment-2026-10-12-v1.pptx');
 const tables=story.required_native_table_slides;
 const result=await finalizePresentation({workspaceDir:W,candidatePath:draft,finalPath:final,pythonExecutable:python,integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-heading-fit',...tables.flatMap(n=>['--require-native-table-slide',String(n)])],explicitTotalSlideCount:14,requiredNativeTableOwnerSlides:tables,requiredNativeChartOwnerSlides:[11],materializeLiteralChartWorkbooks:true,fontPolicy:{basis:'reference',families:['Arial'],referencePath:reference,referenceSha256:sha(await fs.readFile(reference))},verifyArtifactToolImport:true,receiptPath:path.join(build,'validation.json')});
 await fs.writeFile(path.join(build,'content-evidence.json'),JSON.stringify({readme_sha256:story.readme_sha256,proposal_sha256:story.proposal_sha256,slides:evidence},null,2));

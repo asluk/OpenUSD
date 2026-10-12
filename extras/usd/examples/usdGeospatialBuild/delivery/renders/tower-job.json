@@ -1,7 +1,7 @@
 {
-  "stage": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-revised-leans-run-20261008-v2\\exports\\tower.usda",
+  "stage": "exports/tower.usda",
   "time": 0,
-  "render": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-revised-leans-run-20261008-v2\\renders\\tower.png",
+  "render": "renders/tower.png",
   "camera_eye": [
     648983.0900020442,
     6861447.92626258,
