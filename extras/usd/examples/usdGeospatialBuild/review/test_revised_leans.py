@@ -145,7 +145,12 @@ def test_baked_wkt_obeys_same_normal_form(tmp_path):
     UsdGeom.SetStageUpAxis(s,'Z');UsdGeom.SetStageMetersPerUnit(s,1)
     attr(root,'crs:wkt',Sdf.ValueTypeNames.Token,ECEF.replace('[','[ ',1),True)
     mesh=triangle(s,'/Baked/Mesh')
-    with pytest.raises(ContractError,match='normalized'):Runtime(s,ECEF).placement(mesh.GetPrim(),[[0,0,0]])
+    from review.wkt_profile import WKTNormalizationWarning
+    before=s.GetRootLayer().ExportToString()
+    with pytest.warns(WKTNormalizationWarning):
+        result=Runtime(s,ECEF).placement(mesh.GetPrim(),[[0,0,0]])
+    assert np.allclose(result,[[0,0,0]])
+    assert s.GetRootLayer().ExportToString()==before
 
 @pytest.mark.parametrize('cartesian,adjusted',[(False,False),(False,True),(True,True)])
 def test_absolute_geographic_adjustment_needs_authored_cartesian_context(tmp_path,cartesian,adjusted):
