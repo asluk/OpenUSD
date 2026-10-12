@@ -1,6 +1,6 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4
+Source SHA-256: 276ae17d60e9b4801947525528c98cfac58b25a7e6ac5999dc01ddb60a2e83b9
 
 ### Functional requirements
 
@@ -156,7 +156,7 @@ are distinct steps.
 <!-- Start a separate list so the new identifier renders as 31. -->
 
 31. **Same definition, same meaning.**
-    CRS definitions use the proposal's prescribed WKT string normal form, whose
+    Writers author CRS definitions in the prescribed WKT string normal form, whose
     specified lexical variants normalize to identical text without loss of
     represented information or changed coordinate interpretation, while
     comparisons distinguish serialized-definition identity from CRS equivalence
@@ -168,7 +168,8 @@ are distinct steps.
     These differences need not imply different coordinate definitions.
     A prescribed normal form makes identical serialized definitions comparable,
     while requiring valid WKT from other tools to be normalized before conforming
-    authoring. That is an additional interchange constraint, not a restriction OGC
+    authoring. Readers warn on non-normal spelling without rejecting an otherwise
+    supported valid definition. That is an additional authoring constraint, not a restriction OGC
     already imposes. The proposed profile is under review in question 10.
     Changing an axis order, unit or datum can change the meaning;
     normalization cannot erase those differences, or discard names and remarks

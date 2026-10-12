@@ -41,9 +41,11 @@ def execute(root,args):
     buildcmd=out/'build-native.cmd'
     buildcmd.write_text('@echo off\ncall "C:/Program Files/Microsoft Visual Studio/18/Community/VC/Auxiliary/Build/vcvars64.bat" >nul\nif errorlevel 1 exit /b %errorlevel%\n"'+args.cmake+'" --build "'+args.native_build+'" --target leansNative leansRender\nexit /b %errorlevel%\n')
     command(['cmd','/c',str(buildcmd)],out/'native-build.log',env)
-    command([sys.executable,'-X','utf8','-m','pytest',str(root/'review/test_contracts.py'),str(root/'review/test_wkt_contracts.py'),str(root/'review/test_split_feedback.py'),str(root/'review/test_hpr_contracts.py'),str(root/'review/test_revised_leans.py'),str(root/'review/test_feedback_identity.py'),'-q','-p','no:cacheprovider','--basetemp='+str(out/'pytest'),'--junitxml='+str(out/'contracts.xml')],out/'contracts.log',env)
+    command([sys.executable,'-X','utf8','-m','pytest',str(root/'review/test_contracts.py'),str(root/'review/test_wkt_contracts.py'),str(root/'review/test_split_feedback.py'),str(root/'review/test_hpr_contracts.py'),str(root/'review/test_revised_leans.py'),str(root/'review/test_feedback_identity.py'),str(root/'review/test_sebastien_feedback.py'),'-q','-p','no:cacheprovider','--basetemp='+str(out/'pytest'),'--junitxml='+str(out/'contracts.xml')],out/'contracts.log',env)
     tests=ET.parse(out/'contracts.xml').getroot().findall('.//testcase');assert not any(t.findall('failure') or t.findall('error') for t in tests)
-    jobs,targets=build(root,out/'fixtures');write(out/'jobs.json',jobs)
+    from review.sebastien_controls import add_jobs,verify_examples
+    write(out/'proposal-example-checks.json',verify_examples(root))
+    jobs,targets=build(root,out/'fixtures');add_jobs(jobs,out/'fixtures');write(out/'jobs.json',jobs)
     fixture_hashes={p.relative_to(out/'fixtures').as_posix():sha(p) for p in (out/'fixtures').rglob('*') if p.is_file()}
     native_env=env.copy();native_env['PATH']=';'.join([str(Path(args.native_proj)/'bin'),str(Path(args.usd_sdk)/'bin'),str(Path(args.usd_sdk)/'lib'),args.native_python,env['PATH']])
     resources=args.grids+';'+str(Path(args.native_proj)/'share/proj')

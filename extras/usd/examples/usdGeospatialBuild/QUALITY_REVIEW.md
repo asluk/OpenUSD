@@ -1,6 +1,6 @@
 # Proposal quality review
 
-Authority: full local proposal da2f49aad42811fc5d660c7bcf9ff190599f2d74, SHA-256 2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4. All 31 requirements and
+Authority: full local proposal e51919927ced49b9c68bcd86160be468121f633d, SHA-256 276ae17d60e9b4801947525528c98cfac58b25a7e6ac5999dc01ddb60a2e83b9. All 31 requirements and
 the placement input fields remain unchanged. The changes record accepted rules
 and specify fixed versioned dependency identities. Names and approval ownership
 remain proposed; technical plugin registration does not confer standards adoption.

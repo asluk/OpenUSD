@@ -1,8 +1,12 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4
+Source SHA-256: 276ae17d60e9b4801947525528c98cfac58b25a7e6ac5999dc01ddb60a2e83b9
 
 ## Runtime coordinate transformation
+
+**Writer.** Authors provide the source CRS and placement or measurement inputs.
+
+**Reader.** Consumers evaluate the declared order and return results in the requested output context.
 
 The functional requirements and recorded decisions specify observable behavior,
 including resolved coordinate queries and scene placement. They do not require
@@ -297,6 +301,10 @@ extent/error contract, rather than treating their controls as the whole surface.
 
 ### Observable outcomes and failures
 
+**Writer.** Authors preserve the input facts and correct invalid authored associations.
+
+**Reader.** Consumers return the requested result with its context, or report the specified failure.
+
 Resolution leaves source layers unchanged. Unsupported requests, broken bindings
 and failed or incomplete operations fail visibly. A batch may report individual
 failures, but cannot return an unchanged failed coordinate as a successful
@@ -310,6 +318,10 @@ stored computed geospatial properties on the source. That export's once-only
 placement and fresh-reader obligations are specified below.
 
 ### Extent and result comparison
+
+**Writer.** Authors and requesting clients state the extent and required physical tolerance.
+
+**Reader.** Consumers report supported accuracy and compare results in a meaningful physical metric.
 
 **Proposed clarification of question 13.** These are observable result
 obligations; they prescribe neither callable interfaces nor an engine's
@@ -367,6 +379,10 @@ case, not guessed after seeing the results or stored in an undocumented scene
 attribute.
 
 ### Explicit export and sampling
+
+**Writer.** Publishers explicitly bake a derived copy and declare its sampling and coverage.
+
+**Reader.** Ordinary USD consumers use the baked geometry and transforms without resolving source placement again.
 
 **Proposed clarification of question 14 using existing USD fields.** A resolved
 export is a new authored dataset in its recorded output CRS. Baking resolved

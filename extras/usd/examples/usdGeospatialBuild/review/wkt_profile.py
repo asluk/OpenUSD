@@ -6,7 +6,6 @@ Unsupported lexical contexts fail explicitly rather than selecting a meaning.
 """
 from pathlib import Path
 import ctypes as C
-from decimal import Decimal
 import re
 import pyproj
 
@@ -103,19 +102,20 @@ def strict_crs(value):
 
 
 def decimal_spelling(raw, integer=False):
-    value = Decimal(raw)
-    if integer:
-        if value != value.to_integral_value():
-            raise WKTProfileError('Integer production has a noninteger value')
-        return str(int(value))
-    if value.is_zero():
-        return '0.0'
-    text = format(value, 'f')
-    if text.startswith('+'):
-        text = text[1:]
-    if '.' in text:
-        text = text.rstrip('0').rstrip('.')
-    return text if '.' in text else text + '.0'
+    # Exact decimal-character rewrite; no numeric rounding or typed serializer.
+    match=re.fullmatch(r'([+-]?)(\d*)(?:\.(\d*))?(?:[Ee]([+-]?\d+))?',raw)
+    if not match or not (match[2] or match[3]):
+        raise WKTProfileError('Invalid decimal text')
+    sign,whole,fraction,exponent=match.groups();fraction=fraction or ''
+    digits=whole+fraction;point=len(whole)+int(exponent or '0')
+    if not digits.strip('0'):return '0'
+    if point<=0:text='0.'+'0'*(-point)+digits
+    elif point>=len(digits):text=digits+'0'*(point-len(digits))
+    else:text=digits[:point]+'.'+digits[point:]
+    whole,sep,fraction=text.partition('.')
+    whole=whole.lstrip('0') or '0';fraction=fraction.rstrip('0')
+    text=whole+('.'+fraction if fraction else '')
+    return ('-' if sign=='-' else '')+text
 
 
 def normalize(value):
@@ -184,3 +184,23 @@ def validate_normal_form(value):
     if normalized != value:
         raise WKTProfileError('Authored WKT is not a fixed point of the candidate normal form')
     return normalized
+
+
+class WKTNormalizationWarning(UserWarning):
+    pass
+
+def validate_readable(value):
+    """Supported grammar is required; lexical normal form is a writer obligation."""
+    import warnings
+    if re.match(r'^\s*COORDINATEMETADATA\s*[\[(]',value,re.I):
+        raise UnsupportedWKT('CRS-only profile; coordinate epochs are deferred')
+    strict_crs(value)
+    try:
+        normal=normalize(value)
+    except UnsupportedWKT as error:
+        # A valid syntax reader can accept a form the prototype writer cannot normalize.
+        warnings.warn('WKT normalization could not be certified: '+str(error),WKTNormalizationWarning)
+        return value
+    if normal!=value:
+        warnings.warn('Valid WKT is not in the writer normal form',WKTNormalizationWarning)
+    return value

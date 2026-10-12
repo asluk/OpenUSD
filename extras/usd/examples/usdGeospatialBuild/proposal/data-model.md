@@ -1,6 +1,6 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4
+Source SHA-256: 276ae17d60e9b4801947525528c98cfac58b25a7e6ac5999dc01ddb60a2e83b9
 
 ### Schema design
 
@@ -104,6 +104,10 @@ and approximation contract in question 13; this does not impose a universal
 
 ### GeospatialCRS typed schema
 
+**Writer.** Authors define and share one complete CRS WKT value.
+
+**Reader.** Consumers use the composed definition as the coordinate authority.
+
 A concrete typed schema that defines a CRS as a first-class USD prim.
 
 **Prim type name:** `CoordinateReferenceSystem`
@@ -167,6 +171,10 @@ def CoordinateReferenceSystem "WGS84_UTM11N" (
 ```
 
 ### CRS association and model placement
+
+**Writer.** Authors bind a model and supply its absolute position and physical attitude.
+
+**Reader.** Consumers compute placement from those inputs, retaining ordinary USD adjustments.
 
 **Proposed definitions for questions 2 and 6.** These properties contain inputs
 only. Resolved positions, orientation, convergence, scale, distortion and bounds
@@ -275,6 +283,10 @@ quaternion signs as well as the physical rotation.
 
 ### External measurement association
 
+**Writer.** Authors identify the native asset, selected field and coordinate domain.
+
+**Reader.** Consumers keep values, coordinates and observation times paired using native declarations.
+
 **Proposed carrier for question 11.** Add a concrete typed
 `GeospatialDataSource` derived from `UsdGeomXformable`, with a direct
 `GeospatialCRSBindingAPI`. Its type identifies absolute external coordinates;
@@ -335,6 +347,10 @@ same adjusted locations; adding a model anchor again would double-place them.
 
 ### Dependency declaration with Profiles
 
+**Writer.** Publishers maintain conservative coverage declarations outside payloads.
+
+**Reader.** Consumers read those declarations without loading or traversing the content.
+
 **Agreed declaration semantics for question 12; identities remain proposed.** Use the existing
 [Profiles claims and profile-conformance carrier](https://openusd.org/release/user_guides/schemas/UsdProfiles/overview.html).
 Propose capability `usd.geospatial.crsResolution.v1`, dependent on `usd`, and
@@ -389,87 +405,63 @@ not a new geospatial attribute or a scene traversal requirement for the reader.
 
 ### WKT string normalization
 
-**Proposed authoring profile, under review in question 10.** This section
-specifies WKT text handling; coordinate resolution and CRS equivalence are
-distinct operations.
+**Proposed writing and reading contract for question 10.** Writers author
+`crs:wkt` in normal form. Readers accept valid WKT2 in the supported coordinate
+profile even when its text is not normalized. A non-normal value raises a
+validation warning, never a resolution failure solely for its spelling, and
+resolution never rewrites the source layer.
 
 #### Scope and source of the profile
 
-Retain `uniform token crs:wkt`. Prescribe a **lossless lexical normal form** for
-complete CRS WKT, using the grammar and preferred spellings in
-[OGC 18-010r11 / ISO 19162, clauses 6–7 and Annex B](https://docs.ogc.org/is/18-010r11/18-010r11.pdf).
-That document permits multiple spellings and recommends writer conventions;
-it does not prescribe a unique canonical CRS identity string.
+Retain `uniform token crs:wkt`. Use the grammar and preferred spellings in
+[OGC 18-010r11 / ISO 19162:2019, clauses 6–7 and Annex B](https://docs.ogc.org/is/18-010r11/18-010r11.pdf).
+OGC permits spelling variants and recommends writer conventions; it does not
+prescribe a unique CRS identity string. This lossless lexical normal form is a
+proposed USD authoring profile of those conventions, not a CRS equivalence
+algorithm or a requirement to use a particular library.
 
-This is a proposed USD authoring profile of those conventions. It does not
-establish a new geospatial equivalence algorithm or require a particular engine.
+**Writers** use the following normal form (requirement 31):
 
-1. Emit preferred WKT keywords in uppercase and enumerations in their prescribed
-   spelling; emit square brackets and no padding outside quoted text.
-2. Preserve quoted content exactly, including names, remarks, case and internal
-   whitespace. Use the WKT escaping rules. Preserve all represented nodes and
-   their meaningful order; do not drop identifiers, units, axis declarations,
-   datum metadata, usage metadata or reference-frame epochs.
-3. Preserve numeric values exactly. For productions requiring integers, use
-   [W3C canonical integer spelling](https://www.w3.org/TR/xmlschema-2/#integer-canonical-representation).
-   For real-valued productions, expand any finite decimal exponent exactly and
-   use [W3C canonical decimal spelling](https://www.w3.org/TR/xmlschema-2/#decimal-canonical-representation).
-   Do not round through binary floating point. This numeric convention is an
-   explicit proposed profile choice, not an OGC or PROJ requirement.
-4. Preserve the declared coordinate interpretation. An authority lookup must
-   not replace the supplied definition. Axis reordering, unit conversion and
-   the resolution of a CRS are not WKT string normalization.
+1. Valid WKT2 on one line, with no whitespace outside quoted text, preferred
+   uppercase keywords, prescribed enumeration spelling and square brackets.
+2. Numbers in plain decimal: no exponent, leading `+` or superfluous zeros.
+   Thus `6378137.0` becomes `6378137`, `1E0` becomes `1`, `0.50` becomes `0.5`,
+   and signed zero becomes `0`. Expand decimal exponents and rewrite the text
+   exactly, never by rounding through binary floating point. Grammar still
+   determines which numeric values are valid in each production.
+3. Preserve everything else as supplied: quoted content, including escaped
+   quotes, case and whitespace; every node and its meaningful order;
+   identifiers, units, axes, datum metadata, usage and reference-frame epochs.
 
-Examples of the numeric convention: real-valued `1`, `1.0` and `1E0` emit `1.0`;
-integer-valued `ORDER[1]` remains `ORDER[1]`. An ellipsoid value
-`6378137.12345678912345` keeps that exact value. Unsupported syntax must be
-reported rather than silently discarded by the normalizer.
+A conforming authored token is a fixed point of this normal form. Any parser,
+tokenizer or writer may be used if its output satisfies these preservation and
+spelling rules. An engine's valid WKT export is not automatically lossless.
+The plain-decimal convention is an explicit proposed profile choice, not an OGC
+or PROJ requirement. Pretty-printed examples in this document are readable
+source representations, not pre-normalized authored tokens.
 
-The proposal can reference these established lexical rules without prescribing
-a novel transformation algorithm. An implementation can use an existing WKT
-parser/tokenizer and exact-decimal library; conformance depends on the specified
-output and preservation, not the library name.
+**Readers** validate grammar and report non-normal spelling as a warning.
+Invalid WKT or a coordinate interpretation the supported profile cannot honor
+still fails visibly. Accepting non-normal text does not authorize discarding an
+embedded operation or substituting the base CRS. Coordinate-epoch wrappers
+remain outside the initial profile.
 
 #### What token comparison establishes
 
-Equal normalized tokens establish identity of the preserved serialized
-definition. Unequal tokens establish only that those serialized definitions
-differ. They must not, by themselves, establish that the CRSs differ in
-coordinate meaning.
+Equal normalized text establishes identity of the preserved serialized
+definition. Different text establishes only that the serialized definitions
+differ. It does not prove different coordinate meaning or a required conversion.
+Names, remarks and permitted structural alternatives remain represented and
+can differ even when the engine establishes equivalent coordinate meaning.
 
-For example, changing a CRS display name leaves different authored information
-that normalization must retain, while an established geospatial engine can
-still recognize equivalent coordinate meaning. Structural alternatives, such
-as permitted parameter-order differences, also require semantic comparison
-unless a further structural normal form is prescribed.
-
-Use established engine comparison for that distinct question. PROJ's
+Use established engine comparison for that separate question. PROJ's
 [comparison criteria](https://proj.org/en/stable/development/reference/cpp/util.html)
-are prior art: equivalence need not require identical names and identifiers.
-Report the comparison criterion, retain coordinate-axis/unit interpretation,
-and do not use the criterion that disregards geographic axis order as an
-unqualified placement equality test. An engine's tolerance-based comparison
-does not certify lossless WKT normalization or authorize dropping an operation.
-If equivalence cannot be established, report it as unestablished rather than
-claiming that a text difference proves different CRS meaning.
+are prior art. Report the criterion, preserve axis/unit interpretation, and do
+not use comparison that ignores geographic axis order as an unqualified
+placement equality test. If equivalence cannot be established, report it as
+unestablished. Equal text or engine equivalence never authorizes skipping
+placement, project adjustment or a required operation.
 
-Even identical WKT does not authorize omitting required placement, project
-adjustment, resource-dependent processing or any future epoch-dependent work.
-
-A conforming authored `crs:wkt` token must be a fixed point of this profile:
-normalizing it produces the same token. Validation checks both grammar validity
-and that equality. Importers may normalize valid external WKT before conforming
-authoring; resolution does not rewrite source layers. A simplified WKT export,
-database replacement or visualization-axis rewrite is not this normalizer.
-
-CRS-only authority does not authorize silently discarding an authored conversion
-or transformation embedded in an otherwise valid WKT form. The site-grid
-conversion is part of its CRS meaning. A form whose interpretation cannot be
-honored in the supported profile must be reported as unsupported, rather than
-replaced with an embedded base CRS. Coordinate-epoch wrappers remain outside
-the initial profile.
-
-An engine writer may be used only if it satisfies the prescribed preservation
-and output rules. Its output must not be assumed lossless merely because it is
-valid WKT or the parsed objects compare equivalent. Numeric values and metadata
-must survive independently of tolerance-based CRS comparison.
+Axis reordering, unit conversion, authority-database replacement and dropping
+the conversion of a derived CRS such as a site calibration are not WKT string
+normalization. Resolution and normalization do not write source layers.

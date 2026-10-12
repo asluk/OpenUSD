@@ -5,9 +5,16 @@ from pxr import Gf, Sdf, Usd, UsdGeom, Vt
 from pyproj import CRS, Transformer
 from review.scope import discover, ScopeError
 from review.placement_values import read
-from review.wkt_profile import normalize, WKTProfileError
+from review.wkt_profile import normalize, validate_readable, WKTProfileError
 
 class ContractError(ValueError): pass
+
+def readable_crs(wkt):
+    validate_readable(wkt)
+    try:engine_text=normalize(wkt)
+    except WKTProfileError:engine_text=wkt
+    return CRS.from_wkt(engine_text)
+
 
 def bound(prim):
     if not prim:return False
@@ -19,10 +26,9 @@ def definition(prim):
     except ScopeError as e:raise ContractError(str(e)) from e
     wkt=record['wkt']
     try:
-        if normalize(wkt)!=wkt:raise ContractError('WKT is not normalized')
+        validate_readable(wkt)
     except WKTProfileError as e:raise ContractError('Invalid WKT: '+str(e)) from e
-    if 'COORDINATEMETADATA' in wkt:raise ContractError('Coordinate epochs deferred')
-    c=CRS.from_wkt(wkt)
+    c=readable_crs(wkt)
     if c.is_bound:raise ContractError('BOUNDCRS unsupported; embedded operation retained')
     roles={a.direction for a in c.axis_info}
     if roles not in [{'east','north'},{'east','north','up'},{'geocentricX','geocentricY','geocentricZ'}]:
@@ -158,8 +164,8 @@ class Runtime:
             raise ContractError('Invalid uniform baked CRS definition')
         try:
             wkt=a.Get()
-            if normalize(wkt)!=wkt:raise ContractError('Baked WKT is not normalized')
-            c=CRS.from_wkt(wkt)
+            validate_readable(wkt)
+            c=readable_crs(wkt)
         except WKTProfileError as e:raise ContractError('Invalid baked WKT: '+str(e)) from e
         if c.is_geographic:raise ContractError('Baked ordinary geometry needs a Cartesian context')
         D,_=self.stack(prim,self.stage.GetPseudoRoot())

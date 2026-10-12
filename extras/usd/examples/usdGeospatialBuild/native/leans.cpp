@@ -36,7 +36,7 @@ JsArray operations;std::set<std::string> recordedOperations;
 bool Bound(const UsdPrim& p){SdfTokenListOp schemas;if(!p.GetMetadata(TfToken("apiSchemas"),&schemas))return false;auto names=schemas.GetAppliedItems();return std::find(names.begin(),names.end(),TfToken("GeospatialCRSBindingAPI"))!=names.end();}
 UsdPrim Owner(UsdPrim p){while(p&&!p.IsPseudoRoot()){if(Bound(p)||p.GetTypeName()==TfToken("CoordinateReferenceSystem"))return p;for(auto name:{"crs:position","crs:orientation"}){auto a=p.GetAttribute(TfToken(name));if(a&&!a.GetPropertyStack(timeCode).empty())throw std::runtime_error(std::string("Invalid placement field on inherited-only descendant: ")+name);}p=p.GetParent();}throw std::runtime_error("No CRS binding");}
 
-void RequireNormalWkt(const std::string& w){
+void CheckNormalWkt(const std::string& w){
  static std::set<std::string> checked;if(checked.count(w))return;
  static const std::map<std::string,std::string> aliases={{"GEODETICCRS","GEODCRS"},{"GEOGRAPHICCRS","GEOGCRS"},{"PROJECTEDCRS","PROJCRS"},{"VERTICALCRS","VERTCRS"},{"ENGINEERINGCRS","ENGCRS"},{"GEODETICDATUM","DATUM"},{"TRF","DATUM"},{"VERTICALDATUM","VDATUM"},{"VRF","VDATUM"},{"ENGINEERINGDATUM","EDATUM"},{"SPHEROID","ELLIPSOID"},{"PRIMEMERIDIAN","PRIMEM"},{"TIMEDATUM","TDATUM"},{"TEMPORALQUANTITY","TIMEUNIT"},{"PARAMETRICDATUM","PDATUM"}};
  static const std::map<std::string,std::string> enums={{"cartesian","Cartesian"},{"ellipsoidal","ellipsoidal"},{"affine","affine"},{"spherical","spherical"},{"vertical","vertical"},{"polar","polar"},{"cylindrical","cylindrical"},{"linear","linear"},{"ordinal","ordinal"},{"parametric","parametric"},{"temporaldatetime","temporalDateTime"},{"temporalcount","temporalCount"},{"temporalmeasure","temporalMeasure"},{"north","north"},{"northnortheast","northNorthEast"},{"northeast","northEast"},{"eastnortheast","eastNorthEast"},{"east","east"},{"eastsoutheast","eastSouthEast"},{"southeast","southEast"},{"southsoutheast","southSouthEast"},{"south","south"},{"southsouthwest","southSouthWest"},{"southwest","southWest"},{"westsouthwest","westSouthWest"},{"west","west"},{"westnorthwest","westNorthWest"},{"northwest","northWest"},{"northnorthwest","northNorthWest"},{"up","up"},{"down","down"},{"geocentricx","geocentricX"},{"geocentricy","geocentricY"},{"geocentricz","geocentricZ"},{"columnpositive","columnPositive"},{"columnnegative","columnNegative"},{"rowpositive","rowPositive"},{"rownegative","rowNegative"},{"displayright","displayRight"},{"displayleft","displayLeft"},{"displayup","displayUp"},{"displaydown","displayDown"},{"forward","forward"},{"aft","aft"},{"port","port"},{"starboard","starboard"},{"clockwise","clockwise"},{"counterclockwise","counterClockwise"},{"towards","towards"},{"awayfrom","awayFrom"},{"future","future"},{"past","past"},{"unspecified","unspecified"},{"exact","exact"},{"wraparound","wraparound"}};
@@ -72,28 +72,34 @@ void RequireNormalWkt(const std::string& w){
   if(stack.empty())throw std::runtime_error("Invalid WKT lexical context");
   if(t.front()!='"'){
    if(std::isdigit(static_cast<unsigned char>(t.front()))||t.front()=='-'||t.front()=='+'||t.front()=='.'){
-    auto context=stack.back();bool integer=(context.first=="CS"&&context.second==1)||context.first=="ORDER"||(context.first=="ID"&&context.second==1);
-    static const std::regex intForm("(0|-?[1-9][0-9]*)");
-    static const std::regex realForm("-?(0|[1-9][0-9]*)\\.[0-9]+");
-    if(integer?!std::regex_match(t,intForm):!std::regex_match(t,realForm))throw std::runtime_error("Authored WKT number is not normalized");
-    if(!integer){auto dot=t.find('.');auto frac=t.substr(dot+1);if((frac.size()>1&&frac.back()=='0')||t=="-0.0")throw std::runtime_error("Authored WKT decimal is not normalized");}
+    static const std::regex plain("-?(0|[1-9][0-9]*)(\\.[0-9]*[1-9])?");
+    if(!std::regex_match(t,plain)||t=="-0")throw std::runtime_error("Authored WKT number is not normalized");
    }else{auto lower=t;std::transform(lower.begin(),lower.end(),lower.begin(),[](unsigned char c){return char(std::tolower(c));});auto e=enums.find(lower);if(e==enums.end()||e->second!=t)throw std::runtime_error("Authored WKT enumeration is not normalized");}
   }
   stack.back().second++;
  }
  if(!stack.empty())throw std::runtime_error("Unclosed WKT");
+ checked.insert(w);
+}
+
+JsArray normalizationWarnings;
+void RequireNormalWkt(const std::string& w){
+ static std::set<std::string> checked;if(checked.count(w))return;
+ if(std::regex_search(w,std::regex("^\\s*COORDINATEMETADATA\\s*[\\[(]",std::regex::icase)))throw std::runtime_error("Coordinate epochs deferred; CRS-only profile");
  const char* options[]={"STRICT=YES","UNSET_IDENTIFIERS_IF_INCOMPATIBLE_DEF=NO",nullptr};char** warnings=nullptr;char** errors=nullptr;
  auto obj=proj_create_from_wkt(ctx,w.c_str(),options,&warnings,&errors);
  bool bad=!obj||!proj_is_crs(obj)||(warnings&&warnings[0])||(errors&&errors[0]);
  if(warnings)proj_string_list_destroy(warnings);if(errors)proj_string_list_destroy(errors);if(obj)proj_destroy(obj);
- if(bad)throw std::runtime_error("Invalid or unsupported strict WKT grammar");checked.insert(w);
+ if(bad)throw std::runtime_error("Invalid or unsupported strict WKT grammar");
+ try{CheckNormalWkt(w);}catch(const std::exception& e){normalizationWarnings.push_back(JsValue(std::string("Valid WKT normalization warning: ")+e.what()));}
+ checked.insert(w);
 }
 
 std::string Wkt(UsdPrim p){p=Owner(p);TfToken w;auto a=p.GetAttribute(TfToken("crs:wkt"));if(!a||a.GetTypeName()!=SdfValueTypeNames->Token||a.GetVariability()!=SdfVariabilityUniform||a.GetNumTimeSamples()!=0||!a.Get(&w)||w.IsEmpty())throw std::runtime_error("Invalid nearest CRS binding");RequireNormalWkt(w.GetString());return w.GetString();}
 struct Definition {
  PJ* object;bool geographic=false,requiresVertical=false;GfVec3d units{1};int dimensions=0;double a=0,b=0;
  Definition(const std::string& wkt){
-  if(wkt.find("COORDINATEMETADATA")!=std::string::npos)throw std::runtime_error("Coordinate epochs deferred");
+  RequireNormalWkt(wkt);
   object=proj_create(ctx,wkt.c_str());if(!object)throw std::runtime_error("Invalid WKT");auto type=proj_get_type(object);
   if(type==PJ_TYPE_BOUND_CRS)throw std::runtime_error("BOUNDCRS unsupported; no embedded operation dropped");
   geographic=type==PJ_TYPE_GEOGRAPHIC_2D_CRS||type==PJ_TYPE_GEOGRAPHIC_3D_CRS;
@@ -303,6 +309,6 @@ int main(int argc,char** argv){try{
  }
  if(job.count("dataset_coordinates")){auto p=stage->GetPrimAtPath(SdfPath(job.at("dataset").GetString()));if(p.GetTypeName()!=TfToken("GeospatialDataSource"))throw std::runtime_error("No dataset role");auto source=Wkt(p);JsArray coords;for(auto v:job.at("dataset_coordinates").GetJsArray()){if(int(v.GetJsArray().size())!=Def(source).dimensions)throw std::runtime_error("Missing sample component");coords.push_back(Json(Measurement(p,source,Vec(v)),Def(output).dimensions));}result["dataset_coordinates"]=JsValue(coords);}
  if(!geometry.empty()){GfVec3d low(std::numeric_limits<double>::max()),high(-std::numeric_limits<double>::max());for(auto& kv:geometry)for(auto v:kv.second.GetJsArray()){auto xyz=Vec(v);if(Def(output).geographic)xyz=Convert(output,Geocentric(output),xyz);for(int i=0;i<3;i++){low[i]=std::min(low[i],xyz[i]);high[i]=std::max(high[i],xyz[i]);}}result["polygonal_bounds"]=JsValue(JsObject{{"min",Json(low)},{"max",Json(high)},{"chart_wkt",JsValue(Def(output).geographic?Geocentric(output):output)},{"domain",JsValue("resolved vertices and straight polygonal faces; no continuous source-face certificate")}});}
- std::string after;stage->GetRootLayer()->ExportToString(&after);result["queries"]=JsValue(queries);result["geometry"]=JsValue(geometry);result["geometry_sources"]=JsValue(geometrySources);result["geometry_normals"]=JsValue(geometryNormals);result["operations"]=JsValue(operations);result["source_unchanged"]=JsValue(before==after);result["engine_version"]=JsValue(proj_info().version);
+ std::string after;stage->GetRootLayer()->ExportToString(&after);result["queries"]=JsValue(queries);result["geometry"]=JsValue(geometry);result["geometry_sources"]=JsValue(geometrySources);result["geometry_normals"]=JsValue(geometryNormals);result["operations"]=JsValue(operations);result["source_unchanged"]=JsValue(before==after);result["engine_version"]=JsValue(proj_info().version);result["normalization_warnings"]=JsValue(normalizationWarnings);
  std::ofstream out(argv[2]);JsWriteToStream(JsValue(result),out);return 0;
 }catch(const std::exception& e){std::cerr<<e.what()<<"\n";return 1;}}

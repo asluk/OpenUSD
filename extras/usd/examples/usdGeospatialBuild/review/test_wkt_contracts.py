@@ -20,7 +20,7 @@ def test_spelling_variants_have_hand_specified_normal_text(case):
         'case': outside_quotes(EXACT, str.lower),
         'delimiters': outside_quotes(EXACT, lambda v: v.replace('[', '(').replace(']', ')')),
         'aliases': EXACT.replace('GEODCRS[', 'GEODETICCRS[').replace('PRIMEM[', 'PRIMEMERIDIAN['),
-        'exponent': EXACT.replace('6378137.12345678912345', '6.37813712345678912345E6').replace('1.0]', '1E0]'),
+        'exponent': EXACT.replace('6378137.12345678912345', '6.37813712345678912345E6').replace(',1]', ',1E0]'),
     }[case]
     assert normalize(variant) == EXACT
     assert normalize(normalize(variant)) == EXACT
@@ -33,7 +33,7 @@ def test_fixed_point_and_exact_numeric_precision(value):
 
 
 @pytest.mark.parametrize('raw,expected', [
-    ('1', '1.0'), ('1.00', '1.0'), ('1E0', '1.0'), ('-0E9', '0.0'),
+    ('1', '1'), ('1.00', '1'), ('1E0', '1'), ('-0E9', '0'),
     ('+001.2300E-2', '0.0123'), ('6378137.12345678912345', '6378137.12345678912345'),
 ])
 def test_exact_decimal_convention(raw, expected):
@@ -55,7 +55,7 @@ def test_normalizer_does_not_use_lossy_engine_serialization():
 
 def test_frame_epoch_is_preserved_as_crs_metadata():
     dynamic = EXACT.replace('DATUM[', 'DYNAMIC[FRAMEEPOCH[2015.0]],DATUM[', 1)
-    assert 'FRAMEEPOCH[2015.0]' in normalize(dynamic)
+    assert 'FRAMEEPOCH[2015]' in normalize(dynamic)
     assert normalize(dynamic.replace('2015.0', '2016.0')) != normalize(dynamic)
 
 
