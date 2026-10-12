@@ -100,7 +100,7 @@ struct Definition {
  PJ* object;bool geographic=false,requiresVertical=false;GfVec3d units{1};int dimensions=0;double a=0,b=0;
  Definition(const std::string& wkt){
   RequireNormalWkt(wkt);
-  object=proj_create(ctx,wkt.c_str());if(!object)throw std::runtime_error("Invalid WKT");auto type=proj_get_type(object);
+  const char* parseOptions[]={"STRICT=YES","UNSET_IDENTIFIERS_IF_INCOMPATIBLE_DEF=NO",nullptr};object=proj_create_from_wkt(ctx,wkt.c_str(),parseOptions,nullptr,nullptr);if(!object)throw std::runtime_error("Invalid WKT");auto type=proj_get_type(object);
   if(type==PJ_TYPE_BOUND_CRS)throw std::runtime_error("BOUNDCRS unsupported; no embedded operation dropped");
   geographic=type==PJ_TYPE_GEOGRAPHIC_2D_CRS||type==PJ_TYPE_GEOGRAPHIC_3D_CRS;
   auto horizontal=object;PJ* vertical=nullptr;
