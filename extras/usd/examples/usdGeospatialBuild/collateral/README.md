@@ -41,12 +41,31 @@ related cases when it improves the story; do not allocate a slide per requiremen
 | Composition and instances | Do imported and repeated models keep their intended placement? Show an independently bound prototype, instance-local offsets, and an explicitly unsupported inverse. |
 | Ordinary USD bake | Can an unaware consumer use the derived copy? Show rendering and reassembly without double placement; distinguish sampled geometry from an unverified continuous space/time guarantee. |
 
-Profiles belongs in the primary explanation, alongside placement and analytics.
-Explain why declaration matters, not merely the metadata syntax. A consumer's
-summary read demonstrates detection; it does not prove that a publisher's
-coverage claim is true. Include unloaded content, retained alternatives,
-assembly/export maintenance and fixed-identity controls where applicable.
-Keep proposed names and approval ownership distinct from agreed coverage rules.
+Name **USD Profiles** directly in a main slide title and the corresponding
+README section. Introduce it as the existing USD mechanism for declaring required
+capabilities and profile conformance, then explain the proposed geospatial use.
+Connect the benefit to adoption: tools can discover which processing is needed
+before loading the content, and publishers supply an interoperable declaration.
+
+Show the workflow in plain language: the author records a required capability;
+the publisher qualifies and maintains coverage through references, variants,
+edits and baking; the consumer reads the declaration with payloads closed.
+Include one small authored metadata example using the proposal's actual carrier,
+plus the resulting consumer interpretation and executed proof. Explain required,
+known-none and unknown coverage before introducing their technical labels.
+
+Keep the stale known-none publisher counterexample separate from discovery.
+A summary read detects a declaration; it cannot prove its truth. Explain what a
+consumer can determine when geospatial support is available or unavailable,
+using the pinned contract and actual observations rather than inventing a loader
+API. Include unloaded content, retained alternatives and identity controls.
+State that geospatial v1 identities are proposed and local plugin registration
+does not establish standards adoption or approval ownership.
+
+Review whether a newcomer can identify USD Profiles, understand who authors and
+maintains the declaration, and explain what the consumer learns without opening
+the payload. A generic dependency table or a mention confined to notes does not
+satisfy this delivery goal.
 
 For each selected decision, reuse the question, rule, expected result, observation,
 proposal implication and limit structure. Bind it to the new run's exact clause,
