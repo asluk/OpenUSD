@@ -23,7 +23,7 @@ def Xform "World" (
 {
     def GeospatialDataSource "Data" (
         apiSchemas = ["GeospatialCRSBindingAPI"]
-        prepend references = @./crs-library.usda@</Definitions/C21567ba65f4034ba>
+        prepend references = @./crs-library.usda@</Definitions/C684133c0b75aab14>
     )
     {
         uniform asset data:asset = @./rail-horizontal.geojson@

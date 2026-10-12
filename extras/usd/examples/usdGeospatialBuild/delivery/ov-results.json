@@ -1318,7 +1318,7 @@
             111314.83908437128,
             0.0
           ],
-          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
+          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -1439,7 +1439,7 @@
             1.0,
             0.0
           ],
-          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
+          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -1560,7 +1560,7 @@
             1.0,
             0.0
           ],
-          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
+          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -1681,7 +1681,7 @@
             222594.77059042643,
             0.0
           ],
-          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
+          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -1898,7 +1898,7 @@
             0.0,
             0.0
           ],
-          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
+          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -2019,7 +2019,7 @@
             0.34729635533386055,
             0.0
           ],
-          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
+          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -2140,7 +2140,7 @@
             0.0,
             0.0
           ],
-          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
+          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -2261,7 +2261,7 @@
             0.34729635533386055,
             0.0
           ],
-          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
+          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -2351,7 +2351,7 @@
             11.000000000000002,
             0.0
           ],
-          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
+          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -1709214,7 +1709214,7 @@
             2012.0108126656328,
             44.000002515502274
           ],
-          "chart_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
+          "chart_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -1709488,7 +1709488,7 @@
             6860043.873565627,
             40.0000378433615
           ],
-          "chart_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
+          "chart_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -1709765,7 +1709765,7 @@
             6860043.873565627,
             40.0000378433615
           ],
-          "chart_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
+          "chart_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -1710033,7 +1710033,7 @@
             6860002.996723255,
             40.000000704079866
           ],
-          "chart_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
+          "chart_wkt": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -1710322,7 +1710322,7 @@
             111314.83908437128,
             0.0
           ],
-          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],MEMBER[\"World Geodetic System 1984 (G2139)\",ID[\"EPSG\",1309]],MEMBER[\"World Geodetic System 1984 (G2296)\",ID[\"EPSG\",1383]],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",7030]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]]]",
+          "chart_wkt": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],MEMBER[\"World Geodetic System 1984 (G2139)\",ID[\"EPSG\",1309]],MEMBER[\"World Geodetic System 1984 (G2296)\",ID[\"EPSG\",1383]],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",7030]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]]]",
           "domain": "resolved vertices and straight polygonal faces; no continuous source-face certificate"
         }
       },
@@ -1724484,7 +1724484,7 @@
         ],
         "association": {
           "asset": "fixtures/global-cf.nc",
-          "sha256": "0e183fecee8ce20c64c80f4828c3afb1f0776884a34bfa677cc08ba1ab1ad22a",
+          "sha256": "831bcf082630102c78fb499fe0687b320bd539e0b854a4c10e5930ac4d065cde",
           "field": "original_scalar",
           "domain": "crs",
           "profile": "CF",
@@ -1847521,7 +1847521,7 @@
         ],
         "association": {
           "asset": "fixtures/multi-domain.nc",
-          "sha256": "176a2fd814bb7fb40ff2c19e0e609a68c951c0b5755bc3ea2bee81de80c98c09",
+          "sha256": "28fabd3515c0838b9226f68f74dbccdebb80e679a40ba6fb00e198955e7249e6",
           "field": "measurement",
           "domain": "geographic",
           "profile": "CF",
@@ -1847666,7 +1847666,7 @@
         ],
         "association": {
           "asset": "fixtures/multi-domain.nc",
-          "sha256": "176a2fd814bb7fb40ff2c19e0e609a68c951c0b5755bc3ea2bee81de80c98c09",
+          "sha256": "28fabd3515c0838b9226f68f74dbccdebb80e679a40ba6fb00e198955e7249e6",
           "field": "measurement",
           "domain": "projected",
           "profile": "CF",
@@ -1848533,7 +1848533,7 @@
         ],
         "association": {
           "asset": "fixtures/global-3d.nc",
-          "sha256": "e9fffa8665b2cc4a520f268cd17aeb5218284d62e8ca6c2d6980b1983e496c4f",
+          "sha256": "65a642ddfefa8a7d871dbbefb01aca3097b6770cd41564fc9ac19a5bf543b118",
           "field": "temperature",
           "domain": "crs",
           "profile": "CF",
@@ -1849826,7 +1849826,7 @@
         ],
         "association": {
           "asset": "fixtures/global-3d.nc",
-          "sha256": "e9fffa8665b2cc4a520f268cd17aeb5218284d62e8ca6c2d6980b1983e496c4f",
+          "sha256": "65a642ddfefa8a7d871dbbefb01aca3097b6770cd41564fc9ac19a5bf543b118",
           "field": "temperature",
           "domain": "crs",
           "profile": "CF",
@@ -2026993,6 +2026993,1136 @@
         ],
         "measurement_sha256": "f168bf6c834aa9a88f1d96e749b1a857f35d121638288fe912d551b128215e58",
         "source_coordinates_sha256": "c9e2d6c5b515204aee3a9f8722c804721707ea5e5e8c7897b8d3bc6699665dba"
+      },
+      "geometry_writeback": {},
+      "edit_checks": [],
+      "source_unchanged": true
+    },
+    {
+      "name": "wkt-padding",
+      "records": {
+        "queries": [
+          {
+            "prim": "/World/Model",
+            "coordinates": [
+              [
+                6378136.999999998,
+                -6.661338147750939e-16,
+                4.0
+              ],
+              [
+                6378137.0,
+                -3.000000000000001,
+                -8.881784197001251e-16
+              ],
+              [
+                6378139.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "geometry": {},
+        "operations": [
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          }
+        ],
+        "source_unchanged": true,
+        "dependency": {
+          "carrier": "/World",
+          "capability": "usd.geospatial.crsResolution.v1",
+          "usage": "hard",
+          "coverage": "complete",
+          "known_none": false,
+          "publishing_profile": "usd.geospatial.publication.v1",
+          "traversal_required": false
+        },
+        "engine_version": "9.8.1",
+        "frames": {
+          "/World/Model": {
+            "origin": [
+              6378137.0,
+              0.0,
+              0.0
+            ],
+            "jacobian": [
+              [
+                0.0,
+                -6.661338147750939e-16,
+                4.000000000000001
+              ],
+              [
+                0.0,
+                -3.0000000000000013,
+                -8.881784197001249e-16
+              ],
+              [
+                2.000000002173086,
+                0.0,
+                0.0
+              ]
+            ],
+            "chart": "output CRS ordered Cartesian components",
+            "units": "scene-chart component units per stage unit",
+            "method": "Richardson-refined central differences",
+            "convergence_residual": 9.313225746154785e-10,
+            "extent_certificate": false,
+            "inverse_available": true
+          }
+        }
+      },
+      "geometry_writeback": {},
+      "edit_checks": [],
+      "source_unchanged": true
+    },
+    {
+      "name": "wkt-case",
+      "records": {
+        "queries": [
+          {
+            "prim": "/World/Model",
+            "coordinates": [
+              [
+                6378136.999999998,
+                -6.661338147750939e-16,
+                4.0
+              ],
+              [
+                6378137.0,
+                -3.000000000000001,
+                -8.881784197001251e-16
+              ],
+              [
+                6378139.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "geometry": {},
+        "operations": [
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          }
+        ],
+        "source_unchanged": true,
+        "dependency": {
+          "carrier": "/World",
+          "capability": "usd.geospatial.crsResolution.v1",
+          "usage": "hard",
+          "coverage": "complete",
+          "known_none": false,
+          "publishing_profile": "usd.geospatial.publication.v1",
+          "traversal_required": false
+        },
+        "engine_version": "9.8.1",
+        "frames": {
+          "/World/Model": {
+            "origin": [
+              6378137.0,
+              0.0,
+              0.0
+            ],
+            "jacobian": [
+              [
+                0.0,
+                -6.661338147750939e-16,
+                4.000000000000001
+              ],
+              [
+                0.0,
+                -3.0000000000000013,
+                -8.881784197001249e-16
+              ],
+              [
+                2.000000002173086,
+                0.0,
+                0.0
+              ]
+            ],
+            "chart": "output CRS ordered Cartesian components",
+            "units": "scene-chart component units per stage unit",
+            "method": "Richardson-refined central differences",
+            "convergence_residual": 9.313225746154785e-10,
+            "extent_certificate": false,
+            "inverse_available": true
+          }
+        }
+      },
+      "geometry_writeback": {},
+      "edit_checks": [],
+      "source_unchanged": true
+    },
+    {
+      "name": "wkt-parentheses",
+      "records": {
+        "queries": [
+          {
+            "prim": "/World/Model",
+            "coordinates": [
+              [
+                6378136.999999998,
+                -6.661338147750939e-16,
+                4.0
+              ],
+              [
+                6378137.0,
+                -3.000000000000001,
+                -8.881784197001251e-16
+              ],
+              [
+                6378139.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "geometry": {},
+        "operations": [
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          }
+        ],
+        "source_unchanged": true,
+        "dependency": {
+          "carrier": "/World",
+          "capability": "usd.geospatial.crsResolution.v1",
+          "usage": "hard",
+          "coverage": "complete",
+          "known_none": false,
+          "publishing_profile": "usd.geospatial.publication.v1",
+          "traversal_required": false
+        },
+        "engine_version": "9.8.1",
+        "frames": {
+          "/World/Model": {
+            "origin": [
+              6378137.0,
+              0.0,
+              0.0
+            ],
+            "jacobian": [
+              [
+                0.0,
+                -6.661338147750939e-16,
+                4.000000000000001
+              ],
+              [
+                0.0,
+                -3.0000000000000013,
+                -8.881784197001249e-16
+              ],
+              [
+                2.000000002173086,
+                0.0,
+                0.0
+              ]
+            ],
+            "chart": "output CRS ordered Cartesian components",
+            "units": "scene-chart component units per stage unit",
+            "method": "Richardson-refined central differences",
+            "convergence_residual": 9.313225746154785e-10,
+            "extent_certificate": false,
+            "inverse_available": true
+          }
+        }
+      },
+      "geometry_writeback": {},
+      "edit_checks": [],
+      "source_unchanged": true
+    },
+    {
+      "name": "wkt-decimal",
+      "records": {
+        "queries": [
+          {
+            "prim": "/World/Model",
+            "coordinates": [
+              [
+                6378136.999999998,
+                -6.661338147750939e-16,
+                4.0
+              ],
+              [
+                6378137.0,
+                -3.000000000000001,
+                -8.881784197001251e-16
+              ],
+              [
+                6378139.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "geometry": {},
+        "operations": [
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from WGS 84 to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          }
+        ],
+        "source_unchanged": true,
+        "dependency": {
+          "carrier": "/World",
+          "capability": "usd.geospatial.crsResolution.v1",
+          "usage": "hard",
+          "coverage": "complete",
+          "known_none": false,
+          "publishing_profile": "usd.geospatial.publication.v1",
+          "traversal_required": false
+        },
+        "engine_version": "9.8.1",
+        "frames": {
+          "/World/Model": {
+            "origin": [
+              6378137.0,
+              0.0,
+              0.0
+            ],
+            "jacobian": [
+              [
+                0.0,
+                -6.661338147750939e-16,
+                4.000000000000001
+              ],
+              [
+                0.0,
+                -3.0000000000000013,
+                -8.881784197001249e-16
+              ],
+              [
+                2.000000002173086,
+                0.0,
+                0.0
+              ]
+            ],
+            "chart": "output CRS ordered Cartesian components",
+            "units": "scene-chart component units per stage unit",
+            "method": "Richardson-refined central differences",
+            "convergence_residual": 9.313225746154785e-10,
+            "extent_certificate": false,
+            "inverse_available": true
+          }
+        }
+      },
+      "geometry_writeback": {},
+      "edit_checks": [],
+      "source_unchanged": true
+    },
+    {
+      "name": "wkt-quoted-name",
+      "records": {
+        "queries": [
+          {
+            "prim": "/World/Model",
+            "coordinates": [
+              [
+                6378136.999999998,
+                -6.661338147750939e-16,
+                4.0
+              ],
+              [
+                6378137.0,
+                -3.000000000000001,
+                -8.881784197001251e-16
+              ],
+              [
+                6378139.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "geometry": {},
+        "operations": [
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geocentric) to COORDINATEMETADATA is only a quoted name (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geog3D) to COORDINATEMETADATA is only a quoted name (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geocentric) to COORDINATEMETADATA is only a quoted name (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geog3D) to COORDINATEMETADATA is only a quoted name (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geocentric) to COORDINATEMETADATA is only a quoted name (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geog3D) to COORDINATEMETADATA is only a quoted name (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geocentric) to COORDINATEMETADATA is only a quoted name (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geog3D) to COORDINATEMETADATA is only a quoted name (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geocentric) to COORDINATEMETADATA is only a quoted name (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geog3D) to COORDINATEMETADATA is only a quoted name (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geocentric) to COORDINATEMETADATA is only a quoted name (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from COORDINATEMETADATA is only a quoted name (geog3D) to COORDINATEMETADATA is only a quoted name (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to COORDINATEMETADATA is only a quoted name",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from COORDINATEMETADATA is only a quoted name to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          }
+        ],
+        "source_unchanged": true,
+        "dependency": {
+          "carrier": "/World",
+          "capability": "usd.geospatial.crsResolution.v1",
+          "usage": "hard",
+          "coverage": "complete",
+          "known_none": false,
+          "publishing_profile": "usd.geospatial.publication.v1",
+          "traversal_required": false
+        },
+        "engine_version": "9.8.1",
+        "frames": {
+          "/World/Model": {
+            "origin": [
+              6378137.0,
+              0.0,
+              0.0
+            ],
+            "jacobian": [
+              [
+                0.0,
+                -6.661338147750939e-16,
+                4.000000000000001
+              ],
+              [
+                0.0,
+                -3.0000000000000013,
+                -8.881784197001249e-16
+              ],
+              [
+                2.000000002173086,
+                0.0,
+                0.0
+              ]
+            ],
+            "chart": "output CRS ordered Cartesian components",
+            "units": "scene-chart component units per stage unit",
+            "method": "Richardson-refined central differences",
+            "convergence_residual": 9.313225746154785e-10,
+            "extent_certificate": false,
+            "inverse_available": true
+          }
+        }
       },
       "geometry_writeback": {},
       "edit_checks": [],

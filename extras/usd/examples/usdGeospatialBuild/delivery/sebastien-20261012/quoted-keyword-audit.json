@@ -1,0 +1,106 @@
+{
+  "proposal_sha256": "276ae17d60e9b4801947525528c98cfac58b25a7e6ac5999dc01ddb60a2e83b9",
+  "source_freeze_verified": true,
+  "semantic_crs_equal": true,
+  "expected": "A quoted name changes no coordinate semantics and is not an epoch wrapper; origin remains [6378137,0,0] m.",
+  "actual": [
+    {
+      "reader": "python",
+      "success": true,
+      "result": {
+        "queries": [
+          {
+            "prim": "/World/Model",
+            "coordinates": [
+              [
+                6378137.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "geometry": {},
+        "operations": [
+          {
+            "description": "Conversion from A COORDINATEMETADATA place (geocentric) to A COORDINATEMETADATA place (geog3D)",
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Conversion from A COORDINATEMETADATA place (geog3D) to A COORDINATEMETADATA place (geocentric)",
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "accuracy_metres": 0.0
+          },
+          {
+            "description": "Null geocentric translation from A COORDINATEMETADATA place to WGS 84",
+            "definition": "proj=noop ellps=GRS80",
+            "accuracy_metres": 0.0
+          }
+        ],
+        "source_unchanged": true,
+        "dependency": {
+          "carrier": "/World",
+          "capability": "usd.geospatial.crsResolution.v1",
+          "usage": "hard",
+          "coverage": "complete",
+          "known_none": false,
+          "publishing_profile": "usd.geospatial.publication.v1",
+          "traversal_required": false
+        },
+        "engine_version": "9.8.1"
+      }
+    },
+    {
+      "reader": "cpp",
+      "success": true,
+      "result": {
+        "dependency": {
+          "coverage": "complete",
+          "known_none": false,
+          "traversal_required": false,
+          "usage": "hard"
+        },
+        "engine_version": "9.4.1",
+        "geometry": {},
+        "geometry_normals": {},
+        "geometry_sources": {},
+        "normalization_warnings": [
+          "Valid WKT normalization warning: Authored WKT is not normalized"
+        ],
+        "operations": [
+          {
+            "accuracy_metres": null,
+            "definition": "proj=pipeline step inv proj=cart ellps=WGS84 step proj=unitconvert xy_in=rad z_in=m xy_out=deg z_out=m",
+            "description": "Conversion from A COORDINATEMETADATA place (geocentric) to A COORDINATEMETADATA place (geog3D)"
+          },
+          {
+            "accuracy_metres": null,
+            "definition": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=WGS84",
+            "description": "Conversion from A COORDINATEMETADATA place (geog3D) to A COORDINATEMETADATA place (geocentric)"
+          },
+          {
+            "accuracy_metres": 0.0,
+            "definition": "proj=noop ellps=GRS80",
+            "description": "Null geocentric translation from A COORDINATEMETADATA place to WGS 84"
+          }
+        ],
+        "queries": [
+          {
+            "coordinates": [
+              [
+                6378137.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "prim": "/World/Model"
+          }
+        ],
+        "source_unchanged": true
+      }
+    }
+  ],
+  "classification": "Implementation conformance diagnostic, not additional proposal authority",
+  "normative_reference": "WKT quoted-content preservation and source CRS syntax classification"
+}

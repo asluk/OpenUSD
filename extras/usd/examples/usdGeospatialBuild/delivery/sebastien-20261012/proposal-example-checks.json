@@ -1,0 +1,103 @@
+[
+  {
+    "example": 1,
+    "name": "Local Tangent Plane at Eiffel Tower",
+    "valid": true,
+    "normalization_idempotent": true,
+    "axes": [
+      [
+        "east",
+        "metre"
+      ],
+      [
+        "north",
+        "metre"
+      ],
+      [
+        "up",
+        "metre"
+      ]
+    ]
+  },
+  {
+    "example": 2,
+    "name": "Westminster site grid + site height",
+    "valid": true,
+    "normalization_idempotent": true,
+    "axes": [
+      [
+        "east",
+        "US survey foot"
+      ],
+      [
+        "north",
+        "US survey foot"
+      ],
+      [
+        "up",
+        "US survey foot"
+      ]
+    ]
+  },
+  {
+    "example": 3,
+    "name": "WGS 84 / UTM zone 11N",
+    "valid": true,
+    "normalization_idempotent": true,
+    "axes": [
+      [
+        "east",
+        "metre"
+      ],
+      [
+        "north",
+        "metre"
+      ]
+    ]
+  },
+  {
+    "example": 4,
+    "name": "NAD83 / California zone 5 (ftUS) + NAVD88 height (ftUS)",
+    "valid": true,
+    "normalization_idempotent": true,
+    "axes": [
+      [
+        "east",
+        "US survey foot"
+      ],
+      [
+        "north",
+        "US survey foot"
+      ],
+      [
+        "up",
+        "US survey foot"
+      ]
+    ]
+  },
+  {
+    "example": 5,
+    "role": "coordinate-epoch roadmap",
+    "initial_reader": "unsupported as specified"
+  },
+  {
+    "example": 6,
+    "name": "ITRF2020",
+    "valid": true,
+    "normalization_idempotent": true,
+    "axes": [
+      [
+        "geocentricX",
+        "metre"
+      ],
+      [
+        "geocentricY",
+        "metre"
+      ],
+      [
+        "geocentricZ",
+        "metre"
+      ]
+    ]
+  }
+]

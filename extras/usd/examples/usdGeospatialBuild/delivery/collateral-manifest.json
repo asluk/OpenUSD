@@ -1,43 +1,30 @@
 {
-  "assessment": "Standalone proposal-quality assessment with fresh immutable execution; local-only delivery",
-  "proposal_revision": "da2f49aad42811fc5d660c7bcf9ff190599f2d74",
-  "proposal_sha256": "2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4",
-  "source_commit_at_execution": "db9af9539bcf634225e412c8ef903d6e65af713c",
-  "readme_sha256": "f97eb66b4642d85817c1bface96cc358cea536a8a8104a439f22a2715af103d5",
-  "review_body_sha256": "7a3b14a678c6e4bcd0fb4566c64789e0ba7a99300f7305ba19e676d054b5820f",
-  "receipt_sha256": "837da0d934290a0435f63d218cfb0e557acc958f85c83ad016098c0e1aa9af5a",
-  "immutable_execution_receipt_sha256": "ad59ead3c86c780b6d79a243a23032e492c14809f0c01f575397ae221939068f",
-  "executed_file_hashes_verified": true,
-  "frozen_file_count": 48,
-  "pptx_sha256": "32493528631db1e2930fe41d9d26f4f7635857b2435ced4306bde2871f119a50",
-  "pdf_sha256": "da6bd4ec1ef1ef1c2a94c898f74a02a7945d11d148fc18834fab0265cac6e542",
-  "story_sha256": "ea79d7076a94f3cb98d4f7bc58a269c95f8682a281e3bcec726d0c8694092083",
-  "slides": 14,
-  "native_table_slides": [
-    2,
-    5,
-    8,
-    12,
-    13,
-    14
-  ],
-  "native_chart_slides": [
-    11
-  ],
+  "proposal_revision": "e51919927ced49b9c68bcd86160be468121f633d",
+  "proposal_sha256": "276ae17d60e9b4801947525528c98cfac58b25a7e6ac5999dc01ddb60a2e83b9",
+  "execution_source_commit": "5e369c68fefeaa0003e6e3b61384d8a4cc2b5b09",
+  "immutable_execution_receipt_sha256": "06cb0fd2cefe30543d04bb461497f3071d5027de6094175fdc52b969428bb975",
+  "readme_sha256": "45d0fcc44e276a85c016d374e6b918459c016533b0cb63f0f87bce1ecda57c35",
+  "deck_sha256": "11f86c2d66ff97d667adccb3aea859e744d4f438f1ead444c63588aefb3d1ad4",
+  "pdf_sha256": "334ab75e02f36113cf4aa2d22e976de1aba584950ac73850f1828516c2624908",
+  "slides": 17,
+  "frozen_source_files": 50,
   "tests": {
-    "regressions_passed": 116,
-    "distinguishing_controls_passed": 65,
+    "regressions_passed": 124,
+    "distinguishing_controls_passed": 70,
     "failed": 0
   },
-  "coordinate_results_per_path": 213243,
-  "maximum_python_cpp_difference_metres": 3.3945759188783683e-08,
-  "baseline_comparison": {
-    "cases": 117,
-    "exactly_unchanged": 117,
-    "expected_contract_changes": 0,
-    "unexpected_regressions": 0
-  },
-  "integration_claims": {
+  "comparison_cases": 117,
+  "unchanged_comparisons": 117,
+  "unexpected_regressions": 0,
+  "source_inputs_and_resources_preserved": true,
+  "new_fields": [],
+  "semantic_gaps_confirmed_in_inspected_paths": [],
+  "prototype_findings": [
+    "Normal approximation lacks domain/error coverage",
+    "Near-half-turn guard lacks quantified uncertainty"
+  ],
+  "coordinate_results_per_reader": 213263,
+  "claims": {
     "usd_placement_implementations": 2,
     "geodetic_engines_used": 1,
     "independent_geodetic_validation": false,
@@ -49,291 +36,222 @@
     "whole_proposal_conformance": false,
     "continuous_nonlinear_extent_certificate": false
   },
-  "proposal_review": {
-    "requirements_unchanged": 31,
-    "placement_fields_unchanged": true,
-    "capability_identity": "usd.geospatial.crsResolution.v1",
-    "publishing_identity": "usd.geospatial.publication.v1",
-    "registration_approval_owner": "Explicitly unconfirmed; technical registration distinguished from adoption",
-    "semantic_changes": [
-      "Explicit fixed identities; no floating latest interpretation"
+  "portable_delivery": {
+    "executed_source_content_commit": "5e369c68fefeaa0003e6e3b61384d8a4cc2b5b09",
+    "commit_blobs_match_immutable_freeze": true,
+    "source_file_count": 50,
+    "rejected_false_claim_controls": [
+      {
+        "false_claim": "usd_placement_implementations",
+        "rejected": true
+      },
+      {
+        "false_claim": "ov_rendering",
+        "rejected": true
+      },
+      {
+        "false_claim": "hydra_live_crs_filter",
+        "rejected": true
+      },
+      {
+        "false_claim": "physics_integration",
+        "rejected": true
+      },
+      {
+        "false_claim": "whole_proposal_conformance",
+        "rejected": true
+      },
+      {
+        "false_claim": "independent_geodetic_validation",
+        "rejected": true
+      },
+      {
+        "false_claim": "continuous_nonlinear_extent_certificate",
+        "rejected": true
+      }
     ],
-    "decision_updates": [
-      "Axis interpretation",
-      "Native dimension association",
-      "Invalid-placement acceptance already in normative text",
-      "Profiles coverage",
-      "Working adjustment order",
-      "Input-only authored HPR and required bake"
+    "portable_export_readbacks": [
+      {
+        "name": "geographic-scene",
+        "portable_fresh_reader_verified": true
+      },
+      {
+        "name": "instances-independent-prototype",
+        "portable_fresh_reader_verified": true
+      },
+      {
+        "name": "climate",
+        "portable_fresh_reader_verified": true
+      },
+      {
+        "name": "multi-geographic",
+        "portable_fresh_reader_verified": true
+      },
+      {
+        "name": "multi-projected",
+        "portable_fresh_reader_verified": true
+      },
+      {
+        "name": "global-3d-geographic",
+        "portable_fresh_reader_verified": true
+      }
     ],
-    "no_remote_writes": true,
-    "sha256": "2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4",
-    "proposal_revision": "da2f49aad42811fc5d660c7bcf9ff190599f2d74",
-    "authority_snapshots_regenerated": true,
-    "existing_code_and_controls_reused_explicitly": true
+    "remote_mutations": []
   },
-  "prototype_findings": [
-    {
-      "id": "normal-domain",
-      "classification": "Implementation accuracy coverage",
-      "finding": "Normal approximation lacks domain/error coverage",
-      "diagnostics": [
-        "normal_sampling_private_policy",
-        "actual_projected_normal_sampling"
-      ],
-      "maximum_projected_direction_difference_degrees": 1.2408700002254556
-    },
-    {
-      "id": "rotation-uncertainty",
-      "classification": "Implementation numerical certification",
-      "finding": "Near-half-turn guard lacks quantified uncertainty",
-      "diagnostic": "scope-audit.json: implementation_uncertainty_limit"
-    },
-    {
-      "id": "quoted-WKT",
-      "classification": "Implementation input classification",
-      "finding": "Quoted CRS name causes false epoch-wrapper rejection",
-      "diagnostic": "quoted-keyword-audit.json",
-      "semantic_CRS_equal": true
-    }
-  ],
-  "verification_limits": [
-    "Normal-domain approximation and rotational-uncertainty diagnostics",
-    "Broader composition, retained variants and coordinate-bearing primvars/materials",
-    "Nonlinear continuous space/time certificates",
-    "No physics, OV render or geospatial Hydra filter",
-    "Shared PROJ and external-format decoding limit independent geodetic evidence"
-  ],
   "visual_review": {
-    "inspection_performed_by": "Codex agent",
-    "user_comprehension_test_performed": false,
-    "readme_sha256": "f97eb66b4642d85817c1bface96cc358cea536a8a8104a439f22a2715af103d5",
-    "pptx_sha256": "32493528631db1e2930fe41d9d26f4f7635857b2435ced4306bde2871f119a50",
-    "pdf_sha256": "da6bd4ec1ef1ef1c2a94c898f74a02a7945d11d148fc18834fab0265cac6e542",
-    "rendered_readme_inspected": true,
-    "readme_preview_hashes": {
-      "readme-00.png": "3000ec171748eb7074a0e6ab435c421b36dd881b8a1edf1d6fdc0c3f10f0dfb5",
-      "readme-01.png": "55d0e90a2bdbf4235b9c2a25a630a56094763da6a44043e7cb35f7adaa365688",
-      "readme-02.png": "fa4d5c65f2e14af9e5fe55bebdf573c4bdf3ccc7a0a86018a92c1d563b170470",
-      "readme-03.png": "6a2345c2a8fa095a6aeebfa9fada07ffb4e3e407d226cbb8fb252b7f5b5db949",
-      "readme-04.png": "2762ddb218feddf0538485b41983054c0ffd838b38f9b943e3c87d4b45cc7564",
-      "readme-05.png": "1e31709167be078162e7151d18329331fc1612099e1f537b8c5f87b7e5043fd5",
-      "readme-06.png": "f0b83a704998d9f05422b2c1cc2379b7168f1e28f323d1e379069337665b30bc",
-      "readme-07.png": "14c14e760481933e9745abea990fba7a42a36b09f06c48aa7a64e7cf5885f896",
-      "readme-08.png": "ffa950392ad015d24b78fd5e5cd4268b4c53ec885aca11c75f726674dc70b073"
-    },
+    "inspected_by": "Codex",
+    "readme_sha256": "45d0fcc44e276a85c016d374e6b918459c016533b0cb63f0f87bce1ecda57c35",
+    "pptx_sha256": "11f86c2d66ff97d667adccb3aea859e744d4f438f1ead444c63588aefb3d1ad4",
+    "pdf_sha256": "334ab75e02f36113cf4aa2d22e976de1aba584950ac73850f1828516c2624908",
+    "PowerPoint_export": true,
     "slides": [
       {
         "slide": 1,
         "inspected": true,
-        "image_sha256": "e5bd37cc9321ab3dd1852b0ecff4dc8aff50cd551a0b70818fe1d2c520dbbbe0"
+        "sha256": "e61cdb6ff831d9098921ba8423f8262baa3015d6c073aa9f1679b8004a0ffb8e"
       },
       {
         "slide": 2,
         "inspected": true,
-        "image_sha256": "9920f1bb0199664aa1c471b8dfaeb2c4aeb59e72c586e8794de9ff4d3b777224"
+        "sha256": "2132f540d504edfd8fea60edd42d000cc11c7685f1b2bd700ca8df2f96e63fc9"
       },
       {
         "slide": 3,
         "inspected": true,
-        "image_sha256": "1540f97b2698b671e7a38126eb50f35e97d880263baa701bd2ef5c640617d38d"
+        "sha256": "365d2740d46e469cc33906161d72ead00361076b40f4ca496266d2773273e684"
       },
       {
         "slide": 4,
         "inspected": true,
-        "image_sha256": "16f30b5bf7ca6960c2876b21b491c12241b6ca1f705cca448eb34d16b636870b"
+        "sha256": "88c7b3f58f27f7d6bd2ff85b73b30b5311121f1f40b71e1d93c900edf0176f29"
       },
       {
         "slide": 5,
         "inspected": true,
-        "image_sha256": "cec8b81e8cc866e433f689d0a4e382844bd05a0face4bb570d3776f3fd9539b0"
+        "sha256": "62805a3cdabcf10095a9c19e4005a2f7eb83ffb484467948bd6f65afe18cbbdc"
       },
       {
         "slide": 6,
         "inspected": true,
-        "image_sha256": "0546d1582c524df8e822c9e48e63340552705ee34a52757f66e246edb75312fe"
+        "sha256": "cc71d25aa1b9de5add88d62a542f9bd767bba7b9b0317b5f5d50bfaf576ce12d"
       },
       {
         "slide": 7,
         "inspected": true,
-        "image_sha256": "526e195e268f8f004f5310ba1b5a52403913a697f7c4705646ac1581f440e685"
+        "sha256": "db20b34dcf2d0bcaf4de52e2fae5f9980c710416969516e28fb390de9630d8fd"
       },
       {
         "slide": 8,
         "inspected": true,
-        "image_sha256": "803bf8f425a169126e58c4939f70406bbe25b1259a7ddeaabcee6c4ee8a8c777"
+        "sha256": "b07cb79bbbf6482cad3a464f1afcdd01a4ba7359d188e0281d90af1194eec94a"
       },
       {
         "slide": 9,
         "inspected": true,
-        "image_sha256": "95ac6fdfa40984c06baaf7ca145a2ac393d663cdf524942743e2a8b777a39cea"
+        "sha256": "b68d321a9728a8a668360a821968a767e7c328d1fc35db0cbf1fd220d2d82ffa"
       },
       {
         "slide": 10,
         "inspected": true,
-        "image_sha256": "900220d8022dc725882c2996e1e94b151c3fb6f360216bf16337693abd8bedca"
+        "sha256": "987de5e43df690b1fc22b9d20c9c5326b892fbbc28002ac98d0f96a518ca4d45"
       },
       {
         "slide": 11,
         "inspected": true,
-        "image_sha256": "2ba788ef7a1bf005e92fac8b4e63f5243eb0c61ec8997970652ed36a1e9ca90a"
+        "sha256": "435980ab51362adaeff854b972740fd76bc8d47228fa3ec03c279c3ea9728da1"
       },
       {
         "slide": 12,
         "inspected": true,
-        "image_sha256": "0f2b34a371d60c890e2fd56357621c2648d8b65c9aeeba82b7745c6897c23c10"
+        "sha256": "726cb5e703fadba49ca107f0c42d241861414d1815b66093bc54f43208a05402"
       },
       {
         "slide": 13,
         "inspected": true,
-        "image_sha256": "a4af2d7ecf66aee1c124b218a50264f330dcc4ad11f840ee538fe5ea52226ae9"
+        "sha256": "5ed80304bee91d48244cdef8d1305cb7bea82b6c5df501d10ed0004ef2369458"
       },
       {
         "slide": 14,
         "inspected": true,
-        "image_sha256": "71c13ff4c13523b710e565bd6f72abf35ba19838f962b94f42b9cd6583e78275"
+        "sha256": "0138250afaed744b3008a812166f532669fb89e5bf12153bb192004966233e5e"
+      },
+      {
+        "slide": 15,
+        "inspected": true,
+        "sha256": "ac26ce33e1b5996153620781530303483780c72d21624c4d89e16cd78cd99a80"
+      },
+      {
+        "slide": 16,
+        "inspected": true,
+        "sha256": "30a0d0ae3c478abf05a44c6d8ca0d946c89d9475154dc63229cebbb89a5ca8e4"
+      },
+      {
+        "slide": 17,
+        "inspected": true,
+        "sha256": "be6a15e2e323944cccfcec97cdf82262c7a239cc2fa66ca5e4bb2b6b0a67b4c3"
       }
     ],
-    "reference": "October 6 v2 deck praised by Tam",
-    "unresolved_layout_findings": [],
-    "estimated_layout_warnings": "Compared against every final native PowerPoint PDF page. No clipping or overlap observed."
+    "rendered_readme_inspected": true,
+    "clipping_or_overlap_observed": false,
+    "reference": "October 6 assessment praised by Tam",
+    "survey_image": "Native recorded render; presentation crop removes empty margins without changing evidence pixels"
   },
-  "portable_delivery": "Public copies relink private paths; six selected relocated exports independently reread. Exact original execution receipt identity retained.",
-  "current_linked_assets": [
+  "current_links": [
     "BUILD_LOOP.md",
     "data/LICENSE-partner.txt",
     "data/README.md",
-    "delivery/feedback-20261012/audit-diagnostics.json",
-    "delivery/feedback-20261012/closure-audit.json",
-    "delivery/feedback-20261012/global-temperature.png",
-    "delivery/feedback-20261012/instance-offset.png",
-    "delivery/feedback-20261012/quoted-keyword-audit.json",
-    "delivery/feedback-20261012/railway.png",
-    "delivery/feedback-20261012/run-comparison.json",
-    "delivery/feedback-20261012/scope-audit.json",
-    "delivery/feedback-20261012/terrain.png",
-    "delivery/feedback-20261012/tower.png",
     "delivery/figures/03-crs-resolved.png",
     "delivery/figures/05-usd-translate.png",
     "delivery/geospatial-build.pdf",
     "delivery/geospatial-build.pptx",
     "delivery/run-report.json",
+    "delivery/sebastien-20261012/audit-diagnostics.json",
+    "delivery/sebastien-20261012/closure-audit.json",
+    "delivery/sebastien-20261012/global-temperature.png",
+    "delivery/sebastien-20261012/instance-offset.png",
+    "delivery/sebastien-20261012/profiles-proof.json",
+    "delivery/sebastien-20261012/proposal-example-checks.json",
+    "delivery/sebastien-20261012/quoted-keyword-audit.json",
+    "delivery/sebastien-20261012/railway.png",
+    "delivery/sebastien-20261012/run-comparison.json",
+    "delivery/sebastien-20261012/scope-audit.json",
+    "delivery/sebastien-20261012/terrain.png",
+    "delivery/sebastien-20261012/tower.png",
     "proposal/proposal-source.txt",
-    "proposal/proposal-source.txt#L1344",
-    "proposal/proposal-source.txt#L1588",
-    "proposal/proposal-source.txt#L1689",
-    "proposal/proposal-source.txt#L1916",
-    "proposal/proposal-source.txt#L2016",
-    "proposal/proposal-source.txt#L2197",
-    "proposal/proposal-source.txt#L2254",
+    "proposal/proposal-source.txt#L1355",
+    "proposal/proposal-source.txt#L1607",
+    "proposal/proposal-source.txt#L1708",
+    "proposal/proposal-source.txt#L1772",
+    "proposal/proposal-source.txt#L1830",
+    "proposal/proposal-source.txt#L1923",
+    "proposal/proposal-source.txt#L2023",
+    "proposal/proposal-source.txt#L2120",
+    "proposal/proposal-source.txt#L2208",
+    "proposal/proposal-source.txt#L2269",
     "proposal/traceability.md"
   ],
+  "remote_mutations": [],
   "files": {
-    "collateral/README.md": "881a2176f45f5e6da4451311cd66981d7a3dec9194d42d95f8e2ab5594eaea32",
-    "collateral/revised_leans_delivery.py": "a2b821e9d553bbf0017b41a6f256a87fc8da246ca9c7d9abdcf1a10f4adc35c7",
-    "collateral/revised_leans_slides.mjs": "304b59be6c576532513b13a12bfd754365d053de9a4b4978c9f2614cb69a1671",
-    "collateral/standalone_delivery.py": "b186a5cf3e78411d72eadcdc2046c5eb90a07b887dd4dff5f9c74da598ca9a68",
-    "collateral/verify_standalone_delivery.py": "4de490f42ce0406b831973b6bdbd71be8b6768aca7e54f96651f08c1b6890d27",
-    "delivery/audience-review.json": "b1ed2749b45bea7aafcb4dba089e602d27ee6e88f331d4f90f3ad0b57fff1e64",
-    "delivery/exports/climate.nc": "16b116d377f243601a786522b91fa5a77397f658421d4a91d966690c3e5e271c",
-    "delivery/exports/climate.usda": "88c0ccb45fe5dd41a87bcc414976d613d54389b59f7edc447a68716a7c4386bf",
-    "delivery/exports/composition.usda": "12e341af62d25de795a0a764aafccf4f85722f2a935398584f341ab81dec808c",
-    "delivery/exports/geographic-scene.usda": "4d1c0abbda9ceae3a0f67b9c82a4ee23bdec70a4b898ed9b9bc0e4b49c793692",
-    "delivery/exports/global-3d-geographic.nc": "f6373cb37123ae604015fad206e47ed4b87dd98d00c24d9344a6fa1d60e85e18",
-    "delivery/exports/global-3d-geographic.usda": "21a39f58b4c16ff223864dbe0127b3969077846a21542e60f4e61282160ba692",
-    "delivery/exports/instances-independent-prototype.usda": "8b27bca26ddd34bf87e65677617e2147bf96495bcf13b77502907d1523beea5e",
-    "delivery/exports/instances.usda": "7aaa5f2021b3b1503a6c9f17ca91a941197602bc9dfc35df736635c2b96b6a21",
-    "delivery/exports/multi-geographic.nc": "23c10bf4d45a1367503bca9e78580c12ad86713424a17836774a215d64690d9a",
-    "delivery/exports/multi-geographic.usda": "184a62093da9dfe00e296e0982a06410213e79aaef8e0ed89f3b6b50667c39ba",
-    "delivery/exports/multi-projected.nc": "b1ec5b5cb0cfd38385c3c5e3190c8c023dcf00b6ae153025f3b80f83a912979e",
-    "delivery/exports/multi-projected.usda": "027bc09c9e54e62d1ef00b3ccf4f47f7b69127234606cc751022631f35bbd35e",
-    "delivery/exports/terrain.usda": "c4f57352e8278593439ed9ea423c10b0d28c5a1f6959f05d462b243419e53c6c",
-    "delivery/exports/time-sampled.usda": "6dd179c2f95f874158e0bda5b83b2c52565447b72a16c99474eebc8096c470ec",
-    "delivery/exports/tower.usda": "de829735a2e93bedc03cdd3586fbd6b5fa926cd168f4dd0ff4846d6915eb790f",
-    "delivery/feedback-20261012/audience-review.json": "b1ed2749b45bea7aafcb4dba089e602d27ee6e88f331d4f90f3ad0b57fff1e64",
-    "delivery/feedback-20261012/audit-diagnostics.json": "98a1f4f45473f7ce56c54804cbd15d1441bc7978c6aa940cf35b35926af4f9cf",
-    "delivery/feedback-20261012/closure-audit.json": "9541a84aa874c457735eb70780c67eadd44b4262d2130e55e92b2b1f71cd4243",
-    "delivery/feedback-20261012/geospatial-build.pdf": "da6bd4ec1ef1ef1c2a94c898f74a02a7945d11d148fc18834fab0265cac6e542",
-    "delivery/feedback-20261012/geospatial-build.pptx": "32493528631db1e2930fe41d9d26f4f7635857b2435ced4306bde2871f119a50",
-    "delivery/feedback-20261012/global-temperature.png": "d2e951cf9fb9cf0db5b61423c8868a5cf44139ecf346c4767e594c8108e1a656",
-    "delivery/feedback-20261012/instance-offset.png": "34027f816e56ded60072818c892b06e08970f1e54da772f80e1c8c71b4019a19",
-    "delivery/feedback-20261012/presentation-validation.json": "dd73d493248635d786440f2a9ff6ab56dddf74c54e5c912ef34cc10544be28e4",
-    "delivery/feedback-20261012/proposal-quality-assessment.json": "571b597f045e0a58f5b722001a9e487d851a8e6676b5bb68df446a842997382b",
-    "delivery/feedback-20261012/quoted-keyword-audit.json": "7fa8a2ebe6e2c20888aff6d61613ded94c3ac5cd25047fa9d2b89824b93a1711",
-    "delivery/feedback-20261012/railway.png": "7faba9566ba33bc934327b4f80fbc6d3ba1b9d1848db46f513c0eb79008dd5c2",
-    "delivery/feedback-20261012/run-comparison.json": "7ef47f995eeae76d2cdecccc54695a8198dd085c84f6b944b72c54b7bb2f0485",
-    "delivery/feedback-20261012/scope-audit.json": "ce84b8ad3cc584d37ae0d1769a10f98d95a93b266256c5bcd10a31cb27c49d24",
-    "delivery/feedback-20261012/story.json": "ea79d7076a94f3cb98d4f7bc58a269c95f8682a281e3bcec726d0c8694092083",
-    "delivery/feedback-20261012/terrain.png": "547fe6bec57dcd1c62e4aaebb5f8860dcc688cf41dc344854fb2ab5a08086498",
-    "delivery/feedback-20261012/tower.png": "b1cf4cf1e0a3d1489c9e39678e323aa0cd145ddb76b25e9bd354c7a60167ee89",
-    "delivery/fixtures/basis-Y-0.01.usda": "5b21a566dade96c2254b501d40f3d8609f1157c75247e26dffb51720ac2c30a9",
-    "delivery/fixtures/basis-Y-1.usda": "ecc848340efe6aff6f4d3895de3b53bd3d06f8168c5cd16cfbdb5012469898e2",
-    "delivery/fixtures/basis-Z-1.usda": "5b9e2ab3ab922e949c159bcf0d5881c401a313e7c9be1821e5ec42a650a9bbb8",
-    "delivery/fixtures/city-adjusted.usda": "42c8342e638f8a6110a7191a6c2d288b360a7818e249a726b71ee16610c629fc",
-    "delivery/fixtures/city-point.tif": "d9dddaeaeddc78fbce51ee4d08ecb5d116de204b703c72478271a463d306774a",
-    "delivery/fixtures/city-point.usda": "a2eef3348c17826dd0e2ad109505718014013d94f0b8084aaf8fe91568a6a2d6",
-    "delivery/fixtures/city.tif": "b27c42bfda2f70440e8b31131539b0173b472d02b0752acd3175254050d4a876",
-    "delivery/fixtures/city.usda": "c1e0f53017bc240c1a9975428255e5d5d9a6eb921ea75efc6634078a7709d09f",
-    "delivery/fixtures/climate.usda": "307fa7427ccd68f7cefe5e20f35f021494c297ac9cd0b3564e9015bb5d8bf906",
-    "delivery/fixtures/Colorado_01.usda": "ce9fc0c5c52c11b1ee1458c141e600716b474c89644025cbe55ca17b15d65218",
-    "delivery/fixtures/Colorado_02.usda": "58fbcb44a24a44e9339487f725ef8be3ca753fa31218380a3d495c8fc2cbe5ca",
-    "delivery/fixtures/Colorado_03.usda": "8b23c5aa59177c937f3058aed8c843e4ba3ad1f35af5732dc4eb2af16a8d0677",
-    "delivery/fixtures/composition.usda": "7f2ad345fe43f254fe19ee5b32cc0721aedff34351defff50267bda1d7f74a4d",
-    "delivery/fixtures/crs-library.usda": "4cb1042a2f876b61f194dbd71b0cdc40bcd05a528913c817e1393de3b8315039",
-    "delivery/fixtures/dependency-assembly.usda": "689e38e55a9a9cc3a704d1d519dffcc3866374417536cdfeddcbc16883618a1d",
-    "delivery/fixtures/dependency-payload.usda": "575f647e445686c56f45e22d9e2bf8e6dd7792650278f1a24b579a6d1ddd94f1",
-    "delivery/fixtures/France_01.usda": "772c8ae9ca274e6388d5deba3c072dbe15a3cac823953a3de9fda04e7416e204",
-    "delivery/fixtures/France_02.usda": "b7b18653feb6e82d833973930842d0698b5ae096946a8b5fd53c3392a538e8cc",
-    "delivery/fixtures/geographic-working.usda": "8b5f043ec9e3a1fd902626559b2d513547b9ab4f620019408f27cd328e803c29",
-    "delivery/fixtures/global-3d.nc": "e9fffa8665b2cc4a520f268cd17aeb5218284d62e8ca6c2d6980b1983e496c4f",
-    "delivery/fixtures/global-3d.usda": "81839dfdb6491640a6918eb5705ac53ff2bea8bcab744902e1aa5261f95d875f",
-    "delivery/fixtures/global-cf.nc": "0e183fecee8ce20c64c80f4828c3afb1f0776884a34bfa677cc08ba1ab1ad22a",
-    "delivery/fixtures/instances-independent-prototype.usda": "722ef9c95aaf21100148d38ad90df2705e49cf5480c047fadc8053b0c5e387db",
-    "delivery/fixtures/instances-masked.usda": "c08b3e58c685a2c76ed27118fea74f17b132223e3dcb70c8cc19541d70805cef",
-    "delivery/fixtures/instances.usda": "bba63f8da476b4b8ae71e8a4e7d9cd3ae4af42b51fe306a4aafddc7bdb8f90cc",
-    "delivery/fixtures/multi-domain.nc": "176a2fd814bb7fb40ff2c19e0e609a68c951c0b5755bc3ea2bee81de80c98c09",
-    "delivery/fixtures/multi-geographic.usda": "d64279ff0bd4633f22b5c2e317b679ae3962de0d86342e948f8ce9e7a57d7032",
-    "delivery/fixtures/multi-projected.usda": "6a4a53a02c4ac03bbfe3d3b5cd7930c6e467e5df65c691914dac7835e7b184f2",
-    "delivery/fixtures/orientation-wrap.usda": "643606a53b6d5185d55add61f55cf18d602d27112c37400b0a3dba492398167c",
-    "delivery/fixtures/original-netcdf-intake.json": "6bd74580c9bdbfc6f7622a881fb17ef7db700810984fd0683cb3206fb06ee619",
-    "delivery/fixtures/pivot-order.usda": "a9619900eaad6f7ac3f914c1c41af84ca2c1fcce71648650c9eb29a30939830d",
-    "delivery/fixtures/prototype-reset.usda": "7e34fb0c5ecd68e0e80ba1c55533ee61597f41e512043f91160df012586057aa",
-    "delivery/fixtures/rail-horizontal.geojson": "24baafd3a3d1673363775b4e9f819c34d35a79401f7d04ce04deebaae7b20c5e",
-    "delivery/fixtures/railway.usda": "5f0fa7b76a89831ec96f975190a7ebffc1e28a1e26ed83266141eef9ebfe13b0",
-    "delivery/fixtures/relative-position.usda": "43c90e53f2912584e0d2a160bb23338d6db7e82f3123c1a4f660385d66aa171f",
-    "delivery/fixtures/terrain.usda": "d719c13c7f88d12b6138b732f8c371e25fffae426a8f81b392b010600a111a51",
-    "delivery/fixtures/time-source.usda": "975279571923e83a513f267db7af54d27aee42e83397dfe7f8932a0ab1af1b57",
-    "delivery/fixtures/tower.usda": "f4ffecbdfbffaf35c818f229e4c80ae52460ab852da16bf27db0c61330e1d108",
-    "delivery/fixtures/working-adjustment.usda": "135abd434245dd267c876863c85cf7c50e339f1505b0e88755a5f42dd0642f81",
-    "delivery/fixtures/writer-intake.json": "932496d506ba208f248169105c2b87ccc45ba5a9cfafa2ed9f78724123058f52",
-    "delivery/geospatial-build.pdf": "da6bd4ec1ef1ef1c2a94c898f74a02a7945d11d148fc18834fab0265cac6e542",
-    "delivery/geospatial-build.pptx": "32493528631db1e2930fe41d9d26f4f7635857b2435ced4306bde2871f119a50",
-    "delivery/independent-audit.json": "2525852a912022dad6044e1d1ece446ed84aa202833620a154c2e732a041ab6d",
-    "delivery/integration-evidence.json": "eab8b101f51a9bb22e39e584313c48e3074745f82ee8e58461c914792ce35c0c",
-    "delivery/jobs.json": "32a2e87cb9e46729f0e1716b219ab6a3363d1c152573bb2e505a6ce7c1909fc9",
-    "delivery/local-delivery-verification.json": "a4a263618d71a7a4b8bf5e5cee9bdcc79068cf37ab45fc356346d171c1951f33",
-    "delivery/native-results.json": "95510d0fb47e354e9d85cadb831cd64bbd307468809a6dc19e41f7f543c860ef",
-    "delivery/ov-results.json": "46d0d92e0970ad45ad97fe531e313b220efbaed453491d3ed4b7cf5a6ff6e68c",
-    "delivery/pr-body.md": "7a3b14a678c6e4bcd0fb4566c64789e0ba7a99300f7305ba19e676d054b5820f",
-    "delivery/proposal-quality.json": "2ae45a705e4fdf34812b64874a4337fd326ff58933fd62cd20eb6f4d823e9d9f",
-    "delivery/python-results.json": "562b5c49ebc119d707a042dea216af79f1ba139ff0839327dd9eb1563c0679e5",
-    "delivery/renders/terrain-job.json": "8e132bf96aecc8d76fadd5e68c3a8c50fbf35651a8d1901ee370aa388347083b",
-    "delivery/renders/terrain-readback.json": "04175cb95933e1ac3ddbbac36934872630622f6f19e5b5428049a15cdc135c13",
-    "delivery/renders/terrain.png": "547fe6bec57dcd1c62e4aaebb5f8860dcc688cf41dc344854fb2ab5a08086498",
-    "delivery/renders/tower-job.json": "98d75c95bc13f0f158dfb52d66013fd1dd42ecf69ca7fe3a0acef82481a17ea3",
-    "delivery/renders/tower-readback.json": "2fae42ce0d674f2a1b2be3d57a6414cbcfa2e43feb0cadcb6b4af570f020e085",
-    "delivery/renders/tower.png": "b1cf4cf1e0a3d1489c9e39678e323aa0cd145ddb76b25e9bd354c7a60167ee89",
-    "delivery/run-report.json": "837da0d934290a0435f63d218cfb0e557acc958f85c83ad016098c0e1aa9af5a",
-    "delivery/story.json": "ea79d7076a94f3cb98d4f7bc58a269c95f8682a281e3bcec726d0c8694092083",
-    "delivery/transform-order-comparison.json": "1afba4fc6a8233a44b750968693f05e399f651137d359afe3d8e7db2be8dc8d2",
-    "README.md": "f97eb66b4642d85817c1bface96cc358cea536a8a8104a439f22a2715af103d5",
-    "REVIEW.md": "7a3b14a678c6e4bcd0fb4566c64789e0ba7a99300f7305ba19e676d054b5820f"
-  },
-  "narrative": {
-    "source": "README.md",
-    "main_slides": 8,
-    "supporting_slides": 6,
-    "run_history": "Supporting records only",
-    "baseline_pdf_sha256": "6f92650e4b5e3b991d54d015922b54ec095e1c49bfff788bf60ad37777f7a41e"
+    "README.md": "45d0fcc44e276a85c016d374e6b918459c016533b0cb63f0f87bce1ecda57c35",
+    "REVIEW.md": "5c4b7dd0a52e65581bc0dd847ce9a358084c2b3f46dc2d86525e7555886b2fb6",
+    "delivery/story.json": "93ce14dc61c74da25a8925188d426d3f47de1f014a2d946f87594d255e7f27a4",
+    "delivery/integration-evidence.json": "f757e7a13816febb7696ad7597c6cee1a3a5d568f29315d7a8254ad6dc1ec8b3",
+    "delivery/geospatial-build.pptx": "11f86c2d66ff97d667adccb3aea859e744d4f438f1ead444c63588aefb3d1ad4",
+    "delivery/geospatial-build.pdf": "334ab75e02f36113cf4aa2d22e976de1aba584950ac73850f1828516c2624908",
+    "delivery/sebastien-20261012/audit-diagnostics.json": "c1bf61878766a31cceb3b30a2d754b433a3f090f957fe6077ba05751d41eedb9",
+    "delivery/sebastien-20261012/closure-audit.json": "40e85bc5bd8ee40f765e4943119acd8db47f3aa269e0a25893c85f41286258a1",
+    "delivery/sebastien-20261012/global-temperature.png": "d2e951cf9fb9cf0db5b61423c8868a5cf44139ecf346c4767e594c8108e1a656",
+    "delivery/sebastien-20261012/instance-offset.png": "34027f816e56ded60072818c892b06e08970f1e54da772f80e1c8c71b4019a19",
+    "delivery/sebastien-20261012/presentation-validation.json": "8049ce1662d812469ab6204bfb6ebe57f0db2f37a6fe91412eb77cf075d475f0",
+    "delivery/sebastien-20261012/profiles-proof.json": "148e98b3fadab8b03ca8b3117f07ee200dbdd232a0d31572a9f2b2f82c87eb3c",
+    "delivery/sebastien-20261012/proposal-example-checks.json": "abebe133098e27b447809c598dfc7571a55d5d88ca20cf2a15be259d68762e39",
+    "delivery/sebastien-20261012/proposal-quality-assessment.json": "871924c96503c38a8242a29e1e4d61cdd9eb43bd0fce913a49dc5aaa555bf065",
+    "delivery/sebastien-20261012/quoted-keyword-audit.json": "5be879e6f281f5ec49ba54c5f8510af4aa5a46724f623cf0f62b595fa14b4ab8",
+    "delivery/sebastien-20261012/railway.png": "7faba9566ba33bc934327b4f80fbc6d3ba1b9d1848db46f513c0eb79008dd5c2",
+    "delivery/sebastien-20261012/run-comparison.json": "be7e811179b5e0205a692204aa80669ad0d48401bd17cbc4afbd413ef97e5338",
+    "delivery/sebastien-20261012/scope-audit.json": "8ec4c4d308fd40de7bebf99bce9b0bcbe64460f9be1afa8ed00577b91d67e1f5",
+    "delivery/sebastien-20261012/story.json": "93ce14dc61c74da25a8925188d426d3f47de1f014a2d946f87594d255e7f27a4",
+    "delivery/sebastien-20261012/terrain.png": "547fe6bec57dcd1c62e4aaebb5f8860dcc688cf41dc344854fb2ab5a08086498",
+    "delivery/sebastien-20261012/tower.png": "b1cf4cf1e0a3d1489c9e39678e323aa0cd145ddb76b25e9bd354c7a60167ee89"
   }
 }

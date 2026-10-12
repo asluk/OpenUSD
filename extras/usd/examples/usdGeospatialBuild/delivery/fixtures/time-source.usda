@@ -23,7 +23,7 @@ def Xform "World" (
 {
     def Xform "Model" (
         apiSchemas = ["GeospatialCRSBindingAPI"]
-        prepend references = @./crs-library.usda@</Definitions/C7aada0dc0fa0bcab>
+        prepend references = @./crs-library.usda@</Definitions/Cb3b282f20dd0914f>
     )
     {
         double3 crs:position.timeSamples = {

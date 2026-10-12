@@ -1,8 +1,8 @@
 {
-  "proposal_sha256": "2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4",
-  "receipt_sha256": "ad59ead3c86c780b6d79a243a23032e492c14809f0c01f575397ae221939068f",
-  "proposal_revision": "da2f49aad42811fc5d660c7bcf9ff190599f2d74",
-  "source_commit": "db9af9539bcf634225e412c8ef903d6e65af713c",
+  "proposal_sha256": "276ae17d60e9b4801947525528c98cfac58b25a7e6ac5999dc01ddb60a2e83b9",
+  "receipt_sha256": "06cb0fd2cefe30543d04bb461497f3071d5027de6094175fdc52b969428bb975",
+  "proposal_revision": "e51919927ced49b9c68bcd86160be468121f633d",
+  "source_commit": "5e369c68fefeaa0003e6e3b61384d8a4cc2b5b09",
   "limits": [
     [
       "Normal transport",
@@ -11,10 +11,6 @@
     [
       "Near-half-turn numerics",
       "The proposed failure rule is clear. The prototype's 64-epsilon guard lacks a demonstrated rotational uncertainty bound and a quantified native diagnostic."
-    ],
-    [
-      "WKT quoted text",
-      "Confirmed shared prototype defect: a valid CRS name containing COORDINATEMETADATA is mistaken for a deferred epoch wrapper. Capability detection must use WKT structure, not quoted text."
     ],
     [
       "Publisher coverage",
@@ -46,15 +42,15 @@
   "metrics": [
     [
       "Contract tests",
-      "116 passed"
+      "124 passed"
     ],
     [
       "Existing distinguishing controls",
-      "65 passed"
+      "70 passed"
     ],
     [
       "Coordinates per Python/C++ comparison path",
-      "213,243"
+      "213,263"
     ],
     [
       "Maximum Python/C++ physical difference",
@@ -132,13 +128,13 @@
   "physical_km": 118.29930628668362,
   "surface_km": 111.31949079327359,
   "normal_difference_degrees": 1.2408700002254556,
-  "coordinate_count": 213243,
+  "coordinate_count": 213263,
   "maximum_difference_metres": 3.3945759188783683e-08,
-  "readme_sha256": "f97eb66b4642d85817c1bface96cc358cea536a8a8104a439f22a2715af103d5",
+  "readme_sha256": "45d0fcc44e276a85c016d374e6b918459c016533b0cb63f0f87bce1ecda57c35",
   "narrative_version": 2,
   "opening": "USD describes a 3D model's shape and size. Geospatial information says where it belongs on Earth, so models, surveys and measurements can work together.",
   "assessment": "Proposal quality means that another implementer can derive the inputs, evaluation order and observable outcomes without guessing. The full draft specifies those rules for the workflows shown here.",
-  "summary": "Selected demonstrations support the proposed behavior. Detailed conventions still need group review, and three prototype limitations remain. This evidence does not establish exhaustive completeness or independent geodetic accuracy.",
+  "summary": "Selected demonstrations support the proposed behavior. Detailed conventions still need group review, and two prototype limitations remain. This evidence does not establish exhaustive completeness or independent geodetic accuracy.",
   "cases": [
     {
       "id": "inputs",
@@ -150,7 +146,7 @@
       "implication": "Inputs-only authoring gives the reader one authority for each meaning. Source position and the heading/pitch/roll tuple are agreed; detailed pose conventions remain proposed.",
       "boundary": "The illustrated position is an example, not a surveyed Eiffel location. No crs:scale is proposed.",
       "clause_heading": "#### Authored properties",
-      "clause_line": 1588,
+      "clause_line": 1607,
       "requirement_ids": [
         9,
         10,
@@ -170,7 +166,7 @@
       "implication": "A new coordinate representation has a defined physical meaning. The France and Colorado numerical controls test conversion separately from this illustration.",
       "boundary": "It explains the rule and does not verify surveyed Paris placement.",
       "clause_heading": "### Source placement evaluation and transform order",
-      "clause_line": 1916,
+      "clause_line": 1923,
       "requirement_ids": [
         9,
         12,
@@ -195,7 +191,7 @@
       "implication": "The draft distinguishes project adjustments from model-local child offsets. A numerical control separates those interpretations by 4.222 m.",
       "boundary": "The chart and reset conventions remain proposed. Ordinary pivots follow the authored USD stack.",
       "clause_heading": "#### Evaluation",
-      "clause_line": 2016,
+      "clause_line": 2023,
       "requirement_ids": [
         9,
         14,
@@ -216,11 +212,11 @@
       "question": "Can separate implementations derive the same coordinates from the proposed inputs and rules?",
       "rule": "Both readers use the composed source inputs and declared output CRS. Results include declared units and meaningful physical comparison.",
       "expected": "Python and C++ resolve the same partner points within the recorded comparison tolerance.",
-      "observed": "The readers compare 213,243 coordinate results. The maximum measured physical difference is 3.39e-08 m.",
+      "observed": "The readers compare 213,263 coordinate results. The maximum measured physical difference is 3.39e-08 m.",
       "implication": "These cases support reproducible interpretation of the proposed behavior. Agreement alone cannot establish all rules or all input layouts.",
       "boundary": "Both readers use PROJ and share native dataset decoding. Agreement does not establish independent geodetic validation.",
       "clause_heading": "### Extent and result comparison",
-      "clause_line": 2197,
+      "clause_line": 2208,
       "requirement_ids": [
         4,
         13,
@@ -242,7 +238,7 @@
       "implication": "The visualization path uses ordinary USD geometry. Reassembly controls confirm that a parent translation and an authored reset keep their USD meaning.",
       "boundary": "Ground context is illustrative. The image does not establish surveyed placement or surface-normal accuracy.",
       "clause_heading": "### Explicit export and sampling",
-      "clause_line": 2254,
+      "clause_line": 2269,
       "requirement_ids": [
         17,
         19,
@@ -252,7 +248,7 @@
       ],
       "kind": "evidence",
       "image": {
-        "path": "feedback-20261012/tower.png",
+        "path": "sebastien-20261012/tower.png",
         "role": "recorded native render",
         "alt": "Native Hydra Storm image of the resolved ordinary USD Eiffel bake"
       }
@@ -267,7 +263,7 @@
       "implication": "The same data model supports global analytics as well as rendering. Named-dimension controls check the value/location association separately.",
       "boundary": "Synthetic temperatures in kelvin. Both readers share decoding, so their agreement alone cannot verify the association.",
       "clause_heading": "### External measurement association",
-      "clause_line": 1689,
+      "clause_line": 1708,
       "requirement_ids": [
         8,
         12,
@@ -278,7 +274,7 @@
       ],
       "kind": "evidence",
       "image": {
-        "path": "feedback-20261012/global-temperature.png",
+        "path": "sebastien-20261012/global-temperature.png",
         "role": "plot of recorded synthetic data",
         "alt": "Synthetic global temperature values at their recorded geographic locations"
       }
@@ -293,7 +289,7 @@
       "implication": "The partner case exercises a site's calibrated CRS. Its WKT-carried calibration participates in resolution.",
       "boundary": "The survey-line image does not establish independent survey accuracy or a continuous terrain-surface certificate.",
       "clause_heading": "#### Decision on question 7: site calibration",
-      "clause_line": 1344,
+      "clause_line": 1355,
       "requirement_ids": [
         4,
         14,
@@ -302,7 +298,7 @@
       ],
       "kind": "evidence",
       "image": {
-        "path": "feedback-20261012/terrain.png",
+        "path": "sebastien-20261012/terrain.png",
         "role": "recorded native render",
         "alt": "Native Storm render of Colorado survey breaklines in the calibrated site grid"
       }
@@ -317,7 +313,7 @@
       "implication": "The draft supports horizontal resolution without inventing a height reference. The original third components remain uninterpreted.",
       "boundary": "Horizontal coordinates only. The original third components remain uninterpreted and supply no physical 3D distance.",
       "clause_heading": "### External measurement association",
-      "clause_line": 1689,
+      "clause_line": 1708,
       "requirement_ids": [
         8,
         12,
@@ -326,9 +322,79 @@
       ],
       "kind": "evidence",
       "image": {
-        "path": "feedback-20261012/railway.png",
+        "path": "sebastien-20261012/railway.png",
         "role": "plot of recorded resolved geometry",
         "alt": "Resolved UTM 32 horizontal railway coordinates with display-only offsets"
+      }
+    },
+    {
+      "id": "profiles",
+      "title": "Processing requirements before loading content",
+      "question": "Can a consumer discover required geospatial processing while the content payload stays closed?",
+      "rule": "Publishers place conservative Profiles declarations outside payloads. Complete-positive, complete-empty and unknown coverage have distinct meanings.",
+      "expected": "A consumer detects a required dependency without loading content. Absence alone never proves that no processing is needed.",
+      "observed": "The three summary cases retain closed payloads during detection. A separate publisher check catches a stale empty claim that retains a georeferenced variant.",
+      "implication": "The declaration supports useful consumer decisions before content loading. Publishers remain responsible for truthful coverage through assembly and publication.",
+      "boundary": "Selected payload and retained-variant controls. Fixed v1 names and the standards approval owner still need group agreement.",
+      "clause_heading": "### Dependency declaration with Profiles",
+      "clause_line": 1772,
+      "requirement_ids": [
+        5,
+        6,
+        7,
+        25,
+        27,
+        29
+      ],
+      "kind": "evidence"
+    },
+    {
+      "id": "wkt",
+      "title": "WKT writing, reading and comparison",
+      "question": "Can different WKT spellings remain usable without losing coordinate meaning?",
+      "rule": "Writers emit lossless normal text. Readers accept supported valid non-normal WKT with a warning. Normalized text identity and semantic CRS equivalence remain separate.",
+      "expected": "Numeric spellings 1, 1.00 and 1E0 normalize to 1. Quoted names and exact decimal values remain represented.",
+      "observed": "Both placement readers resolve each spelling to the expected coordinates. The Omniverse stage writeback checks the same cases. A quoted keyword remains ordinary name text.",
+      "implication": "The draft specifies interoperable reader behavior without relaxing the writer convention or treating unequal text as unequal CRS meaning.",
+      "boundary": "This lexical profile remains proposed. Invalid syntax and unsupported coordinate meaning still fail. Coordinate epochs remain deferred.",
+      "clause_heading": "### WKT string normalization",
+      "clause_line": 1830,
+      "requirement_ids": [
+        1,
+        2,
+        3,
+        21,
+        27,
+        28,
+        29,
+        31
+      ],
+      "kind": "evidence"
+    },
+    {
+      "id": "instances",
+      "title": "Repeated models retain their placement",
+      "question": "Does an independently georeferenced prototype receive an instance offset exactly once?",
+      "rule": "Resolve the independent prototype placement once and retain the instance offset in its instancer-local frame.",
+      "expected": "A local ten-metre east offset produces the same physical displacement for inherited and independently bound prototypes.",
+      "observed": "Both readers return Earth-centred displacement [0, 10, 0] m for the two prototypes. Rotation and scale controls also distinguish the frame choices.",
+      "implication": "The selected controls test the occurrence contract rather than merely the prototype origin. An unavailable required inverse fails visibly.",
+      "boundary": "Synthetic displacement control. It does not establish surveyed placement or every instancer combination.",
+      "clause_heading": "#### Queries, scene charts and instances",
+      "clause_line": 2120,
+      "requirement_ids": [
+        8,
+        9,
+        11,
+        17,
+        19,
+        20
+      ],
+      "kind": "evidence",
+      "image": {
+        "path": "sebastien-20261012/instance-offset.png",
+        "role": "plot of recorded synthetic results",
+        "alt": "Coincident inherited and independently bound prototype displacements in the east-north plane"
       }
     },
     {
@@ -341,7 +407,7 @@
       "implication": "The order is testable. Sample keys alone cannot certify the original trajectory between samples.",
       "boundary": "The bake preserves time codes 0, 5 and 10 at 48 time codes per second. Continuous trajectory coverage remains unverified.",
       "clause_heading": "#### Evaluation",
-      "clause_line": 2016,
+      "clause_line": 2023,
       "requirement_ids": [
         20,
         29
@@ -378,7 +444,7 @@
     ],
     [
       "Prototype limitations",
-      "Lighting directions lack an error bound. Rotation uncertainty is unquantified. A quoted CRS name causes false rejection."
+      "Lighting directions lack an error bound. Rotation uncertainty is unquantified."
     ],
     [
       "Verification coverage",
@@ -432,11 +498,11 @@
   "evidence_rows": [
     [
       "Python and C++ readers",
-      "213,243 coordinate results per reader. Maximum measured difference 3.39e-08 m. Shared PROJ and decoding."
+      "213,263 coordinate results per reader. Maximum measured difference 3.39e-08 m. Shared PROJ and decoding."
     ],
     [
       "Omniverse stage geometry",
-      "Reuses Python placement. Readback covers 177,872 vertices and 48 edit, failure and recovery checks across 39 jobs."
+      "Reuses Python placement. Readback covers 177,872 vertices and 48 edit, failure and recovery checks across 44 jobs."
     ],
     [
       "Hydra / Storm",
@@ -444,11 +510,11 @@
     ],
     [
       "Recorded tests",
-      "116 contract tests and 65 distinguishing controls pass. Separate diagnostics expose the reported prototype limits."
+      "124 contract tests and 70 distinguishing controls pass. Separate diagnostics expose the reported prototype limits."
     ],
     [
       "Source preservation",
-      "Original inputs and 48 frozen execution files remain unchanged. The immutable receipt identifies exact executed content."
+      "Original inputs and 50 frozen execution files remain unchanged. The immutable receipt identifies exact executed content."
     ],
     [
       "Bake readbacks",
@@ -457,18 +523,20 @@
   ],
   "chord_error_metres": 971.4211583005459,
   "child_difference_metres": 4.222137130780142,
-  "main_slide_count": 8,
+  "main_slide_count": 11,
   "appendix_slide_count": 6,
   "required_native_table_slides": [
     2,
     5,
     8,
-    12,
-    13,
-    14
+    9,
+    11,
+    15,
+    16,
+    17
   ],
   "required_native_chart_slides": [
-    11
+    14
   ],
   "slides": [
     {
@@ -503,6 +571,21 @@
     {
       "title": "Measurements stay paired with their locations",
       "case": "measurements",
+      "kind": "evidence"
+    },
+    {
+      "title": "Processing requirements before loading content",
+      "case": "profiles",
+      "kind": "evidence"
+    },
+    {
+      "title": "WKT writing, reading and comparison",
+      "case": "wkt",
+      "kind": "evidence"
+    },
+    {
+      "title": "Repeated models retain their placement",
+      "case": "instances",
       "kind": "evidence"
     },
     {

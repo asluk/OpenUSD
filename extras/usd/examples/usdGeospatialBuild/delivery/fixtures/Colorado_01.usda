@@ -23,7 +23,7 @@ def Xform "World" (
 {
     def Xform "Control0" (
         apiSchemas = ["GeospatialCRSBindingAPI"]
-        prepend references = @./crs-library.usda@</Definitions/C63893a782ed73a95>
+        prepend references = @./crs-library.usda@</Definitions/C3c10cd39e07696ae>
     )
     {
         double3 crs:position = (-105.1150853, 39.89815166, 5428.1388)
@@ -31,7 +31,7 @@ def Xform "World" (
 
     def Xform "Control1" (
         apiSchemas = ["GeospatialCRSBindingAPI"]
-        prepend references = @./crs-library.usda@</Definitions/C63893a782ed73a95>
+        prepend references = @./crs-library.usda@</Definitions/C3c10cd39e07696ae>
     )
     {
         double3 crs:position = (-105.113652, 39.89722585, 5408.8704)
@@ -39,7 +39,7 @@ def Xform "World" (
 
     def Xform "Control2" (
         apiSchemas = ["GeospatialCRSBindingAPI"]
-        prepend references = @./crs-library.usda@</Definitions/C63893a782ed73a95>
+        prepend references = @./crs-library.usda@</Definitions/C3c10cd39e07696ae>
     )
     {
         double3 crs:position = (-105.1145273, 39.8953823, 5389.5233)
@@ -47,7 +47,7 @@ def Xform "World" (
 
     def Xform "Control3" (
         apiSchemas = ["GeospatialCRSBindingAPI"]
-        prepend references = @./crs-library.usda@</Definitions/C63893a782ed73a95>
+        prepend references = @./crs-library.usda@</Definitions/C3c10cd39e07696ae>
     )
     {
         double3 crs:position = (-105.1165177, 39.89694548, 5409.9137)
@@ -55,7 +55,7 @@ def Xform "World" (
 
     def Xform "Control4" (
         apiSchemas = ["GeospatialCRSBindingAPI"]
-        prepend references = @./crs-library.usda@</Definitions/C63893a782ed73a95>
+        prepend references = @./crs-library.usda@</Definitions/C3c10cd39e07696ae>
     )
     {
         double3 crs:position = (-105.111485, 39.89578338, 5397.3219)

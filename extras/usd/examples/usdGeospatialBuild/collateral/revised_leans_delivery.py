@@ -7,14 +7,14 @@ import matplotlib.pyplot as plt
 W=Path('C:/Users/aluk/Documents/Codex/2026-09-21/have')
 P=Path(__file__).resolve().parents[1]
 import argparse
-parser=argparse.ArgumentParser();parser.add_argument('--run',type=Path,default=W/'work/geospatial-feedback-run-20261012-v1');parser.add_argument('--assessment-dir',type=Path,default=W/'outputs/geospatial-feedback-build-20261012');args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--run',type=Path,default=W/'work/geospatial-sebastien-run-20261012-v3');parser.add_argument('--assessment-dir',type=Path,default=W/'outputs/geospatial-sebastien-build-20261012');args=parser.parse_args()
 N=args.run.resolve();O=args.assessment_dir.resolve()
-D=P/'delivery/feedback-20261012'
+D=P/'delivery/sebastien-20261012'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def load(p):return json.loads(p.read_text())
 def save(p,x):p.write_text(json.dumps(x,indent=2,ensure_ascii=False,allow_nan=False)+'\n',encoding='utf-8')
 def table(h,rows):return '\n'.join(['| '+' | '.join(h)+' |','|'+'|'.join('---' for x in h)+'|',*['| '+' | '.join(str(x) for x in row)+' |' for row in rows]])
-r=load(N/'delivery/run-report.json');c=load(O/'run-comparison.json');a=load(W/'outputs/geospatial-independent-audit-feedback-20261012/diagnostic-results.json');sc=load(O/'scope-audit/results.json');cl=load(O/'closure-audit/focused-counterexamples.json')
+r=load(N/'delivery/run-report.json');c=load(O/'run-comparison.json');a=load(W/'outputs/geospatial-independent-audit-sebastien-20261012/diagnostic-results.json');sc=load(O/'scope-audit/results.json');cl=load(O/'closure-audit/focused-counterexamples.json')
 assert all(sha(P/f)==h for f,h in r['source_files'].items())
 assert a['source_freeze_verified'] and a['native_binary_matches_completed_run'] and sc['source_freeze_verified']
 assert not c['numeric_regressions'] and cl['checks_failed']==0
@@ -46,7 +46,6 @@ ax.scatter(0,0,s=70,c='#536C7B',label='Shared initial origin');ax.set(xlabel='Ea
 limits=[
  ['Normal transport',f'Confirmed prototype defect: one large projected face differs by {normal:.2f} degrees across its domain. Centroid sampling has no justified domain/error bound. The source already requires a faithful derivative or covered approximation.'],
  ['Near-half-turn numerics','The proposed failure rule is clear. The prototype\'s 64-epsilon guard lacks a demonstrated rotational uncertainty bound and a quantified native diagnostic.'],
- ['WKT quoted text','Confirmed shared prototype defect: a valid CRS name containing COORDINATEMETADATA is mistaken for a deferred epoch wrapper. Capability detection must use WKT structure, not quoted text.'],
  ['Publisher coverage','Retained-variant and unloaded-payload controls pass, including detection of a stale empty claim. This is not a production validator for every composition or variant combination.'],
  ['Consumer coverage','Python and C++ share PROJ and external-data decoding. Omniverse reuses Python. General material/primvar baking, physics and nonlinear continuous space/time certificates remain unverified or visibly unsupported.']]
 review_choices=[
@@ -56,7 +55,7 @@ review_choices=[
  ['Orientation and comparison','Review the intermediate-pose policy and physical 3D versus horizontal surface metrics. The HPR tuple is agreed; detailed interpolation and WKT string normalization remain proposed.']]
 metrics=[['Contract tests',str(r['tests']['regressions_passed'])+' passed'],['Existing distinguishing controls',str(r['tests']['distinguishing_controls_passed'])+' passed'],['Coordinates per Python/C++ comparison path',f'{count:,}'],['Maximum Python/C++ physical difference',f'{maximum:.3g} m'],['Ordinary geometry/data exports',str(len(r['exports']))],['Native Hydra/Storm images',str(len(r['hydra']))],['Omniverse geometry writeback',f"{r['ov']['geometry_vertices']:,} vertices and {r['ov']['edit_checks']} edit/recovery checks"],['Prior output comparisons',f"{len(c['numeric_case_comparisons'])}, with no unexpected regression"],['Prior focused conformance controls',f"{cl['checks_passed']} passed"]]
 
-for src,dst in [(O/'run-comparison.json','run-comparison.json'),(W/'outputs/geospatial-independent-audit-feedback-20261012/diagnostic-results.json','audit-diagnostics.json'),(O/'scope-audit/results.json','scope-audit.json'),(O/'closure-audit/focused-counterexamples.json','closure-audit.json'),(O/'quoted-keyword-audit/results.json','quoted-keyword-audit.json')]:
+for src,dst in [(O/'run-comparison.json','run-comparison.json'),(W/'outputs/geospatial-independent-audit-sebastien-20261012/diagnostic-results.json','audit-diagnostics.json'),(O/'scope-audit/results.json','scope-audit.json'),(O/'closure-audit/focused-counterexamples.json','closure-audit.json'),(O/'quoted-keyword-audit/results.json','quoted-keyword-audit.json')]:
  shutil.copy2(src,D/dst)
 facts=dict(proposal_sha256=r['inputs']['proposal']['sha256'],receipt_sha256=sha(N/'delivery/run-report.json'),proposal_revision=r['inputs']['proposal']['revision'],source_commit=r['source_commit'],limits=limits,review_choices=review_choices,metrics=metrics,examples=examples,instance_displacements=instance_displacements,bake_x=bake_x,physical_km=physical/1000,surface_km=surface/1000,normal_difference_degrees=normal,coordinate_count=count,maximum_difference_metres=maximum)
 # Regenerate the railway image from this run's native indices and resolved coordinates.

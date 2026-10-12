@@ -19,7 +19,7 @@ def Xform "World" (
         }
         string userDocBrief = "Concrete prim schema for a transform, which implements Xformable."
     }
-    prepend references = @./crs-library.usda@</Definitions/Cccb3eacb524d2c37>
+    prepend references = @./crs-library.usda@</Definitions/C558cfbe6446f14b1>
 )
 {
     double3 crs:position = (448251, 5411932, 0)
@@ -28,7 +28,7 @@ def Xform "World" (
 
     def Xform "Asset" (
         apiSchemas = ["GeospatialCRSBindingAPI"]
-        prepend references = @./crs-library.usda@</Definitions/C7aada0dc0fa0bcab>
+        prepend references = @./crs-library.usda@</Definitions/Cb3b282f20dd0914f>
     )
     {
         double3 crs:orientation = (-90, 0, 0)

@@ -20,14 +20,14 @@ def publish(root, facts, run_dir, output=None):
     assert sha(root/'proposal/proposal-source.txt') == facts['proposal_sha256'] == receipt['inputs']['proposal']['sha256']
     assert all(sha(root/name) == digest for name,digest in receipt['source_files'].items()), 'Execution inputs changed'
     proposal = (root/'proposal/proposal-source.txt').read_text(encoding='utf-8').splitlines()
-    D = root/'delivery/feedback-20261012'
+    D = root/'delivery/sebastien-20261012'
     opening = "USD describes a 3D model's shape and size. Geospatial information says where it belongs on Earth, so models, surveys and measurements can work together."
     assessment = "Proposal quality means that another implementer can derive the inputs, evaluation order and observable outcomes without guessing. The full draft specifies those rules for the workflows shown here."
-    summary = "Selected demonstrations support the proposed behavior. Detailed conventions still need group review, and three prototype limitations remain. This evidence does not establish exhaustive completeness or independent geodetic accuracy."
+    summary = "Selected demonstrations support the proposed behavior. Detailed conventions still need group review, and two prototype limitations remain. This evidence does not establish exhaustive completeness or independent geodetic accuracy."
     status_rows = [
         ['Data model and runtime rules', 'The draft separates authored inputs from computed results and defines placement, adjustment, query and bake behavior.'],
         ['Group alignment', 'Input and declaration rules have agreement. Detailed conventions and identities await review.'],
-        ['Prototype limitations', 'Lighting directions lack an error bound. Rotation uncertainty is unquantified. A quoted CRS name causes false rejection.'],
+        ['Prototype limitations', 'Lighting directions lack an error bound. Rotation uncertainty is unquantified.'],
         ['Verification coverage', 'Selected workflows and distinguishing controls support the rules. Broader composition and continuous space/time coverage remain unverified.']]
     inputs = [
         ['Model geometry', 'Shape and local distances, with declared units and up direction. In USD: points, metersPerUnit and upAxis.'],
@@ -84,7 +84,7 @@ def publish(root, facts, run_dir, output=None):
          'Native Hydra/Storm renders the C++-resolved Eiffel bake. A double-precision origin keeps local geometry small.',
          'The visualization path uses ordinary USD geometry. Reassembly controls confirm that a parent translation and an authored reset keep their USD meaning.',
          'Ground context is illustrative. The image does not establish surveyed placement or surface-normal accuracy.',
-         '### Explicit export and sampling',[17,19,23,25,29],('feedback-20261012/tower.png','recorded native render','Native Hydra Storm image of the resolved ordinary USD Eiffel bake'))
+         '### Explicit export and sampling',[17,19,23,25,29],('sebastien-20261012/tower.png','recorded native render','Native Hydra Storm image of the resolved ordinary USD Eiffel bake'))
     case('measurements','Measurements stay paired with their locations',
          'Can a native measurement dataset remain usable without rewriting values or guessing coordinate meaning?',
          'The scene identifies the native asset, field and coordinate domain. Resolution preserves the pairing of values, locations, missing-data masks and observation times.',
@@ -92,7 +92,7 @@ def publish(root, facts, run_dir, output=None):
          'The global field returns geographic and Earth-centred positions for 154 samples, preserving native values and two observation times.',
          'The same data model supports global analytics as well as rendering. Named-dimension controls check the value/location association separately.',
          'Synthetic temperatures in kelvin. Both readers share decoding, so their agreement alone cannot verify the association.',
-         '### External measurement association',[8,12,18,19,21,30],('feedback-20261012/global-temperature.png','plot of recorded synthetic data','Synthetic global temperature values at their recorded geographic locations'))
+         '### External measurement association',[8,12,18,19,21,30],('sebastien-20261012/global-temperature.png','plot of recorded synthetic data','Synthetic global temperature values at their recorded geographic locations'))
     case('colorado',"A construction site's own survey grid",
          "Can a project's local survey grid participate as a defined CRS?",
          'The source WKT describes how a calibrated site grid relates to a broader CRS, including its units and height meaning.',
@@ -100,7 +100,7 @@ def publish(root, facts, run_dir, output=None):
          'The original LandXML survey breaklines resolve and reach an ordinary USD bake rendered by Storm.',
          "The partner case exercises a site's calibrated CRS. Its WKT-carried calibration participates in resolution.",
          'The survey-line image does not establish independent survey accuracy or a continuous terrain-surface certificate.',
-         '#### Decision on question 7: site calibration',[4,14,15,17],('feedback-20261012/terrain.png','recorded native render','Native Storm render of Colorado survey breaklines in the calibrated site grid'))
+         '#### Decision on question 7: site calibration',[4,14,15,17],('sebastien-20261012/terrain.png','recorded native render','Native Storm render of Colorado survey breaklines in the calibrated site grid'))
     case('railway','Horizontal railway placement',
          'Can incomplete source metadata still support a useful, explicitly horizontal workflow?',
          'The reader resolves a declared horizontal association and preserves uninterpreted third components. It does not invent a height reference.',
@@ -108,7 +108,31 @@ def publish(root, facts, run_dir, output=None):
          'The horizontal copy resolves 15,822 vertices across 2,386 parts. The plot uses offsets only for display.',
          'The draft supports horizontal resolution without inventing a height reference. The original third components remain uninterpreted.',
          'Horizontal coordinates only. The original third components remain uninterpreted and supply no physical 3D distance.',
-         '### External measurement association',[8,12,19,21],('feedback-20261012/railway.png','plot of recorded resolved geometry','Resolved UTM 32 horizontal railway coordinates with display-only offsets'))
+         '### External measurement association',[8,12,19,21],('sebastien-20261012/railway.png','plot of recorded resolved geometry','Resolved UTM 32 horizontal railway coordinates with display-only offsets'))
+    case('profiles','Processing requirements before loading content',
+         'Can a consumer discover required geospatial processing while the content payload stays closed?',
+         'Publishers place conservative Profiles declarations outside payloads. Complete-positive, complete-empty and unknown coverage have distinct meanings.',
+         'A consumer detects a required dependency without loading content. Absence alone never proves that no processing is needed.',
+         'The three summary cases retain closed payloads during detection. A separate publisher check catches a stale empty claim that retains a georeferenced variant.',
+         'The declaration supports useful consumer decisions before content loading. Publishers remain responsible for truthful coverage through assembly and publication.',
+         'Selected payload and retained-variant controls. Fixed v1 names and the standards approval owner still need group agreement.',
+         '### Dependency declaration with Profiles',[5,6,7,25,27,29])
+    case('wkt','WKT writing, reading and comparison',
+         'Can different WKT spellings remain usable without losing coordinate meaning?',
+         'Writers emit lossless normal text. Readers accept supported valid non-normal WKT with a warning. Normalized text identity and semantic CRS equivalence remain separate.',
+         'Numeric spellings 1, 1.00 and 1E0 normalize to 1. Quoted names and exact decimal values remain represented.',
+         'Both placement readers resolve each spelling to the expected coordinates. The Omniverse stage writeback checks the same cases. A quoted keyword remains ordinary name text.',
+         'The draft specifies interoperable reader behavior without relaxing the writer convention or treating unequal text as unequal CRS meaning.',
+         'This lexical profile remains proposed. Invalid syntax and unsupported coordinate meaning still fail. Coordinate epochs remain deferred.',
+         '### WKT string normalization',[1,2,3,21,27,28,29,31])
+    case('instances','Repeated models retain their placement',
+         'Does an independently georeferenced prototype receive an instance offset exactly once?',
+         'Resolve the independent prototype placement once and retain the instance offset in its instancer-local frame.',
+         'A local ten-metre east offset produces the same physical displacement for inherited and independently bound prototypes.',
+         'Both readers return Earth-centred displacement [0, 10, 0] m for the two prototypes. Rotation and scale controls also distinguish the frame choices.',
+         'The selected controls test the occurrence contract rather than merely the prototype origin. An unavailable required inverse fails visibly.',
+         'Synthetic displacement control. It does not establish surveyed placement or every instancer combination.',
+         '#### Queries, scene charts and instances',[8,9,11,17,19,20],('sebastien-20261012/instance-offset.png','plot of recorded synthetic results','Coincident inherited and independently bound prototype displacements in the east-north plane'))
     # The existing recorded control remains unchanged in the immutable execution.
     rpy=json.loads((run_dir/'python-results.json').read_text())
     def origin(name): return rpy[name]['queries'][0]['coordinates'][0]
@@ -157,18 +181,18 @@ def publish(root, facts, run_dir, output=None):
     text+='## Source inputs and computed placement\n\n'+render_case(by['inputs'])+table(['Source information','Plain meaning'],inputs)+'\n\n'
     text+='WKT remains authoritative for coordinate meaning. Placement inputs add model position and physical attitude. Resolved positions, frames, projection scale and convergence are query results, not properties of the source schema. Intentional scaling and pivots use ordinary xformOps.\n\n'
     text+='## Demonstrations and their meaning\n\n'
-    for k in ['coordinates','adjustments','readers','bake','measurements']: text+=render_case(by[k])
+    for k in ['coordinates','adjustments','readers','bake','measurements','profiles','wkt','instances']: text+=render_case(by[k])
+    text+=table(['Closed-payload summary','Consumer meaning'],[['Complete-positive','Declared hard dependency: geospatial processing required'],['Complete-empty','Publisher-qualified known-none: no retained geospatial use'],['Unknown','Missing qualification supplies no proof of no dependency']])+'\n\n'
+    text+=table(['Text before writing','Writer normal form'],[['1.00','1'],['1E0','1'],['0.50','0.5']])+'\n\n'
     for e in facts['examples']:
         rows=[[label,*[f"{e[n][i]:,.6f}" for n in ['python','cpp']]] for i,label in enumerate(['Map east coordinate','Map north coordinate','Height'])]
         text+=f"### {e['label']} ({e['unit']})\n\n"+table(['Resolved component','Python reader','C++ reader'],rows)+'\n\n'
     text+='## Proposal quality and its limits\n\n'+table(['Review dimension','Assessment'],status_rows)+'\n\n'
     text+='No additional undefined model rule was confirmed in the inspected paths. That is a bounded finding. Passing results and matching readers cannot establish exhaustive completeness, group adoption or independent geodetic truth.\n\n'
     text+='### Implementation and verification limits\n\n'+table(['Topic','Finding'],limits)+'\n\n'
-    text+='The three prototype issues must be assessed against the proposed rules. A shortcut does not become a valid rule because both readers use it. Publisher controls cover selected retained variants and unloaded payloads. A metadata read alone cannot establish the truth of a completeness claim.\n\n'
+    text+='The two prototype issues must be assessed against the proposed rules. A shortcut does not become a valid rule because both readers use it. Publisher controls cover selected retained variants and unloaded payloads. A metadata read alone cannot establish the truth of a completeness claim.\n\n'
     text+='## Supporting workflows\n\n'
     for k in ['colorado','railway','animation']: text+=render_case(by[k])
-    text+='### Repeated models retain instance-local offsets\n\nThe draft expands a repeated model at its occurrence, keeps the prototype\'s independent geographic placement once, and transports the ordinary instance effect through the instancer frame. A required unavailable inverse fails.\n\n'
-    text+='![Recorded instance displacement control](delivery/feedback-20261012/instance-offset.png)\n\nIn the synthetic control, an instancer-local +X offset moves two initially coincident prototypes ten metres east, whether they inherit a georeference or carry their own. Both readers return Earth-centred displacement [0, 10, 0] m. Rotation and scale controls also distinguish the frame choices. These controls establish the selected semantics, not surveyed placement or all instancer combinations.\n\n'
     text+='### Physical separation and surface distance\n\n'+f"At an explicit 400 km ellipsoidal height, a one-degree equatorial separation is {facts['physical_km']:.3f} km in physical 3D and {facts['surface_km']:.3f} km along the ellipsoid surface. The draft names these as distinct metrics. A horizontal-only coordinate supplies neither an invented zero height nor a physical 3D separation.\n\n"
     text+='### Reusing a resolved bake\n\nA +100 m ordinary parent moves a baked point from X = 6,378,137 m to 6,378,237 m. An authored reset retains X = 6,378,137 m. Both readers match ordinary UsdGeom. A typed CRS definition alone does not reset the ordinary stack. Stable entrypoints and metadata above payloads follow the [NVIDIA asset-structuring guidance](https://docs.omniverse.nvidia.com/usd/latest/learn-openusd/independent/asset-structure-principles.html) without prescribing a fixed scene hierarchy.\n\n'
     text+='## Detailed conventions for group review\n\nThese are proposed definitions in the full draft. The demonstrations provide evidence for evaluating them; they do not make them adopted by the group.\n\n'+table(['Placement topic','Proposed meaning'],placements)+'\n\n'+table(['Data or declaration topic','Proposed meaning'],data)+'\n\n'
@@ -178,26 +202,27 @@ def publish(root, facts, run_dir, output=None):
     text+='There are two placement readers. Omniverse reuses Python with a verified stage geometry sink. Hydra consumes a C++-resolved ordinary USD bake. This evidence establishes no third independent engine, Omniverse rendering, geospatial Hydra filter or physics integration. Polygonal vertex/face bounds do not certify the continuous image of a curved source surface or a trajectory between baked samples.\n\n'
     text+='## Authority and reproduction\n\nThe README and deck explain the same pinned proposal and immutable execution. Collateral adds no normative authority.\n\n'
     text+=f"Proposal commit: `{facts['proposal_revision']}`. Proposal SHA-256: `{facts['proposal_sha256']}`. Execution source: `{facts['source_commit']}`. Immutable receipt SHA-256: `{facts['receipt_sha256']}`.\n\n"
-    text+='[Receipt](delivery/run-report.json) · [31 requirement mappings](proposal/traceability.md) · [Diagnostic results](delivery/feedback-20261012/audit-diagnostics.json) · [Scope and publisher controls](delivery/feedback-20261012/scope-audit.json) · [Quoted WKT control](delivery/feedback-20261012/quoted-keyword-audit.json) · [Focused conformance controls](delivery/feedback-20261012/closure-audit.json)\n\n'
-    text+='<details>\n<summary>Run comparison and execution history</summary>\n\n[Recorded comparison](delivery/feedback-20261012/run-comparison.json) separates intended contract effects from regressions. Historical failure and repair records remain in the immutable execution directories. They are supporting evidence, not the structure of this assessment.\n\n</details>\n\n'
+    text+='[Receipt](delivery/run-report.json) · [31 requirement mappings](proposal/traceability.md) · [Diagnostic results](delivery/sebastien-20261012/audit-diagnostics.json) · [Scope and publisher controls](delivery/sebastien-20261012/scope-audit.json) · [Quoted WKT control](delivery/sebastien-20261012/quoted-keyword-audit.json) · [Focused conformance controls](delivery/sebastien-20261012/closure-audit.json)\n\n'
+    text+='[Closed-payload Profiles proof](delivery/sebastien-20261012/profiles-proof.json) · [Proposal WKT example checks](delivery/sebastien-20261012/proposal-example-checks.json)\n\n'
+    text+='<details>\n<summary>Run comparison and execution history</summary>\n\n[Recorded comparison](delivery/sebastien-20261012/run-comparison.json) separates intended contract effects from regressions. Historical failure and repair records remain in the immutable execution directories. They are supporting evidence, not the structure of this assessment.\n\n</details>\n\n'
     text+='`collateral/revised_leans_delivery.py` extracts pinned evidence. `collateral/standalone_delivery.py` supplies this shared explanation and slide story. `collateral/revised_leans_slides.mjs` renders the story without adding presentation-only technical claims. The delivery review checks standalone meaning, evidence boundaries, literal source wording and every rendered slide.\n\n'
     text+='Eiffel mesh: [SDC PERFORMANCE, Free La Tour Eiffel](https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The diagrams use illustrative positions and ground context. Partner-data credit and permission remain in [data documentation](data/README.md) and [partner license](data/LICENSE-partner.txt).\n'
     (root/'README.md').write_text(text,encoding='utf-8',newline='\n')
-    review='This proposal separates local model geometry from its Earth location and defines how readers place models, preserve native measurement associations and create ordinary USD bakes. The README and deck assess the same inputs, observable rules and recorded demonstrations.\n\nSelected partner and global workflows support the proposed interpretation. Detailed conventions need group review. Normal-domain accuracy, half-turn numerical uncertainty and quoted-WKT classification remain prototype limits; broader coverage and independent geodetic accuracy are not established.\n'
+    review='This proposal separates local model geometry from its Earth location and defines how readers place models, preserve native measurement associations and create ordinary USD bakes. The README and deck assess the same inputs, observable rules and recorded demonstrations.\n\nSelected partner and global workflows support the proposed interpretation. Detailed conventions need group review. Normal-domain accuracy and half-turn numerical uncertainty remain prototype limits; broader coverage and independent geodetic accuracy are not established.\n'
     (root/'REVIEW.md').write_text(review,encoding='utf-8',newline='\n')
-    story=dict(facts,readme_sha256=sha(root/'README.md'),narrative_version=2,opening=opening,assessment=assessment,summary=summary,cases=cases,input_rows=inputs,status_rows=status_rows,placement_choice_rows=placements,data_choice_rows=data,evidence_rows=evidence,chord_error_metres=chord,child_difference_metres=child,main_slide_count=8,appendix_slide_count=6,required_native_table_slides=[2,5,8,12,13,14],required_native_chart_slides=[11])
-    story['slides']=[dict(title='Geospatial proposal assessment',kind='assessment'),*[dict(title=by[k]['title'],case=k,kind=by[k]['kind']) for k in ['inputs','coordinates','adjustments','readers','bake','measurements']],dict(title='Proposal quality and its limits',kind='quality'),*[dict(title='Appendix: '+by[k]['title'],case=k,kind=by[k]['kind']) for k in ['colorado','railway','animation']],dict(title='Appendix: Placement conventions',kind='placement_choices'),dict(title='Appendix: Data and declaration conventions',kind='data_choices'),dict(title='Appendix: Evidence and its limits',kind='evidence')]
+    story=dict(facts,readme_sha256=sha(root/'README.md'),narrative_version=2,opening=opening,assessment=assessment,summary=summary,cases=cases,input_rows=inputs,status_rows=status_rows,placement_choice_rows=placements,data_choice_rows=data,evidence_rows=evidence,chord_error_metres=chord,child_difference_metres=child,main_slide_count=11,appendix_slide_count=6,required_native_table_slides=[2,5,8,9,11,15,16,17],required_native_chart_slides=[14])
+    story['slides']=[dict(title='Geospatial proposal assessment',kind='assessment'),*[dict(title=by[k]['title'],case=k,kind=by[k]['kind']) for k in ['inputs','coordinates','adjustments','readers','bake','measurements','profiles','wkt','instances']],dict(title='Proposal quality and its limits',kind='quality'),*[dict(title='Appendix: '+by[k]['title'],case=k,kind=by[k]['kind']) for k in ['colorado','railway','animation']],dict(title='Appendix: Placement conventions',kind='placement_choices'),dict(title='Appendix: Data and declaration conventions',kind='data_choices'),dict(title='Appendix: Evidence and its limits',kind='evidence')]
     for p in [root/'delivery/story.json',D/'story.json']:
         p.write_text(json.dumps(story,indent=2,ensure_ascii=False)+'\n',encoding='utf-8',newline='\n')
     if output:
         output=Path(output);output.mkdir(exist_ok=True,parents=True)
         (output/'README.md').write_text(text,encoding='utf-8',newline='\n')
-    print(json.dumps({'readme_sha256':story['readme_sha256'],'slides':14,'frozen_files_verified':len(receipt['source_files'])}))
+    print(json.dumps({'readme_sha256':story['readme_sha256'],'slides':17,'frozen_files_verified':len(receipt['source_files'])}))
     return story
 
 if __name__=='__main__':
     import argparse
     parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,required=True);parser.add_argument('--run',type=Path,required=True);parser.add_argument('--output',type=Path)
     args=parser.parse_args()
-    facts=json.loads((args.root/'delivery/feedback-20261012/story.json').read_text())
+    facts=json.loads((args.root/'delivery/sebastien-20261012/story.json').read_text())
     publish(args.root,facts,args.run,args.output)

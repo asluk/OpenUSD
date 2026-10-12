@@ -8,46 +8,48 @@
     "candidate/fixtures.py": "a373cc4ceb7c66b9b7e1bf4f12418da1badd5886571fe23f768bcc4bd14a5a0a",
     "candidate/ov_launch.py": "accdd9e3189860c47dabe26793f94426e0fd545a496282b4345109a8bac95356",
     "candidate/ov_live.py": "ba7791f2390026e086e7257bc70556e78ba3abb5f0531526b2792040dc1b6fb8",
-    "candidate/runner.py": "d2765e219db0e4307be7ec0817e52cbd8ef0328a50b0fbe99088a7b1b1b85b4e",
-    "candidate/runtime.py": "08357c1e43031499934c9a2bcd1e8bd410be4863209f87d63adb57fabb050466",
+    "candidate/runner.py": "4f327bb6fee3dbb2918a46e5c66fc49c8cd80f60df52be7e93d0b59ba86aecc9",
+    "candidate/runtime.py": "e83d6b835ee327a3b74b52453cd292fe11f8b64776f5748504c2d2187ce738eb",
     "review/__init__.py": "1da7ada131921d0bbda633563a594b15f794be1158694c55d9671cc91683f1e1",
-    "review/fixture_definitions.py": "6693d851adbc56e256ffb122c9c38b3550a7df34754d1abfb83068930d92d7ae",
+    "review/fixture_definitions.py": "1d8b02bdccfae682e2406b1347f9837388a26c87b7d199b4c36a5b140a84195d",
     "review/fixtures.py": "ededff383f5729ce924e51d7c3253295d64bc9e4b79897bcddec61e777118af4",
     "review/origin_queries.py": "74cb286631e2ac04bb5b974c314bf9c6e679da7845e0dbc5c3cbdbf43eef6d26",
     "review/ov_scope_launch.py": "2012f7825003d81ffd9988c3f5c36f4f2d03c277c5d04377e0663b21d74d9412",
     "review/placement_values.py": "6a9eac186c46b927897239b68b38f9f408ca1f0aabb56fabaa72debe8a6dc2e2",
     "review/runner.py": "817264f18235aa91e17b70af51f592ba6c003c6b01359eef7c27ffcb9e24c2b2",
     "review/scope.py": "38d903ae2236a63adc1d29ff103b616dad8785df86eb481dafb6c692e92a8fdf",
+    "review/sebastien_controls.py": "97e1ac7cdceb9a80a1da563c7b477766afeda8c66af209474b4fe383fada27a5",
     "review/test_contracts.py": "f8ea8a94edce7f15aafd13635b0cc4cbcf89d830fdfe43296783ab97eee5b6b9",
     "review/test_feedback_identity.py": "407d4851f46ab282651b58ec9e19957d4793db104912f53aaee108e62417b8a6",
     "review/test_hpr_contracts.py": "7664f931d4fad7c7916b13c3b201ad500f23da70f020040689e259d5041fe2a3",
-    "review/test_revised_leans.py": "e4c5abb91c576d37c8c0f96e99e2e8ba304e0d76b1d5f7b34f340f16d01c713c",
+    "review/test_revised_leans.py": "e70679fc29000fdacc2a4019176326e5206a20cfe6e6dc619a30dc11a79e2c67",
+    "review/test_sebastien_feedback.py": "59cc968d53c62095d0bc438ee28e148f04cdcb55e203782bc610aabc3ccc36b5",
     "review/test_split_feedback.py": "85b37c75d4757dd67725711c5bf5e2baba3dc12f17f0be823890310964b3b0ea",
-    "review/test_wkt_contracts.py": "75dec51fea396448983b07d44c2c024db10322d5ce4aa492d25ccd95ce01226f",
-    "review/wkt_profile.py": "521906a17156ee3fd0f16dfb288d3cef695d2ec02084d9173be2854b421191ef",
+    "review/test_wkt_contracts.py": "f943825e77d3457efb341bc65414ce55fea45aa1eaf636c7fa3baf67014f515c",
+    "review/wkt_profile.py": "2978f2b06b48eb7ae556425699b50e1b2db499ac428c0061cd1f176260a1ee9d",
     "schema/generated/generatedSchema.usda": "76db5d432be334a254da5607de46d7d4f45028f0d81e62321a67472e0888ef02",
     "schema/schema.usda": "683c478b83218afc2e2416e035bbfdcbd167a12bdc64d679e48f056a26378d24",
     "schema/generated/plugInfo.json": "4a21160fd7ef0e783657ec1258ec92d41bf6592f277194db02dad4abe7b67341",
-    "native/leans.cpp": "5f7af88d3e25a58ab2b2dd809ccb0f7ddfaa57eba3a0e99182d16c26fad8ec1f",
+    "native/leans.cpp": "8f3567ce3a99033919a99a4d96b4bb2f1b46938184b3dcd896704139caf52225",
     "native/leansRender.cpp": "6fd0d453ac74d120dfa4585e4ba45b4b1110558431ecb0da5e7927e9480c2646",
     "native/CMakeLists.txt": "d38d85d03a61336324f5741fc7b883878eec1ce7a0335880677500bcca86d5f5",
     "run.py": "cad2a0965ebcbcb1bd25f01e6904a98e40a03c73457018fa3386f2ea1ea5ceea",
-    "inputs.json": "a682ddc3f872d985372cce7935f5b27cd3c13901c0f6a2874f23d31bcb909701",
-    "proposal-quality.json": "2ae45a705e4fdf34812b64874a4337fd326ff58933fd62cd20eb6f4d823e9d9f",
+    "inputs.json": "3f8a98e89a9cce2d275b460380e59a2ab93aae9e6563555375d03112d349a5d4",
+    "proposal-quality.json": "8d0fe65607798fecfd73cf9132d4b70a9b36d093d469e601094c1888957e5140",
     "ov/geobuild.kit": "5fc4d60271d18a04ad3b6675539033f1c06b37e86ce6b2cba25ed20b02e69d88",
-    "BUILD_LOOP.md": "2eae1222b1d827b833bec6ee883261ccccb559ec857899a95e8038f7806187d5",
-    "PLAN.md": "d8addc2ec6ad30ca3f33effb398d2949b15a4e325378b790d75f4282f75ed555",
+    "BUILD_LOOP.md": "5e7f247fc81784181b0a53d84e9e42de76aec0b183d6be14970baeaf7991d1e9",
+    "PLAN.md": "9aed8e757be1a4c554bf255148546397509dea8af64b8382931150806322837f",
     "AUDIT.md": "2b1688bcd46911ac882dbbeb8d08b978639184054f1448d845e623c2d9e2c122",
-    "QUALITY_REVIEW.md": "3ef592c74cc86052fa2dc0c81325f5fab05a6ec30cd31d520e2d91bf4fdeaf6c",
+    "QUALITY_REVIEW.md": "09f1922dc3c1ac498126af708ad2e9d657c45e8bddb9c4a108a601228c3b6bfa",
     "geobuild/quality.py": "4cb53ae11b4f780846fc6beb845687afcb792c855c1b282be0e1174d35778471",
-    "proposal/data-model.md": "5210943af0df573ee0a69580ef3d5bd66255b4bccda3ee91e70e3d0c117adb69",
-    "proposal/distinguishing-examples.md": "f05b29d813011da609722c1dddece2dce7dee415e6b9dc032c563e563fe1972b",
+    "proposal/data-model.md": "cf55568cfaf359dcc0d06bf216c3e5571a8c031e5278b4c74c241b6e3d58ce2c",
+    "proposal/distinguishing-examples.md": "f4b85b6b45a173efd4c6c122ad5a252d601a263f20afe4be2a5e4dd69f7b054e",
     "proposal/local-draft.patch": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
-    "proposal/proposal-source.txt": "2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4",
-    "proposal/requirements.md": "b72a9c8d3bceefb51a46121664c526947ad13bf924dc465146ee6bb72913d7f6",
-    "proposal/runtime-behavior.md": "a491c1a5bc7000f4f845f00d334e9d0ed7f40772770a42ff3a58ac910e9c761e",
-    "proposal/runtime-open-decisions.md": "33271742720abddcbcd7ad6905e8b2077aea594bb279a5908c93e4a373cb6224",
-    "proposal/traceability.md": "cb04102c6485c08f7fbdb9e63d9fb9ff8768157f1247de5cbb70141c77d97571"
+    "proposal/proposal-source.txt": "276ae17d60e9b4801947525528c98cfac58b25a7e6ac5999dc01ddb60a2e83b9",
+    "proposal/requirements.md": "6cd028cd5b2051c001a9fcbd8f8f650649f2d052884eed637b4020494744d650",
+    "proposal/runtime-behavior.md": "cf78c503fcf9f359188adf7f45fdbe6e074a26891a363758931acba435dca062",
+    "proposal/runtime-open-decisions.md": "e120ba286d07583ad54ff13151e7df8e5010f662f8dc90a18cf0c50299f673c9",
+    "proposal/traceability.md": "665dba103e928ddc07e97b83bdfe76b1e5ab6319c8580d2c14d4ea2a8618be27"
   },
   "claims": {
     "usd_placement_implementations": 2,
@@ -90,10 +92,10 @@
     }
   ],
   "observations": {
-    "coordinate_results_per_path": 213243,
+    "coordinate_results_per_path": 213263,
     "ov": {
-      "implementation": "Python placement reader with separate stage geometry writeback and readback",
-      "jobs": 39,
+      "implementation": "Python placement reader with Omniverse stage geometry writeback and readback",
+      "jobs": 44,
       "geometry_vertices": 177872,
       "max_writeback_error_metres": 2.9560060847411377e-05,
       "edit_checks": 48
@@ -135,7 +137,7 @@
             "vertices": 32351
           }
         },
-        "integration": "Hydra consumes an ordinary USD resolved bake; no geospatial scene-index filter is implemented",
+        "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
         "renderer": "HdStormRendererPlugin",
         "vertices": 163440,
         "image_sha256": "b1cf4cf1e0a3d1489c9e39678e323aa0cd145ddb76b25e9bd354c7a60167ee89"
@@ -148,7 +150,7 @@
             "vertices": 14359
           }
         },
-        "integration": "Hydra consumes an ordinary USD resolved bake; no geospatial scene-index filter is implemented",
+        "integration": "Hydra consumes ordinary USD resolved export; no live CRS scene-index filter",
         "renderer": "HdStormRendererPlugin",
         "vertices": 14359,
         "image_sha256": "547fe6bec57dcd1c62e4aaebb5f8860dcc688cf41dc344854fb2ab5a08086498"
@@ -241,7 +243,7 @@
             44.00000251736492
           ],
           "usd_type": "double3 translate",
-          "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
+          "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0,
@@ -274,7 +276,7 @@
             40.0
           ],
           "usd_type": "double3 translate",
-          "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
+          "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0,
@@ -302,7 +304,7 @@
             0.0
           ],
           "usd_type": "double3 translate",
-          "scene_crs": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],MEMBER[\"World Geodetic System 1984 (G2139)\",ID[\"EPSG\",1309]],MEMBER[\"World Geodetic System 1984 (G2296)\",ID[\"EPSG\",1383]],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",7030]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]]]"
+          "scene_crs": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],MEMBER[\"World Geodetic System 1984 (G2139)\",ID[\"EPSG\",1309]],MEMBER[\"World Geodetic System 1984 (G2296)\",ID[\"EPSG\",1383]],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",7030]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0,
@@ -334,7 +336,7 @@
             40.0
           ],
           "usd_type": "double3 translate",
-          "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
+          "scene_crs": "PROJCRS[\"WGS 84 / UTM zone 31N\",BASEGEOGCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],ID[\"EPSG\",4979]],CONVERSION[\"UTM zone 31N\",METHOD[\"Transverse Mercator\",ID[\"EPSG\",9807]],PARAMETER[\"Latitude of natural origin\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8801]],PARAMETER[\"Longitude of natural origin\",3,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8802]],PARAMETER[\"Scale factor at natural origin\",0.9996,SCALEUNIT[\"unity\",1],ID[\"EPSG\",8805]],PARAMETER[\"False easting\",500000,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8806]],PARAMETER[\"False northing\",0,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8807]],ID[\"EPSG\",16031]],CS[Cartesian,3],AXIS[\"(E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],USAGE[SCOPE[\"unknown\"],AREA[\"Between 0°E and 6°E, northern hemisphere between equator and 84°N, onshore and offshore. Algeria. Andorra. Belgium. Benin. Burkina Faso. Denmark - North Sea. France. Germany - North Sea. Ghana. Luxembourg. Mali. Netherlands. Niger. Nigeria. Norway. Spain. Togo. United Kingdom (UK) - North Sea.\"],BBOX[0,0,84,6]],REMARK[\"Promoted to 3D from EPSG:32631\"]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0,
@@ -400,7 +402,7 @@
             0.0
           ],
           "usd_type": "double3 translate",
-          "scene_crs": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2.0]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]"
+          "scene_crs": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]"
         },
         "shading": "Authored shading normals transported with the complete map; geometric fallback only where source normals are absent",
         "normal_arrays": 0,
@@ -414,8 +416,8 @@
     ]
   },
   "sharing": "Both placements use PROJ; native dataset decoding is shared. OV is not a third independent placement implementation.",
-  "source_commit": "db9af9539bcf634225e412c8ef903d6e65af713c",
-  "proposal_revision": "da2f49aad42811fc5d660c7bcf9ff190599f2d74",
-  "proposal_sha256": "2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4",
-  "immutable_execution_receipt_sha256": "ad59ead3c86c780b6d79a243a23032e492c14809f0c01f575397ae221939068f"
+  "source_commit": "5e369c68fefeaa0003e6e3b61384d8a4cc2b5b09",
+  "proposal_revision": "e51919927ced49b9c68bcd86160be468121f633d",
+  "proposal_sha256": "276ae17d60e9b4801947525528c98cfac58b25a7e6ac5999dc01ddb60a2e83b9",
+  "immutable_execution_receipt_sha256": "06cb0fd2cefe30543d04bb461497f3071d5027de6094175fdc52b969428bb975"
 }

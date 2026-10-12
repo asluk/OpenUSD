@@ -19,7 +19,7 @@ def Xform "World" (
         }
         string userDocBrief = "Concrete prim schema for a transform, which implements Xformable."
     }
-    prepend references = @./crs-library.usda@</Definitions/Ce51fe9bfc6119195>
+    prepend references = @./crs-library.usda@</Definitions/Ceceff6d68cb505ed>
 )
 {
     double3 crs:position = (6378137, 0, 0)

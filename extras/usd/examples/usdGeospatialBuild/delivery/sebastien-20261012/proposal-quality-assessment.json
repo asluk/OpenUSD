@@ -1,0 +1,34 @@
+{
+  "proposal_revision": "e51919927ced49b9c68bcd86160be468121f633d",
+  "source_fields": 7,
+  "new_source_fields": [],
+  "accepted_direction": [
+    "Input-only authored HPR and required ordinary USD bake",
+    "Working-CRS adjustment order and anchor/descendant distinction",
+    "Semantic axis order and reversed engine adaptation",
+    "Native named-dimension array association and invalid-placement rejection",
+    "Profiles conservative coverage, entrypoints and publisher maintenance"
+  ],
+  "pending_adoption": [
+    "Detailed physical orientation and half-turn interpolation",
+    "Revised lossless WKT writing convention and tolerant reader rule",
+    "Complete chart/reset/independent-instance conventions",
+    "Native association profiles and absolute-domain Cartesian adjustment context",
+    "Bake and continuous sampling guarantees",
+    "Fixed versioned capability/profile identities and approval ownership"
+  ],
+  "semantic_gaps_confirmed_in_inspected_paths": [],
+  "prototype_findings": [
+    "Normal approximation lacks domain/error coverage",
+    "Near-half-turn guard lacks quantified uncertainty"
+  ],
+  "verification_limits": [
+    "Normal-domain approximation and rotational-uncertainty coverage",
+    "Broader composition, retained variants and coordinate-bearing primvars/materials",
+    "Nonlinear continuous space/time certificates",
+    "No physics, OV render or geospatial Hydra filter",
+    "Shared PROJ and external-format decoding limit independent geodetic evidence"
+  ],
+  "whole_proposal_conformance": false,
+  "limits": "Scoped trace and controls cannot establish exhaustive completeness or independent geodetic accuracy."
+}

@@ -1,0 +1,50 @@
+{
+  "proposal_revision": "e51919927ced49b9c68bcd86160be468121f633d",
+  "execution_receipt_sha256": "06cb0fd2cefe30543d04bb461497f3071d5027de6094175fdc52b969428bb975",
+  "frozen_reader_source_preserved": true,
+  "closed_payload_checks": [
+    {
+      "case": "complete-positive",
+      "payload_loaded_before_read": false,
+      "payload_loaded_after_read": false,
+      "consumer_result": {
+        "carrier": "/Assembly",
+        "capability": "usd.geospatial.crsResolution.v1",
+        "usage": "hard",
+        "coverage": "complete",
+        "known_none": false,
+        "publishing_profile": "usd.geospatial.publication.v1",
+        "traversal_required": false
+      }
+    },
+    {
+      "case": "complete-empty",
+      "payload_loaded_before_read": false,
+      "payload_loaded_after_read": false,
+      "consumer_result": {
+        "carrier": "/Assembly",
+        "capability": "usd.geospatial.crsResolution.v1",
+        "usage": null,
+        "coverage": "complete",
+        "known_none": true,
+        "publishing_profile": "usd.geospatial.publication.v1",
+        "traversal_required": false
+      }
+    },
+    {
+      "case": "unknown",
+      "payload_loaded_before_read": false,
+      "payload_loaded_after_read": false,
+      "consumer_result": {
+        "carrier": "/Assembly",
+        "capability": "usd.geospatial.crsResolution.v1",
+        "usage": "hard",
+        "coverage": "unknown",
+        "known_none": false,
+        "publishing_profile": null,
+        "traversal_required": false
+      }
+    }
+  ],
+  "publisher_truth": "Separately checked by retained-variant stale-claim controls; reading metadata does not certify coverage."
+}

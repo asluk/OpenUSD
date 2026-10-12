@@ -23,7 +23,7 @@ def Xform "World" (
 {
     def GeospatialDataSource "Data" (
         apiSchemas = ["GeospatialCRSBindingAPI"]
-        prepend references = @./crs-library.usda@</Definitions/C3f0a6b68843a1b02>
+        prepend references = @./crs-library.usda@</Definitions/Ce3c35e176637e893>
     )
     {
         uniform asset data:asset = @./city.tif@

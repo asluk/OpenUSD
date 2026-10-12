@@ -2,8 +2,8 @@ from pathlib import Path
 import json,hashlib,re,zipfile,xml.etree.ElementTree as ET,html
 W=Path('C:/Users/aluk/Documents/Codex/2026-09-21/have')
 P=Path('C:/git/worktrees/geospatial-openusd-delivery/extras/usd/examples/usdGeospatialBuild')
-B=W/'work/geospatial-feedback-assessment-20261012-v1'
-O=W/'outputs/geospatial-feedback-build-20261012'
+B=W/'work/geospatial-sebastien-assessment-20261012'
+O=W/'outputs/geospatial-sebastien-build-20261012'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 story=json.loads((P/'delivery/story.json').read_text(encoding='utf-8'))
 readme=(P/'README.md').read_text(encoding='utf-8')
@@ -16,8 +16,8 @@ for c in story['cases']:
 main=re.sub(r'<details>.*?</details>','',readme,flags=re.S)
 assert not re.search(r'what .*changed|changes since|fresh|prior .*defect|previous run|red.team',main,re.I)
 assert readme.index('Source inputs and computed placement')<readme.index('Evidence and its limits')
-assert all(x in readme for x in ['Inputs-only','Expected behavior','Observed result','What this says about the proposal','WKT string normalization','shared','three prototype','unverified'])
-receipt_path=W/'work/geospatial-feedback-run-20261012-v1/delivery/run-report.json'
+assert all(x in readme for x in ['Inputs-only','Expected behavior','Observed result','What this says about the proposal','WKT string normalization','shared','two prototype','unverified'])
+receipt_path=W/'work/geospatial-sebastien-run-20261012-v3/delivery/run-report.json'
 r=json.loads(receipt_path.read_text())
 assert sha(receipt_path)==story['receipt_sha256']
 assert all(sha(P/f)==h for f,h in r['source_files'].items())

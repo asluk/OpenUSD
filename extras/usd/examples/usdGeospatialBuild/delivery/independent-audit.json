@@ -1,57 +1,28 @@
 {
-  "proposal_revision": "da2f49aad42811fc5d660c7bcf9ff190599f2d74",
-  "proposal_sha256": "2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4",
-  "execution_receipt_sha256": "ad59ead3c86c780b6d79a243a23032e492c14809f0c01f575397ae221939068f",
-  "source_freeze_verified": true,
-  "native_binary_matches_completed_run": true,
+  "proposal_revision": "e51919927ced49b9c68bcd86160be468121f633d",
+  "source_freeze_preserved": true,
   "semantic_gaps_confirmed_in_inspected_paths": [],
   "findings": [
-    {
-      "id": "normal-domain",
-      "classification": "Implementation accuracy coverage",
-      "finding": "Normal approximation lacks domain/error coverage",
-      "diagnostics": [
-        "normal_sampling_private_policy",
-        "actual_projected_normal_sampling"
-      ],
-      "maximum_projected_direction_difference_degrees": 1.2408700002254556
-    },
-    {
-      "id": "rotation-uncertainty",
-      "classification": "Implementation numerical certification",
-      "finding": "Near-half-turn guard lacks quantified uncertainty",
-      "diagnostic": "scope-audit.json: implementation_uncertainty_limit"
-    },
-    {
-      "id": "quoted-WKT",
-      "classification": "Implementation input classification",
-      "finding": "Quoted CRS name causes false epoch-wrapper rejection",
-      "diagnostic": "quoted-keyword-audit.json",
-      "semantic_CRS_equal": true
-    }
+    "Normal approximation lacks domain/error coverage",
+    "Near-half-turn guard lacks quantified uncertainty"
   ],
-  "controls": {
-    "scope_passed": 8,
-    "scope_failed": 1,
-    "focused_passed": 14,
-    "focused_failed": 0
-  },
   "pending_adoption": [
     "Detailed physical orientation and half-turn interpolation",
-    "Preserving WKT string normalization profile",
+    "Revised lossless WKT writing convention and tolerant reader rule",
     "Complete chart/reset/independent-instance conventions",
     "Native association profiles and absolute-domain Cartesian adjustment context",
     "Bake and continuous sampling guarantees",
     "Fixed versioned capability/profile identities and approval ownership"
   ],
   "verification_limits": [
-    "Normal-domain approximation and rotational-uncertainty diagnostics",
+    "Normal-domain approximation and rotational-uncertainty coverage",
     "Broader composition, retained variants and coordinate-bearing primvars/materials",
     "Nonlinear continuous space/time certificates",
     "No physics, OV render or geospatial Hydra filter",
     "Shared PROJ and external-format decoding limit independent geodetic evidence"
   ],
-  "diagnostic_file": "feedback-20261012/audit-diagnostics.json",
-  "source_audit_sha256": "98a1f4f45473f7ce56c54804cbd15d1441bc7978c6aa940cf35b35926af4f9cf",
-  "conclusion": "No additional undefined model rule was confirmed in the inspected paths. Three prototype limitations remain. Scoped controls do not establish exhaustive completeness or independent geodetic accuracy. Historical findings remain historical."
+  "quoted_WKT_regression": "Python and C++ accept the valid name; main run also verifies Omniverse",
+  "profiles_payloads": "All three summary reads leave payloads closed; publisher stale-claim control separately passes",
+  "diagnostics": "sebastien-20261012/audit-diagnostics.json",
+  "whole_proposal_conformance": false
 }

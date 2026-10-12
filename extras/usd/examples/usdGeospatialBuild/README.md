@@ -4,7 +4,7 @@ USD describes a 3D model's shape and size. Geospatial information says where it 
 
 Proposal quality means that another implementer can derive the inputs, evaluation order and observable outcomes without guessing. The full draft specifies those rules for the workflows shown here.
 
-Selected demonstrations support the proposed behavior. Detailed conventions still need group review, and three prototype limitations remain. This evidence does not establish exhaustive completeness or independent geodetic accuracy.
+Selected demonstrations support the proposed behavior. Detailed conventions still need group review, and two prototype limitations remain. This evidence does not establish exhaustive completeness or independent geodetic accuracy.
 
 [Slides](delivery/geospatial-build.pptx) · [PDF](delivery/geospatial-build.pdf) · [Proposal snapshot](proposal/proposal-source.txt) · [Build loop](BUILD_LOOP.md)
 
@@ -28,7 +28,7 @@ The initial scope combines local model placement, partner survey coordinates and
 
 **Limit.** The illustrated position is an example, not a surveyed Eiffel location. No crs:scale is proposed.
 
-Proposal basis: [Authored properties](proposal/proposal-source.txt#L1588). Functional requirements 9, 10, 12, 14, 15.
+Proposal basis: [Authored properties](proposal/proposal-source.txt#L1607). Functional requirements 9, 10, 12, 14, 15.
 
 | Source information | Plain meaning |
 |---|---|
@@ -57,7 +57,7 @@ WKT remains authoritative for coordinate meaning. Placement inputs add model pos
 
 **What this says about the proposal.** A new coordinate representation has a defined physical meaning. The France and Colorado numerical controls test conversion separately from this illustration.
 
-Proposal basis: [Source placement evaluation and transform order](proposal/proposal-source.txt#L1916). Functional requirements 9, 12, 13, 16, 19.
+Proposal basis: [Source placement evaluation and transform order](proposal/proposal-source.txt#L1923). Functional requirements 9, 12, 13, 16, 19.
 
 ### Ordinary model adjustments after placement
 
@@ -75,7 +75,7 @@ Proposal basis: [Source placement evaluation and transform order](proposal/propo
 
 **What this says about the proposal.** The draft distinguishes project adjustments from model-local child offsets. A numerical control separates those interpretations by 4.222 m.
 
-Proposal basis: [Evaluation](proposal/proposal-source.txt#L2016). Functional requirements 9, 14, 15, 17, 19.
+Proposal basis: [Evaluation](proposal/proposal-source.txt#L2023). Functional requirements 9, 14, 15, 17, 19.
 
 ### The same rules in two placement readers
 
@@ -85,13 +85,13 @@ Proposal basis: [Evaluation](proposal/proposal-source.txt#L2016). Functional req
 
 **Expected behavior.** Python and C++ resolve the same partner points within the recorded comparison tolerance.
 
-**Observed result.** The readers compare 213,243 coordinate results. The maximum measured physical difference is 3.39e-08 m.
+**Observed result.** The readers compare 213,263 coordinate results. The maximum measured physical difference is 3.39e-08 m.
 
 **What this says about the proposal.** These cases support reproducible interpretation of the proposed behavior. Agreement alone cannot establish all rules or all input layouts.
 
 **Limit.** Both readers use PROJ and share native dataset decoding. Agreement does not establish independent geodetic validation.
 
-Proposal basis: [Extent and result comparison](proposal/proposal-source.txt#L2197). Functional requirements 4, 13, 16, 17, 18, 28, 29.
+Proposal basis: [Extent and result comparison](proposal/proposal-source.txt#L2208). Functional requirements 4, 13, 16, 17, 18, 28, 29.
 
 ### Ordinary USD geometry for rendering
 
@@ -99,7 +99,7 @@ Proposal basis: [Extent and result comparison](proposal/proposal-source.txt#L219
 
 **Proposed rule.** An explicit bake resolves georeferencing into ordinary geometry and xformOps in a derived copy. A Cartesian coordinate context preserves location without an active source placement binding.
 
-![Native Hydra Storm image of the resolved ordinary USD Eiffel bake](delivery/feedback-20261012/tower.png)
+![Native Hydra Storm image of the resolved ordinary USD Eiffel bake](delivery/sebastien-20261012/tower.png)
 
 *Recorded native render. Ground context is illustrative. The image does not establish surveyed placement or surface-normal accuracy.*
 
@@ -109,7 +109,7 @@ Proposal basis: [Extent and result comparison](proposal/proposal-source.txt#L219
 
 **What this says about the proposal.** The visualization path uses ordinary USD geometry. Reassembly controls confirm that a parent translation and an authored reset keep their USD meaning.
 
-Proposal basis: [Explicit export and sampling](proposal/proposal-source.txt#L2254). Functional requirements 17, 19, 23, 25, 29.
+Proposal basis: [Explicit export and sampling](proposal/proposal-source.txt#L2269). Functional requirements 17, 19, 23, 25, 29.
 
 ### Measurements stay paired with their locations
 
@@ -117,7 +117,7 @@ Proposal basis: [Explicit export and sampling](proposal/proposal-source.txt#L225
 
 **Proposed rule.** The scene identifies the native asset, field and coordinate domain. Resolution preserves the pairing of values, locations, missing-data masks and observation times.
 
-![Synthetic global temperature values at their recorded geographic locations](delivery/feedback-20261012/global-temperature.png)
+![Synthetic global temperature values at their recorded geographic locations](delivery/sebastien-20261012/global-temperature.png)
 
 *Plot of recorded synthetic data. Synthetic temperatures in kelvin. Both readers share decoding, so their agreement alone cannot verify the association.*
 
@@ -127,7 +127,69 @@ Proposal basis: [Explicit export and sampling](proposal/proposal-source.txt#L225
 
 **What this says about the proposal.** The same data model supports global analytics as well as rendering. Named-dimension controls check the value/location association separately.
 
-Proposal basis: [External measurement association](proposal/proposal-source.txt#L1689). Functional requirements 8, 12, 18, 19, 21, 30.
+Proposal basis: [External measurement association](proposal/proposal-source.txt#L1708). Functional requirements 8, 12, 18, 19, 21, 30.
+
+### Processing requirements before loading content
+
+**Question.** Can a consumer discover required geospatial processing while the content payload stays closed?
+
+**Proposed rule.** Publishers place conservative Profiles declarations outside payloads. Complete-positive, complete-empty and unknown coverage have distinct meanings.
+
+**Expected behavior.** A consumer detects a required dependency without loading content. Absence alone never proves that no processing is needed.
+
+**Observed result.** The three summary cases retain closed payloads during detection. A separate publisher check catches a stale empty claim that retains a georeferenced variant.
+
+**What this says about the proposal.** The declaration supports useful consumer decisions before content loading. Publishers remain responsible for truthful coverage through assembly and publication.
+
+**Limit.** Selected payload and retained-variant controls. Fixed v1 names and the standards approval owner still need group agreement.
+
+Proposal basis: [Dependency declaration with Profiles](proposal/proposal-source.txt#L1772). Functional requirements 5, 6, 7, 25, 27, 29.
+
+### WKT writing, reading and comparison
+
+**Question.** Can different WKT spellings remain usable without losing coordinate meaning?
+
+**Proposed rule.** Writers emit lossless normal text. Readers accept supported valid non-normal WKT with a warning. Normalized text identity and semantic CRS equivalence remain separate.
+
+**Expected behavior.** Numeric spellings 1, 1.00 and 1E0 normalize to 1. Quoted names and exact decimal values remain represented.
+
+**Observed result.** Both placement readers resolve each spelling to the expected coordinates. The Omniverse stage writeback checks the same cases. A quoted keyword remains ordinary name text.
+
+**What this says about the proposal.** The draft specifies interoperable reader behavior without relaxing the writer convention or treating unequal text as unequal CRS meaning.
+
+**Limit.** This lexical profile remains proposed. Invalid syntax and unsupported coordinate meaning still fail. Coordinate epochs remain deferred.
+
+Proposal basis: [WKT string normalization](proposal/proposal-source.txt#L1830). Functional requirements 1, 2, 3, 21, 27, 28, 29, 31.
+
+### Repeated models retain their placement
+
+**Question.** Does an independently georeferenced prototype receive an instance offset exactly once?
+
+**Proposed rule.** Resolve the independent prototype placement once and retain the instance offset in its instancer-local frame.
+
+![Coincident inherited and independently bound prototype displacements in the east-north plane](delivery/sebastien-20261012/instance-offset.png)
+
+*Plot of recorded synthetic results. Synthetic displacement control. It does not establish surveyed placement or every instancer combination.*
+
+**Expected behavior.** A local ten-metre east offset produces the same physical displacement for inherited and independently bound prototypes.
+
+**Observed result.** Both readers return Earth-centred displacement [0, 10, 0] m for the two prototypes. Rotation and scale controls also distinguish the frame choices.
+
+**What this says about the proposal.** The selected controls test the occurrence contract rather than merely the prototype origin. An unavailable required inverse fails visibly.
+
+Proposal basis: [Queries, scene charts and instances](proposal/proposal-source.txt#L2120). Functional requirements 8, 9, 11, 17, 19, 20.
+
+| Closed-payload summary | Consumer meaning |
+|---|---|
+| Complete-positive | Declared hard dependency: geospatial processing required |
+| Complete-empty | Publisher-qualified known-none: no retained geospatial use |
+| Unknown | Missing qualification supplies no proof of no dependency |
+
+| Text before writing | Writer normal form |
+|---|---|
+| 1.00 | 1 |
+| 1E0 | 1 |
+| 0.50 | 0.5 |
 
 ### France: CC49 to Lambert-93 (m)
 
@@ -151,7 +213,7 @@ Proposal basis: [External measurement association](proposal/proposal-source.txt#
 |---|---|
 | Data model and runtime rules | The draft separates authored inputs from computed results and defines placement, adjustment, query and bake behavior. |
 | Group alignment | Input and declaration rules have agreement. Detailed conventions and identities await review. |
-| Prototype limitations | Lighting directions lack an error bound. Rotation uncertainty is unquantified. A quoted CRS name causes false rejection. |
+| Prototype limitations | Lighting directions lack an error bound. Rotation uncertainty is unquantified. |
 | Verification coverage | Selected workflows and distinguishing controls support the rules. Broader composition and continuous space/time coverage remain unverified. |
 
 No additional undefined model rule was confirmed in the inspected paths. That is a bounded finding. Passing results and matching readers cannot establish exhaustive completeness, group adoption or independent geodetic truth.
@@ -162,11 +224,10 @@ No additional undefined model rule was confirmed in the inspected paths. That is
 |---|---|
 | Normal transport | Confirmed prototype defect: one large projected face differs by 1.24 degrees across its domain. Centroid sampling has no justified domain/error bound. The source already requires a faithful derivative or covered approximation. |
 | Near-half-turn numerics | The proposed failure rule is clear. The prototype's 64-epsilon guard lacks a demonstrated rotational uncertainty bound and a quantified native diagnostic. |
-| WKT quoted text | Confirmed shared prototype defect: a valid CRS name containing COORDINATEMETADATA is mistaken for a deferred epoch wrapper. Capability detection must use WKT structure, not quoted text. |
 | Publisher coverage | Retained-variant and unloaded-payload controls pass, including detection of a stale empty claim. This is not a production validator for every composition or variant combination. |
 | Consumer coverage | Python and C++ share PROJ and external-data decoding. Omniverse reuses Python. General material/primvar baking, physics and nonlinear continuous space/time certificates remain unverified or visibly unsupported. |
 
-The three prototype issues must be assessed against the proposed rules. A shortcut does not become a valid rule because both readers use it. Publisher controls cover selected retained variants and unloaded payloads. A metadata read alone cannot establish the truth of a completeness claim.
+The two prototype issues must be assessed against the proposed rules. A shortcut does not become a valid rule because both readers use it. Publisher controls cover selected retained variants and unloaded payloads. A metadata read alone cannot establish the truth of a completeness claim.
 
 ## Supporting workflows
 
@@ -176,7 +237,7 @@ The three prototype issues must be assessed against the proposed rules. A shortc
 
 **Proposed rule.** The source WKT describes how a calibrated site grid relates to a broader CRS, including its units and height meaning.
 
-![Native Storm render of Colorado survey breaklines in the calibrated site grid](delivery/feedback-20261012/terrain.png)
+![Native Storm render of Colorado survey breaklines in the calibrated site grid](delivery/sebastien-20261012/terrain.png)
 
 *Recorded native render. The survey-line image does not establish independent survey accuracy or a continuous terrain-surface certificate.*
 
@@ -186,7 +247,7 @@ The three prototype issues must be assessed against the proposed rules. A shortc
 
 **What this says about the proposal.** The partner case exercises a site's calibrated CRS. Its WKT-carried calibration participates in resolution.
 
-Proposal basis: [Decision on question 7: site calibration](proposal/proposal-source.txt#L1344). Functional requirements 4, 14, 15, 17.
+Proposal basis: [Decision on question 7: site calibration](proposal/proposal-source.txt#L1355). Functional requirements 4, 14, 15, 17.
 
 ### Horizontal railway placement
 
@@ -194,7 +255,7 @@ Proposal basis: [Decision on question 7: site calibration](proposal/proposal-sou
 
 **Proposed rule.** The reader resolves a declared horizontal association and preserves uninterpreted third components. It does not invent a height reference.
 
-![Resolved UTM 32 horizontal railway coordinates with display-only offsets](delivery/feedback-20261012/railway.png)
+![Resolved UTM 32 horizontal railway coordinates with display-only offsets](delivery/sebastien-20261012/railway.png)
 
 *Plot of recorded resolved geometry. Horizontal coordinates only. The original third components remain uninterpreted and supply no physical 3D distance.*
 
@@ -204,7 +265,7 @@ Proposal basis: [Decision on question 7: site calibration](proposal/proposal-sou
 
 **What this says about the proposal.** The draft supports horizontal resolution without inventing a height reference. The original third components remain uninterpreted.
 
-Proposal basis: [External measurement association](proposal/proposal-source.txt#L1689). Functional requirements 8, 12, 19, 21.
+Proposal basis: [External measurement association](proposal/proposal-source.txt#L1708). Functional requirements 8, 12, 19, 21.
 
 ### Animation evaluation order
 
@@ -220,15 +281,7 @@ Proposal basis: [External measurement association](proposal/proposal-source.txt#
 
 **Limit.** The bake preserves time codes 0, 5 and 10 at 48 time codes per second. Continuous trajectory coverage remains unverified.
 
-Proposal basis: [Evaluation](proposal/proposal-source.txt#L2016). Functional requirements 20, 29.
-
-### Repeated models retain instance-local offsets
-
-The draft expands a repeated model at its occurrence, keeps the prototype's independent geographic placement once, and transports the ordinary instance effect through the instancer frame. A required unavailable inverse fails.
-
-![Recorded instance displacement control](delivery/feedback-20261012/instance-offset.png)
-
-In the synthetic control, an instancer-local +X offset moves two initially coincident prototypes ten metres east, whether they inherit a georeference or carry their own. Both readers return Earth-centred displacement [0, 10, 0] m. Rotation and scale controls also distinguish the frame choices. These controls establish the selected semantics, not surveyed placement or all instancer combinations.
+Proposal basis: [Evaluation](proposal/proposal-source.txt#L2023). Functional requirements 20, 29.
 
 ### Physical separation and surface distance
 
@@ -266,11 +319,11 @@ The agreed publication coverage rules distinguish complete-empty (known none), p
 
 | Path or check | Recorded evidence |
 |---|---|
-| Python and C++ readers | 213,243 coordinate results per reader. Maximum measured difference 3.39e-08 m. Shared PROJ and decoding. |
-| Omniverse stage geometry | Reuses Python placement. Readback covers 177,872 vertices and 48 edit, failure and recovery checks across 39 jobs. |
+| Python and C++ readers | 213,263 coordinate results per reader. Maximum measured difference 3.39e-08 m. Shared PROJ and decoding. |
+| Omniverse stage geometry | Reuses Python placement. Readback covers 177,872 vertices and 48 edit, failure and recovery checks across 44 jobs. |
 | Hydra / Storm | Two selected ordinary USD bakes reach native rendering using C++-resolved placements. |
-| Recorded tests | 116 contract tests and 65 distinguishing controls pass. Separate diagnostics expose the reported prototype limits. |
-| Source preservation | Original inputs and 48 frozen execution files remain unchanged. The immutable receipt identifies exact executed content. |
+| Recorded tests | 124 contract tests and 70 distinguishing controls pass. Separate diagnostics expose the reported prototype limits. |
+| Source preservation | Original inputs and 50 frozen execution files remain unchanged. The immutable receipt identifies exact executed content. |
 | Bake readbacks | 11 selected exports checked. No general material/primvar, physics or continuous trajectory conformance is claimed. |
 
 There are two placement readers. Omniverse reuses Python with a verified stage geometry sink. Hydra consumes a C++-resolved ordinary USD bake. This evidence establishes no third independent engine, Omniverse rendering, geospatial Hydra filter or physics integration. Polygonal vertex/face bounds do not certify the continuous image of a curved source surface or a trajectory between baked samples.
@@ -279,14 +332,16 @@ There are two placement readers. Omniverse reuses Python with a verified stage g
 
 The README and deck explain the same pinned proposal and immutable execution. Collateral adds no normative authority.
 
-Proposal commit: `da2f49aad42811fc5d660c7bcf9ff190599f2d74`. Proposal SHA-256: `2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4`. Execution source: `db9af9539bcf634225e412c8ef903d6e65af713c`. Immutable receipt SHA-256: `ad59ead3c86c780b6d79a243a23032e492c14809f0c01f575397ae221939068f`.
+Proposal commit: `e51919927ced49b9c68bcd86160be468121f633d`. Proposal SHA-256: `276ae17d60e9b4801947525528c98cfac58b25a7e6ac5999dc01ddb60a2e83b9`. Execution source: `5e369c68fefeaa0003e6e3b61384d8a4cc2b5b09`. Immutable receipt SHA-256: `06cb0fd2cefe30543d04bb461497f3071d5027de6094175fdc52b969428bb975`.
 
-[Receipt](delivery/run-report.json) · [31 requirement mappings](proposal/traceability.md) · [Diagnostic results](delivery/feedback-20261012/audit-diagnostics.json) · [Scope and publisher controls](delivery/feedback-20261012/scope-audit.json) · [Quoted WKT control](delivery/feedback-20261012/quoted-keyword-audit.json) · [Focused conformance controls](delivery/feedback-20261012/closure-audit.json)
+[Receipt](delivery/run-report.json) · [31 requirement mappings](proposal/traceability.md) · [Diagnostic results](delivery/sebastien-20261012/audit-diagnostics.json) · [Scope and publisher controls](delivery/sebastien-20261012/scope-audit.json) · [Quoted WKT control](delivery/sebastien-20261012/quoted-keyword-audit.json) · [Focused conformance controls](delivery/sebastien-20261012/closure-audit.json)
+
+[Closed-payload Profiles proof](delivery/sebastien-20261012/profiles-proof.json) · [Proposal WKT example checks](delivery/sebastien-20261012/proposal-example-checks.json)
 
 <details>
 <summary>Run comparison and execution history</summary>
 
-[Recorded comparison](delivery/feedback-20261012/run-comparison.json) separates intended contract effects from regressions. Historical failure and repair records remain in the immutable execution directories. They are supporting evidence, not the structure of this assessment.
+[Recorded comparison](delivery/sebastien-20261012/run-comparison.json) separates intended contract effects from regressions. Historical failure and repair records remain in the immutable execution directories. They are supporting evidence, not the structure of this assessment.
 
 </details>
 
