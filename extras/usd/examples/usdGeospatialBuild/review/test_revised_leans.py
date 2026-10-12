@@ -108,7 +108,7 @@ def test_profiles_complete_empty_and_unknown(tmp_path,kind,usage,coverage):
         assert d['known_none']==(kind=='none') and not d['traversal_required']
 
 def test_weak_profiles_dependency_is_rejected(tmp_path):
-    s,a=scene(tmp_path);s.GetDefaultPrim().SetCustomDataByKey('profilesInfo:capabilityUsages:usd.geospatial.crsResolution','soft')
+    s,a=scene(tmp_path);s.GetDefaultPrim().SetCustomDataByKey('profilesInfo:capabilityUsages:usd.geospatial.crsResolution.v1','soft')
     with pytest.raises(ContractError,match='Weak'):dependency(s)
 
 @pytest.mark.parametrize('end',[180,-180])

@@ -355,10 +355,10 @@ def dependency(stage):
     compatibility=info.get('profileCompatibility',{})
     qualification=compatibility.get(PUBLICATION_PROFILE) if isinstance(compatibility,dict) else None
     qualified=applied and isinstance(usages,dict) and isinstance(qualification,Vt.TokenArray) and len(qualification)==0
-    usage=usages.get('usd.geospatial.crsResolution') if isinstance(usages,dict) else None
+    usage=usages.get('usd.geospatial.crsResolution.v1') if isinstance(usages,dict) else None
     if usage is not None and usage!='hard':raise ContractError('Weak whole-scene Profiles dependency claim')
     known_none=qualified and usage is None
-    return {'carrier':str(p.GetPath()),'capability':'usd.geospatial.crsResolution',
+    return {'carrier':str(p.GetPath()),'capability':'usd.geospatial.crsResolution.v1',
             'usage':None if known_none else 'hard','coverage':'complete' if qualified else 'unknown',
             'known_none':known_none,'publishing_profile':PUBLICATION_PROFILE if qualified else None,
             'traversal_required':False}

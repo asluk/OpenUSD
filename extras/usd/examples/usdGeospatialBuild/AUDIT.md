@@ -1,24 +1,16 @@
 # Authority and implementation audit
 
-The pinned full candidate and proposal/traceability.md are the semantic
-authority; these notes are an audit checklist, not additional requirements.
+Before code: compare the pinned Git blob and every regenerated excerpt. Trace
+each field, metadata identity, ordering rule, failure and output to the proposal.
+Preserve the seven-field inputs-only model. Check that accepted direction and
+pending detailed adoption are not conflated. Governance is not scene semantics.
 
-Before execution: compare the exact Git blob; check every authored field,
-coordinate domain, transform order, chart, reset, instance, normal, dependency,
-failure and export rule. Reject a new source field or semantic shortcut lacking
-a proposal clause. A settled functional outcome can still have pending model
-adoption. The requirements-only split is not a derivation source.
+Before execution: freeze the active plan, authority, codeless schema, validators
+and both adapters. Confirm Python/C++, PROJ/shared decoding, OV stage writeback
+and the ordinary USD bake rendered by native Storm. No third reader is implied.
 
-During execution: freeze authority, active plan, validator, both adapters and
-schemas. Rebuild native binaries, execute fresh controls and all consumer sinks.
-After execution: reread every exported geometry part, check unexpected extras,
-and retry independent counterexamples. Record implementation defects separately
-from unspecified meaning. Inspect reverse field usage and source preservation.
-
-The current authored whitelist has seven fields, excludes crs:scale and epochs,
-and has no output properties. Omniverse stage geometry writeback reuses Python;
-Hydra renders the ordinary USD bake. Neither is a third placement implementation.
-
-Carry forward A1–A7 as counterexamples until each fresh diagnostic passes.
-Do not claim proposal completeness, total verification or author approval from
-a passing test count or an empty manually maintained semantic-gap list.
+After execution: check source/data/resource preservation, every export and actual
+consumer readback. Repeat independent adversarial controls and compare with the
+immutable October 8 receipt. Record missing meaning, implementation failure,
+verification coverage and adoption separately. A shortcut may not be promoted
+into normative text. Delivery links exact clauses and keeps failed diagnostics.

@@ -241,7 +241,7 @@ JsValue Dependency(){
  v=info.find("profileCompatibility");if(v!=info.end()&&v->second.IsHolding<VtDictionary>())compat=v->second.UncheckedGet<VtDictionary>();
  SdfTokenListOp schemas;p.GetMetadata(TfToken("apiSchemas"),&schemas);auto names=schemas.GetAppliedItems();bool applied=std::find(names.begin(),names.end(),TfToken("ClaimsAPI"))!=names.end();
  const std::string profile="usd.geospatial.publication.v1";v=compat.find(profile);bool complete=applied&&dictionary&&v!=compat.end()&&v->second.IsHolding<VtTokenArray>()&&v->second.UncheckedGet<VtTokenArray>().empty();
- auto usage=usages.find("usd.geospatial.crsResolution");bool present=usage!=usages.end();if(present&&(!usage->second.IsHolding<std::string>()||usage->second.UncheckedGet<std::string>()!="hard"))throw std::runtime_error("Weak whole-scene Profiles dependency claim");
+ auto usage=usages.find("usd.geospatial.crsResolution.v1");bool present=usage!=usages.end();if(present&&(!usage->second.IsHolding<std::string>()||usage->second.UncheckedGet<std::string>()!="hard"))throw std::runtime_error("Weak whole-scene Profiles dependency claim");
  bool none=complete&&!present;return JsValue(JsObject{{"usage",none?JsValue():JsValue("hard")},{"known_none",JsValue(none)},{"coverage",JsValue(complete?"complete":"unknown")},{"traversal_required",JsValue(false)}});
 }
 

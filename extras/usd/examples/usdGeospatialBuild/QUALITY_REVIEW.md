@@ -1,35 +1,22 @@
 # Proposal quality review
 
-The run evaluates the full local model/runtime follow-up at 7b5b34b7282305135f672663a3cffb0f94342ecc, source SHA-256
-010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75. The reduced requirements branch is intentionally not an agent-ready
-implementation contract. All 31 requirement identifiers are retained.
+Authority: full local proposal da2f49aad42811fc5d660c7bcf9ff190599f2d74, SHA-256 2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4. All 31 requirements and
+the placement input fields remain unchanged. The changes record accepted rules
+and specify fixed versioned dependency identities. Names and approval ownership
+remain proposed; technical plugin registration does not confer standards adoption.
 
-Feedback agrees on geographic inputs, input-only placement with no scale
-property, anchor project adjustments versus descendant model offsets, WKT site
-calibration, and conservative dependency coverage. Agreement on those outcomes
-does not approve every detailed carrier or evaluation convention.
+The model records seven geospatial input fields and no computed outputs. WKT
+supplies CRS meaning. Author agreement covers HPR inputs, the ordinary bake,
+working adjustment order, axis adaptation, named array association, invalid-field
+failure and conservative Profiles coverage. Detailed orientation, WKT normal
+form, charts/instances, native association and sampling clauses still need review.
 
-The full candidate defines seven geospatial input fields: crs:wkt, crs:position,
-crs:orientation and data:asset, data:format, data:field, data:coordinateDomain.
-There is no epoch or computed-result property. The bake origin uses ordinary
-USD double-precision translate. Its prim/op names are adapter choices.
+Every expected behavior must cite the current proposal and existing standards.
+Implementation defaults, registry aliases and earlier fixtures supply no model
+authority. Reuse of code or controls is explicit and requires fresh conformance
+review. Finite agreement and test totals do not certify exhaustive completeness.
 
-The revised contract clarifies array dimension association and rejects invalid
-descendant placement. It requires an ordinary USD bake for unaware readers,
-with coordinate context, origin, precision and stated space/time coverage.
-Heading matching checks authority freshness; it is not a completeness proof.
-The preimplementation review compares outcomes, necessary representation,
-evaluation order and observable failures before any adapter change.
-
-Pending adoption: HPR and ambiguous-half-turn policy; revised occurrence/transport and
-bake inheritance; explicit Cartesian dataset adjustment context; physical distance;
-Profiles publishing profile and completeness maintenance; WKT normal form and
-external-data carrier. Defined local leans are not group decisions.
-
-Postimplementation review must independently retry all seven prior defect
-counterexamples, inventory the whole export, compare both placement readers,
-and retain failed diagnostics. Normals sampling is a known adapter concern,
-not permission to weaken the proposal. More general primvar/material baking
-and continuous nonlinear certificates remain verification limits.
-
-The revised leans address red-team counterexamples RT1–RT7. Compare both readers to analytical and ordinary-Core controls, not just to each other. Preserve finite-instance transport and complete/known-none/unknown coverage as proposed choices; the new publishing-profile identity requires review.
+Rerun normal-domain, half-turn uncertainty and quoted-WKT diagnostics, retaining
+failed results. Report a failure against a defined rule as a prototype finding,
+not as a newly missing model rule. General continuous certificates, arbitrary
+primvars/materials, broader composition and physics remain separate coverage.

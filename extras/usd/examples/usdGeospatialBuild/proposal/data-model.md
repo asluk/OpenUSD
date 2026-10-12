@@ -1,6 +1,6 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75
+Source SHA-256: 2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4
 
 ### Schema design
 
@@ -335,12 +335,23 @@ same adjusted locations; adding a model anchor again would double-place them.
 
 ### Dependency declaration with Profiles
 
-**Proposed integration for question 12.** Use the existing
+**Agreed declaration semantics for question 12; identities remain proposed.** Use the existing
 [Profiles claims and profile-conformance carrier](https://openusd.org/release/user_guides/schemas/UsdProfiles/overview.html).
-Propose capability `usd.geospatial.crsResolution`, dependent on `usd`, and
-publishing profile `usd.geospatial.publication.v1`. Both identities require
-registry review; these spellings do not claim existing registration. The
-publishing profile requires the coverage and maintenance rules below; it does
+Propose capability `usd.geospatial.crsResolution.v1`, dependent on `usd`, and
+publishing profile `usd.geospatial.publication.v1`. Each identity names a fixed
+contract. A change to its meaning requires a distinct identity; an authored or
+schema-implied dependency must not be reinterpreted as a floating latest version.
+Compatibility with another identity must be explicit. These proposed spellings
+do not claim existing registration or standards adoption.
+
+OpenUSD registers capabilities and profiles through plugin `Profiles.Capabilities`
+metadata; schema metadata records implied capability identities. This technical
+registration is distinct from approval of the names and their normative meaning.
+The contribution must identify the namespace steward and the applicable
+OpenUSD/AOUSD review path before these names are published as standard identities;
+approval ownership remains an adoption question, not a new scene field.
+
+The publishing profile requires the coverage and maintenance rules below; it does
 not assert that every consumer implements geospatial resolution. Binding and
 measurement schemas imply the capability. A bare CRS library definition or a
 complete ordinary geometry bake does not require it for correct placement.
@@ -349,7 +360,7 @@ A conforming publication's `defaultPrim` carries `ClaimsAPI`, an explicitly
 recorded `customData.profilesInfo.capabilityUsages` dictionary and an unqualified
 `customData.profilesInfo.profileCompatibility["usd.geospatial.publication.v1"] = []`
 claim. These existing Profiles fields assert a complete publisher-maintained
-summary. Record `capabilityUsages["usd.geospatial.crsResolution"] = "hard"` if any
+summary. Record `capabilityUsages["usd.geospatial.crsResolution.v1"] = "hard"` if any
 retained content needs resolution. A qualified complete summary may omit that
 entry when no retained content needs it; this is known-none, not unknown.
 A hard usage remains a dependency even without the completeness qualification.

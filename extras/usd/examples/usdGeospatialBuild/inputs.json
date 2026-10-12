@@ -1,12 +1,12 @@
 {
-  "status": "October 8 revised leans: exact local proposal and fresh complete build loop",
+  "status": "October 12 feedback candidate: exact local proposal and fresh complete execution",
   "proposal": {
-    "revision": "7b5b34b7282305135f672663a3cffb0f94342ecc",
-    "sha256": "010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75",
+    "revision": "da2f49aad42811fc5d660c7bcf9ff190599f2d74",
+    "sha256": "2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4",
     "local_candidate": true,
     "group_agreement": false,
     "source": "proposal/proposal-source.txt",
-    "status": "Local full follow-up; requirements-only branch is not an implementation authority"
+    "status": "PR 11 incorporated; accepted decisions separated from detailed conventions and identity adoption"
   },
   "openusd": {
     "repository": "https://github.com/PixarAnimationStudios/OpenUSD",
@@ -20,18 +20,12 @@
   },
   "inherited_geospatial_implementation": true,
   "inherited_model_or_runtime_candidate": false,
-  "inherited_fixture_code_or_expected_outputs": false,
+  "inherited_fixture_code_or_expected_outputs": true,
   "new_derivation_required": [
-    "conceptual_model",
-    "authored_model",
-    "normative_runtime_behavior",
-    "implementations",
-    "content_validator",
-    "fixtures_and_tests",
-    "audit_evidence",
-    "README",
-    "review_body",
-    "slides"
+    "Fresh authority excerpts and requirement trace",
+    "Proposal/code conformance and reverse coverage audit",
+    "Identity controls and current integration inspection",
+    "Fresh execution, independent diagnostics, README/review/deck assessment"
   ],
   "required_reviews": [
     "requirements_sufficiency_and_consistency",
@@ -39,7 +33,7 @@
     "implementation_to_proposal_and_reverse_coverage",
     "attempts_to_expose_fixture_shortcuts_and_self_justifying_proposal_changes"
   ],
-  "publication": "Local branches, commits and evidence only. No remote or communication writes authorized.",
+  "publication": "Local proposal/runtime commits and artifacts only; no push, GitHub comments, Outlook edits or email sends.",
   "geospatial_references": [
     {
       "standard": "OGC 18-005r8",
@@ -52,17 +46,18 @@
   ],
   "previous_executed_source_commit": "76f0b7f56299b29f25e37de75f4e5a2834706b47",
   "derivation": {
-    "requirements.md": "d6edf93499022d45658a946fb18202700f07bcff2a72c087168adca50259bf35",
-    "data-model.md": "9ec772f181b45aa6f06de06cf1e2baa95149f4fe39b649244f8b89c3a9dcbc9c",
-    "runtime-behavior.md": "396955fb2554aad2f7e5a8b65f0e98aa0767469b4992c8eea8c141a6137ec4cc",
-    "runtime-open-decisions.md": "8d6cdc4e610495523083fd84d0f9d388520a2896ec1013c731c4e0afd11fba80",
-    "distinguishing-examples.md": "56361356ac44ceb1d85f8dcade70463d1a89e83254c49a6b4784485f1fb0d030",
-    "traceability.md": "2e952691cffe9edc2984bd282df307f8e5688a9842003dde05be4d43ef92b107"
+    "requirements.md": "b72a9c8d3bceefb51a46121664c526947ad13bf924dc465146ee6bb72913d7f6",
+    "data-model.md": "5210943af0df573ee0a69580ef3d5bd66255b4bccda3ee91e70e3d0c117adb69",
+    "runtime-behavior.md": "a491c1a5bc7000f4f845f00d334e9d0ed7f40772770a42ff3a58ac910e9c761e",
+    "runtime-open-decisions.md": "33271742720abddcbcd7ad6905e8b2077aea594bb279a5908c93e4a373cb6224",
+    "distinguishing-examples.md": "f05b29d813011da609722c1dddece2dce7dee415e6b9dc032c563e563fe1972b",
+    "traceability.md": "cb04102c6485c08f7fbdb9e63d9fb9ff8768157f1247de5cbb70141c77d97571"
   },
   "inherited_code_execution": "Prior relationship-based placement code retained in history/source, excluded from current execution except an explicit incompatibility control.",
   "current_execution": "Python and C++ complete point-map queries, Cartesian frame derivatives and polygonal bounds; native Hydra resolved export; Omniverse stage geometry writeback; selected external measurement domains and sampled exports",
   "normalizer_references": [
     "OGC 18-010r11 clauses 6-7 and Annex B",
     "W3C XML Schema Part 2 canonical integer and decimal lexical representations"
-  ]
+  ],
+  "reuse_boundary": "Existing implementations and controls are re-audited against the new full proposal; previous output arrays and images are comparison evidence only, not fresh results."
 }

@@ -1,6 +1,6 @@
 # Derived excerpt: no additional authority
 
-Source SHA-256: 010d4c0243e7e6985284cccadb00fb7c6f7b0c5c50f22d81bb31ada960548d75
+Source SHA-256: 2613649fd06516d77339d73b56432e84613dd1925e739761efea738f41b4f0a4
 
 ### Functional requirements
 
@@ -648,19 +648,19 @@ The proposal remains subject to author review.
 | # | Question | Requirements and status |
 |--:|---|---|
 | 1 | May a model-placement position be recorded in a geographic CRS, or only in one with length axes? | 5, 8, 12, 17, 18, 19, 20, 22, 30; Decided: [geographic source positions](#decision-on-question-1-geographic-source-positions); encoding remains question 2 |
-| 2 | What field definitions and conventions record source position and physical model attitude, with computed projection effects kept out of the source schema? | 9, 10, 11, 12, 20; Input-only meaning and authored heading/pitch/roll tuple supported in feedback; detailed [field and evaluation conventions](#crs-association-and-model-placement) remain under review; no `crs:scale` |
-| 3 | What coordinate context applies to project adjustments expressed as ordinary USD transforms when the consumer changes the requested output CRS? | 5, 6, 8, 9, 11, 15, 16, 19; Anchor project adjustments and descendant model-local transforms agreed; [complete chart, reset and instance contract](#evaluation) remains a review candidate |
+| 2 | What field definitions and conventions record source position and physical model attitude, with computed projection effects kept out of the source schema? | 9, 10, 11, 12, 20; Input-only meaning and authored heading/pitch/roll tuple agreed; detailed [field and evaluation conventions](#crs-association-and-model-placement) remain under review; no `crs:scale` |
+| 3 | What coordinate context applies to project adjustments expressed as ordinary USD transforms when the consumer changes the requested output CRS? | 5, 6, 8, 9, 11, 15, 16, 19; Decided: working-CRS adjustment order and anchor/descendant distinction; [complete chart, reset and instance contract](#evaluation) remains a review candidate |
 | 4 | Whose job is the up-axis and unit correction, the writer's or the reader's? | 14, 15; Decided: [writer or assembler](#decision-on-question-4-authored-unit-and-up-axis-conformance) |
 | 5 | Does the scene record where CRS coordinates give way to scene offsets, or does the binding determine it? | 11, 19, 27; Decided: [direct binding establishes the anchor](#decision-on-question-5-the-position-and-offset-boundary) |
-| 6 | What component order and scene-frame representation apply to the supported CRS coordinate systems? | 12, 13, 14; [Component profile and stage mapping](#position-components) supported in feedback; geodetic attitude differs from grid axes; south-oriented axes are a known extension |
+| 6 | What component order and scene-frame representation apply to the supported CRS coordinate systems? | 12, 13, 14; Decided: [semantic component order and reversible engine adaptation](#decision-on-question-6-coordinate-order); geographic scene charts remain question 9; south-oriented axes are a known extension |
 | 7 | Does site calibration (localization) need a construct of its own? | 2, 4; Decided: [CRS definition and binding](#decision-on-question-7-site-calibration) |
 | 8 | Is the consumer's chosen CRS the one the scene resolves into, or a conversion of a result resolved into the CRS the scene names? | 16, 17, 21, 23; Decided: [consumer-selected output context](#decision-on-question-8-consumer-selected-output-context) |
 | 9 | May a geographic CRS be the resolved scene context for geometry, frames and bounds? | 12, 16, 17, 18, 22; Proposed [geographic tuples with associated geocentric scene chart](#queries-scene-charts-and-instances); angular Euclidean scene frames are unsupported |
 | 10 | What WKT string normalization profile preserves the represented information, and what comparisons can its normal form establish? | 1, 2, 3, 21, 27, 28, 29, 31; [Proposed lexical profile and comparison contract](#wkt-string-normalization) are under review |
-| 11 | How are a measurement dataset's source coordinate properties associated with its CRS, separately from model-placement properties and ordinary geometry offsets? | 2, 5, 6, 7, 8, 12, 18, 19, 21, 27, 30; Proposed [external association and adjustment](#external-measurement-association), retaining native values; epochs remain question 15 |
-| 12 | What authored declaration exposes the composed scene's CRS dependency without traversal, including referenced or unloaded content and explicit export? | 7, 19, 25, 26, 27; Proposed [Profiles carrier and conservative maintenance](#dependency-declaration-with-profiles), including unloaded content and export |
+| 11 | How are a measurement dataset's source coordinate properties associated with its CRS, separately from model-placement properties and ordinary geometry offsets? | 2, 5, 6, 7, 8, 12, 18, 19, 21, 27, 30; Native dimension association and named-order alignment agreed; detailed [external association and adjustment](#external-measurement-association) remain under review; epochs remain question 15 |
+| 12 | What authored declaration exposes the composed scene's CRS dependency without traversal, including referenced or unloaded content and explicit export? | 7, 19, 25, 26, 27; Decided: [Profiles carrier and conservative coverage](#decision-on-question-12-dependency-declaration); identity/versioning and approval ownership remain under review |
 | 13 | How is placement-approximation error established for resolved frames, geometry and bounds, and how is cross-engine agreement measured for comparable operations? | 17, 18, 21, 22, 23, 24, 28, 29; Engine responsibility decided; proposed [extent and comparison rules](#extent-and-result-comparison) distinguish pointwise, polygonal and continuous guarantees |
-| 14 | How does a time-sampled export record its sampling so a reader can distinguish it from resolution of the original authored samples? | 18, 19, 20, 27, 30; Ordinary USD bake with a double-precision origin supported in feedback; detailed [representation and sampling guarantees](#explicit-export-and-sampling) remain under review |
+| 14 | How does a time-sampled export record its sampling so a reader can distinguish it from resolution of the original authored samples? | 18, 19, 20, 27, 30; Required ordinary USD bake with a double-precision origin agreed; detailed [representation and sampling guarantees](#explicit-export-and-sampling) remain under review |
 | 15 | How should a future extension represent and associate coordinate epochs, and what must it specify for epoch-dependent resolution? | 2, 3, 5, 7, 19, 21, 27, 28, 30; Roadmap: [coordinate epochs](#roadmap-question-15-coordinate-epochs), outside the initial scope |
 
 The table separates recorded direction from complete proposed definitions.
@@ -687,7 +687,7 @@ Source position and physical model attitude are authored inputs distinct from
 ordinary USD transforms. Projection convergence, scale and resolved orientation
 are runtime results, not additional source properties; no `crs:scale` is proposed.
 Intentional object scaling uses ordinary USD xformOps. This input-only meaning
-has author support.
+is agreed.
 
 The source representation stores one heading/pitch/roll tuple. A placement author
 can enter, inspect and correct the same physical angles supplied by a survey or
@@ -709,6 +709,14 @@ and offset terms and binding inheritance; no second
 boundary declaration is required. The placement table defines authored position and attitude. Question 3 specifies the
 coordinate context of project adjustments, which use ordinary USD transforms
 after CRS placement and resolution.
+
+#### Decision on question 6: coordinate order
+
+The semantic tuple order and reversal of engine-boundary axis adaptation are
+agreed. The [component profile](#position-components) and
+[runtime coordinate transformation](#runtime-coordinate-transformation) specify
+the rules; engine-native array order supplies no second convention. Geographic
+scene-chart interpretation remains separately reviewable under question 9.
 
 #### Decision on question 11: coordinate domains and property roles
 
@@ -748,11 +756,16 @@ the units declared by a CRS or performing a requested coordinate conversion.
 
 #### Decision on question 3: working context and placement order
 
-An independently bound dataset retains its source CRS and coordinates. Author
-feedback supports the enclosing-binding/fallback working context, model-origin
-pivot, and the distinction between the anchor's post-placement project
-adjustments and descendants' ordinary model-local transforms. Descendant
-offsets must remain reusable when an asset is referenced into another project.
+An independently bound dataset retains its source CRS and coordinates. The
+agreed order converts source placement into the working CRS, applies the anchor's
+ordinary project adjustment there, and then converts the adjusted result to the
+requested output. Descendant xformOps retain their model-local meaning. The
+anchor's project adjustment includes its ordinary scale, rotation and translation;
+the final result introduces no additional implicit adjustment stack. An inverse
+query reverses this interpretation when the required inverse is available.
+Feedback also supports the enclosing-binding/fallback working context and
+model-origin pivot. Descendant offsets must remain reusable when an asset is
+referenced into another project.
 Changing the requested output CRS preserves the adjusted physical placement,
 rather than reusing raw adjustment numbers in different output axes. The exact
 chart, complete stack, reset and instance conventions remain the follow-up
@@ -779,6 +792,14 @@ Authored project-specific placement must still be preserved under requirement 8;
 its adjustment coordinate context is proposed under question 3. The October 2 discussion
 confirmed this as the intended behavior rather than a new output mode to design.
 Question 9 proposes the associated Cartesian scene chart for geographic output.
+
+#### Decision on question 12: dependency declaration
+
+Existing Profiles metadata and the complete-positive, complete-empty and unknown
+coverage meanings are agreed in substance. The
+[declaration contract](#dependency-declaration-with-profiles) specifies conservative
+maintenance, entrypoint coverage above payloads and pre-publish validation.
+The versioned identities and their approval ownership remain proposed.
 
 #### Decision on question 13: operation and resource responsibility
 

@@ -13,7 +13,7 @@ def mark(p,name):
 
 def claim(stage,required=True,complete=True):
     p=stage.GetDefaultPrim();UsdProfiles.ClaimsAPI.Apply(p)
-    d=p.GetCustomData();d.setdefault('profilesInfo',{})['capabilityUsages']={'usd.geospatial.crsResolution':'hard'} if required else {}
+    d=p.GetCustomData();d.setdefault('profilesInfo',{})['capabilityUsages']={'usd.geospatial.crsResolution.v1':'hard'} if required else {}
     p.SetCustomData(d)
     if complete:UsdProfiles.ClaimsAPI(p).SetProfileCompatible('usd.geospatial.publication.v1')
 

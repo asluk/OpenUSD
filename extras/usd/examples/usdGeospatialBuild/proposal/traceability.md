@@ -1,207 +1,207 @@
 # Requirement authority trace
 
-Locations refer to the exact committed full candidate. A heading match verifies freshness, not semantic completeness.
+The exact pinned full proposal is the authority. Heading matching checks freshness; it does not prove semantic completeness.
 
 ## Requirement 1, Self-contained definitions.
 
-Functional source: line 635.
+Functional source: line 662.
 
-- Line 1470: ### GeospatialCRS typed schema
+- Line 1518: ### GeospatialCRS typed schema
 
 ## Requirement 2, Defined once, and describing no object.
 
-Functional source: line 648.
+Functional source: line 675.
 
-- Line 1744: ### WKT string normalization
-- Line 1540: #### Authored properties
+- Line 1803: ### WKT string normalization
+- Line 1588: #### Authored properties
 
 ## Requirement 3, Datum, realization and epoch.
 
-Functional source: line 665.
+Functional source: line 692.
 
-- Line 1348: #### Roadmap question 15: coordinate epochs
+- Line 1396: #### Roadmap question 15: coordinate epochs
 
 ## Requirement 4, A site's own grid is a CRS like any other.
 
-Functional source: line 677.
+Functional source: line 704.
 
-- Line 1304: #### Decision on question 7: site calibration
+- Line 1344: #### Decision on question 7: site calibration
 
 ## Requirement 31, Same definition, same meaning.
 
-Functional source: line 701.
+Functional source: line 728.
 
-- Line 1744: ### WKT string normalization
+- Line 1803: ### WKT string normalization
 
 ## Requirement 5, A discoverable CRS.
 
-Functional source: line 723.
+Functional source: line 750.
 
-- Line 1409: ### CRS binding and inheritance
+- Line 1457: ### CRS binding and inheritance
 
 ## Requirement 6, Declared for a subtree, not a prim.
 
-Functional source: line 733.
+Functional source: line 760.
 
-- Line 1409: ### CRS binding and inheritance
+- Line 1457: ### CRS binding and inheritance
 
 ## Requirement 7, Composition agnostic
 
-Functional source: line 744.
+Functional source: line 771.
 
-- Line 1409: ### CRS binding and inheritance
-- Line 2304: ### Composition arcs
+- Line 1457: ### CRS binding and inheritance
+- Line 2363: ### Composition arcs
 
 ## Requirement 8, Brought-in data keeps its coordinates and its CRS.
 
-Functional source: line 754.
+Functional source: line 781.
 
-- Line 1957: #### Evaluation
-- Line 1641: ### External measurement association
+- Line 2016: #### Evaluation
+- Line 1689: ### External measurement association
 
 ## Requirement 9, Positions, and offsets from them.
 
-Functional source: line 780.
+Functional source: line 807.
 
-- Line 1540: #### Authored properties
-- Line 1957: #### Evaluation
+- Line 1588: #### Authored properties
+- Line 2016: #### Evaluation
 
 ## Requirement 10, Offsets along the axes of their position.
 
-Functional source: line 801.
+Functional source: line 828.
 
-- Line 1591: #### Geospatial model attitude and stage axes
+- Line 1639: #### Geospatial model attitude and stage axes
 
 ## Requirement 11, Position or offset, and the scene says which.
 
-Functional source: line 820.
+Functional source: line 847.
 
-- Line 1409: ### CRS binding and inheritance
-- Line 1957: #### Evaluation
+- Line 1457: ### CRS binding and inheritance
+- Line 2016: #### Evaluation
 
 ## Requirement 12, No angle read as a length.
 
-Functional source: line 837.
+Functional source: line 864.
 
-- Line 1573: #### Position components
-- Line 1641: ### External measurement association
-- Line 2054: #### Queries, scene charts and instances
+- Line 1621: #### Position components
+- Line 1689: ### External measurement association
+- Line 2113: #### Queries, scene charts and instances
 
 ## Requirement 13, One axis mapping.
 
-Functional source: line 851.
+Functional source: line 878.
 
-- Line 1573: #### Position components
+- Line 1621: #### Position components
 
 ## Requirement 14, Scene conventions stay the scene's.
 
-Functional source: line 863.
+Functional source: line 890.
 
-- Line 1591: #### Geospatial model attitude and stage axes
-- Line 2279: ### Stage metadata: metersPerUnit and upAxis
+- Line 1639: #### Geospatial model attitude and stage axes
+- Line 2338: ### Stage metadata: metersPerUnit and upAxis
 
 ## Requirement 15, Placement separate from conformance.
 
-Functional source: line 876.
+Functional source: line 903.
 
-- Line 1282: #### Decision on question 4: authored unit and up-axis conformance
-- Line 1957: #### Evaluation
+- Line 1317: #### Decision on question 4: authored unit and up-axis conformance
+- Line 2016: #### Evaluation
 
 ## Requirement 16, One CRS out.
 
-Functional source: line 888.
+Functional source: line 915.
 
-- Line 1831: ## Runtime coordinate transformation
-- Line 2054: #### Queries, scene charts and instances
+- Line 1890: ## Runtime coordinate transformation
+- Line 2113: #### Queries, scene charts and instances
 
 ## Requirement 17, The same answer for every consumer.
 
-Functional source: line 908.
+Functional source: line 935.
 
-- Line 2054: #### Queries, scene charts and instances
-- Line 2138: ### Extent and result comparison
+- Line 2113: #### Queries, scene charts and instances
+- Line 2197: ### Extent and result comparison
 
 ## Requirement 18, Coordinates back out.
 
-Functional source: line 923.
+Functional source: line 950.
 
-- Line 2054: #### Queries, scene charts and instances
+- Line 2113: #### Queries, scene charts and instances
 
 ## Requirement 19, Resolution leaves the scene as authored.
 
-Functional source: line 938.
+Functional source: line 965.
 
-- Line 2124: ### Observable outcomes and failures
-- Line 2195: ### Explicit export and sampling
+- Line 2183: ### Observable outcomes and failures
+- Line 2254: ### Explicit export and sampling
 
 ## Requirement 20, Positions between recorded moments.
 
-Functional source: line 957.
+Functional source: line 984.
 
-- Line 1957: #### Evaluation
-- Line 2195: ### Explicit export and sampling
+- Line 2016: #### Evaluation
+- Line 2254: ### Explicit export and sampling
 
 ## Requirement 21, Never placed by a guess.
 
-Functional source: line 974.
+Functional source: line 1001.
 
-- Line 2124: ### Observable outcomes and failures
-- Line 1641: ### External measurement association
+- Line 2183: ### Observable outcomes and failures
+- Line 1689: ### External measurement association
 
 ## Requirement 30, Measurements remain usable as data.
 
-Functional source: line 1009.
+Functional source: line 1036.
 
-- Line 1641: ### External measurement association
+- Line 1689: ### External measurement association
 
 ## Requirement 22, A CRS suited to the project's size.
 
-Functional source: line 1031.
+Functional source: line 1058.
 
-- Line 2054: #### Queries, scene charts and instances
+- Line 2113: #### Queries, scene charts and instances
 
 ## Requirement 23, Detail that does not depend on location.
 
-Functional source: line 1044.
+Functional source: line 1071.
 
-- Line 1449: ### Precision handling
-- Line 2195: ### Explicit export and sampling
+- Line 1497: ### Precision handling
+- Line 2254: ### Explicit export and sampling
 
 ## Requirement 24, Extent under one position is bounded and stated.
 
-Functional source: line 1053.
+Functional source: line 1080.
 
-- Line 2138: ### Extent and result comparison
+- Line 2197: ### Extent and result comparison
 
 ## Requirement 25, Additive for consumers that ignore it.
 
-Functional source: line 1068.
+Functional source: line 1095.
 
-- Line 2294: ### Transform stack and resetXformStack
+- Line 2353: ### Transform stack and resetXformStack
 
 ## Requirement 26, Declares its dependency.
 
-Functional source: line 1078.
+Functional source: line 1105.
 
-- Line 1701: ### Dependency declaration with Profiles
+- Line 1749: ### Dependency declaration with Profiles
 
 ## Requirement 27, Checkable before use.
 
-Functional source: line 1089.
+Functional source: line 1116.
 
-- Line 1540: #### Authored properties
-- Line 1701: ### Dependency declaration with Profiles
-- Line 2124: ### Observable outcomes and failures
+- Line 1588: #### Authored properties
+- Line 1749: ### Dependency declaration with Profiles
+- Line 2183: ### Observable outcomes and failures
 
 ## Requirement 28, A result says what produced it.
 
-Functional source: line 1105.
+Functional source: line 1132.
 
-- Line 2124: ### Observable outcomes and failures
-- Line 2138: ### Extent and result comparison
+- Line 2183: ### Observable outcomes and failures
+- Line 2197: ### Extent and result comparison
 
 ## Requirement 29, Implementable from the text alone.
 
-Functional source: line 1123.
+Functional source: line 1150.
 
-- Line 2138: ### Extent and result comparison
+- Line 2197: ### Extent and result comparison

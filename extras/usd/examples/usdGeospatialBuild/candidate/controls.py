@@ -84,7 +84,7 @@ def verify(jobs,results,targets,directory):
     unloaded=Usd.Stage.Open(str(directory/'dependency-assembly.usda'),load=Usd.Stage.LoadNone)
     yes('Profiles summary readable with outside unloaded payload',dependency(unloaded)['usage']=='hard' and not unloaded.GetPrimAtPath('/Outside').IsLoaded())
     # Authored unknown dependency conservatively retains hard; ordinary Core composition still permits a bad override, detected here.
-    with Usd.EditContext(unloaded,unloaded.GetSessionLayer()):unloaded.GetDefaultPrim().SetCustomData({'profilesInfo':{'capabilityUsages':{'usd.geospatial.crsResolution':'soft'}}})
+    with Usd.EditContext(unloaded,unloaded.GetSessionLayer()):unloaded.GetDefaultPrim().SetCustomData({'profilesInfo':{'capabilityUsages':{'usd.geospatial.crsResolution.v1':'soft'}}})
     fails('stronger layer cannot silently weaken required summary',lambda:dependency(unloaded))
     # Newly defined outcomes, checked against explicit geometry/metadata facts.
     shifted=np.array(results['city-adjusted-grid']['dataset_coordinates'])

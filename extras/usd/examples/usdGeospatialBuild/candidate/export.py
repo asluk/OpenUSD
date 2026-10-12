@@ -39,7 +39,7 @@ def geometry_export(job,record,path):
         p.SetMetadata('apiSchemas',Sdf.TokenListOp.CreateExplicit(retained))
         info=p.GetCustomData().get('profilesInfo',{})
         if 'capabilityUsages' in info:
-            info['capabilityUsages'].pop('usd.geospatial.crsResolution',None)
+            info['capabilityUsages'].pop('usd.geospatial.crsResolution.v1',None)
             p.SetCustomDataByKey('profilesInfo',info)
         center=np.array(coordinates[0]);local=r.stage_coordinates(coordinates,center);stored=local.astype(np.float32)
         point_attr=p.GetAttribute('points');point_attr.Clear()
