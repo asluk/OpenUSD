@@ -18,6 +18,14 @@ or independent geodetic evidence. Name shared libraries and the actual consumer
 output. Omniverse reuses Python placement with stage geometry writeback. Hydra
 consumes an ordinary USD bake. There are two placement readers.
 
+Assess derivability using a new implementation generated from the pinned proposal,
+not an incrementally patched predecessor. Link the generation record and explain
+which datasets, general-purpose libraries and neutral infrastructure were reused.
+Keep independently derived expectations separate from historical regression
+comparisons. If fresh generation did not happen, label the evidence incremental;
+do not describe it as a complete proposal-derived build loop. Earlier successful
+runs remain useful behavioral evidence without proving fresh derivability.
+
 Run history and comparisons belong in supporting records. Reject a delivery whose
 main narrative is what changed, what was repaired or which run passed more tests.
 Each explanation must remain understandable without a prior deck or email.
