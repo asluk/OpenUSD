@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "path": "Omniverse in-process USD stage geometry writeback/readback",
+  "placement_evaluator": "Fresh Python + PROJ, evaluated externally and bridged as points; shared with Python path",
+  "native_binding_api": "No Fabric/ovstage integration claimed",
+  "meshes": [
+    {
+      "path": "/World/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0",
+      "vertices": 65532,
+      "write_readback_max_m": 1.0772473749173229e-05
+    },
+    {
+      "path": "/World/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1",
+      "vertices": 65533,
+      "write_readback_max_m": 1.0677561329488589e-05
+    },
+    {
+      "path": "/World/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2",
+      "vertices": 32351,
+      "write_readback_max_m": 1.0772473749173229e-05
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "python": {
+    "success": true,
+    "coordinates": [
+      [
+        4203714.973438104,
+        181359.64679250863,
+        4777419.397073016
+      ],
+      [
+        4203714.542435715,
+        181369.63750003814,
+        4777419.3970730165
+      ],
+      [
+        4203707.454053173,
+        181359.32240378577,
+        4777425.981419772
+      ]
+    ],
+    "coordinate_wkt": "GEODCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",9780]]",
+    "units": [
+      "metre",
+      "metre",
+      "metre"
+    ],
+    "warnings": [],
+    "operations": [
+      {
+        "source": "COMPOUNDCRS[\"RGF93v2b geographic + IGN69\",GEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Horizontal component of 3D system.\"],AREA[\"France - onshore and offshore, mainland and Corsica (France m\u00e9tropolitaine including Corsica).\"],BBOX[41.15,-9.86,51.56,10.38]],ID[\"EPSG\",9782],REMARK[\"Replaces RGF93 v2 (CRS code 9777) from 2021-01-05. See CRS code 9784 for alternate system with axes reversed used by IGN for GIS purposes.\"]],VERTCRS[\"NGF-IGN69 height\",VDATUM[\"Nivellement General de la France - IGN69\"],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",5720]]]",
+        "output": "GEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,3],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy; air, land and sea navigation and safety of life purposes.\"],AREA[\"France - onshore and offshore, mainland and Corsica (France m\u00e9tropolitaine including Corsica).\"],BBOX[41.15,-9.86,51.56,10.38]],ID[\"EPSG\",9781],REMARK[\"Replaces RGF93 v2 (CRS code 9776) from 2021-01-05. See CRS code 9783 for alternate system with horizontal axes reversed used by IGN for GIS purposes.\"]]",
+        "description": "Inverse of RGF93 v2b to NGF-IGN69 height (5)",
+        "definition": "proj=pipeline step proj=axisswap order=2,1 step proj=unitconvert xy_in=deg xy_out=rad step proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg step proj=axisswap order=2,1",
+        "attributed_accuracy_m": 0.01,
+        "network_enabled": false
+      },
+      {
+        "source": "COMPOUNDCRS[\"RGF93v2b geographic + IGN69\",GEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Horizontal component of 3D system.\"],AREA[\"France - onshore and offshore, mainland and Corsica (France m\u00e9tropolitaine including Corsica).\"],BBOX[41.15,-9.86,51.56,10.38]],ID[\"EPSG\",9782],REMARK[\"Replaces RGF93 v2 (CRS code 9777) from 2021-01-05. See CRS code 9784 for alternate system with axes reversed used by IGN for GIS purposes.\"]],VERTCRS[\"NGF-IGN69 height\",VDATUM[\"Nivellement General de la France - IGN69\"],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",5720]]]",
+        "output": "GEODCRS[\"RGF93 v2b associated geocentric\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],REMARK[\"Replaces RGF93 v2 (CRS code 9776) from 2021-01-05. See CRS code 9783 for alternate system with horizontal axes reversed used by IGN for GIS purposes.\"]]",
+        "description": "Inverse of RGF93 v2b to NGF-IGN69 height (5) + Conversion from RGF93 v2b associated geocentric (geog3D) to RGF93 v2b associated geocentric (geocentric)",
+        "definition": "proj=pipeline step proj=axisswap order=2,1 step proj=unitconvert xy_in=deg xy_out=rad step proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=cart ellps=GRS80",
+        "attributed_accuracy_m": 0.01,
+        "network_enabled": false
+      },
+      {
+        "source": "COMPOUNDCRS[\"RGF93v2b geographic + IGN69\",GEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Horizontal component of 3D system.\"],AREA[\"France - onshore and offshore, mainland and Corsica (France m\u00e9tropolitaine including Corsica).\"],BBOX[41.15,-9.86,51.56,10.38]],ID[\"EPSG\",9782],REMARK[\"Replaces RGF93 v2 (CRS code 9777) from 2021-01-05. See CRS code 9784 for alternate system with axes reversed used by IGN for GIS purposes.\"]],VERTCRS[\"NGF-IGN69 height\",VDATUM[\"Nivellement General de la France - IGN69\"],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",5720]]]",
+        "output": "COMPOUNDCRS[\"RGF93v2b geographic + IGN69\",GEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Horizontal component of 3D system.\"],AREA[\"France - onshore and offshore, mainland and Corsica (France m\u00e9tropolitaine including Corsica).\"],BBOX[41.15,-9.86,51.56,10.38]],ID[\"EPSG\",9782],REMARK[\"Replaces RGF93 v2 (CRS code 9777) from 2021-01-05. See CRS code 9784 for alternate system with axes reversed used by IGN for GIS purposes.\"]],VERTCRS[\"NGF-IGN69 height\",VDATUM[\"Nivellement General de la France - IGN69\"],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",5720]]]",
+        "description": "Null geographic offset from RGF93 v2b to RGF93 v2b",
+        "definition": "proj=noop ellps=GRS80",
+        "attributed_accuracy_m": 0.0,
+        "network_enabled": false
+      },
+      {
+        "source": "GEODCRS[\"RGF93 v2b associated geocentric\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],REMARK[\"Replaces RGF93 v2 (CRS code 9776) from 2021-01-05. See CRS code 9783 for alternate system with horizontal axes reversed used by IGN for GIS purposes.\"]]",
+        "output": "COMPOUNDCRS[\"RGF93v2b geographic + IGN69\",GEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Horizontal component of 3D system.\"],AREA[\"France - onshore and offshore, mainland and Corsica (France m\u00e9tropolitaine including Corsica).\"],BBOX[41.15,-9.86,51.56,10.38]],ID[\"EPSG\",9782],REMARK[\"Replaces RGF93 v2 (CRS code 9777) from 2021-01-05. See CRS code 9784 for alternate system with axes reversed used by IGN for GIS purposes.\"]],VERTCRS[\"NGF-IGN69 height\",VDATUM[\"Nivellement General de la France - IGN69\"],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",5720]]]",
+        "description": "Conversion from RGF93 v2b associated geocentric (geocentric) to RGF93 v2b associated geocentric (geog3D) + RGF93 v2b to NGF-IGN69 height (5)",
+        "definition": "proj=pipeline step inv proj=cart ellps=GRS80 step inv proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=unitconvert xy_in=rad xy_out=deg step proj=axisswap order=2,1",
+        "attributed_accuracy_m": 0.01,
+        "network_enabled": false
+      },
+      {
+        "source": "COMPOUNDCRS[\"RGF93v2b geographic + IGN69\",GEOGCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[ellipsoidal,2],AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],ANGLEUNIT[\"degree\",0.0174532925199433]],AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],ANGLEUNIT[\"degree\",0.0174532925199433]],USAGE[SCOPE[\"Horizontal component of 3D system.\"],AREA[\"France - onshore and offshore, mainland and Corsica (France m\u00e9tropolitaine including Corsica).\"],BBOX[41.15,-9.86,51.56,10.38]],ID[\"EPSG\",9782],REMARK[\"Replaces RGF93 v2 (CRS code 9777) from 2021-01-05. See CRS code 9784 for alternate system with axes reversed used by IGN for GIS purposes.\"]],VERTCRS[\"NGF-IGN69 height\",VDATUM[\"Nivellement General de la France - IGN69\"],CS[vertical,1],AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",5720]]]",
+        "output": "GEODCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",9780]]",
+        "description": "Inverse of RGF93 v2b to NGF-IGN69 height (5) + Conversion from RGF93 v2b (geog3D) to RGF93 v2b (geocentric)",
+        "definition": "proj=pipeline step proj=axisswap order=2,1 step proj=unitconvert xy_in=deg xy_out=rad step proj=vgridshift grids=fr_ign_RAF20.tif multiplier=1 step proj=cart ellps=GRS80",
+        "attributed_accuracy_m": 0.01,
+        "network_enabled": false
+      }
+    ]
+  },
+  "native": {
+    "approximation": "Pointwise evaluation; no continuous-domain certificate",
+    "coordinate_wkt": "GEODCRS[\"RGF93 v2b\",DATUM[\"Reseau Geodesique Francais 1993 v2b\",ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],ID[\"EPSG\",9780]]",
+    "coordinates": [
+      [
+        4203714.973438105,
+        181359.64679250863,
+        4777419.39707302
+      ],
+      [
+        4203714.542435717,
+        181369.63750003822,
+        4777419.39707302
+      ],
+      [
+        4203707.454053171,
+        181359.3224037857,
+        4777425.981419774
+      ]
+    ],
+    "operations": [
+      {
+        "attributed_accuracy_m": 0.01,
+        "definition": "+proj=pipeline +step +proj=axisswap +order=2,1 +step +proj=unitconvert +xy_in=deg +xy_out=rad +step +proj=vgridshift +grids=fr_ign_RAF20.tif +multiplier=1 +step +proj=cart +ellps=GRS80",
+        "description": "Inverse of RGF93 v2b to NGF-IGN69 height (5) + Conversion from Associated geocentric CRS (geog3D) to Associated geocentric CRS (geocentric)"
+      },
+      {
+        "attributed_accuracy_m": 0.01,
+        "definition": "+proj=pipeline +step +proj=axisswap +order=2,1 +step +proj=unitconvert +xy_in=deg +xy_out=rad +step +proj=vgridshift +grids=fr_ign_RAF20.tif +multiplier=1 +step +proj=unitconvert +xy_in=rad +xy_out=deg +step +proj=axisswap +order=2,1",
+        "description": "Inverse of RGF93 v2b to NGF-IGN69 height (5)"
+      },
+      {
+        "attributed_accuracy_m": 0.0,
+        "definition": "+proj=noop",
+        "description": "Null geographic offset from RGF93 v2b to RGF93 v2b"
+      },
+      {
+        "attributed_accuracy_m": 0.01,
+        "definition": "+proj=pipeline +step +inv +proj=cart +ellps=GRS80 +step +inv +proj=vgridshift +grids=fr_ign_RAF20.tif +multiplier=1 +step +proj=unitconvert +xy_in=rad +xy_out=deg +step +proj=axisswap +order=2,1",
+        "description": "Conversion from Associated geocentric CRS (geocentric) to Associated geocentric CRS (geog3D) + RGF93 v2b to NGF-IGN69 height (5)"
+      }
+    ],
+    "source_reader": "native C++ USD stage reader",
+    "success": true,
+    "units": [
+      "metre",
+      "metre",
+      "metre"
+    ],
+    "warnings": []
+  },
+  "max_difference_m": 4.748831981413797e-09,
+  "passed": true,
+  "purpose": "Geographic compound with explicit orthometric height and post-placement ordinary adjustment; no angle-as-length chart"
+}

@@ -1,0 +1,55 @@
+{
+  "meshes": [
+    {
+      "path": "/World/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0",
+      "vertices": 65532,
+      "max_reader_difference_m": 7.508562643358995e-09
+    },
+    {
+      "path": "/World/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1",
+      "vertices": 65533,
+      "max_reader_difference_m": 7.276714274431014e-09
+    },
+    {
+      "path": "/World/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2",
+      "vertices": 32351,
+      "max_reader_difference_m": 7.508562643358995e-09
+    }
+  ],
+  "vertices": 163416,
+  "bake": {
+    "path": "C:\\Users\\aluk\\Documents\\Codex\\2026-09-21\\have\\work\\geospatial-fresh-20261014\\fixtures\\tower-baked.usda",
+    "chart_wkt": "GEODCRS[\"WGS 84 associated geocentric\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\",ID[\"EPSG\",1166]],MEMBER[\"World Geodetic System 1984 (G730)\",ID[\"EPSG\",1152]],MEMBER[\"World Geodetic System 1984 (G873)\",ID[\"EPSG\",1153]],MEMBER[\"World Geodetic System 1984 (G1150)\",ID[\"EPSG\",1154]],MEMBER[\"World Geodetic System 1984 (G1674)\",ID[\"EPSG\",1155]],MEMBER[\"World Geodetic System 1984 (G1762)\",ID[\"EPSG\",1156]],MEMBER[\"World Geodetic System 1984 (G2139)\",ID[\"EPSG\",1309]],MEMBER[\"World Geodetic System 1984 (G2296)\",ID[\"EPSG\",1383]],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1],ID[\"EPSG\",7030]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8901]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1,ID[\"EPSG\",9001]]]]",
+    "numeric_origin": [
+      4200975.721490706,
+      168359.72907575904,
+      4780283.158010139
+    ],
+    "controls": [
+      {
+        "source_path": "/World/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0",
+        "export_path": "/World/RecordedOrigin/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0",
+        "time": null,
+        "vertices": 65532,
+        "float32_write_error_m": 1.0772473749173229e-05
+      },
+      {
+        "source_path": "/World/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1",
+        "export_path": "/World/RecordedOrigin/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1",
+        "time": null,
+        "vertices": 65533,
+        "float32_write_error_m": 1.0677561329488589e-05
+      },
+      {
+        "source_path": "/World/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2",
+        "export_path": "/World/RecordedOrigin/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2",
+        "time": null,
+        "vertices": 32351,
+        "float32_write_error_m": 1.0772473749173229e-05
+      }
+    ],
+    "source_changed": false,
+    "coverage": "Selected polygonal samples; no continuous nonlinear surface or between-sample certificate"
+  },
+  "render_path": "Native C++ points in ordinary USD bake; Storm is not a geospatial evaluation engine"
+}

@@ -1,0 +1,9 @@
+{
+  "vertices": 14359,
+  "parts": 710,
+  "max_reader_difference_m": 0.0,
+  "native": {
+    "success": true
+  },
+  "meaning": "Producer-parsed absolute LandXML; no local-anchor reinterpretation"
+}

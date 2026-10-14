@@ -1,0 +1,297 @@
+{
+  "started_at": "2026-10-14T12:04:30.304037+00:00",
+  "proposal_commit": "e51919927ced49b9c68bcd86160be468121f633d",
+  "proposal_sha256": "276ae17d60e9b4801947525528c98cfac58b25a7e6ac5999dc01ddb60a2e83b9",
+  "planning_commit": "eb41c065e6e0adaa702242fde87b767c2fcc9e13",
+  "method": "New implementation source authored from the pinned proposal. No prior geospatial source copied or imported.",
+  "reuse_allowlist": [
+    "Original datasets listed below",
+    "Generic USD, PROJ, numpy, netCDF, raster and rendering libraries",
+    "Neutral build and presentation tooling"
+  ],
+  "source_authority": "authority/proposal.md",
+  "datasets": [
+    {
+      "path": "gfs_t2m.nc",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\gfs_t2m.nc",
+      "sha256": "025136ab8f2852968e87e58e159cd9167649d84e6ed94501899f7da9c0525c9e"
+    },
+    {
+      "path": "LICENSE-partner.txt",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\LICENSE-partner.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "railway.geojson",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\railway.geojson",
+      "sha256": "885026bb98e36bfd259fece09c4218496f6b20ba463525d746e9299e0edb12b7"
+    },
+    {
+      "path": "tower.usdz",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\tower.usdz",
+      "sha256": "6596585290f066c1567f8e3e70a25c87a190a0df6e67028d0249c1764b5a1fcb"
+    },
+    {
+      "path": "Colorado/01_NAD83-2011_Geographic3D_Coordinates.csv",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\Colorado\\01_NAD83-2011_Geographic3D_Coordinates.csv",
+      "sha256": "d3d1fb2cf302a86348039a39fa9cbd18ad8d0e01a0d9a9b46febcf21bc10031b"
+    },
+    {
+      "path": "Colorado/01_NAD83-2011_Geographic3D_WKT2.txt",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\Colorado\\01_NAD83-2011_Geographic3D_WKT2.txt",
+      "sha256": "564a87cce9458225367f7235af8c17615eaf0f25a6a9d69143b64a8341f72317"
+    },
+    {
+      "path": "Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_Coordinates.csv",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\Colorado\\02_NAD83-2011_ColoradoCentral_NAVD88_Coordinates.csv",
+      "sha256": "8acb27644409b84300ba0b9380bfe70dcd78c26b1e07e35c792727d80929ad6c"
+    },
+    {
+      "path": "Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_WKT2.txt",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\Colorado\\02_NAD83-2011_ColoradoCentral_NAVD88_WKT2.txt",
+      "sha256": "7223312af480611f6089dea506d59f96288f8c9a214347d84c105da07dd23dfe"
+    },
+    {
+      "path": "Colorado/03_Westminster_Site_Calibration_Coordinates.csv",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\Colorado\\03_Westminster_Site_Calibration_Coordinates.csv",
+      "sha256": "52bebebc5490bc62661fa1c8f8add4d584b5cd70c24cb04ebd6a02d407dd036d"
+    },
+    {
+      "path": "Colorado/03_Westminster_Site_Calibration_WKT2.txt",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\Colorado\\03_Westminster_Site_Calibration_WKT2.txt",
+      "sha256": "0a788ca9a0b444bbaf9fcc06648eea7de3c4acf53e4eeef42bcb8acd8af44521"
+    },
+    {
+      "path": "Colorado/Trimble Westminster Park and Ride LandXML.xml",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\Colorado\\Trimble Westminster Park and Ride LandXML.xml",
+      "sha256": "0f0be8491c91a4cb38b852d119d9c80ec5190591730cd74a293de361868dac02"
+    },
+    {
+      "path": "France/01_RGF93v2b_CC49_IGN69_Coordinates.csv",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\01_RGF93v2b_CC49_IGN69_Coordinates.csv",
+      "sha256": "c062096dc9bb4f3f0b0e2e0daf26fb24516b461974fe442aa422ecf2339db672"
+    },
+    {
+      "path": "France/01_RGF93v2b_CC49_IGN69_WKT2.txt",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\01_RGF93v2b_CC49_IGN69_WKT2.txt",
+      "sha256": "f23a657b6c53f668eee60d8306bd8d44422fc8c06ff1665c242cdb867aefe6e9"
+    },
+    {
+      "path": "France/02_RGF93v2b_Lambert93_IGN69_Coordinates.csv",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\02_RGF93v2b_Lambert93_IGN69_Coordinates.csv",
+      "sha256": "194961025e20fb44a8a1940e01143a124372bba00f3c4f788ba124b872e5e913"
+    },
+    {
+      "path": "France/02_RGF93v2b_Lambert93_IGN69_WKT2.txt",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\02_RGF93v2b_Lambert93_IGN69_WKT2.txt",
+      "sha256": "7fc9a869b1b5eaf26b549e508c5af215513e550843f23bf1f35fef1a4d517819"
+    },
+    {
+      "path": "France/03_RGF93v2b_Geocentric_Coordinates.csv",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\03_RGF93v2b_Geocentric_Coordinates.csv",
+      "sha256": "359b94a07258e7eedafd3b422078fa0f545ee58769d3e105d410d9614a861fb2"
+    },
+    {
+      "path": "France/03_RGF93v2b_Geocentric_WKT2.txt",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\03_RGF93v2b_Geocentric_WKT2.txt",
+      "sha256": "571a3cac4eb3fb580941649dca7d26965772d60a317b217466ddbc80f5144e42"
+    },
+    {
+      "path": "France/04_RGF93v2b_Geographic3D_Coordinates.csv",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\04_RGF93v2b_Geographic3D_Coordinates.csv",
+      "sha256": "cf29098896634f254f73519dcaf6674fa0b197ce92333017287c18b4172b5c03"
+    },
+    {
+      "path": "France/04_RGF93v2b_Geographic3D_WKT2.txt",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\04_RGF93v2b_Geographic3D_WKT2.txt",
+      "sha256": "08a3d0c2c9ce6525eaca3155c313be805c8e9067b6a41560eb428e819c4bfe05"
+    },
+    {
+      "path": "France/05_ITRF2014_Geocentric_epoch2019.0_Coordinates.csv",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\05_ITRF2014_Geocentric_epoch2019.0_Coordinates.csv",
+      "sha256": "2b153f797f4950608136cbe2d3ba8c5db4d6ce43aa1aeb59eeeec46a50ec78fa"
+    },
+    {
+      "path": "France/05_ITRF2014_Geocentric_epoch2019.0_WKT2.txt",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\05_ITRF2014_Geocentric_epoch2019.0_WKT2.txt",
+      "sha256": "e6bc6a0a72e666c6d364e4d5dac3f0b4ebb26e83b48f4af105fd352303301c8b"
+    },
+    {
+      "path": "France/06_ITRF2020_Geocentric_epoch2026.5_Coordinates.csv",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\06_ITRF2020_Geocentric_epoch2026.5_Coordinates.csv",
+      "sha256": "2a62393052029a9b5697a361f66a41888fcc30bf55681cf34a90da246e3d31e8"
+    },
+    {
+      "path": "France/06_ITRF2020_Geocentric_epoch2026.5_WKT2.txt",
+      "source": "C:\\git\\worktrees\\geospatial-openusd-delivery\\extras\\usd\\examples\\usdGeospatialBuild\\data\\France\\06_ITRF2020_Geocentric_epoch2026.5_WKT2.txt",
+      "sha256": "d4fa5415670d7a4be6d6c491f9b81de304a5a73bf1605a6fd38cdb70444d4a99"
+    }
+  ],
+  "implementation_files": [],
+  "candidate_frozen": true,
+  "old_implementation_read_before_freeze": false,
+  "prior_results_used_as_expected_answers": false,
+  "remote_writes": [],
+  "frozen_at": "2026-10-14T15:05:34.491218+00:00",
+  "freeze_rule": "No prior geospatial source or previous output inspected before this freeze. Changes after freeze require a new generation receipt.",
+  "candidate_files": [
+    {
+      "path": "src/attitude.py",
+      "sha256": "0fd906f33b2f2b7812c1a6df058ad79346e0a2ca2af848d18d86bca8804a38a5"
+    },
+    {
+      "path": "src/errors.py",
+      "sha256": "de4eff85daf038242ad60c17077b3bdf3be738abd010c72b8da9752af073ae8f"
+    },
+    {
+      "path": "src/export.py",
+      "sha256": "2e4d650d82c4911dca01ff83dc694696e4297bf89b93fc73c6e43784c94de2c2"
+    },
+    {
+      "path": "src/geodesy.py",
+      "sha256": "ef7a86f847c4c7142e5f5a864ff531af929239730de28f6f63b3b5f1c155a26b"
+    },
+    {
+      "path": "src/interval.py",
+      "sha256": "ec289246092fe2f9854dd0949fe94c8ebcfcd998fe413eea5d8a7a3ad9994f30"
+    },
+    {
+      "path": "src/measurements.py",
+      "sha256": "18dcb38532c316d89165bf8dcfaa51c0a18a9d8132957ce4e517c2559d2e2ca3"
+    },
+    {
+      "path": "src/profiles.py",
+      "sha256": "4e4c49936738c9bbf12cf1bf701128c5f0419ea44047840304f34d169d35fb52"
+    },
+    {
+      "path": "src/queries.py",
+      "sha256": "cc9343fd589da1931adc76a256a1534397daa396f0114054257ff1b8a0002b23"
+    },
+    {
+      "path": "src/scene.py",
+      "sha256": "f20f44a400ac799e4f9a6bc64b758e612bcca0cb6c98c1a9bd63a3ac816b0439"
+    },
+    {
+      "path": "src/wkt.py",
+      "sha256": "a771e364a8088160d7cac93e1619a34f5a4c163b9a46d6e3a66d73338d5e982e"
+    },
+    {
+      "path": "native/add_result_context.py",
+      "sha256": "3b4002f81ff437cefda355747490229695bec21a92c63fc6d0ac0abc71bc2192"
+    },
+    {
+      "path": "native/build.cmd",
+      "sha256": "8b2082bbe76e3af46843a45d4170426b585e7a52058be40c95b6e3b7b5753362"
+    },
+    {
+      "path": "native/CMakeLists.txt",
+      "sha256": "47c767d0181f07caa385c6f80df2a2fb50866742d6c84cf068afe7c2cd6d1006"
+    },
+    {
+      "path": "native/extend_reader.py",
+      "sha256": "62a22c2119720b2cf3856e36f795a6a72b3b27ab8128ad8b40f4b64780384871"
+    },
+    {
+      "path": "native/finish_native.py",
+      "sha256": "3231297691da546a5daa04bef231c7b98ceedcf8e1ce39861f9c957ff08a064c"
+    },
+    {
+      "path": "native/interval.h",
+      "sha256": "0b3519dc49239d9da15a63fec1312050de747ffb8e2a70cade627a939378808d"
+    },
+    {
+      "path": "native/reader.cpp",
+      "sha256": "4d9166d55c66d1cb66f21535794321ca88d7a6ddaaac82155e304c500d432219"
+    },
+    {
+      "path": "tests/finalize_candidate.py",
+      "sha256": "376da072ffc5ddce742956d1738b95edff836f6647f0a77027de938c5c655470"
+    },
+    {
+      "path": "tests/fix_preferred_keywords.py",
+      "sha256": "2008b03793329b168e859e05fa0179608fcfa0b6b11d9a9167e0ef03d73f1848"
+    },
+    {
+      "path": "tests/fixtures.py",
+      "sha256": "ebe29f8fe712011a4a59c9730996523f65d2f5faeebb04f4b90632dedfe8e8e1"
+    },
+    {
+      "path": "tests/make_workflows.py",
+      "sha256": "d936865fcedd8afca8fd106ae57eec7770d2f284d2d2313562ba6937dac4d1b2"
+    },
+    {
+      "path": "tests/native_controls.py",
+      "sha256": "85ebdb769c7a5b914b71e15fed21ab391fa6d982faf4a2299a37d87d195986ec"
+    },
+    {
+      "path": "tests/native_preflight.py",
+      "sha256": "9e30b000b813e8160d95db0ac40b1145c9d55ff96e3b9589a5e8353bd04d475c"
+    },
+    {
+      "path": "tests/reset_operation_error.py",
+      "sha256": "ceba1446e8c006529d2c284e765b3f0811d4cc29a94e8c6316413a0a54f64ca5"
+    },
+    {
+      "path": "tests/revise_candidate.py",
+      "sha256": "7542a9261349517d93f81e6a5f8bac1e76af5d2a1bd30495db36dec5c7066b8c"
+    },
+    {
+      "path": "tests/run_workflows.py",
+      "sha256": "70ea69068ca492dda057c271b7b7cd936d66dd8013e0eb435f2a654ca2c2bb82"
+    },
+    {
+      "path": "tests/test_assembly.py",
+      "sha256": "2dbe9b00fdb104144bc829e656fb146fc4038dd9342707d0a1d107c91cf5f733"
+    },
+    {
+      "path": "tests/test_audit.py",
+      "sha256": "fc4bd369c995d6c29e3f326e53fb09d812545b3f433651d17378b87280a284b0"
+    },
+    {
+      "path": "tests/test_contract.py",
+      "sha256": "1d54e9e2c196d6e5b64c2763c4fe28058b4bd267956c5c991886d09f9d34582c"
+    },
+    {
+      "path": "tests/test_numerics.py",
+      "sha256": "e513bb14ae1103036d1afde6260fa8f143edd9429396466ab081026720c9fe07"
+    },
+    {
+      "path": "schema/finalize_plugin.py",
+      "sha256": "21b55045efc4f964ade29bb7f1335d2ab66052d80258efaed6ebbc25c964875d"
+    },
+    {
+      "path": "schema/generatedSchema.classes.txt",
+      "sha256": "8f62972d2b1545836d62064b1c120802f8a8fc0e9c754f502bdbe67701d31da3"
+    },
+    {
+      "path": "schema/generatedSchema.usda",
+      "sha256": "9506a5b57b49280926321c625c868a2611f86a58c02121f61b28ae1395e83f26"
+    },
+    {
+      "path": "schema/plugInfo.json",
+      "sha256": "e22a27a63e0122b9a974ac2bd8b61bdd849660d91a7bee100d67ccaab85146cb"
+    },
+    {
+      "path": "schema/schema.usda",
+      "sha256": "ca2be44b7a9302ccfff849c9593a5623bc0f05d2364cdbd6c59077a25fa9f420"
+    },
+    {
+      "path": "delivery/build_record.cmd",
+      "sha256": "620eb0ba8c29c544a42463056be0ad5e98e08cbebb03d29740c7ad63a982a19d"
+    },
+    {
+      "path": "delivery/ov_writeback.py",
+      "sha256": "43da04deec2d0d0b9d795769e70611a2ac415fb4bd3b902d0f073e26983f4a37"
+    },
+    {
+      "path": "delivery/record_storm.cpp",
+      "sha256": "fc5076a38bb04e23e1b568278d29e0e00db378c262ffe1d8da5631aef1a85f3b"
+    },
+    {
+      "path": "delivery/render_scene.py",
+      "sha256": "552d258259c47945cf7c6b9e4d308b8af3ea5ba9c047bc541d215349adae5425"
+    }
+  ],
+  "candidate_generation": 9,
+  "revision_reason": "Focused recovery audit: route model point conversion through the authoritative source CRS to retain an authored BOUNDCRS operation; parse native bound source axes without replacing its operation. Return full occurrence identity, including authored ID/index. Existing clauses govern these repairs; proposal unchanged."
+}

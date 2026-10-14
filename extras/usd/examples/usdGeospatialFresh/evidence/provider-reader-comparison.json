@@ -1,0 +1,42 @@
+[
+  {
+    "name": "France 01",
+    "points": 59,
+    "max_reader_difference_m": 0.0,
+    "attributed_accuracy_m": [
+      0.01
+    ]
+  },
+  {
+    "name": "France 02",
+    "points": 59,
+    "max_reader_difference_m": 0.0,
+    "attributed_accuracy_m": [
+      0.01
+    ]
+  },
+  {
+    "name": "France 04",
+    "points": 59,
+    "max_reader_difference_m": 0.0,
+    "attributed_accuracy_m": [
+      null
+    ]
+  },
+  {
+    "name": "Colorado 02",
+    "points": 5,
+    "max_reader_difference_m": 0.0,
+    "attributed_accuracy_m": [
+      0.015
+    ]
+  },
+  {
+    "name": "Colorado 03",
+    "points": 5,
+    "max_reader_difference_m": 0.0,
+    "attributed_accuracy_m": [
+      0.015
+    ]
+  }
+]

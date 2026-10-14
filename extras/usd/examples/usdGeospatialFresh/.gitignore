@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.obj
+*.exe
+native-build/
+fixtures/
+local-dependencies/
+authority/proposal.md

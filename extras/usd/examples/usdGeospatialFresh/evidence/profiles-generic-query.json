@@ -1,0 +1,62 @@
+[
+  {
+    "labeled_registration_alternative": "coverage-only",
+    "publication_profile_predecessors": [
+      "usd"
+    ],
+    "results": [
+      {
+        "summary": "required",
+        "generic_IsCompatibleWith": "(pxr.UsdProfiles.ProfileRegistry.QueryStatus.NoPath, [<pxr.UsdProfiles.ProfileRegistry.CapabilityResult object at 0x0000023E7E4D5A80>])",
+        "raw_usage": {
+          "usd.geospatial.crsResolution.v1": "hard"
+        },
+        "complete_claim": true
+      },
+      {
+        "summary": "known-none",
+        "generic_IsCompatibleWith": "(pxr.UsdProfiles.ProfileRegistry.QueryStatus.NoPath, [])",
+        "raw_usage": {},
+        "complete_claim": true
+      },
+      {
+        "summary": "known-none-with-usd",
+        "generic_IsCompatibleWith": "(pxr.UsdProfiles.ProfileRegistry.QueryStatus.ValidPath, [<pxr.UsdProfiles.ProfileRegistry.CapabilityResult object at 0x0000023E7E4D5A80>])",
+        "raw_usage": {
+          "usd": "hard"
+        },
+        "complete_claim": true
+      }
+    ]
+  },
+  {
+    "labeled_registration_alternative": "coverage-plus-resolution",
+    "publication_profile_predecessors": [
+      "usd.geospatial.crsResolution.v1"
+    ],
+    "results": [
+      {
+        "summary": "required",
+        "generic_IsCompatibleWith": "(pxr.UsdProfiles.ProfileRegistry.QueryStatus.ValidPath, [<pxr.UsdProfiles.ProfileRegistry.CapabilityResult object at 0x0000029F84475A80>])",
+        "raw_usage": {
+          "usd.geospatial.crsResolution.v1": "hard"
+        },
+        "complete_claim": true
+      },
+      {
+        "summary": "known-none",
+        "generic_IsCompatibleWith": "(pxr.UsdProfiles.ProfileRegistry.QueryStatus.NoPath, [])",
+        "raw_usage": {},
+        "complete_claim": true
+      },
+      {
+        "summary": "known-none-with-usd",
+        "generic_IsCompatibleWith": "(pxr.UsdProfiles.ProfileRegistry.QueryStatus.ValidPath, [<pxr.UsdProfiles.ProfileRegistry.CapabilityResult object at 0x0000029F84475A80>])",
+        "raw_usage": {
+          "usd": "hard"
+        },
+        "complete_claim": true
+      }
+    ]
+  }
+]

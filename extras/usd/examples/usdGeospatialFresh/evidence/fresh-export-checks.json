@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "checks": [
+    {
+      "path": "/World/RecordedOrigin/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0",
+      "vertices": 65532,
+      "aware_unaware_difference_m": 0.0,
+      "fresh_cpp_python_difference_m": 0.0
+    },
+    {
+      "path": "/World/RecordedOrigin/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1",
+      "vertices": 65533,
+      "aware_unaware_difference_m": 0.0,
+      "fresh_cpp_python_difference_m": 0.0
+    },
+    {
+      "path": "/World/RecordedOrigin/Site/Tower/WriterConformance/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2",
+      "vertices": 32351,
+      "aware_unaware_difference_m": 0.0,
+      "fresh_cpp_python_difference_m": 0.0
+    }
+  ],
+  "dependency_after_bake": "known-none",
+  "relocated_layer_opens": true,
+  "asset_resolution": [],
+  "source_originals_preserved": true,
+  "scope": "Selected default sample; unrelated shader relations retained. No full closure claim for every material graph."
+}
