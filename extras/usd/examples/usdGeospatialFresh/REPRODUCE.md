@@ -21,3 +21,5 @@ python tests/sharing_checks.py
 The copied compact receipts retain the original execution paths for provenance. New fixtures and outputs are generated in the current directory. The exact authority document is held outside this package to avoid unsolicited cross-repository backlinks; generation-record.json identifies its commit and document hash.
 
 The supplemental final_checks.py verifies the bake and original hashes, then checks the original freeze manifest. Additional neutral check files packaged after the freeze are not new generation inputs. delivery/ documents the executed consumer bridges. README.md and the deck are the assessment, not an implementation specification.
+
+The collateral generators retain the recorded execution paths and local presentation runtime/style reference. Their outputs are fixed by these receipts; adapt ROOT/OUT and the neutral runtime/reference paths to regenerate elsewhere. The four compact analytics arrays are included for plots. This path configuration supplies no missing scene meaning.

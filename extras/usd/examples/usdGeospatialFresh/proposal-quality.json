@@ -1,0 +1,53 @@
+{
+  "proposal_commit": "e51919927ced49b9c68bcd86160be468121f633d",
+  "candidate_generation": 10,
+  "assessment": "Fresh derivation supports the tested data model and normative placement contracts without new source fields or proposal changes. This is bounded evidence, not full conformance.",
+  "new_scene_meaning_gaps_found": [],
+  "clarification": {
+    "topic": "USD Profiles integration",
+    "classification": "Registration/integration detail, not an unresolved placement rule",
+    "finding": "The publishing profile predecessor graph is unspecified. Labeled graphs change generic IsCompatibleWith results; empty qualified capability usage remains known-none under the proposal, even when this SDK generic query returns NoPath.",
+    "recommendation": "State that discovery reads qualified composed usage metadata, not generic compatibility status; supply the predecessor graph with registration and keep namespace review explicit."
+  },
+  "prototype_limits": [
+    "General nonlinear derivative/vector/normal transport is not certified; unsupported requests fail.",
+    "Continuous surface/time bounds are not certified by finite vertices or samples.",
+    "Occurrence exporter refuses authored instance normals; material-graph closure is not claimed.",
+    "Full native-format coverage, conditional/nested variant publisher enumeration and formal ISO WKT grammar conformance are not established.",
+    "Native format decoder and PROJ are shared dependencies; the placement readers are independently written in Python and C++."
+  ],
+  "resolved_implementation_findings": [
+    "OGC-preferred WKT aliases initially chosen incorrectly; fixed from referenced productions.",
+    "Native grid-backed operations loaded an incompatible SDK PROJ library; pinned the TIFF-capable loader path.",
+    "Stale PROJ errors from probing missing alternate grids were mistaken for actual operation failures; reset immediately before transform.",
+    "Exporter retained unrequested point samples; clear and author only selected samples.",
+    "Native tuples could fill missing height with zero; enforce domain dimensions.",
+    "Malformed or soft geospatial usage could qualify as known-none; retain conservative unknown.",
+    "Native compound geographic/vertical CRS was classified as Cartesian; inspect its horizontal coordinate system before applying the specified working chart. Regression now agrees within 5 nanometres.",
+    "Time-dependent operations escaped Python deferral because PROJ emitted bare parameter names; parse both string forms and reject missing-epoch operations.",
+    "Legacy GeoJSON CRS identifiers were substring-matched; require recognized complete spellings.",
+    "Enclosing working binding role was not validated; reject non-Xformable bindings.",
+    "A model path shortcut through associated geocentric CRS bypassed an authored BOUNDCRS operation; route through the complete source CRS and test an analytic static shift.",
+    "Instance query receipts omitted authored IDs; retain ID/index and full prototype context."
+  ],
+  "data_intake_findings": [
+    "Original climate file lacks CF role/unit/grid mapping metadata; reject it.",
+    "Original railway third coordinate lacks established vertical reference; horizontal derivative explicitly drops it, original preserved.",
+    "Eiffel asset cm metadata conflicts with producer-known metre geometry; explicit ordinary writer conformance is labeled."
+  ],
+  "evidence": {
+    "python_contract_controls": 77,
+    "native_controls": 20,
+    "provider_coordinate_comparisons": 187,
+    "max_provider_error_m": 0.00010854774676162873,
+    "max_dense_reader_difference_m": 7.508562643358995e-09,
+    "tower_vertices": 163416,
+    "float32_write_error_m": 1.0772473749173229e-05,
+    "profiles_payloads_loaded": 0,
+    "originals_preserved": true,
+    "source_drift": [],
+    "fresh_export_aware_unaware_difference_m": 0.0,
+    "storm": "Actual native HdStormRendererPlugin render of an ordinary C++-resolved viewing copy",
+    "omniverse": "Actual stage writeback/readback of fresh Python output through an external bridge; no Fabric/ovstage resolver"
+  }
+}
