@@ -1,0 +1,21 @@
+#usda 1.0
+(
+    defaultPrim = "Motion"
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+    upAxis = "Z"
+)
+
+def "Motion" (
+    prepend references = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-fresh-openusd-20261015\extras\usd\examples\usdGeospatialFresh\inputs\authored\controls.usda@</World/Moving> (offset = 5; scale = 2)
+)
+{
+}
+
+def "Reusable" (
+    instanceable = true
+    prepend references = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-fresh-openusd-20261015\extras\usd\examples\usdGeospatialFresh\inputs\authored\controls.usda@</World/Heading>
+)
+{
+}
+

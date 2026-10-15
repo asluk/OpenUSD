@@ -1,13 +1,38 @@
-# Fresh proposal-derived build loop
+# Proposal-derived build loop
 
-1. Pin the complete proposal and normative references. Preserve the exact document and hashes locally. Trace requirements to authored inputs, observable behavior, failures and independent distinguishing expectations. Audit composition, time, units, axes, instances, resources, bounds and baking before code.
-2. Stop dependent work when scene meaning is missing. Read the existing answer first, propose the smallest requirement-justified repair and red-team it against data engineering and USD composition. Implementation convenience is never authority for a new field or rule.
-3. Start a genuinely new geospatial source tree. Exclude previous schema/evaluator/adapter/fixture source and results until the first candidate freeze. Reuse original datasets and neutral USD, geodetic, build, rendering and presentation infrastructure. Record inputs and source hashes.
-4. Generate separate Python and native placement readers. Establish independent analytic or provider expectations before inspecting outputs. Execute positive, negative, composition and deferred-scope controls. Correct defects against the same pinned authority with new frozen receipts; a normative model change requires new derivation.
-5. Reverse-audit each authored field and implementation choice against the proposal. Catch skipped WKT operations, guessed height/date, manufactured metadata, wrong transform order, incomplete identity and conservative dependency handling. Do not stash a workaround into proposal prose.
-6. Verify actual consumers: Omniverse stage writeback/readback and native Hydra rendering of ordinary resolved USD. Disclose shared placement/decoding/PROJ and the exact bridge. Reader agreement, geodetic accuracy and numeric write error are separate evidence.
-7. Assess bounded proposal quality and classify missing semantics, pending adoption, implementation defects, proof limits and deferred scope separately. Explain key decisions and executed distinctions, including WKT normalization, source inputs, composition/instances, native data, Profiles author/publisher/consumer behavior and ordinary baking.
-8. Derive a coherent standalone README, review body and editable deck from that assessment and its receipts. Use actual visuals with explicit units, display conventions and limits. Check source binding, stale claims and omissions; inspect every final slide/PDF and the README for comprehension. A test total or attractive image is insufficient.
-9. Package fresh source, original inputs, compact receipts and collateral on a clean branch. Commit meaningful batches. Push/create/update a draft only with authorization. Save durable checkpoints between phases and bound long commands.
+The implementation in this directory is an output of a fresh run. It is not a
+source template for the next implementation.
 
-The scripts in this example execute a frozen candidate. They do not generate a new implementation; the next full build loop begins at step 1 and must satisfy step 3 anew. Historical incremental runs are not relabeled fresh.
+1. Pin and read the complete proposal, including requirements, model, runtime
+   rules, examples and normative references. Verify the Git blob and file hash.
+2. Trace each initial-scope requirement from authored facts to observable behavior
+   and an independently derivable expectation. Distinguish complete proposed
+   conventions from group adoption. A missing necessary meaning stops that
+   dependent implementation and triggers a concrete proposal repair.
+3. Generate new schema, full readers, fixtures and tests in an isolated output
+   directory. Original data and reviewed neutral tools may be reused. Previous
+   geospatial source, fixture logic and expected results may not seed generation.
+4. Execute original-data, composition, interpolation, chart/reset/instance,
+   dimensional association, Profiles, failure, precision and explicit-bake
+   controls. Run actual consumer sinks and distinguish placement readers from
+   consumers of their outputs. A reader pair using PROJ is not an independent
+   geodetic oracle.
+5. Reverse-audit every authored field, implied behavior and result claim against
+   the pinned text. Repair implementation defects against that authority. Never
+   add a schema fact or normative rule merely to excuse a shortcut. A normative
+   authority change requires a fresh regeneration. Report unsupported or
+   unverified prototype coverage separately from model gaps and adoption.
+6. Write a standalone human README that leads with proposal quality and explicit
+   limits, then demonstrates working behavior with actual outputs. Give USD
+   Profiles a concrete main-story example with author/publisher/consumer roles,
+   coverage states and an unloaded-content proof. Derive the review body and
+   editable deck/PDF from that README. Render and inspect the README and each
+   slide. Dataset and visualization provenance are part of the evidence.
+7. Freeze source/evidence hashes, verify source preservation and collateral
+   consistency, package a reviewable local branch and commit it. Push, post or
+   send only when authorized. Keep any OSRB review snapshot fixed independently
+   of this evolving development candidate.
+
+Checkpoint every phase and substantive finding so a crash or sleep does not
+restart work or turn an incomplete run into a claimed success. Public companion
+collateral must not backlink to other upstream issues or pull requests.

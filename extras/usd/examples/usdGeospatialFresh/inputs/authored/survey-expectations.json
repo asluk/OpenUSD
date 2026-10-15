@@ -1,0 +1,1625 @@
+[
+  {
+    "name": "France_04",
+    "source_wkt": "GEOGCRS[\"RGF93 v2b\",\n    DATUM[\"Reseau Geodesique Francais 1993 v2b\",\n        ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]],\n        ID[\"EPSG\",1313]],\n    PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],\n    CS[ellipsoidal,3],\n        AXIS[\"geodetic latitude (Lat)\",north,ORDER[1],\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n        AXIS[\"geodetic longitude (Lon)\",east,ORDER[2],\n            ANGLEUNIT[\"degree\",0.0174532925199433]],\n        AXIS[\"ellipsoidal height (h)\",up,ORDER[3],LENGTHUNIT[\"metre\",1]],\n    ID[\"EPSG\",9781]]\n",
+    "output_wkt": "GEODCRS[\"RGF93 v2b\",\n    DATUM[\"Reseau Geodesique Francais 1993 v2b\",\n        ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]],\n        ID[\"EPSG\",1313]],\n    PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],\n    CS[Cartesian,3],\n        AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],\n        AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],\n        AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],\n    ID[\"EPSG\",9780]]\n",
+    "rows": [
+      {
+        "id": "2",
+        "source": [
+          2.4702269726,
+          48.8193987692,
+          81.0525
+        ],
+        "expected": [
+          4203715.4044,
+          181349.6561,
+          4777419.3971
+        ]
+      },
+      {
+        "id": "15",
+        "source": [
+          2.4719165603,
+          48.8193411711,
+          81.3112
+        ],
+        "expected": [
+          4203715.0415,
+          181473.8341,
+          4777415.3743
+        ]
+      },
+      {
+        "id": "16",
+        "source": [
+          2.4717719248,
+          48.819309318,
+          81.4222
+        ],
+        "expected": [
+          4203718.2362,
+          181463.3405,
+          4777413.1255
+        ]
+      },
+      {
+        "id": "17",
+        "source": [
+          2.4717071552,
+          48.8192950089,
+          81.3523
+        ],
+        "expected": [
+          4203719.5918,
+          181458.6381,
+          4777412.0251
+        ]
+      },
+      {
+        "id": "18",
+        "source": [
+          2.4716479835,
+          48.8192819396,
+          81.2963
+        ],
+        "expected": [
+          4203720.8352,
+          181454.3423,
+          4777411.026
+        ]
+      },
+      {
+        "id": "19",
+        "source": [
+          2.4715976151,
+          48.8192709252,
+          81.2343
+        ],
+        "expected": [
+          4203721.875,
+          181450.6849,
+          4777410.1728
+        ]
+      },
+      {
+        "id": "21",
+        "source": [
+          2.4716519327,
+          48.8195055028,
+          81.3843
+        ],
+        "expected": [
+          4203702.186,
+          181453.8276,
+          4777427.4622
+        ]
+      },
+      {
+        "id": "24",
+        "source": [
+          2.4711774497,
+          48.819114858,
+          81.2723
+        ],
+        "expected": [
+          4203736.281,
+          181420.4221,
+          4777398.7736
+        ]
+      },
+      {
+        "id": "27",
+        "source": [
+          2.4704058449,
+          48.819100604,
+          81.1314
+        ],
+        "expected": [
+          4203739.8231,
+          181363.8576,
+          4777397.6239
+        ]
+      },
+      {
+        "id": "28",
+        "source": [
+          2.4703155784,
+          48.8191691213,
+          81.2364
+        ],
+        "expected": [
+          4203734.4484,
+          181356.9907,
+          4777402.72
+        ]
+      },
+      {
+        "id": "29",
+        "source": [
+          2.4701717779,
+          48.8191627749,
+          80.8314
+        ],
+        "expected": [
+          4203735.1679,
+          181346.4516,
+          4777401.9505
+        ]
+      },
+      {
+        "id": "34",
+        "source": [
+          2.4704229946,
+          48.8198956676,
+          79.6095
+        ],
+        "expected": [
+          4203672.2833,
+          181362.2043,
+          4777454.6953
+        ]
+      },
+      {
+        "id": "35",
+        "source": [
+          2.4705264339,
+          48.8197328178,
+          80.1985
+        ],
+        "expected": [
+          4203685.9611,
+          181370.3977,
+          4777443.2143
+        ]
+      },
+      {
+        "id": "36",
+        "source": [
+          2.4705816075,
+          48.8196202697,
+          80.6715
+        ],
+        "expected": [
+          4203695.5091,
+          181374.8652,
+          4777435.3292
+        ]
+      },
+      {
+        "id": "37",
+        "source": [
+          2.4709022753,
+          48.8196796445,
+          81.2574
+        ],
+        "expected": [
+          4203689.9144,
+          181398.1944,
+          4777440.1178
+        ]
+      },
+      {
+        "id": "39",
+        "source": [
+          2.4706990892,
+          48.8193140062,
+          81.3614
+        ],
+        "expected": [
+          4203721.2012,
+          181384.6093,
+          4777413.423
+        ]
+      },
+      {
+        "id": "100",
+        "source": [
+          2.4699203918,
+          48.8193610412,
+          80.3315
+        ],
+        "expected": [
+          4203719.0553,
+          181327.2783,
+          4777416.0919
+        ]
+      },
+      {
+        "id": "A",
+        "source": [
+          2.4701274681,
+          48.8194212433,
+          80.6475
+        ],
+        "expected": [
+          4203713.5737,
+          181342.263,
+          4777420.7379
+        ]
+      },
+      {
+        "id": "AA",
+        "source": [
+          2.4707521845,
+          48.8191686141,
+          81.3873
+        ],
+        "expected": [
+          4203733.208,
+          181389.0301,
+          4777402.7964
+        ]
+      },
+      {
+        "id": "AB",
+        "source": [
+          2.4711535072,
+          48.8192479108,
+          81.3393
+        ],
+        "expected": [
+          4203725.2749,
+          181418.1872,
+          4777408.5667
+        ]
+      },
+      {
+        "id": "AC",
+        "source": [
+          2.4711855439,
+          48.8190924571,
+          81.2673
+        ],
+        "expected": [
+          4203738.1253,
+          181421.0967,
+          4777397.1296
+        ]
+      },
+      {
+        "id": "AD",
+        "source": [
+          2.4704796361,
+          48.8189311964,
+          81.1383
+        ],
+        "expected": [
+          4203753.7601,
+          181369.883,
+          4777385.2245
+        ]
+      },
+      {
+        "id": "AE",
+        "source": [
+          2.471222877,
+          48.819772464,
+          81.2134
+        ],
+        "expected": [
+          4203681.1086,
+          181421.3802,
+          4777446.8812
+        ]
+      },
+      {
+        "id": "AF",
+        "source": [
+          2.4708472098,
+          48.8190156268,
+          81.3403
+        ],
+        "expected": [
+          4203745.6692,
+          181396.5527,
+          4777391.5588
+        ]
+      },
+      {
+        "id": "AG",
+        "source": [
+          2.4701829748,
+          48.8192037817,
+          80.7614
+        ],
+        "expected": [
+          4203731.6573,
+          181347.1232,
+          4777404.9004
+        ]
+      },
+      {
+        "id": "AH",
+        "source": [
+          2.4721194309,
+          48.8195630218,
+          81.3463
+        ],
+        "expected": [
+          4203695.8705,
+          181487.9185,
+          4777431.6452
+        ]
+      },
+      {
+        "id": "AI",
+        "source": [
+          2.4722801613,
+          48.8193908017,
+          81.6202
+        ],
+        "expected": [
+          4203709.9428,
+          181500.3406,
+          4777419.241
+        ]
+      },
+      {
+        "id": "AJ",
+        "source": [
+          2.4718323843,
+          48.8192634965,
+          81.5032
+        ],
+        "expected": [
+          4203721.9296,
+          181467.944,
+          4777409.8313
+        ]
+      },
+      {
+        "id": "AK",
+        "source": [
+          2.4706946942,
+          48.8193020339,
+          81.3644
+        ],
+        "expected": [
+          4203722.2182,
+          181384.3301,
+          4777412.5486
+        ]
+      },
+      {
+        "id": "AL",
+        "source": [
+          2.471129774,
+          48.8195973509,
+          81.2804
+        ],
+        "expected": [
+          4203696.0907,
+          181415.1832,
+          4777434.1093
+        ]
+      },
+      {
+        "id": "AM",
+        "source": [
+          2.471603132,
+          48.8192514172,
+          81.2883
+        ],
+        "expected": [
+          4203723.5243,
+          181451.1616,
+          4777408.785
+        ]
+      },
+      {
+        "id": "AN",
+        "source": [
+          2.4720164475,
+          48.8193766586,
+          81.2332
+        ],
+        "expected": [
+          4203711.7063,
+          181481.0324,
+          4777417.9141
+        ]
+      },
+      {
+        "id": "AP",
+        "source": [
+          2.4715565942,
+          48.8191922526,
+          81.3103
+        ],
+        "expected": [
+          4203728.6336,
+          181447.9613,
+          4777404.4693
+        ]
+      },
+      {
+        "id": "AQ",
+        "source": [
+          2.4703300182,
+          48.8191390964,
+          80.2444
+        ],
+        "expected": [
+          4203736.2608,
+          181358.1303,
+          4777399.7748
+        ]
+      },
+      {
+        "id": "B",
+        "source": [
+          2.4706056615,
+          48.8194845555,
+          81.2724
+        ],
+        "expected": [
+          4203707.1769,
+          181377.1367,
+          4777425.8442
+        ]
+      },
+      {
+        "id": "C",
+        "source": [
+          2.4709582113,
+          48.8195502553,
+          81.2374
+        ],
+        "expected": [
+          4203700.5438,
+          181402.7647,
+          4777430.6285
+        ]
+      },
+      {
+        "id": "D",
+        "source": [
+          2.471372209,
+          48.819667705,
+          81.1674
+        ],
+        "expected": [
+          4203689.3656,
+          181432.7132,
+          4777439.1758
+        ]
+      },
+      {
+        "id": "E",
+        "source": [
+          2.4716058371,
+          48.8196937803,
+          81.2453
+        ],
+        "expected": [
+          4203686.4966,
+          181449.7621,
+          4777441.1438
+        ]
+      },
+      {
+        "id": "F",
+        "source": [
+          2.4719933798,
+          48.8197850167,
+          81.0423
+        ],
+        "expected": [
+          4203677.5063,
+          181477.8603,
+          4777447.6715
+        ]
+      },
+      {
+        "id": "G",
+        "source": [
+          2.4711685816,
+          48.8199077424,
+          81.1614
+        ],
+        "expected": [
+          4203669.9341,
+          181416.907,
+          4777456.7474
+        ]
+      },
+      {
+        "id": "I",
+        "source": [
+          2.4708363692,
+          48.8198039425,
+          80.8655
+        ],
+        "expected": [
+          4203679.4711,
+          181392.8994,
+          4777448.9242
+        ]
+      },
+      {
+        "id": "J",
+        "source": [
+          2.4709120395,
+          48.8195893613,
+          81.1294
+        ],
+        "expected": [
+          4203697.3488,
+          181399.233,
+          4777433.4107
+        ]
+      },
+      {
+        "id": "K",
+        "source": [
+          2.4709550819,
+          48.8195164263,
+          81.3894
+        ],
+        "expected": [
+          4203703.4825,
+          181402.6615,
+          4777428.2659
+        ]
+      },
+      {
+        "id": "L",
+        "source": [
+          2.4710077776,
+          48.8195275956,
+          81.3574
+        ],
+        "expected": [
+          4203702.3606,
+          181406.4865,
+          4777429.0596
+        ]
+      },
+      {
+        "id": "M",
+        "source": [
+          2.4710009431,
+          48.8196087012,
+          81.2954
+        ],
+        "expected": [
+          4203695.5593,
+          181405.6906,
+          4777434.9517
+        ]
+      },
+      {
+        "id": "N",
+        "source": [
+          2.471226419,
+          48.8196574477,
+          81.3494
+        ],
+        "expected": [
+          4203690.8047,
+          181422.059,
+          4777438.5617
+        ]
+      },
+      {
+        "id": "O",
+        "source": [
+          2.4716443998,
+          48.8196956123,
+          81.3143
+        ],
+        "expected": [
+          4203686.2666,
+          181452.5868,
+          4777441.3298
+        ]
+      },
+      {
+        "id": "P",
+        "source": [
+          2.4719354013,
+          48.8197090363,
+          81.2423
+        ],
+        "expected": [
+          4203684.1751,
+          181473.8865,
+          4777442.2586
+        ]
+      },
+      {
+        "id": "Q",
+        "source": [
+          2.4719665139,
+          48.8199061671,
+          80.8343
+        ],
+        "expected": [
+          4203667.3237,
+          181475.4459,
+          4777456.3859
+        ]
+      },
+      {
+        "id": "R",
+        "source": [
+          2.4721374076,
+          48.8193819625,
+          81.6162
+        ],
+        "expected": [
+          4203711.1315,
+          181489.8988,
+          4777418.5907
+        ]
+      },
+      {
+        "id": "S",
+        "source": [
+          2.471978458,
+          48.8194510111,
+          81.1143
+        ],
+        "expected": [
+          4203705.5309,
+          181477.9733,
+          4777423.2689
+        ]
+      },
+      {
+        "id": "T",
+        "source": [
+          2.4719646791,
+          48.8195114723,
+          81.2143
+        ],
+        "expected": [
+          4203700.5845,
+          181476.747,
+          4777427.7713
+        ]
+      },
+      {
+        "id": "U",
+        "source": [
+          2.4719160926,
+          48.8196092305,
+          81.2663
+        ],
+        "expected": [
+          4203692.5979,
+          181472.8308,
+          4777434.9686
+        ]
+      },
+      {
+        "id": "V",
+        "source": [
+          2.4715517116,
+          48.8193169485,
+          81.3243
+        ],
+        "expected": [
+          4203718.2311,
+          181447.1534,
+          4777413.6105
+        ]
+      },
+      {
+        "id": "W",
+        "source": [
+          2.4714685757,
+          48.8194842812,
+          81.2873
+        ],
+        "expected": [
+          4203704.4775,
+          181440.4488,
+          4777425.8353
+        ]
+      },
+      {
+        "id": "X",
+        "source": [
+          2.4714042561,
+          48.8196132634,
+          81.4064
+        ],
+        "expected": [
+          4203693.9738,
+          181435.2677,
+          4777435.3693
+        ]
+      },
+      {
+        "id": "XX",
+        "source": [
+          2.4712799367,
+          48.8196126467,
+          81.2874
+        ],
+        "expected": [
+          4203694.3407,
+          181426.1454,
+          4777435.2346
+        ]
+      },
+      {
+        "id": "Y",
+        "source": [
+          2.4710662353,
+          48.8194095675,
+          81.3974
+        ],
+        "expected": [
+          4203712.0715,
+          181411.2025,
+          4777420.4473
+        ]
+      },
+      {
+        "id": "Z",
+        "source": [
+          2.4716592406,
+          48.8196649596,
+          81.5143
+        ],
+        "expected": [
+          4203688.9144,
+          181453.7919,
+          4777439.2359
+        ]
+      }
+    ],
+    "tolerance_m": 0.002
+  },
+  {
+    "name": "France_01",
+    "source_wkt": "COMPOUNDCRS[\"RGF93 v2b / CC49 + NGF-IGN69 height\",\n    PROJCRS[\"RGF93 v2b / CC49\",\n        BASEGEOGCRS[\"RGF93 v2b\",\n            DATUM[\"Reseau Geodesique Francais 1993 v2b\",\n                ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]],\n                ID[\"EPSG\",1313]],\n            PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],\n            ID[\"EPSG\",9782]],\n        CONVERSION[\"France Conic Conformal zone 8\",\n            METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],\n            PARAMETER[\"Latitude of false origin\",49,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],\n            PARAMETER[\"Longitude of false origin\",3,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],\n            PARAMETER[\"Latitude of 1st standard parallel\",48.25,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],\n            PARAMETER[\"Latitude of 2nd standard parallel\",49.75,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],\n            PARAMETER[\"Easting at false origin\",1700000,\n                LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8826]],\n            PARAMETER[\"Northing at false origin\",8200000,\n                LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8827]],\n            ID[\"EPSG\",18108]],\n        CS[Cartesian,2],\n            AXIS[\"easting (E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],\n            AXIS[\"northing (N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],\n        ID[\"EPSG\",9849]],\n    VERTCRS[\"NGF-IGN69 height\",\n        VDATUM[\"Nivellement General de la France - IGN69\",ID[\"EPSG\",5119]],\n        CS[vertical,1],\n            AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1]],\n        ID[\"EPSG\",5720]]]\n",
+    "output_wkt": "COMPOUNDCRS[\"RGF93 v2b / Lambert-93 + NGF-IGN69 height\",\n    PROJCRS[\"RGF93 v2b / Lambert-93\",\n        BASEGEOGCRS[\"RGF93 v2b\",\n            DATUM[\"Reseau Geodesique Francais 1993 v2b\",\n                ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]],\n                ID[\"EPSG\",1313]],\n            PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],\n            ID[\"EPSG\",9782]],\n        CONVERSION[\"Lambert-93\",\n            METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],\n            PARAMETER[\"Latitude of false origin\",46.5,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],\n            PARAMETER[\"Longitude of false origin\",3,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],\n            PARAMETER[\"Latitude of 1st standard parallel\",49,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],\n            PARAMETER[\"Latitude of 2nd standard parallel\",44,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],\n            PARAMETER[\"Easting at false origin\",700000,\n                LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8826]],\n            PARAMETER[\"Northing at false origin\",6600000,\n                LENGTHUNIT[\"metre\",1],ID[\"EPSG\",8827]],\n            ID[\"EPSG\",18085]],\n        CS[Cartesian,2],\n            AXIS[\"easting (E)\",east,ORDER[1],LENGTHUNIT[\"metre\",1]],\n            AXIS[\"northing (N)\",north,ORDER[2],LENGTHUNIT[\"metre\",1]],\n        ID[\"EPSG\",9794]],\n    VERTCRS[\"NGF-IGN69 height\",\n        VDATUM[\"Nivellement General de la France - IGN69\",ID[\"EPSG\",5119]],\n        CS[vertical,1],\n            AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"metre\",1]],\n        ID[\"EPSG\",5720]],\n    ID[\"EPSG\",10499]]\n",
+    "rows": [
+      {
+        "id": "2",
+        "source": [
+          1661099.039,
+          8180053.117,
+          37.298
+        ],
+        "expected": [
+          661101.1094,
+          6857834.2565,
+          37.298
+        ]
+      },
+      {
+        "id": "15",
+        "source": [
+          1661223.058,
+          8180045.848,
+          37.557
+        ],
+        "expected": [
+          661225.1237,
+          6857827.0213,
+          37.557
+        ]
+      },
+      {
+        "id": "16",
+        "source": [
+          1661212.413,
+          8180042.38,
+          37.668
+        ],
+        "expected": [
+          661214.4802,
+          6857823.5506,
+          37.668
+        ]
+      },
+      {
+        "id": "17",
+        "source": [
+          1661207.646,
+          8180040.822,
+          37.598
+        ],
+        "expected": [
+          661209.7139,
+          6857821.9914,
+          37.598
+        ]
+      },
+      {
+        "id": "18",
+        "source": [
+          1661203.291,
+          8180039.399,
+          37.542
+        ],
+        "expected": [
+          661205.3595,
+          6857820.5673,
+          37.542
+        ]
+      },
+      {
+        "id": "19",
+        "source": [
+          1661199.584,
+          8180038.2,
+          37.48
+        ],
+        "expected": [
+          661201.653,
+          6857819.3674,
+          37.48
+        ]
+      },
+      {
+        "id": "21",
+        "source": [
+          1661203.754,
+          8180064.256,
+          37.63
+        ],
+        "expected": [
+          661205.8158,
+          6857845.4231,
+          37.63
+        ]
+      },
+      {
+        "id": "24",
+        "source": [
+          1661168.611,
+          8180021.061,
+          37.518
+        ],
+        "expected": [
+          661170.6863,
+          6857802.221,
+          37.518
+        ]
+      },
+      {
+        "id": "27",
+        "source": [
+          1661111.942,
+          8180019.871,
+          37.377
+        ],
+        "expected": [
+          661114.0207,
+          6857801.0158,
+          37.377
+        ]
+      },
+      {
+        "id": "28",
+        "source": [
+          1661105.367,
+          8180027.536,
+          37.482
+        ],
+        "expected": [
+          661107.444,
+          6857808.6786,
+          37.482
+        ]
+      },
+      {
+        "id": "29",
+        "source": [
+          1661094.803,
+          8180026.904,
+          37.077
+        ],
+        "expected": [
+          661096.8807,
+          6857808.0438,
+          37.077
+        ]
+      },
+      {
+        "id": "34",
+        "source": [
+          1661113.818,
+          8180108.269,
+          35.855
+        ],
+        "expected": [
+          661115.8728,
+          6857889.4096,
+          35.855
+        ]
+      },
+      {
+        "id": "35",
+        "source": [
+          1661121.287,
+          8180090.108,
+          36.444
+        ],
+        "expected": [
+          661123.3463,
+          6857871.2515,
+          36.444
+        ]
+      },
+      {
+        "id": "36",
+        "source": [
+          1661125.251,
+          8180077.565,
+          36.917
+        ],
+        "expected": [
+          661127.3134,
+          6857858.7103,
+          36.917
+        ]
+      },
+      {
+        "id": "37",
+        "source": [
+          1661148.843,
+          8180084.003,
+          37.503
+        ],
+        "expected": [
+          661150.9024,
+          6857865.1543,
+          37.503
+        ]
+      },
+      {
+        "id": "39",
+        "source": [
+          1661133.64,
+          8180043.45,
+          37.607
+        ],
+        "expected": [
+          661135.7112,
+          6857824.5994,
+          37.607
+        ]
+      },
+      {
+        "id": "100",
+        "source": [
+          1661076.498,
+          8180049.079,
+          36.577
+        ],
+        "expected": [
+          661078.5707,
+          6857830.2127,
+          36.577
+        ]
+      },
+      {
+        "id": "A",
+        "source": [
+          1661091.75,
+          8180055.667,
+          36.893
+        ],
+        "expected": [
+          661093.8201,
+          6857836.8044,
+          36.893
+        ]
+      },
+      {
+        "id": "AA",
+        "source": [
+          1661137.426,
+          8180027.256,
+          37.633
+        ],
+        "expected": [
+          661139.5013,
+          6857808.4073,
+          37.633
+        ]
+      },
+      {
+        "id": "AB",
+        "source": [
+          1661166.956,
+          8180035.868,
+          37.585
+        ],
+        "expected": [
+          661169.0274,
+          6857817.0267,
+          37.585
+        ]
+      },
+      {
+        "id": "AC",
+        "source": [
+          1661169.188,
+          8180018.566,
+          37.513
+        ],
+        "expected": [
+          661171.2639,
+          6857799.7263,
+          37.513
+        ]
+      },
+      {
+        "id": "AD",
+        "source": [
+          1661117.229,
+          8180000.996,
+          37.384
+        ],
+        "expected": [
+          661119.3125,
+          6857782.1432,
+          37.384
+        ]
+      },
+      {
+        "id": "AE",
+        "source": [
+          1661172.456,
+          8180094.16,
+          37.459
+        ],
+        "expected": [
+          661174.5114,
+          6857875.3171,
+          37.459
+        ]
+      },
+      {
+        "id": "AF",
+        "source": [
+          1661144.285,
+          8180010.196,
+          37.586
+        ],
+        "expected": [
+          661146.3645,
+          6857791.35,
+          37.586
+        ]
+      },
+      {
+        "id": "AG",
+        "source": [
+          1661095.657,
+          8180031.458,
+          37.007
+        ],
+        "expected": [
+          661097.7334,
+          6857812.5978,
+          37.007
+        ]
+      },
+      {
+        "id": "AH",
+        "source": [
+          1661238.126,
+          8180070.413,
+          37.592
+        ],
+        "expected": [
+          661240.1843,
+          6857851.589,
+          37.592
+        ]
+      },
+      {
+        "id": "AI",
+        "source": [
+          1661249.795,
+          8180051.181,
+          37.866
+        ],
+        "expected": [
+          661251.8578,
+          6857832.3612,
+          37.866
+        ]
+      },
+      {
+        "id": "AJ",
+        "source": [
+          1661216.817,
+          8180037.254,
+          37.749
+        ],
+        "expected": [
+          661218.8853,
+          6857818.4261,
+          37.749
+        ]
+      },
+      {
+        "id": "AK",
+        "source": [
+          1661133.308,
+          8180042.121,
+          37.61
+        ],
+        "expected": [
+          661135.3795,
+          6857823.2704,
+          37.61
+        ]
+      },
+      {
+        "id": "AL",
+        "source": [
+          1661165.484,
+          8180074.736,
+          37.526
+        ],
+        "expected": [
+          661167.545,
+          6857855.8922,
+          37.526
+        ]
+      },
+      {
+        "id": "AM",
+        "source": [
+          1661199.974,
+          8180036.028,
+          37.534
+        ],
+        "expected": [
+          661202.0436,
+          6857817.1956,
+          37.534
+        ]
+      },
+      {
+        "id": "AN",
+        "source": [
+          1661230.42,
+          8180049.743,
+          37.479
+        ],
+        "expected": [
+          661232.4842,
+          6857830.918,
+          37.479
+        ]
+      },
+      {
+        "id": "AP",
+        "source": [
+          1661196.511,
+          8180029.473,
+          37.556
+        ],
+        "expected": [
+          661198.5825,
+          6857810.64,
+          37.556
+        ]
+      },
+      {
+        "id": "AQ",
+        "source": [
+          1661106.404,
+          8180024.19,
+          36.49
+        ],
+        "expected": [
+          661108.4818,
+          6857805.3331,
+          36.49
+        ]
+      },
+      {
+        "id": "B",
+        "source": [
+          1661126.912,
+          8180062.462,
+          37.518
+        ],
+        "expected": [
+          661128.9784,
+          6857843.6085,
+          37.518
+        ]
+      },
+      {
+        "id": "C",
+        "source": [
+          1661152.85,
+          8180069.587,
+          37.483
+        ],
+        "expected": [
+          661154.9131,
+          6857850.7401,
+          37.483
+        ]
+      },
+      {
+        "id": "D",
+        "source": [
+          1661183.34,
+          8180082.435,
+          37.413
+        ],
+        "expected": [
+          661185.398,
+          6857863.5956,
+          37.413
+        ]
+      },
+      {
+        "id": "E",
+        "source": [
+          1661200.515,
+          8180085.215,
+          37.491
+        ],
+        "expected": [
+          661202.5713,
+          6857866.3801,
+          37.491
+        ]
+      },
+      {
+        "id": "F",
+        "source": [
+          1661229.042,
+          8180095.162,
+          37.288
+        ],
+        "expected": [
+          661231.0941,
+          6857876.3342,
+          37.288
+        ]
+      },
+      {
+        "id": "G",
+        "source": [
+          1661168.574,
+          8180109.23,
+          37.407
+        ],
+        "expected": [
+          661170.6256,
+          6857890.3852,
+          37.407
+        ]
+      },
+      {
+        "id": "I",
+        "source": [
+          1661144.1,
+          8180097.858,
+          37.111
+        ],
+        "expected": [
+          661146.156,
+          6857879.0073,
+          37.111
+        ]
+      },
+      {
+        "id": "J",
+        "source": [
+          1661149.49,
+          8180073.959,
+          37.375
+        ],
+        "expected": [
+          661151.5521,
+          6857855.111,
+          37.375
+        ]
+      },
+      {
+        "id": "K",
+        "source": [
+          1661152.594,
+          8180065.827,
+          37.635
+        ],
+        "expected": [
+          661154.6581,
+          6857846.9803,
+          37.635
+        ]
+      },
+      {
+        "id": "L",
+        "source": [
+          1661156.472,
+          8180067.042,
+          37.603
+        ],
+        "expected": [
+          661158.5356,
+          6857848.1962,
+          37.603
+        ]
+      },
+      {
+        "id": "M",
+        "source": [
+          1661156.033,
+          8180076.064,
+          37.541
+        ],
+        "expected": [
+          661158.0942,
+          6857857.2176,
+          37.541
+        ]
+      },
+      {
+        "id": "N",
+        "source": [
+          1661172.627,
+          8180081.369,
+          37.595
+        ],
+        "expected": [
+          661174.6859,
+          6857862.5268,
+          37.595
+        ]
+      },
+      {
+        "id": "O",
+        "source": [
+          1661203.348,
+          8180085.399,
+          37.56
+        ],
+        "expected": [
+          661205.4041,
+          6857866.5649,
+          37.56
+        ]
+      },
+      {
+        "id": "P",
+        "source": [
+          1661224.726,
+          8180086.743,
+          37.488
+        ],
+        "expected": [
+          661226.7806,
+          6857867.9145,
+          37.488
+        ]
+      },
+      {
+        "id": "Q",
+        "source": [
+          1661227.163,
+          8180108.647,
+          37.08
+        ],
+        "expected": [
+          661229.2116,
+          6857889.818,
+          37.08
+        ]
+      },
+      {
+        "id": "R",
+        "source": [
+          1661239.306,
+          8180050.271,
+          37.862
+        ],
+        "expected": [
+          661241.3696,
+          6857831.4484,
+          37.862
+        ]
+      },
+      {
+        "id": "S",
+        "source": [
+          1661227.688,
+          8180058.03,
+          37.36
+        ],
+        "expected": [
+          661229.7502,
+          6857839.2039,
+          37.36
+        ]
+      },
+      {
+        "id": "T",
+        "source": [
+          1661226.723,
+          8180064.76,
+          37.46
+        ],
+        "expected": [
+          661228.7834,
+          6857845.9332,
+          37.46
+        ]
+      },
+      {
+        "id": "U",
+        "source": [
+          1661223.231,
+          8180075.655,
+          37.512
+        ],
+        "expected": [
+          661225.2887,
+          6857856.8267,
+          37.512
+        ]
+      },
+      {
+        "id": "V",
+        "source": [
+          1661196.249,
+          8180043.341,
+          37.57
+        ],
+        "expected": [
+          661198.3168,
+          6857824.5072,
+          37.57
+        ]
+      },
+      {
+        "id": "W",
+        "source": [
+          1661190.274,
+          8180061.99,
+          37.533
+        ],
+        "expected": [
+          661192.3371,
+          6857843.1536,
+          37.533
+        ]
+      },
+      {
+        "id": "X",
+        "source": [
+          1661185.651,
+          8180076.365,
+          37.652
+        ],
+        "expected": [
+          661187.7105,
+          6857857.5266,
+          37.652
+        ]
+      },
+      {
+        "id": "XX",
+        "source": [
+          1661176.522,
+          8180076.36,
+          37.533
+        ],
+        "expected": [
+          661178.582,
+          6857857.5191,
+          37.533
+        ]
+      },
+      {
+        "id": "Y",
+        "source": [
+          1661160.673,
+          8180053.888,
+          37.643
+        ],
+        "expected": [
+          661162.7399,
+          6857835.0441,
+          37.643
+        ]
+      },
+      {
+        "id": "Z",
+        "source": [
+          1661204.414,
+          8180081.983,
+          37.76
+        ],
+        "expected": [
+          661206.471,
+          6857863.1493,
+          37.76
+        ]
+      }
+    ],
+    "tolerance_m": 0.002
+  },
+  {
+    "name": "Colorado_02",
+    "source_wkt": "COMPOUNDCRS[\"NAD83(2011) / Colorado Central (ftUS) + NAVD88 height (ftUS)\",\n    PROJCRS[\"NAD83(2011) / Colorado Central (ftUS)\",\n        BASEGEOGCRS[\"NAD83(2011)\",\n            DATUM[\"NAD83 (National Spatial Reference System 2011)\",\n                ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]],\n                ID[\"EPSG\",1116]],\n            PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],\n            ID[\"EPSG\",6318]],\n        CONVERSION[\"SPCS83 Colorado Central zone (US survey foot)\",\n            METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],\n            PARAMETER[\"Latitude of false origin\",37.8333333333333,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],\n            PARAMETER[\"Longitude of false origin\",-105.5,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],\n            PARAMETER[\"Latitude of 1st standard parallel\",39.75,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],\n            PARAMETER[\"Latitude of 2nd standard parallel\",38.45,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],\n            PARAMETER[\"Easting at false origin\",3000000,\n                LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8826]],\n            PARAMETER[\"Northing at false origin\",1000000,\n                LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8827]],\n            ID[\"EPSG\",15314]],\n        CS[Cartesian,2],\n            AXIS[\"easting (X)\",east,ORDER[1],LENGTHUNIT[\"US survey foot\",0.304800609601219]],\n            AXIS[\"northing (Y)\",north,ORDER[2],LENGTHUNIT[\"US survey foot\",0.304800609601219]],\n        ID[\"EPSG\",6428]],\n    VERTCRS[\"NAVD88 height (ftUS)\",\n        VDATUM[\"North American Vertical Datum 1988\",ID[\"EPSG\",5103]],\n        CS[vertical,1],\n            AXIS[\"gravity-related height (H)\",up,LENGTHUNIT[\"US survey foot\",0.304800609601219]],\n        ID[\"EPSG\",6360]]]\n",
+    "output_wkt": "COMPOUNDCRS[\"Westminster site grid + site height\",\n    DERIVEDPROJCRS[\"Westminster site grid\",\n        BASEPROJCRS[\"NAD83(2011) / Colorado Central (ftUS)\",\n            BASEGEOGCRS[\"NAD83(2011)\",\n                DATUM[\"NAD83 (National Spatial Reference System 2011)\",\n                    ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]],\n                    ID[\"EPSG\",1116]],\n                PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],\n                ID[\"EPSG\",6318]],\n            CONVERSION[\"SPCS83 Colorado Central zone (US survey foot)\",\n                METHOD[\"Lambert Conic Conformal (2SP)\",ID[\"EPSG\",9802]],\n                PARAMETER[\"Latitude of false origin\",37.8333333333333,\n                    ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8821]],\n                PARAMETER[\"Longitude of false origin\",-105.5,\n                    ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8822]],\n                PARAMETER[\"Latitude of 1st standard parallel\",39.75,\n                    ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8823]],\n                PARAMETER[\"Latitude of 2nd standard parallel\",38.45,\n                    ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8824]],\n                PARAMETER[\"Easting at false origin\",3000000,\n                    LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8826]],\n                PARAMETER[\"Northing at false origin\",1000000,\n                    LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8827]],\n                ID[\"EPSG\",15314]],\n            ID[\"EPSG\",6428]],\n        DERIVINGCONVERSION[\"Westminster site calibration (horizontal)\",\n            METHOD[\"Affine parametric transformation\",ID[\"EPSG\",9624]],\n            PARAMETER[\"A0\",503.9253920478007,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8623]],\n            PARAMETER[\"A1\",1.000231041946945,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8624]],\n            PARAMETER[\"A2\",-0.00020126312919239097,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8625]],\n            PARAMETER[\"B0\",-546977.9701600745,LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8639]],\n            PARAMETER[\"B1\",0.00020126312919239097,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8640]],\n            PARAMETER[\"B2\",1.000231041946945,SCALEUNIT[\"coefficient\",1],ID[\"EPSG\",8641]]],\n        CS[Cartesian,2],\n            AXIS[\"site easting (E)\",east,ORDER[1],LENGTHUNIT[\"US survey foot\",0.304800609601219]],\n            AXIS[\"site northing (N)\",north,ORDER[2],LENGTHUNIT[\"US survey foot\",0.304800609601219]]],\n    VERTCRS[\"Westminster site height\",\n        BASEVERTCRS[\"NAVD88 height (ftUS)\",\n            VDATUM[\"North American Vertical Datum 1988\",ID[\"EPSG\",5103]],\n            ID[\"EPSG\",6360]],\n        DERIVINGCONVERSION[\"Westminster site calibration (vertical)\",\n            METHOD[\"Vertical Offset and Slope\",ID[\"EPSG\",1046]],\n            PARAMETER[\"Ordinate 1 of evaluation point\",39.89815166091368,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8617]],\n            PARAMETER[\"Ordinate 2 of evaluation point\",-105.11508529887352,\n                ANGLEUNIT[\"degree\",0.0174532925199433],ID[\"EPSG\",8618]],\n            PARAMETER[\"Vertical Offset\",1.7355492174519394,\n                LENGTHUNIT[\"US survey foot\",0.304800609601219],ID[\"EPSG\",8603]],\n            PARAMETER[\"Inclination in latitude\",-18.196450752028323,\n                ANGLEUNIT[\"arc-second\",4.84813681109536E-06],ID[\"EPSG\",8730]],\n            PARAMETER[\"Inclination in longitude\",-11.949966705964858,\n                ANGLEUNIT[\"arc-second\",4.84813681109536E-06],ID[\"EPSG\",8731]],\n            PARAMETER[\"EPSG code for Horizontal CRS\",6318,ID[\"EPSG\",1037]]],\n        CS[vertical,1],\n            AXIS[\"site height (H)\",up,LENGTHUNIT[\"US survey foot\",0.304800609601219]]]]\n",
+    "rows": [
+      {
+        "id": "Control1",
+        "source": [
+          3108002.1122,
+          1752265.0666,
+          5482.9424
+        ],
+        "expected": [
+          3108871.4501,
+          1206317.4694,
+          5484.6779
+        ]
+      },
+      {
+        "id": "Control2",
+        "source": [
+          3108405.7097,
+          1751929.512,
+          5463.6976
+        ],
+        "expected": [
+          3109275.2084,
+          1205981.9186,
+          5465.4396
+        ]
+      },
+      {
+        "id": "Control3",
+        "source": [
+          3108162.9596,
+          1751256.8855,
+          5444.3233
+        ],
+        "expected": [
+          3109032.5376,
+          1205309.0878,
+          5446.1388
+        ]
+      },
+      {
+        "id": "Control4",
+        "source": [
+          3107602.0564,
+          1751823.9696,
+          5464.6824
+        ],
+        "expected": [
+          3108471.3907,
+          1205876.19,
+          5466.4799
+        ]
+      },
+      {
+        "id": "Control5",
+        "source": [
+          3109015.9936,
+          1751406.6306,
+          5452.1847
+        ],
+        "expected": [
+          3109885.7385,
+          1205459.0391,
+          5453.9378
+        ]
+      }
+    ],
+    "tolerance_m": 0.002
+  }
+]

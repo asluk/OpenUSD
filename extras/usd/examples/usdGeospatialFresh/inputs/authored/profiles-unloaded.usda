@@ -1,0 +1,22 @@
+#usda 1.0
+(
+    defaultPrim = "Asset"
+)
+
+def Xform "Asset" (
+    prepend apiSchemas = ["ClaimsAPI"]
+    customData = {
+        dictionary profilesInfo = {
+            dictionary capabilityUsages = {
+                string "usd.geospatial.crsResolution.v1" = "hard"
+            }
+            dictionary profileCompatibility = {
+                string[] "usd.geospatial.publication.v1" = []
+            }
+        }
+    }
+    prepend payload = @C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-fresh-openusd-20261015\extras\usd\examples\usdGeospatialFresh\inputs\authored\controls.usda@</World>
+)
+{
+}
+

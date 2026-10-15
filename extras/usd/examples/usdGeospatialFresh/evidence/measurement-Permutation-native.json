@@ -1,0 +1,145 @@
+{
+    "continuous_bound_certified": false,
+    "coordinate_crs": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]",
+    "operations": [{
+            "accuracy_m": null,
+            "pipeline": "+proj=pipeline +step +proj=axisswap +order=2,1 +step +proj=unitconvert +xy_in=deg +z_in=m +xy_out=rad +z_out=m +step +proj=cart +ellps=WGS84"
+        }],
+    "results": [{
+            "samples": [{
+                    "coordinates": [0.0, 0.0, 10.0],
+                    "index": [0, 0, 0],
+                    "mask": false,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 0.0
+                    },
+                    "resolved_coordinates": [6378147.0, 0.0, 0.0],
+                    "value": 0.0
+                }, {
+                    "coordinates": [1.0, 0.0, 10.0],
+                    "index": [0, 0, 1],
+                    "mask": false,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 0.0
+                    },
+                    "resolved_coordinates": [6377175.577318652, 111314.01376074052, 0.0],
+                    "value": 1.0
+                }, {
+                    "coordinates": [2.0, 0.0, 10.0],
+                    "index": [0, 0, 2],
+                    "mask": false,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 0.0
+                    },
+                    "resolved_coordinates": [6374261.605179365, 222594.12019456644, 0.0],
+                    "value": 2.0
+                }, {
+                    "coordinates": [0.1, 1.0, 10.0],
+                    "index": [0, 1, 0],
+                    "mask": false,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 0.0
+                    },
+                    "resolved_coordinates": [6377172.365904075, 11130.276776811876, 110568.94934863102],
+                    "value": 3.0
+                }, {
+                    "coordinates": [1.1, 1.0, 10.0],
+                    "index": [0, 1, 1],
+                    "mask": false,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 0.0
+                    },
+                    "resolved_coordinates": [6376006.841550152, 122425.58563211889, 110568.94934863102],
+                    "value": 4.0
+                }, {
+                    "coordinates": [2.1, 1.0, 10.0],
+                    "index": [0, 1, 2],
+                    "mask": false,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 0.0
+                    },
+                    "resolved_coordinates": [6372899.123746526, 233683.60246807904, 110568.94934863102],
+                    "value": 5.0
+                }, {
+                    "coordinates": [0.0, 0.0, 10.0],
+                    "index": [1, 0, 0],
+                    "mask": false,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 6.0
+                    },
+                    "resolved_coordinates": [6378147.0, 0.0, 0.0],
+                    "value": 6.0
+                }, {
+                    "coordinates": [1.0, 0.0, 10.0],
+                    "index": [1, 0, 1],
+                    "mask": false,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 6.0
+                    },
+                    "resolved_coordinates": [6377175.577318652, 111314.01376074052, 0.0],
+                    "value": 7.0
+                }, {
+                    "coordinates": [2.0, 0.0, 10.0],
+                    "index": [1, 0, 2],
+                    "mask": false,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 6.0
+                    },
+                    "resolved_coordinates": [6374261.605179365, 222594.12019456644, 0.0],
+                    "value": 8.0
+                }, {
+                    "coordinates": [0.1, 1.0, 10.0],
+                    "index": [1, 1, 0],
+                    "mask": false,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 6.0
+                    },
+                    "resolved_coordinates": [6377172.365904075, 11130.276776811876, 110568.94934863102],
+                    "value": 9.0
+                }, {
+                    "coordinates": [1.1, 1.0, 10.0],
+                    "index": [1, 1, 1],
+                    "mask": false,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 6.0
+                    },
+                    "resolved_coordinates": [6376006.841550152, 122425.58563211889, 110568.94934863102],
+                    "value": 10.0
+                }, {
+                    "coordinates": [2.1, 1.0, 10.0],
+                    "index": [1, 1, 2],
+                    "mask": true,
+                    "observation_time": {
+                        "calendar": "standard",
+                        "units": "hours since 2026-10-15 00:00:00",
+                        "value": 6.0
+                    },
+                    "resolved_coordinates": [6372899.123746526, 233683.60246807904, 110568.94934863102],
+                    "value": null
+                }],
+            "success": true
+        }],
+    "scene_chart": "GEODCRS[\"WGS 84\",ENSEMBLE[\"World Geodetic System 1984 ensemble\",MEMBER[\"World Geodetic System 1984 (Transit)\"],MEMBER[\"World Geodetic System 1984 (G730)\"],MEMBER[\"World Geodetic System 1984 (G873)\"],MEMBER[\"World Geodetic System 1984 (G1150)\"],MEMBER[\"World Geodetic System 1984 (G1674)\"],MEMBER[\"World Geodetic System 1984 (G1762)\"],MEMBER[\"World Geodetic System 1984 (G2139)\"],MEMBER[\"World Geodetic System 1984 (G2296)\"],ELLIPSOID[\"WGS 84\",6378137,298.257223563,LENGTHUNIT[\"metre\",1]],ENSEMBLEACCURACY[2]],PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],CS[Cartesian,3],AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],USAGE[SCOPE[\"Geodesy. Navigation and positioning using GPS satellite system.\"],AREA[\"World.\"],BBOX[-90,-180,90,180]],ID[\"EPSG\",4978]]"
+}

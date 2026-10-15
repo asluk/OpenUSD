@@ -1,0 +1,11 @@
+{
+  "README.md": "70c93932b08675ca9dbb112c4f819ebc252e1c27c1c861dab667f69cd3e45dd5",
+  "Geospatial-proposal-quality.pdf": "9ceee36ae5b05e25cb063fff73db757f5a9f5331fdd00be92b456760299f4739",
+  "Geospatial-proposal-quality.pptx": "61a9937a4cfdbbf01cd755faa99c1ceb3c9f98e0a81cb9ee18a02f3e0e27ec0f",
+  "slides": 12,
+  "profiles_main_slides": [
+    5,
+    6
+  ],
+  "review": "All slides inspected as rendered pages; corrected railway segmentation and plot labels; README rendered in Edge; PDF representative pages inspected."
+}

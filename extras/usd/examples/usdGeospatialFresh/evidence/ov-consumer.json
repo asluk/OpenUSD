@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "sink": "omni.usd context stage geometry write/readback",
+  "placement_evaluator": "External fresh Python reader + PROJ, shared with Python results",
+  "independent_placement_reader": false,
+  "meshes": [
+    {
+      "path": "/Context/Origin/Mesh0",
+      "vertices": 65532,
+      "max_write_readback_m": 0.0
+    },
+    {
+      "path": "/Context/Origin/Mesh1",
+      "vertices": 65533,
+      "max_write_readback_m": 0.0
+    },
+    {
+      "path": "/Context/Origin/Mesh2",
+      "vertices": 32351,
+      "max_write_readback_m": 0.0
+    }
+  ]
+}

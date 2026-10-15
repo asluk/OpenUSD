@@ -1,0 +1,94 @@
+[
+  {
+    "path": "gfs_t2m.nc",
+    "unchanged": true
+  },
+  {
+    "path": "LICENSE-partner.txt",
+    "unchanged": true
+  },
+  {
+    "path": "railway.geojson",
+    "unchanged": true
+  },
+  {
+    "path": "tower.usdz",
+    "unchanged": true
+  },
+  {
+    "path": "Colorado/01_NAD83-2011_Geographic3D_Coordinates.csv",
+    "unchanged": true
+  },
+  {
+    "path": "Colorado/01_NAD83-2011_Geographic3D_WKT2.txt",
+    "unchanged": true
+  },
+  {
+    "path": "Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_Coordinates.csv",
+    "unchanged": true
+  },
+  {
+    "path": "Colorado/02_NAD83-2011_ColoradoCentral_NAVD88_WKT2.txt",
+    "unchanged": true
+  },
+  {
+    "path": "Colorado/03_Westminster_Site_Calibration_Coordinates.csv",
+    "unchanged": true
+  },
+  {
+    "path": "Colorado/03_Westminster_Site_Calibration_WKT2.txt",
+    "unchanged": true
+  },
+  {
+    "path": "Colorado/Trimble Westminster Park and Ride LandXML.xml",
+    "unchanged": true
+  },
+  {
+    "path": "France/01_RGF93v2b_CC49_IGN69_Coordinates.csv",
+    "unchanged": true
+  },
+  {
+    "path": "France/01_RGF93v2b_CC49_IGN69_WKT2.txt",
+    "unchanged": true
+  },
+  {
+    "path": "France/02_RGF93v2b_Lambert93_IGN69_Coordinates.csv",
+    "unchanged": true
+  },
+  {
+    "path": "France/02_RGF93v2b_Lambert93_IGN69_WKT2.txt",
+    "unchanged": true
+  },
+  {
+    "path": "France/03_RGF93v2b_Geocentric_Coordinates.csv",
+    "unchanged": true
+  },
+  {
+    "path": "France/03_RGF93v2b_Geocentric_WKT2.txt",
+    "unchanged": true
+  },
+  {
+    "path": "France/04_RGF93v2b_Geographic3D_Coordinates.csv",
+    "unchanged": true
+  },
+  {
+    "path": "France/04_RGF93v2b_Geographic3D_WKT2.txt",
+    "unchanged": true
+  },
+  {
+    "path": "France/05_ITRF2014_Geocentric_epoch2019.0_Coordinates.csv",
+    "unchanged": true
+  },
+  {
+    "path": "France/05_ITRF2014_Geocentric_epoch2019.0_WKT2.txt",
+    "unchanged": true
+  },
+  {
+    "path": "France/06_ITRF2020_Geocentric_epoch2026.5_Coordinates.csv",
+    "unchanged": true
+  },
+  {
+    "path": "France/06_ITRF2020_Geocentric_epoch2026.5_WKT2.txt",
+    "unchanged": true
+  }
+]

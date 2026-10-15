@@ -1,0 +1,228 @@
+#usda 1.0
+(
+    defaultPrim = "View"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "View"
+{
+    def Xform "DisplayOrigin"
+    {
+        double3 xformOp:translate = (-648237.3015492002, -6862271.681553578, -33)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def "Content" (
+            prepend references = @tower-placed-bake.usdc@
+        )
+        {
+            over "Origin"
+            {
+                over "Mesh0"
+                {
+                    color3f[] primvars:displayColor = [(0.42, 0.47, 0.5)]
+                }
+
+                over "Mesh1"
+                {
+                    color3f[] primvars:displayColor = [(0.42, 0.47, 0.5)]
+                }
+
+                over "Mesh2"
+                {
+                    color3f[] primvars:displayColor = [(0.42, 0.47, 0.5)]
+                }
+            }
+        }
+    }
+
+    def Mesh "Ground"
+    {
+        int[] faceVertexCounts = [4]
+        int[] faceVertexIndices = [0, 1, 2, 3]
+        point3f[] points = [(-330, -320, -1), (500, -320, -1), (500, 400, -1), (-330, 400, -1)]
+        color3f[] primvars:displayColor = [(0.25, 0.34, 0.36)]
+        uniform token subdivisionScheme = "none"
+    }
+
+    def BasisCurves "GridEn300"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-300, -320, 0), (-300, 400, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridEn200"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-200, -320, 0), (-200, 400, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridEn100"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-100, -320, 0), (-100, 400, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridE0"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(0, -320, 0), (0, 400, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridE100"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(100, -320, 0), (100, 400, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridE200"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(200, -320, 0), (200, 400, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridE300"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(300, -320, 0), (300, 400, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridE400"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(400, -320, 0), (400, 400, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridE500"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(500, -320, 0), (500, 400, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridNn300"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-330, -300, 0), (500, -300, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridNn200"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-330, -200, 0), (500, -200, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridNn100"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-330, -100, 0), (500, -100, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridN0"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-330, 0, 0), (500, 0, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridN100"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-330, 100, 0), (500, 100, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridN200"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-330, 200, 0), (500, 200, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridN300"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-330, 300, 0), (500, 300, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "GridN400"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-330, 400, 0), (500, 400, 0)]
+        color3f[] primvars:displayColor = [(0.5, 0.6, 0.56)]
+        uniform token type = "linear"
+        float[] widths = [0.35]
+    }
+
+    def BasisCurves "East"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(-300, 0, 1), (450, 0, 1)]
+        color3f[] primvars:displayColor = [(0.15, 0.48, 0.67)]
+        uniform token type = "linear"
+        float[] widths = [1.5]
+    }
+
+    def BasisCurves "North"
+    {
+        int[] curveVertexCounts = [2]
+        point3f[] points = [(0, -280, 1), (0, 380, 1)]
+        color3f[] primvars:displayColor = [(0.78, 0.38, 0.12)]
+        uniform token type = "linear"
+        float[] widths = [1.5]
+    }
+
+    def Camera "Camera"
+    {
+        float focalLength = 40
+        float horizontalAperture = 36
+        float verticalAperture = 20.25
+        matrix4d xformOp:transform = ( (0.8276335998288198, 0.5612687631023031, 0, 0), (-0.1396305426710585, 0.20589588495562866, 0.9685608892123017, -0), (0.5436229722774553, -0.8016135353921797, 0.2487766144320558, 0), (649.9999999999999, -899.9999999999999, 440, 0.9999999999999999) )
+        uniform token[] xformOpOrder = ["xformOp:transform"]
+    }
+}
+

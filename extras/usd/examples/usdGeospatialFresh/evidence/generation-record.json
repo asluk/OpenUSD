@@ -1,0 +1,115 @@
+{
+  "generated_from": "proposal commit 9f15b1b46224fcd3b22f1a0d5ebf352965cf2d97",
+  "authority_sha256": "7b7784019d125bf27523929501b72d134810f996a87e764ea0e82db3da120256",
+  "frozen_utc": "2026-10-15T18:22:09.024484+00:00",
+  "mode": "Fresh source generation, followed by repairs of this newly generated candidate against unchanged authority. No previous geospatial implementation used as seed.",
+  "prior_exposure": "Earlier conversation contained dependency/source snippets during OSRB inventory. Those were not supplied as generation inputs. Historical README and neutral renderer were inspected after the core freeze.",
+  "shared": [
+    "Original provider/user datasets",
+    "USD Core/UsdGeom libraries",
+    "PROJ geodetic engine family (Python9.8.1, native9.4.1)",
+    "Native-format decoding transport",
+    "Neutral 21-line Storm recording utility"
+  ],
+  "newly_authored": [
+    "Codeless schema",
+    "Python reader",
+    "Native C++ reader",
+    "Association decoder",
+    "Authoring fixtures",
+    "Independent controls",
+    "Exporter and integration sink",
+    "Human source README and derived deck"
+  ],
+  "reused_neutral_source": {
+    "path": "delivery/record_storm.cpp",
+    "sha256": "fc5076a38bb04e23e1b568278d29e0e00db378c262ffe1d8da5631aef1a85f3b",
+    "role": "Generic native window/OpenGL/Storm frame recorder; no geospatial interpretation"
+  },
+  "source_files": [
+    {
+      "path": "src_py/formats.py",
+      "sha256": "e0e45a47aaee3262d61318cd763ada2c6c823c5cf016ce23c1c9a43b167f97f5"
+    },
+    {
+      "path": "src_py/reader.py",
+      "sha256": "e5b5f96ae84a17db773d5af894a3901c7b5b86296007b7f46226c0e839295900"
+    },
+    {
+      "path": "native/build.cmd",
+      "sha256": "838dfc4dab9f5f41df8a5bd3fdf1ca94a28d9b297c668bdab56d31d3aaf07f92"
+    },
+    {
+      "path": "native/CMakeLists.txt",
+      "sha256": "e2384c84a85dd3f34a227723d4f2ab552dbd6db95badde331ffebd117d01f303"
+    },
+    {
+      "path": "native/resolve.cpp",
+      "sha256": "cb0beafc18dc631b8881f56036ccd109cea291d2871e1385c7bed62dd6cab38f"
+    },
+    {
+      "path": "schema/generatedSchema.usda",
+      "sha256": "4c266e95a9cc0e01405598cac71a686b68e8d5ab7b155632328800ca1e1399dd"
+    },
+    {
+      "path": "schema/plugInfo.json",
+      "sha256": "6463cebae898fabc4eaad73193a43e31b498a70984591502fbd96aa469f4666c"
+    },
+    {
+      "path": "tests/make_inputs.py",
+      "sha256": "442be38bb09624ae7291061cb0091178fa7c13718bbae526c46e6464efcb5a9d"
+    },
+    {
+      "path": "tests/test_additional.py",
+      "sha256": "64eb157e20751c96262911bd61417e002528876e5c280c44178ea113cb9f80e8"
+    },
+    {
+      "path": "tests/test_contract.py",
+      "sha256": "5cb2406e075276bf032301c51d44122184178fa28401575f663eeee5ece7e9bf"
+    },
+    {
+      "path": "delivery/build_deck.mjs",
+      "sha256": "5265a6ca7145c6c28700e9b8ae830c33602cb89ea545f3dd79885846a57d7222"
+    },
+    {
+      "path": "delivery/compact_bakes.py",
+      "sha256": "2e1542352a3584637a2a94f88d68e3897ae5e19a759fc5833b9cf666d4846e8e"
+    },
+    {
+      "path": "delivery/font_aliases.mjs",
+      "sha256": "3395410e0ad2438c71881e0f12795d0d51e523095f4ad6e993ba98fa6ab5b5b1"
+    },
+    {
+      "path": "delivery/landxml_workflow.py",
+      "sha256": "6fe3aed6f7527d56330a7c4f4869a99ed3b84118a65a5b4b82e3c1b0ad1c24c1"
+    },
+    {
+      "path": "delivery/ov_consume.py",
+      "sha256": "4dfc248576f1c034cb101f8720614872bc7716ea02f2cf04cbe6421b64ae72c2"
+    },
+    {
+      "path": "delivery/plots.py",
+      "sha256": "29b92a674b7a3d6e2fcc0daff2aa1e3928142fe161d199260f6d4910f6ec797d"
+    },
+    {
+      "path": "delivery/record_storm.cpp",
+      "sha256": "fc5076a38bb04e23e1b568278d29e0e00db378c262ffe1d8da5631aef1a85f3b"
+    },
+    {
+      "path": "delivery/run_evidence.py",
+      "sha256": "280e97112c2dfc27d070341a19fa30da50a1f4ebbc820eb58725ce8285b290cc"
+    }
+  ],
+  "source_field_allowlist": [
+    "crs:wkt",
+    "crs:position",
+    "crs:orientation",
+    "data:asset",
+    "data:format",
+    "data:field",
+    "data:coordinateDomain"
+  ],
+  "computed_geospatial_source_fields": [],
+  "final_frozen_utc": "2026-10-15T18:59:40.488273+00:00",
+  "dataset_provenance_note": "Original means unchanged baseline files. The climate demonstration container has unverified observational provenance; added coordinate/unit/time/height declarations are illustrative."
+}

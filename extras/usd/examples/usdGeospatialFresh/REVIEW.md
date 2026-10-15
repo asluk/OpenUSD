@@ -1,7 +1,20 @@
-# Fresh geospatial proposal assessment
+The proposed coordinate model now drives separately authored Python and native
+C++ readers for model placement, native measurement associations, instances,
+Profiles discovery and ordinary USD baking. This companion assesses proposal
+derivability from independently expected controls and actual consumer outputs.
 
-This example tests whether the pinned input model and runtime contracts can drive a new implementation without inheriting an existing geospatial prototype. New Python and native C++ readers preserve authored CRS operations, placement ordering and ordinary USD source meaning. The README and deck explain the proposal, actual outputs and proof limits.
+The run reproduces 123 supplied coordinate-table comparisons within 0.101 mm,
+compares the original 163,416-vertex Eiffel asset through both readers, and
+exercises railway, calibrated construction and global climate data. Omniverse
+consumes Python-derived geometry through its context stage; Hydra Storm renders
+the C++ ordinary bake. The README and deck explain inputs, order and scope with
+the actual output visuals. Profiles has an explicit author/publisher/consumer
+story and unloaded-payload controls.
 
-Validation: 77 Python controls, 20 native controls, 187 matched provider comparisons, native measurements, dense Eiffel geometry, actual Omniverse writeback and native Storm rendering. Proposal and original dataset hashes remain unchanged. Common PROJ and format decoding are disclosed; downstream integrations are not additional placement engines.
-
-Profiles discovery succeeds with payloads closed. A draft clarification distinguishes declaration discovery from generic compatibility queries and calls for the reviewed registration graph. Broader nonlinear/continuous/format/variant coverage remains unproven; successful finite examples do not establish complete conformance.
+No source schema field or placement rule was invented during implementation.
+The post-implementation audit caught and repaired reader/export/visualization
+defects against the existing text. Coverage limits, including unsupported
+continuous-domain certification and geometric primvar export, remain explicit.
+Two PROJ-based readers do not establish complete conformance or independent
+geodetic accuracy. Review of the proposed conventions and adoption ownership
+remains separate from implementation evidence.

@@ -1,0 +1,19 @@
+{
+    "continuous_bound_certified": false,
+    "coordinate_crs": "GEODCRS[\"RGF93 v2b\",\n    DATUM[\"Reseau Geodesique Francais 1993 v2b\",\n        ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]],\n        ID[\"EPSG\",1313]],\n    PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],\n    CS[Cartesian,3],\n        AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],\n        AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],\n        AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],\n    ID[\"EPSG\",9780]]\n",
+    "operations": [{
+            "accuracy_m": 0.0,
+            "pipeline": "+proj=noop"
+        }, {
+            "accuracy_m": null,
+            "pipeline": "+proj=pipeline +step +proj=axisswap +order=2,1 +step +proj=unitconvert +xy_in=deg +z_in=m +xy_out=rad +z_out=m +step +proj=cart +ellps=GRS80"
+        }, {
+            "accuracy_m": null,
+            "pipeline": "+proj=pipeline +step +inv +proj=cart +ellps=GRS80 +step +proj=unitconvert +xy_in=rad +z_in=m +xy_out=deg +z_out=m +step +proj=axisswap +order=2,1"
+        }],
+    "results": [{
+            "points": [[4203715.404471598, 181349.65608632093, 4777419.397108607]],
+            "success": true
+        }],
+    "scene_chart": "GEODCRS[\"RGF93 v2b\",\n    DATUM[\"Reseau Geodesique Francais 1993 v2b\",\n        ELLIPSOID[\"GRS 1980\",6378137,298.257222101,LENGTHUNIT[\"metre\",1]],\n        ID[\"EPSG\",1313]],\n    PRIMEM[\"Greenwich\",0,ANGLEUNIT[\"degree\",0.0174532925199433]],\n    CS[Cartesian,3],\n        AXIS[\"(X)\",geocentricX,ORDER[1],LENGTHUNIT[\"metre\",1]],\n        AXIS[\"(Y)\",geocentricY,ORDER[2],LENGTHUNIT[\"metre\",1]],\n        AXIS[\"(Z)\",geocentricZ,ORDER[3],LENGTHUNIT[\"metre\",1]],\n    ID[\"EPSG\",9780]]\n"
+}

@@ -1,0 +1,2 @@
+Validation warning: non-normal WKT spelling
+Attempt to use coordinate operation Inverse of France Conic Conformal zone 8 + Inverse of RGF93 v2b to NGF-IGN69 height (5) failed. Grid fr_ign_RAF20.tif is not available. Consult https://proj.org/resource_files.html for guidance.

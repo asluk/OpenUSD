@@ -1,0 +1,35 @@
+#usda 1.0
+(
+    defaultPrim = "Survey"
+    metersPerUnit = 1
+    timeCodesPerSecond = 24
+    upAxis = "Z"
+)
+
+def Xform "Survey"
+{
+    def Xform "Case0" (
+        prepend apiSchemas = ["GeospatialCRSBindingAPI"]
+    )
+    {
+        double3 crs:position = (2.4702269726, 48.8193987692, 81.0525)
+        uniform token crs:wkt = 'GEOGCRS["RGF93 v2b",DATUM["Reseau Geodesique Francais 1993 v2b",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]],ID["EPSG",1313]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,3],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],AXIS["ellipsoidal height (h)",up,ORDER[3],LENGTHUNIT["metre",1]],ID["EPSG",9781]]'
+    }
+
+    def Xform "Case1" (
+        prepend apiSchemas = ["GeospatialCRSBindingAPI"]
+    )
+    {
+        double3 crs:position = (1661099.039, 8180053.117, 37.298)
+        uniform token crs:wkt = 'COMPOUNDCRS["RGF93 v2b / CC49 + NGF-IGN69 height",PROJCRS["RGF93 v2b / CC49",BASEGEOGCRS["RGF93 v2b",DATUM["Reseau Geodesique Francais 1993 v2b",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]],ID["EPSG",1313]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",9782]],CONVERSION["France Conic Conformal zone 8",METHOD["Lambert Conic Conformal (2SP)",ID["EPSG",9802]],PARAMETER["Latitude of false origin",49,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8821]],PARAMETER["Longitude of false origin",3,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8822]],PARAMETER["Latitude of 1st standard parallel",48.25,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8823]],PARAMETER["Latitude of 2nd standard parallel",49.75,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8824]],PARAMETER["Easting at false origin",1700000,LENGTHUNIT["metre",1],ID["EPSG",8826]],PARAMETER["Northing at false origin",8200000,LENGTHUNIT["metre",1],ID["EPSG",8827]],ID["EPSG",18108]],CS[Cartesian,2],AXIS["easting (E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (N)",north,ORDER[2],LENGTHUNIT["metre",1]],ID["EPSG",9849]],VERTCRS["NGF-IGN69 height",VDATUM["Nivellement General de la France - IGN69",ID["EPSG",5119]],CS[vertical,1],AXIS["gravity-related height (H)",up,LENGTHUNIT["metre",1]],ID["EPSG",5720]]]'
+    }
+
+    def Xform "Case2" (
+        prepend apiSchemas = ["GeospatialCRSBindingAPI"]
+    )
+    {
+        double3 crs:position = (3108002.1122, 1752265.0666, 5482.9424)
+        uniform token crs:wkt = 'COMPOUNDCRS["NAD83(2011) / Colorado Central (ftUS) + NAVD88 height (ftUS)",PROJCRS["NAD83(2011) / Colorado Central (ftUS)",BASEGEOGCRS["NAD83(2011)",DATUM["NAD83 (National Spatial Reference System 2011)",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]],ID["EPSG",1116]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",6318]],CONVERSION["SPCS83 Colorado Central zone (US survey foot)",METHOD["Lambert Conic Conformal (2SP)",ID["EPSG",9802]],PARAMETER["Latitude of false origin",37.8333333333333,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8821]],PARAMETER["Longitude of false origin",-105.5,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8822]],PARAMETER["Latitude of 1st standard parallel",39.75,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8823]],PARAMETER["Latitude of 2nd standard parallel",38.45,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8824]],PARAMETER["Easting at false origin",3000000,LENGTHUNIT["US survey foot",0.304800609601219],ID["EPSG",8826]],PARAMETER["Northing at false origin",1000000,LENGTHUNIT["US survey foot",0.304800609601219],ID["EPSG",8827]],ID["EPSG",15314]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["US survey foot",0.304800609601219]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["US survey foot",0.304800609601219]],ID["EPSG",6428]],VERTCRS["NAVD88 height (ftUS)",VDATUM["North American Vertical Datum 1988",ID["EPSG",5103]],CS[vertical,1],AXIS["gravity-related height (H)",up,LENGTHUNIT["US survey foot",0.304800609601219]],ID["EPSG",6360]]]'
+    }
+}
+

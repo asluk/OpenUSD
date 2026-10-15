@@ -1,0 +1,22 @@
+[
+  {
+    "dataset": "Permutation",
+    "samples": 12,
+    "native_values_indices_masks_times_preserved": true
+  },
+  {
+    "dataset": "Railway",
+    "samples": 15822,
+    "native_values_indices_masks_times_preserved": true
+  },
+  {
+    "dataset": "Climate",
+    "samples": 5328,
+    "native_values_indices_masks_times_preserved": true
+  },
+  {
+    "dataset": "Raster",
+    "samples": 6,
+    "native_values_indices_masks_times_preserved": true
+  }
+]

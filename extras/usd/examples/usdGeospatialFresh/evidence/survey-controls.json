@@ -1,0 +1,65 @@
+[
+  {
+    "case": "France_04",
+    "points": 59,
+    "max_control_error_m": 0.00010001435964742176,
+    "native_first_control_error_m": 7.339872866408779e-05,
+    "native_all_control_error_m": 0.00010001435964742176,
+    "reader_agreement_m": 0.0,
+    "python_operations": [
+      {
+        "description": "Conversion from RGF93 v2b (geog3D) to RGF93 v2b (geocentric)",
+        "pipeline": "proj=pipeline step proj=axisswap order=2,1 step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=GRS80",
+        "accuracy_m": 0.0
+      }
+    ],
+    "native_operations": [
+      {
+        "accuracy_m": null,
+        "pipeline": "+proj=pipeline +step +proj=axisswap +order=2,1 +step +proj=unitconvert +xy_in=deg +z_in=m +xy_out=rad +z_out=m +step +proj=cart +ellps=GRS80"
+      }
+    ]
+  },
+  {
+    "case": "France_01",
+    "points": 59,
+    "max_control_error_m": 6.0769115238857e-05,
+    "native_first_control_error_m": 3.9576448980970385e-05,
+    "native_all_control_error_m": 6.0769115238857e-05,
+    "reader_agreement_m": 0.0,
+    "python_operations": [
+      {
+        "description": "Inverse of France Conic Conformal zone 8 + Lambert-93",
+        "pipeline": "proj=pipeline step inv proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80 step proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80",
+        "accuracy_m": 0.0
+      }
+    ],
+    "native_operations": [
+      {
+        "accuracy_m": 0.0,
+        "pipeline": "+proj=pipeline +step +inv +proj=lcc +lat_0=49 +lon_0=3 +lat_1=48.25 +lat_2=49.75 +x_0=1700000 +y_0=8200000 +ellps=GRS80 +step +proj=lcc +lat_0=46.5 +lon_0=3 +lat_1=49 +lat_2=44 +x_0=700000 +y_0=6600000 +ellps=GRS80"
+      }
+    ]
+  },
+  {
+    "case": "Colorado_02",
+    "points": 5,
+    "max_control_error_m": 3.423982800319422e-05,
+    "native_first_control_error_m": 1.5069227786928826e-05,
+    "native_all_control_error_m": 3.423982800319422e-05,
+    "reader_agreement_m": 0.0,
+    "python_operations": [
+      {
+        "description": "Inverse of SPCS83 Colorado Central zone (US survey foot) + Conversion from NAVD88 height (ftUS) to NAVD88 height (ftUS) + Westminster site calibration (vertical) + SPCS83 Colorado Central zone (US survey foot) + Westminster site calibration (horizontal)",
+        "pipeline": "proj=pipeline step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694",
+        "accuracy_m": 0.0
+      }
+    ],
+    "native_operations": [
+      {
+        "accuracy_m": 0.0,
+        "pipeline": "+proj=pipeline +step +proj=unitconvert +xy_in=us-ft +xy_out=m +step +inv +proj=lcc +lat_0=37.8333333333333 +lon_0=-105.5 +lat_1=39.75 +lat_2=38.45 +x_0=914401.828803658 +y_0=304800.609601219 +ellps=GRS80 +step +proj=unitconvert +z_in=us-ft +z_out=m +step +proj=vertoffset +lat_0=39.8981516609137 +lon_0=-105.115085298874 +dh=0.52899645947227 +slope_lat=-18.1964507520283 +slope_lon=-11.9499667059649 +step +proj=unitconvert +z_in=m +z_out=us-ft +step +proj=lcc +lat_0=37.8333333333333 +lon_0=-105.5 +lat_1=39.75 +lat_2=38.45 +x_0=914401.828803658 +y_0=304800.609601219 +ellps=GRS80 +step +proj=unitconvert +xy_in=m +xy_out=us-ft +step +proj=affine +xoff=503.925392047801 +s11=1.00023104194694 +s12=-0.000201263129192391 +yoff=-546977.970160075 +s21=0.000201263129192391 +s22=1.00023104194694"
+      }
+    ]
+  }
+]
