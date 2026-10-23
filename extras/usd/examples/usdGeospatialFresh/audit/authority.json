@@ -1,0 +1,34 @@
+{
+  "proposal_commit": "4120379fa12473b54a8f8e11999a1cefa5443614",
+  "proposal_blob": "2386f16283df435ccb4304a3972d51e26d4be311",
+  "proposal_sha256": "035c4bb5312862567176045e18d3f9d4b0da145b51db8275e457b73318b28b42",
+  "stock_upstream_base": "5bc38c9d8799d16ce20ade219a464beaeae548cc",
+  "implementation_origin": "New Python/C++ readers, schemas, fixtures and tests derived from frozen proposal. Previous geospatial implementations/fixture logic/generated expectations did not seed this run.",
+  "reused": "Original input bytes; installed neutral SDK/build libraries; neutral Storm frame recorder.",
+  "independence_limit": "Same agent and PROJ family; provider control tables were generated with PROJ.",
+  "Python": "3.10.11",
+  "Python_USD": [
+    0,
+    26,
+    5
+  ],
+  "Python_PROJ": "9.5.1",
+  "native_USD": "26.11",
+  "native_PROJ": "9.4.1",
+  "contract_groups": 19,
+  "passed": 19,
+  "failed": 0,
+  "original_files_byte_preserved": 23,
+  "authored_geospatial_fields": [
+    "crs:orientation",
+    "crs:position",
+    "crs:wkt",
+    "data:asset",
+    "data:coordinateDomain",
+    "data:field",
+    "data:format"
+  ],
+  "undocumented_geospatial_fields": [],
+  "acceptance": "2 mm for comparable control/reader coordinates; 1 mm for bake local detail, fixed before execution",
+  "publication": "Local build branch; no proposal changes or remote publication"
+}

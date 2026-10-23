@@ -1,0 +1,74 @@
+[
+  {
+    "path": "src_py/bake.py",
+    "sha256": "14d5c059a0c25f6af533e1588cc70be410567cf09d61a91706fc24bd1d39368d"
+  },
+  {
+    "path": "src_py/domains.py",
+    "sha256": "0ba34947d379caac80861e8bd5ac66df939ea76f6cbad8f8acbde8b4af86652d"
+  },
+  {
+    "path": "src_py/reader.py",
+    "sha256": "645edcc8605670d510b555a351f2ef345266be492fcf49a2910b245ec88af8bb"
+  },
+  {
+    "path": "native/build.cmd",
+    "sha256": "b5b8b98a27830ab76bbc818cba30b7593cee1b75b6612cb8e21080c75c5ee6af"
+  },
+  {
+    "path": "native/CMakeLists.txt",
+    "sha256": "4c7eeaa537c176ee2b8babc61b9fc5353429e40ae8db3beb3b83730ae9189939"
+  },
+  {
+    "path": "native/resolve.cpp",
+    "sha256": "6b1a5035e5e0396560fb4524a6650185e86ebe05dafe6cb614643250ab0cb375"
+  },
+  {
+    "path": "schema/generatedSchema.usda",
+    "sha256": "44721bc7c0805745793c3896aff77cbd721245a5a53d6540ee637043f277cc04"
+  },
+  {
+    "path": "schema/plugInfo.json",
+    "sha256": "9943a5d1b01c506d1183cc783de77b0bc1aa3afff80861d390f1a84c45637b72"
+  },
+  {
+    "path": "tests/fixtures.py",
+    "sha256": "13654ea84e7cbc693abed352e9ce8845cf49c67d4e0a0d82a0b5e3e82371b096"
+  },
+  {
+    "path": "tests/run.py",
+    "sha256": "fa4442106df600da7770dee04b7958e6e38349f9619808478f7d2a40703e1ee6"
+  },
+  {
+    "path": "delivery/consume_ov.py",
+    "sha256": "046e3f5389abb46edd545755bb057df225682892c3163b1bc171fa0781325631"
+  },
+  {
+    "path": "delivery/deck.mjs",
+    "sha256": "6e79f7b54d030354ed51574d262831bdfd87540d9cc6229479204d231162d9ab"
+  },
+  {
+    "path": "delivery/evidence.py",
+    "sha256": "545b7cc26eb85fdc20e7c30e329ada5ccfdec724f7aab381970368c2b8ab81d5"
+  },
+  {
+    "path": "delivery/freeze.py",
+    "sha256": "2af3f582bed942069b3a45f75ec6474b98ecc9110b30717625a555579415dac7"
+  },
+  {
+    "path": "delivery/pdf.py",
+    "sha256": "00742ec0055877a0d640485ddc73c1126f2b19a58710fb4ada85b91b5bdfaaec"
+  },
+  {
+    "path": "delivery/plots.py",
+    "sha256": "7d4c8def453e0a57e40700d7d15d860cb27d4dde9b96135e9c07a0ee7de54633"
+  },
+  {
+    "path": "delivery/record_storm.cpp",
+    "sha256": "fc5076a38bb04e23e1b568278d29e0e00db378c262ffe1d8da5631aef1a85f3b"
+  },
+  {
+    "path": "delivery/review_readme.mjs",
+    "sha256": "fe71e212364432eff73a2e223987d1caaa9b492ae057f1b574d7792e4926811f"
+  }
+]

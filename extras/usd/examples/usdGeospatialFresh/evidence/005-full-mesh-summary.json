@@ -1,0 +1,39 @@
+{
+  "PROJ": "9.4.1",
+  "operations": [
+    {
+      "accuracy_m": 0.0,
+      "description": "axis order change (2D) + Null geographic offset from WGS 84 to WGS 84 + axis order change (2D)",
+      "pipeline": "+proj=noop"
+    },
+    {
+      "accuracy_m": 0.0,
+      "description": "axis order change (2D) + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+      "pipeline": "+proj=pipeline +step +proj=unitconvert +xy_in=deg +z_in=m +xy_out=rad +z_out=m +step +proj=cart +ellps=WGS84"
+    },
+    {
+      "accuracy_m": 0.0,
+      "description": "Conversion from WGS 84 (geocentric) to WGS 84 (geog3D) + UTM zone 31N",
+      "pipeline": "+proj=pipeline +step +inv +proj=cart +ellps=WGS84 +step +proj=utm +zone=31 +ellps=WGS84"
+    },
+    {
+      "accuracy_m": 0.0,
+      "description": "Inverse of UTM zone 31N + Conversion from WGS 84 (geog3D) to WGS 84 (geocentric)",
+      "pipeline": "+proj=pipeline +step +inv +proj=utm +zone=31 +ellps=WGS84 +step +proj=cart +ellps=WGS84"
+    }
+  ],
+  "sourceHeight": {
+    "heightModel": "ellipsoidal",
+    "heightReference": {
+      "datum": "World Geodetic System 1984",
+      "ellipsoid": "WGS 84"
+    },
+    "heightReferenceSource": "declared",
+    "heightUnit": "metre"
+  },
+  "success": true,
+  "warnings": [],
+  "point_count": 65532,
+  "request_sha256": "649c207cf01aaa35b5d03043063d6a3454a55b0ea98d6febab7f6a7d8a85c492",
+  "result_sha256": "87ffc6657a391e659cbea4541b54412d47dda124536263c31e10be7fd95eba22"
+}

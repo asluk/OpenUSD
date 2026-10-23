@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "consumer": "real omni.usd stage",
+  "placement_reader": "external fresh Python reader",
+  "independent_reader": false,
+  "meshes": [
+    {
+      "path": "/Resolved/Origin/World/Tower/Conformance/IllustrativeSize/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_4/Object_0",
+      "vertices": 65532,
+      "maximum_readback_error_m": 0.0
+    },
+    {
+      "path": "/Resolved/Origin/World/Tower/Conformance/IllustrativeSize/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_5/Object_1",
+      "vertices": 65533,
+      "maximum_readback_error_m": 0.0
+    },
+    {
+      "path": "/Resolved/Origin/World/Tower/Conformance/IllustrativeSize/Asset/Meshes/Sketchfab_model/root/GLTF_SceneRootNode/Tour_eiffel_0/Object_6/Object_2",
+      "vertices": 32351,
+      "maximum_readback_error_m": 0.0
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<string>:1: UserWarning: missing vertical reference: assuming EGM2008 height (EPSG:3855)
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-fresh-openusd-20261023\extras\usd\examples\usdGeospatialFresh\src_py\reader.py", line 112, in convert
+    require(bool(group.transformers) and group.best_available, 'required coordinate operation or grid unavailable; no lower-accuracy substitute')
+  File "C:\Users\aluk\Documents\Codex\2026-09-21\have\work\geospatial-fresh-openusd-20261023\extras\usd\examples\usdGeospatialFresh\src_py\reader.py", line 25, in require
+    if not ok: raise Failure(message)
+reader.Failure: required coordinate operation or grid unavailable; no lower-accuracy substitute

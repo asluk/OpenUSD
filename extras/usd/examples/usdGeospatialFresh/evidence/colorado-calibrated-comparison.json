@@ -1,0 +1,147 @@
+{
+  "rows": 5,
+  "max_provider_residual_m": 3.423983882847989e-05,
+  "max_reader_disagreement_m": 0.0,
+  "coordinate_magnitude": [
+    3109885.7385,
+    1206317.4694,
+    5484.6779
+  ],
+  "output_units": [
+    "US survey foot",
+    "US survey foot",
+    "US survey foot"
+  ],
+  "provider_reference": "Provider tables were generated using PROJ; these are external workflow references, not an independent geodetic engine.",
+  "python_operations": [
+    {
+      "description": "Inverse of SPCS83 Colorado Central zone (US survey foot) + Conversion from NAVD88 height (ftUS) to NAVD88 height (ftUS) + Westminster site calibration (vertical) + SPCS83 Colorado Central zone (US survey foot) + Westminster site calibration (horizontal)",
+      "pipeline": "proj=pipeline step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694",
+      "accuracy_m": 0.0,
+      "source": "NAD83(2011) / Colorado Central (ftUS) + NAVD88 height (ftUS)",
+      "output": "Westminster site grid + site height"
+    }
+  ],
+  "native_operations": [
+    {
+      "accuracy_m": 0.0,
+      "description": "Inverse of SPCS83 Colorado Central zone (US survey foot) + Conversion from NAVD88 height (ftUS) to NAVD88 height (ftUS) + Westminster site calibration (vertical) + SPCS83 Colorado Central zone (US survey foot) + Westminster site calibration (horizontal)",
+      "pipeline": "+proj=pipeline +step +proj=unitconvert +xy_in=us-ft +xy_out=m +step +inv +proj=lcc +lat_0=37.8333333333333 +lon_0=-105.5 +lat_1=39.75 +lat_2=38.45 +x_0=914401.828803658 +y_0=304800.609601219 +ellps=GRS80 +step +proj=unitconvert +z_in=us-ft +z_out=m +step +proj=vertoffset +lat_0=39.8981516609137 +lon_0=-105.115085298874 +dh=0.52899645947227 +slope_lat=-18.1964507520283 +slope_lon=-11.9499667059649 +step +proj=unitconvert +z_in=m +z_out=us-ft +step +proj=lcc +lat_0=37.8333333333333 +lon_0=-105.5 +lat_1=39.75 +lat_2=38.45 +x_0=914401.828803658 +y_0=304800.609601219 +ellps=GRS80 +step +proj=unitconvert +xy_in=m +xy_out=us-ft +step +proj=affine +xoff=503.925392047801 +s11=1.00023104194694 +s12=-0.000201263129192391 +yoff=-546977.970160075 +s21=0.000201263129192391 +s22=1.00023104194694"
+    }
+  ],
+  "ids": [
+    "Control1",
+    "Control2",
+    "Control3",
+    "Control4",
+    "Control5"
+  ],
+  "source": [
+    [
+      3108002.1122,
+      1752265.0666,
+      5482.9424
+    ],
+    [
+      3108405.7097,
+      1751929.512,
+      5463.6976
+    ],
+    [
+      3108162.9596,
+      1751256.8855,
+      5444.3233
+    ],
+    [
+      3107602.0564,
+      1751823.9696,
+      5464.6824
+    ],
+    [
+      3109015.9936,
+      1751406.6306,
+      5452.1847
+    ]
+  ],
+  "reference": [
+    [
+      3108871.4501,
+      1206317.4694,
+      5484.6779
+    ],
+    [
+      3109275.2084,
+      1205981.9186,
+      5465.4396
+    ],
+    [
+      3109032.5376,
+      1205309.0878,
+      5446.1388
+    ],
+    [
+      3108471.3907,
+      1205876.19,
+      5466.4799
+    ],
+    [
+      3109885.7385,
+      1205459.0391,
+      5453.9378
+    ]
+  ],
+  "python": [
+    [
+      3108871.450100667,
+      1206317.469403112,
+      5484.677949267536
+    ],
+    [
+      3109275.208383388,
+      1205981.9185052144,
+      5465.4396023068
+    ],
+    [
+      3109032.537572845,
+      1205309.087743626,
+      5446.138775531408
+    ],
+    [
+      3108471.3906475566,
+      1205876.1899747117,
+      5466.479996069786
+    ],
+    [
+      3109885.7385213156,
+      1205459.0391253242,
+      5453.937830963802
+    ]
+  ],
+  "native": [
+    [
+      3108871.450100667,
+      1206317.469403112,
+      5484.677949267536
+    ],
+    [
+      3109275.208383388,
+      1205981.9185052144,
+      5465.4396023068
+    ],
+    [
+      3109032.537572845,
+      1205309.087743626,
+      5446.138775531408
+    ],
+    [
+      3108471.3906475566,
+      1205876.1899747117,
+      5466.479996069786
+    ],
+    [
+      3109885.7385213156,
+      1205459.0391253242,
+      5453.937830963802
+    ]
+  ]
+}

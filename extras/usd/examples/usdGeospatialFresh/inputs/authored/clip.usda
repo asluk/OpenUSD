@@ -1,0 +1,10 @@
+#usda 1.0
+
+def Xform "Clip"
+{
+    double3 crs:orientation.timeSamples = {
+        0: (350, 0, 0),
+        2: (10, 0, 0),
+    }
+}
+

@@ -1,0 +1,10 @@
+# Preserve frozen input, source and artifact hashes across platform checkouts.
+* -text whitespace=cr-at-eol
+inputs/original/** -whitespace
+inputs/authored/** whitespace=cr-at-eol,-blank-at-eof
+*.pdf binary
+*.pptx binary
+*.png binary
+*.usdz binary
+*.nc binary
+*.npz binary

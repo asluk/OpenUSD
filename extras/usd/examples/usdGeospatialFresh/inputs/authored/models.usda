@@ -1,0 +1,176 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "World" (
+    apiSchemas = ["GeospatialCRSBindingAPI", "ClaimsAPI"]
+    customData = {
+        dictionary profilesInfo = {
+            dictionary capabilityUsages = {
+                token "usd.geospatial.crsResolution.v1" = "hard"
+            }
+            dictionary profileCompatibility = {
+                token[] "usd.geospatial.publication.v1" = []
+            }
+        }
+    }
+    prepend references = @crs-library.usda@</CRS_558cfbe6446f>
+)
+{
+    double3 crs:position = (448000, 5410000, 80)
+
+    def Xform "Model" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = [
+            @crs-library.usda@</CRS_b3b282f20dd0>,
+            @asset.usda@
+        ]
+    )
+    {
+        double3 crs:orientation = (35, 5, 3)
+        double3 crs:position = (2.2945, 48.8584, 70)
+        float xformOp:rotateZ:adjust = 12
+        float3 xformOp:scale:adjust = (1.1, 0.95, 1)
+        double3 xformOp:translate:adjust = (30, -20, 5)
+        uniform token[] xformOpOrder = ["xformOp:translate:adjust", "xformOp:rotateZ:adjust", "xformOp:scale:adjust"]
+
+        def Xform "Child"
+        {
+            double3 xformOp:translate = (7, 2, 1)
+            uniform token[] xformOpOrder = ["xformOp:translate"]
+
+            def Mesh "Mesh"
+            {
+                int[] faceVertexCounts = [3]
+                int[] faceVertexIndices = [0, 1, 2]
+                point3f[] points = [(0, 0, 0), (1, 0, 0), (0, 1, 0)]
+                color3f[] primvars:displayColor = [(0.18, 0.48, 0.63)]
+                uniform token subdivisionScheme = "none"
+            }
+        }
+
+        def Xform "Reset"
+        {
+            double3 xformOp:translate = (4, 0, 0)
+            uniform token[] xformOpOrder = ["!resetXformStack!", "xformOp:translate"]
+
+            def Mesh "Mesh"
+            {
+                int[] faceVertexCounts = [3]
+                int[] faceVertexIndices = [0, 1, 2]
+                point3f[] points = [(0, 0, 0), (1, 0, 0), (0, 1, 0)]
+                color3f[] primvars:displayColor = [(0.18, 0.48, 0.63)]
+                uniform token subdivisionScheme = "none"
+            }
+        }
+
+        def Xform "Independent" (
+            apiSchemas = ["GeospatialCRSBindingAPI"]
+            prepend references = @crs-library.usda@</CRS_b3b282f20dd0>
+        )
+        {
+            double3 crs:position = (2.2946, 48.8585, 71)
+
+            def Mesh "Mesh"
+            {
+                int[] faceVertexCounts = [3]
+                int[] faceVertexIndices = [0, 1, 2]
+                point3f[] points = [(0, 0, 0), (1, 0, 0), (0, 1, 0)]
+                color3f[] primvars:displayColor = [(0.18, 0.48, 0.63)]
+                uniform token subdivisionScheme = "none"
+            }
+        }
+    }
+
+    def Xform "NativeInstance" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        instanceable = true
+        prepend references = [
+            @crs-library.usda@</CRS_b3b282f20dd0>,
+            @asset.usda@
+        ]
+    )
+    {
+        double3 crs:orientation = (0, 0, 0)
+        double3 crs:position = (2.295, 48.858, 70)
+    }
+
+    def Xform "Moving" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @crs-library.usda@</CRS_b3b282f20dd0>
+    )
+    {
+        double3 crs:orientation.timeSamples = {
+            0: (350, 0, 0),
+            2: (10, 0, 0),
+        }
+        double3 crs:position.timeSamples = {
+            0: (-1, 0, 0),
+            2: (1, 0, 0),
+        }
+
+        def Mesh "Mesh"
+        {
+            int[] faceVertexCounts = [3]
+            int[] faceVertexIndices = [0, 1, 2]
+            point3f[] points = [(0, 0, 0), (1, 0, 0), (0, 1, 0)]
+            color3f[] primvars:displayColor = [(0.18, 0.48, 0.63)]
+            uniform token subdivisionScheme = "none"
+        }
+    }
+
+    def PointInstancer "Instancer" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @crs-library.usda@</CRS_b3b282f20dd0>
+    )
+    {
+        double3 crs:position = (2.2945, 48.8584, 70)
+        int64[] ids = [11, 12, 13]
+        point3f[] positions = [(0, 0, 0), (10, 0, 0), (20, 0, 0)]
+        int[] protoIndices = [0, 0, 1]
+        rel prototypes = [
+            </Storage/BoundPrototype>,
+            </Storage/LocalPrototype>,
+        ]
+    }
+}
+
+def "Storage"
+{
+    def Xform "BoundPrototype" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @crs-library.usda@</CRS_b3b282f20dd0>
+    )
+    {
+        double3 crs:orientation = (10, 0, 0)
+        double3 crs:position = (2.2947, 48.8586, 75)
+
+        def Mesh "Mesh"
+        {
+            int[] faceVertexCounts = [3]
+            int[] faceVertexIndices = [0, 1, 2]
+            point3f[] points = [(0, 0, 0), (1, 0, 0), (0, 1, 0)]
+            color3f[] primvars:displayColor = [(0.18, 0.48, 0.63)]
+            uniform token subdivisionScheme = "none"
+        }
+    }
+
+    def Xform "LocalPrototype"
+    {
+        double3 xformOp:translate = (0, 5, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate"]
+
+        def Mesh "Mesh"
+        {
+            int[] faceVertexCounts = [3]
+            int[] faceVertexIndices = [0, 1, 2]
+            point3f[] points = [(0, 0, 0), (1, 0, 0), (0, 1, 0)]
+            color3f[] primvars:displayColor = [(0.18, 0.48, 0.63)]
+            uniform token subdivisionScheme = "none"
+        }
+    }
+}
+

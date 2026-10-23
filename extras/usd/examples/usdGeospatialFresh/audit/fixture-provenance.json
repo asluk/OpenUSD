@@ -1,0 +1,14 @@
+{
+  "generation": "new from frozen proposal",
+  "synthetic": [
+    "models.usda",
+    "composition.usda",
+    "permuted.cf.nc",
+    "raster-1.tif",
+    "raster-2.tif"
+  ],
+  "derived": {
+    "climate.cf.nc": "Original 2664 temperature values; added explicit CF association, synthetic ellipsoidal height=0 and second observation +1 K. These are illustration inputs, not inferred source facts.",
+    "tower.usda": "Original mesh; explicit centimetre/Y-up conformance, illustrative placement and project adjustment."
+  }
+}
