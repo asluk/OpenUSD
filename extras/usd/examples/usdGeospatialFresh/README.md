@@ -1,5 +1,17 @@
 # Geospatial USD: proposal quality and working evidence
 
+**Draft companion: proposal review first.** This experiment supports review of
+the proposal's requirements, authored data model and normative runtime behavior.
+Please assess that contract first. Implementation code review and upstream
+integration follow agreement on the proposal; this draft does not request merge
+or acceptance of these readers as a production implementation.
+
+Start with the [12-slide assessment PDF](delivery/output/Geospatial-USD-proposal-assessment.pdf)
+or [editable deck](delivery/output/Geospatial-USD-proposal-assessment.pptx), then
+the findings and linked evidence below. The
+[frozen proposal text](https://github.com/Tamrat-B/OpenUSD-proposals/blob/4120379fa12473b54a8f8e11999a1cefa5443614/proposals/geospatial_coordinate_reference_systems/README.md)
+is the authority being evaluated, rather than the implementation's interfaces.
+
 Fresh derivation from proposal commit `4120379fa12473b54a8f8e11999a1cefa5443614`,
 23 October 2026. This README is the narrative source for the accompanying deck.
 The proposal defines scene inputs and observable behavior; it does not standardize
@@ -152,8 +164,10 @@ The fresh run found implementation defects and repaired them against existing re
 See [REPRODUCE.md](REPRODUCE.md). The [Python reader](src_py/reader.py),
 [native reader](native/resolve.cpp), [new fixture generator](tests/fixtures.py),
 [native-format adapters](src_py/domains.py), [ordinary exporter](src_py/bake.py)
-and [acceptance cases](tests/run.py) were generated for this run. No source
-proposal edits, remote pushes, comments or messages are part of this delivery.
+and [acceptance cases](tests/run.py) were generated for this run. The build made
+no source proposal edits. Its source and recorded evidence are published here
+as a draft companion; the original freeze records describe the run before
+publication.
 
 The two readers use PROJ 9.5.1 and 9.4.1 respectively. The installed native USD
 SDK is 26.11; Python's USD is 26.5. The native Profiles API supplies declaration
