@@ -25,7 +25,7 @@
       "assessment_sections_and_deck_unchanged": true
     }
   },
-  "current_delivery_reference": "refs/tags/geospatial-deliveries/2026-10-26-visual-clarity",
+  "current_delivery_reference": "refs/tags/geospatial-deliveries/2026-10-26-reviewable",
   "presentation": {
     "date": "2026-10-26",
     "proposal_link": "live geospatial-crs-proposal branch",
@@ -39,5 +39,21 @@
     ],
     "original_vertices_compared": 163416,
     "maximum_reader_bake_difference_m": 1.5257857739925385e-05
+  },
+  "reviewability": {
+    "date": "2026-10-26",
+    "baseline_commit": "3f8012da577797c539fd2270af85e62032a88035",
+    "new_derivation": false,
+    "scope": "Extract readable CRS/placement/query/Profiles modules; stable schema library identity; typed request-scoped C++ model cache; explicit imports and formatting; review map, generated diff attributes, consolidated mesh reports and delivery gate.",
+    "proposal_or_authored_model_changes": false,
+    "contract_groups_passed": 19,
+    "contract_results_identical": true,
+    "full_Eiffel_and_LandXML_reports_identical": true,
+    "mesh_chunk_reports_consolidated_without_content_loss": 21,
+    "original_input_files_byte_preserved": 23,
+    "climate_samples": 5328,
+    "climate_reader_difference_m": 0,
+    "review_gate": "tests/reviewability.py plus manual final source/diff/navigation review; not a proof of correctness or exhaustive conformance",
+    "deck": "The same twelve assessment sections and deck are retained; README introduction adds code-review navigation."
   }
 }

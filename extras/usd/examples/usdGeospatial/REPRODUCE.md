@@ -32,6 +32,10 @@ These are implementation dependencies, not additions to the proposed USD model.
    recorded Node runtime. The builder reads the README sections, tables and
    images; it does not carry a separate set of proposal claims. Validate the
    PowerPoint and inspect each rendered slide before producing the PDF.
+8. Run `python tests/reviewability.py`, follow [REVIEWING.md](REVIEWING.md) through
+   the final source diff, then run `python delivery/freeze.py`. Readability and
+   PR navigation are required delivery checks; numerical success alone does not
+   make a run ready to publish.
 
 The assessment is for finite points, tested role-bearing primvars and resulting
 ordinary polygonal geometry. It is not continuous curve/subdivision certification

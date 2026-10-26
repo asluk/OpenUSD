@@ -8,3 +8,9 @@ inputs/authored/** whitespace=cr-at-eol,-blank-at-eof
 *.usdz binary
 *.nc binary
 *.npz binary
+# Generated results remain available but start collapsed in GitHub review.
+evidence/** linguist-generated=true
+inputs/authored/** linguist-generated=true
+delivery/output/** linguist-generated=true
+# Original datasets are reviewed as supplied inputs, separately from reader code.
+inputs/original/** linguist-vendored=true

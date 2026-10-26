@@ -13,6 +13,16 @@ were found in the tested workflows, and implementation bugs could be corrected
 using the existing text. The tested proposal revision is `4120379`; the link
 above follows the live branch. The README records the coverage limits.
 
+The [review map](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-companion/extras/usd/examples/usdGeospatial/REVIEWING.md)
+provides a path through the files:
+
+- **Placement:** [Python](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-companion/extras/usd/examples/usdGeospatial/src_py/placement.py) and [C++](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-companion/extras/usd/examples/usdGeospatial/native/placement.cpp), with separate CRS-operation and query modules.
+- **Inputs:** [codeless schema](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-companion/extras/usd/examples/usdGeospatial/schema/generatedSchema.usda).
+- **Verification:** [contract cases](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-companion/extras/usd/examples/usdGeospatial/tests/run.py) and [reproduction commands](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-companion/extras/usd/examples/usdGeospatial/REPRODUCE.md).
+
+Generated fixtures, reports and deck outputs start collapsed in the diff.
+Their generators, reader source and tests remain visible for review.
+
 Examples make that assessment concrete:
 
 - Place the Eiffel Tower and a railway using their coordinate systems, and

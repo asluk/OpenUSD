@@ -24,6 +24,10 @@ Fresh derivation from proposal commit `4120379fa12473b54a8f8e11999a1cefa5443614`
 The proposal defines scene inputs and observable behavior; it does not standardize
 the callable interfaces used by these examples.
 
+To review the implementation, start with the [code and file review map](REVIEWING.md).
+It pairs Python/C++ responsibilities and separates source, tests, supplied data
+and generated results. [Reproduction commands](REPRODUCE.md) describe the checks.
+
 ## The tested workflows can be derived from the proposal
 
 Two newly written placement readers pass 19 contract groups against the unchanged proposal. Its existing rules were sufficient to correct the implementation defects found during the run. No new blocking specification gap was found in these workflows, and no undocumented geospatial fields were needed. This is bounded evidence, not proof of exhaustive conformance.

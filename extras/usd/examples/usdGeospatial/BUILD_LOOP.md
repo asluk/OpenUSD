@@ -52,6 +52,27 @@ visible before/after effects and the measured comparison. Reader-facing
 proposal links follow the live proposal branch; provenance separately records
 the exact proposal revision tested.
 
+PR quality and reviewability are delivery gates, alongside proposal quality and
+numerical correctness. Generate readable, conventionally formatted source from
+the start, with descriptive frame/transform names, explicit imports and clear
+module responsibilities. Keep run identifiers in provenance. Check schema-layer
+library names as well as package, plugin and TfType identities.
+
+Provide a short review map and PR-body links to the schema, placement readers,
+tests and reproduction commands. Distinguish original inputs from generated
+fixtures, reports and decks; mark generated files for collapsed GitHub diffs.
+Run `tests/reviewability.py`, then inspect the complete PR diff and follow a
+representative point query through both readers. Automated layout/inventory
+checks do not replace this readability review. If source is hard to follow or
+the file set has no useful review path, repair delivery before publishing even
+when all contract tests pass. A presentation refactor is not a new independent
+derivation: preserve its baseline and verify behavior against that run.
+
+Organize commits into meaningful review batches when dependencies permit:
+schema/runtime source, acceptance fixtures/tests, and generated evidence with
+collateral. Check the combined PR diff too; separate commits cannot substitute
+for a coherent final contribution.
+
 Require both the expected result and a clean reader process exit. A result file
 written before a shutdown crash is not a successful run. For application sinks,
 also require the actual consumption/readback result rather than exit status alone.
