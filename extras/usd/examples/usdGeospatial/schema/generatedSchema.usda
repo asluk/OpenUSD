@@ -1,6 +1,6 @@
 #usda 1.0
 (
-    customLayerData = { string libraryName = "geospatialFresh20261023" }
+    customLayerData = { string libraryName = "usdGeospatial" }
 )
 class "CoordinateReferenceSystem" {
     uniform token crs:wkt
