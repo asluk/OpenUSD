@@ -1,8 +1,18 @@
-# Geospatial in USD: placement and analysis examples
+# Testing the geospatial proposal's readiness for implementation
 
-This draft puts the [proposed geospatial support for USD](https://github.com/Tamrat-B/OpenUSD-proposals/blob/4120379fa12473b54a8f8e11999a1cefa5443614/proposals/geospatial_coordinate_reference_systems/README.md)
-to work on real models and datasets. The same location information supports
-both visualization and analysis:
+This draft assesses **whether the [geospatial proposal](https://github.com/Tamrat-B/OpenUSD-proposals/blob/4120379fa12473b54a8f8e11999a1cefa5443614/proposals/geospatial_coordinate_reference_systems/README.md)
+is clear and complete enough for an agent to implement as written**.
+
+An agent built new Python and C++ implementations from the proposal, then
+tested them with real models and datasets. The code, tests and visual examples
+provide evidence about the proposal's quality. Any required behavior that
+still needs an invented rule is a proposal gap to resolve.
+
+**Current finding:** all 19 test groups pass. No new blocking proposal gaps
+were found in the tested workflows, and implementation bugs could be corrected
+using the existing text. The README records the coverage limits.
+
+Examples make that assessment concrete:
 
 - Place the Eiffel Tower and a railway using their coordinate systems, and
   align survey data with a calibrated construction site.
@@ -18,11 +28,9 @@ both visualization and analysis:
 Start with the [illustrated README](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-fresh-20261023/extras/usd/examples/usdGeospatialFresh/README.md)
 or [slide deck](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-fresh-20261023/extras/usd/examples/usdGeospatialFresh/delivery/output/Geospatial-USD-proposal-assessment.pdf).
 
-The Python and C++ implementations were built anew from the proposal. All 19
-test groups pass, and the tested workflows needed no additional proposal rules
-or scene properties. Both implementations and the reference coordinates use
-PROJ, so these checks do not independently verify the geodetic calculations.
-The README explains the remaining coverage limits.
+Both implementations and the reference coordinates use PROJ, so these checks
+do not independently verify the geodetic calculations or prove that every
+possible workflow is specified completely.
 
 **Please review the proposal first.** This companion helps make its behavior
 and remaining questions concrete. Detailed implementation code review comes

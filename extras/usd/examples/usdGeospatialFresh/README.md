@@ -1,8 +1,9 @@
 # Geospatial USD: proposal quality and working evidence
 
-**Draft companion: proposal review first.** This experiment supports review of
-the proposal's requirements, authored data model and normative runtime behavior.
-Please assess that contract first. Implementation code review and upstream
+**Draft companion: proposal review first.** This experiment assesses whether an
+agent can implement the proposal as written, without inventing missing
+data-model or runtime rules. The code, tests and visual examples are evidence
+for reviewing the proposal. Detailed implementation code review and upstream
 integration follow agreement on the proposal; this draft does not request merge
 or acceptance of these readers as a production implementation.
 
