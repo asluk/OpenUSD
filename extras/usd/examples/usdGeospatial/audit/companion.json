@@ -1,0 +1,28 @@
+{
+  "branch": "aluk/geospatial-companion",
+  "package": "extras/usd/examples/usdGeospatial",
+  "role": "Continuing OpenUSD contribution candidate; current review starts with proposal quality and agent-readiness.",
+  "proposal_commit": "4120379fa12473b54a8f8e11999a1cefa5443614",
+  "derivation": {
+    "date": "2026-10-23",
+    "tested_implementation_commit": "41e6a18fd751258a1274141a3ee2b9ab86b59d99",
+    "stock_OpenUSD_commit": "5bc38c9d8799d16ce20ade219a464beaeae548cc",
+    "run_reference": "refs/tags/geospatial-runs/2026-10-23",
+    "previous_presentation_commit": "580987264edeb54232e5417329a12709f2f70288"
+  },
+  "packaging": {
+    "date": "2026-10-26",
+    "delivery_reference": "refs/tags/geospatial-deliveries/2026-10-26",
+    "new_derivation": false,
+    "changes": "Stable package, plugin identities and continuing delivery contract. Proposed authored schema names, geospatial fields and evaluation math unchanged.",
+    "verification": {
+      "contract_groups_passed": 19,
+      "original_input_files_byte_preserved": 23,
+      "original_Eiffel_vertices": 163416,
+      "full_readers_max_difference_m": 1.5257857739925385e-05,
+      "native_Storm_render_byte_matches_original": true,
+      "Omniverse_stage_readback_error_m": 0,
+      "assessment_sections_and_deck_unchanged": true
+    }
+  }
+}

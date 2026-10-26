@@ -1,0 +1,516 @@
+[
+  {
+    "case": "WKT lexical preservation and semantic comparison",
+    "requirements": [
+      1,
+      2,
+      31
+    ],
+    "pass": true,
+    "result": {
+      "normal": "GEOGCRS[\"A  Name\",CS[ellipsoidal,3],REMARK[\"a\"\" b\"],ID[\"X\",1],PARAMETER[\"p\",0.12345678901234567890123456789]]",
+      "identityDistinctFromSemanticEquivalence": true
+    },
+    "seconds": 0.0
+  },
+  {
+    "case": "France geographic to geocentric provider references",
+    "requirements": [
+      1,
+      3,
+      12,
+      13,
+      21,
+      28,
+      29
+    ],
+    "pass": true,
+    "result": {
+      "rows": 59,
+      "max_provider_residual_m": 0.00010001435964742176,
+      "max_reader_disagreement_m": 0.0,
+      "coordinate_magnitude": [
+        4203753.7601,
+        181500.3406,
+        4777456.7474
+      ],
+      "output_units": [
+        "metre",
+        "metre",
+        "metre"
+      ],
+      "provider_reference": "Provider tables were generated using PROJ; these are external workflow references, not an independent geodetic engine.",
+      "python_operations": [
+        {
+          "description": "axis order change (2D) + Conversion from RGF93 v2b (geog3D) to RGF93 v2b (geocentric)",
+          "pipeline": "proj=pipeline step proj=unitconvert xy_in=deg z_in=m xy_out=rad z_out=m step proj=cart ellps=GRS80",
+          "accuracy_m": 0.0,
+          "source": "RGF93 v2b",
+          "output": "RGF93 v2b"
+        }
+      ],
+      "native_operations": [
+        {
+          "accuracy_m": 0.0,
+          "description": "axis order change (2D) + Conversion from RGF93 v2b (geog3D) to RGF93 v2b (geocentric)",
+          "pipeline": "+proj=pipeline +step +proj=unitconvert +xy_in=deg +z_in=m +xy_out=rad +z_out=m +step +proj=cart +ellps=GRS80"
+        }
+      ]
+    },
+    "seconds": 0.3960897922515869
+  },
+  {
+    "case": "France CC49 to Lambert93 with IGN69",
+    "requirements": [
+      4,
+      12,
+      21,
+      28,
+      29
+    ],
+    "pass": true,
+    "result": {
+      "rows": 59,
+      "max_provider_residual_m": 6.0769115238857e-05,
+      "max_reader_disagreement_m": 0.0,
+      "coordinate_magnitude": [
+        661251.8578,
+        6857890.3852,
+        37.866
+      ],
+      "output_units": [
+        "metre",
+        "metre",
+        "metre"
+      ],
+      "provider_reference": "Provider tables were generated using PROJ; these are external workflow references, not an independent geodetic engine.",
+      "python_operations": [
+        {
+          "description": "Inverse of France Conic Conformal zone 8 + Conversion from NGF-IGN69 height to NGF-IGN69 height + Lambert-93",
+          "pipeline": "proj=pipeline step inv proj=lcc lat_0=49 lon_0=3 lat_1=48.25 lat_2=49.75 x_0=1700000 y_0=8200000 ellps=GRS80 step proj=lcc lat_0=46.5 lon_0=3 lat_1=49 lat_2=44 x_0=700000 y_0=6600000 ellps=GRS80",
+          "accuracy_m": 0.0,
+          "source": "RGF93 v2b / CC49 + NGF-IGN69 height",
+          "output": "RGF93 v2b / Lambert-93 + NGF-IGN69 height"
+        }
+      ],
+      "native_operations": [
+        {
+          "accuracy_m": 0.0,
+          "description": "Inverse of France Conic Conformal zone 8 + Conversion from NGF-IGN69 height to NGF-IGN69 height + Lambert-93",
+          "pipeline": "+proj=pipeline +step +inv +proj=lcc +lat_0=49 +lon_0=3 +lat_1=48.25 +lat_2=49.75 +x_0=1700000 +y_0=8200000 +ellps=GRS80 +step +proj=lcc +lat_0=46.5 +lon_0=3 +lat_1=49 +lat_2=44 +x_0=700000 +y_0=6600000 +ellps=GRS80"
+        }
+      ]
+    },
+    "seconds": 0.26099562644958496
+  },
+  {
+    "case": "Colorado State Plane to calibrated site feet",
+    "requirements": [
+      4,
+      12,
+      13,
+      21,
+      28,
+      29
+    ],
+    "pass": true,
+    "result": {
+      "rows": 5,
+      "max_provider_residual_m": 3.423983882847989e-05,
+      "max_reader_disagreement_m": 0.0,
+      "coordinate_magnitude": [
+        3109885.7385,
+        1206317.4694,
+        5484.6779
+      ],
+      "output_units": [
+        "US survey foot",
+        "US survey foot",
+        "US survey foot"
+      ],
+      "provider_reference": "Provider tables were generated using PROJ; these are external workflow references, not an independent geodetic engine.",
+      "python_operations": [
+        {
+          "description": "Inverse of SPCS83 Colorado Central zone (US survey foot) + Conversion from NAVD88 height (ftUS) to NAVD88 height (ftUS) + Westminster site calibration (vertical) + SPCS83 Colorado Central zone (US survey foot) + Westminster site calibration (horizontal)",
+          "pipeline": "proj=pipeline step proj=unitconvert xy_in=us-ft xy_out=m step inv proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert z_in=us-ft z_out=m step proj=vertoffset lat_0=39.8981516609137 lon_0=-105.115085298874 dh=0.52899645947227 slope_lat=-18.1964507520283 slope_lon=-11.9499667059649 step proj=unitconvert z_in=m z_out=us-ft step proj=lcc lat_0=37.8333333333333 lon_0=-105.5 lat_1=39.75 lat_2=38.45 x_0=914401.828803658 y_0=304800.609601219 ellps=GRS80 step proj=unitconvert xy_in=m xy_out=us-ft step proj=affine xoff=503.925392047801 s11=1.00023104194694 s12=-0.000201263129192391 yoff=-546977.970160075 s21=0.000201263129192391 s22=1.00023104194694",
+          "accuracy_m": 0.0,
+          "source": "NAD83(2011) / Colorado Central (ftUS) + NAVD88 height (ftUS)",
+          "output": "Westminster site grid + site height"
+        }
+      ],
+      "native_operations": [
+        {
+          "accuracy_m": 0.0,
+          "description": "Inverse of SPCS83 Colorado Central zone (US survey foot) + Conversion from NAVD88 height (ftUS) to NAVD88 height (ftUS) + Westminster site calibration (vertical) + SPCS83 Colorado Central zone (US survey foot) + Westminster site calibration (horizontal)",
+          "pipeline": "+proj=pipeline +step +proj=unitconvert +xy_in=us-ft +xy_out=m +step +inv +proj=lcc +lat_0=37.8333333333333 +lon_0=-105.5 +lat_1=39.75 +lat_2=38.45 +x_0=914401.828803658 +y_0=304800.609601219 +ellps=GRS80 +step +proj=unitconvert +z_in=us-ft +z_out=m +step +proj=vertoffset +lat_0=39.8981516609137 +lon_0=-105.115085298874 +dh=0.52899645947227 +slope_lat=-18.1964507520283 +slope_lon=-11.9499667059649 +step +proj=unitconvert +z_in=m +z_out=us-ft +step +proj=lcc +lat_0=37.8333333333333 +lon_0=-105.5 +lat_1=39.75 +lat_2=38.45 +x_0=914401.828803658 +y_0=304800.609601219 +ellps=GRS80 +step +proj=unitconvert +xy_in=m +xy_out=us-ft +step +proj=affine +xoff=503.925392047801 +s11=1.00023104194694 +s12=-0.000201263129192391 +yoff=-546977.970160075 +s21=0.000201263129192391 +s22=1.00023104194694"
+        }
+      ]
+    },
+    "seconds": 0.24802327156066895
+  },
+  {
+    "case": "Full model point map and ordinary adjustment",
+    "requirements": [
+      5,
+      6,
+      8,
+      9,
+      10,
+      11,
+      14,
+      15,
+      16,
+      19,
+      23
+    ],
+    "pass": true,
+    "result": {
+      "agreement_m": 3.3760443329811096e-09,
+      "count": 4
+    },
+    "seconds": 0.22356081008911133
+  },
+  {
+    "case": "Reset and independent direct binding",
+    "requirements": [
+      6,
+      7,
+      11,
+      19,
+      25
+    ],
+    "pass": true,
+    "result": {
+      "reader_agreement_m": 0.0,
+      "reset_preserves_geospatial_placement": true,
+      "independent_child_ignores_ancestor_ordinary_and_absolute_position": true
+    },
+    "seconds": 0.2215583324432373
+  },
+  {
+    "case": "Source interpolation and physical pose interpolation",
+    "requirements": [
+      9,
+      20,
+      21
+    ],
+    "pass": true,
+    "result": {
+      "reader_agreement_m": 1.232595164407831e-32,
+      "source_midpoint_ECEF": [
+        6378137.0,
+        0.0,
+        0.0
+      ],
+      "ambiguous_arc_failure": "ambiguous 180-degree orientation arc; rotational uncertainty 2e-12 radians",
+      "incorrect_ECEF_endpoint_chord_inward_m": 971.4211583000571
+    },
+    "seconds": 0.20644235610961914
+  },
+  {
+    "case": "References inherits clips time offsets and native proxies",
+    "requirements": [
+      7,
+      19,
+      20
+    ],
+    "pass": true,
+    "result": {
+      "proxy_agreement_m": 0.0,
+      "clip_agreement_m": 0.0,
+      "inherit_agreement_m": 0.0,
+      "reference_time_offset_source_midpoint": [
+        [
+          6378137.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "seconds": 0.4944922924041748
+  },
+  {
+    "case": "Bound and unbound point-instancer prototypes",
+    "requirements": [
+      6,
+      8,
+      17,
+      18,
+      21
+    ],
+    "pass": true,
+    "result": {
+      "max_agreement_m": 0.0,
+      "independent_identity_not_double_placed": true,
+      "identities": [
+        "/World/Instancer:11:/Mesh",
+        "/World/Instancer:12:/Mesh",
+        "/World/Instancer:13:/Mesh"
+      ]
+    },
+    "seconds": 0.6215484142303467
+  },
+  {
+    "case": "EGM2008 fallback and computed source-height reports",
+    "requirements": [
+      2,
+      12,
+      21,
+      28
+    ],
+    "pass": true,
+    "result": {
+      "agreement_m": 0.0,
+      "foot_vs_metre_agreement_m": 9.385703304198744e-10,
+      "EGM2008_input_height_m": 35,
+      "computed_ellipsoidal_height_m": 79.63850690610707,
+      "source_reports": [
+        {
+          "heightModel": "ellipsoidal",
+          "heightReference": {
+            "ellipsoid": "WGS 84",
+            "datum": "World Geodetic System 1984 ensemble"
+          },
+          "heightUnit": "metre",
+          "heightReferenceSource": "declared"
+        },
+        {
+          "heightModel": "none",
+          "heightReference": null,
+          "heightUnit": null,
+          "heightReferenceSource": "declared"
+        },
+        {
+          "heightModel": "gravityRelated",
+          "heightReference": "EPSG:3855",
+          "heightUnit": "metre",
+          "heightReferenceSource": "assumed"
+        }
+      ],
+      "feet_report": {
+        "heightModel": "gravityRelated",
+        "heightReference": "EPSG:3855",
+        "heightUnit": "US survey foot",
+        "heightReferenceSource": "assumed"
+      },
+      "native_report": {
+        "heightModel": "gravityRelated",
+        "heightReference": "EPSG:3855",
+        "heightReferenceSource": "assumed",
+        "heightUnit": "metre"
+      }
+    },
+    "seconds": 0.46220970153808594
+  },
+  {
+    "case": "Profiles above payload and stale publication claims",
+    "requirements": [
+      7,
+      25,
+      26,
+      27
+    ],
+    "pass": true,
+    "result": {
+      "without_loading": {
+        "coverage": "complete-positive",
+        "requiresResolution": true
+      },
+      "actual_native_ClaimsAPI": {
+        "ClaimsAPI": true,
+        "bindingImpliedCapabilities": [
+          "usd.geospatial.crsResolution.v1"
+        ],
+        "hardUsage": "hard",
+        "loadedPayloads": 0,
+        "profiles": [
+          "usd.geospatial.publication.v1"
+        ],
+        "success": true
+      },
+      "visible_prims_without_payload": 0,
+      "loaded_stale_claim_failure": "stale or missing dependency summary",
+      "identities": "proposed, namespace stewardship and standard approval remain outstanding"
+    },
+    "seconds": 0.09647846221923828
+  },
+  {
+    "case": "CF permutations GeoTIFF and original railway",
+    "requirements": [
+      8,
+      12,
+      17,
+      18,
+      19,
+      22,
+      30
+    ],
+    "pass": true,
+    "result": {
+      "permuted_coordinate_alignment": [
+        [
+          1.0,
+          40.0,
+          10.0
+        ],
+        [
+          4.0,
+          41.0,
+          10.0
+        ],
+        [
+          2.0,
+          40.0,
+          10.0
+        ],
+        [
+          5.0,
+          41.0,
+          10.0
+        ],
+        [
+          3.0,
+          40.0,
+          10.0
+        ],
+        [
+          6.0,
+          41.0,
+          10.0
+        ]
+      ],
+      "climate_samples": 5328,
+      "railway_positions": 15822,
+      "railway_reader_agreement_m": 0.0,
+      "GeoTIFF_area_and_point_samples_distinct": true
+    },
+    "seconds": 1.2927472591400146
+  },
+  {
+    "case": "Visible failure instead of substitution",
+    "requirements": [
+      21,
+      27
+    ],
+    "pass": true,
+    "result": {
+      "invalid_role": "placement fields in an invalid role on /World/Model/Child/Mesh",
+      "blocked_orientation": "blocked or unavailable crs:orientation",
+      "epoch_wrapper": "coordinate epochs are deferred",
+      "latitude_outside_domain": "coordinate operation failed: transform error: Invalid coordinate: (Internal Proj Error: cart: Invalid latitude)",
+      "nonfinite": "non-finite coordinate or placement",
+      "epoch_operation_without_epoch": "coordinate-epoch-dependent operation outside initial scope",
+      "native_epoch_operation": "coordinate-epoch-dependent operation outside initial scope",
+      "continuous_bounds": "continuous-domain bound not certified by this implementation; finite probes are insufficient",
+      "point_instancer_bake": "point-instancer export requires explicit expansion"
+    },
+    "seconds": 0.18638253211975098
+  },
+  {
+    "case": "Fixed working context geographic chart and stage conventions",
+    "requirements": [
+      8,
+      12,
+      14,
+      16,
+      18,
+      22
+    ],
+    "pass": true,
+    "result": {
+      "working_adjustment_preserved_across_outputs_m": 0.0,
+      "geographic_scene_chart": "associated geocentric",
+      "Y_up_centimetres_evaluated": true
+    },
+    "seconds": 0.2899208068847656
+  },
+  {
+    "case": "Ordinary Eiffel bake precision and fresh reread",
+    "requirements": [
+      17,
+      19,
+      23,
+      24,
+      25,
+      26,
+      27
+    ],
+    "pass": true,
+    "result": {
+      "vertices": 163416,
+      "max_error_m": 1.0690470872428616e-05,
+      "dependency_summary": {
+        "coverage": "complete-empty",
+        "requiresResolution": false
+      },
+      "source_unchanged": true
+    },
+    "seconds": 3.425095319747925
+  },
+  {
+    "case": "Missing EGM2008 grid is a visible failure",
+    "requirements": [
+      12,
+      21,
+      28
+    ],
+    "pass": true,
+    "result": {
+      "failed_without_grid": true,
+      "no_ellipsoidal_or_zero_substitute": true
+    },
+    "seconds": 0.5534696578979492
+  },
+  {
+    "case": "Sampled bake and semantic primvar transport",
+    "requirements": [
+      17,
+      19,
+      20,
+      23,
+      30
+    ],
+    "pass": true,
+    "result": {
+      "sample_keys": [
+        0,
+        2
+      ],
+      "timeCodesPerSecond": 24,
+      "midpoint_difference_m": 971.4211582988501,
+      "claim": "exact sampled instants only; no between-sample trajectory guarantee",
+      "unrelated_input_preserved": true,
+      "normal_primvar_transported": true
+    },
+    "seconds": 0.8292484283447266
+  },
+  {
+    "case": "Conservative coverage of retained variants",
+    "requirements": [
+      7,
+      26,
+      27
+    ],
+    "pass": true,
+    "result": {
+      "unselected_variant_dependency_detected": true,
+      "source_unchanged": true,
+      "failure": "stale or missing dependency summary"
+    },
+    "seconds": 0.1690812110900879
+  },
+  {
+    "case": "Identity adjustment avoids unnecessary intermediate conversion",
+    "requirements": [
+      8,
+      16,
+      21
+    ],
+    "pass": true,
+    "result": {
+      "agreement_m": 0.0,
+      "enclosing_working_context_did_not_force_unneeded_operation": true
+    },
+    "seconds": 0.23624348640441895
+  }
+]
