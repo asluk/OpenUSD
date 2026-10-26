@@ -1,6 +1,6 @@
 # Geospatial support for USD
 
-This draft assesses **whether the [geospatial proposal](https://github.com/Tamrat-B/OpenUSD-proposals/blob/4120379fa12473b54a8f8e11999a1cefa5443614/proposals/geospatial_coordinate_reference_systems/README.md)
+This draft assesses **whether the [geospatial proposal](https://github.com/Tamrat-B/OpenUSD-proposals/blob/geospatial-crs-proposal/proposals/geospatial_coordinate_reference_systems/README.md)
 is clear and complete enough for an agent to implement as written**.
 
 An agent built new Python and C++ implementations from the proposal, then
@@ -10,7 +10,8 @@ still needs an invented rule is a proposal gap to resolve.
 
 **Current finding:** all 19 test groups pass. No new blocking proposal gaps
 were found in the tested workflows, and implementation bugs could be corrected
-using the existing text. The README records the coverage limits.
+using the existing text. The tested proposal revision is `4120379`; the link
+above follows the live branch. The README records the coverage limits.
 
 Examples make that assessment concrete:
 
@@ -21,9 +22,12 @@ Examples make that assessment concrete:
 - Produce ordinary USD geometry for Hydra and Omniverse. Use Profiles to tell
   a consumer that a scene needs geospatial support before loading its contents.
 
-![Eiffel Tower geometry rendered in Hydra after geospatial placement](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-companion/extras/usd/examples/usdGeospatial/evidence/tower-storm.png?raw=1)
+![Authored tower location, before/after ordinary USD adjustment, and measured agreement between the two implementations](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-companion/extras/usd/examples/usdGeospatial/evidence/figures/tower-placement.png?raw=1)
 
-*The tower's placement and scale are illustrative; the ground is a presentation grid.*
+*Illustrative placement: authored georeferencing, then ordinary USD adjustments.
+The comparison uses all 163,416 vertices from the actual ordinary USD outputs.
+Tower geometry: [SDC PERFORMANCE](https://sketchfab.com/Lambo_SC04),
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), with size and placement modified.*
 
 Start with the [illustrated README](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-companion/extras/usd/examples/usdGeospatial/README.md)
 or [slide deck](https://github.com/asluk/OpenUSD/blob/aluk/geospatial-companion/extras/usd/examples/usdGeospatial/delivery/output/Geospatial-USD-proposal-assessment.pdf).

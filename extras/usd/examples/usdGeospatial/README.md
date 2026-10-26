@@ -15,8 +15,9 @@ in the [build-loop contract](BUILD_LOOP.md).
 Start with the [12-slide assessment PDF](delivery/output/Geospatial-USD-proposal-assessment.pdf)
 or [editable deck](delivery/output/Geospatial-USD-proposal-assessment.pptx), then
 the findings and linked evidence below. The
-[frozen proposal text](https://github.com/Tamrat-B/OpenUSD-proposals/blob/4120379fa12473b54a8f8e11999a1cefa5443614/proposals/geospatial_coordinate_reference_systems/README.md)
-is the authority being evaluated, rather than the implementation's interfaces.
+[current proposal text](https://github.com/Tamrat-B/OpenUSD-proposals/blob/geospatial-crs-proposal/proposals/geospatial_coordinate_reference_systems/README.md)
+is the review destination. The recorded commit below identifies the revision
+actually tested; the implementation's interfaces do not define the standard.
 
 Fresh derivation from proposal commit `4120379fa12473b54a8f8e11999a1cefa5443614`,
 23 October 2026. This README is the narrative source for the accompanying deck.
@@ -75,11 +76,17 @@ Across 123 comparison rows, both readers use equivalent realized operations and 
 
 The two readers resolve all 163,416 original Eiffel vertices, with a maximum difference of 0.016 mm between their ordinary bakes. A fresh reader reconstructs the Python bake within 0.011 mm. Native Hydra/Storm renders the derived geometry, and a real Omniverse stage reads the Python result back without a geospatial resolver.
 
-![Actual Hydra/Storm render of the fresh native-reader geometry on a 50-metre presentation grid](evidence/tower-storm.png)
+![Authored tower location, before/after ordinary USD adjustment, and measured Python/C++ agreement](evidence/figures/tower-placement.png)
 
-*Caption: Both readers use PROJ. Placement and resize are illustrative; the ground is not surveyed Paris context.*
+*Caption: Authored placement, then USD adjustment. Tower: SDC PERFORMANCE, CC BY 4.0 (modified). Both readers use PROJ.*
 
-**Evidence.** [Full-data comparison](evidence/full-data.json), [fresh-bake precision](evidence/tower-bake.json), [actual Omniverse readback](evidence/omniverse.json). There are **two placement readers**, Python and native C++. Omniverse is a consumer of Python results, not a third implementation or an integration with an additional geospatial runtime. Both readers share PROJ; the native reader reads the composed USD inputs itself. Neutral export formatting is shared. The original artist asset receives explicit cm/Y-up conformance and an illustrative resize to 300 m before the shown project scale. The ground and camera chart explain placement; they are not surveyed Paris context.
+**Evidence.** [Placement figure inputs and measured shift](evidence/tower-placement.json), [full-data comparison](evidence/full-data.json), [fresh-bake precision](evidence/tower-bake.json), [actual Hydra/Storm render](evidence/tower-storm.png), [actual Omniverse readback](evidence/omniverse.json). There are **two placement readers**, Python and native C++. Omniverse is a consumer of Python results, not a third implementation or an integration with an additional geospatial runtime. Both readers share PROJ; the native reader reads the composed USD inputs itself. Neutral export formatting is shared. The original artist asset receives explicit cm/Y-up conformance and an illustrative resize to 300 m before the shown project scale. The figure uses the authored location and heading, then shows the actual footprint before and after the anchor's scale, rotation and translation. Its project-grid origin moves 120 m east and 60 m south, matching the authored adjustment. The coordinate comparison reads every vertex from the two recorded ordinary USD bakes. This is an illustrative placement, not surveyed Paris context.
+
+Tower geometry: [(FREE) La tour Eiffel](https://sketchfab.com/3d-models/free-la-tour-eiffel-8553f94d06e24cb4b0fde1080f281674),
+by [SDC PERFORMANCE](https://sketchfab.com/Lambo_SC04),
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Asset conformance,
+size, placement and display are modified in this example; the original archive
+retains its embedded attribution.
 
 ## The original railway remains useful as data
 

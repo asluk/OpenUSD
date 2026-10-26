@@ -1,0 +1,37 @@
+{
+  "source": "inputs/authored/tower.usda",
+  "source_sha256": "7645aeabd526f004ef3287ac3c5380b32f0c22efb1d8538fab2afd0cba2d60e3",
+  "source_unchanged": true,
+  "authored_position": [
+    2.2945,
+    48.8584,
+    70.0
+  ],
+  "authored_orientation": [
+    30.0,
+    0.0,
+    0.0
+  ],
+  "ordinary_scale": [
+    1.149999976158142,
+    1.149999976158142,
+    1.149999976158142
+  ],
+  "ordinary_rotation_Z_degrees": 20.0,
+  "ordinary_translation": [
+    120.0,
+    -60.0,
+    0.0
+  ],
+  "observed_origin_shift_m": [
+    120.0,
+    -60.0,
+    0.0
+  ],
+  "working_CRS": "WGS 84 / UTM zone 31N",
+  "original_vertices": 163416,
+  "maximum_reader_bake_difference_m": 1.5257857739925385e-05,
+  "maximum_visual_adjustment_vs_native_bake_difference_m": 1.0688104584538414e-05,
+  "display": "All original vertices; local side view and before/after plan view. Differences measured in the common geocentric chart.",
+  "scope": "Interpretation of this illustrative placement, not an independent geodetic or surveyed-site check."
+}

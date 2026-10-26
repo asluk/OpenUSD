@@ -10,7 +10,7 @@ try{
  const images=await page.locator('img').evaluateAll(items=>items.map(x=>({src:x.getAttribute('src'),ok:x.complete&&x.naturalWidth>0})));
  if(images.some(x=>!x.ok))throw Error('README contains a missing image');
  await page.screenshot({path:path.join(root,'delivery/deck-build/readme-top.png')});
- for(const [name,title]of [['profiles','Profiles lets a consumer detect the dependency early'],['limits','Separate proposal quality from prototype coverage']]){
+ for(const [name,title]of [['tower','The same Eiffel geometry reaches ordinary USD consumers'],['profiles','Profiles lets a consumer detect the dependency early'],['limits','Separate proposal quality from prototype coverage']]){
   await page.getByRole('heading',{name:title,exact:true}).scrollIntoViewIfNeeded();
   await page.screenshot({path:path.join(root,`delivery/deck-build/readme-${name}.png`)});
  }

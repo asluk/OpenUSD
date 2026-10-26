@@ -5,7 +5,7 @@ import {fileURLToPath,pathToFileURL} from 'node:url';
 import {createHash} from 'node:crypto';
 import {Presentation,PresentationFile} from '@oai/artifact-tool';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const skill='C:/Users/aluk/.codex/plugins/cache/openai-primary-runtime/presentations/26.1017.22135/skills/presentations';
+const skill=process.env.PRESENTATIONS_SKILL_DIR??'C:/Users/aluk/.codex/plugins/cache/openai-primary-runtime/presentations/26.1020.11618/skills/presentations';
 const {finalizePresentation,resolvePresentationFont}=await import(pathToFileURL(path.join(skill,'container_tools/artifact_tool_utils.mjs')));
 const font=resolvePresentationFont({fontFamily:'Arial'});
 const build=path.join(root,'delivery/deck-build');await fs.mkdir(build,{recursive:true});
@@ -36,7 +36,9 @@ for(let i=0;i<sections.length;i++){
    box(slide,'Frozen proposal 4120379 · Fresh derivation · 23 October 2026',64,653,1080,28,18,false,muted);
  }else{
    box(slide,section.title,64,42,1152,92,38,true,navy);
-   if(imageMatch&&(i===4||i===6)){
+   if(imageMatch&&i===4){
+     slide.images.add({blob:await fs.readFile(path.join(root,imageMatch[2])),contentType:'image/png',alt:imageMatch[1],fit:'contain',position:{left:64,top:150,width:1152,height:485}});
+   }else if(imageMatch&&i===6){
      const imageLeft=i===6;const frame=imageLeft?{left:64,top:160,width:540,height:465}:{left:584,top:158,width:632,height:465};
      slide.images.add({blob:await fs.readFile(path.join(root,imageMatch[2])),contentType:'image/png',alt:imageMatch[1],fit:'contain',position:frame});
      box(slide,lead,imageLeft?660:64,182,imageLeft?556:470,416,28,false,ink);
@@ -62,14 +64,14 @@ for(let i=0;i<sections.length;i++){
 }
 const candidate=path.join(build,'candidate.pptx');await(await PresentationFile.exportPptx(p)).save(candidate);
 await fs.mkdir(path.join(root,'delivery/output'),{recursive:true});
-const final=path.join(root,'delivery/output/Geospatial-USD-proposal-assessment.pptx');
+const final=process.env.GEOSPATIAL_DECK_OUTPUT??path.join(root,'delivery/output/Geospatial-USD-proposal-assessment.pptx');
 await finalizePresentation({workspaceDir:root,candidatePath:candidate,finalPath:final,
  pythonExecutable:'C:/Users/aluk/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe',
  integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),
  layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),
  layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-bullet-geometry','--validate-heading-fit',...tableOwners.flatMap(n=>['--require-native-table-slide',String(n)])],
  explicitTotalSlideCount:12,requiredNativeTableOwnerSlides:tableOwners,requiredNativeChartOwnerSlides:[],
- fontPolicy:{basis:'design',families:['Arial']},verifyArtifactToolImport:true,receiptPath:path.join(build,'final.validation.json')});
+ fontPolicy:{basis:'design',families:['Arial']},verifyArtifactToolImport:true,receiptPath:path.join(build,path.basename(final)+'.validation.json')});
 await fs.writeFile(path.join(build,'readme-deck-source.json'),JSON.stringify({readme_sha256:createHash('sha256').update(text).digest('hex'),sections:receipt},null,2));
 for(let i=0;i<p.slides.items.length;i++){
  const png=await p.export({slide:p.slides.items[i],format:'png',scale:1.5});

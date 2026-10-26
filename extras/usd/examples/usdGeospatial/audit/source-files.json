@@ -45,7 +45,7 @@
   },
   {
     "path": "delivery/deck.mjs",
-    "sha256": "6e79f7b54d030354ed51574d262831bdfd87540d9cc6229479204d231162d9ab"
+    "sha256": "c5d641054d9b4bd01ca9d4f4b9e2f57e19549171ce713028cc7a0491e356ad87"
   },
   {
     "path": "delivery/evidence.py",
@@ -69,6 +69,10 @@
   },
   {
     "path": "delivery/review_readme.mjs",
-    "sha256": "fe71e212364432eff73a2e223987d1caaa9b492ae057f1b574d7792e4926811f"
+    "sha256": "0f6bace9ca240c8b2d523790066ed379267cf28bfc0755340a63597996837b4f"
+  },
+  {
+    "path": "delivery/tower_placement.py",
+    "sha256": "399412078e52946628fead330596bd6a4f66823a79b13b54672bd1ee55f2a400"
   }
 ]

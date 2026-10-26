@@ -24,5 +24,20 @@
       "Omniverse_stage_readback_error_m": 0,
       "assessment_sections_and_deck_unchanged": true
     }
+  },
+  "current_delivery_reference": "refs/tags/geospatial-deliveries/2026-10-26-visual-clarity",
+  "presentation": {
+    "date": "2026-10-26",
+    "proposal_link": "live geospatial-crs-proposal branch",
+    "tested_proposal_commit": "4120379fa12473b54a8f8e11999a1cefa5443614",
+    "change": "Placement figure shows authored location/heading, before/after ordinary USD adjustment and comparison of all recorded vertices; reader-facing links use the live proposal.",
+    "runtime_readers_changed": false,
+    "measured_origin_shift_m": [
+      120,
+      -60,
+      0
+    ],
+    "original_vertices_compared": 163416,
+    "maximum_reader_bake_difference_m": 1.5257857739925385e-05
   }
 }

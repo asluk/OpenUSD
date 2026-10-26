@@ -47,6 +47,11 @@ inspect every slide and the README. Keep continuous-domain certification distinc
 from finite vertices; unsupported requests fail visibly. Do not inflate test
 counts into a claim of exhaustive conformance.
 
+Placement figures should show the authored inputs, a fixed spatial reference,
+visible before/after effects and the measured comparison. Reader-facing
+proposal links follow the live proposal branch; provenance separately records
+the exact proposal revision tested.
+
 Require both the expected result and a clean reader process exit. A result file
 written before a shutdown crash is not a successful run. For application sinks,
 also require the actual consumption/readback result rather than exit status alone.
