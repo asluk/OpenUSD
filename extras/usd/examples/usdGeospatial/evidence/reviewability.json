@@ -1,13 +1,13 @@
 {
   "pass": true,
   "scope": "Review prerequisites, not an automated proof of readability or conformance",
-  "source_files_checked": 32,
-  "deliverable_files": 114,
+  "source_files_checked": 33,
+  "deliverable_files": 116,
   "counts": {
-    "acceptance and fixture source": 3,
+    "acceptance and fixture source": 4,
     "delivery source": 9,
     "generated deck outputs": 2,
-    "generated evidence": 22,
+    "generated evidence": 23,
     "generated examples and bakes": 19,
     "implementation and schema": 20,
     "original supplied data": 23,
@@ -46,6 +46,7 @@
     "evidence/climate-comparison.json": "generated evidence",
     "evidence/climate.npz": "generated evidence",
     "evidence/colorado-calibrated-comparison.json": "generated evidence",
+    "evidence/contribution.json": "generated evidence",
     "evidence/figures/climate.png": "generated evidence",
     "evidence/figures/railway.png": "generated evidence",
     "evidence/figures/sampling.png": "generated evidence",
@@ -126,6 +127,7 @@
     "src_py/placement.py": "implementation and schema",
     "src_py/profiles.py": "implementation and schema",
     "src_py/reader.py": "implementation and schema",
+    "tests/contribution.py": "acceptance and fixture source",
     "tests/fixtures.py": "acceptance and fixture source",
     "tests/reviewability.py": "acceptance and fixture source",
     "tests/run.py": "acceptance and fixture source"

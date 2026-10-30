@@ -1,3 +1,9 @@
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
 cmake_minimum_required(VERSION 3.24)
 project(usdGeospatial LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)

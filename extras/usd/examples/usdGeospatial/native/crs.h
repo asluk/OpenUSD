@@ -1,3 +1,9 @@
+//
+// Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+//
+// Licensed under the terms set forth in the LICENSE.txt file available at
+// https://openusd.org/license.
+//
 // WKT interpretation, source height and offline realized PROJ operations.
 // See audit/source-contract.md: requirements 1-4, 12-13, 21, 28-29, 31.
 #ifndef USD_GEOSPATIAL_EXAMPLE_CRS_H

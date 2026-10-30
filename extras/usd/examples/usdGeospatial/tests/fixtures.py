@@ -1,3 +1,9 @@
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
 """NEW fixtures derived from authority, not prior generated scenes or tests."""
 
 import sys, json, csv, hashlib, xml.etree.ElementTree as ET

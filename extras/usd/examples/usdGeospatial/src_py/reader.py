@@ -1,3 +1,9 @@
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
 """USD model queries: points, scene charts, vectors, bounds and occurrences.
 
 Start at Reader.points for the usual query. placement.ModelMap owns transform

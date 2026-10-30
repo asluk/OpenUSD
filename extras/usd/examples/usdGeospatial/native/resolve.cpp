@@ -1,3 +1,9 @@
+//
+// Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+//
+// Licensed under the terms set forth in the LICENSE.txt file available at
+// https://openusd.org/license.
+//
 // JSON command-line adapter. Coordinate and USD semantics live in crs.cpp and
 // placement.cpp; this request format is an implementation interface only.
 #include "crs.h"

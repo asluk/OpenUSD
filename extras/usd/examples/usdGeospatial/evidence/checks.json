@@ -11,7 +11,7 @@
       "normal": "GEOGCRS[\"A  Name\",CS[ellipsoidal,3],REMARK[\"a\"\" b\"],ID[\"X\",1],PARAMETER[\"p\",0.12345678901234567890123456789]]",
       "identityDistinctFromSemanticEquivalence": true
     },
-    "seconds": 0.001580953598022461
+    "seconds": 0.0019981861114501953
   },
   {
     "case": "France geographic to geocentric provider references",
@@ -57,7 +57,7 @@
         }
       ]
     },
-    "seconds": 0.9254693984985352
+    "seconds": 0.060976505279541016
   },
   {
     "case": "France CC49 to Lambert93 with IGN69",
@@ -101,7 +101,7 @@
         }
       ]
     },
-    "seconds": 0.06247258186340332
+    "seconds": 0.10462284088134766
   },
   {
     "case": "Colorado State Plane to calibrated site feet",
@@ -146,7 +146,7 @@
         }
       ]
     },
-    "seconds": 0.055431365966796875
+    "seconds": 0.08515191078186035
   },
   {
     "case": "Full model point map and ordinary adjustment",
@@ -168,7 +168,7 @@
       "agreement_m": 3.3760443329811096e-09,
       "count": 4
     },
-    "seconds": 0.2523033618927002
+    "seconds": 0.1642289161682129
   },
   {
     "case": "Reset and independent direct binding",
@@ -185,7 +185,7 @@
       "reset_preserves_geospatial_placement": true,
       "independent_child_ignores_ancestor_ordinary_and_absolute_position": true
     },
-    "seconds": 0.1670231819152832
+    "seconds": 0.1741330623626709
   },
   {
     "case": "Source interpolation and physical pose interpolation",
@@ -205,7 +205,7 @@
       "ambiguous_arc_failure": "ambiguous 180-degree orientation arc; rotational uncertainty 2e-12 radians",
       "incorrect_ECEF_endpoint_chord_inward_m": 971.4211583000571
     },
-    "seconds": 0.14570903778076172
+    "seconds": 0.13689064979553223
   },
   {
     "case": "References inherits clips time offsets and native proxies",
@@ -227,7 +227,7 @@
         ]
       ]
     },
-    "seconds": 0.3947782516479492
+    "seconds": 0.3343071937561035
   },
   {
     "case": "Bound and unbound point-instancer prototypes",
@@ -248,7 +248,7 @@
         "/World/Instancer:13:/Mesh"
       ]
     },
-    "seconds": 0.49069976806640625
+    "seconds": 0.46713995933532715
   },
   {
     "case": "EGM2008 fallback and computed source-height reports",
@@ -300,7 +300,7 @@
         "heightUnit": "metre"
       }
     },
-    "seconds": 0.3967406749725342
+    "seconds": 0.48400378227233887
   },
   {
     "case": "Profiles above payload and stale publication claims",
@@ -332,7 +332,7 @@
       "loaded_stale_claim_failure": "stale or missing dependency summary",
       "identities": "proposed, namespace stewardship and standard approval remain outstanding"
     },
-    "seconds": 0.07027602195739746
+    "seconds": 0.06358981132507324
   },
   {
     "case": "CF permutations GeoTIFF and original railway",
@@ -384,7 +384,7 @@
       "railway_reader_agreement_m": 0.0,
       "GeoTIFF_area_and_point_samples_distinct": true
     },
-    "seconds": 1.2041418552398682
+    "seconds": 1.0945663452148438
   },
   {
     "case": "Visible failure instead of substitution",
@@ -404,7 +404,7 @@
       "continuous_bounds": "continuous-domain bound not certified by this implementation; finite probes are insufficient",
       "point_instancer_bake": "point-instancer export requires explicit expansion"
     },
-    "seconds": 0.08763313293457031
+    "seconds": 0.07520127296447754
   },
   {
     "case": "Fixed working context geographic chart and stage conventions",
@@ -422,7 +422,7 @@
       "geographic_scene_chart": "associated geocentric",
       "Y_up_centimetres_evaluated": true
     },
-    "seconds": 0.25443315505981445
+    "seconds": 0.25603795051574707
   },
   {
     "case": "Ordinary Eiffel bake precision and fresh reread",
@@ -445,7 +445,7 @@
       },
       "source_unchanged": true
     },
-    "seconds": 3.123316764831543
+    "seconds": 3.4434027671813965
   },
   {
     "case": "Missing EGM2008 grid is a visible failure",
@@ -459,7 +459,7 @@
       "failed_without_grid": true,
       "no_ellipsoidal_or_zero_substitute": true
     },
-    "seconds": 0.5053985118865967
+    "seconds": 0.5628077983856201
   },
   {
     "case": "Sampled bake and semantic primvar transport",
@@ -482,7 +482,7 @@
       "unrelated_input_preserved": true,
       "normal_primvar_transported": true
     },
-    "seconds": 0.5977799892425537
+    "seconds": 0.6272275447845459
   },
   {
     "case": "Conservative coverage of retained variants",
@@ -497,7 +497,7 @@
       "source_unchanged": true,
       "failure": "stale or missing dependency summary"
     },
-    "seconds": 0.07535552978515625
+    "seconds": 0.0848686695098877
   },
   {
     "case": "Identity adjustment avoids unnecessary intermediate conversion",
@@ -511,6 +511,6 @@
       "agreement_m": 0.0,
       "enclosing_working_context_did_not_force_unneeded_operation": true
     },
-    "seconds": 0.14878201484680176
+    "seconds": 0.1487109661102295
   }
 ]

@@ -1,3 +1,9 @@
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
 """Stage units/axes, physical heading-pitch-roll and point matrix helpers.
 
 NumPy uses column-vector bases here. apply_matrix accepts USD row-vector

@@ -1,3 +1,9 @@
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
 """Composed CRS binding, physical orientation and ordered model placement.
 
 ModelMap.forward applies descendant USD transforms in model space, then

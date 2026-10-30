@@ -82,6 +82,15 @@ scope; commit locally. Push, post and send only within the user's authorization.
 Preserve any frozen OSRB review snapshot. Public collateral must not backlink
 other upstream issues or pull requests.
 
+Generate source notices using the upstream license convention from the start.
+Run `tests/contribution.py` before delivery; `tests/reviewability.py` also invokes
+it. Preserve third-party input bytes and notices, and maintain file-specific
+source, permission and attribution evidence for originals and their derivatives.
+Reconcile dependency versions, linkage and enabled features with the actual
+contributed subset after each regeneration. A notice check or dependency list
+does not establish a code/IP scan, dataset permission or approval. Record the
+evidence and status of each separately; unresolved approvals remain explicit.
+
 ## Deliver to the continuing companion
 
 Generate each implementation on its own run branch from the recorded stock

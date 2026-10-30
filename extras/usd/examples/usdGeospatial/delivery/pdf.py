@@ -1,3 +1,9 @@
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
 """Pixel-faithful PDF from inspected renders of the finalized editable PowerPoint."""
 
 from pathlib import Path

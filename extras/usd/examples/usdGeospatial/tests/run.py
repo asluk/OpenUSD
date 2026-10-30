@@ -1,3 +1,9 @@
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
 """New acceptance cases fixed before execution. Reports failures without masking them."""
 
 import sys, os, json, csv, subprocess, hashlib, time, traceback, math, warnings

@@ -55,5 +55,17 @@
     "climate_reader_difference_m": 0,
     "review_gate": "tests/reviewability.py plus manual final source/diff/navigation review; not a proof of correctness or exhaustive conformance",
     "deck": "The same twelve assessment sections and deck are retained; README introduction adds code-review navigation."
+  },
+  "contribution_readiness": {
+    "date": "2026-10-29",
+    "baseline_commit": "051977c06854254b3253bb993c432ae66edb36be",
+    "new_derivation": false,
+    "scope": "Upstream-style source notices; a build-loop source-notice/original-byte gate; current native rebuild and contract rerun. No geospatial model or runtime semantics changed.",
+    "existing_source_files_receiving_notices": 31,
+    "source_notice_gate_files": 32,
+    "contract_groups_passed": 19,
+    "original_input_files_byte_preserved": 23,
+    "readme_and_deck_unchanged": true,
+    "approval_scope": "These checks do not establish dataset permissions, a central code/IP scan or OSRB approval."
   }
 }

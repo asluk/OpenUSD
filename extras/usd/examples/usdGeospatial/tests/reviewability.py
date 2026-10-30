@@ -1,3 +1,9 @@
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
 """Check concrete reviewability prerequisites; human diff review is still required."""
 
 import ast
@@ -8,6 +14,8 @@ from pathlib import Path
 import re
 import subprocess
 import tokenize
+
+from contribution import check as check_contribution
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_FOLDERS = ("native", "src_py", "schema", "tests", "delivery")
@@ -64,6 +72,7 @@ def category(path):
 
 
 def check():
+    check_contribution()
     files = inventory()
     groups = {name: category(name) for name in files}
     sources = [

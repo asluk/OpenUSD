@@ -1,3 +1,9 @@
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
 """WKT interpretation, height reporting and offline PROJ operations.
 
 Proposal: WKT authority and normalization; coordinate components and height;

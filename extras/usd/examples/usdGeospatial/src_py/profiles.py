@@ -1,3 +1,9 @@
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
 """Profiles summaries and conservative publication maintenance.
 
 Consumer summary reads do not load payloads. Publication validation inspects
