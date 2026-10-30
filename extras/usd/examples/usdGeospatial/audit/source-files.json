@@ -81,7 +81,7 @@
   },
   {
     "path": "tests/contribution.py",
-    "sha256": "4c3ef359438f10d50d3151f75260addb5f64ef74cae523f731dd9d496c4e587d"
+    "sha256": "a2cffe1397b690ff9162153b6bf315511f0fb9ea01ddc953f81564085e809cf6"
   },
   {
     "path": "tests/fixtures.py",

@@ -7,6 +7,7 @@
 """Check source notices and original-byte integrity; this is not legal approval."""
 
 import hashlib
+import argparse
 import json
 from pathlib import Path
 import re
@@ -73,5 +74,39 @@ def check():
     return report
 
 
+def check_publication(record_path):
+    """Check a separately reviewed rights record against the exact input bytes.
+
+    The caller supplies the private review record; it is not authored USD data.
+    This verifies coverage and integrity, not the validity of a legal decision.
+    """
+    record = json.loads(Path(record_path).read_text(encoding="utf-8-sig"))
+    rows = record.get("files", [])
+    assert len({row["path"] for row in rows}) == len(rows), "Duplicate rights entry"
+    rights = {row["path"]: row for row in rows}
+    original = json.loads((ROOT / "audit/original-inputs.json").read_text())
+    unresolved = []
+    for source in original:
+        row = rights.get(source["path"], {})
+        if not (
+            row.get("sha256") == source["sha256"]
+            and row.get("distribution_status") == "approved"
+            and row.get("permission_evidence")
+            and row.get("review_reference")
+            and row.get("derived_uses_covered") is True
+        ):
+            unresolved.append(source["path"])
+    assert not unresolved, "Publication rights unresolved: " + ", ".join(unresolved)
+    return {"pass": True, "input_files_covered": len(original)}
+
+
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--for-publication", action="store_true")
+    parser.add_argument("--rights-record", type=Path)
+    args = parser.parse_args()
+    if args.for_publication and not args.rights_record:
+        parser.error("--for-publication requires a separately reviewed --rights-record")
     print(json.dumps(check()))
+    if args.for_publication:
+        print(json.dumps(check_publication(args.rights_record)))

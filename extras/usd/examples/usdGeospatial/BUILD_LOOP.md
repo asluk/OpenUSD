@@ -91,6 +91,15 @@ contributed subset after each regeneration. A notice check or dependency list
 does not establish a code/IP scan, dataset permission or approval. Record the
 evidence and status of each separately; unresolved approvals remain explicit.
 
+Before publishing the package, additionally run `tests/contribution.py
+--for-publication --rights-record <reviewed-private-record.json>`. The record
+must cover each original file's exact hash, permission evidence, distribution
+review reference and derived uses. A missing or pending record fails publication;
+ordinary implementation tests can still run. Keep private review material outside
+the public package. Preserve earlier local-only restrictions until the actual
+review changes them. No filename, successful numerical test or project-level
+software license supplies a missing data permission.
+
 ## Deliver to the continuing companion
 
 Generate each implementation on its own run branch from the recorded stock
