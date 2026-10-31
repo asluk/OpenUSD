@@ -1,0 +1,11 @@
+#usda 1.0
+
+class "GeoClass" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = @crs-library.usda@</CRS_b3b282f20dd0>
+)
+{
+    double3 crs:orientation = (35, 5, 3)
+    double3 crs:position = (2.2945, 48.8584, 70)
+}
+

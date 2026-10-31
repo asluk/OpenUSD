@@ -1,0 +1,17 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 18887,
+    "sha256": "9ed6abb885d5c5cd05a21497b3179d4f0b2b325190f01b679200dbc3ffc7805c"
+  },
+  {
+    "path": "delivery/output/Geospatial-USD-proposal-assessment.pdf",
+    "bytes": 1597892,
+    "sha256": "f7852fcde6dc8be9a6874ae905559201a12ca81fc9fbab1430181ae8f701840e"
+  },
+  {
+    "path": "delivery/output/Geospatial-USD-proposal-assessment.pptx",
+    "bytes": 1536118,
+    "sha256": "af8efdaa3e8a0bb7ae0cd0940690f1269d8190e7184d0eed646481c2e8574f2b"
+  }
+]

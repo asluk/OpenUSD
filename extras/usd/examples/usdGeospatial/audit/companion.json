@@ -1,0 +1,71 @@
+{
+  "branch": "aluk/geospatial-companion",
+  "package": "extras/usd/examples/usdGeospatial",
+  "role": "Continuing OpenUSD contribution candidate; current review starts with proposal quality and agent-readiness.",
+  "proposal_commit": "4120379fa12473b54a8f8e11999a1cefa5443614",
+  "derivation": {
+    "date": "2026-10-23",
+    "tested_implementation_commit": "41e6a18fd751258a1274141a3ee2b9ab86b59d99",
+    "stock_OpenUSD_commit": "5bc38c9d8799d16ce20ade219a464beaeae548cc",
+    "run_reference": "refs/tags/geospatial-runs/2026-10-23",
+    "previous_presentation_commit": "580987264edeb54232e5417329a12709f2f70288"
+  },
+  "packaging": {
+    "date": "2026-10-26",
+    "delivery_reference": "refs/tags/geospatial-deliveries/2026-10-26",
+    "new_derivation": false,
+    "changes": "Stable package, plugin identities and continuing delivery contract. Proposed authored schema names, geospatial fields and evaluation math unchanged.",
+    "verification": {
+      "contract_groups_passed": 19,
+      "original_input_files_byte_preserved": 23,
+      "original_Eiffel_vertices": 163416,
+      "full_readers_max_difference_m": 1.5257857739925385e-05,
+      "native_Storm_render_byte_matches_original": true,
+      "Omniverse_stage_readback_error_m": 0,
+      "assessment_sections_and_deck_unchanged": true
+    }
+  },
+  "current_delivery_reference": "refs/tags/geospatial-deliveries/2026-10-26-reviewable",
+  "presentation": {
+    "date": "2026-10-26",
+    "proposal_link": "live geospatial-crs-proposal branch",
+    "tested_proposal_commit": "4120379fa12473b54a8f8e11999a1cefa5443614",
+    "change": "Placement figure shows authored location/heading, before/after ordinary USD adjustment and comparison of all recorded vertices; reader-facing links use the live proposal.",
+    "runtime_readers_changed": false,
+    "measured_origin_shift_m": [
+      120,
+      -60,
+      0
+    ],
+    "original_vertices_compared": 163416,
+    "maximum_reader_bake_difference_m": 1.5257857739925385e-05
+  },
+  "reviewability": {
+    "date": "2026-10-26",
+    "baseline_commit": "3f8012da577797c539fd2270af85e62032a88035",
+    "new_derivation": false,
+    "scope": "Extract readable CRS/placement/query/Profiles modules; stable schema library identity; typed request-scoped C++ model cache; explicit imports and formatting; review map, generated diff attributes, consolidated mesh reports and delivery gate.",
+    "proposal_or_authored_model_changes": false,
+    "contract_groups_passed": 19,
+    "contract_results_identical": true,
+    "full_Eiffel_and_LandXML_reports_identical": true,
+    "mesh_chunk_reports_consolidated_without_content_loss": 21,
+    "original_input_files_byte_preserved": 23,
+    "climate_samples": 5328,
+    "climate_reader_difference_m": 0,
+    "review_gate": "tests/reviewability.py plus manual final source/diff/navigation review; not a proof of correctness or exhaustive conformance",
+    "deck": "The same twelve assessment sections and deck are retained; README introduction adds code-review navigation."
+  },
+  "contribution_readiness": {
+    "date": "2026-10-29",
+    "baseline_commit": "051977c06854254b3253bb993c432ae66edb36be",
+    "new_derivation": false,
+    "scope": "Upstream-style source notices; a build-loop source-notice/original-byte gate; current native rebuild and contract rerun. No geospatial model or runtime semantics changed.",
+    "existing_source_files_receiving_notices": 31,
+    "source_notice_gate_files": 32,
+    "contract_groups_passed": 19,
+    "original_input_files_byte_preserved": 23,
+    "readme_and_deck_unchanged": true,
+    "approval_scope": "These checks do not establish dataset permissions, a central code/IP scan or OSRB approval."
+  }
+}

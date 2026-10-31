@@ -1,0 +1,64 @@
+{
+  "Plugins": [
+    {
+      "Type": "resource",
+      "Name": "usdGeospatial",
+      "Root": ".",
+      "ResourcePath": ".",
+      "Info": {
+        "Types": {
+          "UsdGeospatialCoordinateReferenceSystem": {
+            "bases": [
+              "UsdTyped"
+            ],
+            "alias": {
+              "UsdSchemaBase": "CoordinateReferenceSystem"
+            },
+            "schemaKind": "concreteTyped"
+          },
+          "UsdGeospatialDataSource": {
+            "bases": [
+              "UsdGeomXformable"
+            ],
+            "alias": {
+              "UsdSchemaBase": "GeospatialDataSource"
+            },
+            "schemaKind": "concreteTyped",
+            "impliesCapabilities": [
+              "usd.geospatial.crsResolution.v1"
+            ]
+          },
+          "UsdGeospatialCRSBindingAPI": {
+            "bases": [
+              "UsdAPISchemaBase"
+            ],
+            "alias": {
+              "UsdSchemaBase": "GeospatialCRSBindingAPI"
+            },
+            "schemaKind": "singleApplyAPI",
+            "impliesCapabilities": [
+              "usd.geospatial.crsResolution.v1"
+            ]
+          }
+        },
+        "Profiles": {
+          "Capabilities": {
+            "usd.geospatial.crsResolution.v1": {
+              "description": "Proposed CRS resolution contract; identity not approved",
+              "predecessors": [
+                "usd"
+              ]
+            },
+            "usd.geospatial.publication.v1": {
+              "isProfile": true,
+              "predecessors": [
+                "usd"
+              ],
+              "name": "Proposed geospatial publication"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

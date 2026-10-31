@@ -1,0 +1,24 @@
+#usda 1.0
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
+(
+    customLayerData = { string libraryName = "usdGeospatial" }
+)
+class "CoordinateReferenceSystem" {
+    uniform token crs:wkt
+}
+class "GeospatialCRSBindingAPI" {
+    uniform token crs:wkt
+    double3 crs:position
+    double3 crs:orientation = (0, 0, 0)
+}
+class "GeospatialDataSource" {
+    uniform asset data:asset
+    uniform token data:format
+    uniform string data:field
+    uniform string data:coordinateDomain
+}

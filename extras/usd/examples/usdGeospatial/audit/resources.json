@@ -1,0 +1,23 @@
+[
+  {
+    "name": "fr_ign_RAF20.tif",
+    "bytes": 342920,
+    "sha256": "dc0cc2a38f0ea1029fe72cca3b5b7ed6dfe7e1db2a8d8482b7326ce3d6f25605",
+    "source": "https://cdn.proj.org/fr_ign_RAF20.tif",
+    "role": "Engine-selected transformation resource; not a new authored USD field"
+  },
+  {
+    "name": "us_nga_egm08_25.tif",
+    "bytes": 80585622,
+    "sha256": "4191d471eefebf24091b56dbc604353cb3b8cf8cc70e448bb9ae56a272bef17a",
+    "source": "https://cdn.proj.org/us_nga_egm08_25.tif",
+    "role": "Engine-selected transformation resource; not a new authored USD field"
+  },
+  {
+    "name": "us_noaa_g2018u0.tif",
+    "bytes": 16742155,
+    "sha256": "fa9a407ac7ee3f5a3694008e4bcd09ce9cc250452f0c3b11700a4960340abce2",
+    "source": "https://cdn.proj.org/us_noaa_g2018u0.tif",
+    "role": "Engine-selected transformation resource; not a new authored USD field"
+  }
+]

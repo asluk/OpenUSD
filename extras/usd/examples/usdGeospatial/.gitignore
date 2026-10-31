@@ -1,0 +1,11 @@
+__pycache__/
+native/build/
+delivery/node_modules
+delivery/rendered/
+delivery/deck-build/
+evidence/*-request.json
+evidence/*-native.json
+evidence/*-stderr.txt
+evidence/ov-payload.json
+inputs/authored/tower-storm-view.usda
+*.log

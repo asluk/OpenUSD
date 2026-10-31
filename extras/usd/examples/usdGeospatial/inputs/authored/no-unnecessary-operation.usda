@@ -1,0 +1,32 @@
+#usda 1.0
+(
+    defaultPrim = "Project"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "Project" (
+    apiSchemas = ["GeospatialCRSBindingAPI"]
+    prepend references = @crs-library.usda@</CRS_0de9ed042406>
+)
+{
+    double3 crs:position = (660000, 6800000, 35)
+
+    def Xform "Elsewhere" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @crs-library.usda@</CRS_b3b282f20dd0>
+    )
+    {
+        double3 crs:position = (151.2, -33.8, 70)
+
+        def Mesh "Mesh"
+        {
+            int[] faceVertexCounts = [3]
+            int[] faceVertexIndices = [0, 1, 2]
+            point3f[] points = [(0, 0, 0), (1, 0, 0), (0, 1, 0)]
+            color3f[] primvars:displayColor = [(0.18, 0.48, 0.63)]
+            uniform token subdivisionScheme = "none"
+        }
+    }
+}
+

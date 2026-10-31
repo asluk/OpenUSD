@@ -1,0 +1,23 @@
+#
+# Copyright 2026 NVIDIA CORPORATION & AFFILIATES
+#
+# Licensed under the terms set forth in the LICENSE.txt file available at
+# https://openusd.org/license.
+#
+cmake_minimum_required(VERSION 3.24)
+project(usdGeospatial LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(USD_ROOT "C:/git/usd-geospatial-fresh/inst" CACHE PATH "Unmodified SDK")
+set(PROJ_ROOT "C:/Users/aluk/Documents/Codex/2026-09-21/have/work/geospatial-proj-tiff" CACHE PATH "PROJ SDK")
+set(PYTHON_ROOT "C:/Users/aluk/AppData/Local/Programs/Python/Python310" CACHE PATH "SDK Python")
+add_executable(resolve resolve.cpp crs.cpp placement.cpp profiles.cpp)
+target_compile_definitions(resolve PRIVATE NOMINMAX)
+target_compile_options(resolve PRIVATE /EHsc /bigobj)
+target_include_directories(resolve PRIVATE "${USD_ROOT}/include" "${PROJ_ROOT}/include" "${PYTHON_ROOT}/include")
+target_link_directories(resolve PRIVATE "${USD_ROOT}/lib" "${PROJ_ROOT}/lib" "${PYTHON_ROOT}/libs")
+target_link_libraries(resolve PRIVATE usd_usd usd_usdGeom usd_usdProfiles usd_sdf usd_tf usd_gf usd_vt usd_plug usd_js usd_arch usd_work usd_python tbb proj python310)
+add_executable(record_storm ../delivery/record_storm.cpp)
+target_compile_options(record_storm PRIVATE /EHsc)
+target_include_directories(record_storm PRIVATE "${USD_ROOT}/include" "${PYTHON_ROOT}/include")
+target_link_directories(record_storm PRIVATE "${USD_ROOT}/lib" "${PYTHON_ROOT}/libs")
+target_link_libraries(record_storm PRIVATE usd_usdAppUtils usd_usdImagingGL usd_usdGeom usd_usd usd_sdf usd_tf usd_plug usd_garch usd_gf usd_vt usd_ts usd_ar usd_work usd_python tbb python310 opengl32 gdi32 user32)

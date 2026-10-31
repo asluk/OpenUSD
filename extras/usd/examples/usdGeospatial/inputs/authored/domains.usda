@@ -1,0 +1,80 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    upAxis = "Z"
+)
+
+def Xform "World" (
+    apiSchemas = ["GeospatialCRSBindingAPI", "ClaimsAPI"]
+    customData = {
+        dictionary profilesInfo = {
+            dictionary capabilityUsages = {
+                token "usd.geospatial.crsResolution.v1" = "hard"
+            }
+            dictionary profileCompatibility = {
+                token[] "usd.geospatial.publication.v1" = []
+            }
+        }
+    }
+    prepend references = @crs-library.usda@</CRS_558cfbe6446f>
+)
+{
+    double3 crs:position = (448000, 5410000, 80)
+
+    def GeospatialDataSource "Railway" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @crs-library.usda@</CRS_b3b282f20dd0>
+    )
+    {
+        uniform asset data:asset = @../original/railway.geojson@
+        uniform string data:coordinateDomain = "geometry"
+        uniform string data:field = ""
+        uniform token data:format = "GeoJSON"
+    }
+
+    def GeospatialDataSource "Climate" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @crs-library.usda@</CRS_b3b282f20dd0>
+    )
+    {
+        uniform asset data:asset = @climate.cf.nc@
+        uniform string data:coordinateDomain = "crs"
+        uniform string data:field = "temperature"
+        uniform token data:format = "CF"
+    }
+
+    def GeospatialDataSource "Permuted" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @crs-library.usda@</CRS_b3b282f20dd0>
+    )
+    {
+        uniform asset data:asset = @permuted.cf.nc@
+        uniform string data:coordinateDomain = "crs"
+        uniform string data:field = "value"
+        uniform token data:format = "CF"
+    }
+
+    def GeospatialDataSource "Raster1" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @crs-library.usda@</CRS_94072efa3613>
+    )
+    {
+        uniform asset data:asset = @raster-1.tif@
+        uniform string data:coordinateDomain = "0"
+        uniform string data:field = "1"
+        uniform token data:format = "GeoTIFF"
+    }
+
+    def GeospatialDataSource "Raster2" (
+        apiSchemas = ["GeospatialCRSBindingAPI"]
+        prepend references = @crs-library.usda@</CRS_94072efa3613>
+    )
+    {
+        uniform asset data:asset = @raster-2.tif@
+        uniform string data:coordinateDomain = "0"
+        uniform string data:field = "1"
+        uniform token data:format = "GeoTIFF"
+    }
+}
+

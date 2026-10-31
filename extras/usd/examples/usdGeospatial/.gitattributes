@@ -1,0 +1,16 @@
+# Preserve frozen input, source and artifact hashes across platform checkouts.
+* -text whitespace=cr-at-eol
+inputs/original/** -whitespace
+inputs/authored/** whitespace=cr-at-eol,-blank-at-eof
+*.pdf binary
+*.pptx binary
+*.png binary
+*.usdz binary
+*.nc binary
+*.npz binary
+# Generated results remain available but start collapsed in GitHub review.
+evidence/** linguist-generated=true
+inputs/authored/** linguist-generated=true
+delivery/output/** linguist-generated=true
+# Original datasets are reviewed as supplied inputs, separately from reader code.
+inputs/original/** linguist-vendored=true
