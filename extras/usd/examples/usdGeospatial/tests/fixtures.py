@@ -216,8 +216,9 @@ def generate():
         "",
         "geometry",
     )
-    # CF example derived explicitly from the original measurement values, not a claim
-    # that missing source metadata or height was present in the original download.
+    # CF example derived from the retained synthetic temperature fixture.
+    # The legacy gfs_t2m.nc name does not identify downloaded NOAA/GFS observations;
+    # missing coordinate metadata and height are illustrative authoring choices.
     import netCDF4
 
     original = netCDF4.Dataset(ORIGINAL / "gfs_t2m.nc")
@@ -338,6 +339,9 @@ def generate():
         json.dumps(
             {
                 "generation": "new from frozen proposal",
+                "source_inputs": {
+                    "inputs/original/gfs_t2m.nc": "Agent-generated synthetic 37-by-72 numerical test field, retained under a legacy filename; not downloaded NOAA/GFS observations. Original bytes are preserved.",
+                },
                 "synthetic": [
                     "models.usda",
                     "composition.usda",
@@ -346,7 +350,7 @@ def generate():
                     "raster-2.tif",
                 ],
                 "derived": {
-                    "climate.cf.nc": "Original 2664 temperature values; added explicit CF association, synthetic ellipsoidal height=0 and second observation +1 K. These are illustration inputs, not inferred source facts.",
+                    "climate.cf.nc": "Retained 2664 synthetic temperature values; added explicit CF association, synthetic ellipsoidal height=0 and second observation +1 K. These are illustration inputs, not inferred source facts.",
                     "tower.usda": "Original mesh; explicit centimetre/Y-up conformance, illustrative placement and project adjustment.",
                 },
             },

@@ -114,7 +114,14 @@ The original Westminster data contributes 14,359 polyline positions, including 1
 
 ## Global analysis does not require a renderer
 
-The climate example pairs 2,664 original measurement values with explicit coordinates and two illustrative observation times, yielding 5,328 sample records. Both readers agree on their global geocentric locations. Changing a measurement time keeps its location association intact; the globe and heatmap are optional views of the same data.
+The temperature example pairs 2,664 synthetic source values with explicit coordinates and two illustrative observation times, yielding 5,328 sample records. Both readers agree on their global geocentric locations. Changing a measurement time keeps its location association intact; the globe and heatmap are optional views of the same data.
+
+**Source provenance.** `inputs/original/gfs_t2m.nc` is an agent-generated
+37-by-72 numerical test fixture, retained under its legacy filename. It is not
+downloaded NOAA/GFS observations. The derived CF example adds illustrative
+coordinate associations and observation times to those synthetic values. The
+original file bytes remain unchanged; this workflow demonstrates data association,
+not the accuracy of a weather forecast or observed temperatures.
 
 ![The same climate samples shown in geocentric space and as a geographic heatmap](evidence/figures/climate.png)
 

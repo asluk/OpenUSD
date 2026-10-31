@@ -10,8 +10,9 @@
     "generated evidence": 23,
     "generated examples and bakes": 19,
     "implementation and schema": 20,
-    "original supplied data": 23,
+    "original supplied data": 22,
     "provenance and requirement trace": 8,
+    "retained synthetic test data": 1,
     "review and build guidance": 8
   },
   "files": {
@@ -104,7 +105,7 @@
     "inputs/original/France/06_ITRF2020_Geocentric_epoch2026.5_Coordinates.csv": "original supplied data",
     "inputs/original/France/06_ITRF2020_Geocentric_epoch2026.5_WKT2.txt": "original supplied data",
     "inputs/original/LICENSE-partner.txt": "original supplied data",
-    "inputs/original/gfs_t2m.nc": "original supplied data",
+    "inputs/original/gfs_t2m.nc": "retained synthetic test data",
     "inputs/original/railway.geojson": "original supplied data",
     "inputs/original/tower.usdz": "original supplied data",
     "native/CMakeLists.txt": "implementation and schema",

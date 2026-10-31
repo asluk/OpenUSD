@@ -56,6 +56,8 @@ def category(path):
         return "implementation and schema"
     if folder == "tests":
         return "acceptance and fixture source"
+    if path == "inputs/original/gfs_t2m.nc":
+        return "retained synthetic test data"
     if path.startswith("inputs/original/"):
         return "original supplied data"
     if path.startswith("inputs/authored/"):
